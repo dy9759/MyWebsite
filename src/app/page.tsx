@@ -10,10 +10,20 @@ export default function Home() {
     return (
         <div className='flex flex-col gap-12'>
             <Header />
-            <div className='animate-slide-from-down-and-fade-2 px-4'>
+            <div className='animate-slide-from-down-and-fade-2 flex flex-col gap-3 px-4'>
                 <p className='leading-relaxed text-muted-foreground'>
                     {CONFIG.description}
                 </p>
+                <Button
+                    asChild
+                    variant='link'
+                    className='self-start px-0 text-muted-foreground underline hover:text-foreground'
+                >
+                    <Link href='/ai'>
+                        Check out my AI learning library
+                        <Icons.arrowUpRight className='ml-0.5 inline-block size-4' />
+                    </Link>
+                </Button>
             </div>
             <div className='animate-slide-from-down-and-fade-3 space-y-4 px-4'>
                 <h2 className='font-bold'>Featured Projects</h2>
