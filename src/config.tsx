@@ -42,7 +42,7 @@ type Config = {
 }
 
 export const CONFIG: Config = {
-    name: 'Samuel Zhang',
+    name: 'Chauncey Lee',
     avatar: '/images/headshot.png',
     title: '',
     siteUrl: 'https://samuelzhang.ca/',
