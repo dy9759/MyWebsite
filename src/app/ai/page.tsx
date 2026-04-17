@@ -8,6 +8,14 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import AIHero from '@/components/ai/ai-hero'
+import VideoTable from '@/components/ai/video-table'
+import PodcastGrid from '@/components/ai/podcast-grid'
+import PeopleGrid from '@/components/ai/people-grid'
+import NewsletterList from '@/components/ai/newsletter-list'
+import ProductGrid from '@/components/ai/product-grid'
+import PromptAccordion from '@/components/ai/prompt-accordion'
+import SkillsGrid from '@/components/ai/skills-grid'
 import { AI_CONFIG } from '@/ai-config'
 
 export const metadata: Metadata = {
@@ -35,11 +43,14 @@ export default function AIPage() {
                     </Breadcrumb>
                 </nav>
 
-                <div className='px-4'>
-                    <p className='text-muted-foreground'>
-                        Sections will render here (Task 14).
-                    </p>
-                </div>
+                <AIHero />
+                <VideoTable />
+                <PodcastGrid />
+                <PeopleGrid />
+                <NewsletterList />
+                <ProductGrid />
+                <PromptAccordion />
+                <SkillsGrid />
             </div>
         </div>
     )
