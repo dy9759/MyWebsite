@@ -9,6 +9,7 @@ import {
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import AIHero from '@/components/ai/ai-hero'
+import SectionNav from '@/components/ai/section-nav'
 import VideoTable from '@/components/ai/video-table'
 import PodcastGrid from '@/components/ai/podcast-grid'
 import PeopleGrid from '@/components/ai/people-grid'
@@ -44,6 +45,7 @@ export default function AIPage() {
                 </nav>
 
                 <AIHero />
+                <SectionNav />
                 <VideoTable />
                 <PodcastGrid />
                 <PeopleGrid />

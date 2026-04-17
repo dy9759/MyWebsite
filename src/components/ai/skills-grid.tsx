@@ -6,7 +6,10 @@ import { AI_CONFIG } from '@/ai-config'
 
 const SkillsGrid = () => {
     return (
-        <section className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5'>
+        <section
+            id='skills'
+            className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5 scroll-mt-8'
+        >
             <div className='flex flex-col gap-1'>
                 <h2 className='text-xl font-bold'>Skills</h2>
                 <p className='text-sm text-muted-foreground'>

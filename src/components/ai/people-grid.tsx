@@ -6,7 +6,10 @@ import { getInitials } from '@/lib/utils'
 
 const PeopleGrid = () => {
     return (
-        <section className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3'>
+        <section
+            id='people'
+            className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3 scroll-mt-8'
+        >
             <div className='flex flex-col gap-1'>
                 <h2 className='text-xl font-bold'>People to Follow</h2>
                 <p className='text-sm text-muted-foreground'>

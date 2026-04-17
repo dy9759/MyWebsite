@@ -1,11 +1,22 @@
 import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
-import { Card } from '@/components/ui/card'
+import { ArrowUpRight, Star } from 'lucide-react'
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table'
+import { Badge } from '@/components/ui/badge'
 import { AI_CONFIG } from '@/ai-config'
 
 const PodcastGrid = () => {
     return (
-        <section className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3'>
+        <section
+            id='podcasts'
+            className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3 scroll-mt-8'
+        >
             <div className='flex flex-col gap-1'>
                 <h2 className='text-xl font-bold'>Podcasts</h2>
                 <p className='text-sm text-muted-foreground'>
@@ -13,33 +24,69 @@ const PodcastGrid = () => {
                 </p>
             </div>
 
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                {AI_CONFIG.podcasts.map((podcast, idx) => (
-                    <Card
-                        key={idx}
-                        className='flex flex-col gap-2 p-4 transition-colors hover:bg-accent/10'
-                    >
-                        <Link
-                            href={podcast.url}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='group flex items-start justify-between gap-2'
-                        >
-                            <div className='flex flex-col gap-0.5'>
-                                <h3 className='font-medium group-hover:underline'>
-                                    {podcast.title}
-                                </h3>
-                                <p className='text-xs text-muted-foreground'>
-                                    {podcast.host}
-                                </p>
-                            </div>
-                            <ArrowUpRight className='size-4 shrink-0 text-muted-foreground group-hover:text-foreground' />
-                        </Link>
-                        <p className='text-sm text-muted-foreground'>
-                            {podcast.description}
-                        </p>
-                    </Card>
-                ))}
+            <div className='overflow-x-auto rounded-lg border'>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Podcast</TableHead>
+                            <TableHead className='hidden sm:table-cell'>
+                                Description
+                            </TableHead>
+                            <TableHead className='w-10 text-right'>
+                                Link
+                            </TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {AI_CONFIG.podcasts.map((podcast, idx) => (
+                            <TableRow key={idx}>
+                                <TableCell>
+                                    <div className='flex items-center gap-1.5'>
+                                        <Link
+                                            href={podcast.url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            className='font-medium hover:underline'
+                                        >
+                                            {podcast.title}
+                                        </Link>
+                                        {podcast.featured && (
+                                            <Badge
+                                                variant='outline'
+                                                className='gap-0.5 border-accent/60 text-[10px] text-accent'
+                                            >
+                                                <Star className='size-2.5 fill-current' />
+                                                Rec
+                                            </Badge>
+                                        )}
+                                    </div>
+                                    <div className='mt-0.5 text-xs text-muted-foreground'>
+                                        {podcast.host}
+                                    </div>
+                                    <div className='mt-1 text-xs text-muted-foreground sm:hidden'>
+                                        {podcast.description}
+                                    </div>
+                                </TableCell>
+                                <TableCell className='hidden text-sm text-muted-foreground sm:table-cell'>
+                                    {podcast.description}
+                                </TableCell>
+                                <TableCell>
+                                    <div className='flex justify-end'>
+                                        <Link
+                                            href={podcast.url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            aria-label={podcast.title}
+                                            className='text-muted-foreground hover:text-foreground'
+                                        >
+                                            <ArrowUpRight className='size-4' />
+                                        </Link>
+                                    </div>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
             </div>
         </section>
     )

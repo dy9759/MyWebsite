@@ -25,7 +25,10 @@ const PromptAccordion = () => {
     }
 
     return (
-        <section className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5'>
+        <section
+            id='prompts'
+            className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5 scroll-mt-8'
+        >
             <div className='flex flex-col gap-1'>
                 <h2 className='text-xl font-bold'>Prompts</h2>
                 <p className='text-sm text-muted-foreground'>

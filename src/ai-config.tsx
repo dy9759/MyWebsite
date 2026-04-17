@@ -20,12 +20,14 @@ export type AIConfig = {
         url: string
         tldwUrl?: string
         tags: VideoTag[]
+        featured?: boolean
     }[]
     podcasts: {
         title: string
         host: string
         description: string
         url: string
+        featured?: boolean
     }[]
     people: {
         name: string
@@ -44,6 +46,7 @@ export type AIConfig = {
         description: string
         url: string
         icon?: keyof typeof Icons
+        featured?: boolean
     }[]
     prompts: {
         title: string
@@ -78,6 +81,7 @@ export const AI_CONFIG: AIConfig = {
             duration: '1h 56m',
             url: 'https://www.youtube.com/watch?v=kCc8FmEb1nY',
             tags: ['Fundamentals', 'Research'],
+            featured: true,
         },
         {
             title: 'How I use LLMs',
@@ -85,6 +89,7 @@ export const AI_CONFIG: AIConfig = {
             duration: '2h 7m',
             url: 'https://www.youtube.com/watch?v=EWvNQjAaOHw',
             tags: ['Product', 'Tools'],
+            featured: true,
         },
         {
             title: 'The State of AI with Sam Altman',
@@ -115,6 +120,7 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'Long-form conversations with researchers and founders. Strongest episodes for AI: Karpathy, Altman, Hassabis, LeCun.',
             url: 'https://www.youtube.com/@lexfridman',
+            featured: true,
         },
         {
             title: 'Dwarkesh Podcast',
@@ -122,6 +128,7 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'Technical and philosophical interviews. Dwarkesh asks the questions other hosts do not.',
             url: 'https://www.youtube.com/@DwarkeshPatel',
+            featured: true,
         },
         {
             title: 'No Priors',
@@ -256,6 +263,7 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'Upload any docs or YouTube links, get an instant audio podcast summary. Great for dense material.',
             url: 'https://notebooklm.google.com/',
+            featured: true,
         },
         {
             name: 'Granola',
@@ -274,12 +282,14 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'Default for thinking, writing, and coding. Strongest long-context and reasoning model for my workflow.',
             url: 'https://claude.ai/',
+            featured: true,
         },
         {
             name: 'Cursor',
             description:
                 'AI-first code editor. Inline completions and agent-style edits beat everything else I have tried.',
             url: 'https://cursor.com/',
+            featured: true,
         },
     ],
     prompts: [
