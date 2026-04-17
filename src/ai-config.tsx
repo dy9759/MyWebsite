@@ -181,6 +181,48 @@ export const AI_CONFIG: AIConfig = {
             url: 'https://x.com/natolambert',
             role: 'Interconnects newsletter. Post-training and RLHF writing.',
         },
+        {
+            name: 'BuilderPulse',
+            handle: 'github.com/BuilderPulse',
+            avatar: 'https://avatars.githubusercontent.com/u/BuilderPulse',
+            url: 'https://github.com/BuilderPulse/BuilderPulse/tree/main',
+            role: 'Open-source AI builder community and tooling.',
+        },
+        {
+            name: 'Lenny Rachitsky',
+            handle: 'refoundai.com',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://refoundai.com/lenny-skills/playbooks/',
+            role: 'Refound AI playbooks — product and growth skills distilled.',
+        },
+        {
+            name: 'Zara Zhang',
+            handle: 'zara.faces.site',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://zara.faces.site/ai',
+            role: 'Curator of the AI learning library that inspired this page.',
+        },
+        {
+            name: 'DeepWiki',
+            handle: 'deepwiki.org',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://deepwiki.org/',
+            role: 'AI-powered wiki of topics, concepts, and research.',
+        },
+        {
+            name: '宝玉 (Baoyu)',
+            handle: '@dotey',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://baoyu.io/',
+            role: 'Chinese AI translator and educator. Best daily posts on models and papers.',
+        },
+        {
+            name: 'Sam Altman (Blog)',
+            handle: 'blog.samaltman.com',
+            avatar: 'https://pbs.twimg.com/profile_images/804990434455887872/BG0Xh7Oa_400x400.jpg',
+            url: 'https://blog.samaltman.com/',
+            role: 'Long-form essays on startups, AI, and what is next.',
+        },
     ],
     newsletters: [
         {
