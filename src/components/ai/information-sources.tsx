@@ -38,6 +38,7 @@ const ItemLink = ({
 
 const InformationSources = () => {
     const layers = AI_CONFIG.sources ?? []
+    const usage = AI_CONFIG.sourcesUsage ?? []
     if (layers.length === 0) return null
 
     return (
@@ -51,6 +52,35 @@ const InformationSources = () => {
                     我追踪 AI 与科技行业信息的五层体系,从广度到深度。
                 </p>
             </div>
+
+            {usage.length > 0 && (
+                <div className='rounded-lg border border-accent/60 bg-accent/5 p-4'>
+                    <div className='mb-2 text-xs font-medium uppercase tracking-wide text-accent'>
+                        我的用法 · How I use it
+                    </div>
+                    <ol className='flex flex-col gap-2 text-sm text-muted-foreground'>
+                        {usage.map((u, i) => (
+                            <li key={i} className='flex gap-2'>
+                                <span className='shrink-0 font-medium text-foreground'>
+                                    {i + 1}.
+                                </span>
+                                <div className='flex flex-col gap-1'>
+                                    <span>{u.rule}</span>
+                                    {u.examples && u.examples.length > 0 && (
+                                        <ul className='flex flex-col gap-0.5 pl-4 text-xs'>
+                                            {u.examples.map((ex, j) => (
+                                                <li key={j}>
+                                                    <ItemLink {...ex} />
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            )}
 
             <div className='flex flex-col gap-4'>
                 {layers.map((layer, idx) => (

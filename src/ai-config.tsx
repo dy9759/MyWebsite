@@ -69,6 +69,10 @@ export type AIConfig = {
             items: { name: string; url?: string }[]
         }[]
     }[]
+    sourcesUsage: {
+        rule: string
+        examples?: { name: string; url?: string }[]
+    }[]
     bigTech: {
         company: string
         people: { name: string; role?: string }[]
@@ -578,51 +582,14 @@ Write in third person. Do not invent details not in the transcript.`,
     sources: [
         {
             layer: 'Layer 1',
-            title: '资讯聚合 & 媒体优先级',
+            title: '新闻聚合(覆盖面广)',
             description:
-                '★ Techmeme + Twitter (follow CEOs) 浏览汇总,再回到源头/官方/发布会/官网 blog。纸媒 > 科技媒体。',
+                '英语 & 中文新闻报道、公众号等。★ Techmeme 聚合入口浏览汇总,再回到源头/官方/发布会/官网 blog。',
             items: [
-                { name: 'Techmeme', url: 'https://www.techmeme.com/', note: '聚合入口' },
-            ],
-            groups: [
                 {
-                    label: '一线财经 / 主流纸媒',
-                    items: [
-                        { name: 'WSJ 华尔街日报', url: 'https://www.wsj.com/' },
-                        { name: 'Bloomberg 彭博社', url: 'https://www.bloomberg.com/' },
-                        { name: 'Reuters 路透社', url: 'https://www.reuters.com/' },
-                        { name: 'NYT 纽约时报', url: 'https://www.nytimes.com/' },
-                    ],
-                },
-                {
-                    label: '财经周刊 / 特写',
-                    items: [
-                        { name: 'Financial Times', url: 'https://www.ft.com/' },
-                        { name: 'The New Yorker', url: 'https://www.newyorker.com/' },
-                        { name: 'Time 时代周刊', url: 'https://time.com/' },
-                        { name: 'Forbes 福布斯', url: 'https://www.forbes.com/' },
-                    ],
-                },
-                {
-                    label: '科技深度',
-                    items: [
-                        { name: 'The Information', url: 'https://www.theinformation.com/' },
-                    ],
-                },
-                {
-                    label: '科技大众',
-                    items: [
-                        { name: 'Wired 连线', url: 'https://www.wired.com/' },
-                        { name: 'TechCrunch (硅谷创业)', url: 'https://techcrunch.com/' },
-                        { name: 'The Verge (数码 / AI)', url: 'https://www.theverge.com/' },
-                    ],
-                },
-                {
-                    label: '产品垂直',
-                    items: [
-                        { name: '9To5Google', url: 'https://9to5google.com/' },
-                        { name: '9To5Mac', url: 'https://9to5mac.com/' },
-                    ],
+                    name: 'Techmeme',
+                    url: 'https://www.techmeme.com/',
+                    note: '聚合入口',
                 },
             ],
         },
@@ -681,6 +648,31 @@ Write in third person. Do not invent details not in the transcript.`,
                 { name: 'Hacker News', url: 'https://news.ycombinator.com/' },
                 { name: 'Discord (官方开发者频道)', note: '各 AI 工具官方 Discord' },
                 { name: '产品用户论坛 / 反馈区' },
+            ],
+        },
+    ],
+    sourcesUsage: [
+        {
+            rule: '优先看消息源头。Meta / 微软 / Adobe / Salesforce 发新产品,优先看发布会 — 不是 TechCrunch 的转述。OpenAI 发新模型,优先去官网看 blog。',
+        },
+        {
+            rule: '偶尔看感兴趣的科技人物的深度报道。',
+        },
+        {
+            rule: '偶尔看一些深度的评论文章、知名人物的博客。',
+            examples: [
+                {
+                    name: 'Ben Thompson — Stratechery 深度评论',
+                    url: 'https://stratechery.com/',
+                },
+                {
+                    name: 'Dario Amodei — Machines of Loving Grace',
+                    url: 'https://darioamodei.com/machines-of-loving-grace',
+                },
+                {
+                    name: 'Steven Sinofsky — On AI Requiring a New OS',
+                    url: 'https://hardcoresoftware.learningbyshipping.com/p/219-on-ai-requiring-a-new-os',
+                },
             ],
         },
     ],
