@@ -59,6 +59,16 @@ export type AIConfig = {
         demoUrl?: string
         githubUrl: string
     }[]
+    sources: {
+        layer: string
+        title: string
+        description?: string
+        items?: { name: string; url?: string; note?: string }[]
+        groups?: {
+            label: string
+            items: { name: string; url?: string }[]
+        }[]
+    }[]
 }
 
 export const AI_CONFIG: AIConfig = {
@@ -187,6 +197,55 @@ export const AI_CONFIG: AIConfig = {
             avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
             url: 'https://x.com/natolambert',
             role: 'Interconnects newsletter. Post-training and RLHF writing.',
+        },
+        {
+            name: 'Marc Andreessen',
+            handle: '@pmarca',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://x.com/pmarca',
+            role: 'Co-founder, a16z. 硅谷知名投资人。',
+        },
+        {
+            name: 'Garry Tan',
+            handle: '@garrytan',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://x.com/garrytan',
+            role: 'CEO, Y Combinator.',
+        },
+        {
+            name: 'Patrick Collison',
+            handle: '@patrickc',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://x.com/patrickc',
+            role: 'Co-founder & CEO, Stripe.',
+        },
+        {
+            name: 'Michael Truell',
+            handle: '@mntruell',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://x.com/mntruell',
+            role: 'Co-founder & CEO, Cursor / Anysphere.',
+        },
+        {
+            name: 'Tobi Lütke',
+            handle: '@tobi',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://x.com/tobi',
+            role: 'CEO, Shopify.',
+        },
+        {
+            name: 'Ben Thompson',
+            handle: 'stratechery.com',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://stratechery.com/',
+            role: 'Stratechery — strategy and business analysis of tech.',
+        },
+        {
+            name: 'Steven Sinofsky',
+            handle: 'learningbyshipping.com',
+            avatar: 'https://pbs.twimg.com/profile_images/placeholder.jpg',
+            url: 'https://hardcoresoftware.learningbyshipping.com/',
+            role: 'Former Windows chief. Hardcore Software on a16z.',
         },
         {
             name: 'BuilderPulse',
@@ -328,6 +387,115 @@ Preserve the speaker's voice in the quotes. Do not editorialize.`,
 - A closing section with the most quotable line and why it matters
 
 Write in third person. Do not invent details not in the transcript.`,
+        },
+    ],
+    sources: [
+        {
+            layer: 'Layer 1',
+            title: '资讯聚合 & 媒体优先级',
+            description:
+                '★ Techmeme + Twitter (follow CEOs) 浏览汇总,再回到源头/官方/发布会/官网 blog。纸媒 > 科技媒体。',
+            items: [
+                { name: 'Techmeme', url: 'https://www.techmeme.com/', note: '聚合入口' },
+            ],
+            groups: [
+                {
+                    label: '一线财经 / 主流纸媒',
+                    items: [
+                        { name: 'WSJ 华尔街日报', url: 'https://www.wsj.com/' },
+                        { name: 'Bloomberg 彭博社', url: 'https://www.bloomberg.com/' },
+                        { name: 'Reuters 路透社', url: 'https://www.reuters.com/' },
+                        { name: 'NYT 纽约时报', url: 'https://www.nytimes.com/' },
+                    ],
+                },
+                {
+                    label: '财经周刊 / 特写',
+                    items: [
+                        { name: 'Financial Times', url: 'https://www.ft.com/' },
+                        { name: 'The New Yorker', url: 'https://www.newyorker.com/' },
+                        { name: 'Time 时代周刊', url: 'https://time.com/' },
+                        { name: 'Forbes 福布斯', url: 'https://www.forbes.com/' },
+                    ],
+                },
+                {
+                    label: '科技深度',
+                    items: [
+                        { name: 'The Information', url: 'https://www.theinformation.com/' },
+                    ],
+                },
+                {
+                    label: '科技大众',
+                    items: [
+                        { name: 'Wired 连线', url: 'https://www.wired.com/' },
+                        { name: 'TechCrunch (硅谷创业)', url: 'https://techcrunch.com/' },
+                        { name: 'The Verge (数码 / AI)', url: 'https://www.theverge.com/' },
+                    ],
+                },
+                {
+                    label: '产品垂直',
+                    items: [
+                        { name: '9To5Google', url: 'https://9to5google.com/' },
+                        { name: '9To5Mac', url: 'https://9to5mac.com/' },
+                    ],
+                },
+            ],
+        },
+        {
+            layer: 'Layer 2',
+            title: '关键人物追踪',
+            description:
+                '通过特写文章、个人博客、推特、LinkedIn 理解行业趋势。',
+            items: [
+                { name: 'Ben Thompson — Stratechery', url: 'https://stratechery.com/' },
+                { name: 'Sam Altman — Blog', url: 'https://blog.samaltman.com/' },
+                { name: 'Dario Amodei', url: 'https://darioamodei.com/' },
+                {
+                    name: 'Steven Sinofsky — Hardcore Software',
+                    url: 'https://hardcoresoftware.learningbyshipping.com/',
+                },
+                {
+                    name: 'Amazon Best-Sellers: Computer & Tech Biographies',
+                    url: 'https://www.amazon.com/Best-Sellers-Computer-Technology-Biographies/zgbs/books/3568',
+                    note: '传记类书籍',
+                },
+            ],
+        },
+        {
+            layer: 'Layer 3',
+            title: '深度播客访谈',
+            description: '优先看 YouTube 视频版本。',
+            items: [
+                { name: 'Y Combinator', url: 'https://www.youtube.com/@ycombinator' },
+                { name: 'No Priors', url: 'https://www.youtube.com/@NoPriorsPodcast' },
+                { name: 'Latent Space', url: 'https://www.youtube.com/@LatentSpacePod' },
+                { name: 'AI Engineer', url: 'https://www.youtube.com/@aiDotEngineer' },
+            ],
+        },
+        {
+            layer: 'Layer 4',
+            title: '技术深度学习',
+            description:
+                '开发者大会、知名 AI 团队案例分享、技术报告、论文、GitHub 开源社区。',
+            items: [
+                { name: 'Google Research Blog', url: 'https://research.google/blog/' },
+                { name: 'OpenAI Research', url: 'https://openai.com/research' },
+                { name: 'Anthropic Research', url: 'https://www.anthropic.com/research' },
+                { name: 'Google DeepMind', url: 'https://deepmind.google/discover/blog/' },
+                { name: 'arXiv', url: 'https://arxiv.org/list/cs.AI/recent' },
+                { name: 'GitHub Trending', url: 'https://github.com/trending' },
+            ],
+        },
+        {
+            layer: 'Layer 5',
+            title: '用户需求 & 市场调研',
+            description: '技术调研、产品 idea 调研。',
+            items: [
+                { name: 'Reddit — r/LocalLLaMA', url: 'https://www.reddit.com/r/LocalLLaMA/' },
+                { name: 'Reddit — r/MachineLearning', url: 'https://www.reddit.com/r/MachineLearning/' },
+                { name: 'Hacker News', url: 'https://news.ycombinator.com/' },
+                { name: 'Discord (官方开发者频道)', note: '各 AI 工具官方 Discord' },
+                { name: '产品用户论坛 / 反馈区' },
+            ],
         },
     ],
     skills: [

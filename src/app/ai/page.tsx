@@ -17,6 +17,7 @@ import NewsletterList from '@/components/ai/newsletter-list'
 import ProductGrid from '@/components/ai/product-grid'
 import PromptAccordion from '@/components/ai/prompt-accordion'
 import SkillsGrid from '@/components/ai/skills-grid'
+import InformationSources from '@/components/ai/information-sources'
 import { AI_CONFIG } from '@/ai-config'
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function AIPage() {
 
                 <AIHero />
                 <SectionNav />
+                <InformationSources />
                 <aside
                     role='note'
                     className='mx-4 rounded-lg border border-dashed border-accent/60 bg-accent/5 px-4 py-3 text-sm text-muted-foreground animate-slide-from-down-and-fade-1'

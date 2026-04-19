@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 const SECTIONS = [
+    { id: 'sources', label: 'Sources' },
     { id: 'videos', label: 'Videos' },
     { id: 'podcasts', label: 'Podcasts' },
     { id: 'people', label: 'People' },
