@@ -154,16 +154,7 @@ export const CONFIG: Config = {
                 venue: 'Land Use Policy, Vol. 163, 107920',
                 year: '2026',
                 url: 'https://doi.org/10.1016/j.landusepol.2026.107920',
-                tier: 'SCI Q1 · 中科院一区 Top',
-            },
-            {
-                authors:
-                    'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li, Zhonghua Gou',
-                title: 'Pathways for Reducing Carbon Emission in County-Level Transportation: A Life Cycle Perspective and Multi-Scenario Analysis',
-                venue: 'Energy Strategy Reviews, Vol. 58, 101678',
-                year: '2025',
-                url: 'https://doi.org/10.1016/j.esr.2025.101678',
-                tier: 'SCI Q2 · 中科院二区',
+                tier: 'JCR Q1 · 中科院一区 Top',
             },
             {
                 authors:
@@ -172,16 +163,32 @@ export const CONFIG: Config = {
                 venue: 'Ecological Modelling, Vol. 513, 111436',
                 year: '2026',
                 url: 'https://doi.org/10.1016/j.ecolmodel.2025.111436',
-                tier: 'SCI Q2 · 中科院三区',
+                tier: 'JCR Q2 · 中科院三区',
+            },
+            {
+                authors: 'Chen Yang, Shengyuan Li, Zhonghua Gou',
+                title: 'Spatiotemporal prediction of urban building rooftop photovoltaic potential based on GCN-LSTM',
+                venue: 'Energy and Buildings, Vol. 334, 115522',
+                year: 'May 2025',
+                url: 'https://doi.org/10.1016/j.enbuild.2025.115522',
+                tier: 'JCR Q1 · 中科院二区 Top',
             },
             {
                 authors:
-                    'Xiaohuan Xie, Haifeng Deng, Shengyuan Li, Zhonghua Gou',
-                title: 'Optimizing Land Use for Carbon Neutrality: Integrating Photovoltaic Development in Lingbao, Henan Province',
-                venue: 'Land, Vol. 13(1), 97',
-                year: '2024',
-                url: 'https://doi.org/10.3390/land13010097',
-                tier: 'SCI Q2 · 中科院三区',
+                    'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li, Zhonghua Gou',
+                title: 'Pathways for Reducing Carbon Emission in County-Level Transportation: A Life Cycle Perspective and Multi-Scenario Analysis',
+                venue: 'Energy Strategy Reviews, Vol. 58, 101678',
+                year: 'Mar 2025',
+                url: 'https://doi.org/10.1016/j.esr.2025.101678',
+                tier: 'JCR Q1 · 中科院二区',
+            },
+            {
+                authors: 'Shengyuan Li, Zhonghua Gou',
+                title: 'Energy efficiency and cost benefits of office-to-residential building transformation: Insights from Los Angeles',
+                venue: 'Journal of Building Engineering, Vol. 98, 111496',
+                year: 'Dec 2024',
+                url: 'https://doi.org/10.1016/j.jobe.2024.111496',
+                tier: 'JCR Q1 · 中科院二区 Top · First Author',
             },
             {
                 authors: 'Xiaohuan Xie, Ruobing Wang, Zhonghua Gou',
@@ -189,7 +196,24 @@ export const CONFIG: Config = {
                 venue: 'Journal of Rural Studies, Vol. 106, 103221',
                 year: '2024',
                 url: 'https://doi.org/10.1016/j.jrurstud.2024.103221',
-                tier: 'SCI Q1 · 中科院一区',
+                tier: 'JCR Q1 · 中科院一区',
+            },
+            {
+                authors:
+                    'Xiaohuan Xie, Haifeng Deng, Shengyuan Li, Zhonghua Gou',
+                title: 'Optimizing Land Use for Carbon Neutrality: Integrating Photovoltaic Development in Lingbao, Henan Province',
+                venue: 'Land, Vol. 13(1), 97',
+                year: 'Jan 2024',
+                url: 'https://doi.org/10.3390/land13010097',
+                tier: 'JCR Q2 · 中科院三区',
+            },
+            {
+                authors: 'Shengyuan Li, Zhonghua Gou',
+                title: 'Accepting Solar Photovoltaic Panels in Rural Landscapes: The Tangle among Nostalgia, Morality, and Economic Stakes',
+                venue: 'Land, Vol. 12(10), 1956',
+                year: 'Oct 2023',
+                url: 'https://doi.org/10.3390/land12101956',
+                tier: 'JCR Q2 · 中科院三区 · First Author',
             },
         ],
         conferences: [
