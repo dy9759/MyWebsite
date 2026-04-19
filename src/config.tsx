@@ -41,168 +41,141 @@ type Config = {
     }
 }
 
+// NOTE: Avatar, siteUrl, and socials URLs below are placeholders.
+// Replace with real values before publishing.
 export const CONFIG: Config = {
-    name: 'Chauncey Lee',
-    avatar: '/images/headshot.png',
-    title: '',
-    siteUrl: 'https://samuelzhang.ca/',
+    name: '李盛园',
+    avatar: '/images/headshot.png', // placeholder — replace with real photo
+    title: 'AI Product Manager',
+    siteUrl: 'https://example.com/', // placeholder — replace with real domain
     socials: [
+        // All social URLs below are placeholders.
         {
             name: 'GitHub',
-            url: 'https://github.com/samuelz12',
+            url: 'https://github.com/dy9759',
             icon: 'github',
         },
         {
             name: 'LinkedIn',
-            url: 'https://linkedin.com/in/samuelz12',
+            url: 'https://linkedin.com/',
             icon: 'linkedin',
         },
         {
-            name: 'X',
-            url: 'https://x.com/zhangsamuel12',
-            icon: 'x',
-        },
-        {
             name: 'Email',
-            url: 'mailto:zhangsamuel12@gmail.com',
+            url: 'mailto:placeholder@example.com',
             icon: 'email',
         },
     ],
     description: (
         <>
-            👋 Hi! I&apos;m a CS + Math student at the University of Waterloo
-            and I&apos;m interested in blockchain and AI. When I'm not studying or coding, 
-            I enjoy lifting weights, reading, fencing, running, and playing poker. 
-            I&apos;m always excited to meet new people, so feel free to reach out!
+            👋 你好!我是李盛园,一名 AI 产品经理,拥有 3+ 年 AI 产品研发与落地经验。
+            武汉大学建筑智慧能源方向硕士(GPA Top 5%),本科毕业于浙大宁波理工学院建筑学。
+            熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
+            发表 SCI 期刊论文 5 篇,担任 TOP 期刊审稿人。欢迎交流合作!
         </>
     ),
-    descriptionRaw: `Hi! I'm a CS + Math student at the University of Waterloo and I'm interested in blockchain and AI. When I'm not studying or coding, I enjoy lifting weights, reading, fencing, running, and playing poker. I'm always excited to meet new people, so feel free to reach out!`,
+    descriptionRaw:
+        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Smart Energy from Wuhan University, B.S. in Architecture. Published 5 SCI papers.",
     projects: [
         {
-            name: 'LaTeX OCR',
-            description: 'Mac app that converts screen captures of math expressions to LaTeX',
-            url: 'https://github.com/SamuelZ12/LaTeX-OCR',
+            name: '沉浸式播客 AI 产品',
+            description:
+                'C 端产品设计。针对信息过载与碎片焦虑,用多 Agent 重构内容消费链路,支持围绕任意链接/文档进行多视角播客式讨论。',
+            url: 'https://example.com/project-podcast',
             tags: [
-                { name: 'Swift', icon: 'swift' },
-                { name: 'Gemini', icon: 'gemini' },
+                { name: 'Coze', icon: 'gear' },
+                { name: 'Multi-Agent', icon: 'llm' },
+                { name: 'Evaluation', icon: 'gear' },
             ],
             featured: true,
-            github: 'https://github.com/SamuelZ12/LaTeX-OCR'
         },
         {
-            name: '2048 AI',
-            description: 'AI agent that plays the 2048 game using expectimax search algorithm',
-            url: 'https://samuelz12.github.io/2048-ai/',
-            tags: [
-                { name: 'JavaScript', icon: 'javascript' },
-                { name: 'CSS', icon: 'css' },
-                { name: 'HTML', icon: 'html' },
-                { name: 'Web Workers', icon: 'gear' },
-            ],
-            featured: true,
-            github: 'https://github.com/SamuelZ12/2048-ai'
-        },
-        {
-            name: 'Swapify',
-            description: 'University of Waterloo skill exchange platform',
-            url: 'https://swapifyy.vercel.app',
-            tags: [
-                { name: 'Next.js', icon: 'next' },
-                { name: 'TypeScript', icon: 'typescript' },
-                { name: 'Tailwind CSS', icon: 'tailwindcss' },
-                { name: 'Supabase', icon: 'supabase' },
-                { name: 'shadcn/ui', icon: 'shadcn' },
-            ],
-            featured: false,
-            github: 'https://github.com/SamuelZ12/swapify'
-        },
-        {
-            name: 'TalkTuahTherapist',
-            description: 'AI therapist encrypted on Ethereum blockchain',
-            url: 'https://talktuahtherapist.co',
-            tags: [
-                { name: 'Next.js', icon: 'next' },
-                { name: 'TypeScript', icon: 'typescript' },
-                { name: 'Tailwind CSS', icon: 'tailwindcss' },
-                { name: 'OpenAI', icon: 'openai' },
-                { name: 'Google Cloud', icon: 'googlecloud' }
-            ],
-            featured: false,
-            github: 'https://github.com/Brucewang15/TalkTuahTherapist'
-        },
-        {
-            name: 'ICS3U1 Python Projects',
-            description: 'Collection of Python games including Snake, Tank Battle, Text Adventure, etc.',
-            url: 'https://github.com/SamuelZ12/ICS3U1-projects',
+            name: '智能问答 AI 行业知识库',
+            description:
+                'B 端产品研发。Llama 3.2 LoRA 微调 + Python 本地部署 RAG + Coze Agent 自动更新,显著提升团队知识检索效率。',
+            url: 'https://example.com/project-kb',
             tags: [
                 { name: 'Python', icon: 'python' },
+                { name: 'RAG', icon: 'llm' },
+                { name: 'Llama 3.2', icon: 'llm' },
+                { name: 'Coze', icon: 'gear' },
             ],
-            featured: false,
-            github: 'https://github.com/SamuelZ12/ICS3U1-projects'
+            featured: true,
         },
         {
-            name: 'Java Sudoku Solver',
-            description: 'Solves 9x9 Sudoku puzzles using a recursive backtracking algorithm',
-            url: 'https://github.com/SamuelZ12/Sudoku',
+            name: '新能源 + 负荷侧能源管理 AI',
+            description:
+                'B 端产品研发。GCN-LSTM 时空预测出力 + Q-learning 控制负荷,绿电消纳能力 +50%,负荷侧能耗 -15%。',
+            url: 'https://example.com/project-energy',
             tags: [
-                { name: 'Java', icon: 'java' },
+                { name: 'Python', icon: 'python' },
+                { name: 'GCN-LSTM', icon: 'gear' },
+                { name: 'DRL', icon: 'gear' },
             ],
             featured: false,
-            github: 'https://github.com/SamuelZ12/Sudoku'
-        }
+        },
+        {
+            name: '光伏产品需求分析 AI',
+            description:
+                'C 端功能研发。YOLOv8 迁移学习 + SAM 半自动标注识别屋顶容量 (准确率 92%),Agent + SD 批量生成效果图,勘察时效 3h → 5min。',
+            url: 'https://example.com/project-pv',
+            tags: [
+                { name: 'YOLOv8', icon: 'gear' },
+                { name: 'SAM', icon: 'gear' },
+                { name: 'Stable Diffusion', icon: 'openai' },
+                { name: 'Agent', icon: 'llm' },
+            ],
+            featured: false,
+        },
     ],
     workExperience: {
         positions: [
             {
-                company: 'TechInsights',
-                role: 'Software Engineer Intern',
-                duration: 'Jan 2025 - Apr 2025',
+                company: '北京智能问问科技(AI 初创)',
+                role: 'AI Product Manager — Intern',
+                duration: 'May 2025 – Jul 2025',
                 description: (
                     <>
-                        Built AI Search using RAG
+                        竞品分析(NotebookLM / ima.copilot / 飞书知识问答),构建 1000+ 评测案例集,产品设计提出沉浸式播客 AI 方向。
                     </>
                 ),
-                link: 'https://techinsights.com',
                 tags: [
-                    { name: 'AWS', icon: 'aws' },
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'RAG', icon: 'llm' },
+                    { name: 'Evaluation', icon: 'gear' },
+                    { name: 'Coze', icon: 'gear' },
+                ],
+            },
+            {
+                company: '武汉大学建筑智慧能源实验室(全球前 2%)',
+                role: 'AI Product R&D — Part-time',
+                duration: 'Jan 2023 – Jun 2025',
+                description: (
+                    <>
+                        光伏识别业务 +20 倍范围,GCN-LSTM + DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
+                    </>
+                ),
+                tags: [
                     { name: 'Python', icon: 'python' },
-                    { name: 'LLMs', icon: 'llm' },
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'YOLOv8', icon: 'gear' },
+                    { name: 'DRL', icon: 'gear' },
+                ],
+            },
+            {
+                company: '上海几凡设计教育(杭州校区)',
+                role: 'Product Manager — Founder',
+                duration: 'Jun 2020 – Aug 2022',
+                description: (
+                    <>
+                        基于聚类 + 回归分析用户画像,用户增长 +30%、营收 +20%;设计精品小班产品,差评退课率 -15%。
+                    </>
+                ),
+                tags: [
+                    { name: 'Python', icon: 'python' },
                     { name: 'SQL', icon: 'sql' },
-                    { name: 'Docker', icon: 'docker' },
-                ]
+                ],
             },
-            {
-                company: 'Dappd',
-                role: 'Software Engineer Intern',
-                duration: 'May 2024 - Aug 2024',
-                description: (
-                    <>
-                        Built a crypto trading bot and a client dashboard
-                    </>
-                ),
-                link: 'https://dappd.net',
-                tags: [
-                    { name: 'Python', icon: 'python' },
-                    { name: 'Next.js', icon: 'next' },
-                    { name: 'TypeScript', icon: 'typescript' },
-                    { name: 'Tailwind CSS', icon: 'tailwindcss' },
-                    { name: 'Docker', icon: 'docker' },
-                ]
-            },
-            {
-                company: 'University of Toronto',
-                role: 'Research Assistant',
-                duration: 'Aug 2022 - Dec 2022',
-                description: (
-                    <>
-                        Bitcoin research under Prof. Anwar Husain
-                    </>
-                ),
-                link: 'https://utoronto.ca',
-                tags: [
-                    { name: 'Bitcoin', icon: 'bitcoin' },
-                ]
-            }
-        ]
-    }
+        ],
+    },
 }

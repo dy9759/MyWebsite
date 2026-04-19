@@ -14,7 +14,7 @@ const Header = () => {
                         {CONFIG.title}
                     </p>
                     <p className='mt-1 text-sm text-muted-foreground'>
-                        📍 Toronto, Canada
+                        📍 Beijing, China
                     </p>
                 </div>
                 <Avatar className='size-20'>

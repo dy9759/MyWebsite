@@ -46,6 +46,16 @@ export default function AIPage() {
 
                 <AIHero />
                 <SectionNav />
+                <aside
+                    role='note'
+                    className='mx-4 rounded-lg border border-dashed border-accent/60 bg-accent/5 px-4 py-3 text-sm text-muted-foreground animate-slide-from-down-and-fade-1'
+                >
+                    ⚠️ <strong className='font-medium text-foreground'>占位内容</strong>
+                    {' '}— 下方的视频、播客、关注的人、产品等均为示例数据,将在后续替换为本人策划的真实内容。
+                    <span className='block text-xs opacity-70'>
+                        Placeholder content — to be replaced with curated entries.
+                    </span>
+                </aside>
                 <VideoTable />
                 <PodcastGrid />
                 <PeopleGrid />
