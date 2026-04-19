@@ -18,6 +18,7 @@ import ProductGrid from '@/components/ai/product-grid'
 import PromptAccordion from '@/components/ai/prompt-accordion'
 import SkillsGrid from '@/components/ai/skills-grid'
 import InformationSources from '@/components/ai/information-sources'
+import BigTechWatch from '@/components/ai/big-tech-watch'
 import { AI_CONFIG } from '@/ai-config'
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function AIPage() {
                 <VideoTable />
                 <PodcastGrid />
                 <PeopleGrid />
+                <BigTechWatch />
                 <NewsletterList />
                 <ProductGrid />
                 <PromptAccordion />

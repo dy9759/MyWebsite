@@ -5,6 +5,7 @@ const SECTIONS = [
     { id: 'videos', label: 'Videos' },
     { id: 'podcasts', label: 'Podcasts' },
     { id: 'people', label: 'People' },
+    { id: 'bigtech', label: 'Big Tech' },
     { id: 'newsletters', label: 'Newsletters' },
     { id: 'products', label: 'Products' },
     { id: 'prompts', label: 'Prompts' },

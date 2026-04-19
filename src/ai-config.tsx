@@ -69,6 +69,23 @@ export type AIConfig = {
             items: { name: string; url?: string }[]
         }[]
     }[]
+    bigTech: {
+        company: string
+        people: { name: string; role?: string }[]
+        events: {
+            title: string
+            type: string
+            speaker?: string
+            date?: string
+            url?: string
+        }[]
+        podcasts: {
+            title: string
+            date?: string
+            url?: string
+        }[]
+    }[]
+    bigTechAlsoTracking: string[]
 }
 
 export const AI_CONFIG: AIConfig = {
@@ -125,34 +142,203 @@ export const AI_CONFIG: AIConfig = {
     ],
     podcasts: [
         {
-            title: 'Lex Fridman Podcast',
-            host: 'Lex Fridman',
+            title: 'AI Explained',
+            host: 'AI Explained',
             description:
-                'Long-form conversations with researchers and founders. Strongest episodes for AI: Karpathy, Altman, Hassabis, LeCun.',
-            url: 'https://www.youtube.com/@lexfridman',
+                'Short, non-technical news recaps. Great for quick catch-up.',
+            url: 'https://www.youtube.com/@ai-explained-',
             featured: true,
         },
         {
             title: 'Dwarkesh Podcast',
             host: 'Dwarkesh Patel',
             description:
-                'Technical and philosophical interviews. Dwarkesh asks the questions other hosts do not.',
-            url: 'https://www.youtube.com/@DwarkeshPatel',
+                'Not AI-focused but AI-heavy; some heavy hitters. The new Lex Fridman.',
+            url: 'https://www.dwarkeshpatel.com/podcast',
+            featured: true,
+        },
+        {
+            title: 'The DeepMind Podcast',
+            host: 'Google DeepMind',
+            description: 'Official DeepMind podcast on AI research.',
+            url: 'https://deepmind.google/discover/the-podcast/',
+            featured: true,
+        },
+        {
+            title: 'The Cognitive Revolution',
+            host: 'Nathan Labenz',
+            description: 'Great new pod tracking AI frontier developments.',
+            url: 'https://www.cognitiverevolution.ai/',
+            featured: true,
+        },
+        {
+            title: 'Robot Brains',
+            host: 'Pieter Abbeel',
+            description: 'Decent backlog on AI/robotics from a top researcher.',
+            url: 'https://www.therobotbrains.ai/',
             featured: true,
         },
         {
             title: 'No Priors',
             host: 'Sarah Guo & Elad Gil',
             description:
-                'Investor-perspective conversations with AI founders and researchers. Tight, product-focused.',
-            url: 'https://www.youtube.com/@NoPriorsPodcast',
+                'Investor-perspective conversations with AI founders and researchers.',
+            url: 'https://linktr.ee/nopriors',
+            featured: true,
+        },
+        {
+            title: 'Unsupervised Learning',
+            host: 'Redpoint',
+            description: 'VC conversations on AI — tight, product-focused.',
+            url: 'https://podtail.com/en/podcast/unsupervised-learning/',
+            featured: true,
+        },
+        {
+            title: 'Lex Fridman Podcast',
+            host: 'Lex Fridman',
+            description:
+                'Long-form conversations. Strongest AI episodes: Karpathy, Altman, Hassabis, LeCun.',
+            url: 'https://www.youtube.com/c/lexfridman',
+        },
+        {
+            title: "Lenny's Podcast",
+            host: 'Lenny Rachitsky',
+            description: 'Product management and growth, some AI guests.',
+            url: 'https://www.youtube.com/@LennysPodcast',
+        },
+        {
+            title: 'Samuel Albanie',
+            host: 'Samuel Albanie',
+            description:
+                'Professor on YouTube explaining papers. New but very good.',
+            url: 'https://www.youtube.com/@SamuelAlbanie1',
+        },
+        {
+            title: 'Eye on AI',
+            host: 'Craig S. Smith',
+            description:
+                'Weekly analysis at the intersection of AI and industry. Less technical, great guest backlog.',
+            url: 'https://open.spotify.com/show/5aFnCGDhpL5bGr2uHy4bB5',
+        },
+        {
+            title: 'AI & I',
+            host: 'Dan Shipper (Every.to)',
+            description:
+                'Less-technical founder interview pod with some good technical guests.',
+            url: 'https://www.youtube.com/watch?v=ELYaeUYjy48&list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL',
+        },
+        {
+            title: 'AI Jason',
+            host: 'AI Jason',
+            description: 'Frequent AI project breakdown videos.',
+            url: 'https://youtu.be/pJwR5pv0_gs',
+        },
+        {
+            title: 'Matthew Berman',
+            host: 'Matthew Berman',
+            description:
+                'Short explainer videos of AI engineering projects and news.',
+            url: 'https://www.youtube.com/@matthew_berman',
+        },
+        {
+            title: 'Algorithmic Simplicity',
+            host: 'Algorithmic Simplicity',
+            description: 'Clear explanations of model architectures.',
+            url: 'https://www.youtube.com/watch?v=N6Piou4oYx8',
+        },
+        {
+            title: 'Umar Jamil',
+            host: 'Umar Jamil',
+            description: 'Standard concept teaching channel, very technical.',
+            url: 'https://www.youtube.com/@umarjamilai',
+        },
+        {
+            title: 'Daniel Bourke',
+            host: 'Daniel Bourke',
+            description: 'Livestream paper replication.',
+            url: 'https://www.youtube.com/@danielbourkearxiv2821',
+        },
+        {
+            title: 'Efficient NLP',
+            host: 'Efficient NLP',
+            description: 'Good short paper/technique explainers.',
+            url: 'https://www.youtube.com/@EfficientNLP',
+        },
+        {
+            title: 'Trelis Research',
+            host: 'Trelis Research',
+            description: 'AI engineering walk-throughs and fine-tuning.',
+            url: 'https://www.youtube.com/watch?v=ae2lbmtTY5A',
+        },
+        {
+            title: 'McKay Wrigley',
+            host: 'McKay Wrigley',
+            description: 'Builder-focused AI tutorials and product demos.',
+            url: 'https://www.youtube.com/@realmckaywrigley',
+        },
+        {
+            title: 'Gradient Dissent',
+            host: 'Weights & Biases',
+            description:
+                'Technical interviews from W&B. Hosted by Lukas, now Caryn Marooney.',
+            url: 'https://www.youtube.com/playlist?list=PLD80i8An1OEEb1jP0sjEyiLG8ULRXFob_',
+        },
+        {
+            title: 'Generally Intelligent',
+            host: 'Kanjun Qiu',
+            description: 'Cerebral RL-focused pod (now dormant but great backlog).',
+            url: 'https://generallyintelligent.com/podcast',
+        },
+        {
+            title: 'Weaviate Podcast',
+            host: 'Weaviate',
+            description: 'Good technical discussions on vector databases and RAG.',
+            url: 'https://podcasters.spotify.com/pod/show/weaviate/episodes/Erika-Cardenas--Roman-Grebennikov--and-Vsevolod-Goloviznin-on-Recommendation-and-Metarank---Pod-43-e2280u3',
+        },
+        {
+            title: 'NLP Highlights',
+            host: 'Allen Institute',
+            description:
+                'Infrequent but great pre-2020 backlog. Check episode 36.',
+            url: 'https://www.listennotes.com/podcasts/nlp-highlights-allen-institute-for-f9Yt4vD_ger/',
+        },
+        {
+            title: 'High Agency',
+            host: 'Raza Habib (HumanLoop)',
+            description: 'New podcast for AI builders.',
+            url: 'https://podcasts.apple.com/us/podcast/high-agency-the-podcast-for-ai-builders/id1747605459',
         },
         {
             title: 'Latent Space',
             host: 'swyx & Alessio',
             description:
                 'Engineering-forward discussions of the AI stack — models, tools, evals, deployments.',
-            url: 'https://www.latent.space/',
+            url: 'https://latent.space/',
+        },
+        {
+            title: 'Training Data',
+            host: 'Sequoia',
+            description: 'Sequoia Capital AI investor podcast.',
+            url: 'https://podcasts.apple.com/gb/podcast/training-data/id1750736528',
+        },
+        {
+            title: 'Y Combinator',
+            host: 'Y Combinator',
+            description: 'YC channel — founder interviews and AI startup insights.',
+            url: 'https://www.youtube.com/@ycombinator',
+        },
+        {
+            title: 'The MAD Podcast',
+            host: 'Matt Turck',
+            description: 'Machine Learning / AI / Data landscape interviews.',
+            url: 'https://podcasts.apple.com/us/podcast/the-mad-podcast-with-matt-turck/id1686238724',
+        },
+        {
+            title: 'r/LocalLLaMA — Channels List',
+            host: 'Reddit',
+            description:
+                '23 LocalLlama-focused YouTube channel recommendations.',
+            url: 'https://www.reddit.com/r/LocalLLaMA/comments/1atycgd/which_localllama_focused_yt_channels_do_you_follow/',
         },
     ],
     people: [
@@ -498,6 +684,146 @@ Write in third person. Do not invent details not in the transcript.`,
             ],
         },
     ],
+    bigTech: [
+        {
+            company: 'NVIDIA',
+            people: [{ name: 'Jensen Huang', role: 'CEO' }],
+            events: [
+                { title: 'CES 2025', type: 'Keynote', speaker: 'Jensen Huang' },
+                { title: 'SIGGRAPH 2024', type: 'Keynote', speaker: 'Jensen Huang' },
+                {
+                    title: 'National Taiwan University Commencement',
+                    type: 'Keynote',
+                    date: '2023',
+                    speaker: 'Jensen Huang',
+                },
+                { title: 'GTC 2024', type: 'Keynote', speaker: 'Jensen Huang' },
+                { title: 'COMPUTEX 2023', type: 'Keynote', speaker: 'Jensen Huang' },
+                { title: 'AI Summit India 2024', type: 'Fireside Chat', speaker: 'Jensen Huang' },
+                { title: 'DealBook Summit 2023', type: 'Interview', speaker: 'Jensen Huang' },
+                { title: 'AI Summit Japan 2024', type: 'Fireside Chat', speaker: 'Jensen Huang' },
+                {
+                    title: 'SIGGRAPH 2024 — w/ Mark Zuckerberg',
+                    type: 'Fireside Chat',
+                    speaker: 'Jensen Huang',
+                },
+            ],
+            podcasts: [
+                { title: 'No Priors Podcast' },
+                {
+                    title: 'In Good Company',
+                    url: 'https://www.youtube.com/watch?v=R9Mnn-HSS4o',
+                },
+                { title: 'Acquired Podcast' },
+            ],
+        },
+        {
+            company: 'Google',
+            people: [
+                { name: 'Sundar Pichai', role: 'CEO' },
+                { name: 'Demis Hassabis', role: 'CEO, DeepMind' },
+            ],
+            events: [
+                {
+                    title: 'Google I/O 2023 Keynote',
+                    type: 'Keynote',
+                    speaker: 'Sundar Pichai',
+                    date: 'May 10, 2023',
+                },
+                {
+                    title: 'Google I/O 2024 Keynote',
+                    type: 'Keynote',
+                    speaker: 'Sundar Pichai',
+                    date: 'May 14, 2024',
+                },
+                {
+                    title: 'Google Cloud Next 2024',
+                    type: 'Keynote',
+                    speaker: 'Sundar Pichai',
+                    date: 'Apr 9–11, 2024',
+                },
+            ],
+            podcasts: [
+                { title: 'AI for Science Forum', date: 'Oct 2023' },
+                { title: 'Unreasonably Effective AI', date: 'Aug 14, 2024' },
+                { title: 'AI for Science: Demis Hassabis', date: 'Nov 20, 2024' },
+            ],
+        },
+        {
+            company: 'Meta',
+            people: [
+                { name: 'Mark Zuckerberg', role: 'CEO' },
+                { name: 'Yann LeCun', role: 'Chief AI Scientist' },
+            ],
+            events: [
+                {
+                    title: 'Meta Connect 2023',
+                    type: 'Keynote',
+                    speaker: 'Mark Zuckerberg',
+                    date: 'Sep 27, 2023',
+                },
+                {
+                    title: 'Acquired Live at Chase Center',
+                    type: 'Fireside Chat',
+                    speaker: 'Mark Zuckerberg',
+                    date: 'Sep 10, 2024',
+                },
+                {
+                    title: 'SIGGRAPH 2024 — w/ Jensen Huang',
+                    type: 'Fireside Chat',
+                    speaker: 'Mark Zuckerberg',
+                    date: 'Jul 29, 2024',
+                },
+                {
+                    title: 'Meta Connect 2024',
+                    type: 'Keynote',
+                    speaker: 'Mark Zuckerberg',
+                    date: 'Sep 25, 2024',
+                },
+            ],
+            podcasts: [
+                { title: 'Acquired Podcast', date: 'Sep 18, 2024' },
+                { title: 'Lex Fridman Podcast', date: 'Oct 10, 2023' },
+                { title: 'Lex Fridman Podcast (Metaverse)', date: 'Dec 12, 2023' },
+                { title: 'The Joe Rogan Experience', date: 'Apr 26, 2024' },
+                { title: 'Dwarkesh Patel Podcast (Llama 3)', date: 'Apr 18, 2024' },
+            ],
+        },
+        {
+            company: 'Apple',
+            people: [
+                { name: 'Tim Cook', role: 'CEO' },
+                { name: 'Craig Federighi', role: 'SVP Software Engineering' },
+            ],
+            events: [],
+            podcasts: [],
+        },
+        {
+            company: 'Microsoft',
+            people: [],
+            events: [],
+            podcasts: [],
+        },
+        {
+            company: 'OpenAI',
+            people: [],
+            events: [],
+            podcasts: [],
+        },
+        {
+            company: 'Tesla',
+            people: [],
+            events: [],
+            podcasts: [],
+        },
+        {
+            company: 'Amazon',
+            people: [],
+            events: [],
+            podcasts: [],
+        },
+    ],
+    bigTechAlsoTracking: ['Salesforce (minor)'],
     skills: [
         {
             title: 'Frontend Presentations',
