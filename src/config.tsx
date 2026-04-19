@@ -228,6 +228,21 @@ export const CONFIG: Config = {
     workExperience: {
         positions: [
             {
+                company: '宇生月伴(杭州)智能科技有限公司',
+                role: 'Product Lead — Sayso',
+                duration: 'Jul 2025 – Present',
+                description: (
+                    <>
+                        负责 Sayso 产品全流程:需求定义、产品设计、团队协作与迭代落地。
+                    </>
+                ),
+                tags: [
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'Agent', icon: 'gear' },
+                    { name: 'Product', icon: 'gear' },
+                ],
+            },
+            {
                 company: '北京智能问问科技(AI 初创)',
                 role: 'AI Product Manager — Intern',
                 duration: 'May 2025 – Jul 2025',
