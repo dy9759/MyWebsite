@@ -1,15 +1,13 @@
 import Link from 'next/link'
 
 const SECTIONS = [
-    { id: 'sources', label: 'Sources' },
-    { id: 'videos', label: 'Videos' },
-    { id: 'podcasts', label: 'Podcasts' },
-    { id: 'people', label: 'People' },
-    { id: 'bigtech', label: 'Big Tech' },
-    { id: 'newsletters', label: 'Newsletters' },
-    { id: 'products', label: 'Products' },
-    { id: 'prompts', label: 'Prompts' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'usage', label: '使用说明' },
+    { id: 'layer-1', label: 'L1 聚合' },
+    { id: 'layer-2', label: 'L2 人物' },
+    { id: 'layer-3', label: 'L3 播客' },
+    { id: 'layer-4', label: 'L4 技术' },
+    { id: 'layer-5', label: 'L5 社区' },
+    { id: 'layer-6', label: 'L6 中文圈' },
 ]
 
 const SectionNav = () => {

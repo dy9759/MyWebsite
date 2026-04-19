@@ -10,6 +10,9 @@ import {
 } from '@/components/ui/breadcrumb'
 import AIHero from '@/components/ai/ai-hero'
 import SectionNav from '@/components/ai/section-nav'
+import UsageIntro from '@/components/ai/usage-intro'
+import LayerWrap from '@/components/ai/layer-wrap'
+import SourcesBlock from '@/components/ai/sources-block'
 import VideoTable from '@/components/ai/video-table'
 import PodcastGrid from '@/components/ai/podcast-grid'
 import PeopleGrid from '@/components/ai/people-grid'
@@ -17,7 +20,6 @@ import NewsletterList from '@/components/ai/newsletter-list'
 import ProductGrid from '@/components/ai/product-grid'
 import PromptAccordion from '@/components/ai/prompt-accordion'
 import SkillsGrid from '@/components/ai/skills-grid'
-import InformationSources from '@/components/ai/information-sources'
 import BigTechWatch from '@/components/ai/big-tech-watch'
 import { AI_CONFIG } from '@/ai-config'
 
@@ -48,25 +50,44 @@ export default function AIPage() {
 
                 <AIHero />
                 <SectionNav />
-                <InformationSources />
-                <aside
-                    role='note'
-                    className='mx-4 rounded-lg border border-dashed border-accent/60 bg-accent/5 px-4 py-3 text-sm text-muted-foreground animate-slide-from-down-and-fade-1'
-                >
-                    ⚠️ <strong className='font-medium text-foreground'>占位内容</strong>
-                    {' '}— 下方的视频、播客、关注的人、产品等均为示例数据,将在后续替换为本人策划的真实内容。
-                    <span className='block text-xs opacity-70'>
-                        Placeholder content — to be replaced with curated entries.
-                    </span>
-                </aside>
-                <VideoTable />
-                <PodcastGrid />
-                <PeopleGrid />
-                <BigTechWatch />
-                <NewsletterList />
-                <ProductGrid />
-                <PromptAccordion />
-                <SkillsGrid />
+                <UsageIntro />
+
+                <LayerWrap id='layer-1' layerIndex={0} animationDelay={2}>
+                    <SourcesBlock layerIndex={0} />
+                </LayerWrap>
+
+                <LayerWrap id='layer-2' layerIndex={1} animationDelay={2}>
+                    <PeopleGrid />
+                    <SourcesBlock
+                        layerIndex={1}
+                        title='个人博客 · 传记推荐'
+                    />
+                    <NewsletterList />
+                </LayerWrap>
+
+                <LayerWrap id='layer-3' layerIndex={2} animationDelay={3}>
+                    <PodcastGrid />
+                </LayerWrap>
+
+                <LayerWrap id='layer-4' layerIndex={3} animationDelay={3}>
+                    <VideoTable />
+                    <BigTechWatch />
+                    <SourcesBlock
+                        layerIndex={3}
+                        title='开发者大会 · 博客 · 论文 · 人物主页'
+                    />
+                    <ProductGrid />
+                    <PromptAccordion />
+                    <SkillsGrid />
+                </LayerWrap>
+
+                <LayerWrap id='layer-5' layerIndex={4} animationDelay={4}>
+                    <SourcesBlock layerIndex={4} />
+                </LayerWrap>
+
+                <LayerWrap id='layer-6' layerIndex={5} animationDelay={5}>
+                    <SourcesBlock layerIndex={5} />
+                </LayerWrap>
             </div>
         </div>
     )
