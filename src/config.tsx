@@ -74,7 +74,7 @@ export const CONFIG: Config = {
     title: 'AI Product Manager',
     siteUrl: 'https://example.com/', // placeholder — replace with real domain
     socials: [
-        // All social URLs below are placeholders.
+        // GitHub is real; LinkedIn/Email still placeholders.
         {
             name: 'GitHub',
             url: 'https://github.com/dy9759',
