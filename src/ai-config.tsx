@@ -595,9 +595,9 @@ Write in third person. Do not invent details not in the transcript.`,
         },
         {
             layer: 'Layer 2',
-            title: '关键人物追踪',
+            title: '关键人物追踪 · 学习产品 / 商业 / 投资',
             description:
-                '通过特写文章、个人博客、推特、LinkedIn 理解行业趋势。',
+                '理解硅谷不能只看技术,也要看社会与文化。VC + CEO 的个人网站/推特/LinkedIn + 美国商业传记。',
             items: [
                 { name: 'Ben Thompson — Stratechery', url: 'https://stratechery.com/' },
                 { name: 'Sam Altman — Blog', url: 'https://blog.samaltman.com/' },
@@ -609,14 +609,15 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     name: 'Amazon Best-Sellers: Computer & Tech Biographies',
                     url: 'https://www.amazon.com/Best-Sellers-Computer-Technology-Biographies/zgbs/books/3568',
-                    note: '传记类书籍',
+                    note: '乔布斯传、马斯克传 + Twitter / Uber / Salesforce / 沃尔玛 / 星巴克 / OpenAI 创始人传记',
                 },
             ],
         },
         {
             layer: 'Layer 3',
-            title: '深度播客访谈',
-            description: '优先看 YouTube 视频版本。',
+            title: '深度播客访谈(兼具深度与时效性)',
+            description:
+                '2023 起 AI 圈播客质量极高。硅谷大厂/创业公司 CEO、CTO、AI 产品负责人、核心研究员都会接受访谈。OpenAI / Anthropic / Google 新模型发布前一天常在知名播客上线(Llama 4、o3、Gemini 2.5 都是)。YouTube 最多(字幕方便),其次 Apple Podcast / Spotify。',
             items: [
                 { name: 'Y Combinator', url: 'https://www.youtube.com/@ycombinator' },
                 { name: 'No Priors', url: 'https://www.youtube.com/@NoPriorsPodcast' },
@@ -628,26 +629,145 @@ Write in third person. Do not invent details not in the transcript.`,
             layer: 'Layer 4',
             title: '技术深度学习',
             description:
-                '开发者大会、知名 AI 团队案例分享、技术报告、论文、GitHub 开源社区。',
-            items: [
-                { name: 'Google Research Blog', url: 'https://research.google/blog/' },
-                { name: 'OpenAI Research', url: 'https://openai.com/research' },
-                { name: 'Anthropic Research', url: 'https://www.anthropic.com/research' },
-                { name: 'Google DeepMind', url: 'https://deepmind.google/discover/blog/' },
-                { name: 'arXiv', url: 'https://arxiv.org/list/cs.AI/recent' },
-                { name: 'GitHub Trending', url: 'https://github.com/trending' },
+                '开发者大会 + 技术博客 + 论文 + 领域人物主页 + 开源社区。最专业深入、系统性最强。',
+            groups: [
+                {
+                    label: '开发者大会 · 大厂公开技术文化',
+                    items: [
+                        { name: 'NVIDIA GTC', url: 'https://www.nvidia.com/gtc/' },
+                        { name: 'Google I/O', url: 'https://io.google/' },
+                        { name: 'OpenAI DevDay', url: 'https://openai.com/devday/' },
+                        {
+                            name: 'Adobe Max 2024 — Opening Keynote',
+                            url: 'https://www.adobe.com/max/2024/sessions/opening-keynote-gs1.html',
+                        },
+                        {
+                            name: 'Salesforce — Discover Agentforce',
+                            url: 'https://www.salesforce.com/plus/experience/discover_agentforce/series/discover_agentforce/episode/episode-s1e4',
+                        },
+                    ],
+                },
+                {
+                    label: '技术博客 & Technical Report',
+                    items: [
+                        { name: 'Google Research Blog', url: 'https://research.google/blog/' },
+                        { name: 'OpenAI Research', url: 'https://openai.com/research' },
+                        { name: 'Anthropic Research', url: 'https://www.anthropic.com/research' },
+                        {
+                            name: 'Anthropic — Built a Multi-Agent Research System',
+                            url: 'https://www.anthropic.com/engineering/built-multi-agent-research-system',
+                        },
+                        { name: 'DeepMind Blog', url: 'https://deepmind.google/discover/blog/' },
+                    ],
+                },
+                {
+                    label: '论文(硬读:问题定义 / 评测 / 项目主页 demo)',
+                    items: [
+                        { name: 'arXiv cs.AI', url: 'https://arxiv.org/list/cs.AI/recent' },
+                        { name: 'Google Scholar', url: 'https://scholar.google.com/' },
+                        {
+                            name: 'F5-TTS — 项目主页示例',
+                            url: 'https://swivid.github.io/F5-TTS/',
+                        },
+                        {
+                            name: '3D Gaussian Splatting(高斯泼溅,三维重建开创性论文)',
+                            url: 'https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/',
+                        },
+                    ],
+                },
+                {
+                    label: '相关领域人物主页 · LinkedIn · X',
+                    items: [
+                        {
+                            name: 'Mark Levoy (Stanford Graphics)',
+                            url: 'https://graphics.stanford.edu/~levoy/',
+                        },
+                        { name: 'Andrej Karpathy — 个人主页', url: 'https://karpathy.ai/' },
+                        {
+                            name: 'Kate Park — LinkedIn',
+                            url: 'https://www.linkedin.com/in/kateparkmenlo/',
+                        },
+                    ],
+                },
+                {
+                    label: '开源社区',
+                    items: [
+                        { name: 'GitHub Trending', url: 'https://github.com/trending' },
+                    ],
+                },
             ],
         },
         {
             layer: 'Layer 5',
-            title: '用户需求 & 市场调研',
-            description: '技术调研、产品 idea 调研。',
-            items: [
-                { name: 'Reddit — r/LocalLLaMA', url: 'https://www.reddit.com/r/LocalLLaMA/' },
-                { name: 'Reddit — r/MachineLearning', url: 'https://www.reddit.com/r/MachineLearning/' },
-                { name: 'Hacker News', url: 'https://news.ycombinator.com/' },
-                { name: 'Discord (官方开发者频道)', note: '各 AI 工具官方 Discord' },
-                { name: '产品用户论坛 / 反馈区' },
+            title: '用户调研 & 市场需求(英文社区)',
+            description:
+                'Reddit 细分社区 + Hacker News(YC 技术社区,开源项目首发 + 高质量点评)+ Discord(各 AI 工具官方开发者频道)。出海宣传阵地,市场营销 / HR / 效率工具等细分社区优质讨论。',
+            groups: [
+                {
+                    label: 'Reddit',
+                    items: [
+                        { name: 'r/LocalLLaMA', url: 'https://www.reddit.com/r/LocalLLaMA/' },
+                        { name: 'r/MachineLearning', url: 'https://www.reddit.com/r/MachineLearning/' },
+                        {
+                            name: '案例 — DeepSeek v3 讨论搜索',
+                            url: 'https://www.reddit.com/search/?q=deepseek+v3',
+                        },
+                    ],
+                },
+                {
+                    label: 'Hacker News',
+                    items: [
+                        { name: 'Hacker News', url: 'https://news.ycombinator.com/' },
+                        {
+                            name: '案例 — item 41695840(开源项目深度点评)',
+                            url: 'https://news.ycombinator.com/item?id=41695840',
+                        },
+                    ],
+                },
+                {
+                    label: 'Discord',
+                    items: [
+                        { name: '各 AI 工具官方开发者频道(按需加入)' },
+                    ],
+                },
+            ],
+        },
+        {
+            layer: 'Layer 6',
+            title: '中文信息圈(补充视角)',
+            description:
+                '优势:母语快、有中国市场视角、硅谷华人研究员会接受中文媒体/播客访谈。劣势:解读不够大胆、英文内容转译后丢失情感与互动。用法:(1) 挑优质独特的看;(2) 作为线索,跳转回英语源头仔细学习。',
+            groups: [
+                {
+                    label: '公众号 · 媒体',
+                    items: [
+                        { name: '机器之心', url: 'https://www.jiqizhixin.com/' },
+                        { name: 'Founder Park' },
+                        { name: 'Z Potentials' },
+                        { name: '虎嗅', url: 'https://www.huxiu.com/' },
+                        { name: '晚点 LatePost', url: 'https://www.latepost.com/' },
+                        { name: '36Kr', url: 'https://36kr.com/' },
+                        { name: '智东西', url: 'https://zhidx.com/' },
+                        { name: '腾讯科技' },
+                        { name: '张无常 (公众号)' },
+                        { name: '爱范儿', url: 'https://www.ifanr.com/' },
+                        { name: '真格基金', url: 'https://zhenfund.com/' },
+                    ],
+                },
+                {
+                    label: '小宇宙播客',
+                    items: [
+                        { name: '42章经' },
+                        { name: 'Onboard' },
+                        { name: 'AI 炼金术' },
+                        { name: '张小珺' },
+                        { name: '硅谷101' },
+                        { name: '乱翻书' },
+                        { name: '硬地骇客' },
+                        { name: '出海去' },
+                        { name: '此话当真' },
+                    ],
+                },
             ],
         },
     ],
