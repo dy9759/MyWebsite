@@ -55,6 +55,14 @@ type Config = {
             year: string
             url?: string
         }[]
+        grants?: {
+            name: string
+            funding: string
+            duration: string
+            overview: string
+            role: string
+            outcomes: string
+        }[]
     }
 }
 
@@ -214,6 +222,18 @@ export const CONFIG: Config = {
                 year: 'Oct 2023',
                 url: 'https://doi.org/10.3390/land12101956',
                 tier: 'JCR Q2 · 中科院三区 · First Author',
+            },
+        ],
+        grants: [
+            {
+                name: '乡村地域系统协同观测与转型机理及模拟',
+                funding: '国家自然科学基金重大项目 (NSFC Major Program)',
+                duration: 'Jan 2023 – Present',
+                overview:
+                    '聚焦乡村地域系统转型,开展交通、土地等减碳优化研究,综合评估产业经济效应,探索区域最优发展路径。',
+                role: '开发 2 套研究方法论;技术指导 6 人团队开展数据分析;负责项目申报、推进与结项管理。',
+                outcomes:
+                    '提前完成 10 项成果转化;研究成果被纳入地方政府规划参考,提升区域可持续发展能力。',
             },
         ],
         conferences: [
