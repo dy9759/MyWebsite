@@ -70,7 +70,7 @@ type Config = {
 // Replace with real values before publishing.
 export const CONFIG: Config = {
     name: '李盛园',
-    avatar: '/images/headshot.png', // placeholder — replace with real photo
+    avatar: '/images/headshot.jpg',
     title: 'AI Product Manager',
     siteUrl: 'https://example.com/', // placeholder — replace with real domain
     socials: [
