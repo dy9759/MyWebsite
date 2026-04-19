@@ -1,6 +1,7 @@
 import Header from '@/components/header'
 import { Icons } from '@/components/icons'
 import Project from '@/components/project'
+import Research from '@/components/research'
 import { Button } from '@/components/ui/button'
 import WorkExperience from '@/components/work-experience'
 import { CONFIG } from '@/config'
@@ -58,6 +59,7 @@ export default function Home() {
             </div>
 
             <WorkExperience />
+            <Research />
         </div>
     )
 }

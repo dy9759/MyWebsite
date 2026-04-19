@@ -39,6 +39,23 @@ type Config = {
             }[]
         }[]
     }
+    research?: {
+        publications?: {
+            authors: string
+            title: string
+            venue: string
+            year: string
+            url: string
+            tier: string
+        }[]
+        conferences?: {
+            authors: string
+            title: string
+            venue: string
+            year: string
+            url?: string
+        }[]
+    }
 }
 
 // NOTE: Avatar, siteUrl, and socials URLs below are placeholders.
@@ -128,6 +145,86 @@ export const CONFIG: Config = {
             featured: false,
         },
     ],
+    research: {
+        publications: [
+            {
+                authors:
+                    'Xiaohuan Xie, Senhong Cai, Haifeng Deng, Shengyuan Li, Xin Liu, Zhonghua Gou',
+                title: 'Optimizing county-level land use for sustainable photovoltaic development in China: A multi-scenario analysis',
+                venue: 'Land Use Policy, Vol. 163, 107920',
+                year: '2026',
+                url: 'https://doi.org/10.1016/j.landusepol.2026.107920',
+                tier: 'SCI Q1 · 中科院一区 Top',
+            },
+            {
+                authors:
+                    'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li, Zhonghua Gou',
+                title: 'Pathways for Reducing Carbon Emission in County-Level Transportation: A Life Cycle Perspective and Multi-Scenario Analysis',
+                venue: 'Energy Strategy Reviews, Vol. 58, 101678',
+                year: '2025',
+                url: 'https://doi.org/10.1016/j.esr.2025.101678',
+                tier: 'SCI Q2 · 中科院二区',
+            },
+            {
+                authors:
+                    'Xiaohuan Xie, Qiting Lin, Shengyuan Li, Xin Liu, Zhonghua Gou',
+                title: 'Optimal urban expansion rates for balancing ecosystem services and economic development in mega-city fringe areas: A modeling framework applied to Huadu district, Guangzhou',
+                venue: 'Ecological Modelling, Vol. 513, 111436',
+                year: '2026',
+                url: 'https://doi.org/10.1016/j.ecolmodel.2025.111436',
+                tier: 'SCI Q2 · 中科院三区',
+            },
+            {
+                authors:
+                    'Xiaohuan Xie, Haifeng Deng, Shengyuan Li, Zhonghua Gou',
+                title: 'Optimizing Land Use for Carbon Neutrality: Integrating Photovoltaic Development in Lingbao, Henan Province',
+                venue: 'Land, Vol. 13(1), 97',
+                year: '2024',
+                url: 'https://doi.org/10.3390/land13010097',
+                tier: 'SCI Q2 · 中科院三区',
+            },
+            {
+                authors: 'Xiaohuan Xie, Ruobing Wang, Zhonghua Gou',
+                title: 'Changes in park visits and the shift towards rural recreation: Evidence from the COVID-19 pandemic in the UK',
+                venue: 'Journal of Rural Studies, Vol. 106, 103221',
+                year: '2024',
+                url: 'https://doi.org/10.1016/j.jrurstud.2024.103221',
+                tier: 'SCI Q1 · 中科院一区',
+            },
+        ],
+        conferences: [
+            {
+                authors: 'Xiaohuan Xie, Qiting Lin, Shengyuan Li',
+                title: 'Dynamic Coupling and Coordinated Assessment of Urban Production-Living-Ecology System Using System Dynamics Model: A Case Study of Lingbao',
+                venue: '18th IACP Conference, Hangzhou, China',
+                year: 'Jul 2024',
+            },
+            {
+                authors: 'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li',
+                title: 'Scenario Simulation of County-Level Transportation Energy Carbon Emissions in Huadu District, Guangzhou: A Life-Cycle Perspective',
+                venue: '2024 International Conference on Energy, Materials and Management Science, Chengdu, China',
+                year: 'Mar 2024',
+            },
+            {
+                authors: 'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li',
+                title: 'Explore the county transportation energy decarbonization path with a simplified full life cycle assessment linked LEAP model',
+                venue: '18th IACP Conference, Hangzhou, China',
+                year: 'Jul 2024',
+            },
+            {
+                authors: '邓海峰, 李盛园, 谢晓欢',
+                title: '碳中和背景下粮食主产区土地利用多情景模拟与碳储量分析',
+                venue: '中国地理学会自然地理学专业委员会 2024 年学术年会, 广东梅州',
+                year: 'Jun 2024',
+            },
+            {
+                authors: '滕腾, 邓海峰, 李盛园, 谢晓欢',
+                title: '城乡融合发展背景下城乡结合区典型县域土地利用多情景模拟与评价',
+                venue: '中国地理学大会, 江苏南京',
+                year: 'Sep 2024',
+            },
+        ],
+    },
     workExperience: {
         positions: [
             {
