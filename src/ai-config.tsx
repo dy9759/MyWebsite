@@ -607,6 +607,10 @@ Write in third person. Do not invent details not in the transcript.`,
                     url: 'https://hardcoresoftware.learningbyshipping.com/',
                 },
                 {
+                    name: "Lenny's Newsletter — State of the Product Job Market",
+                    url: 'https://www.lennysnewsletter.com/p/state-of-the-product-job-market-in',
+                },
+                {
                     name: 'Amazon Best-Sellers: Computer & Tech Biographies',
                     url: 'https://www.amazon.com/Best-Sellers-Computer-Technology-Biographies/zgbs/books/3568',
                     note: '乔布斯传、马斯克传 + Twitter / Uber / Salesforce / 沃尔玛 / 星巴克 / OpenAI 创始人传记',
@@ -658,6 +662,11 @@ Write in third person. Do not invent details not in the transcript.`,
                             url: 'https://www.anthropic.com/engineering/built-multi-agent-research-system',
                         },
                         { name: 'DeepMind Blog', url: 'https://deepmind.google/discover/blog/' },
+                        {
+                            name: 'OpenAI Codex — Best Practices',
+                            url: 'https://developers.openai.com/codex/learn/best-practices',
+                        },
+                        { name: 'DeepWiki', url: 'https://deepwiki.org/' },
                     ],
                 },
                 {
@@ -728,6 +737,15 @@ Write in third person. Do not invent details not in the transcript.`,
                     label: 'Discord',
                     items: [
                         { name: '各 AI 工具官方开发者频道(按需加入)' },
+                    ],
+                },
+                {
+                    label: '市场信号',
+                    items: [
+                        {
+                            name: 'Google Trends (US)',
+                            url: 'https://trends.google.com/trending?geo=US',
+                        },
                     ],
                 },
             ],
