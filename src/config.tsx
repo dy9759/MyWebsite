@@ -45,7 +45,7 @@ export const CONFIG: Config = {
     name: 'Samuel Zhang',
     avatar: '/images/headshot.png',
     title: '',
-    siteUrl: 'https://samuelzhang.ca/',
+    siteUrl: 'https://dy9759.github.io/MyWebsite/',
     socials: [
         {
             name: 'GitHub',

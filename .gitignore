@@ -47,3 +47,7 @@ logs
 
 # Optional eslint cache
 .eslintcache
+
+# Local tooling / scratch clones
+.playwright-mcp/
+esther-website-0422/

@@ -1,10 +1,12 @@
 import { CONFIG } from '@/config'
 
 export default async function sitemap() {
-    const url = new URL(CONFIG.siteUrl).origin
+    const siteUrl = new URL(
+        CONFIG.siteUrl.endsWith('/') ? CONFIG.siteUrl : `${CONFIG.siteUrl}/`
+    )
 
-    const routes = ['', '/projects'].map((route) => ({
-        url: `${url}${route}`,
+    const routes = ['', 'projects/'].map((route) => ({
+        url: new URL(route, siteUrl).toString(),
         lastModified: new Date().toISOString(),
     }))
 

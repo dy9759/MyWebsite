@@ -2,10 +2,12 @@ import { CONFIG } from '@/config'
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
+    const siteBase = CONFIG.siteUrl.replace(/\/$/, '')
+
     return {
         rules: {
             userAgent: '*',
         },
-        sitemap: `${new URL(CONFIG.siteUrl).origin}/sitemap.xml`,
+        sitemap: `${siteBase}/sitemap.xml`,
     }
 }
