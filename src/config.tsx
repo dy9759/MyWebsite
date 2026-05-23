@@ -413,6 +413,14 @@ export const CONFIG: Config = {
                 tier: 'JCR Q2 · 中科院三区',
             },
             {
+                authors: '谢晓欢, 林绮婷, 李盛园, 苟中华',
+                title: '超大城市边缘县域生态系统服务与经济发展耦合协调性时空演化——以广州市花都区为例',
+                venue: '小城镇建设, 2026, 44(5): 74-82',
+                year: '2026',
+                url: 'https://www.dosct.cn/article/doi/10.3969/j.issn.1009-1483.2026.05.011',
+                tier: '中文期刊',
+            },
+            {
                 authors: 'Chen Yang, Shengyuan Li, Zhonghua Gou',
                 title: 'Spatiotemporal prediction of urban building rooftop photovoltaic potential based on GCN-LSTM',
                 venue: 'Energy and Buildings, Vol. 334, 115522',
