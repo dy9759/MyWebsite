@@ -16,6 +16,7 @@ type Config = {
         name: string
         icon?: keyof typeof Icons
         image?: string
+        duration?: string
         description: string
         url: string
         tags: {
@@ -96,6 +97,80 @@ export const CONFIG: Config = {
     descriptionRaw:
         "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Smart Energy from Wuhan University, B.S. in Architecture. Published 5 SCI papers.",
     projects: [
+        {
+            name: 'Sayso ToC 产品',
+            duration: '2025年10月 - 至今',
+            description:
+                '负责 ToC 产品 Sayso,覆盖输入法、会议、个人语音助理与个人办公提效场景,负责产品并与前后端开发配合。MVP 版本处于产品试验期,获得 1000+ 用户,注册体验后付费转化率达 2.77%,年会员占比 58.6%。',
+            url: '',
+            tags: [
+                { name: 'ToC', icon: 'gear' },
+                { name: 'Product', icon: 'gear' },
+                { name: 'AI Assistant', icon: 'llm' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'Sayso Team',
+            duration: '2026年3月 - 至今',
+            description:
+                '负责 Sayso Team,面向 A2A 协作与团队提效场景,一人 solo builder 推进产品构建。',
+            url: '',
+            tags: [
+                { name: 'A2A', icon: 'llm' },
+                { name: 'Team Productivity', icon: 'gear' },
+                { name: 'Solo Builder', icon: 'gear' },
+            ],
+            featured: true,
+        },
+        {
+            name: '大模型评测平台',
+            duration: '2026年10月 - 至今',
+            description: '负责 LLM、TTS、ASR 与端到端语音模型评测平台建设。',
+            url: '',
+            tags: [
+                { name: 'LLM Evaluation', icon: 'llm' },
+                { name: 'TTS', icon: 'gear' },
+                { name: 'ASR', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'VuiLabs 官网建设',
+            duration: '2026年9月 - 至今',
+            description: '参与 ToB 产品 VuiLabs 官网建设。',
+            url: '',
+            tags: [
+                { name: 'ToB', icon: 'gear' },
+                { name: 'Website', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'Sayso 数据 Agent',
+            duration: '2026年4月',
+            description:
+                '负责内部数据 Agent 工具,通过 MCP 调用替代传统数据看板开发。',
+            url: '',
+            tags: [
+                { name: 'Data Agent', icon: 'llm' },
+                { name: 'MCP', icon: 'gear' },
+                { name: 'Internal Tool', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: '内容创作冷启动',
+            duration: '2025年8月 - 2025年9月',
+            description: '负责小红书新号内容创作与冷启动,一个月涨粉 1000+。',
+            url: '',
+            tags: [
+                { name: 'Content', icon: 'gear' },
+                { name: 'Growth', icon: 'gear' },
+                { name: '小红书', icon: 'gear' },
+            ],
+            featured: false,
+        },
         {
             name: '沉浸式播客 AI 产品',
             description:

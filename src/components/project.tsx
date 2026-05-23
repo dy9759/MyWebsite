@@ -18,6 +18,7 @@ interface ProjectProps {
     icon?: keyof typeof Icons
     description: string
     image?: string
+    duration?: string
     url: string
     tags: {
         name: string
@@ -33,6 +34,7 @@ const Project = ({
     icon,
     description,
     image,
+    duration,
     url,
     tags,
     testimonial,
@@ -41,7 +43,7 @@ const Project = ({
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     return (
-        <Card 
+        <Card
             className={`group rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/60 dark:hover:bg-secondary hover:rounded-xl transition-all duration-300 p-4 ${
                 index > 0 ? 'border-t-0' : ''
             }`}
@@ -62,7 +64,14 @@ const Project = ({
                             />
                         )}
                         <div>
-                            <h3 className="font-medium">{name}</h3>
+                            <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                                <h3 className='font-medium'>{name}</h3>
+                                {duration && (
+                                    <span className='text-xs text-muted-foreground'>
+                                        {duration}
+                                    </span>
+                                )}
+                            </div>
                             <p className='text-sm text-muted-foreground'>
                                 {description}
                             </p>

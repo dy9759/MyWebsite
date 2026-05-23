@@ -15,7 +15,7 @@ const ProjectExperience = () => {
             {projects.length > 0 && (
                 <div className='space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        AI 项目
+                        产品 / AI 项目
                     </h3>
                     <div className='space-y-0'>
                         {projects.map((project, idx) => (
@@ -24,6 +24,7 @@ const ProjectExperience = () => {
                                 index={idx}
                                 name={project.name}
                                 icon={project.icon}
+                                duration={project.duration}
                                 description={project.description}
                                 image={project.image}
                                 url={project.url}
