@@ -2,6 +2,7 @@ import AboutSection from '@/components/about-section'
 import Achievements from '@/components/achievements'
 import ContactSection from '@/components/contact-section'
 import Education from '@/components/education'
+import FutureWork from '@/components/future-work'
 import Header from '@/components/header'
 import ProjectExperience from '@/components/project-experience'
 import WorkExperience from '@/components/work-experience'
@@ -14,6 +15,7 @@ export default function Home() {
             <AboutSection />
             <WorkExperience />
             <ProjectExperience />
+            <FutureWork />
             <Education />
             <Achievements />
         </div>

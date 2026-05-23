@@ -47,6 +47,15 @@ type Config = {
         duration?: string
         details?: string
     }[]
+    futureWork?: {
+        name: string
+        direction: string
+        description: string
+        tags: {
+            name: string
+            icon: keyof typeof Icons
+        }[]
+    }[]
     research?: {
         publications?: {
             authors: string
@@ -220,6 +229,30 @@ export const CONFIG: Config = {
                 { name: 'Agent', icon: 'llm' },
             ],
             featured: false,
+        },
+    ],
+    futureWork: [
+        {
+            name: 'Voice Agent 产品',
+            direction: 'ToC 方向',
+            description:
+                '负责 Voice Agent 产品规划与构建,重点包括牙科诊所 Voice Agent 系统与创作者平台。',
+            tags: [
+                { name: 'Voice Agent', icon: 'llm' },
+                { name: 'ToC', icon: 'gear' },
+                { name: 'Creator Platform', icon: 'gear' },
+            ],
+        },
+        {
+            name: '青少年 Vibe Coding 竞赛课程',
+            direction: '教育产品',
+            description:
+                '负责面向竞赛的青少年 Vibe Coding 课程设计,以类似阿里天池赛、全国 AI 赛的竞赛场景为卖点。第一节课即可通过口述式 Vibe Coding 完成竞赛题目,并通过排行榜展示口述代码的打分结果与全国排名。',
+            tags: [
+                { name: 'Education', icon: 'gear' },
+                { name: 'Vibe Coding', icon: 'llm' },
+                { name: 'Competition', icon: 'gear' },
+            ],
         },
     ],
     education: [
