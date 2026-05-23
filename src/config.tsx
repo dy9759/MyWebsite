@@ -448,17 +448,20 @@ export const CONFIG: Config = {
         positions: [
             {
                 company: '宇生月伴(杭州)智能科技有限公司',
-                role: '业务线产品负责人',
+                role: '业务线产品负责人 / AI Agent Product Builder',
                 duration: '2025年7月 - 至今',
                 description: (
                     <>
-                        负责业务线产品规划、需求定义、产品设计、团队协作与迭代落地。
+                        负责业务线产品规划、需求定义、产品设计、团队协作与迭代落地。2025年8月起使用 Claude Code、Codex、Antigravity 等 AI Agent 工具进行产品研发实践,产出 AI 产品。
                     </>
                 ),
                 tags: [
                     { name: 'LLM', icon: 'llm' },
                     { name: 'Agent', icon: 'gear' },
                     { name: 'Product', icon: 'gear' },
+                    { name: 'Claude Code', icon: 'llm' },
+                    { name: 'Codex', icon: 'llm' },
+                    { name: 'Antigravity', icon: 'gear' },
                 ],
             },
             {
@@ -476,21 +479,6 @@ export const CONFIG: Config = {
                     { name: 'Python', icon: 'python' },
                     { name: 'YOLOv8', icon: 'gear' },
                     { name: 'DRL', icon: 'gear' },
-                ],
-            },
-            {
-                company: 'AI Agent 产品实践',
-                role: 'AI Agent Product Builder',
-                duration: '2025年8月 - 至今',
-                description: (
-                    <>
-                        使用 Claude Code、Codex、Antigravity 等 AI Agent 工具进行产品研发实践,产出 AI 产品。
-                    </>
-                ),
-                tags: [
-                    { name: 'Claude Code', icon: 'llm' },
-                    { name: 'Codex', icon: 'llm' },
-                    { name: 'Antigravity', icon: 'gear' },
                 ],
             },
             {
