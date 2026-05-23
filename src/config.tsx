@@ -531,7 +531,7 @@ export const CONFIG: Config = {
             },
             {
                 company: '上海几凡设计教育(杭州校区)',
-                role: 'Product Manager — Founder',
+                role: '联合创始人 / Co-founder',
                 duration: 'Jun 2020 – Aug 2022',
                 description: (
                     <>
@@ -907,7 +907,7 @@ export const CONFIG_EN: Config = {
             },
             {
                 company: 'Shanghai Jifan Design Education (Hangzhou Campus)',
-                role: 'Product Manager — Founder',
+                role: 'Co-founder',
                 duration: 'Jun 2020 – Aug 2022',
                 description: (
                     <>
