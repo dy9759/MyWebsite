@@ -26,7 +26,7 @@ const SectionRailNav = ({
                 className,
             )}
         >
-            <div className='flex w-full flex-col border-l border-border/80 pl-3'>
+            <div className='flex w-full flex-col pl-3'>
                 {label && (
                     <span className='mb-1 px-2 text-[10px] font-medium uppercase tracking-wide text-muted-foreground'>
                         {label}
