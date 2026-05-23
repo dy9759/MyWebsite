@@ -39,6 +39,13 @@ type Config = {
             }[]
         }[]
     }
+    education?: {
+        school: string
+        degree: string
+        field: string
+        duration?: string
+        details?: string
+    }[]
     research?: {
         publications?: {
             authors: string
@@ -138,6 +145,19 @@ export const CONFIG: Config = {
                 { name: 'Agent', icon: 'llm' },
             ],
             featured: false,
+        },
+    ],
+    education: [
+        {
+            school: '武汉大学',
+            degree: '硕士',
+            field: '建筑智慧能源方向',
+            details: 'GPA Top 5%',
+        },
+        {
+            school: '浙大宁波理工学院',
+            degree: '本科',
+            field: '建筑学',
         },
     ],
     research: {

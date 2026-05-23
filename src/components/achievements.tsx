@@ -48,7 +48,7 @@ const Entry = ({ authors, title, venue, year, url, tier, index }: EntryProps) =>
 
     return (
         <Card
-            className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/60 dark:hover:bg-secondary hover:rounded-xl transition-all duration-300 p-4 ${
+            className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/60 dark:hover:bg-secondary ${
                 index > 0 ? 'border-t-0' : ''
             }`}
         >
@@ -75,76 +75,19 @@ const Entry = ({ authors, title, venue, year, url, tier, index }: EntryProps) =>
     )
 }
 
-const Research = () => {
+const Achievements = () => {
     const pubs = CONFIG.research?.publications ?? []
     const confs = CONFIG.research?.conferences ?? []
-    const grants = CONFIG.research?.grants ?? []
-    if (pubs.length === 0 && confs.length === 0 && grants.length === 0)
-        return null
+    if (pubs.length === 0 && confs.length === 0) return null
 
     return (
-        <div className='animate-slide-from-down-and-fade-4 space-y-6 px-4'>
-            <h2 className='font-bold'>Research</h2>
-
-            {grants.length > 0 && (
-                <div className='space-y-2'>
-                    <h3 className='text-sm font-medium text-muted-foreground'>
-                        Research Projects / 科研项目
-                    </h3>
-                    <div className='space-y-0'>
-                        {grants.map((g, idx) => (
-                            <Card
-                                key={idx}
-                                className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/60 dark:hover:bg-secondary hover:rounded-xl transition-all duration-300 p-4 ${
-                                    idx > 0 ? 'border-t-0' : ''
-                                }`}
-                            >
-                                <div className='flex flex-col gap-2'>
-                                    <div className='flex items-start justify-between gap-3'>
-                                        <h4 className='font-medium'>
-                                            {g.name}
-                                        </h4>
-                                        <span className='shrink-0 text-xs text-muted-foreground'>
-                                            {g.duration}
-                                        </span>
-                                    </div>
-                                    <Badge
-                                        variant='outline'
-                                        className='self-start text-[10px]'
-                                    >
-                                        {g.funding}
-                                    </Badge>
-                                    <dl className='mt-1 space-y-1.5 text-sm text-muted-foreground'>
-                                        <div className='flex gap-2'>
-                                            <dt className='shrink-0 font-medium text-foreground/80'>
-                                                描述:
-                                            </dt>
-                                            <dd>{g.overview}</dd>
-                                        </div>
-                                        <div className='flex gap-2'>
-                                            <dt className='shrink-0 font-medium text-foreground/80'>
-                                                职责:
-                                            </dt>
-                                            <dd>{g.role}</dd>
-                                        </div>
-                                        <div className='flex gap-2'>
-                                            <dt className='shrink-0 font-medium text-foreground/80'>
-                                                成果:
-                                            </dt>
-                                            <dd>{g.outcomes}</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            )}
+        <section className='animate-slide-from-down-and-fade-4 space-y-6 px-4'>
+            <h2 className='font-bold'>成果</h2>
 
             {pubs.length > 0 && (
                 <div className='space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        Journal Publications
+                        期刊论文
                     </h3>
                     <div className='space-y-0'>
                         {pubs.map((p, idx) => (
@@ -166,7 +109,7 @@ const Research = () => {
             {confs.length > 0 && (
                 <div className='space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        Conference Papers
+                        会议论文
                     </h3>
                     <div className='space-y-0'>
                         {confs.map((c, idx) => (
@@ -183,8 +126,8 @@ const Research = () => {
                     </div>
                 </div>
             )}
-        </div>
+        </section>
     )
 }
 
-export default Research
+export default Achievements

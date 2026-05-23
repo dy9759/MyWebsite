@@ -6,7 +6,7 @@ import Link from 'next/link'
 const WorkExperience = () => {
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
-            <h2 className='font-bold'>Work Experience</h2>
+            <h2 className='font-bold'>工作经验</h2>
 
             <div className='space-y-0'>
                 {CONFIG.workExperience?.positions?.map((position, idx) => (
@@ -62,4 +62,4 @@ const WorkExperience = () => {
     )
 }
 
-export default WorkExperience 
+export default WorkExperience

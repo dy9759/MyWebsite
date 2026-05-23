@@ -1,0 +1,48 @@
+import { Icons } from '@/components/icons'
+import { Button } from '@/components/ui/button'
+import { CONFIG } from '@/config'
+import Link from 'next/link'
+
+const ContactSection = () => {
+    return (
+        <section className='animate-slide-from-down-and-fade-2 space-y-3 px-4'>
+            <h2 className='font-bold'>联系方式</h2>
+            <div className='flex flex-wrap items-center gap-3'>
+                {CONFIG.socials.map((social, idx) => {
+                    const Icon = Icons[social.icon]
+                    return (
+                        <Button
+                            key={idx}
+                            asChild
+                            variant='outline'
+                            size='sm'
+                            className='gap-1.5'
+                        >
+                            <Link
+                                href={social.url}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <Icon className='size-4' />
+                                {social.name}
+                            </Link>
+                        </Button>
+                    )
+                })}
+                <Button
+                    asChild
+                    variant='link'
+                    size='sm'
+                    className='px-0 text-muted-foreground underline hover:text-foreground'
+                >
+                    <Link href='/ai'>
+                        AI 资源库
+                        <Icons.arrowUpRight className='ml-0.5 size-4' />
+                    </Link>
+                </Button>
+            </div>
+        </section>
+    )
+}
+
+export default ContactSection
