@@ -60,17 +60,6 @@ const ContactSection = () => {
                         </div>
                     )
                 })}
-                <Button
-                    asChild
-                    variant='link'
-                    size='sm'
-                    className='px-0 text-muted-foreground underline hover:text-foreground'
-                >
-                    <Link href='/ai'>
-                        AI 资源库
-                        <Icons.arrowUpRight className='ml-0.5 size-4' />
-                    </Link>
-                </Button>
             </div>
         </section>
     )
