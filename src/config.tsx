@@ -493,6 +493,23 @@ export const CONFIG: Config = {
                 ],
             },
             {
+                company: '北京智能问问科技(AI 初创)',
+                role: 'AI Product Manager — Intern',
+                duration: 'May 2025 – Jul 2025',
+                description: (
+                    <>
+                        竞品分析(NotebookLM / ima.copilot / 飞书知识问答),构建
+                        1000+ 评测案例集,产品设计提出沉浸式播客 AI 方向。
+                    </>
+                ),
+                tags: [
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'RAG', icon: 'llm' },
+                    { name: 'Evaluation', icon: 'gear' },
+                    { name: 'Coze', icon: 'gear' },
+                ],
+            },
+            {
                 company: '武汉大学建筑智慧能源实验室(全球前 2%)',
                 role: 'AI for Science 研究实践 / AI Product R&D — Part-time',
                 duration: '2023年 - 至今',
@@ -510,23 +527,6 @@ export const CONFIG: Config = {
                     { name: 'Python', icon: 'python' },
                     { name: 'YOLOv8', icon: 'gear' },
                     { name: 'DRL', icon: 'gear' },
-                ],
-            },
-            {
-                company: '北京智能问问科技(AI 初创)',
-                role: 'AI Product Manager — Intern',
-                duration: 'May 2025 – Jul 2025',
-                description: (
-                    <>
-                        竞品分析(NotebookLM / ima.copilot / 飞书知识问答),构建
-                        1000+ 评测案例集,产品设计提出沉浸式播客 AI 方向。
-                    </>
-                ),
-                tags: [
-                    { name: 'LLM', icon: 'llm' },
-                    { name: 'RAG', icon: 'llm' },
-                    { name: 'Evaluation', icon: 'gear' },
-                    { name: 'Coze', icon: 'gear' },
                 ],
             },
             {
@@ -863,6 +863,25 @@ export const CONFIG_EN: Config = {
                 ],
             },
             {
+                company: 'Beijing ZhiNeng WenWen Technology (AI Startup)',
+                role: 'AI Product Manager — Intern',
+                duration: 'May 2025 – Jul 2025',
+                description: (
+                    <>
+                        Conducted competitive analysis for NotebookLM,
+                        ima.copilot, and Feishu Knowledge Q&A; built a 1,000+
+                        case evaluation set; proposed an immersive podcast AI
+                        product direction.
+                    </>
+                ),
+                tags: [
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'RAG', icon: 'llm' },
+                    { name: 'Evaluation', icon: 'gear' },
+                    { name: 'Coze', icon: 'gear' },
+                ],
+            },
+            {
                 company:
                     'Wuhan University Smart Building Energy Lab (Global Top 2%)',
                 role: 'AI for Science Research Practice / AI Product R&D — Part-time',
@@ -884,25 +903,6 @@ export const CONFIG_EN: Config = {
                     { name: 'Python', icon: 'python' },
                     { name: 'YOLOv8', icon: 'gear' },
                     { name: 'DRL', icon: 'gear' },
-                ],
-            },
-            {
-                company: 'Beijing ZhiNeng WenWen Technology (AI Startup)',
-                role: 'AI Product Manager — Intern',
-                duration: 'May 2025 – Jul 2025',
-                description: (
-                    <>
-                        Conducted competitive analysis for NotebookLM,
-                        ima.copilot, and Feishu Knowledge Q&A; built a 1,000+
-                        case evaluation set; proposed an immersive podcast AI
-                        product direction.
-                    </>
-                ),
-                tags: [
-                    { name: 'LLM', icon: 'llm' },
-                    { name: 'RAG', icon: 'llm' },
-                    { name: 'Evaluation', icon: 'gear' },
-                    { name: 'Coze', icon: 'gear' },
                 ],
             },
             {
