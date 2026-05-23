@@ -185,6 +185,21 @@ export const CONFIG: Config = {
             pinned: true,
         },
         {
+            name: 'MyAttention 浏览器插件',
+            description:
+                'Chrome 浏览器插件,用于记录 AI 对话、网页高亮、停留阅读与浏览历史等注意力信号,并通过 LLM 生成周报、主题复盘与心理洞察,帮助突破信息茧房。',
+            url: '',
+            github: 'https://github.com/MyAIOSHub/MyAttention-extansion',
+            tags: [
+                { name: 'Chrome Extension', icon: 'gear' },
+                { name: 'LLM', icon: 'llm' },
+                { name: 'IndexedDB', icon: 'gear' },
+                { name: 'TypeScript', icon: 'typescript' },
+            ],
+            featured: true,
+            pinned: true,
+        },
+        {
             name: '大模型评测平台',
             duration: '2026年10月 - 至今',
             description: '负责 LLM、TTS、ASR 与端到端语音模型评测平台建设。',
@@ -639,6 +654,21 @@ export const CONFIG_EN: Config = {
                 { name: 'A2A', icon: 'llm' },
                 { name: 'Team Productivity', icon: 'gear' },
                 { name: 'Solo Builder', icon: 'gear' },
+            ],
+            featured: true,
+            pinned: true,
+        },
+        {
+            name: 'MyAttention Browser Extension',
+            description:
+                'Built a Chrome extension that records attention signals from AI conversations, highlights, reading dwell time, and browser history, then uses LLMs to generate weekly reports, topic reviews, and psychology insights to break information bubbles.',
+            url: '',
+            github: 'https://github.com/MyAIOSHub/MyAttention-extansion',
+            tags: [
+                { name: 'Chrome Extension', icon: 'gear' },
+                { name: 'LLM', icon: 'llm' },
+                { name: 'IndexedDB', icon: 'gear' },
+                { name: 'TypeScript', icon: 'typescript' },
             ],
             featured: true,
             pinned: true,
