@@ -29,7 +29,7 @@ const LayerWrap = ({
     return (
         <section
             id={id}
-            className={`flex flex-col gap-6 px-4 scroll-mt-8 ${DELAY_CLASS[animationDelay]}`}
+            className={`scroll-mt-28 flex flex-col gap-6 px-4 ${DELAY_CLASS[animationDelay]}`}
         >
             <div className='flex flex-col gap-1 border-l-4 border-accent/60 pl-3'>
                 <div className='flex items-center gap-2'>

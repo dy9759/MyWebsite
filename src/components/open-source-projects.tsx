@@ -4,21 +4,41 @@ import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
-const OpenSourceProjects = () => {
+type OpenSourceProjectsProps = {
+    variant?: 'standalone' | 'embedded'
+}
+
+const OpenSourceProjects = ({
+    variant = 'standalone',
+}: OpenSourceProjectsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
     const projects = config.openSourceProjects ?? []
+    const embedded = variant === 'embedded'
+
     if (projects.length === 0) return null
 
     return (
         <section
             id='open-source'
-            className='scroll-mt-28 animate-slide-from-down-and-fade-4 space-y-4 px-4'
+            className={cn(
+                'scroll-mt-28',
+                embedded
+                    ? 'space-y-2'
+                    : 'animate-slide-from-down-and-fade-4 space-y-4 px-4',
+            )}
         >
             <div className='flex flex-wrap items-center justify-between gap-3'>
-                <h2 className='font-bold'>{copy.sections.openSource}</h2>
+                {embedded ? (
+                    <h3 className='text-sm font-medium text-muted-foreground'>
+                        {copy.sections.openSource}
+                    </h3>
+                ) : (
+                    <h2 className='font-bold'>{copy.sections.openSource}</h2>
+                )}
                 <Button
                     asChild
                     variant='link'

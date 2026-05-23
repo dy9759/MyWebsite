@@ -48,6 +48,7 @@ export const SITE_COPY = {
         },
         languageToggle: '语言切换',
         sectionNav: '主页章节导航',
+        projectSectionNav: '项目分类导航',
     },
     en: {
         nav: {
@@ -81,6 +82,7 @@ export const SITE_COPY = {
         },
         languageToggle: 'Language switcher',
         sectionNav: 'Homepage section navigation',
+        projectSectionNav: 'Project category navigation',
     },
 } as const
 
