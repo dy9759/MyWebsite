@@ -462,18 +462,20 @@ export const CONFIG: Config = {
                 ],
             },
             {
-                company: 'AI for Science 研究实践',
-                role: 'AI for Science',
+                company: '武汉大学建筑智慧能源实验室(全球前 2%)',
+                role: 'AI for Science 研究实践 / AI Product R&D — Part-time',
                 duration: '2023年 - 至今',
                 description: (
                     <>
-                        使用 AI 与 GitHub Copilot 辅助科研建模、数据分析与论文写作,产出论文成果。
+                        使用 AI 与 GitHub Copilot 辅助科研建模、数据分析与论文写作,产出论文成果。实验室阶段 Jan 2023 – Jun 2025,推动光伏识别业务 +20 倍范围,GCN-LSTM + DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
                     </>
                 ),
                 tags: [
                     { name: 'AI for Science', icon: 'llm' },
                     { name: 'GitHub Copilot', icon: 'github' },
-                    { name: 'Research', icon: 'gear' },
+                    { name: 'Python', icon: 'python' },
+                    { name: 'YOLOv8', icon: 'gear' },
+                    { name: 'DRL', icon: 'gear' },
                 ],
             },
             {
@@ -505,22 +507,6 @@ export const CONFIG: Config = {
                     { name: 'RAG', icon: 'llm' },
                     { name: 'Evaluation', icon: 'gear' },
                     { name: 'Coze', icon: 'gear' },
-                ],
-            },
-            {
-                company: '武汉大学建筑智慧能源实验室(全球前 2%)',
-                role: 'AI Product R&D — Part-time',
-                duration: 'Jan 2023 – Jun 2025',
-                description: (
-                    <>
-                        光伏识别业务 +20 倍范围,GCN-LSTM + DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
-                    </>
-                ),
-                tags: [
-                    { name: 'Python', icon: 'python' },
-                    { name: 'LLM', icon: 'llm' },
-                    { name: 'YOLOv8', icon: 'gear' },
-                    { name: 'DRL', icon: 'gear' },
                 ],
             },
             {
