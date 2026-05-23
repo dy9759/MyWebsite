@@ -15,7 +15,7 @@ const Contact = () => {
     return (
         <div className='mt-12 flex flex-col border-t pt-6 animate-slide-from-down-and-fade-5'>
             <div className='flex items-center justify-between px-4'>
-                <p className='text-sm text-muted-foreground'>© 2025 Samuel Zhang</p>
+                <p className='text-sm text-muted-foreground'>© 2025 李盛园</p>
                 <div className='flex items-center gap-2'>
                     <TooltipProvider delayDuration={70}>
                         {CONFIG.socials.map((social, idx) => {

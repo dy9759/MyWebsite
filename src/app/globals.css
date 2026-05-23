@@ -82,7 +82,74 @@
     * {
         @apply border-border;
     }
+    html {
+        scroll-behavior: smooth;
+    }
     body {
         @apply bg-background text-foreground;
+    }
+}
+
+@layer base {
+    .theme-radix-nova {
+        --background: 0 0% 99%;
+        --foreground: 240 10% 4%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 4%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 4%;
+
+        --primary: 240 6% 10%;
+        --primary-foreground: 0 0% 98%;
+
+        --secondary: 240 5% 96%;
+        --secondary-foreground: 240 6% 10%;
+
+        --muted: 240 5% 96%;
+        --muted-foreground: 240 4% 35%;
+
+        --accent: 250 90% 66%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 6% 90%;
+        --input: 240 6% 90%;
+        --ring: 250 90% 66%;
+
+        --radius: 0.75rem;
+    }
+
+    .dark .theme-radix-nova {
+        --background: 240 10% 4%;
+        --foreground: 0 0% 98%;
+
+        --card: 240 7% 8%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 240 7% 8%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 6% 10%;
+
+        --secondary: 240 5% 14%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 5% 14%;
+        --muted-foreground: 240 5% 70%;
+
+        --accent: 250 85% 72%;
+        --accent-foreground: 240 10% 4%;
+
+        --destructive: 0 63% 40%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 5% 18%;
+        --input: 240 5% 18%;
+        --ring: 250 85% 72%;
     }
 }
