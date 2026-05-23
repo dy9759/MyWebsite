@@ -10,7 +10,10 @@ const WorkExperience = () => {
     const copy = useSiteCopy()
 
     return (
-        <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
+        <section
+            id='work'
+            className='scroll-mt-28 animate-slide-from-down-and-fade-2 space-y-4 px-4'
+        >
             <h2 className='font-bold'>{copy.sections.work}</h2>
 
             <div className='space-y-0'>
@@ -63,7 +66,7 @@ const WorkExperience = () => {
                     </Card>
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
 

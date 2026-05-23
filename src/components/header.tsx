@@ -10,7 +10,10 @@ const Header = () => {
     const copy = useSiteCopy()
 
     return (
-        <header className='flex w-full animate-slide-from-down-and-fade-1 flex-col gap-6 px-4'>
+        <header
+            id='profile'
+            className='flex w-full scroll-mt-28 animate-slide-from-down-and-fade-1 flex-col gap-6 px-4'
+        >
             <div className='flex items-center justify-between'>
                 <div>
                     <h1 className='text-2xl font-semibold'>{config.name}</h1>

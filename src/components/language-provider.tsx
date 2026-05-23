@@ -47,6 +47,7 @@ export const SITE_COPY = {
             repository: 'GitHub repository',
         },
         languageToggle: '语言切换',
+        sectionNav: '主页章节导航',
     },
     en: {
         nav: {
@@ -79,6 +80,7 @@ export const SITE_COPY = {
             repository: 'GitHub repository',
         },
         languageToggle: 'Language switcher',
+        sectionNav: 'Homepage section navigation',
     },
 } as const
 

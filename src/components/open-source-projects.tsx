@@ -13,7 +13,10 @@ const OpenSourceProjects = () => {
     if (projects.length === 0) return null
 
     return (
-        <section className='animate-slide-from-down-and-fade-4 space-y-4 px-4'>
+        <section
+            id='open-source'
+            className='scroll-mt-28 animate-slide-from-down-and-fade-4 space-y-4 px-4'
+        >
             <div className='flex flex-wrap items-center justify-between gap-3'>
                 <h2 className='font-bold'>{copy.sections.openSource}</h2>
                 <Button

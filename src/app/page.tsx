@@ -4,22 +4,26 @@ import ContactSection from '@/components/contact-section'
 import Education from '@/components/education'
 import FutureWork from '@/components/future-work'
 import Header from '@/components/header'
+import HomeSectionNav from '@/components/home-section-nav'
 import OpenSourceProjects from '@/components/open-source-projects'
 import ProjectExperience from '@/components/project-experience'
 import WorkExperience from '@/components/work-experience'
 
 export default function Home() {
     return (
-        <div className='flex flex-col gap-12'>
-            <Header />
-            <ContactSection />
-            <AboutSection />
-            <WorkExperience />
-            <ProjectExperience />
-            <OpenSourceProjects />
-            <FutureWork />
-            <Education />
-            <Achievements />
+        <div className='grid gap-6 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start'>
+            <HomeSectionNav />
+            <div className='flex min-w-0 flex-col gap-12'>
+                <Header />
+                <ContactSection />
+                <AboutSection />
+                <WorkExperience />
+                <ProjectExperience />
+                <OpenSourceProjects />
+                <FutureWork />
+                <Education />
+                <Achievements />
+            </div>
         </div>
     )
 }

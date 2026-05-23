@@ -13,7 +13,10 @@ const ProjectExperience = () => {
     if (projects.length === 0 && grants.length === 0) return null
 
     return (
-        <section className='animate-slide-from-down-and-fade-3 space-y-6 px-4'>
+        <section
+            id='projects'
+            className='scroll-mt-28 animate-slide-from-down-and-fade-3 space-y-6 px-4'
+        >
             <h2 className='font-bold'>{copy.sections.projects}</h2>
 
             {projects.length > 0 && (

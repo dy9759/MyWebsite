@@ -10,7 +10,10 @@ const Education = () => {
     if (education.length === 0) return null
 
     return (
-        <section className='animate-slide-from-down-and-fade-4 space-y-4 px-4'>
+        <section
+            id='education'
+            className='scroll-mt-28 animate-slide-from-down-and-fade-4 space-y-4 px-4'
+        >
             <h2 className='font-bold'>{copy.sections.education}</h2>
             <div className='space-y-0'>
                 {education.map((item, idx) => (
