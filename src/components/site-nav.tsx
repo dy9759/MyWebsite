@@ -23,7 +23,7 @@ const SiteNav = () => {
             aria-label='主导航'
             className='sticky top-0 z-50 mb-8 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80'
         >
-            <div className='flex items-center gap-5 text-sm'>
+            <div className='flex items-center justify-center gap-5 text-sm'>
                 {NAV_ITEMS.map((item) => {
                     const active = isActivePath(pathname, item.href)
                     return (
