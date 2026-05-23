@@ -5,6 +5,7 @@ import {
     Star,
     Sun,
     Cog,
+    MessageCircle,
 } from 'lucide-react'
 
 export const Icons = {
@@ -140,6 +141,7 @@ export const Icons = {
         </svg>
     ),
     externalLink: ExternalLink,
+    wechat: MessageCircle,
     react: (props: LucideProps) => (
         <svg
             xmlns='http://www.w3.org/2000/svg'

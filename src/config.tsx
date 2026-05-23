@@ -125,9 +125,9 @@ export const CONFIG: Config = {
             icon: 'email',
         },
         {
-            label: '微信',
+            label: 'WeChat',
             value: 'ChaunceyAI2030',
-            icon: 'gear',
+            icon: 'wechat',
         },
     ],
     description: (
