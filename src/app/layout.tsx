@@ -53,7 +53,7 @@ export default function RootLayout({
                 <body
                     className={cn(
                         'min-h-screen bg-background font-sans antialiased',
-                        fontSans.variable
+                        fontSans.variable,
                     )}
                 >
                     {process.env.NODE_ENV === 'production' && (
@@ -63,7 +63,7 @@ export default function RootLayout({
                     <ThemeProvider
                         attribute='class'
                         defaultTheme='dark'
-                        enableSystem
+                        enableSystem={false}
                         disableTransitionOnChange
                     >
                         <main className='mx-auto max-w-2xl py-4 md:pt-10'>
