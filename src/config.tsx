@@ -10,6 +10,12 @@ type Config = {
         url: string
         icon: keyof typeof Icons
     }[]
+    contactMethods?: {
+        label: string
+        value: string
+        href?: string
+        icon: keyof typeof Icons
+    }[]
     description: string | JSX.Element
     descriptionRaw: string
     projects: {
@@ -103,6 +109,25 @@ export const CONFIG: Config = {
             name: 'GitHub',
             url: 'https://github.com/dy9759',
             icon: 'github',
+        },
+    ],
+    contactMethods: [
+        {
+            label: '邮箱',
+            value: 'dy0509@foxmail.com',
+            href: 'mailto:dy0509@foxmail.com',
+            icon: 'email',
+        },
+        {
+            label: '邮箱',
+            value: 'dy9759@gmail.com',
+            href: 'mailto:dy9759@gmail.com',
+            icon: 'email',
+        },
+        {
+            label: '微信',
+            value: 'ChaunceyAI2030',
+            icon: 'gear',
         },
     ],
     description: (

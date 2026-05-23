@@ -29,6 +29,37 @@ const ContactSection = () => {
                         </Button>
                     )
                 })}
+                {CONFIG.contactMethods?.map((method, idx) => {
+                    const Icon = Icons[method.icon]
+                    const label = `${method.label}: ${method.value}`
+
+                    if (method.href) {
+                        return (
+                            <Button
+                                key={idx}
+                                asChild
+                                variant='outline'
+                                size='sm'
+                                className='gap-1.5'
+                            >
+                                <Link href={method.href}>
+                                    <Icon className='size-4' />
+                                    {label}
+                                </Link>
+                            </Button>
+                        )
+                    }
+
+                    return (
+                        <div
+                            key={idx}
+                            className='inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-input bg-background px-3 text-sm font-medium'
+                        >
+                            <Icon className='size-4' />
+                            {label}
+                        </div>
+                    )
+                })}
                 <Button
                     asChild
                     variant='link'
