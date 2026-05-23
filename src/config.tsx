@@ -280,17 +280,47 @@ export const CONFIG: Config = {
         positions: [
             {
                 company: '宇生月伴(杭州)智能科技有限公司',
-                role: 'Product Lead — Sayso',
-                duration: 'Jul 2025 – Present',
+                role: '业务线产品负责人',
+                duration: '2025年7月 - 至今',
                 description: (
                     <>
-                        负责 Sayso 产品全流程:需求定义、产品设计、团队协作与迭代落地。
+                        负责业务线产品规划、需求定义、产品设计、团队协作与迭代落地。
                     </>
                 ),
                 tags: [
                     { name: 'LLM', icon: 'llm' },
                     { name: 'Agent', icon: 'gear' },
                     { name: 'Product', icon: 'gear' },
+                ],
+            },
+            {
+                company: 'AI for Science 研究实践',
+                role: 'AI for Science',
+                duration: '2023年 - 至今',
+                description: (
+                    <>
+                        使用 AI 与 GitHub Copilot 辅助科研建模、数据分析与论文写作,产出论文成果。
+                    </>
+                ),
+                tags: [
+                    { name: 'AI for Science', icon: 'llm' },
+                    { name: 'GitHub Copilot', icon: 'github' },
+                    { name: 'Research', icon: 'gear' },
+                ],
+            },
+            {
+                company: 'AI Agent 产品实践',
+                role: 'AI Agent Product Builder',
+                duration: '2025年8月 - 至今',
+                description: (
+                    <>
+                        使用 Claude Code、Codex、Antigravity 等 AI Agent 工具进行产品研发实践,产出 AI 产品。
+                    </>
+                ),
+                tags: [
+                    { name: 'Claude Code', icon: 'llm' },
+                    { name: 'Codex', icon: 'llm' },
+                    { name: 'Antigravity', icon: 'gear' },
                 ],
             },
             {
