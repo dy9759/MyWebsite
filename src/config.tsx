@@ -439,14 +439,6 @@ export const CONFIG: Config = {
                 pinned: true,
             },
             {
-                authors: 'Xiaohuan Xie, Ruobing Wang, Zhonghua Gou',
-                title: 'Changes in park visits and the shift towards rural recreation: Evidence from the COVID-19 pandemic in the UK',
-                venue: 'Journal of Rural Studies, Vol. 106, 103221',
-                year: '2024',
-                url: 'https://doi.org/10.1016/j.jrurstud.2024.103221',
-                tier: 'JCR Q1 · 中科院一区',
-            },
-            {
                 authors:
                     'Xiaohuan Xie, Haifeng Deng, Shengyuan Li, Zhonghua Gou',
                 title: 'Optimizing Land Use for Carbon Neutrality: Integrating Photovoltaic Development in Lingbao, Henan Province',
