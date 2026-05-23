@@ -1,17 +1,21 @@
+'use client'
+
 import { Icons } from '@/components/icons'
+import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { CONFIG } from '@/config'
 import Link from 'next/link'
 
 const OpenSourceProjects = () => {
-    const projects = CONFIG.openSourceProjects ?? []
+    const config = useSiteConfig()
+    const copy = useSiteCopy()
+    const projects = config.openSourceProjects ?? []
     if (projects.length === 0) return null
 
     return (
         <section className='animate-slide-from-down-and-fade-4 space-y-4 px-4'>
             <div className='flex flex-wrap items-center justify-between gap-3'>
-                <h2 className='font-bold'>开源项目 / GitHub</h2>
+                <h2 className='font-bold'>{copy.sections.openSource}</h2>
                 <Button
                     asChild
                     variant='link'
@@ -56,7 +60,7 @@ const OpenSourceProjects = () => {
                                         href={project.url}
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        aria-label={`${project.name} GitHub repository`}
+                                        aria-label={`${project.name} ${copy.labels.repository}`}
                                     >
                                         <Icons.github className='size-4' />
                                     </Link>

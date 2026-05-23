@@ -1,9 +1,11 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import { Icons } from '@/components/icons'
+import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import { CONFIG } from '@/config'
 
 const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
 
@@ -84,18 +86,20 @@ const Entry = ({
 }
 
 const Achievements = () => {
-    const pubs = CONFIG.research?.publications ?? []
-    const confs = CONFIG.research?.conferences ?? []
+    const config = useSiteConfig()
+    const copy = useSiteCopy()
+    const pubs = config.research?.publications ?? []
+    const confs = config.research?.conferences ?? []
     if (pubs.length === 0 && confs.length === 0) return null
 
     return (
         <section className='animate-slide-from-down-and-fade-4 space-y-6 px-4'>
-            <h2 className='font-bold'>成果</h2>
+            <h2 className='font-bold'>{copy.sections.achievements}</h2>
 
             {pubs.length > 0 && (
                 <div className='space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        期刊论文
+                        {copy.sections.journalPapers}
                     </h3>
                     <div className='space-y-0'>
                         {pubs.map((p, idx) => (
@@ -117,7 +121,7 @@ const Achievements = () => {
             {confs.length > 0 && (
                 <div className='space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        会议论文
+                        {copy.sections.conferencePapers}
                     </h3>
                     <div className='space-y-0'>
                         {confs.map((c, idx) => (

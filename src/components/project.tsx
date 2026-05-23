@@ -1,4 +1,7 @@
+'use client'
+
 import { Icons } from '@/components/icons'
+import { useSiteCopy } from '@/components/language-provider'
 import { ReadMore } from '@/components/read-more'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -42,6 +45,8 @@ const Project = ({
     index = 0,
 }: ProjectProps) => {
     const Icon = Icons[icon!]
+    const copy = useSiteCopy()
+
     return (
         <Card
             className={`group rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/10 dark:hover:bg-accent/10 hover:rounded-xl transition-all duration-300 p-4 ${
@@ -92,7 +97,7 @@ const Project = ({
                                                 <Link
                                                     href={github}
                                                     target='_blank'
-                                                    aria-label='Github'
+                                                    aria-label={`${name} ${copy.labels.repository}`}
                                                 >
                                                     <Icons.github className='size-4' />
                                                 </Link>
@@ -102,7 +107,7 @@ const Project = ({
                                             side='bottom'
                                             className='bg-transparent text-xs'
                                         >
-                                            Source Code
+                                            {copy.labels.sourceCode}
                                         </TooltipContent>
                                     </Tooltip>
                                 )}
@@ -117,7 +122,9 @@ const Project = ({
                                             <Link
                                                 href={url}
                                                 target='_blank'
-                                                aria-label='Visit Website'
+                                                aria-label={
+                                                    copy.labels.visitWebsite
+                                                }
                                             >
                                                 <Icons.externalLink className='size-4' />
                                             </Link>
@@ -127,7 +134,7 @@ const Project = ({
                                         side='bottom'
                                         className='bg-transparent text-xs'
                                     >
-                                        Visit Website
+                                        {copy.labels.visitWebsite}
                                     </TooltipContent>
                                 </Tooltip>
                             </TooltipProvider>

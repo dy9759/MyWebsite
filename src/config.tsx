@@ -132,8 +132,9 @@ export const CONFIG: Config = {
     ],
     description: (
         <>
-            👋 你好!我是李盛园,一名 AI 产品经理,拥有 3+ 年 AI 产品研发与落地经验。
-            武汉大学建筑智慧能源方向硕士(GPA Top 5%),本科毕业于浙大宁波理工学院建筑学。
+            👋 你好!我是李盛园,一名 AI 产品经理,拥有 3+ 年 AI
+            产品研发与落地经验。 武汉大学建筑智慧能源方向硕士(GPA Top
+            5%),本科毕业于浙大宁波理工学院建筑学。
             熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
             发表 SCI 期刊论文 5 篇,担任 TOP 期刊审稿人。欢迎交流合作!
         </>
@@ -477,7 +478,9 @@ export const CONFIG: Config = {
                 duration: '2025年7月 - 至今',
                 description: (
                     <>
-                        负责业务线产品规划、需求定义、产品设计、团队协作与迭代落地。2025年8月起使用 Claude Code、Codex、Antigravity 等 AI Agent 工具进行产品研发实践,产出 AI 产品。
+                        负责业务线产品规划、需求定义、产品设计、团队协作与迭代落地。2025年8月起使用
+                        Claude Code、Codex、Antigravity 等 AI Agent
+                        工具进行产品研发实践,产出 AI 产品。
                     </>
                 ),
                 tags: [
@@ -495,7 +498,10 @@ export const CONFIG: Config = {
                 duration: '2023年 - 至今',
                 description: (
                     <>
-                        使用 AI 与 GitHub Copilot 辅助科研建模、数据分析与论文写作,产出论文成果。实验室阶段 Jan 2023 – Jun 2025,推动光伏识别业务 +20 倍范围,GCN-LSTM + DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
+                        使用 AI 与 GitHub Copilot
+                        辅助科研建模、数据分析与论文写作,产出论文成果。实验室阶段
+                        Jan 2023 – Jun 2025,推动光伏识别业务 +20 倍范围,GCN-LSTM
+                        + DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
                     </>
                 ),
                 tags: [
@@ -512,7 +518,8 @@ export const CONFIG: Config = {
                 duration: 'May 2025 – Jul 2025',
                 description: (
                     <>
-                        竞品分析(NotebookLM / ima.copilot / 飞书知识问答),构建 1000+ 评测案例集,产品设计提出沉浸式播客 AI 方向。
+                        竞品分析(NotebookLM / ima.copilot / 飞书知识问答),构建
+                        1000+ 评测案例集,产品设计提出沉浸式播客 AI 方向。
                     </>
                 ),
                 tags: [
@@ -528,7 +535,386 @@ export const CONFIG: Config = {
                 duration: 'Jun 2020 – Aug 2022',
                 description: (
                     <>
-                        基于聚类 + 回归分析用户画像,用户增长 +30%、营收 +20%;设计精品小班产品,差评退课率 -15%。
+                        基于聚类 + 回归分析用户画像,用户增长 +30%、营收
+                        +20%;设计精品小班产品,差评退课率 -15%。
+                    </>
+                ),
+                tags: [
+                    { name: 'Python', icon: 'python' },
+                    { name: 'SQL', icon: 'sql' },
+                ],
+            },
+        ],
+    },
+}
+
+export const CONFIG_EN: Config = {
+    ...CONFIG,
+    name: 'Shengyuan Li',
+    title: 'AI Product Manager',
+    contactMethods: [
+        {
+            label: 'Email',
+            value: 'dy0509@foxmail.com',
+            href: 'mailto:dy0509@foxmail.com',
+            icon: 'email',
+        },
+        {
+            label: 'Email',
+            value: 'dy9759@gmail.com',
+            href: 'mailto:dy9759@gmail.com',
+            icon: 'email',
+        },
+        {
+            label: 'WeChat',
+            value: 'ChaunceyAI2030',
+            icon: 'wechat',
+        },
+    ],
+    description: (
+        <>
+            Hi, I&apos;m Shengyuan Li, an AI Product Manager with 3+ years of AI
+            product R&D and delivery experience. I hold an M.S. in Smart
+            Building Energy from Wuhan University (GPA Top 5%) and a B.S. in
+            Architecture from Zhejiang University NingboTech. I work across
+            local LLM deployment, RAG, agents, and model fine-tuning, with
+            product experience in architecture, energy, and e-commerce. I have
+            published 5 SCI journal papers and serve as a reviewer for top
+            journals. Open to collaboration.
+        </>
+    ),
+    projects: [
+        {
+            name: 'Sayso ToC Product',
+            duration: 'Oct 2025 – Present',
+            description:
+                'Led Sayso ToC product across input method, meetings, personal voice assistant, and personal productivity scenarios; owned product direction and coordinated frontend/backend delivery. The MVP trial reached 1,000+ users, 2.77% paid conversion after registration/trial, and 58.6% annual membership share.',
+            url: '',
+            tags: [
+                { name: 'ToC', icon: 'gear' },
+                { name: 'Product', icon: 'gear' },
+                { name: 'AI Assistant', icon: 'llm' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'Sayso Team',
+            duration: 'Mar 2026 – Present',
+            description:
+                'Led Sayso Team for A2A collaboration and team productivity, building the product as a solo builder.',
+            url: '',
+            tags: [
+                { name: 'A2A', icon: 'llm' },
+                { name: 'Team Productivity', icon: 'gear' },
+                { name: 'Solo Builder', icon: 'gear' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'LLM Evaluation Platform',
+            duration: 'Oct 2026 – Present',
+            description:
+                'Led the evaluation platform for LLM, TTS, ASR, and end-to-end voice models.',
+            url: '',
+            tags: [
+                { name: 'LLM Evaluation', icon: 'llm' },
+                { name: 'TTS', icon: 'gear' },
+                { name: 'ASR', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'VuiLabs Website',
+            duration: 'Sep 2026 – Present',
+            description:
+                'Contributed to the official website for VuiLabs, a ToB product.',
+            url: '',
+            tags: [
+                { name: 'ToB', icon: 'gear' },
+                { name: 'Website', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'Sayso Data Agent',
+            duration: 'Apr 2026',
+            description:
+                'Built an internal data agent that uses MCP calls to replace traditional data dashboard development.',
+            url: '',
+            tags: [
+                { name: 'Data Agent', icon: 'llm' },
+                { name: 'MCP', icon: 'gear' },
+                { name: 'Internal Tool', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'Content Creation Cold Start',
+            duration: 'Aug 2025 – Sep 2025',
+            description:
+                'Led content creation and cold start for a new Xiaohongshu account, gaining 1,000+ followers in one month.',
+            url: '',
+            tags: [
+                { name: 'Content', icon: 'gear' },
+                { name: 'Growth', icon: 'gear' },
+                { name: 'Xiaohongshu', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'Immersive Podcast AI Product',
+            description:
+                'Designed a consumer AI product for information overload and fragmented attention. It uses multi-agent workflows to restructure content consumption and supports multi-perspective podcast-style discussions around any link or document.',
+            url: '',
+            tags: [
+                { name: 'Coze', icon: 'gear' },
+                { name: 'Multi-Agent', icon: 'llm' },
+                { name: 'Evaluation', icon: 'gear' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'AI Industry Knowledge Base',
+            description:
+                'Built a B2B intelligent Q&A product using Llama 3.2 LoRA fine-tuning, local Python RAG deployment, and Coze Agent auto-updates to improve team knowledge retrieval efficiency.',
+            url: '',
+            tags: [
+                { name: 'Python', icon: 'python' },
+                { name: 'RAG', icon: 'llm' },
+                { name: 'Llama 3.2', icon: 'llm' },
+                { name: 'Coze', icon: 'gear' },
+            ],
+            featured: true,
+        },
+        {
+            name: 'Renewable Energy + Demand-Side AI Management',
+            description:
+                'Developed a B2B energy AI product combining GCN-LSTM spatiotemporal power forecasting with Q-learning load control, improving green electricity consumption by 50% and reducing demand-side energy use by 15%.',
+            url: '',
+            tags: [
+                { name: 'Python', icon: 'python' },
+                { name: 'GCN-LSTM', icon: 'gear' },
+                { name: 'DRL', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
+            name: 'PV Product Demand Analysis AI',
+            description:
+                'Built a consumer-side PV feature using YOLOv8 transfer learning and SAM semi-automatic annotation for rooftop capacity detection (92% accuracy), plus Agent + Stable Diffusion batch renderings, reducing site survey time from 3 hours to 5 minutes.',
+            url: '',
+            tags: [
+                { name: 'YOLOv8', icon: 'gear' },
+                { name: 'SAM', icon: 'gear' },
+                { name: 'Stable Diffusion', icon: 'openai' },
+                { name: 'Agent', icon: 'llm' },
+            ],
+            featured: false,
+        },
+    ],
+    openSourceProjects: [
+        {
+            name: 'Personal Development Harness Skill',
+            repo: 'dy9759/claude-codex-orchestration',
+            url: 'https://github.com/dy9759/claude-codex-orchestration',
+            description:
+                'Built a personal development harness skill that orchestrates Claude Code and Codex dual-agent workflows into reusable engineering collaboration routines.',
+            tags: [
+                { name: 'Claude Code', icon: 'llm' },
+                { name: 'Codex', icon: 'llm' },
+                { name: 'Harness', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'MyIsland Dynamic Island Interaction',
+            repo: 'MyAIOSHub/MyIsland',
+            url: 'https://github.com/MyAIOSHub/MyIsland',
+            description:
+                'Explored macOS desktop interaction patterns such as Dynamic Island and Notch Launcher for system status, quick entry points, and floating UI experiences.',
+            tags: [
+                { name: 'macOS', icon: 'gear' },
+                { name: 'Dynamic Island', icon: 'gear' },
+                { name: 'Swift', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'Multi-Agent Team Collaboration',
+            repo: 'dy9759/rudder0518',
+            url: 'https://github.com/dy9759/rudder0518',
+            description:
+                'Built a collaboration and orchestration platform for multiple people and multiple agents, exploring task routing, run control, and team productivity.',
+            tags: [
+                { name: 'Multi-Agent', icon: 'llm' },
+                { name: 'Team', icon: 'gear' },
+                { name: 'Orchestration', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'TTS Evaluation Platform',
+            repo: 'dy9759/One-Eval0425',
+            url: 'https://github.com/dy9759/One-Eval0425',
+            description:
+                'Built an evaluation platform for TTS, ASR, and end-to-end voice models, supporting standardized tests, result comparison, and model quality tracking.',
+            tags: [
+                { name: 'TTS', icon: 'gear' },
+                { name: 'ASR', icon: 'gear' },
+                { name: 'Evaluation', icon: 'llm' },
+            ],
+        },
+    ],
+    futureWork: [
+        {
+            name: 'Voice Agent Product',
+            direction: 'ToC',
+            description:
+                'Own product planning and construction for Voice Agent products, focusing on a dental-clinic voice agent system and a creator platform.',
+            tags: [
+                { name: 'Voice Agent', icon: 'llm' },
+                { name: 'ToC', icon: 'gear' },
+                { name: 'Creator Platform', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'Youth Vibe Coding Competition Course',
+            direction: 'Education Product',
+            description:
+                'Design a youth Vibe Coding course for competition-oriented learning, using scenarios similar to Tianchi or national AI contests as the hook. In the first class, students can solve competition tasks through voice-driven vibe coding and see leaderboard scores and national ranking.',
+            tags: [
+                { name: 'Education', icon: 'gear' },
+                { name: 'Vibe Coding', icon: 'llm' },
+                { name: 'Competition', icon: 'gear' },
+            ],
+        },
+    ],
+    education: [
+        {
+            school: 'Wuhan University',
+            degree: "Master's Degree",
+            field: 'Smart Building Energy',
+            details: 'GPA Top 5%',
+        },
+        {
+            school: 'Zhejiang University NingboTech',
+            degree: "Bachelor's Degree",
+            field: 'Architecture',
+        },
+    ],
+    research: {
+        publications:
+            CONFIG.research?.publications?.map((publication) => ({
+                ...publication,
+                tier: publication.tier
+                    .replace('中科院一区', 'CAS Q1')
+                    .replace('中科院二区', 'CAS Q2')
+                    .replace('中科院三区', 'CAS Q3')
+                    .replace('第一作者', 'First Author'),
+            })) ?? [],
+        grants: [
+            {
+                name: 'Collaborative Observation, Transformation Mechanisms, and Simulation of Rural Territorial Systems',
+                funding: 'NSFC Major Program',
+                duration: 'Jan 2023 – Present',
+                overview:
+                    'Focused on rural territorial system transformation, carbon-reduction optimization for transportation and land use, integrated industrial-economic impact evaluation, and optimal regional development pathways.',
+                role: 'Developed two research methodologies; provided technical guidance for a six-person data analysis team; supported proposal writing, project execution, and final delivery management.',
+                outcomes:
+                    'Completed 10 research-to-application outputs ahead of schedule; research outcomes were included as references for local government planning and improved regional sustainability capacity.',
+            },
+        ],
+        conferences: [
+            ...(CONFIG.research?.conferences ?? []).slice(0, 3),
+            {
+                authors: 'Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
+                title: 'Multi-Scenario Land Use Simulation and Carbon Storage Analysis in Major Grain-Producing Areas under Carbon Neutrality',
+                venue: '2024 Annual Meeting of the Geographical Society of China Physical Geography Committee, Meizhou, Guangdong',
+                year: 'Jun 2024',
+            },
+            {
+                authors: 'Teng Teng, Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
+                title: 'Multi-Scenario Land Use Simulation and Evaluation of Typical Counties in Urban-Rural Fringe Areas under Integrated Urban-Rural Development',
+                venue: 'Annual Conference of the Geographical Society of China, Nanjing, Jiangsu',
+                year: 'Sep 2024',
+            },
+        ],
+    },
+    workExperience: {
+        positions: [
+            {
+                company:
+                    'Yusheng Yueban (Hangzhou) Intelligent Technology Co., Ltd.',
+                role: 'Business Line Product Lead / AI Agent Product Builder',
+                duration: 'Jul 2025 – Present',
+                description: (
+                    <>
+                        Own business-line product planning, requirement
+                        definition, product design, team collaboration, and
+                        iteration delivery. Since Aug 2025, I have used Claude
+                        Code, Codex, Antigravity, and other AI agent tools for
+                        product R&D practice, delivering AI products.
+                    </>
+                ),
+                tags: [
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'Agent', icon: 'gear' },
+                    { name: 'Product', icon: 'gear' },
+                    { name: 'Claude Code', icon: 'llm' },
+                    { name: 'Codex', icon: 'llm' },
+                    { name: 'Antigravity', icon: 'gear' },
+                ],
+            },
+            {
+                company:
+                    'Wuhan University Smart Building Energy Lab (Global Top 2%)',
+                role: 'AI for Science Research Practice / AI Product R&D — Part-time',
+                duration: '2023 – Present',
+                description: (
+                    <>
+                        Used AI and GitHub Copilot to support scientific
+                        modeling, data analysis, and paper writing, producing
+                        research publications. During Jan 2023 – Jun 2025, I
+                        expanded PV recognition coverage by 20x, improved green
+                        electricity consumption by 50% with GCN-LSTM + DRL, and
+                        built an automatically updating local RAG knowledge
+                        base.
+                    </>
+                ),
+                tags: [
+                    { name: 'AI for Science', icon: 'llm' },
+                    { name: 'GitHub Copilot', icon: 'github' },
+                    { name: 'Python', icon: 'python' },
+                    { name: 'YOLOv8', icon: 'gear' },
+                    { name: 'DRL', icon: 'gear' },
+                ],
+            },
+            {
+                company: 'Beijing ZhiNeng WenWen Technology (AI Startup)',
+                role: 'AI Product Manager — Intern',
+                duration: 'May 2025 – Jul 2025',
+                description: (
+                    <>
+                        Conducted competitive analysis for NotebookLM,
+                        ima.copilot, and Feishu Knowledge Q&A; built a 1,000+
+                        case evaluation set; proposed an immersive podcast AI
+                        product direction.
+                    </>
+                ),
+                tags: [
+                    { name: 'LLM', icon: 'llm' },
+                    { name: 'RAG', icon: 'llm' },
+                    { name: 'Evaluation', icon: 'gear' },
+                    { name: 'Coze', icon: 'gear' },
+                ],
+            },
+            {
+                company: 'Shanghai Jifan Design Education (Hangzhou Campus)',
+                role: 'Product Manager — Founder',
+                duration: 'Jun 2020 – Aug 2022',
+                description: (
+                    <>
+                        Built user personas through clustering and regression
+                        analysis, driving +30% user growth and +20% revenue;
+                        designed premium small-class products and reduced
+                        refund/dropout caused by negative reviews by 15%.
                     </>
                 ),
                 tags: [

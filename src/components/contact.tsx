@@ -1,4 +1,7 @@
+'use client'
+
 import { Icons } from '@/components/icons'
+import { useSiteConfig } from '@/components/language-provider'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import {
@@ -7,18 +10,21 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { CONFIG } from '@/config'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 const Contact = () => {
+    const config = useSiteConfig()
+
     return (
         <div className='mt-12 flex flex-col border-t pt-6 animate-slide-from-down-and-fade-5'>
             <div className='flex items-center justify-between px-4'>
-                <p className='text-sm text-muted-foreground'>© 2025 李盛园</p>
+                <p className='text-sm text-muted-foreground'>
+                    © 2025 {config.name}
+                </p>
                 <div className='flex items-center gap-2'>
                     <TooltipProvider delayDuration={70}>
-                        {CONFIG.socials.map((social, idx) => {
+                        {config.socials.map((social, idx) => {
                             const Icon = Icons[social.icon]
                             return (
                                 <Tooltip key={idx}>
@@ -27,7 +33,7 @@ const Contact = () => {
                                             asChild
                                             variant={'ghost'}
                                             className={cn(
-                                                'size-10 p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground'
+                                                'size-10 p-0 text-muted-foreground transition-colors duration-200 hover:text-foreground',
                                             )}
                                         >
                                             <Link

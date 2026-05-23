@@ -1,14 +1,18 @@
+'use client'
+
 import { Icons } from '@/components/icons'
+import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Card } from '@/components/ui/card'
-import { CONFIG } from '@/config'
 
 const FutureWork = () => {
-    const futureWork = CONFIG.futureWork ?? []
+    const config = useSiteConfig()
+    const copy = useSiteCopy()
+    const futureWork = config.futureWork ?? []
     if (futureWork.length === 0) return null
 
     return (
         <section className='animate-slide-from-down-and-fade-4 space-y-4 px-4'>
-            <h2 className='font-bold'>未来工作</h2>
+            <h2 className='font-bold'>{copy.sections.futureWork}</h2>
             <div className='space-y-0'>
                 {futureWork.map((item, idx) => (
                     <Card

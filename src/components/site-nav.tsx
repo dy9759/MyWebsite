@@ -3,13 +3,15 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { LanguageToggle } from '@/components/language-toggle'
+import { useSiteCopy } from '@/components/language-provider'
 import { ModeToggle } from '@/components/mode-toggle'
 
 const NAV_ITEMS = [
-    { href: '/', label: '主页' },
-    { href: '/projects', label: '项目' },
-    { href: '/ai', label: 'AI资源库' },
-]
+    { href: '/', labelKey: 'home' },
+    { href: '/projects', labelKey: 'projects' },
+    { href: '/ai', labelKey: 'ai' },
+] as const
 
 const isActivePath = (pathname: string, href: string) => {
     if (href === '/') return pathname === '/'
@@ -18,6 +20,7 @@ const isActivePath = (pathname: string, href: string) => {
 
 const SiteNav = () => {
     const pathname = usePathname()
+    const copy = useSiteCopy()
 
     return (
         <nav
@@ -39,12 +42,13 @@ const SiteNav = () => {
                                         'border-foreground text-foreground',
                                 )}
                             >
-                                {item.label}
+                                {copy.nav[item.labelKey]}
                             </Link>
                         )
                     })}
                 </div>
-                <div className='absolute right-0 top-1/2 -translate-y-1/2'>
+                <div className='absolute right-0 top-1/2 flex -translate-y-1/2 items-center gap-1'>
+                    <LanguageToggle />
                     <ModeToggle />
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/components/language-provider'
 import { CONFIG } from '@/config'
 import { cn } from '@/lib/utils'
 import { HighlightInit } from '@highlight-run/next/client'
@@ -43,7 +44,7 @@ export default function RootLayout({
                     }}
                 />
             )}
-            <html lang='en' suppressHydrationWarning>
+            <html lang='zh-CN' suppressHydrationWarning>
                 <head>
                     <meta
                         name='google-site-verification'
@@ -60,18 +61,20 @@ export default function RootLayout({
                         <GoogleAnalytics gaId='G-32FLEBL3F6' />
                     )}
                     <Analytics />
-                    <ThemeProvider
-                        attribute='class'
-                        defaultTheme='dark'
-                        enableSystem={false}
-                        disableTransitionOnChange
-                    >
-                        <main className='mx-auto max-w-2xl py-4 md:pt-10'>
-                            <SiteNav />
-                            {children}
-                            <Contact />
-                        </main>
-                    </ThemeProvider>
+                    <LanguageProvider>
+                        <ThemeProvider
+                            attribute='class'
+                            defaultTheme='dark'
+                            enableSystem={false}
+                            disableTransitionOnChange
+                        >
+                            <main className='mx-auto max-w-2xl py-4 md:pt-10'>
+                                <SiteNav />
+                                {children}
+                                <Contact />
+                            </main>
+                        </ThemeProvider>
+                    </LanguageProvider>
                 </body>
             </html>
         </>

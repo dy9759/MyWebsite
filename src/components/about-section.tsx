@@ -1,11 +1,16 @@
-import { CONFIG } from '@/config'
+'use client'
+
+import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 
 const AboutSection = () => {
+    const config = useSiteConfig()
+    const copy = useSiteCopy()
+
     return (
         <section className='animate-slide-from-down-and-fade-2 space-y-3 px-4'>
-            <h2 className='font-bold'>个人介绍</h2>
+            <h2 className='font-bold'>{copy.sections.about}</h2>
             <p className='leading-relaxed text-muted-foreground'>
-                {CONFIG.description}
+                {config.description}
             </p>
         </section>
     )

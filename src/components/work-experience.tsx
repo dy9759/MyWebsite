@@ -1,15 +1,20 @@
+'use client'
+
 import { Icons } from '@/components/icons'
-import { CONFIG } from '@/config'
+import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 
 const WorkExperience = () => {
+    const config = useSiteConfig()
+    const copy = useSiteCopy()
+
     return (
         <div className='animate-slide-from-down-and-fade-2 space-y-4 px-4'>
-            <h2 className='font-bold'>工作经验</h2>
+            <h2 className='font-bold'>{copy.sections.work}</h2>
 
             <div className='space-y-0'>
-                {CONFIG.workExperience?.positions?.map((position, idx) => (
+                {config.workExperience?.positions?.map((position, idx) => (
                     <Card
                         key={idx}
                         className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/10 dark:hover:bg-accent/10 hover:rounded-xl transition-all duration-300 p-4 ${
