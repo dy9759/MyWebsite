@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import PinnedBadge from '@/components/pinned-badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
 import { AI_CONFIG } from '@/ai-config'
 import { getInitials } from '@/lib/utils'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const PeopleGrid = () => {
+    const people = sortPinnedFirst(AI_CONFIG.people)
+
     return (
         <section
             id='people'
@@ -18,7 +22,7 @@ const PeopleGrid = () => {
             </div>
 
             <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                {AI_CONFIG.people.map((person, idx) => (
+                {people.map((person, idx) => (
                     <Link
                         key={idx}
                         href={person.url}
@@ -28,7 +32,10 @@ const PeopleGrid = () => {
                     >
                         <Card className='flex items-center gap-3 p-4 transition-colors hover:bg-accent/10'>
                             <Avatar className='size-10 shrink-0'>
-                                <AvatarImage src={person.avatar} alt={person.name} />
+                                <AvatarImage
+                                    src={person.avatar}
+                                    alt={person.name}
+                                />
                                 <AvatarFallback>
                                     {getInitials(person.name)}
                                 </AvatarFallback>
@@ -38,6 +45,7 @@ const PeopleGrid = () => {
                                     <h3 className='truncate font-medium group-hover:underline'>
                                         {person.name}
                                     </h3>
+                                    {person.pinned && <PinnedBadge />}
                                     <span className='text-xs text-muted-foreground'>
                                         {person.handle}
                                     </span>

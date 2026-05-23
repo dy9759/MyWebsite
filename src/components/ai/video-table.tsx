@@ -13,15 +13,17 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import PinnedBadge from '@/components/pinned-badge'
 import VideoFilter, {
     type VideoFilterValue,
 } from '@/components/ai/video-filter'
 import { AI_CONFIG, type VideoTag } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const COLLAPSED_COUNT = 3
 
 const VideoTable = () => {
-    const videos = AI_CONFIG.videos
+    const videos = sortPinnedFirst(AI_CONFIG.videos)
 
     const allTags = useMemo<VideoTag[]>(() => {
         const set = new Set<VideoTag>()
@@ -112,9 +114,13 @@ const VideoTable = () => {
                                                         Rec
                                                     </Badge>
                                                 )}
+                                                {video.pinned && (
+                                                    <PinnedBadge />
+                                                )}
                                             </div>
                                             <div className='mt-0.5 text-xs text-muted-foreground'>
-                                                {video.channel} · {video.duration}
+                                                {video.channel} ·{' '}
+                                                {video.duration}
                                             </div>
                                             <div className='mt-1 flex flex-wrap gap-1 sm:hidden'>
                                                 {video.tags.map((t) => (

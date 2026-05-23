@@ -2,17 +2,24 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinnedBadge from '@/components/pinned-badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 
 type FutureWorkProps = {
     variant?: 'standalone' | 'embedded'
+    pinnedOnly?: boolean
 }
 
-const FutureWork = ({ variant = 'standalone' }: FutureWorkProps) => {
+const FutureWork = ({
+    variant = 'standalone',
+    pinnedOnly = false,
+}: FutureWorkProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const futureWork = config.futureWork ?? []
+    const allFutureWork = sortPinnedFirst(config.futureWork ?? [])
+    const futureWork = pinnedOnly ? filterPinned(allFutureWork) : allFutureWork
     const embedded = variant === 'embedded'
 
     if (futureWork.length === 0) return null
@@ -45,6 +52,7 @@ const FutureWork = ({ variant = 'standalone' }: FutureWorkProps) => {
                         <div className='flex flex-col gap-2'>
                             <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                                 <h3 className='font-medium'>{item.name}</h3>
+                                {item.pinned && <PinnedBadge />}
                                 <span className='text-xs text-muted-foreground'>
                                     {item.direction}
                                 </span>

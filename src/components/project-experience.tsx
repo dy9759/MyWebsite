@@ -5,14 +5,15 @@ import OpenSourceProjects from '@/components/open-source-projects'
 import Project from '@/components/project'
 import ResearchProjects from '@/components/research-projects'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import { filterPinned } from '@/lib/pin'
 
 const ProjectExperience = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const grants = config.research?.grants ?? []
-    const projects = config.projects
-    const openSourceProjects = config.openSourceProjects ?? []
-    const futureWork = config.futureWork ?? []
+    const grants = filterPinned(config.research?.grants ?? [])
+    const projects = filterPinned(config.projects)
+    const openSourceProjects = filterPinned(config.openSourceProjects ?? [])
+    const futureWork = filterPinned(config.futureWork ?? [])
     if (
         projects.length === 0 &&
         grants.length === 0 &&
@@ -50,15 +51,16 @@ const ProjectExperience = () => {
                                 tags={project.tags}
                                 testimonial={project.testimonial}
                                 github={project.github}
+                                pinned={project.pinned}
                             />
                         ))}
                     </div>
                 </section>
             )}
 
-            <ResearchProjects variant='embedded' />
-            <OpenSourceProjects variant='embedded' />
-            <FutureWork variant='embedded' />
+            <ResearchProjects variant='embedded' pinnedOnly />
+            <OpenSourceProjects variant='embedded' pinnedOnly />
+            <FutureWork variant='embedded' pinnedOnly />
         </section>
     )
 }

@@ -2,6 +2,7 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteCopy } from '@/components/language-provider'
+import PinnedBadge from '@/components/pinned-badge'
 import { ReadMore } from '@/components/read-more'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -29,6 +30,7 @@ interface ProjectProps {
     }[]
     testimonial?: string
     github?: string
+    pinned?: boolean
     index?: number
 }
 
@@ -42,6 +44,7 @@ const Project = ({
     tags,
     testimonial,
     github,
+    pinned,
     index = 0,
 }: ProjectProps) => {
     const Icon = Icons[icon!]
@@ -71,6 +74,7 @@ const Project = ({
                         <div>
                             <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                                 <h3 className='font-medium'>{name}</h3>
+                                {pinned && <PinnedBadge />}
                                 {duration && (
                                     <span className='text-xs text-muted-foreground'>
                                         {duration}

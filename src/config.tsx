@@ -31,6 +31,7 @@ type Config = {
         }[]
         github?: string
         featured: boolean
+        pinned?: boolean
         testimonial?: string
     }[]
     workExperience?: {
@@ -57,6 +58,7 @@ type Config = {
         name: string
         direction: string
         description: string
+        pinned?: boolean
         tags: {
             name: string
             icon: keyof typeof Icons
@@ -67,6 +69,7 @@ type Config = {
         repo: string
         url: string
         description: string
+        pinned?: boolean
         tags: {
             name: string
             icon: keyof typeof Icons
@@ -80,6 +83,7 @@ type Config = {
             year: string
             url: string
             tier: string
+            pinned?: boolean
         }[]
         conferences?: {
             authors: string
@@ -87,6 +91,7 @@ type Config = {
             venue: string
             year: string
             url?: string
+            pinned?: boolean
         }[]
         grants?: {
             name: string
@@ -95,6 +100,7 @@ type Config = {
             overview: string
             role: string
             outcomes: string
+            pinned?: boolean
         }[]
     }
 }
@@ -154,6 +160,7 @@ export const CONFIG: Config = {
                 { name: 'AI Assistant', icon: 'llm' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: 'Sayso Team',
@@ -167,6 +174,7 @@ export const CONFIG: Config = {
                 { name: 'Solo Builder', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: '大模型评测平台',
@@ -227,6 +235,7 @@ export const CONFIG: Config = {
                 { name: 'Evaluation', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: '智能问答 AI 行业知识库',
@@ -240,6 +249,7 @@ export const CONFIG: Config = {
                 { name: 'Coze', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: '新能源 + 负荷侧能源管理 AI',
@@ -274,6 +284,7 @@ export const CONFIG: Config = {
             url: 'https://github.com/dy9759/claude-codex-orchestration',
             description:
                 '搭建个人开发 harness skill,编排 Claude Code 与 Codex 双 Agent 工作流,沉淀为可复用的开发协作流程。',
+            pinned: true,
             tags: [
                 { name: 'Claude Code', icon: 'llm' },
                 { name: 'Codex', icon: 'llm' },
@@ -298,6 +309,7 @@ export const CONFIG: Config = {
             url: 'https://github.com/dy9759/rudder0518',
             description:
                 '面向多人、多 Agent 的协作与调度平台,探索 agent teams 的任务编排、运行控制与团队提效。',
+            pinned: true,
             tags: [
                 { name: 'Multi-Agent', icon: 'llm' },
                 { name: 'Team', icon: 'gear' },
@@ -323,6 +335,7 @@ export const CONFIG: Config = {
             direction: 'ToC 方向',
             description:
                 '负责 Voice Agent 产品规划与构建,重点包括牙科诊所 Voice Agent 系统与创作者平台。',
+            pinned: true,
             tags: [
                 { name: 'Voice Agent', icon: 'llm' },
                 { name: 'ToC', icon: 'gear' },
@@ -400,6 +413,7 @@ export const CONFIG: Config = {
                 year: 'Dec 2024',
                 url: 'https://doi.org/10.1016/j.jobe.2024.111496',
                 tier: 'JCR Q1 · 中科院二区 Top · First Author',
+                pinned: true,
             },
             {
                 authors: 'Xiaohuan Xie, Ruobing Wang, Zhonghua Gou',
@@ -425,6 +439,7 @@ export const CONFIG: Config = {
                 year: 'Oct 2023',
                 url: 'https://doi.org/10.3390/land12101956',
                 tier: 'JCR Q2 · 中科院三区 · First Author',
+                pinned: true,
             },
         ],
         grants: [
@@ -437,6 +452,7 @@ export const CONFIG: Config = {
                 role: '开发 2 套研究方法论;技术指导 6 人团队开展数据分析;负责项目申报、推进与结项管理。',
                 outcomes:
                     '提前完成 10 项成果转化;研究成果被纳入地方政府规划参考,提升区域可持续发展能力。',
+                pinned: true,
             },
         ],
         conferences: [
@@ -463,6 +479,7 @@ export const CONFIG: Config = {
                 title: '碳中和背景下粮食主产区土地利用多情景模拟与碳储量分析',
                 venue: '中国地理学会自然地理学专业委员会 2024 年学术年会, 广东梅州',
                 year: 'Jun 2024',
+                pinned: true,
             },
             {
                 authors: '滕腾, 邓海峰, 李盛园, 谢晓欢',
@@ -598,6 +615,7 @@ export const CONFIG_EN: Config = {
                 { name: 'AI Assistant', icon: 'llm' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: 'Sayso Team',
@@ -611,6 +629,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Solo Builder', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: 'LLM Evaluation Platform',
@@ -674,6 +693,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Evaluation', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: 'AI Industry Knowledge Base',
@@ -687,6 +707,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Coze', icon: 'gear' },
             ],
             featured: true,
+            pinned: true,
         },
         {
             name: 'Renewable Energy + Demand-Side AI Management',
@@ -721,6 +742,7 @@ export const CONFIG_EN: Config = {
             url: 'https://github.com/dy9759/claude-codex-orchestration',
             description:
                 'Built a personal development harness skill that orchestrates Claude Code and Codex dual-agent workflows into reusable engineering collaboration routines.',
+            pinned: true,
             tags: [
                 { name: 'Claude Code', icon: 'llm' },
                 { name: 'Codex', icon: 'llm' },
@@ -745,6 +767,7 @@ export const CONFIG_EN: Config = {
             url: 'https://github.com/dy9759/rudder0518',
             description:
                 'Built a collaboration and orchestration platform for multiple people and multiple agents, exploring task routing, run control, and team productivity.',
+            pinned: true,
             tags: [
                 { name: 'Multi-Agent', icon: 'llm' },
                 { name: 'Team', icon: 'gear' },
@@ -770,6 +793,7 @@ export const CONFIG_EN: Config = {
             direction: 'ToC',
             description:
                 'Own product planning and construction for Voice Agent products, focusing on a dental-clinic voice agent system and a creator platform.',
+            pinned: true,
             tags: [
                 { name: 'Voice Agent', icon: 'llm' },
                 { name: 'ToC', icon: 'gear' },
@@ -823,6 +847,7 @@ export const CONFIG_EN: Config = {
                 role: 'Developed two research methodologies; provided technical guidance for a six-person data analysis team; supported proposal writing, project execution, and final delivery management.',
                 outcomes:
                     'Completed 10 research-to-application outputs ahead of schedule; research outcomes were included as references for local government planning and improved regional sustainability capacity.',
+                pinned: true,
             },
         ],
         conferences: [
@@ -832,6 +857,7 @@ export const CONFIG_EN: Config = {
                 title: 'Multi-Scenario Land Use Simulation and Carbon Storage Analysis in Major Grain-Producing Areas under Carbon Neutrality',
                 venue: '2024 Annual Meeting of the Geographical Society of China Physical Geography Committee, Meizhou, Guangdong',
                 year: 'Jun 2024',
+                pinned: true,
             },
             {
                 authors: 'Teng Teng, Haifeng Deng, Shengyuan Li, Xiaohuan Xie',

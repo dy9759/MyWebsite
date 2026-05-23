@@ -1,8 +1,12 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const NewsletterList = () => {
+    const newsletters = sortPinnedFirst(AI_CONFIG.newsletters)
+
     return (
         <section
             id='newsletters'
@@ -16,7 +20,7 @@ const NewsletterList = () => {
             </div>
 
             <ul className='flex flex-col divide-y divide-border rounded-lg border'>
-                {AI_CONFIG.newsletters.map((n, idx) => (
+                {newsletters.map((n, idx) => (
                     <li key={idx}>
                         <Link
                             href={n.url}
@@ -25,9 +29,12 @@ const NewsletterList = () => {
                             className='group flex items-start justify-between gap-3 p-3 transition-colors hover:bg-accent/10'
                         >
                             <div className='flex min-w-0 flex-col gap-0.5'>
-                                <h3 className='font-medium group-hover:underline'>
-                                    {n.title}
-                                </h3>
+                                <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                                    <h3 className='font-medium group-hover:underline'>
+                                        {n.title}
+                                    </h3>
+                                    {n.pinned && <PinnedBadge />}
+                                </div>
                                 <p className='text-sm text-muted-foreground'>
                                     {n.description}
                                 </p>

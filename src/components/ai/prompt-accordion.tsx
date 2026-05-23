@@ -9,10 +9,13 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const PromptAccordion = () => {
     const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
+    const prompts = sortPinnedFirst(AI_CONFIG.prompts)
 
     const copy = async (text: string, idx: number) => {
         try {
@@ -37,12 +40,13 @@ const PromptAccordion = () => {
             </div>
 
             <Accordion type='multiple' className='rounded-lg border px-4'>
-                {AI_CONFIG.prompts.map((prompt, idx) => (
+                {prompts.map((prompt, idx) => (
                     <AccordionItem key={idx} value={`prompt-${idx}`}>
                         <AccordionTrigger className='text-left'>
                             <div className='flex flex-col items-start gap-0.5'>
-                                <span className='font-medium'>
+                                <span className='flex flex-wrap items-center gap-x-2 gap-y-1 font-medium'>
                                     {prompt.title}
+                                    {prompt.pinned && <PinnedBadge />}
                                 </span>
                                 <span className='text-xs font-normal text-muted-foreground'>
                                     {prompt.description}
@@ -57,9 +61,7 @@ const PromptAccordion = () => {
                                 <Button
                                     variant='outline'
                                     size='sm'
-                                    onClick={() =>
-                                        copy(prompt.content, idx)
-                                    }
+                                    onClick={() => copy(prompt.content, idx)}
                                     className='self-end'
                                 >
                                     {copiedIdx === idx ? (

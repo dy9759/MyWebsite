@@ -9,9 +9,13 @@ import {
     TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const PodcastGrid = () => {
+    const podcasts = sortPinnedFirst(AI_CONFIG.podcasts)
+
     return (
         <section
             id='podcasts'
@@ -38,7 +42,7 @@ const PodcastGrid = () => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {AI_CONFIG.podcasts.map((podcast, idx) => (
+                        {podcasts.map((podcast, idx) => (
                             <TableRow key={idx}>
                                 <TableCell>
                                     <div className='flex items-center gap-1.5'>
@@ -59,6 +63,7 @@ const PodcastGrid = () => {
                                                 Rec
                                             </Badge>
                                         )}
+                                        {podcast.pinned && <PinnedBadge />}
                                     </div>
                                     <div className='mt-0.5 text-xs text-muted-foreground'>
                                         {podcast.host}

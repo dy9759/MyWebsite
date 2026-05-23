@@ -21,6 +21,7 @@ export type AIConfig = {
         tldwUrl?: string
         tags: VideoTag[]
         featured?: boolean
+        pinned?: boolean
     }[]
     podcasts: {
         title: string
@@ -28,6 +29,7 @@ export type AIConfig = {
         description: string
         url: string
         featured?: boolean
+        pinned?: boolean
     }[]
     people: {
         name: string
@@ -35,11 +37,13 @@ export type AIConfig = {
         avatar: string
         url: string
         role: string
+        pinned?: boolean
     }[]
     newsletters: {
         title: string
         description: string
         url: string
+        pinned?: boolean
     }[]
     products: {
         name: string
@@ -47,26 +51,34 @@ export type AIConfig = {
         url: string
         icon?: keyof typeof Icons
         featured?: boolean
+        pinned?: boolean
     }[]
     prompts: {
         title: string
         description: string
         content: string
+        pinned?: boolean
     }[]
     skills: {
         title: string
         description: string
         demoUrl?: string
         githubUrl: string
+        pinned?: boolean
     }[]
     sources: {
         layer: string
         title: string
         description?: string
-        items?: { name: string; url?: string; note?: string }[]
+        items?: {
+            name: string
+            url?: string
+            note?: string
+            pinned?: boolean
+        }[]
         groups?: {
             label: string
-            items: { name: string; url?: string }[]
+            items: { name: string; url?: string; pinned?: boolean }[]
         }[]
     }[]
     sourcesUsage: {
@@ -100,7 +112,7 @@ export const AI_CONFIG: AIConfig = {
     },
     videos: [
         {
-            title: "Intro to Large Language Models",
+            title: 'Intro to Large Language Models',
             channel: 'Andrej Karpathy',
             duration: '1h 0m',
             url: 'https://www.youtube.com/watch?v=zjkBMFhNj_g',
@@ -113,6 +125,7 @@ export const AI_CONFIG: AIConfig = {
             url: 'https://www.youtube.com/watch?v=kCc8FmEb1nY',
             tags: ['Fundamentals', 'Research'],
             featured: true,
+            pinned: true,
         },
         {
             title: 'How I use LLMs',
@@ -121,6 +134,7 @@ export const AI_CONFIG: AIConfig = {
             url: 'https://www.youtube.com/watch?v=EWvNQjAaOHw',
             tags: ['Product', 'Tools'],
             featured: true,
+            pinned: true,
         },
         {
             title: 'The State of AI with Sam Altman',
@@ -152,6 +166,7 @@ export const AI_CONFIG: AIConfig = {
                 'Short, non-technical news recaps. Great for quick catch-up.',
             url: 'https://www.youtube.com/@ai-explained-',
             featured: true,
+            pinned: true,
         },
         {
             title: 'Dwarkesh Podcast',
@@ -160,6 +175,7 @@ export const AI_CONFIG: AIConfig = {
                 'Not AI-focused but AI-heavy; some heavy hitters. The new Lex Fridman.',
             url: 'https://www.dwarkeshpatel.com/podcast',
             featured: true,
+            pinned: true,
         },
         {
             title: 'The DeepMind Podcast',
@@ -167,6 +183,7 @@ export const AI_CONFIG: AIConfig = {
             description: 'Official DeepMind podcast on AI research.',
             url: 'https://deepmind.google/discover/the-podcast/',
             featured: true,
+            pinned: true,
         },
         {
             title: 'The Cognitive Revolution',
@@ -174,6 +191,7 @@ export const AI_CONFIG: AIConfig = {
             description: 'Great new pod tracking AI frontier developments.',
             url: 'https://www.cognitiverevolution.ai/',
             featured: true,
+            pinned: true,
         },
         {
             title: 'Robot Brains',
@@ -181,6 +199,7 @@ export const AI_CONFIG: AIConfig = {
             description: 'Decent backlog on AI/robotics from a top researcher.',
             url: 'https://www.therobotbrains.ai/',
             featured: true,
+            pinned: true,
         },
         {
             title: 'No Priors',
@@ -189,6 +208,7 @@ export const AI_CONFIG: AIConfig = {
                 'Investor-perspective conversations with AI founders and researchers.',
             url: 'https://linktr.ee/nopriors',
             featured: true,
+            pinned: true,
         },
         {
             title: 'Unsupervised Learning',
@@ -196,6 +216,7 @@ export const AI_CONFIG: AIConfig = {
             description: 'VC conversations on AI — tight, product-focused.',
             url: 'https://podtail.com/en/podcast/unsupervised-learning/',
             featured: true,
+            pinned: true,
         },
         {
             title: 'Lex Fridman Podcast',
@@ -290,13 +311,15 @@ export const AI_CONFIG: AIConfig = {
         {
             title: 'Generally Intelligent',
             host: 'Kanjun Qiu',
-            description: 'Cerebral RL-focused pod (now dormant but great backlog).',
+            description:
+                'Cerebral RL-focused pod (now dormant but great backlog).',
             url: 'https://generallyintelligent.com/podcast',
         },
         {
             title: 'Weaviate Podcast',
             host: 'Weaviate',
-            description: 'Good technical discussions on vector databases and RAG.',
+            description:
+                'Good technical discussions on vector databases and RAG.',
             url: 'https://podcasters.spotify.com/pod/show/weaviate/episodes/Erika-Cardenas--Roman-Grebennikov--and-Vsevolod-Goloviznin-on-Recommendation-and-Metarank---Pod-43-e2280u3',
         },
         {
@@ -328,7 +351,8 @@ export const AI_CONFIG: AIConfig = {
         {
             title: 'Y Combinator',
             host: 'Y Combinator',
-            description: 'YC channel — founder interviews and AI startup insights.',
+            description:
+                'YC channel — founder interviews and AI startup insights.',
             url: 'https://www.youtube.com/@ycombinator',
         },
         {
@@ -352,6 +376,7 @@ export const AI_CONFIG: AIConfig = {
             avatar: 'https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg',
             url: 'https://x.com/karpathy',
             role: 'Former Tesla AI, OpenAI. Best educator in the field.',
+            pinned: true,
         },
         {
             name: 'Sam Altman',
@@ -380,6 +405,7 @@ export const AI_CONFIG: AIConfig = {
             avatar: '',
             url: 'https://x.com/simonw',
             role: 'Engineer, LLM tinkerer, best daily notes on what is shipping.',
+            pinned: true,
         },
         {
             name: 'Nathan Lambert',
@@ -486,6 +512,7 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'Ben Thompson on AI strategy, business models, and industry moves. Paid but worth it.',
             url: 'https://stratechery.com/',
+            pinned: true,
         },
         {
             title: 'Import AI',
@@ -504,6 +531,7 @@ export const AI_CONFIG: AIConfig = {
             description:
                 'What is worth trying this week — tools, models, prompts. Updated daily.',
             url: 'https://simonwillison.net/',
+            pinned: true,
         },
     ],
     products: [
@@ -513,6 +541,7 @@ export const AI_CONFIG: AIConfig = {
                 'Upload any docs or YouTube links, get an instant audio podcast summary. Great for dense material.',
             url: 'https://notebooklm.google.com/',
             featured: true,
+            pinned: true,
         },
         {
             name: 'Granola',
@@ -532,6 +561,7 @@ export const AI_CONFIG: AIConfig = {
                 'Default for thinking, writing, and coding. Strongest long-context and reasoning model for my workflow.',
             url: 'https://claude.ai/',
             featured: true,
+            pinned: true,
         },
         {
             name: 'Cursor',
@@ -539,12 +569,14 @@ export const AI_CONFIG: AIConfig = {
                 'AI-first code editor. Inline completions and agent-style edits beat everything else I have tried.',
             url: 'https://cursor.com/',
             featured: true,
+            pinned: true,
         },
     ],
     prompts: [
         {
             title: 'AI Dictionary',
-            description: 'Turns any AI term into a layman-friendly explanation with an analogy.',
+            description:
+                'Turns any AI term into a layman-friendly explanation with an analogy.',
             content: `You are an AI dictionary. When I give you a term from machine learning or AI (e.g. "transformer", "RLHF", "context window"), respond with:
 
 1. A one-sentence plain-English definition
@@ -556,7 +588,9 @@ Keep each section to 2-3 sentences. Do not use jargon in the definition unless y
         },
         {
             title: 'Video Notes Recorder',
-            description: 'Converts a YouTube transcript into structured notes with timestamps.',
+            description:
+                'Converts a YouTube transcript into structured notes with timestamps.',
+            pinned: true,
             content: `You will receive a YouTube video transcript. Produce structured notes with:
 
 - **Overview**: 2-3 sentence summary of the video
@@ -568,7 +602,8 @@ Preserve the speaker's voice in the quotes. Do not editorialize.`,
         },
         {
             title: 'Podcast to Blog Post',
-            description: 'Converts a podcast transcript into a readable blog post.',
+            description:
+                'Converts a podcast transcript into a readable blog post.',
             content: `You will receive a podcast transcript (1-2 speakers). Convert it into a blog post with:
 
 - A title that captures the strongest idea
@@ -590,6 +625,7 @@ Write in third person. Do not invent details not in the transcript.`,
                     name: 'Techmeme',
                     url: 'https://www.techmeme.com/',
                     note: '聚合入口',
+                    pinned: true,
                 },
             ],
         },
@@ -599,8 +635,14 @@ Write in third person. Do not invent details not in the transcript.`,
             description:
                 '理解硅谷不能只看技术,也要看社会与文化。VC + CEO 的个人网站/推特/LinkedIn + 美国商业传记。',
             items: [
-                { name: 'Ben Thompson — Stratechery', url: 'https://stratechery.com/' },
-                { name: 'Sam Altman — Blog', url: 'https://blog.samaltman.com/' },
+                {
+                    name: 'Ben Thompson — Stratechery',
+                    url: 'https://stratechery.com/',
+                },
+                {
+                    name: 'Sam Altman — Blog',
+                    url: 'https://blog.samaltman.com/',
+                },
                 { name: 'Dario Amodei', url: 'https://darioamodei.com/' },
                 {
                     name: 'Steven Sinofsky — Hardcore Software',
@@ -623,10 +665,22 @@ Write in third person. Do not invent details not in the transcript.`,
             description:
                 '2023 起 AI 圈播客质量极高。硅谷大厂/创业公司 CEO、CTO、AI 产品负责人、核心研究员都会接受访谈。OpenAI / Anthropic / Google 新模型发布前一天常在知名播客上线(Llama 4、o3、Gemini 2.5 都是)。YouTube 最多(字幕方便),其次 Apple Podcast / Spotify。',
             items: [
-                { name: 'Y Combinator', url: 'https://www.youtube.com/@ycombinator' },
-                { name: 'No Priors', url: 'https://www.youtube.com/@NoPriorsPodcast' },
-                { name: 'Latent Space', url: 'https://www.youtube.com/@LatentSpacePod' },
-                { name: 'AI Engineer', url: 'https://www.youtube.com/@aiDotEngineer' },
+                {
+                    name: 'Y Combinator',
+                    url: 'https://www.youtube.com/@ycombinator',
+                },
+                {
+                    name: 'No Priors',
+                    url: 'https://www.youtube.com/@NoPriorsPodcast',
+                },
+                {
+                    name: 'Latent Space',
+                    url: 'https://www.youtube.com/@LatentSpacePod',
+                },
+                {
+                    name: 'AI Engineer',
+                    url: 'https://www.youtube.com/@aiDotEngineer',
+                },
             ],
         },
         {
@@ -638,9 +692,15 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: '开发者大会 · 大厂公开技术文化',
                     items: [
-                        { name: 'NVIDIA GTC', url: 'https://www.nvidia.com/gtc/' },
+                        {
+                            name: 'NVIDIA GTC',
+                            url: 'https://www.nvidia.com/gtc/',
+                        },
                         { name: 'Google I/O', url: 'https://io.google/' },
-                        { name: 'OpenAI DevDay', url: 'https://openai.com/devday/' },
+                        {
+                            name: 'OpenAI DevDay',
+                            url: 'https://openai.com/devday/',
+                        },
                         {
                             name: 'Adobe Max 2024 — Opening Keynote',
                             url: 'https://www.adobe.com/max/2024/sessions/opening-keynote-gs1.html',
@@ -654,17 +714,30 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: '技术博客 & Technical Report',
                     items: [
-                        { name: 'Google Research Blog', url: 'https://research.google/blog/' },
-                        { name: 'OpenAI Research', url: 'https://openai.com/research' },
-                        { name: 'Anthropic Research', url: 'https://www.anthropic.com/research' },
+                        {
+                            name: 'Google Research Blog',
+                            url: 'https://research.google/blog/',
+                        },
+                        {
+                            name: 'OpenAI Research',
+                            url: 'https://openai.com/research',
+                        },
+                        {
+                            name: 'Anthropic Research',
+                            url: 'https://www.anthropic.com/research',
+                        },
                         {
                             name: 'Anthropic — Built a Multi-Agent Research System',
                             url: 'https://www.anthropic.com/engineering/built-multi-agent-research-system',
                         },
-                        { name: 'DeepMind Blog', url: 'https://deepmind.google/discover/blog/' },
+                        {
+                            name: 'DeepMind Blog',
+                            url: 'https://deepmind.google/discover/blog/',
+                        },
                         {
                             name: 'OpenAI Codex — Best Practices',
                             url: 'https://developers.openai.com/codex/learn/best-practices',
+                            pinned: true,
                         },
                         { name: 'DeepWiki', url: 'https://deepwiki.org/' },
                     ],
@@ -672,8 +745,14 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: '论文(硬读:问题定义 / 评测 / 项目主页 demo)',
                     items: [
-                        { name: 'arXiv cs.AI', url: 'https://arxiv.org/list/cs.AI/recent' },
-                        { name: 'Google Scholar', url: 'https://scholar.google.com/' },
+                        {
+                            name: 'arXiv cs.AI',
+                            url: 'https://arxiv.org/list/cs.AI/recent',
+                        },
+                        {
+                            name: 'Google Scholar',
+                            url: 'https://scholar.google.com/',
+                        },
                         {
                             name: 'F5-TTS — 项目主页示例',
                             url: 'https://swivid.github.io/F5-TTS/',
@@ -691,7 +770,10 @@ Write in third person. Do not invent details not in the transcript.`,
                             name: 'Mark Levoy (Stanford Graphics)',
                             url: 'https://graphics.stanford.edu/~levoy/',
                         },
-                        { name: 'Andrej Karpathy — 个人主页', url: 'https://karpathy.ai/' },
+                        {
+                            name: 'Andrej Karpathy — 个人主页',
+                            url: 'https://karpathy.ai/',
+                        },
                         {
                             name: 'Kate Park — LinkedIn',
                             url: 'https://www.linkedin.com/in/kateparkmenlo/',
@@ -701,7 +783,10 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: '开源社区',
                     items: [
-                        { name: 'GitHub Trending', url: 'https://github.com/trending' },
+                        {
+                            name: 'GitHub Trending',
+                            url: 'https://github.com/trending',
+                        },
                     ],
                 },
             ],
@@ -715,8 +800,14 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: 'Reddit',
                     items: [
-                        { name: 'r/LocalLLaMA', url: 'https://www.reddit.com/r/LocalLLaMA/' },
-                        { name: 'r/MachineLearning', url: 'https://www.reddit.com/r/MachineLearning/' },
+                        {
+                            name: 'r/LocalLLaMA',
+                            url: 'https://www.reddit.com/r/LocalLLaMA/',
+                        },
+                        {
+                            name: 'r/MachineLearning',
+                            url: 'https://www.reddit.com/r/MachineLearning/',
+                        },
                         {
                             name: '案例 — DeepSeek v3 讨论搜索',
                             url: 'https://www.reddit.com/search/?q=deepseek+v3',
@@ -726,7 +817,10 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: 'Hacker News',
                     items: [
-                        { name: 'Hacker News', url: 'https://news.ycombinator.com/' },
+                        {
+                            name: 'Hacker News',
+                            url: 'https://news.ycombinator.com/',
+                        },
                         {
                             name: '案例 — item 41695840(开源项目深度点评)',
                             url: 'https://news.ycombinator.com/item?id=41695840',
@@ -735,9 +829,7 @@ Write in third person. Do not invent details not in the transcript.`,
                 },
                 {
                     label: 'Discord',
-                    items: [
-                        { name: '各 AI 工具官方开发者频道(按需加入)' },
-                    ],
+                    items: [{ name: '各 AI 工具官方开发者频道(按需加入)' }],
                 },
                 {
                     label: '市场信号',
@@ -759,11 +851,17 @@ Write in third person. Do not invent details not in the transcript.`,
                 {
                     label: '公众号 · 媒体',
                     items: [
-                        { name: '机器之心', url: 'https://www.jiqizhixin.com/' },
+                        {
+                            name: '机器之心',
+                            url: 'https://www.jiqizhixin.com/',
+                        },
                         { name: 'Founder Park' },
                         { name: 'Z Potentials' },
                         { name: '虎嗅', url: 'https://www.huxiu.com/' },
-                        { name: '晚点 LatePost', url: 'https://www.latepost.com/' },
+                        {
+                            name: '晚点 LatePost',
+                            url: 'https://www.latepost.com/',
+                        },
                         { name: '36Kr', url: 'https://36kr.com/' },
                         { name: '智东西', url: 'https://zhidx.com/' },
                         { name: '腾讯科技' },
@@ -820,7 +918,11 @@ Write in third person. Do not invent details not in the transcript.`,
             people: [{ name: 'Jensen Huang', role: 'CEO' }],
             events: [
                 { title: 'CES 2025', type: 'Keynote', speaker: 'Jensen Huang' },
-                { title: 'SIGGRAPH 2024', type: 'Keynote', speaker: 'Jensen Huang' },
+                {
+                    title: 'SIGGRAPH 2024',
+                    type: 'Keynote',
+                    speaker: 'Jensen Huang',
+                },
                 {
                     title: 'National Taiwan University Commencement',
                     type: 'Keynote',
@@ -828,10 +930,26 @@ Write in third person. Do not invent details not in the transcript.`,
                     speaker: 'Jensen Huang',
                 },
                 { title: 'GTC 2024', type: 'Keynote', speaker: 'Jensen Huang' },
-                { title: 'COMPUTEX 2023', type: 'Keynote', speaker: 'Jensen Huang' },
-                { title: 'AI Summit India 2024', type: 'Fireside Chat', speaker: 'Jensen Huang' },
-                { title: 'DealBook Summit 2023', type: 'Interview', speaker: 'Jensen Huang' },
-                { title: 'AI Summit Japan 2024', type: 'Fireside Chat', speaker: 'Jensen Huang' },
+                {
+                    title: 'COMPUTEX 2023',
+                    type: 'Keynote',
+                    speaker: 'Jensen Huang',
+                },
+                {
+                    title: 'AI Summit India 2024',
+                    type: 'Fireside Chat',
+                    speaker: 'Jensen Huang',
+                },
+                {
+                    title: 'DealBook Summit 2023',
+                    type: 'Interview',
+                    speaker: 'Jensen Huang',
+                },
+                {
+                    title: 'AI Summit Japan 2024',
+                    type: 'Fireside Chat',
+                    speaker: 'Jensen Huang',
+                },
                 {
                     title: 'SIGGRAPH 2024 — w/ Mark Zuckerberg',
                     type: 'Fireside Chat',
@@ -876,7 +994,10 @@ Write in third person. Do not invent details not in the transcript.`,
             podcasts: [
                 { title: 'AI for Science Forum', date: 'Oct 2023' },
                 { title: 'Unreasonably Effective AI', date: 'Aug 14, 2024' },
-                { title: 'AI for Science: Demis Hassabis', date: 'Nov 20, 2024' },
+                {
+                    title: 'AI for Science: Demis Hassabis',
+                    date: 'Nov 20, 2024',
+                },
             ],
         },
         {
@@ -914,9 +1035,15 @@ Write in third person. Do not invent details not in the transcript.`,
             podcasts: [
                 { title: 'Acquired Podcast', date: 'Sep 18, 2024' },
                 { title: 'Lex Fridman Podcast', date: 'Oct 10, 2023' },
-                { title: 'Lex Fridman Podcast (Metaverse)', date: 'Dec 12, 2023' },
+                {
+                    title: 'Lex Fridman Podcast (Metaverse)',
+                    date: 'Dec 12, 2023',
+                },
                 { title: 'The Joe Rogan Experience', date: 'Apr 26, 2024' },
-                { title: 'Dwarkesh Patel Podcast (Llama 3)', date: 'Apr 18, 2024' },
+                {
+                    title: 'Dwarkesh Patel Podcast (Llama 3)',
+                    date: 'Apr 18, 2024',
+                },
             ],
         },
         {
@@ -966,6 +1093,7 @@ Write in third person. Do not invent details not in the transcript.`,
             description:
                 'Pipeline that takes a YouTube playlist and produces a polished EPUB with chapters, illustrations, and an index.',
             githubUrl: '',
+            pinned: true,
         },
     ],
 }

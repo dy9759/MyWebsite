@@ -14,11 +14,13 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { sortPinnedFirst } from '@/lib/pin'
 import Link from 'next/link'
 
 const ProjectsPageContent = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
+    const projects = sortPinnedFirst(config.projects)
     const sectionNavItems = [
         {
             href: '#product-projects',
@@ -76,7 +78,7 @@ const ProjectsPageContent = () => {
                             {copy.sections.productProjects}
                         </h2>
                         <div className='space-y-0'>
-                            {config.projects.map((project, idx) => (
+                            {projects.map((project, idx) => (
                                 <Project
                                     key={idx}
                                     index={idx}
@@ -89,6 +91,7 @@ const ProjectsPageContent = () => {
                                     tags={project.tags}
                                     testimonial={project.testimonial}
                                     github={project.github}
+                                    pinned={project.pinned}
                                 />
                             ))}
                         </div>

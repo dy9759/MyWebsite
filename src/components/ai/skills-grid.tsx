@@ -2,9 +2,13 @@ import Link from 'next/link'
 import { Github, ExternalLink } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const SkillsGrid = () => {
+    const skills = sortPinnedFirst(AI_CONFIG.skills)
+
     return (
         <section
             id='skills'
@@ -18,13 +22,16 @@ const SkillsGrid = () => {
             </div>
 
             <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                {AI_CONFIG.skills.map((skill, idx) => (
+                {skills.map((skill, idx) => (
                     <Card
                         key={idx}
                         className='flex flex-col gap-3 p-4 transition-colors hover:bg-accent/10'
                     >
                         <div className='flex flex-col gap-1'>
-                            <h3 className='font-medium'>{skill.title}</h3>
+                            <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                                <h3 className='font-medium'>{skill.title}</h3>
+                                {skill.pinned && <PinnedBadge />}
+                            </div>
                             <p className='text-sm text-muted-foreground'>
                                 {skill.description}
                             </p>

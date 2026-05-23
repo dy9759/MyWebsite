@@ -4,8 +4,10 @@ import React from 'react'
 import Link from 'next/link'
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinnedBadge from '@/components/pinned-badge'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
 
@@ -30,6 +32,7 @@ interface EntryProps {
     year: string
     url?: string
     tier?: string
+    pinned?: boolean
     index: number
 }
 
@@ -40,6 +43,7 @@ const Entry = ({
     year,
     url,
     tier,
+    pinned,
     index,
 }: EntryProps) => {
     const titleNode = url ? (
@@ -64,7 +68,10 @@ const Entry = ({
         >
             <div className='flex flex-col gap-1.5'>
                 <div className='flex items-start justify-between gap-3'>
-                    <div>{titleNode}</div>
+                    <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                        {titleNode}
+                        {pinned && <PinnedBadge />}
+                    </div>
                     <span className='shrink-0 text-xs text-muted-foreground'>
                         {year}
                     </span>
@@ -88,8 +95,8 @@ const Entry = ({
 const Achievements = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const pubs = config.research?.publications ?? []
-    const confs = config.research?.conferences ?? []
+    const pubs = sortPinnedFirst(config.research?.publications ?? [])
+    const confs = sortPinnedFirst(config.research?.conferences ?? [])
     if (pubs.length === 0 && confs.length === 0) return null
 
     return (
@@ -115,6 +122,7 @@ const Achievements = () => {
                                 year={p.year}
                                 url={p.url}
                                 tier={p.tier}
+                                pinned={p.pinned}
                             />
                         ))}
                     </div>
@@ -136,6 +144,7 @@ const Achievements = () => {
                                 venue={c.venue}
                                 year={c.year}
                                 url={c.url}
+                                pinned={c.pinned}
                             />
                         ))}
                     </div>

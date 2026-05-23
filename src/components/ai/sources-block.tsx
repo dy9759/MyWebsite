@@ -1,18 +1,22 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const ItemLink = ({
     name,
     url,
     note,
+    pinned,
 }: {
     name: string
     url?: string
     note?: string
+    pinned?: boolean
 }) => {
     const content = (
-        <span className='inline-flex items-center gap-1'>
+        <span className='inline-flex flex-wrap items-center gap-1'>
             {name}
             {url && (
                 <ArrowUpRight className='size-3 text-muted-foreground group-hover:text-foreground' />
@@ -20,6 +24,7 @@ const ItemLink = ({
             {note && (
                 <span className='text-xs text-muted-foreground'>· {note}</span>
             )}
+            {pinned && <PinnedBadge />}
         </span>
     )
     if (!url) return <span className='text-muted-foreground'>{content}</span>
@@ -44,8 +49,13 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
     const layer = AI_CONFIG.sources?.[layerIndex]
     if (!layer) return null
 
-    const hasItems = layer.items && layer.items.length > 0
-    const hasGroups = layer.groups && layer.groups.length > 0
+    const items = sortPinnedFirst(layer.items ?? [])
+    const groups = (layer.groups ?? []).map((group) => ({
+        ...group,
+        items: sortPinnedFirst(group.items),
+    }))
+    const hasItems = items.length > 0
+    const hasGroups = groups.length > 0
     if (!hasItems && !hasGroups) return null
 
     return (
@@ -54,7 +64,7 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
 
             {hasItems && (
                 <ul className='flex flex-col gap-1 text-sm'>
-                    {layer.items!.map((it, i) => (
+                    {items.map((it, i) => (
                         <li key={i}>
                             <ItemLink {...it} />
                         </li>
@@ -64,7 +74,7 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
 
             {hasGroups && (
                 <div className='flex flex-col gap-3'>
-                    {layer.groups!.map((g, gi) => (
+                    {groups.map((g, gi) => (
                         <div key={gi}>
                             <div className='text-xs font-medium uppercase tracking-wide text-muted-foreground'>
                                 {g.label}

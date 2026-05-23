@@ -10,9 +10,13 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Icons } from '@/components/icons'
+import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const ProductGrid = () => {
+    const products = sortPinnedFirst(AI_CONFIG.products)
+
     return (
         <section
             id='products'
@@ -39,7 +43,7 @@ const ProductGrid = () => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {AI_CONFIG.products.map((product, idx) => {
+                        {products.map((product, idx) => {
                             const Icon = product.icon
                                 ? Icons[product.icon]
                                 : Sparkles
@@ -65,6 +69,7 @@ const ProductGrid = () => {
                                                     Rec
                                                 </Badge>
                                             )}
+                                            {product.pinned && <PinnedBadge />}
                                         </div>
                                         <div className='mt-1 text-xs text-muted-foreground sm:hidden'>
                                             {product.description}

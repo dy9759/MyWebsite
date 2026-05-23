@@ -2,21 +2,26 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinnedBadge from '@/components/pinned-badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 import Link from 'next/link'
 
 type OpenSourceProjectsProps = {
     variant?: 'standalone' | 'embedded'
+    pinnedOnly?: boolean
 }
 
 const OpenSourceProjects = ({
     variant = 'standalone',
+    pinnedOnly = false,
 }: OpenSourceProjectsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const projects = config.openSourceProjects ?? []
+    const allProjects = sortPinnedFirst(config.openSourceProjects ?? [])
+    const projects = pinnedOnly ? filterPinned(allProjects) : allProjects
     const embedded = variant === 'embedded'
 
     if (projects.length === 0) return null
@@ -66,9 +71,12 @@ const OpenSourceProjects = ({
                         <div className='flex flex-col gap-2'>
                             <div className='flex items-start justify-between gap-3'>
                                 <div>
-                                    <h3 className='font-medium'>
-                                        {project.name}
-                                    </h3>
+                                    <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                                        <h3 className='font-medium'>
+                                            {project.name}
+                                        </h3>
+                                        {project.pinned && <PinnedBadge />}
+                                    </div>
                                     <p className='text-xs text-muted-foreground'>
                                         {project.repo}
                                     </p>
