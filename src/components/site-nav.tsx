@@ -10,6 +10,7 @@ import { ModeToggle } from '@/components/mode-toggle'
 const NAV_ITEMS = [
     { href: '/', labelKey: 'home' },
     { href: '/projects', labelKey: 'projects' },
+    { href: '/research', labelKey: 'research' },
     { href: '/ai', labelKey: 'ai' },
 ] as const
 

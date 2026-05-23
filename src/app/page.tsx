@@ -18,7 +18,7 @@ export default function Home() {
                 <WorkExperience />
                 <ProjectExperience />
                 <Education />
-                <Achievements />
+                <Achievements pinnedOnly />
             </div>
         </div>
     )

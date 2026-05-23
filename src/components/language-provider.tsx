@@ -20,6 +20,7 @@ export const SITE_COPY = {
         nav: {
             home: '主页',
             projects: '项目',
+            research: '研究',
             ai: 'AI资源库',
         },
         sections: {
@@ -50,11 +51,13 @@ export const SITE_COPY = {
         languageToggle: '语言切换',
         sectionNav: '主页章节导航',
         projectSectionNav: '项目分类导航',
+        researchSectionNav: '研究分类导航',
     },
     en: {
         nav: {
             home: 'Home',
             projects: 'Projects',
+            research: 'Research',
             ai: 'AI Library',
         },
         sections: {
@@ -85,6 +88,7 @@ export const SITE_COPY = {
         languageToggle: 'Language switcher',
         sectionNav: 'Homepage section navigation',
         projectSectionNav: 'Project category navigation',
+        researchSectionNav: 'Research category navigation',
     },
 } as const
 

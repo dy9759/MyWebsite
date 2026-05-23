@@ -7,7 +7,7 @@ import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import PinnedBadge from '@/components/pinned-badge'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
-import { sortPinnedFirst } from '@/lib/pin'
+import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 
 const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
 
@@ -92,11 +92,17 @@ const Entry = ({
     )
 }
 
-const Achievements = () => {
+type AchievementsProps = {
+    pinnedOnly?: boolean
+}
+
+const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const pubs = sortPinnedFirst(config.research?.publications ?? [])
-    const confs = sortPinnedFirst(config.research?.conferences ?? [])
+    const allPubs = sortPinnedFirst(config.research?.publications ?? [])
+    const allConfs = sortPinnedFirst(config.research?.conferences ?? [])
+    const pubs = pinnedOnly ? filterPinned(allPubs) : allPubs
+    const confs = pinnedOnly ? filterPinned(allConfs) : allConfs
     if (pubs.length === 0 && confs.length === 0) return null
 
     return (
@@ -107,7 +113,7 @@ const Achievements = () => {
             <h2 className='font-bold'>{copy.sections.achievements}</h2>
 
             {pubs.length > 0 && (
-                <div className='space-y-2'>
+                <div id='journal-papers' className='scroll-mt-28 space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
                         {copy.sections.journalPapers}
                     </h3>
@@ -130,7 +136,7 @@ const Achievements = () => {
             )}
 
             {confs.length > 0 && (
-                <div className='space-y-2'>
+                <div id='conference-papers' className='scroll-mt-28 space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
                         {copy.sections.conferencePapers}
                     </h3>
