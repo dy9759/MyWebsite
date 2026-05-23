@@ -346,12 +346,14 @@ export const CONFIG: Config = {
             school: '武汉大学',
             degree: '硕士',
             field: '建筑智慧能源方向',
+            duration: '2022.9 - 2025.6',
             details: 'GPA Top 5%',
         },
         {
             school: '浙大宁波理工学院',
             degree: '本科',
             field: '建筑学',
+            duration: '2015.9 - 2020.6',
         },
     ],
     research: {
@@ -791,12 +793,14 @@ export const CONFIG_EN: Config = {
             school: 'Wuhan University',
             degree: "Master's Degree",
             field: 'Smart Building Energy',
+            duration: '2022.9 - 2025.6',
             details: 'GPA Top 5%',
         },
         {
             school: 'Zhejiang University NingboTech',
             degree: "Bachelor's Degree",
             field: 'Architecture',
+            duration: '2015.9 - 2020.6',
         },
     ],
     research: {
