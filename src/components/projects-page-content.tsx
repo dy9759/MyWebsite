@@ -88,6 +88,7 @@ const ProjectsPageContent = () => {
                                     description={project.description}
                                     image={project.image}
                                     url={project.url}
+                                    links={project.links}
                                     tags={project.tags}
                                     testimonial={project.testimonial}
                                     github={project.github}

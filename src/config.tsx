@@ -25,6 +25,10 @@ type Config = {
         duration?: string
         description: string
         url: string
+        links?: {
+            label: string
+            url: string
+        }[]
         tags: {
             name: string
             icon: keyof typeof Icons
@@ -154,6 +158,10 @@ export const CONFIG: Config = {
             description:
                 '负责 ToC 产品 Sayso,覆盖输入法、会议、个人语音助理与个人办公提效场景,负责产品并与前后端开发配合。MVP 版本处于产品试验期,获得 1000+ 用户,注册体验后付费转化率达 2.77%,年会员占比 58.6%。',
             url: '',
+            links: [
+                { label: '国内版', url: 'https://sayso.cn/' },
+                { label: '国际版', url: 'https://sayso.ai/' },
+            ],
             tags: [
                 { name: 'ToC', icon: 'gear' },
                 { name: 'Product', icon: 'gear' },
@@ -609,6 +617,10 @@ export const CONFIG_EN: Config = {
             description:
                 'Led Sayso ToC product across input method, meetings, personal voice assistant, and personal productivity scenarios; owned product direction and coordinated frontend/backend delivery. The MVP trial reached 1,000+ users, 2.77% paid conversion after registration/trial, and 58.6% annual membership share.',
             url: '',
+            links: [
+                { label: 'China', url: 'https://sayso.cn/' },
+                { label: 'Global', url: 'https://sayso.ai/' },
+            ],
             tags: [
                 { name: 'ToC', icon: 'gear' },
                 { name: 'Product', icon: 'gear' },

@@ -24,6 +24,10 @@ interface ProjectProps {
     image?: string
     duration?: string
     url: string
+    links?: {
+        label: string
+        url: string
+    }[]
     tags: {
         name: string
         icon: keyof typeof Icons
@@ -41,6 +45,7 @@ const Project = ({
     image,
     duration,
     url,
+    links = [],
     tags,
     testimonial,
     github,
@@ -49,6 +54,7 @@ const Project = ({
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     const copy = useSiteCopy()
+    const hasActions = Boolean(github || url || links.length)
 
     return (
         <Card
@@ -57,8 +63,8 @@ const Project = ({
             }`}
         >
             <div className='flex flex-col gap-2'>
-                <div className='flex items-start justify-between'>
-                    <div className='flex items-start gap-2'>
+                <div className='flex items-start justify-between gap-3'>
+                    <div className='flex min-w-0 items-start gap-2'>
                         {icon && (
                             <Icon className='h-12 w-12 shrink-0 transition-all saturate-100' />
                         )}
@@ -71,7 +77,7 @@ const Project = ({
                                 className='h-12 w-auto shrink-0 transition-all saturate-100'
                             />
                         )}
-                        <div>
+                        <div className='min-w-0'>
                             <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                                 <h3 className='font-medium'>{name}</h3>
                                 {pinned && <PinnedBadge />}
@@ -86,8 +92,8 @@ const Project = ({
                             </p>
                         </div>
                     </div>
-                    {url && (
-                        <div className='flex'>
+                    {hasActions && (
+                        <div className='ml-2 flex shrink-0 flex-wrap items-center justify-end gap-1'>
                             <TooltipProvider delayDuration={70}>
                                 {github && (
                                     <Tooltip>
@@ -101,6 +107,7 @@ const Project = ({
                                                 <Link
                                                     href={github}
                                                     target='_blank'
+                                                    rel='noopener noreferrer'
                                                     aria-label={`${name} ${copy.labels.repository}`}
                                                 >
                                                     <Icons.github className='size-4' />
@@ -115,33 +122,55 @@ const Project = ({
                                         </TooltipContent>
                                     </Tooltip>
                                 )}
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <Button
-                                            asChild
-                                            size={'icon'}
-                                            variant={'ghost'}
-                                            className='shrink-0'
-                                        >
-                                            <Link
-                                                href={url}
-                                                target='_blank'
-                                                aria-label={
-                                                    copy.labels.visitWebsite
-                                                }
+                                {url && (
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Button
+                                                asChild
+                                                size={'icon'}
+                                                variant={'ghost'}
+                                                className='shrink-0'
                                             >
-                                                <Icons.externalLink className='size-4' />
-                                            </Link>
-                                        </Button>
-                                    </TooltipTrigger>
-                                    <TooltipContent
-                                        side='bottom'
-                                        className='bg-transparent text-xs'
-                                    >
-                                        {copy.labels.visitWebsite}
-                                    </TooltipContent>
-                                </Tooltip>
+                                                <Link
+                                                    href={url}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                    aria-label={
+                                                        copy.labels.visitWebsite
+                                                    }
+                                                >
+                                                    <Icons.externalLink className='size-4' />
+                                                </Link>
+                                            </Button>
+                                        </TooltipTrigger>
+                                        <TooltipContent
+                                            side='bottom'
+                                            className='bg-transparent text-xs'
+                                        >
+                                            {copy.labels.visitWebsite}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                )}
                             </TooltipProvider>
+                            {links.map((link) => (
+                                <Button
+                                    key={link.url}
+                                    asChild
+                                    variant='outline'
+                                    size='sm'
+                                    className='h-7 gap-1 px-2 text-xs'
+                                >
+                                    <Link
+                                        href={link.url}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        aria-label={`${name} ${link.label}`}
+                                    >
+                                        <Icons.externalLink className='size-3' />
+                                        {link.label}
+                                    </Link>
+                                </Button>
+                            ))}
                         </div>
                     )}
                 </div>
