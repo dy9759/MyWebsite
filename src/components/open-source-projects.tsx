@@ -32,7 +32,7 @@ const OpenSourceProjects = () => {
                 {projects.map((project, idx) => (
                     <Card
                         key={idx}
-                        className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/60 dark:hover:bg-secondary ${
+                        className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/10 dark:hover:bg-accent/10 ${
                             idx > 0 ? 'border-t-0' : ''
                         }`}
                     >

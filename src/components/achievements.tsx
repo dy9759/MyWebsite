@@ -17,7 +17,7 @@ const highlightSelf = (authors: string): React.ReactNode => {
             </strong>
         ) : (
             <React.Fragment key={i}>{part}</React.Fragment>
-        )
+        ),
     )
 }
 
@@ -31,7 +31,15 @@ interface EntryProps {
     index: number
 }
 
-const Entry = ({ authors, title, venue, year, url, tier, index }: EntryProps) => {
+const Entry = ({
+    authors,
+    title,
+    venue,
+    year,
+    url,
+    tier,
+    index,
+}: EntryProps) => {
     const titleNode = url ? (
         <Link
             href={url}
@@ -48,7 +56,7 @@ const Entry = ({ authors, title, venue, year, url, tier, index }: EntryProps) =>
 
     return (
         <Card
-            className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/60 dark:hover:bg-secondary ${
+            className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/10 dark:hover:bg-accent/10 ${
                 index > 0 ? 'border-t-0' : ''
             }`}
         >

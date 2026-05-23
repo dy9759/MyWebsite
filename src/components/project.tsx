@@ -44,7 +44,7 @@ const Project = ({
     const Icon = Icons[icon!]
     return (
         <Card
-            className={`group rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/60 dark:hover:bg-secondary hover:rounded-xl transition-all duration-300 p-4 ${
+            className={`group rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background hover:bg-accent/10 dark:hover:bg-accent/10 hover:rounded-xl transition-all duration-300 p-4 ${
                 index > 0 ? 'border-t-0' : ''
             }`}
         >
