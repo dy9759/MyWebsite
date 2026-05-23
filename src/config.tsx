@@ -56,6 +56,16 @@ type Config = {
             icon: keyof typeof Icons
         }[]
     }[]
+    openSourceProjects?: {
+        name: string
+        repo: string
+        url: string
+        description: string
+        tags: {
+            name: string
+            icon: keyof typeof Icons
+        }[]
+    }[]
     research?: {
         publications?: {
             authors: string
@@ -229,6 +239,56 @@ export const CONFIG: Config = {
                 { name: 'Agent', icon: 'llm' },
             ],
             featured: false,
+        },
+    ],
+    openSourceProjects: [
+        {
+            name: '个人开发 Harness Skill',
+            repo: 'dy9759/claude-codex-orchestration',
+            url: 'https://github.com/dy9759/claude-codex-orchestration',
+            description:
+                '搭建个人开发 harness skill,编排 Claude Code 与 Codex 双 Agent 工作流,沉淀为可复用的开发协作流程。',
+            tags: [
+                { name: 'Claude Code', icon: 'llm' },
+                { name: 'Codex', icon: 'llm' },
+                { name: 'Harness', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'MyIsland 灵动岛交互',
+            repo: 'MyAIOSHub/MyIsland',
+            url: 'https://github.com/MyAIOSHub/MyIsland',
+            description:
+                '灵动岛与 Notch Launcher 等 macOS 桌面交互实验,探索系统状态提示、快捷入口与浮层体验。',
+            tags: [
+                { name: 'macOS', icon: 'gear' },
+                { name: 'Dynamic Island', icon: 'gear' },
+                { name: 'Swift', icon: 'gear' },
+            ],
+        },
+        {
+            name: '多人多 Agent Team 协作',
+            repo: 'dy9759/rudder0518',
+            url: 'https://github.com/dy9759/rudder0518',
+            description:
+                '面向多人、多 Agent 的协作与调度平台,探索 agent teams 的任务编排、运行控制与团队提效。',
+            tags: [
+                { name: 'Multi-Agent', icon: 'llm' },
+                { name: 'Team', icon: 'gear' },
+                { name: 'Orchestration', icon: 'gear' },
+            ],
+        },
+        {
+            name: 'TTS 评测平台',
+            repo: 'dy9759/One-Eval0425',
+            url: 'https://github.com/dy9759/One-Eval0425',
+            description:
+                '面向 TTS、ASR 与端到端语音模型的评测平台,用于标准化测试、结果对比与模型效果追踪。',
+            tags: [
+                { name: 'TTS', icon: 'gear' },
+                { name: 'ASR', icon: 'gear' },
+                { name: 'Evaluation', icon: 'llm' },
+            ],
         },
     ],
     futureWork: [

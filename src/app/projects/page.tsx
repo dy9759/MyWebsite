@@ -1,4 +1,5 @@
 import { ModeToggle } from '@/components/mode-toggle'
+import OpenSourceProjects from '@/components/open-source-projects'
 import Project from '@/components/project'
 import {
     Breadcrumb,
@@ -53,6 +54,9 @@ const Projects = () => {
                         github={project.github}
                     />
                 ))}
+            </div>
+            <div className='pt-12'>
+                <OpenSourceProjects />
             </div>
         </div>
     )
