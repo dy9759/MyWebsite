@@ -8,6 +8,7 @@ import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 import Contact from '@/components/contact'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import SiteNav from '@/components/site-nav'
 
 const fontSans = FontSans({
     subsets: ['latin'],
@@ -66,6 +67,7 @@ export default function RootLayout({
                         disableTransitionOnChange
                     >
                         <main className='mx-auto max-w-2xl py-4 md:pt-10'>
+                            <SiteNav />
                             {children}
                             <Contact />
                         </main>
