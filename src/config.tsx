@@ -300,6 +300,20 @@ export const CONFIG: Config = {
             pinned: true,
         },
         {
+            name: '地理信息模拟器',
+            description:
+                'B 端项目经验。担任算法负责人,整合传统地理空间模拟模型与机器学习算法,建设地理信息模拟器。模拟器支持 9 种情景选择与推演;在 SSP1 路径下,将三类发展方向与典型县域建立对应关系:绥德对应生态农业最优,灵宝对应科技农业最优,花都对应城乡融合发展最优,通过情景参数、约束规则与模型输出校准实现模拟对齐。',
+            url: '',
+            tags: [
+                { name: 'B2B', icon: 'gear' },
+                { name: 'GIS', icon: 'gear' },
+                { name: 'Scenario Simulation', icon: 'gear' },
+                { name: 'Machine Learning', icon: 'python' },
+                { name: 'SSP1', icon: 'gear' },
+            ],
+            featured: false,
+        },
+        {
             name: '新能源 + 负荷侧能源管理 AI',
             duration: '2024年12月',
             description:
@@ -840,6 +854,20 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+        },
+        {
+            name: 'Geographic Information Simulator',
+            description:
+                'B2B project experience. Served as algorithm lead, integrating conventional geospatial simulation models with machine-learning algorithms to build a geographic information simulator. The simulator supports nine scenario selections and simulation runs. Under the SSP1 pathway, it maps three development directions to representative counties: Suide as the ecological-agriculture optimum, Lingbao as the technology-agriculture optimum, and Huadu as the urban-rural integration optimum, implemented through scenario parameters, constraint rules, and model-output calibration.',
+            url: '',
+            tags: [
+                { name: 'B2B', icon: 'gear' },
+                { name: 'GIS', icon: 'gear' },
+                { name: 'Scenario Simulation', icon: 'gear' },
+                { name: 'Machine Learning', icon: 'python' },
+                { name: 'SSP1', icon: 'gear' },
+            ],
+            featured: false,
         },
         {
             name: 'Renewable Energy + Demand-Side AI Management',
