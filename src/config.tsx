@@ -163,16 +163,17 @@ export const CONFIG: Config = {
     ],
     description: (
         <>
-            👋 你好!我是李盛园,一名 AI 产品经理,拥有 3+ 年 AI
-            产品研发与落地经验。 武汉大学建筑学(建筑技术科学)硕士(GPA
-            90+/100,Top 5%),本科毕业于浙大宁波理工学院建筑学。
-            熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
-            研究成果包括期刊论文 8 篇(SCI 7 篇、中文期刊 1 篇)、会议论文 5
-            篇、科研项目 1 项,参与专著 1 部,担任 TOP 期刊审稿人。欢迎交流合作!
+            👋 你好!我是李盛园,一名 AI 产品经理。我的优势集中在三点:有 AI
+            经验,具备 3 年 AI
+            产品经理与产品研发应用项目经历,拥有大模型本地部署、RAG、Agent、微调等解决方案实操,有机器视觉、序列分析、AIGC
+            功能开发与 AI 评测经验。有产品方法,形成体系化的 AI
+            应用方法论,既理解业务落地场景,也了解 AI
+            技术框架,熟悉模型落地中的调优、评测与项目管理。有业务场景,具备教培、科研、工程等多行业认识,熟悉建筑、能源、电商等
+            AI 应用场景,深入 C 端与 SaaS 产品经验,熟悉海外需求与工具类产品。
         </>
     ),
     descriptionRaw:
-        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Research outputs include 8 journal papers (7 SCI-indexed and 1 Chinese journal article), 5 conference papers, 1 research project, and 1 contributed monograph.",
+        "Hi, I'm Shengyuan Li, an AI Product Manager with three strengths: 3 years of AI product and product R&D experience across local LLM deployment, RAG, agents, fine-tuning, computer vision, sequence analysis, AIGC development, and AI evaluation; a systematic AI application methodology spanning business scenarios, technical frameworks, model tuning, evaluation, and project management; and cross-industry experience in education, research, engineering, architecture, energy, e-commerce, consumer products, SaaS, overseas demand, and productivity tools.",
     projects: [
         {
             name: 'Sayso ToC 产品',
@@ -700,16 +701,16 @@ export const CONFIG_EN: Config = {
     ],
     description: (
         <>
-            Hi, I&apos;m Shengyuan Li, an AI Product Manager with 3+ years of AI
-            product R&D and delivery experience. I hold an M.S. in Architecture
-            (Architectural Technology Science) from Wuhan University (GPA
-            90+/100, Top 5%) and a B.S. in Architecture from Zhejiang University
-            NingboTech. I work across local LLM deployment, RAG, agents, and
-            model fine-tuning, with product experience in architecture, energy,
-            and e-commerce. Research outputs include 8 journal papers (7
-            SCI-indexed and 1 Chinese journal article), 5 conference papers, and
-            1 research project, plus 1 contributed monograph. I also serve as a
-            reviewer for top journals. Open to collaboration.
+            Hi, I&apos;m Shengyuan Li, an AI Product Manager. My strengths
+            center on three areas: AI execution, with 3 years of AI product and
+            product R&D experience across local LLM deployment, RAG, agents,
+            fine-tuning, computer vision, sequence analysis, AIGC development,
+            and AI evaluation; product methodology, with a systematic approach
+            to AI applications that connects business scenarios, technical
+            frameworks, model tuning, evaluation, and project management; and
+            business context, with cross-industry experience in education,
+            research, engineering, architecture, energy, e-commerce, consumer
+            products, SaaS, overseas demand, and productivity tools.
         </>
     ),
     projects: [
