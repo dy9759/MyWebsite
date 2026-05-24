@@ -1,22 +1,28 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const ItemLink = ({
     name,
     url,
     note,
     pinned,
+    onTogglePinned,
 }: {
     name: string
     url?: string
     note?: string
     pinned?: boolean
+    onTogglePinned?: () => void
 }) => {
     const content = (
-        <span className='inline-flex flex-wrap items-center gap-1'>
+        <>
             {name}
             {url && (
                 <ArrowUpRight className='size-3 text-muted-foreground group-hover:text-foreground' />
@@ -25,18 +31,34 @@ const ItemLink = ({
                 <span className='text-xs text-muted-foreground'>· {note}</span>
             )}
             {pinned && <PinnedBadge />}
-        </span>
+        </>
     )
-    if (!url) return <span className='text-muted-foreground'>{content}</span>
-    return (
+    const title = url ? (
         <Link
             href={url}
             target='_blank'
             rel='noopener noreferrer'
-            className='group hover:text-foreground hover:underline'
+            className='group inline-flex flex-wrap items-center gap-1 hover:text-foreground hover:underline'
         >
             {content}
         </Link>
+    ) : (
+        <span className='inline-flex flex-wrap items-center gap-1 text-muted-foreground'>
+            {content}
+        </span>
+    )
+
+    return (
+        <span className='inline-flex items-center gap-1'>
+            {title}
+            {onTogglePinned && (
+                <PinToggle
+                    pinned={pinned === true}
+                    label={name}
+                    onToggle={onTogglePinned}
+                />
+            )}
+        </span>
     )
 }
 
@@ -46,13 +68,26 @@ interface SourcesBlockProps {
 }
 
 const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
+    const pinState = usePinnedItems()
     const layer = AI_CONFIG.sources?.[layerIndex]
     if (!layer) return null
 
-    const items = sortPinnedFirst(layer.items ?? [])
+    const items = sortPinnedFirst(
+        (layer.items ?? []).map((item, idx) => ({
+            ...item,
+            pinKey: createPinKey('ai-source', layerIndex, 'item', idx),
+        })),
+        (item) => pinState.isPinned(item.pinKey, item.pinned),
+    )
     const groups = (layer.groups ?? []).map((group) => ({
         ...group,
-        items: sortPinnedFirst(group.items),
+        items: sortPinnedFirst(
+            group.items.map((item, idx) => ({
+                ...item,
+                pinKey: createPinKey('ai-source', layerIndex, group.label, idx),
+            })),
+            (item) => pinState.isPinned(item.pinKey, item.pinned),
+        ),
     }))
     const hasItems = items.length > 0
     const hasGroups = groups.length > 0
@@ -66,7 +101,13 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                 <ul className='flex flex-col gap-1 text-sm'>
                     {items.map((it, i) => (
                         <li key={i}>
-                            <ItemLink {...it} />
+                            <ItemLink
+                                {...it}
+                                pinned={pinState.isPinned(it.pinKey, it.pinned)}
+                                onTogglePinned={() =>
+                                    pinState.togglePinned(it.pinKey, it.pinned)
+                                }
+                            />
                         </li>
                     ))}
                 </ul>
@@ -82,7 +123,19 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                             <ul className='mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm'>
                                 {g.items.map((it, ii) => (
                                     <li key={ii}>
-                                        <ItemLink {...it} />
+                                        <ItemLink
+                                            {...it}
+                                            pinned={pinState.isPinned(
+                                                it.pinKey,
+                                                it.pinned,
+                                            )}
+                                            onTogglePinned={() =>
+                                                pinState.togglePinned(
+                                                    it.pinKey,
+                                                    it.pinned,
+                                                )
+                                            }
+                                        />
                                     </li>
                                 ))}
                             </ul>

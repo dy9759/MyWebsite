@@ -15,12 +15,20 @@ import {
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 import Link from 'next/link'
 
 const ProjectsPageContent = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const projects = sortPinnedFirst(config.projects)
+    const pinState = usePinnedItems()
+    const projectItems = config.projects.map((project, idx) => ({
+        ...project,
+        pinKey: createPinKey('project', idx),
+    }))
+    const projects = sortPinnedFirst(projectItems, (project) =>
+        pinState.isPinned(project.pinKey, project.pinned),
+    )
     const sectionNavItems = [
         {
             href: '#product-projects',
@@ -92,7 +100,16 @@ const ProjectsPageContent = () => {
                                     tags={project.tags}
                                     testimonial={project.testimonial}
                                     github={project.github}
-                                    pinned={project.pinned}
+                                    pinned={pinState.isPinned(
+                                        project.pinKey,
+                                        project.pinned,
+                                    )}
+                                    onTogglePinned={() =>
+                                        pinState.togglePinned(
+                                            project.pinKey,
+                                            project.pinned,
+                                        )
+                                    }
                                 />
                             ))}
                         </div>

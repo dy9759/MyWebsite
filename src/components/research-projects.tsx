@@ -1,11 +1,13 @@
 'use client'
 
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 type ResearchProjectsProps = {
     variant?: 'standalone' | 'embedded'
@@ -18,8 +20,19 @@ const ResearchProjects = ({
 }: ResearchProjectsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const allGrants = sortPinnedFirst(config.research?.grants ?? [])
-    const grants = pinnedOnly ? filterPinned(allGrants) : allGrants
+    const pinState = usePinnedItems()
+    const grantItems = (config.research?.grants ?? []).map((grant, idx) => ({
+        ...grant,
+        pinKey: createPinKey('research-grant', idx),
+    }))
+    const allGrants = sortPinnedFirst(grantItems, (grant) =>
+        pinState.isPinned(grant.pinKey, grant.pinned),
+    )
+    const grants = pinnedOnly
+        ? filterPinned(allGrants, (grant) =>
+              pinState.isPinned(grant.pinKey, grant.pinned),
+          )
+        : allGrants
     const embedded = variant === 'embedded'
 
     if (grants.length === 0) return null
@@ -56,11 +69,29 @@ const ResearchProjects = ({
                                     <h4 className='font-medium'>
                                         {grant.name}
                                     </h4>
-                                    {grant.pinned && <PinnedBadge />}
+                                    {pinState.isPinned(
+                                        grant.pinKey,
+                                        grant.pinned,
+                                    ) && <PinnedBadge />}
                                 </div>
-                                <span className='shrink-0 text-xs text-muted-foreground'>
-                                    {grant.duration}
-                                </span>
+                                <div className='flex shrink-0 items-center gap-1'>
+                                    <PinToggle
+                                        pinned={pinState.isPinned(
+                                            grant.pinKey,
+                                            grant.pinned,
+                                        )}
+                                        label={grant.name}
+                                        onToggle={() =>
+                                            pinState.togglePinned(
+                                                grant.pinKey,
+                                                grant.pinned,
+                                            )
+                                        }
+                                    />
+                                    <span className='text-xs text-muted-foreground'>
+                                        {grant.duration}
+                                    </span>
+                                </div>
                             </div>
                             <Badge
                                 variant='outline'

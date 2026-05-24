@@ -2,11 +2,13 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 import Link from 'next/link'
 
 type OpenSourceProjectsProps = {
@@ -20,8 +22,21 @@ const OpenSourceProjects = ({
 }: OpenSourceProjectsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const allProjects = sortPinnedFirst(config.openSourceProjects ?? [])
-    const projects = pinnedOnly ? filterPinned(allProjects) : allProjects
+    const pinState = usePinnedItems()
+    const projectItems = (config.openSourceProjects ?? []).map(
+        (project, idx) => ({
+            ...project,
+            pinKey: createPinKey('open-source', idx),
+        }),
+    )
+    const allProjects = sortPinnedFirst(projectItems, (project) =>
+        pinState.isPinned(project.pinKey, project.pinned),
+    )
+    const projects = pinnedOnly
+        ? filterPinned(allProjects, (project) =>
+              pinState.isPinned(project.pinKey, project.pinned),
+          )
+        : allProjects
     const embedded = variant === 'embedded'
 
     if (projects.length === 0) return null
@@ -75,27 +90,45 @@ const OpenSourceProjects = ({
                                         <h3 className='font-medium'>
                                             {project.name}
                                         </h3>
-                                        {project.pinned && <PinnedBadge />}
+                                        {pinState.isPinned(
+                                            project.pinKey,
+                                            project.pinned,
+                                        ) && <PinnedBadge />}
                                     </div>
                                     <p className='text-xs text-muted-foreground'>
                                         {project.repo}
                                     </p>
                                 </div>
-                                <Button
-                                    asChild
-                                    variant='ghost'
-                                    size='icon'
-                                    className='shrink-0'
-                                >
-                                    <Link
-                                        href={project.url}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        aria-label={`${project.name} ${copy.labels.repository}`}
+                                <div className='flex shrink-0 items-center gap-1'>
+                                    <PinToggle
+                                        pinned={pinState.isPinned(
+                                            project.pinKey,
+                                            project.pinned,
+                                        )}
+                                        label={project.name}
+                                        onToggle={() =>
+                                            pinState.togglePinned(
+                                                project.pinKey,
+                                                project.pinned,
+                                            )
+                                        }
+                                    />
+                                    <Button
+                                        asChild
+                                        variant='ghost'
+                                        size='icon'
+                                        className='shrink-0'
                                     >
-                                        <Icons.github className='size-4' />
-                                    </Link>
-                                </Button>
+                                        <Link
+                                            href={project.url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            aria-label={`${project.name} ${copy.labels.repository}`}
+                                        >
+                                            <Icons.github className='size-4' />
+                                        </Link>
+                                    </Button>
+                                </div>
                             </div>
                             <p className='text-sm text-muted-foreground'>
                                 {project.description}

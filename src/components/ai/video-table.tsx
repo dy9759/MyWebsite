@@ -13,17 +13,26 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import VideoFilter, {
     type VideoFilterValue,
 } from '@/components/ai/video-filter'
 import { AI_CONFIG, type VideoTag } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const COLLAPSED_COUNT = 3
 
 const VideoTable = () => {
-    const videos = sortPinnedFirst(AI_CONFIG.videos)
+    const pinState = usePinnedItems()
+    const videoItems = AI_CONFIG.videos.map((video, idx) => ({
+        ...video,
+        pinKey: createPinKey('ai-video', idx),
+    }))
+    const videos = sortPinnedFirst(videoItems, (video) =>
+        pinState.isPinned(video.pinKey, video.pinned),
+    )
 
     const allTags = useMemo<VideoTag[]>(() => {
         const set = new Set<VideoTag>()
@@ -114,9 +123,10 @@ const VideoTable = () => {
                                                         Rec
                                                     </Badge>
                                                 )}
-                                                {video.pinned && (
-                                                    <PinnedBadge />
-                                                )}
+                                                {pinState.isPinned(
+                                                    video.pinKey,
+                                                    video.pinned,
+                                                ) && <PinnedBadge />}
                                             </div>
                                             <div className='mt-0.5 text-xs text-muted-foreground'>
                                                 {video.channel} ·{' '}
@@ -148,6 +158,19 @@ const VideoTable = () => {
                                         </TableCell>
                                         <TableCell>
                                             <div className='flex items-center justify-end gap-1'>
+                                                <PinToggle
+                                                    pinned={pinState.isPinned(
+                                                        video.pinKey,
+                                                        video.pinned,
+                                                    )}
+                                                    label={video.title}
+                                                    onToggle={() =>
+                                                        pinState.togglePinned(
+                                                            video.pinKey,
+                                                            video.pinned,
+                                                        )
+                                                    }
+                                                />
                                                 {video.url && (
                                                     <Link
                                                         href={video.url}

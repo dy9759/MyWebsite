@@ -4,8 +4,15 @@ export type Pinnable = {
 
 export const isPinned = (item: Pinnable) => item.pinned === true
 
-export const filterPinned = <T extends Pinnable>(items: T[]) =>
-    items.filter(isPinned)
+export const filterPinned = <T extends Pinnable>(
+    items: T[],
+    resolvePinned: (item: T) => boolean = isPinned,
+) => items.filter(resolvePinned)
 
-export const sortPinnedFirst = <T extends Pinnable>(items: T[]) =>
-    [...items].sort((a, b) => Number(isPinned(b)) - Number(isPinned(a)))
+export const sortPinnedFirst = <T extends Pinnable>(
+    items: T[],
+    resolvePinned: (item: T) => boolean = isPinned,
+) =>
+    [...items].sort(
+        (a, b) => Number(resolvePinned(b)) - Number(resolvePinned(a)),
+    )

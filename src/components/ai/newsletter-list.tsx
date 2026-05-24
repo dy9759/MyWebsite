@@ -1,11 +1,22 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const NewsletterList = () => {
-    const newsletters = sortPinnedFirst(AI_CONFIG.newsletters)
+    const pinState = usePinnedItems()
+    const newsletterItems = AI_CONFIG.newsletters.map((newsletter, idx) => ({
+        ...newsletter,
+        pinKey: createPinKey('ai-newsletter', idx),
+    }))
+    const newsletters = sortPinnedFirst(newsletterItems, (newsletter) =>
+        pinState.isPinned(newsletter.pinKey, newsletter.pinned),
+    )
 
     return (
         <section
@@ -21,26 +32,40 @@ const NewsletterList = () => {
 
             <ul className='flex flex-col divide-y divide-border rounded-lg border'>
                 {newsletters.map((n, idx) => (
-                    <li key={idx}>
+                    <li
+                        key={idx}
+                        className='flex items-start justify-between gap-3 p-3 transition-colors hover:bg-accent/10'
+                    >
                         <Link
                             href={n.url}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className='group flex items-start justify-between gap-3 p-3 transition-colors hover:bg-accent/10'
+                            className='group min-w-0 flex-1'
                         >
                             <div className='flex min-w-0 flex-col gap-0.5'>
                                 <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                                     <h3 className='font-medium group-hover:underline'>
                                         {n.title}
                                     </h3>
-                                    {n.pinned && <PinnedBadge />}
+                                    {pinState.isPinned(n.pinKey, n.pinned) && (
+                                        <PinnedBadge />
+                                    )}
                                 </div>
                                 <p className='text-sm text-muted-foreground'>
                                     {n.description}
                                 </p>
                             </div>
-                            <ArrowUpRight className='size-4 shrink-0 text-muted-foreground group-hover:text-foreground' />
                         </Link>
+                        <div className='flex shrink-0 items-center gap-1'>
+                            <PinToggle
+                                pinned={pinState.isPinned(n.pinKey, n.pinned)}
+                                label={n.title}
+                                onToggle={() =>
+                                    pinState.togglePinned(n.pinKey, n.pinned)
+                                }
+                            />
+                            <ArrowUpRight className='size-4 shrink-0 text-muted-foreground' />
+                        </div>
                     </li>
                 ))}
             </ul>

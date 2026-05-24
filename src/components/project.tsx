@@ -2,6 +2,7 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteCopy } from '@/components/language-provider'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { ReadMore } from '@/components/read-more'
 import { Badge } from '@/components/ui/badge'
@@ -35,6 +36,7 @@ interface ProjectProps {
     testimonial?: string
     github?: string
     pinned?: boolean
+    onTogglePinned?: () => void
     index?: number
 }
 
@@ -50,11 +52,12 @@ const Project = ({
     testimonial,
     github,
     pinned,
+    onTogglePinned,
     index = 0,
 }: ProjectProps) => {
     const Icon = Icons[icon!]
     const copy = useSiteCopy()
-    const hasActions = Boolean(github || url || links.length)
+    const hasActions = Boolean(onTogglePinned || github || url || links.length)
 
     return (
         <Card
@@ -94,6 +97,13 @@ const Project = ({
                     </div>
                     {hasActions && (
                         <div className='ml-2 flex shrink-0 flex-wrap items-center justify-end gap-1'>
+                            {onTogglePinned && (
+                                <PinToggle
+                                    pinned={pinned === true}
+                                    label={name}
+                                    onToggle={onTogglePinned}
+                                />
+                            )}
                             <TooltipProvider delayDuration={70}>
                                 {github && (
                                     <Tooltip>

@@ -6,14 +6,40 @@ import Project from '@/components/project'
 import ResearchProjects from '@/components/research-projects'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { filterPinned } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const ProjectExperience = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const grants = filterPinned(config.research?.grants ?? [])
-    const projects = filterPinned(config.projects)
-    const openSourceProjects = filterPinned(config.openSourceProjects ?? [])
-    const futureWork = filterPinned(config.futureWork ?? [])
+    const pinState = usePinnedItems()
+    const projectItems = config.projects.map((project, idx) => ({
+        ...project,
+        pinKey: createPinKey('project', idx),
+    }))
+    const grants = filterPinned(
+        (config.research?.grants ?? []).map((grant, idx) => ({
+            ...grant,
+            pinKey: createPinKey('research-grant', idx),
+        })),
+        (grant) => pinState.isPinned(grant.pinKey, grant.pinned),
+    )
+    const projects = filterPinned(projectItems, (project) =>
+        pinState.isPinned(project.pinKey, project.pinned),
+    )
+    const openSourceProjects = filterPinned(
+        (config.openSourceProjects ?? []).map((project, idx) => ({
+            ...project,
+            pinKey: createPinKey('open-source', idx),
+        })),
+        (project) => pinState.isPinned(project.pinKey, project.pinned),
+    )
+    const futureWork = filterPinned(
+        (config.futureWork ?? []).map((item, idx) => ({
+            ...item,
+            pinKey: createPinKey('future-work', idx),
+        })),
+        (item) => pinState.isPinned(item.pinKey, item.pinned),
+    )
     if (
         projects.length === 0 &&
         grants.length === 0 &&
@@ -52,7 +78,16 @@ const ProjectExperience = () => {
                                 tags={project.tags}
                                 testimonial={project.testimonial}
                                 github={project.github}
-                                pinned={project.pinned}
+                                pinned={pinState.isPinned(
+                                    project.pinKey,
+                                    project.pinned,
+                                )}
+                                onTogglePinned={() =>
+                                    pinState.togglePinned(
+                                        project.pinKey,
+                                        project.pinned,
+                                    )
+                                }
                             />
                         ))}
                     </div>

@@ -9,13 +9,22 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
     const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
-    const prompts = sortPinnedFirst(AI_CONFIG.prompts)
+    const pinState = usePinnedItems()
+    const promptItems = AI_CONFIG.prompts.map((prompt, idx) => ({
+        ...prompt,
+        pinKey: createPinKey('ai-prompt', idx),
+    }))
+    const prompts = sortPinnedFirst(promptItems, (prompt) =>
+        pinState.isPinned(prompt.pinKey, prompt.pinned),
+    )
 
     const copy = async (text: string, idx: number) => {
         try {
@@ -46,7 +55,10 @@ const PromptAccordion = () => {
                             <div className='flex flex-col items-start gap-0.5'>
                                 <span className='flex flex-wrap items-center gap-x-2 gap-y-1 font-medium'>
                                     {prompt.title}
-                                    {prompt.pinned && <PinnedBadge />}
+                                    {pinState.isPinned(
+                                        prompt.pinKey,
+                                        prompt.pinned,
+                                    ) && <PinnedBadge />}
                                 </span>
                                 <span className='text-xs font-normal text-muted-foreground'>
                                     {prompt.description}
@@ -76,6 +88,20 @@ const PromptAccordion = () => {
                                         </>
                                     )}
                                 </Button>
+                                <PinToggle
+                                    pinned={pinState.isPinned(
+                                        prompt.pinKey,
+                                        prompt.pinned,
+                                    )}
+                                    label={prompt.title}
+                                    onToggle={() =>
+                                        pinState.togglePinned(
+                                            prompt.pinKey,
+                                            prompt.pinned,
+                                        )
+                                    }
+                                    className='self-end'
+                                />
                             </div>
                         </AccordionContent>
                     </AccordionItem>

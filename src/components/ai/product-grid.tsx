@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight, Sparkles, Star } from 'lucide-react'
 import {
@@ -10,12 +12,21 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Icons } from '@/components/icons'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const ProductGrid = () => {
-    const products = sortPinnedFirst(AI_CONFIG.products)
+    const pinState = usePinnedItems()
+    const productItems = AI_CONFIG.products.map((product, idx) => ({
+        ...product,
+        pinKey: createPinKey('ai-product', idx),
+    }))
+    const products = sortPinnedFirst(productItems, (product) =>
+        pinState.isPinned(product.pinKey, product.pinned),
+    )
 
     return (
         <section
@@ -69,7 +80,10 @@ const ProductGrid = () => {
                                                     Rec
                                                 </Badge>
                                             )}
-                                            {product.pinned && <PinnedBadge />}
+                                            {pinState.isPinned(
+                                                product.pinKey,
+                                                product.pinned,
+                                            ) && <PinnedBadge />}
                                         </div>
                                         <div className='mt-1 text-xs text-muted-foreground sm:hidden'>
                                             {product.description}
@@ -79,7 +93,20 @@ const ProductGrid = () => {
                                         {product.description}
                                     </TableCell>
                                     <TableCell>
-                                        <div className='flex justify-end'>
+                                        <div className='flex justify-end gap-1'>
+                                            <PinToggle
+                                                pinned={pinState.isPinned(
+                                                    product.pinKey,
+                                                    product.pinned,
+                                                )}
+                                                label={product.name}
+                                                onToggle={() =>
+                                                    pinState.togglePinned(
+                                                        product.pinKey,
+                                                        product.pinned,
+                                                    )
+                                                }
+                                            />
                                             <Link
                                                 href={product.url}
                                                 target='_blank'

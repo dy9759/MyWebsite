@@ -2,10 +2,12 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 type FutureWorkProps = {
     variant?: 'standalone' | 'embedded'
@@ -18,8 +20,19 @@ const FutureWork = ({
 }: FutureWorkProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const allFutureWork = sortPinnedFirst(config.futureWork ?? [])
-    const futureWork = pinnedOnly ? filterPinned(allFutureWork) : allFutureWork
+    const pinState = usePinnedItems()
+    const futureWorkItems = (config.futureWork ?? []).map((item, idx) => ({
+        ...item,
+        pinKey: createPinKey('future-work', idx),
+    }))
+    const allFutureWork = sortPinnedFirst(futureWorkItems, (item) =>
+        pinState.isPinned(item.pinKey, item.pinned),
+    )
+    const futureWork = pinnedOnly
+        ? filterPinned(allFutureWork, (item) =>
+              pinState.isPinned(item.pinKey, item.pinned),
+          )
+        : allFutureWork
     const embedded = variant === 'embedded'
 
     if (futureWork.length === 0) return null
@@ -50,12 +63,30 @@ const FutureWork = ({
                         }`}
                     >
                         <div className='flex flex-col gap-2'>
-                            <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
-                                <h3 className='font-medium'>{item.name}</h3>
-                                {item.pinned && <PinnedBadge />}
-                                <span className='text-xs text-muted-foreground'>
-                                    {item.direction}
-                                </span>
+                            <div className='flex items-start justify-between gap-3'>
+                                <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
+                                    <h3 className='font-medium'>{item.name}</h3>
+                                    {pinState.isPinned(
+                                        item.pinKey,
+                                        item.pinned,
+                                    ) && <PinnedBadge />}
+                                    <span className='text-xs text-muted-foreground'>
+                                        {item.direction}
+                                    </span>
+                                </div>
+                                <PinToggle
+                                    pinned={pinState.isPinned(
+                                        item.pinKey,
+                                        item.pinned,
+                                    )}
+                                    label={item.name}
+                                    onToggle={() =>
+                                        pinState.togglePinned(
+                                            item.pinKey,
+                                            item.pinned,
+                                        )
+                                    }
+                                />
                             </div>
                             <p className='text-sm text-muted-foreground'>
                                 {item.description}

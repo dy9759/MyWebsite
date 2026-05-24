@@ -1,13 +1,24 @@
+'use client'
+
 import Link from 'next/link'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
 import { AI_CONFIG } from '@/ai-config'
 import { getInitials } from '@/lib/utils'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PeopleGrid = () => {
-    const people = sortPinnedFirst(AI_CONFIG.people)
+    const pinState = usePinnedItems()
+    const peopleItems = AI_CONFIG.people.map((person, idx) => ({
+        ...person,
+        pinKey: createPinKey('ai-person', idx),
+    }))
+    const people = sortPinnedFirst(peopleItems, (person) =>
+        pinState.isPinned(person.pinKey, person.pinned),
+    )
 
     return (
         <section
@@ -23,39 +34,57 @@ const PeopleGrid = () => {
 
             <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
                 {people.map((person, idx) => (
-                    <Link
+                    <Card
                         key={idx}
-                        href={person.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='group'
+                        className='flex items-center gap-3 p-4 transition-colors hover:bg-accent/10'
                     >
-                        <Card className='flex items-center gap-3 p-4 transition-colors hover:bg-accent/10'>
-                            <Avatar className='size-10 shrink-0'>
-                                <AvatarImage
-                                    src={person.avatar}
-                                    alt={person.name}
-                                />
-                                <AvatarFallback>
-                                    {getInitials(person.name)}
-                                </AvatarFallback>
-                            </Avatar>
-                            <div className='flex min-w-0 flex-col gap-0.5'>
-                                <div className='flex items-center gap-1.5'>
-                                    <h3 className='truncate font-medium group-hover:underline'>
+                        <Avatar className='size-10 shrink-0'>
+                            <AvatarImage
+                                src={person.avatar}
+                                alt={person.name}
+                            />
+                            <AvatarFallback>
+                                {getInitials(person.name)}
+                            </AvatarFallback>
+                        </Avatar>
+                        <div className='flex min-w-0 flex-1 flex-col gap-0.5'>
+                            <div className='flex items-center gap-1.5'>
+                                <Link
+                                    href={person.url}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='min-w-0 hover:underline'
+                                >
+                                    <h3 className='truncate font-medium'>
                                         {person.name}
                                     </h3>
-                                    {person.pinned && <PinnedBadge />}
-                                    <span className='text-xs text-muted-foreground'>
-                                        {person.handle}
-                                    </span>
-                                </div>
-                                <p className='line-clamp-2 text-xs text-muted-foreground'>
-                                    {person.role}
-                                </p>
+                                </Link>
+                                {pinState.isPinned(
+                                    person.pinKey,
+                                    person.pinned,
+                                ) && <PinnedBadge />}
+                                <span className='text-xs text-muted-foreground'>
+                                    {person.handle}
+                                </span>
                             </div>
-                        </Card>
-                    </Link>
+                            <p className='line-clamp-2 text-xs text-muted-foreground'>
+                                {person.role}
+                            </p>
+                        </div>
+                        <PinToggle
+                            pinned={pinState.isPinned(
+                                person.pinKey,
+                                person.pinned,
+                            )}
+                            label={person.name}
+                            onToggle={() =>
+                                pinState.togglePinned(
+                                    person.pinKey,
+                                    person.pinned,
+                                )
+                            }
+                        />
+                    </Card>
                 ))}
             </div>
         </section>

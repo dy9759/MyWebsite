@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight, Star } from 'lucide-react'
 import {
@@ -9,12 +11,21 @@ import {
     TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
+import PinToggle from '@/components/pin-toggle'
 import PinnedBadge from '@/components/pinned-badge'
 import { AI_CONFIG } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PodcastGrid = () => {
-    const podcasts = sortPinnedFirst(AI_CONFIG.podcasts)
+    const pinState = usePinnedItems()
+    const podcastItems = AI_CONFIG.podcasts.map((podcast, idx) => ({
+        ...podcast,
+        pinKey: createPinKey('ai-podcast', idx),
+    }))
+    const podcasts = sortPinnedFirst(podcastItems, (podcast) =>
+        pinState.isPinned(podcast.pinKey, podcast.pinned),
+    )
 
     return (
         <section
@@ -63,7 +74,10 @@ const PodcastGrid = () => {
                                                 Rec
                                             </Badge>
                                         )}
-                                        {podcast.pinned && <PinnedBadge />}
+                                        {pinState.isPinned(
+                                            podcast.pinKey,
+                                            podcast.pinned,
+                                        ) && <PinnedBadge />}
                                     </div>
                                     <div className='mt-0.5 text-xs text-muted-foreground'>
                                         {podcast.host}
@@ -77,6 +91,20 @@ const PodcastGrid = () => {
                                 </TableCell>
                                 <TableCell>
                                     <div className='flex justify-end'>
+                                        <PinToggle
+                                            pinned={pinState.isPinned(
+                                                podcast.pinKey,
+                                                podcast.pinned,
+                                            )}
+                                            label={podcast.title}
+                                            onToggle={() =>
+                                                pinState.togglePinned(
+                                                    podcast.pinKey,
+                                                    podcast.pinned,
+                                                )
+                                            }
+                                            className='mr-1'
+                                        />
                                         <Link
                                             href={podcast.url}
                                             target='_blank'

@@ -8,6 +8,8 @@ import PinnedBadge from '@/components/pinned-badge'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
+import PinToggle from '@/components/pin-toggle'
+import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
 
@@ -33,6 +35,7 @@ interface EntryProps {
     url?: string
     tier?: string
     pinned?: boolean
+    onTogglePinned?: () => void
     index: number
 }
 
@@ -44,6 +47,7 @@ const Entry = ({
     url,
     tier,
     pinned,
+    onTogglePinned,
     index,
 }: EntryProps) => {
     const titleNode = url ? (
@@ -72,9 +76,18 @@ const Entry = ({
                         {titleNode}
                         {pinned && <PinnedBadge />}
                     </div>
-                    <span className='shrink-0 text-xs text-muted-foreground'>
-                        {year}
-                    </span>
+                    <div className='flex shrink-0 items-center gap-1'>
+                        {onTogglePinned && (
+                            <PinToggle
+                                pinned={pinned === true}
+                                label={title}
+                                onToggle={onTogglePinned}
+                            />
+                        )}
+                        <span className='text-xs text-muted-foreground'>
+                            {year}
+                        </span>
+                    </div>
                 </div>
                 <p className='text-sm text-muted-foreground'>
                     {highlightSelf(authors)}
@@ -99,10 +112,35 @@ type AchievementsProps = {
 const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const allPubs = sortPinnedFirst(config.research?.publications ?? [])
-    const allConfs = sortPinnedFirst(config.research?.conferences ?? [])
-    const pubs = pinnedOnly ? filterPinned(allPubs) : allPubs
-    const confs = pinnedOnly ? filterPinned(allConfs) : allConfs
+    const pinState = usePinnedItems()
+    const publicationItems = (config.research?.publications ?? []).map(
+        (publication, idx) => ({
+            ...publication,
+            pinKey: createPinKey('research-publication', idx),
+        }),
+    )
+    const conferenceItems = (config.research?.conferences ?? []).map(
+        (conference, idx) => ({
+            ...conference,
+            pinKey: createPinKey('research-conference', idx),
+        }),
+    )
+    const allPubs = sortPinnedFirst(publicationItems, (publication) =>
+        pinState.isPinned(publication.pinKey, publication.pinned),
+    )
+    const allConfs = sortPinnedFirst(conferenceItems, (conference) =>
+        pinState.isPinned(conference.pinKey, conference.pinned),
+    )
+    const pubs = pinnedOnly
+        ? filterPinned(allPubs, (publication) =>
+              pinState.isPinned(publication.pinKey, publication.pinned),
+          )
+        : allPubs
+    const confs = pinnedOnly
+        ? filterPinned(allConfs, (conference) =>
+              pinState.isPinned(conference.pinKey, conference.pinned),
+          )
+        : allConfs
     if (pubs.length === 0 && confs.length === 0) return null
 
     return (
@@ -128,7 +166,10 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 year={p.year}
                                 url={p.url}
                                 tier={p.tier}
-                                pinned={p.pinned}
+                                pinned={pinState.isPinned(p.pinKey, p.pinned)}
+                                onTogglePinned={() =>
+                                    pinState.togglePinned(p.pinKey, p.pinned)
+                                }
                             />
                         ))}
                     </div>
@@ -150,7 +191,10 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 venue={c.venue}
                                 year={c.year}
                                 url={c.url}
-                                pinned={c.pinned}
+                                pinned={pinState.isPinned(c.pinKey, c.pinned)}
+                                onTogglePinned={() =>
+                                    pinState.togglePinned(c.pinKey, c.pinned)
+                                }
                             />
                         ))}
                     </div>
