@@ -662,7 +662,8 @@ export const CONFIG: Config = {
                 description: (
                     <>
                         基于聚类 + 回归分析用户画像,用户增长 +30%、营收
-                        +20%;设计精品小班产品,差评退课率 -15%。
+                        +20%;设计“线下集训 +
+                        线上直播”形态的教育精品小班产品,差评退课率 -15%。
                     </>
                 ),
                 tags: [
@@ -1148,7 +1149,8 @@ export const CONFIG_EN: Config = {
                     <>
                         Built user personas through clustering and regression
                         analysis, driving +30% user growth and +20% revenue;
-                        designed premium small-class products and reduced
+                        designed premium small-class education products in an
+                        offline bootcamp + online live-class format, reducing
                         refund/dropout caused by negative reviews by 15%.
                     </>
                 ),
