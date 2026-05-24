@@ -265,8 +265,9 @@ export const CONFIG: Config = {
         },
         {
             name: '沉浸式播客 AI 产品',
+            duration: '2025年6月',
             description:
-                'C 端产品设计。针对信息过载与碎片焦虑,用多 Agent 重构内容消费链路,支持围绕任意链接/文档进行多视角播客式讨论。',
+                'C 端产品设计。针对信息过载、碎片焦虑与信息留存率不足,定义“沉浸式播客 + 记忆强化 + 视角拓展”的内容消费链路。通过 Coze 实现多 Agent 角色讨论 MVP,支持围绕任意链接/文档进行多视角播客式讨论;评测发现法律、数学格式等内容召回缺陷,为后续微调提供优化建议。',
             url: '',
             tags: [
                 { name: 'Coze', icon: 'gear' },
@@ -278,8 +279,9 @@ export const CONFIG: Config = {
         },
         {
             name: '智能问答 AI 行业知识库',
+            duration: '2025年3月',
             description:
-                'B 端产品研发。Llama 3.2 LoRA 微调 + Python 本地部署 RAG + Coze Agent 自动更新,显著提升团队知识检索效率。',
+                'B 端产品研发。面向企业内部知识检索与数据隐私需求,使用 100K 高质量行业数据在 Colab 上对 Llama 3.2 进行 LoRA 监督微调,通过 TrainingArguments 等参数压缩至本地部署规模。使用 Python 构建本地 RAG MVP 并进行回答准确性与召回评测;通过 Coze 验证 Agent workflow,实现无人值守、自动更新的 AI 问答知识库。',
             url: '',
             tags: [
                 { name: 'Python', icon: 'python' },
@@ -292,8 +294,9 @@ export const CONFIG: Config = {
         },
         {
             name: '新能源 + 负荷侧能源管理 AI',
+            duration: '2024年12月',
             description:
-                'B 端产品研发。GCN-LSTM 时空预测出力 + Q-learning 控制负荷,绿电消纳能力 +50%,负荷侧能耗 -15%。',
+                'B 端产品研发。面向虚拟电厂新能源出力与负荷侧预测偏差超过 30% 的问题,采用 GCN-LSTM 融合时空多维特征预测产品采用趋势与绿电波动,较 LSTM、XGBoost 等方法 MAE 降低 10%,绿电波动准确性提升 15%。基于全球室内外热数据集与 Q-learning 深度强化学习控制负荷侧能耗,负荷侧能耗 -15%,绿电消纳能力 +50%。',
             url: '',
             tags: [
                 { name: 'Python', icon: 'python' },
@@ -304,8 +307,9 @@ export const CONFIG: Config = {
         },
         {
             name: '光伏产品需求分析 AI',
+            duration: '2022年9月',
             description:
-                'C 端功能研发。YOLOv8 迁移学习 + SAM 半自动标注识别屋顶容量 (准确率 92%),Agent + SD 批量生成效果图,勘察时效 3h → 5min。',
+                'C 端功能研发。面向海外屋顶光伏采购场景,用 YOLOv8 迁移学习 + 1w+ 人工标注样本校准的 SAM 半自动标注识别屋顶容量,覆盖 5 类光伏面板与 200+ 屋顶材质类别,材质识别准确率 92%,面积测量误差 <3%,勘察时效从 3 小时缩短至 5 分钟。通过 Agent workflow + Stable Diffusion 批量生成 20 种实景方案效果图,客户决策周期平均缩短 5 天,满意度提升 60%。',
             url: '',
             tags: [
                 { name: 'YOLOv8', icon: 'gear' },
@@ -759,8 +763,9 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'Immersive Podcast AI Product',
+            duration: 'Jun 2025',
             description:
-                'Designed a consumer AI product for information overload and fragmented attention. It uses multi-agent workflows to restructure content consumption and supports multi-perspective podcast-style discussions around any link or document.',
+                'Designed a consumer AI product for information overload, fragmented attention, and low information retention. Defined a content loop around immersive podcasting, memory reinforcement, and perspective expansion. Built a Coze-based multi-agent MVP with role-based discussions around any link or document; evaluation surfaced recall issues in legal and math-format content, informing future fine-tuning.',
             url: '',
             tags: [
                 { name: 'Coze', icon: 'gear' },
@@ -772,8 +777,9 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'AI Industry Knowledge Base',
+            duration: 'Mar 2025',
             description:
-                'Built a B2B intelligent Q&A product using Llama 3.2 LoRA fine-tuning, local Python RAG deployment, and Coze Agent auto-updates to improve team knowledge retrieval efficiency.',
+                'Built a B2B intelligent Q&A product for internal knowledge retrieval and data privacy. Fine-tuned Llama 3.2 with LoRA on 100K high-quality industry samples in Colab, using TrainingArguments to reduce the model to a local-deployable scale. Built a Python local RAG MVP with answer-accuracy and recall evaluation, then validated a Coze Agent workflow for unattended, auto-updating knowledge-base operations.',
             url: '',
             tags: [
                 { name: 'Python', icon: 'python' },
@@ -786,8 +792,9 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'Renewable Energy + Demand-Side AI Management',
+            duration: 'Dec 2024',
             description:
-                'Developed a B2B energy AI product combining GCN-LSTM spatiotemporal power forecasting with Q-learning load control, improving green electricity consumption by 50% and reducing demand-side energy use by 15%.',
+                'Developed a B2B energy AI product for virtual power plant scenarios where renewable output and demand-side forecasts can deviate by over 30%. Used GCN-LSTM with spatiotemporal features to predict adoption trends and green-power fluctuation, reducing MAE by 10% versus LSTM/XGBoost and improving fluctuation accuracy by 15%. Built Q-learning control on a global indoor/outdoor thermal dataset, reducing demand-side energy use by 15% and improving green electricity consumption by 50%.',
             url: '',
             tags: [
                 { name: 'Python', icon: 'python' },
@@ -798,8 +805,9 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'PV Product Demand Analysis AI',
+            duration: 'Sep 2022',
             description:
-                'Built a consumer-side PV feature using YOLOv8 transfer learning and SAM semi-automatic annotation for rooftop capacity detection (92% accuracy), plus Agent + Stable Diffusion batch renderings, reducing site survey time from 3 hours to 5 minutes.',
+                'Built a consumer-side PV feature for overseas rooftop solar purchasing. Used YOLOv8 transfer learning plus SAM semi-automatic annotation calibrated on 10K+ manually labeled samples to identify rooftop capacity across 5 PV panel categories and 200+ roof-material classes, reaching 92% material-recognition accuracy and <3% area-measurement error while reducing survey time from 3 hours to 5 minutes. Used Agent workflow + Stable Diffusion to generate 20 real-scene renderings, shortening average customer decision cycles by 5 days and improving satisfaction by 60%.',
             url: '',
             tags: [
                 { name: 'YOLOv8', icon: 'gear' },
