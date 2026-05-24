@@ -1,7 +1,10 @@
 import {
     ArrowUpRight,
+    BadgeCheck,
+    Calendar,
     ExternalLink,
     LucideProps,
+    Phone,
     Star,
     Sun,
     Cog,
@@ -142,6 +145,9 @@ export const Icons = {
     ),
     externalLink: ExternalLink,
     wechat: MessageCircle,
+    phone: Phone,
+    calendar: Calendar,
+    badgeCheck: BadgeCheck,
     react: (props: LucideProps) => (
         <svg
             xmlns='http://www.w3.org/2000/svg'

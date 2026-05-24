@@ -123,13 +123,19 @@ export const CONFIG: Config = {
     ],
     contactMethods: [
         {
-            label: '邮箱',
+            label: '国内邮箱',
             value: 'dy0509@foxmail.com',
             href: 'mailto:dy0509@foxmail.com',
             icon: 'email',
         },
         {
-            label: '邮箱',
+            label: '手机号',
+            value: '18668206791',
+            href: 'tel:18668206791',
+            icon: 'phone',
+        },
+        {
+            label: 'Global 邮箱',
             value: 'dy9759@gmail.com',
             href: 'mailto:dy9759@gmail.com',
             icon: 'email',
@@ -139,18 +145,28 @@ export const CONFIG: Config = {
             value: 'ChaunceyAI2030',
             icon: 'wechat',
         },
+        {
+            label: '出生年月',
+            value: '1997年5月出生',
+            icon: 'calendar',
+        },
+        {
+            label: '政治面貌',
+            value: '中共党员',
+            icon: 'badgeCheck',
+        },
     ],
     description: (
         <>
             👋 你好!我是李盛园,一名 AI 产品经理,拥有 3+ 年 AI
-            产品研发与落地经验。 武汉大学建筑智慧能源方向硕士(GPA Top
-            5%),本科毕业于浙大宁波理工学院建筑学。
+            产品研发与落地经验。 武汉大学建筑学(建筑技术科学)硕士(GPA
+            90+/100,Top 5%),本科毕业于浙大宁波理工学院建筑学。
             熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
             发表 SCI 期刊论文 5 篇,担任 TOP 期刊审稿人。欢迎交流合作!
         </>
     ),
     descriptionRaw:
-        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Smart Energy from Wuhan University, B.S. in Architecture. Published 5 SCI papers.",
+        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Published 5 SCI papers.",
     projects: [
         {
             name: 'Sayso ToC 产品',
@@ -381,15 +397,16 @@ export const CONFIG: Config = {
         {
             school: '武汉大学',
             degree: '硕士',
-            field: '建筑智慧能源方向',
+            field: '建筑学(建筑技术科学)',
             duration: '2022.9 - 2025.6',
-            details: 'GPA Top 5%',
+            details: 'GPA 90+/100 (Top 5%)',
         },
         {
             school: '浙大宁波理工学院',
             degree: '本科',
             field: '建筑学',
             duration: '2015.9 - 2020.6',
+            details: 'GPA 85+/100 (Top 10%)',
         },
     ],
     research: {
@@ -573,7 +590,7 @@ export const CONFIG: Config = {
             },
             {
                 company: '上海几凡设计教育(杭州校区)',
-                role: '联合创始人 / Co-founder',
+                role: '联合创始人 / 增长与产品负责人',
                 duration: 'Jun 2020 – Aug 2022',
                 description: (
                     <>
@@ -596,13 +613,19 @@ export const CONFIG_EN: Config = {
     title: 'AI Product Manager',
     contactMethods: [
         {
-            label: 'Email',
+            label: 'China Email',
             value: 'dy0509@foxmail.com',
             href: 'mailto:dy0509@foxmail.com',
             icon: 'email',
         },
         {
-            label: 'Email',
+            label: 'Phone',
+            value: '18668206791',
+            href: 'tel:18668206791',
+            icon: 'phone',
+        },
+        {
+            label: 'Global Email',
             value: 'dy9759@gmail.com',
             href: 'mailto:dy9759@gmail.com',
             icon: 'email',
@@ -612,17 +635,27 @@ export const CONFIG_EN: Config = {
             value: 'ChaunceyAI2030',
             icon: 'wechat',
         },
+        {
+            label: 'Date of Birth',
+            value: 'May 1997',
+            icon: 'calendar',
+        },
+        {
+            label: 'Political Status',
+            value: 'CPC Member',
+            icon: 'badgeCheck',
+        },
     ],
     description: (
         <>
             Hi, I&apos;m Shengyuan Li, an AI Product Manager with 3+ years of AI
-            product R&D and delivery experience. I hold an M.S. in Smart
-            Building Energy from Wuhan University (GPA Top 5%) and a B.S. in
-            Architecture from Zhejiang University NingboTech. I work across
-            local LLM deployment, RAG, agents, and model fine-tuning, with
-            product experience in architecture, energy, and e-commerce. I have
-            published 5 SCI journal papers and serve as a reviewer for top
-            journals. Open to collaboration.
+            product R&D and delivery experience. I hold an M.S. in Architecture
+            (Architectural Technology Science) from Wuhan University (GPA
+            90+/100, Top 5%) and a B.S. in Architecture from Zhejiang University
+            NingboTech. I work across local LLM deployment, RAG, agents, and
+            model fine-tuning, with product experience in architecture, energy,
+            and e-commerce. I have published 5 SCI journal papers and serve as a
+            reviewer for top journals. Open to collaboration.
         </>
     ),
     projects: [
@@ -858,15 +891,16 @@ export const CONFIG_EN: Config = {
         {
             school: 'Wuhan University',
             degree: "Master's Degree",
-            field: 'Smart Building Energy',
+            field: 'Architecture (Architectural Technology Science)',
             duration: '2022.9 - 2025.6',
-            details: 'GPA Top 5%',
+            details: 'GPA 90+/100 (Top 5%)',
         },
         {
             school: 'Zhejiang University NingboTech',
             degree: "Bachelor's Degree",
             field: 'Architecture',
             duration: '2015.9 - 2020.6',
+            details: 'GPA 85+/100 (Top 10%)',
         },
     ],
     research: {
@@ -979,7 +1013,7 @@ export const CONFIG_EN: Config = {
             },
             {
                 company: 'Shanghai Jifan Design Education (Hangzhou Campus)',
-                role: 'Co-founder',
+                role: 'Co-founder / Growth & Product Lead',
                 duration: 'Jun 2020 – Aug 2022',
                 description: (
                     <>
