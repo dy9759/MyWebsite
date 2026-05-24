@@ -162,11 +162,12 @@ export const CONFIG: Config = {
             产品研发与落地经验。 武汉大学建筑学(建筑技术科学)硕士(GPA
             90+/100,Top 5%),本科毕业于浙大宁波理工学院建筑学。
             熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
-            发表 SCI 期刊论文 5 篇,担任 TOP 期刊审稿人。欢迎交流合作!
+            成果页收录期刊论文 8 篇(SCI 7 篇、中文期刊 1 篇),会议论文 5
+            篇、科研项目 1 项,担任 TOP 期刊审稿人。欢迎交流合作!
         </>
     ),
     descriptionRaw:
-        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Published 5 SCI papers.",
+        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Research outputs include 8 journal papers (7 SCI-indexed and 1 Chinese journal article), 5 conference papers, and 1 research project.",
     projects: [
         {
             name: 'Sayso ToC 产品',
@@ -658,8 +659,10 @@ export const CONFIG_EN: Config = {
             90+/100, Top 5%) and a B.S. in Architecture from Zhejiang University
             NingboTech. I work across local LLM deployment, RAG, agents, and
             model fine-tuning, with product experience in architecture, energy,
-            and e-commerce. I have published 5 SCI journal papers and serve as a
-            reviewer for top journals. Open to collaboration.
+            and e-commerce. Research outputs include 8 journal papers (7
+            SCI-indexed and 1 Chinese journal article), 5 conference papers, and
+            1 research project. I also serve as a reviewer for top journals.
+            Open to collaboration.
         </>
     ),
     projects: [
