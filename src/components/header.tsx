@@ -24,8 +24,12 @@ const Header = () => {
                         📍 {copy.labels.location}
                     </p>
                 </div>
-                <Avatar className='size-20'>
-                    <AvatarImage src={config.avatar} asChild>
+                <Avatar className='size-20 bg-white p-1'>
+                    <AvatarImage
+                        src={config.avatar}
+                        className='object-contain'
+                        asChild
+                    >
                         <Image
                             src={config.avatar}
                             alt={config.name + ' avatar'}
