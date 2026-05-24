@@ -2,6 +2,7 @@
 
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import SegmentList from '@/components/segment-list'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 
@@ -24,8 +25,8 @@ const WorkExperience = () => {
                             idx > 0 ? 'border-t-0' : ''
                         }`}
                     >
-                        <div className='flex items-center justify-between'>
-                            <div>
+                        <div className='flex items-start justify-between gap-4'>
+                            <div className='min-w-0'>
                                 <h3 className='font-medium'>{position.role}</h3>
                                 <div className='flex items-center gap-1'>
                                     <p className='text-sm text-muted-foreground'>
@@ -42,13 +43,20 @@ const WorkExperience = () => {
                                     )}
                                 </div>
                             </div>
-                            <p className='text-sm text-muted-foreground'>
+                            <p className='shrink-0 text-sm text-muted-foreground'>
                                 {position.duration}
                             </p>
                         </div>
-                        <div className='mt-2 text-sm text-muted-foreground whitespace-pre-line'>
-                            {position.description}
-                        </div>
+                        {position.descriptionSegments?.length ? (
+                            <SegmentList
+                                segments={position.descriptionSegments}
+                                className='mt-3'
+                            />
+                        ) : (
+                            <div className='mt-2 whitespace-pre-line text-sm text-muted-foreground'>
+                                {position.description}
+                            </div>
+                        )}
                         <div className='mt-3 flex flex-wrap gap-1.5'>
                             {position.tags.map((tag, tagIdx) => {
                                 const Icon = Icons[tag.icon]

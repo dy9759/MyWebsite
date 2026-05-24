@@ -3,7 +3,7 @@
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
+import SegmentList from '@/components/segment-list'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -90,10 +90,6 @@ const OpenSourceProjects = ({
                                         <h3 className='font-medium'>
                                             {project.name}
                                         </h3>
-                                        {pinState.isPinned(
-                                            project.pinKey,
-                                            project.pinned,
-                                        ) && <PinnedBadge />}
                                     </div>
                                     <p className='text-xs text-muted-foreground'>
                                         {project.repo}
@@ -130,9 +126,17 @@ const OpenSourceProjects = ({
                                     </Button>
                                 </div>
                             </div>
-                            <p className='text-sm text-muted-foreground'>
-                                {project.description}
-                            </p>
+                            <SegmentList
+                                className='space-y-0'
+                                segments={
+                                    project.descriptionSegments ?? [
+                                        {
+                                            title: copy.labels.description,
+                                            content: project.description,
+                                        },
+                                    ]
+                                }
+                            />
                             <div className='mt-1 flex flex-wrap gap-1.5'>
                                 {project.tags.map((tag, tagIdx) => {
                                     const Icon = Icons[tag.icon]

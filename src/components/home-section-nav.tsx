@@ -5,13 +5,12 @@ import SectionRailNav from '@/components/section-rail-nav'
 
 const SECTION_ITEMS = [
     { href: '#profile', labelKey: 'name' },
-    { href: '#contact', labelKey: 'contact' },
     { href: '#about', labelKey: 'about' },
     { href: '#work', labelKey: 'work' },
     { href: '#projects', labelKey: 'projects' },
+    { href: '#achievements', labelKey: 'achievements' },
     { href: '#education', labelKey: 'education' },
     { href: '#qualifications', labelKey: 'qualifications' },
-    { href: '#achievements', labelKey: 'achievements' },
 ] as const
 
 const HomeSectionNav = () => {

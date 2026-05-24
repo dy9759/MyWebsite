@@ -3,8 +3,8 @@
 import { Icons } from '@/components/icons'
 import { useSiteCopy } from '@/components/language-provider'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
 import { ReadMore } from '@/components/read-more'
+import SegmentList, { type SegmentListItem } from '@/components/segment-list'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -16,12 +16,12 @@ import {
 } from '@/components/ui/tooltip'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 interface ProjectProps {
     name: string
     icon?: keyof typeof Icons
     description: string
+    descriptionSegments?: SegmentListItem[]
     image?: string
     duration?: string
     url: string
@@ -44,6 +44,7 @@ const Project = ({
     name,
     icon,
     description,
+    descriptionSegments,
     image,
     duration,
     url,
@@ -55,9 +56,10 @@ const Project = ({
     onTogglePinned,
     index = 0,
 }: ProjectProps) => {
-    const Icon = Icons[icon!]
+    const Icon = icon ? Icons[icon] : undefined
     const copy = useSiteCopy()
-    const hasActions = Boolean(onTogglePinned || github || url || links.length)
+    const hasHeaderActions = Boolean(onTogglePinned || github || url)
+    const hasFooter = Boolean(tags.length || links.length)
 
     return (
         <Card
@@ -68,7 +70,7 @@ const Project = ({
             <div className='flex flex-col gap-2'>
                 <div className='flex items-start justify-between gap-3'>
                     <div className='flex min-w-0 items-start gap-2'>
-                        {icon && (
+                        {Icon && (
                             <Icon className='h-12 w-12 shrink-0 transition-all saturate-100' />
                         )}
                         {image && (
@@ -76,26 +78,32 @@ const Project = ({
                                 src={image}
                                 width={64}
                                 height={64}
-                                alt='fds'
+                                alt={`${name} icon`}
                                 className='h-12 w-auto shrink-0 transition-all saturate-100'
                             />
                         )}
                         <div className='min-w-0'>
                             <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                                 <h3 className='font-medium'>{name}</h3>
-                                {pinned && <PinnedBadge />}
                                 {duration && (
                                     <span className='text-xs text-muted-foreground'>
                                         {duration}
                                     </span>
                                 )}
                             </div>
-                            <p className='text-sm text-muted-foreground'>
-                                {description}
-                            </p>
+                            {descriptionSegments?.length ? (
+                                <SegmentList
+                                    segments={descriptionSegments}
+                                    className='mt-2'
+                                />
+                            ) : (
+                                <p className='text-sm text-muted-foreground'>
+                                    {description}
+                                </p>
+                            )}
                         </div>
                     </div>
-                    {hasActions && (
+                    {hasHeaderActions && (
                         <div className='ml-2 flex shrink-0 flex-wrap items-center justify-end gap-1'>
                             {onTogglePinned && (
                                 <PinToggle
@@ -162,46 +170,52 @@ const Project = ({
                                     </Tooltip>
                                 )}
                             </TooltipProvider>
-                            {links.map((link) => (
-                                <Button
-                                    key={link.url}
-                                    asChild
-                                    variant='outline'
-                                    size='sm'
-                                    className='h-7 gap-1 px-2 text-xs'
-                                >
-                                    <Link
-                                        href={link.url}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        aria-label={`${name} ${link.label}`}
-                                    >
-                                        <Icons.externalLink className='size-3' />
-                                        {link.label}
-                                    </Link>
-                                </Button>
-                            ))}
                         </div>
                     )}
                 </div>
 
-                <div>
-                    {tags && (
-                        <ul className='mt-2 flex flex-wrap gap-1'>
-                            {tags.map((tag, idx) => {
-                                const Icon = Icons[tag.icon]
-                                return (
-                                    <li key={idx}>
-                                        <Badge variant={'outline'}>
-                                            <Icon className='mr-1.5 h-3 w-3 transition-all saturate-100' />{' '}
-                                            {tag.name}
-                                        </Badge>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                    )}
-                </div>
+                {hasFooter && (
+                    <div className='mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
+                        {tags.length > 0 && (
+                            <ul className='flex flex-wrap gap-1'>
+                                {tags.map((tag, idx) => {
+                                    const Icon = Icons[tag.icon]
+                                    return (
+                                        <li key={idx}>
+                                            <Badge variant={'outline'}>
+                                                <Icon className='mr-1.5 h-3 w-3 transition-all saturate-100' />{' '}
+                                                {tag.name}
+                                            </Badge>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        )}
+                        {links.length > 0 && (
+                            <div className='flex flex-wrap gap-2 sm:ml-auto sm:justify-end'>
+                                {links.map((link) => (
+                                    <Button
+                                        key={link.url}
+                                        asChild
+                                        variant='outline'
+                                        size='sm'
+                                        className='h-7 gap-1 px-2 text-xs'
+                                    >
+                                        <Link
+                                            href={link.url}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                            aria-label={`${name} ${link.label}`}
+                                        >
+                                            <Icons.externalLink className='size-3' />
+                                            {link.label}
+                                        </Link>
+                                    </Button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
                 {testimonial && (
                     <blockquote className='border-l-2 pl-6 text-sm italic text-muted-foreground'>
                         <ReadMore text={testimonial} id='d' />

@@ -1,43 +1,25 @@
 'use client'
 
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import {
-    useLanguage,
-    useSiteCopy,
-    type Language,
-} from '@/components/language-provider'
+import { Button } from '@/components/ui/button'
+import { useLanguage } from '@/components/language-provider'
 
 export function LanguageToggle() {
     const { language, setLanguage } = useLanguage()
-    const copy = useSiteCopy()
+    const isChinese = language === 'zh'
+    const nextLanguage = isChinese ? 'en' : 'zh'
+    const label = isChinese ? 'Switch to English' : '切换到中文'
+    const displayLabel = isChinese ? '中' : 'EN'
 
     return (
-        <ToggleGroup
-            type='single'
-            value={language}
-            onValueChange={(value) => {
-                if (value === 'zh' || value === 'en') {
-                    setLanguage(value as Language)
-                }
-            }}
-            aria-label={copy.languageToggle}
-            className='rounded-md border bg-background/80 p-0.5'
-            size='sm'
+        <Button
+            variant='ghost'
+            size='icon'
+            aria-label={label}
+            title={label}
+            className='text-sm font-semibold text-muted-foreground transition-colors duration-200 hover:text-foreground'
+            onClick={() => setLanguage(nextLanguage)}
         >
-            <ToggleGroupItem
-                value='zh'
-                aria-label='切换到中文'
-                className='min-w-8 px-2 text-xs'
-            >
-                中
-            </ToggleGroupItem>
-            <ToggleGroupItem
-                value='en'
-                aria-label='Switch to English'
-                className='min-w-9 px-2 text-xs'
-            >
-                EN
-            </ToggleGroupItem>
-        </ToggleGroup>
+            {displayLabel}
+        </Button>
     )
 }

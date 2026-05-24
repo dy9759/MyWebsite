@@ -1,6 +1,5 @@
 import AboutSection from '@/components/about-section'
 import Achievements from '@/components/achievements'
-import ContactSection from '@/components/contact-section'
 import Education from '@/components/education'
 import Header from '@/components/header'
 import HomeSectionNav from '@/components/home-section-nav'
@@ -14,13 +13,12 @@ export default function Home() {
             <HomeSectionNav />
             <div className='flex min-w-0 flex-col gap-12'>
                 <Header />
-                <ContactSection />
                 <AboutSection />
                 <WorkExperience />
                 <ProjectExperience />
+                <Achievements pinnedOnly />
                 <Education />
                 <Qualifications />
-                <Achievements pinnedOnly />
             </div>
         </div>
     )

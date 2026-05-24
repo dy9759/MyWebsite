@@ -4,14 +4,14 @@ import React from 'react'
 import Link from 'next/link'
 import { Icons } from '@/components/icons'
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
-import PinnedBadge from '@/components/pinned-badge'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 import PinToggle from '@/components/pin-toggle'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
-const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
+const SELF_PATTERNS = ['Chauncey Lee', '李盛园']
 
 const highlightSelf = (authors: string): React.ReactNode => {
     const pattern = new RegExp(`(${SELF_PATTERNS.join('|')})`, 'g')
@@ -74,7 +74,6 @@ const Entry = ({
                 <div className='flex items-start justify-between gap-3'>
                     <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
                         {titleNode}
-                        {pinned && <PinnedBadge />}
                     </div>
                     <div className='flex shrink-0 items-center gap-1'>
                         {onTogglePinned && (
@@ -148,7 +147,22 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
             id='achievements'
             className='scroll-mt-28 animate-slide-from-down-and-fade-4 space-y-6 px-4'
         >
-            <h2 className='font-bold'>{copy.sections.achievements}</h2>
+            <div className='flex items-center justify-between gap-3'>
+                <h2 className='font-bold'>{copy.sections.achievements}</h2>
+                {pinnedOnly && (
+                    <Button
+                        asChild
+                        variant='link'
+                        size='sm'
+                        className='h-auto px-0 text-muted-foreground underline hover:text-foreground'
+                    >
+                        <Link href='/research/'>
+                            {copy.labels.viewAll}
+                            <Icons.arrowUpRight className='ml-0.5 size-4' />
+                        </Link>
+                    </Button>
+                )}
+            </div>
 
             {pubs.length > 0 && (
                 <div id='journal-papers' className='scroll-mt-28 space-y-2'>

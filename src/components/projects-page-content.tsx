@@ -94,6 +94,9 @@ const ProjectsPageContent = () => {
                                     icon={project.icon}
                                     duration={project.duration}
                                     description={project.description}
+                                    descriptionSegments={
+                                        project.descriptionSegments
+                                    }
                                     image={project.image}
                                     url={project.url}
                                     links={project.links}

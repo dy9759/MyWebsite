@@ -2,7 +2,7 @@
 
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
+import SegmentList from '@/components/segment-list'
 import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
@@ -69,10 +69,6 @@ const ResearchProjects = ({
                                     <h4 className='font-medium'>
                                         {grant.name}
                                     </h4>
-                                    {pinState.isPinned(
-                                        grant.pinKey,
-                                        grant.pinned,
-                                    ) && <PinnedBadge />}
                                 </div>
                                 <div className='flex shrink-0 items-center gap-1'>
                                     <PinToggle
@@ -99,26 +95,23 @@ const ResearchProjects = ({
                             >
                                 {grant.funding}
                             </Badge>
-                            <dl className='mt-1 space-y-1.5 text-sm text-muted-foreground'>
-                                <div className='flex gap-2'>
-                                    <dt className='shrink-0 font-medium text-foreground/80'>
-                                        {copy.labels.description}
-                                    </dt>
-                                    <dd>{grant.overview}</dd>
-                                </div>
-                                <div className='flex gap-2'>
-                                    <dt className='shrink-0 font-medium text-foreground/80'>
-                                        {copy.labels.role}
-                                    </dt>
-                                    <dd>{grant.role}</dd>
-                                </div>
-                                <div className='flex gap-2'>
-                                    <dt className='shrink-0 font-medium text-foreground/80'>
-                                        {copy.labels.outcomes}
-                                    </dt>
-                                    <dd>{grant.outcomes}</dd>
-                                </div>
-                            </dl>
+                            <SegmentList
+                                className='mt-1'
+                                segments={[
+                                    {
+                                        title: copy.labels.description,
+                                        content: grant.overview,
+                                    },
+                                    {
+                                        title: copy.labels.role,
+                                        content: grant.role,
+                                    },
+                                    {
+                                        title: copy.labels.outcomes,
+                                        content: grant.outcomes,
+                                    },
+                                ]}
+                            />
                         </div>
                     </Card>
                 ))}
