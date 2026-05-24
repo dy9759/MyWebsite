@@ -448,7 +448,12 @@ export const CONFIG: Config = {
         {
             title: '语言与会员',
             icon: 'badgeCheck',
-            items: ['英语 CEFR-B2', '中国建筑协会会员', '中国能源研究会会员'],
+            items: [
+                '英语 CEFR-B2',
+                '大学英语六级(CET-6)',
+                '中国建筑协会会员',
+                '中国能源研究会会员',
+            ],
         },
         {
             title: '学术补充',
@@ -987,6 +992,7 @@ export const CONFIG_EN: Config = {
             icon: 'badgeCheck',
             items: [
                 'English CEFR-B2',
+                'College English Test Band 6 (CET-6)',
                 'Member of China Architecture Association',
                 'Member of China Energy Research Society',
             ],
