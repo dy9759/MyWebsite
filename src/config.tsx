@@ -58,6 +58,11 @@ type Config = {
         duration?: string
         details?: string
     }[]
+    qualifications?: {
+        title: string
+        icon: keyof typeof Icons
+        items: string[]
+    }[]
     futureWork?: {
         name: string
         direction: string
@@ -162,12 +167,12 @@ export const CONFIG: Config = {
             产品研发与落地经验。 武汉大学建筑学(建筑技术科学)硕士(GPA
             90+/100,Top 5%),本科毕业于浙大宁波理工学院建筑学。
             熟悉大模型本地部署、RAG、Agent、模型微调等技术方案,在建筑、能源、电商等领域有产品经验。
-            成果页收录期刊论文 8 篇(SCI 7 篇、中文期刊 1 篇),会议论文 5
-            篇、科研项目 1 项,担任 TOP 期刊审稿人。欢迎交流合作!
+            研究成果包括期刊论文 8 篇(SCI 7 篇、中文期刊 1 篇)、会议论文 5
+            篇、科研项目 1 项,参与专著 1 部,担任 TOP 期刊审稿人。欢迎交流合作!
         </>
     ),
     descriptionRaw:
-        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Research outputs include 8 journal papers (7 SCI-indexed and 1 Chinese journal article), 5 conference papers, and 1 research project.",
+        "Hi, I'm Shengyuan Li. AI Product Manager with 3+ years of experience in LLM deployment, RAG, Agent workflows, and model fine-tuning. M.S. in Architecture (Architectural Technology Science) from Wuhan University, B.S. in Architecture. Research outputs include 8 journal papers (7 SCI-indexed and 1 Chinese journal article), 5 conference papers, 1 research project, and 1 contributed monograph.",
     projects: [
         {
             name: 'Sayso ToC 产品',
@@ -412,6 +417,43 @@ export const CONFIG: Config = {
             field: '建筑学',
             duration: '2015.9 - 2020.6',
             details: 'GPA 85+/100 (Top 10%)',
+        },
+    ],
+    qualifications: [
+        {
+            title: '荣誉奖项',
+            icon: 'star',
+            items: [
+                '多次获校优秀学生奖学金、校三好学生',
+                '全国绿建竞赛全国最佳设计 / 最佳团队一等奖(1/500+)',
+            ],
+        },
+        {
+            title: '技能与工具',
+            icon: 'gear',
+            items: [
+                'Python、SPSS、GIS、Axure',
+                'Prompt、RAG、Agent 等 AI 解决方案',
+            ],
+        },
+        {
+            title: '产品管理证书',
+            icon: 'badgeCheck',
+            items: [
+                'IBM AI 产品管理证书',
+                'Google AI 产品管理证书',
+                'Pendo AI 产品管理证书',
+            ],
+        },
+        {
+            title: '语言与会员',
+            icon: 'badgeCheck',
+            items: ['英语 CEFR-B2', '中国建筑协会会员', '中国能源研究会会员'],
+        },
+        {
+            title: '学术补充',
+            icon: 'llm',
+            items: ['参与专著 1 部', '担任 TOP 期刊审稿人'],
         },
     ],
     research: {
@@ -661,8 +703,8 @@ export const CONFIG_EN: Config = {
             model fine-tuning, with product experience in architecture, energy,
             and e-commerce. Research outputs include 8 journal papers (7
             SCI-indexed and 1 Chinese journal article), 5 conference papers, and
-            1 research project. I also serve as a reviewer for top journals.
-            Open to collaboration.
+            1 research project, plus 1 contributed monograph. I also serve as a
+            reviewer for top journals. Open to collaboration.
         </>
     ),
     projects: [
@@ -912,6 +954,47 @@ export const CONFIG_EN: Config = {
             field: 'Architecture',
             duration: '2015.9 - 2020.6',
             details: 'GPA 85+/100 (Top 10%)',
+        },
+    ],
+    qualifications: [
+        {
+            title: 'Awards',
+            icon: 'star',
+            items: [
+                'Multiple university outstanding student scholarships and Three-Good Student honors',
+                'National Green Building Competition Best Design / Best Team First Prize (1/500+)',
+            ],
+        },
+        {
+            title: 'Skills & Tools',
+            icon: 'gear',
+            items: [
+                'Python, SPSS, GIS, Axure',
+                'Prompting, RAG, Agent, and other AI solution workflows',
+            ],
+        },
+        {
+            title: 'Product Management Certificates',
+            icon: 'badgeCheck',
+            items: [
+                'IBM AI Product Management certificate',
+                'Google AI Product Management certificate',
+                'Pendo AI Product Management certificate',
+            ],
+        },
+        {
+            title: 'Language & Memberships',
+            icon: 'badgeCheck',
+            items: [
+                'English CEFR-B2',
+                'Member of China Architecture Association',
+                'Member of China Energy Research Society',
+            ],
+        },
+        {
+            title: 'Academic Additions',
+            icon: 'llm',
+            items: ['Contributed to 1 monograph', 'Reviewer for top journals'],
         },
     ],
     research: {

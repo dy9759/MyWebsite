@@ -10,6 +10,7 @@ const SECTION_ITEMS = [
     { href: '#work', labelKey: 'work' },
     { href: '#projects', labelKey: 'projects' },
     { href: '#education', labelKey: 'education' },
+    { href: '#qualifications', labelKey: 'qualifications' },
     { href: '#achievements', labelKey: 'achievements' },
 ] as const
 

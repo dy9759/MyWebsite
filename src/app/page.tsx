@@ -5,6 +5,7 @@ import Education from '@/components/education'
 import Header from '@/components/header'
 import HomeSectionNav from '@/components/home-section-nav'
 import ProjectExperience from '@/components/project-experience'
+import Qualifications from '@/components/qualifications'
 import WorkExperience from '@/components/work-experience'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
                 <WorkExperience />
                 <ProjectExperience />
                 <Education />
+                <Qualifications />
                 <Achievements pinnedOnly />
             </div>
         </div>
