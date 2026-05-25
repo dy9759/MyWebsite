@@ -135,7 +135,7 @@ export const CONFIG: Config = {
     name: '李盛园',
     avatar: '/images/headshot.jpg',
     title: 'AI Product Manager & Agent Builder',
-    siteUrl: 'https://dy9759.github.io/MyWebsite/',
+    siteUrl: 'https://chauncey.myoii.com/',
     socials: [
         {
             name: 'GitHub',
