@@ -2,12 +2,14 @@
 
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { withBasePath } from '@/lib/asset-path'
 import { getInitials } from '@/lib/utils'
 import Image from 'next/image'
 
 const Header = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
+    const avatarSrc = withBasePath(config.avatar)
 
     return (
         <header
@@ -26,12 +28,12 @@ const Header = () => {
                 </div>
                 <Avatar className='size-20 bg-white p-1'>
                     <AvatarImage
-                        src={config.avatar}
+                        src={avatarSrc}
                         className='object-contain'
                         asChild
                     >
                         <Image
-                            src={config.avatar}
+                            src={avatarSrc}
                             alt={config.name + ' avatar'}
                             width={80}
                             height={80}
