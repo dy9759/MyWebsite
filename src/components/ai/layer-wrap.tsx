@@ -1,5 +1,7 @@
+'use client'
+
 import { Badge } from '@/components/ui/badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig } from '@/components/language-provider'
 
 interface LayerWrapProps {
     id: string
@@ -23,7 +25,8 @@ const LayerWrap = ({
     animationDelay = 2,
     children,
 }: LayerWrapProps) => {
-    const layer = AI_CONFIG.sources?.[layerIndex]
+    const aiConfig = useAIConfig()
+    const layer = aiConfig.sources?.[layerIndex]
     if (!layer) return null
 
     return (

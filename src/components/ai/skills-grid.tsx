@@ -5,14 +5,15 @@ import { Github, ExternalLink } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const SkillsGrid = () => {
     const pinState = usePinnedItems()
-    const skillItems = AI_CONFIG.skills.map((skill, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const skillItems = aiConfig.skills.map((skill, idx) => ({
         ...skill,
         pinKey: createPinKey('ai-skill', idx),
     }))
@@ -26,9 +27,9 @@ const SkillsGrid = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>Skills</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.skills.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    Small projects I have open-sourced.
+                    {copy.ai.skills.description}
                 </p>
             </div>
 
@@ -40,15 +41,9 @@ const SkillsGrid = () => {
                     >
                         <div className='flex flex-col gap-1'>
                             <div className='flex items-start justify-between gap-3'>
-                                <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
-                                    <h3 className='font-medium'>
-                                        {skill.title}
-                                    </h3>
-                                    {pinState.isPinned(
-                                        skill.pinKey,
-                                        skill.pinned,
-                                    ) && <PinnedBadge />}
-                                </div>
+                                <h3 className='font-medium'>
+                                    {skill.title}
+                                </h3>
                                 <PinToggle
                                     pinned={pinState.isPinned(
                                         skill.pinKey,

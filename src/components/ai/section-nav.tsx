@@ -1,21 +1,25 @@
-import SectionRailNav from '@/components/section-rail-nav'
+'use client'
 
-const SECTIONS = [
-    { href: '#usage', label: '使用说明' },
-    { href: '#layer-1', label: 'L1 聚合' },
-    { href: '#layer-2', label: 'L2 人物' },
-    { href: '#layer-3', label: 'L3 播客' },
-    { href: '#layer-4', label: 'L4 技术' },
-    { href: '#layer-5', label: 'L5 社区' },
-    { href: '#layer-6', label: 'L6 中文圈' },
-]
+import SectionRailNav from '@/components/section-rail-nav'
+import { useSiteCopy } from '@/components/language-provider'
 
 const SectionNav = () => {
+    const copy = useSiteCopy()
+    const nav = copy.ai.sectionNav
+    const sections = [
+        { href: '#usage', label: nav.usage },
+        { href: '#layer-1', label: nav.layer1 },
+        { href: '#layer-2', label: nav.layer2 },
+        { href: '#layer-3', label: nav.layer3 },
+        { href: '#layer-4', label: nav.layer4 },
+        { href: '#layer-5', label: nav.layer5 },
+        { href: '#layer-6', label: nav.layer6 },
+    ]
     return (
         <SectionRailNav
-            ariaLabel='AI 资源分类导航'
-            items={SECTIONS}
-            label='AI Library'
+            ariaLabel={copy.ai.sectionNavAria}
+            items={sections}
+            label={copy.ai.sidebarTitle}
         />
     )
 }

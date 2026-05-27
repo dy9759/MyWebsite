@@ -13,14 +13,15 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Icons } from '@/components/icons'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const ProductGrid = () => {
     const pinState = usePinnedItems()
-    const productItems = AI_CONFIG.products.map((product, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const productItems = aiConfig.products.map((product, idx) => ({
         ...product,
         pinKey: createPinKey('ai-product', idx),
     }))
@@ -34,9 +35,9 @@ const ProductGrid = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-4 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>Recommended Products</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.products.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    Tools I personally use.
+                    {copy.ai.products.description}
                 </p>
             </div>
 
@@ -80,10 +81,6 @@ const ProductGrid = () => {
                                                     Rec
                                                 </Badge>
                                             )}
-                                            {pinState.isPinned(
-                                                product.pinKey,
-                                                product.pinned,
-                                            ) && <PinnedBadge />}
                                         </div>
                                         <div className='mt-1 text-xs text-muted-foreground sm:hidden'>
                                             {product.description}

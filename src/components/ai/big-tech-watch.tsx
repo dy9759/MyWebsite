@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import {
@@ -7,11 +9,13 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 
 const BigTechWatch = () => {
-    const companies = AI_CONFIG.bigTech ?? []
-    const also = AI_CONFIG.bigTechAlsoTracking ?? []
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const companies = aiConfig.bigTech ?? []
+    const also = aiConfig.bigTechAlsoTracking ?? []
     if (companies.length === 0) return null
 
     return (
@@ -20,9 +24,9 @@ const BigTechWatch = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-4 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>AI 大厂动态 · Big Tech Watch</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.bigTech.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    跟踪关键人物、发布会与播客访谈。点开每家公司展开。
+                    {copy.ai.bigTech.description}
                 </p>
             </div>
 
@@ -53,7 +57,7 @@ const BigTechWatch = () => {
                                             variant='outline'
                                             className='text-[10px] text-muted-foreground'
                                         >
-                                            追踪中
+                                            {copy.ai.bigTech.tracking}
                                         </Badge>
                                     )}
                                 </div>
@@ -147,7 +151,7 @@ const BigTechWatch = () => {
 
                                     {empty && (
                                         <p className='text-sm italic text-muted-foreground'>
-                                            关键人物与事件清单待补充。
+                                            {copy.ai.bigTech.empty}
                                         </p>
                                     )}
                                 </div>

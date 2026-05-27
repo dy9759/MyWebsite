@@ -17,10 +17,6 @@ const ResearchPageContent = () => {
     const copy = useSiteCopy()
     const sectionNavItems = [
         {
-            href: '#achievements',
-            label: copy.sections.achievements,
-        },
-        {
             href: '#journal-papers',
             label: copy.sections.journalPapers,
         },

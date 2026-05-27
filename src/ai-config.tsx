@@ -11,7 +11,6 @@ export type AIConfig = {
     hero: {
         title: string
         intro: string
-        heroImage: string
     }
     videos: {
         title: string
@@ -108,7 +107,6 @@ export const AI_CONFIG: AIConfig = {
     hero: {
         title: 'AI Learning Library',
         intro: "Hi, I'm Chauncey. Below is my curated collection of AI learning resources — videos, podcasts, newsletters, and tools I personally use to keep up with the field. Everything here is free and aimed at anyone who wants to understand AI more deeply, technical or not.",
-        heroImage: '/images/ai-hero.jpg',
     },
     videos: [
         {

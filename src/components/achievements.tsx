@@ -147,9 +147,9 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
             id='achievements'
             className='scroll-mt-28 animate-slide-from-down-and-fade-4 space-y-6 px-4'
         >
-            <div className='flex items-center justify-between gap-3'>
-                <h2 className='font-bold'>{copy.sections.achievements}</h2>
-                {pinnedOnly && (
+            {pinnedOnly && (
+                <div className='flex items-center justify-between gap-3'>
+                    <h2 className='font-bold'>{copy.sections.achievements}</h2>
                     <Button
                         asChild
                         variant='link'
@@ -161,8 +161,8 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                             <Icons.arrowUpRight className='ml-0.5 size-4' />
                         </Link>
                     </Button>
-                )}
-            </div>
+                </div>
+            )}
 
             {pubs.length > 0 && (
                 <div id='journal-papers' className='scroll-mt-28 space-y-2'>

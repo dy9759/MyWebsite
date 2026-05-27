@@ -68,7 +68,7 @@ export default function RootLayout({
                             enableSystem={false}
                             disableTransitionOnChange
                         >
-                            <main className='mx-auto max-w-2xl py-4 md:pt-10'>
+                            <main className='mx-auto max-w-2xl py-4 md:max-w-4xl md:pt-10 lg:max-w-5xl xl:max-w-6xl'>
                                 <SiteNav />
                                 {children}
                                 <Contact />

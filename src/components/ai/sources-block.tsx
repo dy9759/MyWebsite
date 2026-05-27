@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
@@ -30,7 +29,6 @@ const ItemLink = ({
             {note && (
                 <span className='text-xs text-muted-foreground'>· {note}</span>
             )}
-            {pinned && <PinnedBadge />}
         </>
     )
     const title = url ? (
@@ -69,7 +67,8 @@ interface SourcesBlockProps {
 
 const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
     const pinState = usePinnedItems()
-    const layer = AI_CONFIG.sources?.[layerIndex]
+    const aiConfig = useAIConfig()
+    const layer = aiConfig.sources?.[layerIndex]
     if (!layer) return null
 
     const items = sortPinnedFirst(

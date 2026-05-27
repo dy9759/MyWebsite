@@ -10,15 +10,16 @@ import {
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
     const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
     const pinState = usePinnedItems()
-    const promptItems = AI_CONFIG.prompts.map((prompt, idx) => ({
+    const aiConfig = useAIConfig()
+    const siteCopy = useSiteCopy()
+    const promptItems = aiConfig.prompts.map((prompt, idx) => ({
         ...prompt,
         pinKey: createPinKey('ai-prompt', idx),
     }))
@@ -26,7 +27,7 @@ const PromptAccordion = () => {
         pinState.isPinned(prompt.pinKey, prompt.pinned),
     )
 
-    const copy = async (text: string, idx: number) => {
+    const copyToClipboard = async (text: string, idx: number) => {
         try {
             await navigator.clipboard.writeText(text)
             setCopiedIdx(idx)
@@ -42,9 +43,9 @@ const PromptAccordion = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-5 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>Prompts</h2>
+                <h2 className='text-xl font-bold'>{siteCopy.ai.prompts.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    System prompts I reuse. Click to expand and copy.
+                    {siteCopy.ai.prompts.description}
                 </p>
             </div>
 
@@ -53,12 +54,8 @@ const PromptAccordion = () => {
                     <AccordionItem key={idx} value={`prompt-${idx}`}>
                         <AccordionTrigger className='text-left'>
                             <div className='flex flex-col items-start gap-0.5'>
-                                <span className='flex flex-wrap items-center gap-x-2 gap-y-1 font-medium'>
+                                <span className='font-medium'>
                                     {prompt.title}
-                                    {pinState.isPinned(
-                                        prompt.pinKey,
-                                        prompt.pinned,
-                                    ) && <PinnedBadge />}
                                 </span>
                                 <span className='text-xs font-normal text-muted-foreground'>
                                     {prompt.description}
@@ -73,7 +70,9 @@ const PromptAccordion = () => {
                                 <Button
                                     variant='outline'
                                     size='sm'
-                                    onClick={() => copy(prompt.content, idx)}
+                                    onClick={() =>
+                                        copyToClipboard(prompt.content, idx)
+                                    }
                                     className='self-end'
                                 >
                                     {copiedIdx === idx ? (

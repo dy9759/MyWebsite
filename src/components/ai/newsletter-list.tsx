@@ -3,14 +3,15 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const NewsletterList = () => {
     const pinState = usePinnedItems()
-    const newsletterItems = AI_CONFIG.newsletters.map((newsletter, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const newsletterItems = aiConfig.newsletters.map((newsletter, idx) => ({
         ...newsletter,
         pinKey: createPinKey('ai-newsletter', idx),
     }))
@@ -24,9 +25,11 @@ const NewsletterList = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-4 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>Newsletters & Articles</h2>
+                <h2 className='text-xl font-bold'>
+                    {copy.ai.newsletters.heading}
+                </h2>
                 <p className='text-sm text-muted-foreground'>
-                    Writers who consistently publish signal over noise.
+                    {copy.ai.newsletters.description}
                 </p>
             </div>
 
@@ -43,14 +46,9 @@ const NewsletterList = () => {
                             className='group min-w-0 flex-1'
                         >
                             <div className='flex min-w-0 flex-col gap-0.5'>
-                                <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
-                                    <h3 className='font-medium group-hover:underline'>
-                                        {n.title}
-                                    </h3>
-                                    {pinState.isPinned(n.pinKey, n.pinned) && (
-                                        <PinnedBadge />
-                                    )}
-                                </div>
+                                <h3 className='font-medium group-hover:underline'>
+                                    {n.title}
+                                </h3>
                                 <p className='text-sm text-muted-foreground'>
                                     {n.description}
                                 </p>

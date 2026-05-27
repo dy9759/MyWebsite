@@ -14,11 +14,11 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
 import VideoFilter, {
     type VideoFilterValue,
 } from '@/components/ai/video-filter'
-import { AI_CONFIG, type VideoTag } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
+import { type VideoTag } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
@@ -26,7 +26,9 @@ const COLLAPSED_COUNT = 3
 
 const VideoTable = () => {
     const pinState = usePinnedItems()
-    const videoItems = AI_CONFIG.videos.map((video, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const videoItems = aiConfig.videos.map((video, idx) => ({
         ...video,
         pinKey: createPinKey('ai-video', idx),
     }))
@@ -61,9 +63,9 @@ const VideoTable = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-2 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>YouTube Videos</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.videos.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    Curated videos. Filter by tag.
+                    {copy.ai.videos.description}
                 </p>
             </div>
 
@@ -123,10 +125,6 @@ const VideoTable = () => {
                                                         Rec
                                                     </Badge>
                                                 )}
-                                                {pinState.isPinned(
-                                                    video.pinKey,
-                                                    video.pinned,
-                                                ) && <PinnedBadge />}
                                             </div>
                                             <div className='mt-0.5 text-xs text-muted-foreground'>
                                                 {video.channel} ·{' '}

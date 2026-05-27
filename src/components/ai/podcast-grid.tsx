@@ -12,14 +12,15 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PodcastGrid = () => {
     const pinState = usePinnedItems()
-    const podcastItems = AI_CONFIG.podcasts.map((podcast, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const podcastItems = aiConfig.podcasts.map((podcast, idx) => ({
         ...podcast,
         pinKey: createPinKey('ai-podcast', idx),
     }))
@@ -33,9 +34,9 @@ const PodcastGrid = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>Podcasts</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.podcasts.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    Video podcasts I listen to regularly.
+                    {copy.ai.podcasts.description}
                 </p>
             </div>
 
@@ -74,10 +75,6 @@ const PodcastGrid = () => {
                                                 Rec
                                             </Badge>
                                         )}
-                                        {pinState.isPinned(
-                                            podcast.pinKey,
-                                            podcast.pinned,
-                                        ) && <PinnedBadge />}
                                     </div>
                                     <div className='mt-0.5 text-xs text-muted-foreground'>
                                         {podcast.host}

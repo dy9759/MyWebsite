@@ -2,17 +2,18 @@
 
 import Link from 'next/link'
 import PinToggle from '@/components/pin-toggle'
-import PinnedBadge from '@/components/pinned-badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { getInitials } from '@/lib/utils'
 import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PeopleGrid = () => {
     const pinState = usePinnedItems()
-    const peopleItems = AI_CONFIG.people.map((person, idx) => ({
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const peopleItems = aiConfig.people.map((person, idx) => ({
         ...person,
         pinKey: createPinKey('ai-person', idx),
     }))
@@ -26,9 +27,9 @@ const PeopleGrid = () => {
             className='flex flex-col gap-4 px-4 animate-slide-from-down-and-fade-3 scroll-mt-8'
         >
             <div className='flex flex-col gap-1'>
-                <h2 className='text-xl font-bold'>People to Follow</h2>
+                <h2 className='text-xl font-bold'>{copy.ai.people.heading}</h2>
                 <p className='text-sm text-muted-foreground'>
-                    Builders and researchers worth following on X.
+                    {copy.ai.people.description}
                 </p>
             </div>
 
@@ -59,10 +60,6 @@ const PeopleGrid = () => {
                                         {person.name}
                                     </h3>
                                 </Link>
-                                {pinState.isPinned(
-                                    person.pinKey,
-                                    person.pinned,
-                                ) && <PinnedBadge />}
                                 <span className='text-xs text-muted-foreground'>
                                     {person.handle}
                                 </span>

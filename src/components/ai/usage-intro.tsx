@@ -1,9 +1,13 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
-import { AI_CONFIG } from '@/ai-config'
+import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 
 const UsageIntro = () => {
-    const usage = AI_CONFIG.sourcesUsage ?? []
+    const aiConfig = useAIConfig()
+    const copy = useSiteCopy()
+    const usage = aiConfig.sourcesUsage ?? []
     if (usage.length === 0) return null
 
     return (
@@ -13,12 +17,10 @@ const UsageIntro = () => {
         >
             <div className='flex flex-col gap-1'>
                 <div className='text-xs font-medium uppercase tracking-wide text-accent'>
-                    使用说明 · How to use this library
+                    {copy.ai.usageIntro.heading}
                 </div>
                 <p className='text-sm text-muted-foreground'>
-                    本库按 6 个层次组织 AI
-                    与科技信息源,从最广的聚合到最深的研究。
-                    下面是我在实际使用中遵循的三条原则,帮助你判断该看什么、以什么顺序看。
+                    {copy.ai.usageIntro.paragraph}
                 </p>
             </div>
             <ol className='flex flex-col gap-2.5 text-sm'>
