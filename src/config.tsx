@@ -43,6 +43,7 @@ type Config = {
         featured: boolean
         pinned?: boolean
         testimonial?: string
+        category?: 'consumer' | 'enterprise' | 'content' | 'agent'
     }[]
     workExperience?: {
         positions?: {
@@ -287,6 +288,7 @@ export const CONFIG: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'Sayso Team',
@@ -312,6 +314,7 @@ export const CONFIG: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'MyAttention 浏览器插件',
@@ -339,6 +342,7 @@ export const CONFIG: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: '大模型评测平台',
@@ -363,6 +367,7 @@ export const CONFIG: Config = {
                 { name: 'ASR', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'VuiLabs 官网建设',
@@ -385,6 +390,7 @@ export const CONFIG: Config = {
                 { name: 'Website', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'Sayso 数据 Agent',
@@ -409,6 +415,7 @@ export const CONFIG: Config = {
                 { name: 'Internal Tool', icon: 'gear' },
             ],
             featured: false,
+            category: 'agent',
         },
         {
             name: '内容创作冷启动',
@@ -431,6 +438,7 @@ export const CONFIG: Config = {
                 { name: '小红书', icon: 'gear' },
             ],
             featured: false,
+            category: 'content',
         },
         {
             name: '沉浸式播客 AI 产品',
@@ -467,6 +475,7 @@ export const CONFIG: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: '智能问答 AI 行业知识库',
@@ -504,6 +513,7 @@ export const CONFIG: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'enterprise',
         },
         {
             name: '地理信息模拟器',
@@ -540,6 +550,7 @@ export const CONFIG: Config = {
                 { name: 'SSP1', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: '新能源 + 负荷侧能源管理 AI',
@@ -570,6 +581,7 @@ export const CONFIG: Config = {
                 { name: 'DRL', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: '光伏产品需求分析 AI',
@@ -601,6 +613,7 @@ export const CONFIG: Config = {
                 { name: 'Agent', icon: 'llm' },
             ],
             featured: false,
+            category: 'agent',
         },
     ],
     openSourceProjects: [
@@ -1227,6 +1240,7 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'Sayso Team',
@@ -1253,6 +1267,7 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'MyAttention Browser Extension',
@@ -1280,6 +1295,7 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'LLM Evaluation Platform',
@@ -1305,6 +1321,7 @@ export const CONFIG_EN: Config = {
                 { name: 'ASR', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'VuiLabs Website',
@@ -1329,6 +1346,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Website', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'Sayso Data Agent',
@@ -1353,6 +1371,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Internal Tool', icon: 'gear' },
             ],
             featured: false,
+            category: 'agent',
         },
         {
             name: 'Content Creation Cold Start',
@@ -1377,6 +1396,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Xiaohongshu', icon: 'gear' },
             ],
             featured: false,
+            category: 'content',
         },
         {
             name: 'Immersive Podcast AI Product',
@@ -1413,6 +1433,7 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'consumer',
         },
         {
             name: 'AI Industry Knowledge Base',
@@ -1450,6 +1471,7 @@ export const CONFIG_EN: Config = {
             ],
             featured: true,
             pinned: true,
+            category: 'enterprise',
         },
         {
             name: 'Geographic Information Simulator',
@@ -1486,6 +1508,7 @@ export const CONFIG_EN: Config = {
                 { name: 'SSP1', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'Renewable Energy + Demand-Side AI Management',
@@ -1516,6 +1539,7 @@ export const CONFIG_EN: Config = {
                 { name: 'DRL', icon: 'gear' },
             ],
             featured: false,
+            category: 'enterprise',
         },
         {
             name: 'PV Product Demand Analysis AI',
@@ -1547,6 +1571,7 @@ export const CONFIG_EN: Config = {
                 { name: 'Agent', icon: 'llm' },
             ],
             featured: false,
+            category: 'agent',
         },
     ],
     openSourceProjects: [

@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 export type SectionRailNavItem = {
     href: string
     label: string
+    indent?: boolean
 }
 
 type SectionRailNavProps = {
@@ -36,7 +37,10 @@ const SectionRailNav = ({
                     <a
                         key={item.href}
                         href={item.href}
-                        className='rounded-md px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground'
+                        className={cn(
+                            'rounded-md py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground',
+                            item.indent ? 'pl-5 pr-2' : 'px-2',
+                        )}
                     >
                         {item.label}
                     </a>
