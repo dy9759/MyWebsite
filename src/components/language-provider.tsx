@@ -26,7 +26,6 @@ export const SITE_COPY = {
             ai: 'AI资源库',
         },
         sections: {
-            contact: '联系方式',
             about: '个人介绍',
             work: '工作经验',
             projects: '项目经验',
@@ -60,7 +59,13 @@ export const SITE_COPY = {
             copied: '已复制',
             pinEditOn: '开启置顶编辑',
             pinEditOff: '关闭置顶编辑',
+            themeToLight: '切换到日版',
+            themeToDark: '切换到夜版',
+            videosEmpty: '没有匹配所选标签的视频。',
+            collapse: '收起',
+            viewComplete: '查看完整合集',
         },
+        mainNav: '主导航',
         languageToggle: '语言切换',
         sectionNav: '主页章节导航',
         projectSectionNav: '项目分类导航',
@@ -132,7 +137,6 @@ export const SITE_COPY = {
             ai: 'AI Library',
         },
         sections: {
-            contact: 'Contact',
             about: 'About',
             work: 'Work Experience',
             projects: 'Project Experience',
@@ -166,7 +170,13 @@ export const SITE_COPY = {
             copied: 'Copied',
             pinEditOn: 'Enable pin editing',
             pinEditOff: 'Disable pin editing',
+            themeToLight: 'Switch to light mode',
+            themeToDark: 'Switch to dark mode',
+            videosEmpty: 'No videos match the selected tag.',
+            collapse: 'Collapse',
+            viewComplete: 'View complete collection',
         },
+        mainNav: 'Main navigation',
         languageToggle: 'Language switcher',
         sectionNav: 'Homepage section navigation',
         projectSectionNav: 'Project category navigation',
@@ -249,8 +259,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
     const setLanguage = useCallback((nextLanguage: Language) => {
         setLanguageState(nextLanguage)
-        window.localStorage.setItem(STORAGE_KEY, nextLanguage)
-        document.documentElement.lang = nextLanguage === 'zh' ? 'zh-CN' : 'en'
     }, [])
 
     useEffect(() => {
@@ -273,7 +281,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
             language,
             setLanguage,
         }),
-        [language],
+        [language, setLanguage],
     )
 
     return (
@@ -282,6 +290,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         </LanguageContext.Provider>
     )
 }
+
+export const formatCountLabel = (
+    language: Language,
+    label: string,
+    count: number,
+) => (language === 'zh' ? `${label}（${count}）` : `${label} (${count})`)
 
 export function useLanguage() {
     const context = useContext(LanguageContext)

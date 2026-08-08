@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
-import Contact from '@/components/contact'
+import SiteFooter from '@/components/site-footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import SiteNav from '@/components/site-nav'
 
@@ -39,7 +39,7 @@ export default function RootLayout({
                     tracingOrigins
                     networkRecording={{
                         enabled: true,
-                        recordHeadersAndBody: true,
+                        recordHeadersAndBody: false,
                         urlBlocklist: [],
                     }}
                 />
@@ -71,7 +71,7 @@ export default function RootLayout({
                             <main className='mx-auto max-w-2xl py-4 md:max-w-4xl md:pt-4 lg:max-w-5xl xl:max-w-6xl'>
                                 <SiteNav />
                                 {children}
-                                <Contact />
+                                <SiteFooter />
                             </main>
                         </ThemeProvider>
                     </LanguageProvider>

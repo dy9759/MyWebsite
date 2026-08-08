@@ -25,7 +25,7 @@ const SiteNav = () => {
 
     return (
         <nav
-            aria-label='主导航'
+            aria-label={copy.mainNav}
             className='sticky top-0 z-50 mb-4 bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80'
         >
             <div className='relative flex min-h-10 items-center justify-center'>

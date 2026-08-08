@@ -15,7 +15,7 @@ import {
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
-const Contact = () => {
+const SiteFooter = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
     const { editMode, toggleEditMode } = usePinEditMode()
@@ -27,7 +27,7 @@ const Contact = () => {
         <div className='mt-12 flex flex-col border-t pt-6 animate-slide-from-down-and-fade-5'>
             <div className='flex items-center justify-between px-4'>
                 <p className='text-sm text-muted-foreground'>
-                    © 2025 {config.name}
+                    © {new Date().getFullYear()} {config.name}
                 </p>
                 <div className='flex items-center gap-2'>
                     <TooltipProvider delayDuration={70}>
@@ -46,6 +46,7 @@ const Contact = () => {
                                             <Link
                                                 href={social.url}
                                                 target='_blank'
+                                                rel='noopener noreferrer'
                                                 aria-label={social.name}
                                             >
                                                 <Icon className='size-5' />
@@ -97,4 +98,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default SiteFooter

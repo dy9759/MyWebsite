@@ -78,12 +78,18 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
         })),
         (item) => pinState.isPinned(item.pinKey, item.pinned),
     )
-    const groups = (layer.groups ?? []).map((group) => ({
+    const groups = (layer.groups ?? []).map((group, groupIdx) => ({
         ...group,
         items: sortPinnedFirst(
             group.items.map((item, idx) => ({
                 ...item,
-                pinKey: createPinKey('ai-source', layerIndex, group.label, idx),
+                pinKey: createPinKey(
+                    'ai-source',
+                    layerIndex,
+                    'group',
+                    groupIdx,
+                    idx,
+                ),
             })),
             (item) => pinState.isPinned(item.pinKey, item.pinned),
         ),

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Achievements from '@/components/achievements'
 import SectionRailNav from '@/components/section-rail-nav'
 import {
+    formatCountLabel,
     useLanguage,
     useSiteConfig,
     useSiteCopy,
@@ -22,7 +23,7 @@ const ResearchPageContent = () => {
     const config = useSiteConfig()
     const { language } = useLanguage()
     const withCount = (label: string, count: number) =>
-        language === 'zh' ? `${label}（${count}）` : `${label} (${count})`
+        formatCountLabel(language, label, count)
     const sectionNavItems = [
         {
             href: '#journal-papers',

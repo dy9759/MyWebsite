@@ -61,11 +61,7 @@ const AboutSection = () => {
             <h2 className='font-bold'>{copy.sections.about}</h2>
             {config.aboutSegments?.length ? (
                 <SegmentList segments={config.aboutSegments} />
-            ) : (
-                <p className='leading-relaxed text-muted-foreground'>
-                    {config.description}
-                </p>
-            )}
+            ) : null}
             <TooltipProvider delayDuration={70}>
                 <div className='flex flex-wrap gap-1.5'>
                     {config.socials.map((social, idx) => {

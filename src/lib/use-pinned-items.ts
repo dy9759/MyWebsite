@@ -1,8 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'personal-site-pins-v1'
+const CHANGE_EVENT = 'personal-site-pins-change'
 
 type PinOverrides = Record<string, boolean>
 
@@ -11,30 +12,52 @@ export const createPinKey = (
     ...parts: Array<string | number | undefined>
 ) => [scope, ...parts.filter((part) => part !== undefined)].join('::')
 
-const readStoredPins = (): PinOverrides => {
-    if (typeof window === 'undefined') return {}
+const EMPTY: PinOverrides = {}
 
+// Cache keyed on the raw string so getSnapshot returns a stable reference
+// until localStorage actually changes (required by useSyncExternalStore).
+let cache: { raw: string | null; parsed: PinOverrides } = {
+    raw: null,
+    parsed: EMPTY,
+}
+
+const readStoredPins = (): PinOverrides => {
+    if (typeof window === 'undefined') return EMPTY
+    let raw: string | null = null
     try {
-        const raw = window.localStorage.getItem(STORAGE_KEY)
-        if (!raw) return {}
-        const parsed = JSON.parse(raw)
-        return parsed && typeof parsed === 'object' ? parsed : {}
+        raw = window.localStorage.getItem(STORAGE_KEY)
     } catch {
-        return {}
+        return EMPTY
+    }
+    if (raw === cache.raw) return cache.parsed
+    let parsed: PinOverrides = EMPTY
+    try {
+        const value = raw ? JSON.parse(raw) : null
+        parsed = value && typeof value === 'object' ? value : EMPTY
+    } catch {
+        parsed = EMPTY
+    }
+    cache = { raw, parsed }
+    return parsed
+}
+
+const subscribe = (onChange: () => void) => {
+    window.addEventListener(CHANGE_EVENT, onChange)
+    window.addEventListener('storage', onChange)
+    return () => {
+        window.removeEventListener(CHANGE_EVENT, onChange)
+        window.removeEventListener('storage', onChange)
     }
 }
 
-const writeStoredPins = (pins: PinOverrides) => {
-    if (typeof window === 'undefined') return
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(pins))
-}
+const getServerSnapshot = () => EMPTY
 
 export const usePinnedItems = () => {
-    const [overrides, setOverrides] = useState<PinOverrides>({})
-
-    useEffect(() => {
-        setOverrides(readStoredPins())
-    }, [])
+    const overrides = useSyncExternalStore(
+        subscribe,
+        readStoredPins,
+        getServerSnapshot,
+    )
 
     const isPinned = useCallback(
         (key: string, defaultPinned = false) =>
@@ -45,20 +68,13 @@ export const usePinnedItems = () => {
     )
 
     const togglePinned = useCallback((key: string, defaultPinned = false) => {
-        setOverrides((current) => {
-            const currentPinned = Object.prototype.hasOwnProperty.call(
-                current,
-                key,
-            )
-                ? current[key]
-                : defaultPinned
-            const next = {
-                ...current,
-                [key]: !currentPinned,
-            }
-            writeStoredPins(next)
-            return next
-        })
+        const current = readStoredPins()
+        const currentPinned = Object.prototype.hasOwnProperty.call(current, key)
+            ? current[key]
+            : defaultPinned
+        const next = { ...current, [key]: !currentPinned }
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+        window.dispatchEvent(new Event(CHANGE_EVENT))
     }, [])
 
     return {

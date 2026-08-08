@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Copy, Check } from 'lucide-react'
 import {
     Accordion,
@@ -15,7 +15,9 @@ import { sortPinnedFirst } from '@/lib/pin'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
-    const [copiedIdx, setCopiedIdx] = useState<number | null>(null)
+    const [copiedKey, setCopiedKey] = useState<string | null>(null)
+    const copyTimerRef = useRef<ReturnType<typeof setTimeout>>()
+    useEffect(() => () => clearTimeout(copyTimerRef.current), [])
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const siteCopy = useSiteCopy()
@@ -27,13 +29,14 @@ const PromptAccordion = () => {
         pinState.isPinned(prompt.pinKey, prompt.pinned),
     )
 
-    const copyToClipboard = async (text: string, idx: number) => {
+    const copyToClipboard = async (text: string, key: string) => {
         try {
             await navigator.clipboard.writeText(text)
-            setCopiedIdx(idx)
-            setTimeout(() => setCopiedIdx(null), 1500)
+            setCopiedKey(key)
+            clearTimeout(copyTimerRef.current)
+            copyTimerRef.current = setTimeout(() => setCopiedKey(null), 1500)
         } catch {
-            setCopiedIdx(null)
+            setCopiedKey(null)
         }
     }
 
@@ -50,8 +53,8 @@ const PromptAccordion = () => {
             </div>
 
             <Accordion type='multiple' className='rounded-lg border px-4'>
-                {prompts.map((prompt, idx) => (
-                    <AccordionItem key={idx} value={`prompt-${idx}`}>
+                {prompts.map((prompt) => (
+                    <AccordionItem key={prompt.pinKey} value={prompt.pinKey}>
                         <AccordionTrigger className='text-left'>
                             <div className='flex flex-col items-start gap-0.5'>
                                 <span className='font-medium'>
@@ -71,11 +74,14 @@ const PromptAccordion = () => {
                                     variant='outline'
                                     size='sm'
                                     onClick={() =>
-                                        copyToClipboard(prompt.content, idx)
+                                        copyToClipboard(
+                                            prompt.content,
+                                            prompt.pinKey,
+                                        )
                                     }
                                     className='self-end'
                                 >
-                                    {copiedIdx === idx ? (
+                                    {copiedKey === prompt.pinKey ? (
                                         <>
                                             <Check className='mr-1.5 size-3.5' />
                                             Copied

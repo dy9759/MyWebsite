@@ -464,7 +464,7 @@ export const AI_CONFIG: AIConfig = {
         {
             name: 'BuilderPulse',
             handle: 'github.com/BuilderPulse',
-            avatar: 'https://avatars.githubusercontent.com/u/BuilderPulse',
+            avatar: 'https://avatars.githubusercontent.com/u/275986651',
             url: 'https://github.com/BuilderPulse/BuilderPulse/tree/main',
             role: 'Open-source AI builder community and tooling.',
         },

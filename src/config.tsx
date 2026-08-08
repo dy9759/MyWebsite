@@ -17,7 +17,6 @@ type Config = {
         href?: string
         icon: keyof typeof Icons
     }[]
-    description: string | JSX.Element
     descriptionRaw: string
     aboutSegments?: SegmentListItem[]
     projects: {
@@ -40,9 +39,7 @@ type Config = {
             icon: keyof typeof Icons
         }[]
         github?: string
-        featured: boolean
         pinned?: boolean
-        testimonial?: string
         category?: 'consumer' | 'enterprise' | 'content' | 'agent'
     }[]
     workExperience?: {
@@ -179,18 +176,6 @@ export const CONFIG: Config = {
             icon: 'badgeCheck',
         },
     ],
-    description: (
-        <>
-            👋 你好!我是李盛园,一名 AI Product Manager & Agent
-            Builder,核心优势是把大模型能力落到真实业务场景中:长期拆解
-            DeepSeek、ChatGPT、Claude、Gemini、豆包、Kimi、通义等国内外 AI
-            产品与 Agent 工具,理解模型能力边界、交互成本与用户使用门槛;负责
-            SaySo / Voice Agent 等 C 端 AI
-            产品,覆盖语音输入、会议、个人办公提效与语音助理场景;具备技术型 PM
-            能力,能与模型、算法和研发团队协同,通过评测、Demo
-            验证、兜底策略和指标体系推动产品上线与迭代。
-        </>
-    ),
     descriptionRaw:
         "Hi, I'm Chauncey Lee, an AI Product Manager & Agent Builder focused on turning large-model capabilities into real business scenarios: I actively dissect DeepSeek, ChatGPT, Claude, Gemini, Doubao, Kimi, Tongyi/Qwen, and other AI/Agent products to understand model boundaries, interaction cost, and user adoption barriers; I lead consumer AI products such as SaySo and Voice Agent across voice input, meetings, personal productivity, and voice-assistant scenarios; and I work as a technical PM with model, algorithm, and engineering teams, using evaluation, demo validation, fallback strategy, and metric systems to ship and iterate AI products.",
     aboutSegments: [
@@ -286,7 +271,6 @@ export const CONFIG: Config = {
                 { name: 'Metrics', icon: 'gear' },
                 { name: 'AI Assistant', icon: 'llm' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -312,7 +296,6 @@ export const CONFIG: Config = {
                 { name: 'Team Productivity', icon: 'gear' },
                 { name: 'Solo Builder', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -340,7 +323,6 @@ export const CONFIG: Config = {
                 { name: 'IndexedDB', icon: 'gear' },
                 { name: 'TypeScript', icon: 'typescript' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -366,7 +348,6 @@ export const CONFIG: Config = {
                 { name: 'TTS', icon: 'gear' },
                 { name: 'ASR', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -389,7 +370,6 @@ export const CONFIG: Config = {
                 { name: 'ToB', icon: 'gear' },
                 { name: 'Website', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -414,7 +394,6 @@ export const CONFIG: Config = {
                 { name: 'MCP', icon: 'gear' },
                 { name: 'Internal Tool', icon: 'gear' },
             ],
-            featured: false,
             category: 'agent',
         },
         {
@@ -437,7 +416,6 @@ export const CONFIG: Config = {
                 { name: 'Growth', icon: 'gear' },
                 { name: '小红书', icon: 'gear' },
             ],
-            featured: false,
             category: 'content',
         },
         {
@@ -473,7 +451,6 @@ export const CONFIG: Config = {
                 { name: 'Multi-Agent', icon: 'llm' },
                 { name: 'Evaluation', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -511,7 +488,6 @@ export const CONFIG: Config = {
                 { name: 'Llama 3.2', icon: 'llm' },
                 { name: 'Coze', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'enterprise',
         },
@@ -549,7 +525,6 @@ export const CONFIG: Config = {
                 { name: 'Machine Learning', icon: 'python' },
                 { name: 'SSP1', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -580,7 +555,6 @@ export const CONFIG: Config = {
                 { name: 'GCN-LSTM', icon: 'gear' },
                 { name: 'DRL', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -612,7 +586,6 @@ export const CONFIG: Config = {
                 { name: 'Stable Diffusion', icon: 'openai' },
                 { name: 'Agent', icon: 'llm' },
             ],
-            featured: false,
             category: 'agent',
         },
     ],
@@ -1103,9 +1076,7 @@ const EN_DATE_LABELS: Record<string, string> = {
     '2023.10': 'Oct 2023',
     '2024.1': 'Jan 2024',
     '2024.3': 'Mar 2024',
-    '2024.6': 'Jun 2024',
     '2024.7': 'Jul 2024',
-    '2024.9': 'Sep 2024',
     '2024.12': 'Dec 2024',
     '2025.3': 'Mar 2025',
     '2025.5': 'May 2025',
@@ -1113,6 +1084,20 @@ const EN_DATE_LABELS: Record<string, string> = {
 }
 
 const toEnglishDateLabel = (value: string) => EN_DATE_LABELS[value] ?? value
+
+const EN_TIER_LABELS: Record<string, string> = {
+    '中科院一区': 'CAS Q1',
+    '中科院二区': 'CAS Q2',
+    '中科院三区': 'CAS Q3',
+    '北大核心': 'PKU Core',
+    '中文期刊': 'Chinese Journal',
+}
+
+const toEnglishTierLabel = (tier: string) =>
+    Object.entries(EN_TIER_LABELS).reduce(
+        (label, [zh, en]) => label.replaceAll(zh, en),
+        tier,
+    )
 
 export const CONFIG_EN: Config = {
     ...CONFIG,
@@ -1153,20 +1138,6 @@ export const CONFIG_EN: Config = {
             icon: 'badgeCheck',
         },
     ],
-    description: (
-        <>
-            Hi, I&apos;m Chauncey Lee, an AI Product Manager & Agent Builder
-            focused on turning large-model capabilities into real business
-            scenarios. I actively dissect DeepSeek, ChatGPT, Claude, Gemini,
-            Doubao, Kimi, Tongyi/Qwen, and other AI/Agent products to understand
-            model boundaries, interaction cost, and user adoption barriers; I
-            lead consumer AI products such as SaySo and Voice Agent across voice
-            input, meetings, personal productivity, and voice-assistant
-            scenarios; and I work as a technical PM with model, algorithm, and
-            engineering teams, using evaluation, demo validation, fallback
-            strategy, and metric systems to ship and iterate AI products.
-        </>
-    ),
     aboutSegments: [
         {
             title: 'AI Product Power User / Scenario Decomposition',
@@ -1260,7 +1231,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Metrics', icon: 'gear' },
                 { name: 'AI Assistant', icon: 'llm' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -1287,7 +1257,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Team Productivity', icon: 'gear' },
                 { name: 'Solo Builder', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -1315,7 +1284,6 @@ export const CONFIG_EN: Config = {
                 { name: 'IndexedDB', icon: 'gear' },
                 { name: 'TypeScript', icon: 'typescript' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -1342,7 +1310,6 @@ export const CONFIG_EN: Config = {
                 { name: 'TTS', icon: 'gear' },
                 { name: 'ASR', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -1367,7 +1334,6 @@ export const CONFIG_EN: Config = {
                 { name: 'ToB', icon: 'gear' },
                 { name: 'Website', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -1392,7 +1358,6 @@ export const CONFIG_EN: Config = {
                 { name: 'MCP', icon: 'gear' },
                 { name: 'Internal Tool', icon: 'gear' },
             ],
-            featured: false,
             category: 'agent',
         },
         {
@@ -1417,7 +1382,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Growth', icon: 'gear' },
                 { name: 'Xiaohongshu', icon: 'gear' },
             ],
-            featured: false,
             category: 'content',
         },
         {
@@ -1453,7 +1417,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Multi-Agent', icon: 'llm' },
                 { name: 'Evaluation', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'consumer',
         },
@@ -1491,7 +1454,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Llama 3.2', icon: 'llm' },
                 { name: 'Coze', icon: 'gear' },
             ],
-            featured: true,
             pinned: true,
             category: 'enterprise',
         },
@@ -1529,7 +1491,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Machine Learning', icon: 'python' },
                 { name: 'SSP1', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -1560,7 +1521,6 @@ export const CONFIG_EN: Config = {
                 { name: 'GCN-LSTM', icon: 'gear' },
                 { name: 'DRL', icon: 'gear' },
             ],
-            featured: false,
             category: 'enterprise',
         },
         {
@@ -1592,7 +1552,6 @@ export const CONFIG_EN: Config = {
                 { name: 'Stable Diffusion', icon: 'openai' },
                 { name: 'Agent', icon: 'llm' },
             ],
-            featured: false,
             category: 'agent',
         },
     ],
@@ -1789,12 +1748,7 @@ export const CONFIG_EN: Config = {
                     'Shengyuan Li',
                 ),
                 year: toEnglishDateLabel(publication.year),
-                tier: publication.tier
-                    .replace('中科院一区', 'CAS Q1')
-                    .replace('中科院二区', 'CAS Q2')
-                    .replace('中科院三区', 'CAS Q3')
-                    .replace('北大核心', 'PKU Core')
-                    .replace('第一作者', 'First Author'),
+                tier: toEnglishTierLabel(publication.tier),
             })) ?? [],
         grants: [
             {

@@ -1,13 +1,15 @@
 'use client'
 
 import { Icons } from '@/components/icons'
+import { useSiteCopy } from '@/components/language-provider'
 import { Button } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
 
 export function ModeToggle() {
     const { resolvedTheme, setTheme } = useTheme()
+    const copy = useSiteCopy()
     const isDark = resolvedTheme !== 'light'
-    const label = isDark ? '切换到日版' : '切换到夜版'
+    const label = isDark ? copy.labels.themeToLight : copy.labels.themeToDark
 
     return (
         <Button

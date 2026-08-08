@@ -36,6 +36,7 @@ const WorkExperience = () => {
                                         <Link
                                             href={position.link}
                                             target='_blank'
+                                            rel='noopener noreferrer'
                                             className='text-muted-foreground hover:text-foreground'
                                         >
                                             <Icons.externalLink className='size-3' />

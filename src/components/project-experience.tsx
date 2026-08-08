@@ -95,7 +95,6 @@ const ProjectExperience = () => {
                                 url={project.url}
                                 links={project.links}
                                 tags={project.tags}
-                                testimonial={project.testimonial}
                                 github={project.github}
                                 pinned={pinState.isPinned(
                                     project.pinKey,

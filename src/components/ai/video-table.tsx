@@ -80,7 +80,7 @@ const VideoTable = () => {
 
             {filtered.length === 0 ? (
                 <p className='py-6 text-center text-sm text-muted-foreground'>
-                    No videos match the selected tag.
+                    {copy.labels.videosEmpty}
                 </p>
             ) : (
                 <>
@@ -207,10 +207,10 @@ const VideoTable = () => {
                             className='self-center text-muted-foreground hover:text-foreground'
                         >
                             {expanded
-                                ? 'Collapse'
-                                : `View complete collection (+${
+                                ? copy.labels.collapse
+                                : `${copy.labels.viewComplete} (+${
                                       filtered.length - COLLAPSED_COUNT
-                                  } more)`}
+                                  })`}
                         </Button>
                     )}
                 </>

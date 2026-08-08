@@ -3,7 +3,6 @@
 import { Icons } from '@/components/icons'
 import { useSiteCopy } from '@/components/language-provider'
 import PinToggle from '@/components/pin-toggle'
-import { ReadMore } from '@/components/read-more'
 import SegmentList, { type SegmentListItem } from '@/components/segment-list'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -33,7 +32,6 @@ interface ProjectProps {
         name: string
         icon: keyof typeof Icons
     }[]
-    testimonial?: string
     github?: string
     pinned?: boolean
     onTogglePinned?: () => void
@@ -50,7 +48,6 @@ const Project = ({
     url,
     links = [],
     tags,
-    testimonial,
     github,
     pinned,
     onTogglePinned,
@@ -215,11 +212,6 @@ const Project = ({
                             </div>
                         )}
                     </div>
-                )}
-                {testimonial && (
-                    <blockquote className='border-l-2 pl-6 text-sm italic text-muted-foreground'>
-                        <ReadMore text={testimonial} id='d' />
-                    </blockquote>
                 )}
             </div>
         </Card>
