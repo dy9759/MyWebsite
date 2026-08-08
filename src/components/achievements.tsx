@@ -69,7 +69,6 @@ interface EntryProps {
     tier?: string
     pinned?: boolean
     onTogglePinned?: () => void
-    index: number
 }
 
 const Entry = ({
@@ -81,7 +80,6 @@ const Entry = ({
     tier,
     pinned,
     onTogglePinned,
-    index,
 }: EntryProps) => {
     const titleNode = url ? (
         <Link
@@ -98,11 +96,7 @@ const Entry = ({
     )
 
     return (
-        <Card
-            className={`rounded-none border-none border-t border-b border-dotted border-muted/80 bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/10 dark:hover:bg-accent/10 ${
-                index > 0 ? 'border-t-0' : ''
-            }`}
-        >
+        <Card className='rounded-none border-none bg-background p-4 transition-all duration-300 hover:rounded-xl hover:bg-accent/10 dark:hover:bg-accent/10'>
             <div className='flex flex-col gap-1.5'>
                 <div className='flex items-start justify-between gap-3'>
                     <div className='flex flex-wrap items-center gap-x-2 gap-y-1'>
@@ -215,7 +209,6 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                         {pubs.map((p, idx) => (
                             <Entry
                                 key={idx}
-                                index={idx}
                                 authors={p.authors}
                                 title={p.title}
                                 venue={p.venue}
@@ -252,7 +245,6 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                         {confs.map((c, idx) => (
                             <Entry
                                 key={idx}
-                                index={idx}
                                 authors={c.authors}
                                 title={c.title}
                                 venue={c.venue}
