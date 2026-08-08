@@ -3,15 +3,20 @@
 import React from 'react'
 import Link from 'next/link'
 import { Icons } from '@/components/icons'
-import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
+import {
+    useLanguage,
+    useSiteConfig,
+    useSiteCopy,
+} from '@/components/language-provider'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 import PinToggle from '@/components/pin-toggle'
 import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinEditMode } from '@/lib/use-pin-edit-mode'
 
-const SELF_PATTERNS = ['Chauncey Lee', '李盛园']
+const SELF_PATTERNS = ['Shengyuan Li', '李盛园']
 
 const highlightSelf = (authors: string): React.ReactNode => {
     const pattern = new RegExp(`(${SELF_PATTERNS.join('|')})`, 'g')
@@ -26,6 +31,34 @@ const highlightSelf = (authors: string): React.ReactNode => {
         ),
     )
 }
+
+const EN_MONTHS: Record<string, number> = {
+    Jan: 1,
+    Feb: 2,
+    Mar: 3,
+    Apr: 4,
+    May: 5,
+    Jun: 6,
+    Jul: 7,
+    Aug: 8,
+    Sep: 9,
+    Oct: 10,
+    Nov: 11,
+    Dec: 12,
+}
+
+// 录用/Accepted = forthcoming, sorts above dated entries
+const yearSortValue = (year: string): number => {
+    if (year === '录用' || year === 'Accepted') return Number.MAX_SAFE_INTEGER
+    const zh = year.match(/^(\d{4})(?:\.(\d{1,2}))?$/)
+    if (zh) return Number(zh[1]) * 100 + Number(zh[2] ?? 0)
+    const en = year.match(/^([A-Z][a-z]{2}) (\d{4})$/)
+    if (en) return Number(en[2]) * 100 + (EN_MONTHS[en[1]] ?? 0)
+    return 0
+}
+
+const byYearDesc = <T extends { year: string }>(a: T, b: T) =>
+    yearSortValue(b.year) - yearSortValue(a.year)
 
 interface EntryProps {
     authors: string
@@ -111,19 +144,23 @@ type AchievementsProps = {
 const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
+    const { language } = useLanguage()
     const pinState = usePinnedItems()
-    const publicationItems = (config.research?.publications ?? []).map(
-        (publication, idx) => ({
+    const { editMode } = usePinEditMode()
+    const withCount = (label: string, count: number) =>
+        language === 'zh' ? `${label}（${count}）` : `${label} (${count})`
+    const publicationItems = (config.research?.publications ?? [])
+        .map((publication, idx) => ({
             ...publication,
             pinKey: createPinKey('research-publication', idx),
-        }),
-    )
-    const conferenceItems = (config.research?.conferences ?? []).map(
-        (conference, idx) => ({
+        }))
+        .sort(byYearDesc)
+    const conferenceItems = (config.research?.conferences ?? [])
+        .map((conference, idx) => ({
             ...conference,
             pinKey: createPinKey('research-conference', idx),
-        }),
-    )
+        }))
+        .sort(byYearDesc)
     const allPubs = sortPinnedFirst(publicationItems, (publication) =>
         pinState.isPinned(publication.pinKey, publication.pinned),
     )
@@ -167,7 +204,12 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
             {pubs.length > 0 && (
                 <div id='journal-papers' className='scroll-mt-28 space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        {copy.sections.journalPapers}
+                        {pinnedOnly
+                            ? copy.sections.journalPapers
+                            : withCount(
+                                  copy.sections.journalPapers,
+                                  pubs.length,
+                              )}
                     </h3>
                     <div className='space-y-0'>
                         {pubs.map((p, idx) => (
@@ -181,8 +223,14 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 url={p.url}
                                 tier={p.tier}
                                 pinned={pinState.isPinned(p.pinKey, p.pinned)}
-                                onTogglePinned={() =>
-                                    pinState.togglePinned(p.pinKey, p.pinned)
+                                onTogglePinned={
+                                    editMode
+                                        ? () =>
+                                              pinState.togglePinned(
+                                                  p.pinKey,
+                                                  p.pinned,
+                                              )
+                                        : undefined
                                 }
                             />
                         ))}
@@ -193,7 +241,12 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
             {confs.length > 0 && (
                 <div id='conference-papers' className='scroll-mt-28 space-y-2'>
                     <h3 className='text-sm font-medium text-muted-foreground'>
-                        {copy.sections.conferencePapers}
+                        {pinnedOnly
+                            ? copy.sections.conferencePapers
+                            : withCount(
+                                  copy.sections.conferencePapers,
+                                  confs.length,
+                              )}
                     </h3>
                     <div className='space-y-0'>
                         {confs.map((c, idx) => (
@@ -206,8 +259,14 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 year={c.year}
                                 url={c.url}
                                 pinned={pinState.isPinned(c.pinKey, c.pinned)}
-                                onTogglePinned={() =>
-                                    pinState.togglePinned(c.pinKey, c.pinned)
+                                onTogglePinned={
+                                    editMode
+                                        ? () =>
+                                              pinState.togglePinned(
+                                                  c.pinKey,
+                                                  c.pinned,
+                                              )
+                                        : undefined
                                 }
                             />
                         ))}

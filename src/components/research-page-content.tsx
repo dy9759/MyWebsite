@@ -3,7 +3,11 @@
 import Link from 'next/link'
 import Achievements from '@/components/achievements'
 import SectionRailNav from '@/components/section-rail-nav'
-import { useSiteCopy } from '@/components/language-provider'
+import {
+    useLanguage,
+    useSiteConfig,
+    useSiteCopy,
+} from '@/components/language-provider'
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -15,14 +19,24 @@ import {
 
 const ResearchPageContent = () => {
     const copy = useSiteCopy()
+    const config = useSiteConfig()
+    const { language } = useLanguage()
+    const withCount = (label: string, count: number) =>
+        language === 'zh' ? `${label}（${count}）` : `${label} (${count})`
     const sectionNavItems = [
         {
             href: '#journal-papers',
-            label: copy.sections.journalPapers,
+            label: withCount(
+                copy.sections.journalPapers,
+                config.research?.publications?.length ?? 0,
+            ),
         },
         {
             href: '#conference-papers',
-            label: copy.sections.conferencePapers,
+            label: withCount(
+                copy.sections.conferencePapers,
+                config.research?.conferences?.length ?? 0,
+            ),
         },
     ]
 
@@ -31,11 +45,10 @@ const ResearchPageContent = () => {
             <SectionRailNav
                 ariaLabel={copy.researchSectionNav}
                 items={sectionNavItems}
-                label={copy.nav.research}
             />
 
             <div className='min-w-0'>
-                <div className='flex animate-slide-from-down-and-fade-1 items-start justify-between'>
+                <div className='flex animate-slide-from-down-and-fade-1 items-center justify-between'>
                     <Breadcrumb className='mb-4 px-4'>
                         <BreadcrumbList>
                             <BreadcrumbItem>
@@ -53,11 +66,7 @@ const ResearchPageContent = () => {
                     </Breadcrumb>
                 </div>
 
-                <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-4xl font-bold tracking-tight'>
-                    {copy.nav.research}
-                </h1>
-
-                <div className='pt-12'>
+                <div className='pt-4'>
                     <Achievements />
                 </div>
             </div>

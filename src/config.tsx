@@ -108,7 +108,7 @@ type Config = {
             title: string
             venue: string
             year: string
-            url: string
+            url?: string
             tier: string
             pinned?: boolean
         }[]
@@ -798,7 +798,7 @@ export const CONFIG: Config = {
         publications: [
             {
                 authors:
-                    'Xiaohuan Xie, Senhong Cai, Haifeng Deng, Chauncey Lee, Xin Liu, Zhonghua Gou',
+                    'Xiaohuan Xie, Senhong Cai, Haifeng Deng, Shengyuan Li, Xin Liu, Zhonghua Gou',
                 title: 'Optimizing county-level land use for sustainable photovoltaic development in China: A multi-scenario analysis',
                 venue: 'Land Use Policy, Vol. 163, 107920',
                 year: '2026',
@@ -807,7 +807,7 @@ export const CONFIG: Config = {
             },
             {
                 authors:
-                    'Xiaohuan Xie, Qiting Lin, Chauncey Lee, Xin Liu, Zhonghua Gou',
+                    'Xiaohuan Xie, Qiting Lin, Shengyuan Li, Xin Liu, Zhonghua Gou',
                 title: 'Optimal urban expansion rates for balancing ecosystem services and economic development in mega-city fringe areas: A modeling framework applied to Huadu district, Guangzhou',
                 venue: 'Ecological Modelling, Vol. 513, 111436',
                 year: '2026',
@@ -823,16 +823,37 @@ export const CONFIG: Config = {
                 tier: '中文期刊',
             },
             {
-                authors: 'Chen Yang, Chauncey Lee, Zhonghua Gou',
+                authors: '谢晓欢, 王宁歆, 李盛园, 钟月琳, 洪武扬',
+                title: '超大城市边缘区县域产业协同进阶指数构建与转型路径模拟——以广州市花都区为例',
+                venue: '地域研究与开发(录用)',
+                year: '录用',
+                tier: '北大核心',
+            },
+            {
+                authors: '谢晓欢, 滕腾, 李盛园, 洪武扬',
+                title: '基于Delphi-AHP-TOPSIS的大都市郊区乡村产业转型评估及其时空分布研究——以广州市花都区为例',
+                venue: '地域研究与开发(录用)',
+                year: '录用',
+                tier: '北大核心',
+            },
+            {
+                authors: '谢晓欢, 黎锶彤, 李盛园',
+                title: '基于MOP-PLUS-InVEST的粮食主产县域土地利用对碳储量的时空响应与多情景优化路径',
+                venue: '地域研究与开发(录用)',
+                year: '录用',
+                tier: '北大核心',
+            },
+            {
+                authors: 'Chen Yang, Shengyuan Li, Zhonghua Gou',
                 title: 'Spatiotemporal prediction of urban building rooftop photovoltaic potential based on GCN-LSTM',
                 venue: 'Energy and Buildings, Vol. 334, 115522',
                 year: '2025.5',
                 url: 'https://doi.org/10.1016/j.enbuild.2025.115522',
-                tier: 'JCR Q1 · 中科院二区 Top',
+                tier: 'JCR Q1 · 中科院二区',
             },
             {
                 authors:
-                    'Xiaohuan Xie, Yuelin Zhong, Chauncey Lee, Zhonghua Gou',
+                    'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li, Zhonghua Gou',
                 title: 'Pathways for Reducing Carbon Emission in County-Level Transportation: A Life Cycle Perspective and Multi-Scenario Analysis',
                 venue: 'Energy Strategy Reviews, Vol. 58, 101678',
                 year: '2025.3',
@@ -840,17 +861,17 @@ export const CONFIG: Config = {
                 tier: 'JCR Q1 · 中科院二区',
             },
             {
-                authors: 'Chauncey Lee, Zhonghua Gou',
+                authors: 'Shengyuan Li, Zhonghua Gou',
                 title: 'Energy efficiency and cost benefits of office-to-residential building transformation: Insights from Los Angeles',
                 venue: 'Journal of Building Engineering, Vol. 98, 111496',
                 year: '2024.12',
                 url: 'https://doi.org/10.1016/j.jobe.2024.111496',
-                tier: 'JCR Q1 · 中科院二区 Top · First Author',
+                tier: 'JCR Q1 · 中科院二区 Top',
                 pinned: true,
             },
             {
                 authors:
-                    'Xiaohuan Xie, Haifeng Deng, Chauncey Lee, Zhonghua Gou',
+                    'Xiaohuan Xie, Haifeng Deng, Shengyuan Li, Zhonghua Gou',
                 title: 'Optimizing Land Use for Carbon Neutrality: Integrating Photovoltaic Development in Lingbao, Henan Province',
                 venue: 'Land, Vol. 13(1), 97',
                 year: '2024.1',
@@ -858,12 +879,12 @@ export const CONFIG: Config = {
                 tier: 'JCR Q2 · 中科院三区',
             },
             {
-                authors: 'Chauncey Lee, Zhonghua Gou',
+                authors: 'Shengyuan Li, Zhonghua Gou',
                 title: 'Accepting Solar Photovoltaic Panels in Rural Landscapes: The Tangle among Nostalgia, Morality, and Economic Stakes',
                 venue: 'Land, Vol. 12(10), 1956',
                 year: '2023.10',
                 url: 'https://doi.org/10.3390/land12101956',
-                tier: 'JCR Q2 · 中科院三区 · First Author',
+                tier: 'JCR Q2 · 中科院三区',
                 pinned: true,
             },
         ],
@@ -882,19 +903,19 @@ export const CONFIG: Config = {
         ],
         conferences: [
             {
-                authors: 'Xiaohuan Xie, Qiting Lin, Chauncey Lee',
+                authors: 'Xiaohuan Xie, Qiting Lin, Shengyuan Li',
                 title: 'Dynamic Coupling and Coordinated Assessment of Urban Production-Living-Ecology System Using System Dynamics Model: A Case Study of Lingbao',
                 venue: '18th IACP Conference, Hangzhou, China',
                 year: '2024.7',
             },
             {
-                authors: 'Xiaohuan Xie, Yuelin Zhong, Chauncey Lee',
+                authors: 'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li',
                 title: 'Scenario Simulation of County-Level Transportation Energy Carbon Emissions in Huadu District, Guangzhou: A Life-Cycle Perspective',
                 venue: '2024 International Conference on Energy, Materials and Management Science, Chengdu, China',
                 year: '2024.3',
             },
             {
-                authors: 'Xiaohuan Xie, Yuelin Zhong, Chauncey Lee',
+                authors: 'Xiaohuan Xie, Yuelin Zhong, Shengyuan Li',
                 title: 'Explore the county transportation energy decarbonization path with a simplified full life cycle assessment linked LEAP model',
                 venue: '18th IACP Conference, Hangzhou, China',
                 year: '2024.7',
@@ -1088,6 +1109,7 @@ const EN_DATE_LABELS: Record<string, string> = {
     '2024.12': 'Dec 2024',
     '2025.3': 'Mar 2025',
     '2025.5': 'May 2025',
+    '录用': 'Accepted',
 }
 
 const toEnglishDateLabel = (value: string) => EN_DATE_LABELS[value] ?? value
@@ -1764,13 +1786,14 @@ export const CONFIG_EN: Config = {
                 ...publication,
                 authors: publication.authors.replaceAll(
                     '李盛园',
-                    'Chauncey Lee',
+                    'Shengyuan Li',
                 ),
                 year: toEnglishDateLabel(publication.year),
                 tier: publication.tier
                     .replace('中科院一区', 'CAS Q1')
                     .replace('中科院二区', 'CAS Q2')
                     .replace('中科院三区', 'CAS Q3')
+                    .replace('北大核心', 'PKU Core')
                     .replace('第一作者', 'First Author'),
             })) ?? [],
         grants: [
@@ -1793,19 +1816,19 @@ export const CONFIG_EN: Config = {
                     ...conference,
                     authors: conference.authors.replaceAll(
                         '李盛园',
-                        'Chauncey Lee',
+                        'Shengyuan Li',
                     ),
                     year: toEnglishDateLabel(conference.year),
                 })),
             {
-                authors: 'Haifeng Deng, Chauncey Lee, Xiaohuan Xie',
+                authors: 'Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
                 title: 'Multi-Scenario Land Use Simulation and Carbon Storage Analysis in Major Grain-Producing Areas under Carbon Neutrality',
                 venue: '2024 Annual Meeting of the Geographical Society of China Physical Geography Committee, Meizhou, Guangdong',
                 year: 'Jun 2024',
                 pinned: true,
             },
             {
-                authors: 'Teng Teng, Haifeng Deng, Chauncey Lee, Xiaohuan Xie',
+                authors: 'Teng Teng, Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
                 title: 'Multi-Scenario Land Use Simulation and Evaluation of Typical Counties in Urban-Rural Fringe Areas under Integrated Urban-Rural Development',
                 venue: 'Annual Conference of the Geographical Society of China, Nanjing, Jiangsu',
                 year: 'Sep 2024',

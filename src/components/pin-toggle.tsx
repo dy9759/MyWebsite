@@ -2,6 +2,7 @@
 
 import { useSiteCopy } from '@/components/language-provider'
 import { Button } from '@/components/ui/button'
+import { usePinEditMode } from '@/lib/use-pin-edit-mode'
 import { cn } from '@/lib/utils'
 import { Pin } from 'lucide-react'
 
@@ -14,7 +15,10 @@ type PinToggleProps = {
 
 const PinToggle = ({ pinned, label, onToggle, className }: PinToggleProps) => {
     const copy = useSiteCopy()
+    const { editMode } = usePinEditMode()
     const actionLabel = pinned ? copy.labels.unpin : copy.labels.pin
+
+    if (!editMode) return null
 
     return (
         <Button

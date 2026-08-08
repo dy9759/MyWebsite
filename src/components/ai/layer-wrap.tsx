@@ -42,7 +42,7 @@ const LayerWrap = ({
                     >
                         {layer.layer}
                     </Badge>
-                    <h2 className='text-2xl font-bold'>{layer.title}</h2>
+                    <h2 className='font-bold'>{layer.title}</h2>
                 </div>
                 {layer.description && (
                     <p className='text-sm leading-relaxed text-muted-foreground'>

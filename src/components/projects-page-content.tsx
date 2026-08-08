@@ -119,10 +119,10 @@ const ProjectsPageContent = () => {
                         </BreadcrumbList>
                     </Breadcrumb>
                 </div>
-                <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-4xl font-bold tracking-tight'>
+                <h1 className='animate-slide-from-down-and-fade-2 scroll-m-20 px-4 text-2xl font-bold tracking-tight'>
                     {copy.sections.allProjects}
                 </h1>
-                <div className='flex flex-col gap-12 pt-12'>
+                <div className='flex flex-col gap-12 pt-6'>
                     <section
                         id='product-projects'
                         className='scroll-mt-28 animate-slide-from-down-and-fade-3 space-y-8 px-4'
