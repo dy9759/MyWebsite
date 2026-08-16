@@ -79,6 +79,16 @@ Pull Request 会由 `quality.yml` 执行测试、Lint 与静态构建；推送�
 
 推送到 `main` 后，[GitHub Actions](./.github/workflows/deploy-pages.yml) 会执行静态构建并部署到 GitHub Pages。
 
+### basePath 与域名
+
+`basePath` 由 `next.config.mjs` 按以下优先级解析：
+
+1. 显式 `NEXT_PUBLIC_BASE_PATH` 环境变量优先（设为 `''` 强制根路径）。
+2. 否则 GitHub 项目页构建（`GITHUB_ACTIONS=true` 且无自定义域名）派生 `/<repo>`。
+3. 存在自定义域名（`public/CNAME`）时始终从根 `/` 提供服务。
+
+本站配置了 `public/CNAME`（chauncey.myoii.com），因此 `basePath` 恒为 `''`，本地与 CI 构建输出一致。若在有 CNAME 时显式设置非空 `NEXT_PUBLIC_BASE_PATH`，构建会直接报错以避免发布资源路径损坏的站点。
+
 ## 隐私说明
 
 公开网站仅保留求职与专业交流所需的联系方式。手机号、出生年月等个人信息不在公开页面展示。
