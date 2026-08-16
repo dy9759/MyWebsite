@@ -4,12 +4,22 @@ import { Icons } from '@/components/icons'
 import { useSiteCopy } from '@/components/language-provider'
 import { Button } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export function ModeToggle() {
     const { resolvedTheme, setTheme } = useTheme()
     const copy = useSiteCopy()
+    // resolvedTheme is undefined on the server and on the first client render,
+    // so the directional label is only known after mount. Render a neutral
+    // label until then to avoid a hydration text mismatch.
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => setMounted(true), [])
     const isDark = resolvedTheme !== 'light'
-    const label = isDark ? copy.labels.themeToLight : copy.labels.themeToDark
+    const label = !mounted
+        ? copy.labels.themeToggle
+        : isDark
+          ? copy.labels.themeToLight
+          : copy.labels.themeToDark
 
     return (
         <Button
