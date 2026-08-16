@@ -51,3 +51,6 @@ logs
 # Local tooling / scratch clones
 .playwright-mcp/
 esther-website-0422/
+
+# tool scratch state
+.superpowers/
