@@ -132,7 +132,7 @@ type Config = {
 export const CONFIG: Config = {
     name: '李盛园',
     avatar: '/images/headshot.jpg',
-    title: 'AI Product Manager & Agent Builder',
+    title: 'AI 产品负责人 / Applied AI Builder',
     siteUrl: 'https://chauncey.myoii.com/',
     socials: [
         {
@@ -149,12 +149,6 @@ export const CONFIG: Config = {
             icon: 'email',
         },
         {
-            label: '手机号',
-            value: '18668206791',
-            href: 'tel:18668206791',
-            icon: 'phone',
-        },
-        {
             label: 'Global 邮箱',
             value: 'dy9759@gmail.com',
             href: 'mailto:dy9759@gmail.com',
@@ -165,19 +159,9 @@ export const CONFIG: Config = {
             value: 'ChaunceyAI2030',
             icon: 'wechat',
         },
-        {
-            label: '出生年月',
-            value: '1997年5月出生',
-            icon: 'calendar',
-        },
-        {
-            label: '政治面貌',
-            value: '中共党员',
-            icon: 'badgeCheck',
-        },
     ],
     descriptionRaw:
-        "Hi, I'm Chauncey Lee, an AI Product Manager & Agent Builder focused on turning large-model capabilities into real business scenarios: I actively dissect DeepSeek, ChatGPT, Claude, Gemini, Doubao, Kimi, Tongyi/Qwen, and other AI/Agent products to understand model boundaries, interaction cost, and user adoption barriers; I lead consumer AI products such as SaySo and Voice Agent across voice input, meetings, personal productivity, and voice-assistant scenarios; and I work as a technical PM with model, algorithm, and engineering teams, using evaluation, demo validation, fallback strategy, and metric systems to ship and iterate AI products.",
+        '李盛园（Chauncey Lee），AI 产品负责人 / Applied AI Builder。负责 SaySo Voice Agent 产品线，聚焦 Voice AI、Agent 编排、模型评测与 AI 产品增长。',
     aboutSegments: [
         {
             title: 'AI 产品深度用户 / 场景拆解',
@@ -275,10 +259,10 @@ export const CONFIG: Config = {
             category: 'consumer',
         },
         {
-            name: 'Sayso Team',
+            name: 'SaySo Team',
             duration: '2026.3 - 至今',
             description:
-                '负责 Sayso Team,面向 A2A 协作与团队提效场景,一人 solo builder 推进产品构建。',
+                '负责 SaySo Team,面向 A2A 协作与团队提效场景,一人 solo builder 推进产品构建。',
             descriptionSegments: [
                 {
                     title: '项目定位',
@@ -287,7 +271,7 @@ export const CONFIG: Config = {
                 {
                     title: '建设方式',
                     content:
-                        '负责 Sayso Team 产品构建，一人 solo builder 推进从需求到交付。',
+                        '负责 SaySo Team 产品构建，一人 solo builder 推进从需求到交付。',
                 },
             ],
             url: '',
@@ -328,7 +312,7 @@ export const CONFIG: Config = {
         },
         {
             name: '大模型评测平台',
-            duration: '2026.10 - 至今',
+            duration: '规划中',
             description: '负责 LLM、TTS、ASR 与端到端语音模型评测平台建设。',
             descriptionSegments: [
                 {
@@ -352,7 +336,7 @@ export const CONFIG: Config = {
         },
         {
             name: 'VuiLabs 官网建设',
-            duration: '2026.9 - 至今',
+            duration: '规划中',
             description: '参与 ToB 产品 VuiLabs 官网建设。',
             descriptionSegments: [
                 {
@@ -1102,19 +1086,13 @@ const toEnglishTierLabel = (tier: string) =>
 export const CONFIG_EN: Config = {
     ...CONFIG,
     name: 'Chauncey Lee',
-    title: 'AI Product Manager & Agent Builder',
+    title: 'AI Product Lead / Applied AI Builder',
     contactMethods: [
         {
             label: 'China Email',
             value: 'dy0509@foxmail.com',
             href: 'mailto:dy0509@foxmail.com',
             icon: 'email',
-        },
-        {
-            label: 'Phone',
-            value: '18668206791',
-            href: 'tel:18668206791',
-            icon: 'phone',
         },
         {
             label: 'Global Email',
@@ -1126,16 +1104,6 @@ export const CONFIG_EN: Config = {
             label: 'WeChat',
             value: 'ChaunceyAI2030',
             icon: 'wechat',
-        },
-        {
-            label: 'Date of Birth',
-            value: 'May 1997',
-            icon: 'calendar',
-        },
-        {
-            label: 'Political Status',
-            value: 'CPC Member',
-            icon: 'badgeCheck',
         },
     ],
     aboutSegments: [
@@ -1235,10 +1203,10 @@ export const CONFIG_EN: Config = {
             category: 'consumer',
         },
         {
-            name: 'Sayso Team',
+            name: 'SaySo Team',
             duration: 'Mar 2026 - Present',
             description:
-                'Led Sayso Team for A2A collaboration and team productivity, building the product as a solo builder.',
+                'Led SaySo Team for A2A collaboration and team productivity, building the product as a solo builder.',
             descriptionSegments: [
                 {
                     title: 'Project Positioning',
@@ -1248,7 +1216,7 @@ export const CONFIG_EN: Config = {
                 {
                     title: 'Build Mode',
                     content:
-                        'Built Sayso Team as a solo builder, driving the product from requirements to delivery.',
+                        'Built SaySo Team as a solo builder, driving the product from requirements to delivery.',
                 },
             ],
             url: '',
@@ -1289,7 +1257,7 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'LLM Evaluation Platform',
-            duration: 'Oct 2026 - Present',
+            duration: 'Planned',
             description:
                 'Led the evaluation platform for LLM, TTS, ASR, and end-to-end voice models.',
             descriptionSegments: [
@@ -1314,7 +1282,7 @@ export const CONFIG_EN: Config = {
         },
         {
             name: 'VuiLabs Website',
-            duration: 'Sep 2026 - Present',
+            duration: 'Planned',
             description:
                 'Contributed to the official website for VuiLabs, a ToB product.',
             descriptionSegments: [
@@ -1337,7 +1305,7 @@ export const CONFIG_EN: Config = {
             category: 'enterprise',
         },
         {
-            name: 'Sayso Data Agent',
+            name: 'SaySo Data Agent',
             duration: 'Apr 2026',
             description:
                 'Built an internal data agent that uses MCP calls to replace traditional data dashboard development.',

@@ -16,13 +16,32 @@ const fontSans = FontSans({
     variable: '--font-sans',
 })
 
+const siteTitle = `${CONFIG.name} | ${CONFIG.title}`
+const siteDescription = CONFIG.descriptionRaw
+
 export const metadata: Metadata = {
     metadataBase: new URL(CONFIG.siteUrl),
     title: {
-        default: CONFIG.name,
-        template: `${CONFIG.name} | %s`,
+        default: siteTitle,
+        template: `%s | ${CONFIG.name}`,
     },
-    description: CONFIG.descriptionRaw,
+    description: siteDescription,
+    alternates: {
+        canonical: CONFIG.siteUrl,
+    },
+    openGraph: {
+        type: 'website',
+        locale: 'zh_CN',
+        url: CONFIG.siteUrl,
+        siteName: CONFIG.name,
+        title: siteTitle,
+        description: siteDescription,
+    },
+    twitter: {
+        card: 'summary',
+        title: siteTitle,
+        description: siteDescription,
+    },
 }
 
 export default function RootLayout({

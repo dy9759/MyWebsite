@@ -2,14 +2,19 @@
 
 import { useSiteConfig, useSiteCopy } from '@/components/language-provider'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import { withBasePath } from '@/lib/asset-path'
 import { getInitials } from '@/lib/utils'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Header = () => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
     const avatarSrc = withBasePath(config.avatar)
+    const primaryEmail = config.contactMethods?.find((method) =>
+        method.href?.startsWith('mailto:'),
+    )
 
     return (
         <header
@@ -25,6 +30,20 @@ const Header = () => {
                     <p className='mt-1 text-sm text-muted-foreground'>
                         📍 {copy.labels.location}
                     </p>
+                    <div className='mt-4 flex flex-wrap gap-2'>
+                        <Button asChild size='sm'>
+                            <Link href='/projects/'>
+                                {copy.labels.viewProjects}
+                            </Link>
+                        </Button>
+                        {primaryEmail?.href ? (
+                            <Button asChild size='sm' variant='outline'>
+                                <Link href={primaryEmail.href}>
+                                    {copy.labels.contactMe}
+                                </Link>
+                            </Button>
+                        ) : null}
+                    </div>
                 </div>
                 <Avatar className='size-20 bg-white p-1'>
                     <AvatarImage
