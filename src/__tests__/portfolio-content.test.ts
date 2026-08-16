@@ -24,6 +24,18 @@ describe("portfolio content", () => {
     expect(PORTFOLIO_COPY.zh.experience.heading).toBe("当前工作");
   });
 
+  it("does not include the fictional timeline from the discarded visual concept", () => {
+    const workCopy = JSON.stringify({
+      zh: CONFIG.workExperience,
+      en: CONFIG_EN.workExperience,
+      portfolio: PORTFOLIO_COPY,
+    });
+
+    expect(workCopy).not.toMatch(/2021\.7\s*[-—–]\s*2023\.2/);
+    expect(workCopy).not.toMatch(/2023\.3\s*[-—–]\s*2025\.6/);
+    expect(workCopy).not.toMatch(/某\s*AI\s*创业公司|某\s*互联网公司/);
+  });
+
   it("uses unique case slugs", () => {
     expect(new Set(CASE_SLUGS).size).toBe(CASE_SLUGS.length);
   });
