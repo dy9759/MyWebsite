@@ -7,15 +7,15 @@ import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const SkillsGrid = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const skillItems = aiConfig.skills.map((skill, idx) => ({
+    const skillItems = aiConfig.skills.map((skill) => ({
         ...skill,
-        pinKey: createPinKey('ai-skill', idx),
+        pinKey: createPinKey('ai-skill', pinSlug(skill.title)),
     }))
     const skills = sortPinnedFirst(skillItems, (skill) =>
         pinState.isPinned(skill.pinKey, skill.pinned),

@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
     const [copiedKey, setCopiedKey] = useState<string | null>(null)
@@ -21,9 +21,9 @@ const PromptAccordion = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const siteCopy = useSiteCopy()
-    const promptItems = aiConfig.prompts.map((prompt, idx) => ({
+    const promptItems = aiConfig.prompts.map((prompt) => ({
         ...prompt,
-        pinKey: createPinKey('ai-prompt', idx),
+        pinKey: createPinKey('ai-prompt', pinSlug(prompt.title)),
     }))
     const prompts = sortPinnedFirst(promptItems, (prompt) =>
         pinState.isPinned(prompt.pinKey, prompt.pinned),

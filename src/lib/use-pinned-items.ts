@@ -12,6 +12,12 @@ export const createPinKey = (
     ...parts: Array<string | number | undefined>
 ) => [scope, ...parts.filter((part) => part !== undefined)].join('::')
 
+// Stable pin identifier derived from an item's content (title/name/url).
+// Index-based keys drift when the underlying list is reordered or edited;
+// a content slug keeps a pin attached to the same item across such changes.
+export const pinSlug = (value: string) =>
+    value.trim().toLowerCase().replace(/\s+/g, '-')
+
 const EMPTY: PinOverrides = {}
 
 // Cache keyed on the raw string so getSnapshot returns a stable reference

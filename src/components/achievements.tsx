@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 import PinToggle from '@/components/pin-toggle'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 import { usePinEditMode } from '@/lib/use-pin-edit-mode'
 import { byYearDesc } from '@/lib/year-sort'
 
@@ -118,15 +118,15 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const withCount = (label: string, count: number) =>
         formatCountLabel(language, label, count)
     const publicationItems = (config.research?.publications ?? [])
-        .map((publication, idx) => ({
+        .map((publication) => ({
             ...publication,
-            pinKey: createPinKey('research-publication', idx),
+            pinKey: createPinKey('research-publication', pinSlug(publication.title)),
         }))
         .sort(byYearDesc)
     const conferenceItems = (config.research?.conferences ?? [])
-        .map((conference, idx) => ({
+        .map((conference) => ({
             ...conference,
-            pinKey: createPinKey('research-conference', idx),
+            pinKey: createPinKey('research-conference', pinSlug(conference.title)),
         }))
         .sort(byYearDesc)
     const allPubs = sortPinnedFirst(publicationItems, (publication) =>

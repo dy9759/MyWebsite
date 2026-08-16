@@ -5,15 +5,15 @@ import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const NewsletterList = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const newsletterItems = aiConfig.newsletters.map((newsletter, idx) => ({
+    const newsletterItems = aiConfig.newsletters.map((newsletter) => ({
         ...newsletter,
-        pinKey: createPinKey('ai-newsletter', idx),
+        pinKey: createPinKey('ai-newsletter', pinSlug(newsletter.title)),
     }))
     const newsletters = sortPinnedFirst(newsletterItems, (newsletter) =>
         pinState.isPinned(newsletter.pinKey, newsletter.pinned),

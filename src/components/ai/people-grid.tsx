@@ -7,15 +7,15 @@ import { Card } from '@/components/ui/card'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { getInitials } from '@/lib/utils'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PeopleGrid = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const peopleItems = aiConfig.people.map((person, idx) => ({
+    const peopleItems = aiConfig.people.map((person) => ({
         ...person,
-        pinKey: createPinKey('ai-person', idx),
+        pinKey: createPinKey('ai-person', pinSlug(person.name)),
     }))
     const people = sortPinnedFirst(peopleItems, (person) =>
         pinState.isPinned(person.pinKey, person.pinned),

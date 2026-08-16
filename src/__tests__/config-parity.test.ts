@@ -28,4 +28,18 @@ describe('zh/en config parity', () => {
             expect(conference.year, conference.title).not.toMatch(CJK)
         }
     })
+
+    it('derives EN conferences 1:1 from zh with translated title, venue and authors', () => {
+        const zh = CONFIG.research?.conferences ?? []
+        const en = CONFIG_EN.research?.conferences ?? []
+        expect(en).toHaveLength(zh.length)
+        en.forEach((conference, idx) => {
+            // alignment: pinned flag tracks the same zh entry by position
+            expect(conference.pinned ?? false).toBe(zh[idx]?.pinned ?? false)
+            // no untranslated Chinese leaks into the EN list
+            expect(conference.title, conference.title).not.toMatch(CJK)
+            expect(conference.venue, conference.title).not.toMatch(CJK)
+            expect(conference.authors, conference.title).not.toMatch(CJK)
+        })
+    })
 })

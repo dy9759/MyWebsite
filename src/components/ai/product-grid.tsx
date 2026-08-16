@@ -15,15 +15,15 @@ import { Icons } from '@/components/icons'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const ProductGrid = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const productItems = aiConfig.products.map((product, idx) => ({
+    const productItems = aiConfig.products.map((product) => ({
         ...product,
-        pinKey: createPinKey('ai-product', idx),
+        pinKey: createPinKey('ai-product', pinSlug(product.name)),
     }))
     const products = sortPinnedFirst(productItems, (product) =>
         pinState.isPinned(product.pinKey, product.pinned),

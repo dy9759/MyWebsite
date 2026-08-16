@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 import { hasUsableUrl } from '@/lib/content'
 
 const ItemLink = ({
@@ -73,23 +73,28 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
     if (!layer) return null
 
     const items = sortPinnedFirst(
-        (layer.items ?? []).filter(hasUsableUrl).map((item, idx) => ({
+        (layer.items ?? []).filter(hasUsableUrl).map((item) => ({
             ...item,
-            pinKey: createPinKey('ai-source', layerIndex, 'item', idx),
+            pinKey: createPinKey(
+                'ai-source',
+                layerIndex,
+                'item',
+                pinSlug(item.name),
+            ),
         })),
         (item) => pinState.isPinned(item.pinKey, item.pinned),
     )
-    const groups = (layer.groups ?? []).map((group, groupIdx) => ({
+    const groups = (layer.groups ?? []).map((group) => ({
         ...group,
         items: sortPinnedFirst(
-            group.items.filter(hasUsableUrl).map((item, idx) => ({
+            group.items.filter(hasUsableUrl).map((item) => ({
                 ...item,
                 pinKey: createPinKey(
                     'ai-source',
                     layerIndex,
                     'group',
-                    groupIdx,
-                    idx,
+                    pinSlug(group.label),
+                    pinSlug(item.name),
                 ),
             })),
             (item) => pinState.isPinned(item.pinKey, item.pinned),

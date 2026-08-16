@@ -215,7 +215,9 @@ const EN_DATE_LABELS: Record<string, string> = {
     '2023.10': 'Oct 2023',
     '2024.1': 'Jan 2024',
     '2024.3': 'Mar 2024',
+    '2024.6': 'Jun 2024',
     '2024.7': 'Jul 2024',
+    '2024.9': 'Sep 2024',
     '2024.12': 'Dec 2024',
     '2025.3': 'Mar 2025',
     '2025.5': 'May 2025',
@@ -237,6 +239,25 @@ const toEnglishTierLabel = (tier: string) =>
         (label, [zh, en]) => label.replaceAll(zh, en),
         tier,
     )
+
+// English fields for conferences whose zh title has no English original.
+// Keyed by the zh title so the EN list derives 1:1 from the zh list and
+// cannot drift out of alignment when the zh list is reordered or edited.
+const EN_CONFERENCE_OVERRIDES: Record<
+    string,
+    { authors: string; title: string; venue: string }
+> = {
+    '碳中和背景下粮食主产区土地利用多情景模拟与碳储量分析': {
+        authors: 'Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
+        title: 'Multi-Scenario Land Use Simulation and Carbon Storage Analysis in Major Grain-Producing Areas under Carbon Neutrality',
+        venue: '2024 Annual Meeting of the Geographical Society of China Physical Geography Committee, Meizhou, Guangdong',
+    },
+    '城乡融合发展背景下城乡结合区典型县域土地利用多情景模拟与评价': {
+        authors: 'Teng Teng, Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
+        title: 'Multi-Scenario Land Use Simulation and Evaluation of Typical Counties in Urban-Rural Fringe Areas under Integrated Urban-Rural Development',
+        venue: 'Annual Conference of the Geographical Society of China, Nanjing, Jiangsu',
+    },
+}
 
 export const CONFIG_EN: Config = {
     ...CONFIG,
@@ -273,30 +294,18 @@ export const CONFIG_EN: Config = {
                 tier: toEnglishTierLabel(publication.tier),
             })) ?? [],
         grants: [],
-        conferences: [
-            ...(CONFIG.research?.conferences ?? [])
-                .slice(0, 3)
-                .map((conference) => ({
+        conferences:
+            CONFIG.research?.conferences?.map((conference) => {
+                const override = EN_CONFERENCE_OVERRIDES[conference.title]
+                return {
                     ...conference,
-                    authors: conference.authors.replaceAll(
-                        '李盛园',
-                        'Shengyuan Li',
-                    ),
+                    authors:
+                        override?.authors ??
+                        conference.authors.replaceAll('李盛园', 'Shengyuan Li'),
+                    title: override?.title ?? conference.title,
+                    venue: override?.venue ?? conference.venue,
                     year: toEnglishDateLabel(conference.year),
-                })),
-            {
-                authors: 'Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
-                title: 'Multi-Scenario Land Use Simulation and Carbon Storage Analysis in Major Grain-Producing Areas under Carbon Neutrality',
-                venue: '2024 Annual Meeting of the Geographical Society of China Physical Geography Committee, Meizhou, Guangdong',
-                year: 'Jun 2024',
-                pinned: true,
-            },
-            {
-                authors: 'Teng Teng, Haifeng Deng, Shengyuan Li, Xiaohuan Xie',
-                title: 'Multi-Scenario Land Use Simulation and Evaluation of Typical Counties in Urban-Rural Fringe Areas under Integrated Urban-Rural Development',
-                venue: 'Annual Conference of the Geographical Society of China, Nanjing, Jiangsu',
-                year: 'Sep 2024',
-            },
-        ],
+                }
+            }) ?? [],
     },
 }

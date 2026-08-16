@@ -14,15 +14,15 @@ import { Badge } from '@/components/ui/badge'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const PodcastGrid = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const podcastItems = aiConfig.podcasts.map((podcast, idx) => ({
+    const podcastItems = aiConfig.podcasts.map((podcast) => ({
         ...podcast,
-        pinKey: createPinKey('ai-podcast', idx),
+        pinKey: createPinKey('ai-podcast', pinSlug(podcast.title)),
     }))
     const podcasts = sortPinnedFirst(podcastItems, (podcast) =>
         pinState.isPinned(podcast.pinKey, podcast.pinned),

@@ -20,7 +20,7 @@ import VideoFilter, {
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { type VideoTag } from '@/ai-config'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 
 const COLLAPSED_COUNT = 3
 
@@ -28,9 +28,9 @@ const VideoTable = () => {
     const pinState = usePinnedItems()
     const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const videoItems = aiConfig.videos.map((video, idx) => ({
+    const videoItems = aiConfig.videos.map((video) => ({
         ...video,
-        pinKey: createPinKey('ai-video', idx),
+        pinKey: createPinKey('ai-video', pinSlug(video.title)),
     }))
     const videos = sortPinnedFirst(videoItems, (video) =>
         pinState.isPinned(video.pinKey, video.pinned),
