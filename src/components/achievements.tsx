@@ -145,7 +145,9 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
               pinState.isPinned(conference.pinKey, conference.pinned),
           )
         : allConfs
-    if (pubs.length === 0 && confs.length === 0) return null
+    // When pinnedOnly (home teaser), keep the header + "view all research"
+    // link even with an empty pin set so the section stays discoverable.
+    if (pubs.length === 0 && confs.length === 0 && !pinnedOnly) return null
 
     return (
         <section
