@@ -79,6 +79,9 @@ type PortfolioCopy = {
   };
   experience: {
     heading: string;
+    company: string;
+    role: string;
+    duration: string;
     highlights: string[];
   };
   lab: {
@@ -544,6 +547,9 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     },
     experience: {
       heading: "当前工作",
+      company: "宇生月伴(杭州)智能科技有限公司(种子轮，Voice Agent 赛道)",
+      role: "C端 Voice Agent 业务线产品负责人",
+      duration: "2025.7 - 至今",
       highlights: [
         "负责 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
         "主导 LLM、ASR、TTS 与端到端语音模型评测。",
@@ -701,6 +707,10 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     },
     experience: {
       heading: "Current Role",
+      company:
+        "Yusheng Yueban (Hangzhou) Intelligent Technology Co., Ltd. (Seed Round, Voice Agent Track)",
+      role: "Consumer Voice Agent Product Lead",
+      duration: "Jul 2025 - Present",
       highlights: [
         "Lead product planning, requirements and iteration for a consumer Voice Agent line.",
         "Own evaluation for LLM, ASR, TTS and end-to-end speech models.",

@@ -17,9 +17,8 @@ const requiredUrlCollections = (config: typeof AI_CONFIG) => [
 
 describe("public content integrity", () => {
   it("keeps the verified current role period aligned with the flagship case", () => {
-    expect(CONFIG.workExperience?.positions).toHaveLength(1);
-    expect(CONFIG_EN.workExperience?.positions).toHaveLength(1);
-    expect(CONFIG.workExperience?.positions?.[0].duration).toContain("2025.7");
+    expect(PORTFOLIO_COPY.zh.experience.duration).toContain("2025.7");
+    expect(PORTFOLIO_COPY.en.experience.duration).toContain("Jul 2025");
     expect(PORTFOLIO_COPY.zh.cases.items[0].period).toBe("2025.7—至今");
     expect(PORTFOLIO_COPY.en.cases.items[0].period).toBe("Jul 2025—Present");
   });
@@ -29,8 +28,8 @@ describe("public content integrity", () => {
     expect(CONFIG_EN.research?.grants).toEqual([]);
 
     const publicExperience = JSON.stringify({
-      zh: CONFIG.workExperience,
-      en: CONFIG_EN.workExperience,
+      zh: PORTFOLIO_COPY.zh.experience,
+      en: PORTFOLIO_COPY.en.experience,
       grantsZh: CONFIG.research?.grants,
       grantsEn: CONFIG_EN.research?.grants,
     });

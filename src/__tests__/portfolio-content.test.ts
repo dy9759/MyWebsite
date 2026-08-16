@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { CONFIG, CONFIG_EN } from "@/config";
 import { CASE_SLUGS, PORTFOLIO_COPY } from "@/content/portfolio";
 
 describe("portfolio content", () => {
@@ -25,11 +24,7 @@ describe("portfolio content", () => {
   });
 
   it("does not include the fictional timeline from the discarded visual concept", () => {
-    const workCopy = JSON.stringify({
-      zh: CONFIG.workExperience,
-      en: CONFIG_EN.workExperience,
-      portfolio: PORTFOLIO_COPY,
-    });
+    const workCopy = JSON.stringify({ portfolio: PORTFOLIO_COPY });
 
     expect(workCopy).not.toMatch(/2021\.7\s*[-—–]\s*2023\.2/);
     expect(workCopy).not.toMatch(/2023\.3\s*[-—–]\s*2025\.6/);
