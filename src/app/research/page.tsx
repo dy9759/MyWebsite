@@ -1,8 +1,9 @@
 import ResearchPageContent from "@/components/research-page-content";
 
 export const metadata = {
-  title: "研究与算法｜AI for Science 实践",
-  description: "从预测、优化与空间模拟研究，到模型评测和 AI 产品化能力。",
+  title: "研究与评测｜从模型验证到 AI 产品化",
+  description:
+    "论文与会议成果索引，以及复杂问题拆解、数据评测和模型验证如何迁移到 AI 产品。",
 };
 
 const Research = () => {

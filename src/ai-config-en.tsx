@@ -14,7 +14,9 @@ const PEOPLE_EN: AIConfig['people'] = AI_CONFIG.people.map((person) => {
 })
 
 const renameItem = (
-    items: { name: string; url?: string; note?: string; pinned?: boolean }[] | undefined,
+    items:
+        | { name: string; url?: string; note?: string; pinned?: boolean }[]
+        | undefined,
     map: Record<string, { name?: string; note?: string }>,
 ) =>
     items?.map((item) => {
@@ -79,7 +81,10 @@ const SOURCES_EN: AIConfig['sources'] = [
                         }
                     }
                     if (item.name === 'Andrej Karpathy — 个人主页') {
-                        return { ...item, name: 'Andrej Karpathy — personal site' }
+                        return {
+                            ...item,
+                            name: 'Andrej Karpathy — personal site',
+                        }
                     }
                     return item
                 }),
@@ -92,7 +97,12 @@ const SOURCES_EN: AIConfig['sources'] = [
         description:
             'Reddit subreddits + Hacker News (YC tech community — open-source launches & high-signal commentary) + Discord (official AI-tool developer channels). Great for international launches; marketing / HR / productivity-tool subreddits have strong discussion.',
         groups: AI_CONFIG.sources[4].groups?.map((group, idx) => {
-            const labels = ['Reddit', 'Hacker News', 'Discord', 'Market Signals']
+            const labels = [
+                'Reddit',
+                'Hacker News',
+                'Discord',
+                'Market Signals',
+            ]
             return {
                 ...group,
                 label: labels[idx] ?? group.label,
@@ -103,7 +113,9 @@ const SOURCES_EN: AIConfig['sources'] = [
                             name: 'Example — DeepSeek v3 discussion search',
                         }
                     }
-                    if (item.name === '案例 — item 41695840(开源项目深度点评)') {
+                    if (
+                        item.name === '案例 — item 41695840(开源项目深度点评)'
+                    ) {
                         return {
                             ...item,
                             name: 'Example — item 41695840 (in-depth open-source review)',
@@ -163,6 +175,20 @@ const SOURCES_USAGE_EN: AIConfig['sourcesUsage'] = [
 
 export const AI_CONFIG_EN: AIConfig = {
     ...AI_CONFIG,
+    hero: {
+        title: 'AI Learning Library',
+        intro: 'This is not an exhaustive AI directory. It is the information system I use to understand model capabilities, product shifts, and the evolution of agents.',
+        positioning:
+            'I start with first-party launches, technical originals, and long-form interviews, then use community discussion and Chinese-language sources as market context.',
+        curationLabel: 'Curated, not exhaustive',
+        updatedLabel: 'Updated',
+        lastUpdated: 'Aug 2026',
+        updateNotes: [
+            'Reframed the library around a six-layer reading order',
+            'Prioritized first-party sources, evaluation, and product judgment',
+            'Hidden resource entries without a usable link',
+        ],
+    },
     people: PEOPLE_EN,
     sources: SOURCES_EN,
     sourcesUsage: SOURCES_USAGE_EN,

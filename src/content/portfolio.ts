@@ -90,10 +90,13 @@ type PortfolioCopy = {
     items: LabProject[];
   };
   research: {
+    eyebrow: string;
     heading: string;
     summary: string;
+    intro: string;
     highlights: string[];
     viewAll: string;
+    verificationNote: string;
   };
   closing: {
     text: string;
@@ -126,7 +129,7 @@ const zhCases: CaseStudy[] = [
     title: "SaySo Voice AI",
     summary: "44.5 万次真实交互的 Voice AI 产品实践",
     role: "C 端 Voice Agent 业务线产品负责人",
-    period: "2025.10—至今",
+    period: "2025.7—至今",
     problems: [
       "语音输入真实场景噪声、口音和任务类型多样，模型效果与稳定性持续波动。",
       "用户需要快速获得第一次有效输出，同时保留失败重试和人工编辑能力。",
@@ -305,7 +308,7 @@ Object.assign(enCases[0], {
   status: "Live",
   summary: "A Voice AI product journey across 444K real interactions",
   role: "Product Lead, Consumer Voice Agent",
-  period: "Oct 2025—Present",
+  period: "Jul 2025—Present",
   problems: [
     "Real voice input varies by noise, accent and task, while model quality and stability fluctuate.",
     "Users need a fast first successful output with clear retry and editing paths.",
@@ -604,14 +607,19 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     research: {
+      eyebrow: "Research → Product",
       heading: "研究与教育",
       summary: "武汉大学硕士 · 建筑学（建筑技术科学）",
+      intro:
+        "研究经历的价值不止是论文数量，而是把复杂问题转化为可验证假设、数据口径、模型方案与决策证据。",
       highlights: [
         "多篇 JCR Q1、核心期刊论文与会议成果。",
         "研究覆盖预测、优化、空间模拟与可持续能源。",
         "将复杂问题拆解、数据评测和模型验证能力迁移到 AI 产品。",
       ],
       viewAll: "查看论文与成果",
+      verificationNote:
+        "本页仅展示教育背景及论文、会议成果索引；旧实验室时间线不作为公开任职经历。",
     },
     closing: {
       text: "正在寻找 Voice AI、Agent 与 Applied AI 方向的产品合作机会。",
@@ -761,15 +769,20 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     research: {
+      eyebrow: "Research → Product",
       heading: "Research & Education",
       summary:
         "Wuhan University · MSc in Architecture (Architectural Technology Science)",
+      intro:
+        "The value of research is not the publication count alone. It is the ability to turn complex questions into testable hypotheses, data definitions, model choices, and decision evidence.",
       highlights: [
         "Multiple JCR Q1 and PKU Core journal and conference papers.",
         "Research across prediction, optimization, spatial simulation and sustainable energy.",
         "Transfer complex problem solving, evaluation and model validation into AI products.",
       ],
       viewAll: "View papers and outcomes",
+      verificationNote:
+        "This page publishes verified education plus paper and conference indexes only. Legacy lab timelines are not presented as employment experience.",
     },
     closing: {
       text: "Open to product opportunities and collaboration in Voice AI, agents and Applied AI.",

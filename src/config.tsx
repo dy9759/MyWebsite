@@ -845,19 +845,7 @@ export const CONFIG: Config = {
                 pinned: true,
             },
         ],
-        grants: [
-            {
-                name: '乡村地域系统协同观测与转型机理及模拟',
-                funding: '国家自然科学基金重大项目 (NSFC Major Program)',
-                duration: '2023.1 - 至今',
-                overview:
-                    '聚焦乡村地域系统转型,开展交通、土地等减碳优化研究,综合评估产业经济效应,探索区域最优发展路径。',
-                role: '开发 2 套研究方法论;技术指导 6 人团队开展数据分析;负责项目申报、推进与结项管理。',
-                outcomes:
-                    '提前完成 10 项成果转化;研究成果被纳入地方政府规划参考,提升区域可持续发展能力。',
-                pinned: true,
-            },
-        ],
+        grants: [],
         conferences: [
             {
                 authors: 'Xiaohuan Xie, Qiting Lin, Shengyuan Li',
@@ -986,72 +974,6 @@ export const CONFIG: Config = {
                     { name: 'Antigravity', icon: 'gear' },
                 ],
             },
-            {
-                company: '武汉大学建筑智慧能源实验室(全球前 2%)',
-                role: 'AI for Science 算法研发 & AI 产品研发',
-                duration: '2022.9 - 2025.6',
-                description: (
-                    <>
-                        使用 AI 与 GitHub Copilot
-                        辅助科研建模、数据分析与论文写作,产出论文成果。实验室阶段
-                        2023.1 - 2025.6,推动光伏识别业务 +20 倍范围,GCN-LSTM +
-                        DRL 绿电消纳 +50%,本地 RAG 知识库自动更新。
-                    </>
-                ),
-                descriptionSegments: [
-                    {
-                        title: '科研建模',
-                        content:
-                            '使用 AI 与 GitHub Copilot 辅助科研建模、数据分析与论文写作，产出论文成果。',
-                    },
-                    {
-                        title: '业务需求',
-                        content:
-                            '实验室阶段 2023.1 - 2025.6，推动光伏识别业务 +20 倍范围。',
-                    },
-                    {
-                        title: '功能研发',
-                        content:
-                            'GCN-LSTM + DRL 绿电消纳 +50%，本地 RAG 知识库自动更新。',
-                    },
-                ],
-                tags: [
-                    { name: 'AI for Science', icon: 'llm' },
-                    { name: 'GitHub Copilot', icon: 'github' },
-                    { name: 'Python', icon: 'python' },
-                    { name: 'YOLOv8', icon: 'gear' },
-                    { name: 'DRL', icon: 'gear' },
-                ],
-            },
-            {
-                company:
-                    '上海几凡设计教育(杭州校区)，考研细分头部，新地区拓展从0到1',
-                role: '联合创始人 / 增长与产品负责人',
-                duration: '2020.6 - 2022.8',
-                description: (
-                    <>
-                        基于聚类 + 回归分析用户画像,用户增长 +30%、营收
-                        +20%;设计“线下集训 +
-                        线上直播”形态的教育精品小班产品,差评退课率 -15%。
-                    </>
-                ),
-                descriptionSegments: [
-                    {
-                        title: '解决方案',
-                        content:
-                            '基于聚类 + 回归分析用户画像，用户增长 +30%、营收 +20%。',
-                    },
-                    {
-                        title: '产品设计',
-                        content:
-                            '设计“线下集训 + 线上直播”形态的教育精品小班产品，差评退课率 -15%。',
-                    },
-                ],
-                tags: [
-                    { name: 'Python', icon: 'python' },
-                    { name: 'SQL', icon: 'sql' },
-                ],
-            },
         ],
     },
 }
@@ -1064,17 +986,17 @@ const EN_DATE_LABELS: Record<string, string> = {
     '2024.12': 'Dec 2024',
     '2025.3': 'Mar 2025',
     '2025.5': 'May 2025',
-    '录用': 'Accepted',
+    录用: 'Accepted',
 }
 
 const toEnglishDateLabel = (value: string) => EN_DATE_LABELS[value] ?? value
 
 const EN_TIER_LABELS: Record<string, string> = {
-    '中科院一区': 'CAS Q1',
-    '中科院二区': 'CAS Q2',
-    '中科院三区': 'CAS Q3',
-    '北大核心': 'PKU Core',
-    '中文期刊': 'Chinese Journal',
+    中科院一区: 'CAS Q1',
+    中科院二区: 'CAS Q2',
+    中科院三区: 'CAS Q3',
+    北大核心: 'PKU Core',
+    中文期刊: 'Chinese Journal',
 }
 
 const toEnglishTierLabel = (tier: string) =>
@@ -1718,19 +1640,7 @@ export const CONFIG_EN: Config = {
                 year: toEnglishDateLabel(publication.year),
                 tier: toEnglishTierLabel(publication.tier),
             })) ?? [],
-        grants: [
-            {
-                name: 'Collaborative Observation, Transformation Mechanisms, and Simulation of Rural Territorial Systems',
-                funding: 'NSFC Major Program',
-                duration: 'Jan 2023 - Present',
-                overview:
-                    'Focused on rural territorial system transformation, carbon-reduction optimization for transportation and land use, integrated industrial-economic impact evaluation, and optimal regional development pathways.',
-                role: 'Developed two research methodologies; provided technical guidance for a six-person data analysis team; supported proposal writing, project execution, and final delivery management.',
-                outcomes:
-                    'Completed 10 research-to-application outputs ahead of schedule; research outcomes were included as references for local government planning and improved regional sustainability capacity.',
-                pinned: true,
-            },
-        ],
+        grants: [],
         conferences: [
             ...(CONFIG.research?.conferences ?? [])
                 .slice(0, 3)
@@ -1858,78 +1768,6 @@ export const CONFIG_EN: Config = {
                     { name: 'Claude Code', icon: 'llm' },
                     { name: 'Codex', icon: 'llm' },
                     { name: 'Antigravity', icon: 'gear' },
-                ],
-            },
-            {
-                company:
-                    'Wuhan University Smart Building Energy Lab (Global Top 2%)',
-                role: 'AI for Science Algorithm R&D & AI Product R&D',
-                duration: 'Sep 2022 - Jun 2025',
-                description: (
-                    <>
-                        Used AI and GitHub Copilot to support scientific
-                        modeling, data analysis, and paper writing, producing
-                        research publications. During Jan 2023 - Jun 2025, I
-                        expanded PV recognition coverage by 20x, improved green
-                        electricity consumption by 50% with GCN-LSTM + DRL, and
-                        built an automatically updating local RAG knowledge
-                        base.
-                    </>
-                ),
-                descriptionSegments: [
-                    {
-                        title: 'Scientific Modeling',
-                        content:
-                            'Used AI and GitHub Copilot to support scientific modeling, data analysis, and paper writing, producing research publications.',
-                    },
-                    {
-                        title: 'Business Demand',
-                        content:
-                            'During Jan 2023 - Jun 2025, expanded PV recognition coverage by 20x.',
-                    },
-                    {
-                        title: 'Feature R&D',
-                        content:
-                            'Improved green electricity consumption by 50% with GCN-LSTM + DRL and built an automatically updating local RAG knowledge base.',
-                    },
-                ],
-                tags: [
-                    { name: 'AI for Science', icon: 'llm' },
-                    { name: 'GitHub Copilot', icon: 'github' },
-                    { name: 'Python', icon: 'python' },
-                    { name: 'YOLOv8', icon: 'gear' },
-                    { name: 'DRL', icon: 'gear' },
-                ],
-            },
-            {
-                company:
-                    'Shanghai Jifan Design Education (Hangzhou Campus), leading player in the postgraduate-exam design education segment, new-region expansion from 0 to 1',
-                role: 'Co-founder / Growth & Product Lead',
-                duration: 'Jun 2020 - Aug 2022',
-                description: (
-                    <>
-                        Built user personas through clustering and regression
-                        analysis, driving +30% user growth and +20% revenue;
-                        designed premium small-class education products in an
-                        offline bootcamp + online live-class format, reducing
-                        refund/dropout caused by negative reviews by 15%.
-                    </>
-                ),
-                descriptionSegments: [
-                    {
-                        title: 'Solution',
-                        content:
-                            'Built user personas through clustering and regression analysis, driving +30% user growth and +20% revenue.',
-                    },
-                    {
-                        title: 'Product Design',
-                        content:
-                            'Designed premium small-class education products in an offline bootcamp + online live-class format, reducing refund/dropout caused by negative reviews by 15%.',
-                    },
-                ],
-                tags: [
-                    { name: 'Python', icon: 'python' },
-                    { name: 'SQL', icon: 'sql' },
                 ],
             },
         ],

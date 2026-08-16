@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Achievements from '@/components/achievements'
+import ResearchIntro from '@/components/research-intro'
 import SectionRailNav from '@/components/section-rail-nav'
 import {
     formatCountLabel,
@@ -26,6 +27,10 @@ const ResearchPageContent = () => {
         formatCountLabel(language, label, count)
     const sectionNavItems = [
         {
+            href: '#research-overview',
+            label: language === 'zh' ? '研究概览' : 'Overview',
+        },
+        {
             href: '#journal-papers',
             label: withCount(
                 copy.sections.journalPapers,
@@ -42,19 +47,19 @@ const ResearchPageContent = () => {
     ]
 
     return (
-        <div className='grid gap-6 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start'>
+        <div className="grid gap-6 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start">
             <SectionRailNav
                 ariaLabel={copy.researchSectionNav}
                 items={sectionNavItems}
             />
 
-            <div className='min-w-0'>
-                <div className='flex animate-slide-from-down-and-fade-1 items-center justify-between'>
-                    <Breadcrumb className='mb-4 px-4'>
+            <div className="min-w-0">
+                <div className="flex animate-slide-from-down-and-fade-1 items-center justify-between">
+                    <Breadcrumb className="mb-4 px-4">
                         <BreadcrumbList>
                             <BreadcrumbItem>
                                 <BreadcrumbLink asChild>
-                                    <Link href='/'>{copy.nav.home}</Link>
+                                    <Link href="/">{copy.nav.home}</Link>
                                 </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
@@ -67,7 +72,8 @@ const ResearchPageContent = () => {
                     </Breadcrumb>
                 </div>
 
-                <div className='pt-4'>
+                <div className="pt-4">
+                    <ResearchIntro />
                     <Achievements />
                 </div>
             </div>

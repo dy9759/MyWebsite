@@ -11,6 +11,11 @@ export type AIConfig = {
     hero: {
         title: string
         intro: string
+        positioning: string
+        curationLabel: string
+        updatedLabel: string
+        lastUpdated: string
+        updateNotes: string[]
     }
     videos: {
         title: string
@@ -106,7 +111,17 @@ export type AIConfig = {
 export const AI_CONFIG: AIConfig = {
     hero: {
         title: 'AI Learning Library',
-        intro: "Hi, I'm Chauncey. Below is my curated collection of AI learning resources — videos, podcasts, newsletters, and tools I personally use to keep up with the field. Everything here is free and aimed at anyone who wants to understand AI more deeply, technical or not.",
+        intro: '这不是一份追求“大而全”的 AI 导航，而是我用于理解模型能力、产品趋势与 Agent 演进的个人信息系统。',
+        positioning:
+            '优先追踪一手发布、技术原文与深度访谈，再用社区讨论和中文内容补充市场反馈。',
+        curationLabel: '编辑筛选，而非资源堆砌',
+        updatedLabel: '最后更新',
+        lastUpdated: '2026-08',
+        updateNotes: [
+            '重构六层信息源结构与阅读顺序',
+            '突出一手信息、评测方法与产品判断',
+            '隐藏缺少可访问链接的资源条目',
+        ],
     },
     videos: [
         {
@@ -133,27 +148,6 @@ export const AI_CONFIG: AIConfig = {
             tags: ['Product', 'Tools'],
             featured: true,
             pinned: true,
-        },
-        {
-            title: 'The State of AI with Sam Altman',
-            channel: 'Stratechery',
-            duration: '1h 15m',
-            url: '',
-            tags: ['Founder Interview'],
-        },
-        {
-            title: 'Demis Hassabis on the future of AI',
-            channel: 'Lex Fridman',
-            duration: '2h 30m',
-            url: '',
-            tags: ['Founder Interview', 'Research'],
-        },
-        {
-            title: 'Building AI Products that matter',
-            channel: 'a16z',
-            duration: '45m',
-            url: '',
-            tags: ['Product'],
         },
     ],
     podcasts: [

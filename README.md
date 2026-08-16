@@ -12,8 +12,8 @@
 - **主页**：产品定位、核心能力、三项代表案例、经历与行动入口
 - **代表案例**：问题、约束、决策、交付、证据与复盘
 - **Builder Lab**：Agent、Skill、评测与开源实验
-- **研究**：期刊论文、会议论文与科研项目
-- **AI 资源库**：个人持续使用和维护的 AI 学习资源
+- **研究**：论文与会议成果索引，以及研究方法向 AI 产品能力的迁移
+- **AI 资源库**：按六层信息源组织、持续维护的个人 AI 信息系统
 
 网站支持中英文与明暗主题，并通过 GitHub Pages 自动部署到自定义域名。
 
@@ -67,6 +67,13 @@ npm run build
 - `/ai/`：AI Learning Library
 
 Pull Request 会由 `quality.yml` 执行测试、Lint 与静态构建；推送到 `main` 后再由部署工作流发布 GitHub Pages。
+
+## 路线图与内容缺口
+
+- [AI 作品集升级路线图](./docs/portfolio-roadmap.md)
+- [作品集内容缺口清单](./docs/content-gap-checklist.md)
+
+路线图中的“已完成”指网站结构和代码已经交付；真实截图、指标口径、Demo 与简历 PDF 仍以缺口清单为准。
 
 ## 部署
 
