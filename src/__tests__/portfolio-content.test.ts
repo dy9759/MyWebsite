@@ -1,0 +1,70 @@
+import { describe, expect, it } from "vitest";
+import { CONFIG, CONFIG_EN } from "@/config";
+import { CASE_SLUGS, PORTFOLIO_COPY } from "@/content/portfolio";
+
+describe("portfolio content", () => {
+  it("keeps the verified Wuhan University field of study", () => {
+    expect(CONFIG.education[0].school).toBe("武汉大学");
+    expect(CONFIG.education[0].field).toBe("建筑学(建筑技术科学)");
+    expect(CONFIG_EN.education[0].field).toBe(
+      "Architecture (Architectural Technology Science)",
+    );
+
+    const educationCopy = `${PORTFOLIO_COPY.zh.research.summary} ${PORTFOLIO_COPY.en.research.summary}`;
+    expect(educationCopy).not.toMatch(/计算机学院|Computer Science/i);
+  });
+
+  it("does not present legacy 2021–2025 work as featured case studies", () => {
+    const featuredPeriods = PORTFOLIO_COPY.zh.cases.items.map(
+      (item) => item.period,
+    );
+
+    expect(featuredPeriods).not.toContain("2021—2025");
+    expect(featuredPeriods).not.toContain("2022.9—2025.6");
+    expect(PORTFOLIO_COPY.zh.experience.heading).toBe("当前工作");
+  });
+
+  it("uses unique case slugs", () => {
+    expect(new Set(CASE_SLUGS).size).toBe(CASE_SLUGS.length);
+  });
+
+  it("keeps case ids and slugs aligned across languages", () => {
+    const zh = PORTFOLIO_COPY.zh.cases.items.map(({ id, slug }) => ({
+      id,
+      slug,
+    }));
+    const en = PORTFOLIO_COPY.en.cases.items.map(({ id, slug }) => ({
+      id,
+      slug,
+    }));
+
+    expect(en).toEqual(zh);
+  });
+
+  it("marks unknown evidence as placeholders instead of numbers", () => {
+    for (const item of PORTFOLIO_COPY.zh.cases.items.slice(1)) {
+      const unknownEvidence = item.evidence.filter(
+        (evidence) => evidence.value === "待补充",
+      );
+      expect(unknownEvidence.length).toBeGreaterThan(0);
+      expect(unknownEvidence.every((evidence) => evidence.placeholder)).toBe(
+        true,
+      );
+    }
+  });
+
+  it("provides a visible asset checklist for every case and lab project", () => {
+    for (const language of ["zh", "en"] as const) {
+      expect(
+        PORTFOLIO_COPY[language].cases.items.every(
+          (item) => item.needed.length > 0,
+        ),
+      ).toBe(true);
+      expect(
+        PORTFOLIO_COPY[language].lab.items.every(
+          (item) => item.needed.length > 0,
+        ),
+      ).toBe(true);
+    }
+  });
+});

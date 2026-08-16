@@ -1,13 +1,14 @@
-import { CONFIG } from '@/config'
-import { MetadataRoute } from 'next'
+import { CONFIG } from "@/config";
+import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-    const siteBase = CONFIG.siteUrl.replace(/\/$/, '')
+  const siteBase = CONFIG.siteUrl.replace(/\/$/, "");
 
-    return {
-        rules: {
-            userAgent: '*',
-        },
-        sitemap: `${siteBase}/sitemap.xml`,
-    }
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${siteBase}/sitemap.xml`,
+  };
 }

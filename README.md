@@ -9,8 +9,9 @@
 
 ## 网站内容
 
-- **主页**：个人定位、工作经历、代表项目、研究与教育背景
-- **项目**：AI 产品、Agent 工具、开源项目与正在开展的方向
+- **主页**：产品定位、核心能力、三项代表案例、经历与行动入口
+- **代表案例**：问题、约束、决策、交付、证据与复盘
+- **Builder Lab**：Agent、Skill、评测与开源实验
 - **研究**：期刊论文、会议论文与科研项目
 - **AI 资源库**：个人持续使用和维护的 AI 学习资源
 
@@ -49,11 +50,23 @@ npm run build
 
 当前主要内容位于：
 
-- `src/config.tsx`：个人信息、经历、项目、科研与双语内容
+- `src/content/portfolio.ts`：主页、案例与 Builder Lab 的结构化双语内容
+- `src/config.tsx`：个人信息、经历、项目档案与科研内容
 - `src/ai-config.tsx`：中文 AI 资源库
 - `src/ai-config-en.tsx`：英文 AI 资源库
 
-后续计划将项目案例迁移为独立的结构化内容文件，减少中英文重复维护。
+每个项目、实验和未来方向均使用稳定 `id`，避免双语切换或排序变化导致状态错位。证据不足的案例字段会显式显示“待补充”，不使用推测数据。
+
+## 页面架构
+
+- `/`：主页
+- `/projects/`：代表案例与项目档案
+- `/projects/[slug]/`：独立案例页
+- `/lab/`：Builder Lab
+- `/research/`：研究与算法
+- `/ai/`：AI Learning Library
+
+Pull Request 会由 `quality.yml` 执行测试、Lint 与静态构建；推送到 `main` 后再由部署工作流发布 GitHub Pages。
 
 ## 部署
 
