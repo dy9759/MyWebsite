@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { SITE_COPY } from "@/components/language-provider";
+import { SITE_COPY } from "@/site-copy";
 
 // SITE_COPY.zh / .en are independent object literals with no shared type
 // enforcing the same shape. A key added to one language but not the other
