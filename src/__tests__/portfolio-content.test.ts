@@ -4,9 +4,9 @@ import { CASE_SLUGS, PORTFOLIO_COPY } from "@/content/portfolio";
 
 describe("portfolio content", () => {
   it("keeps the verified Wuhan University field of study", () => {
-    expect(CONFIG.education?.[0].school).toBe("武汉大学");
-    expect(CONFIG.education?.[0].field).toBe("建筑学(建筑技术科学)");
-    expect(CONFIG_EN.education?.[0].field).toBe(
+    expect(PORTFOLIO_COPY.zh.research.summary).toContain("武汉大学");
+    expect(PORTFOLIO_COPY.zh.research.summary).toContain("建筑学（建筑技术科学）");
+    expect(PORTFOLIO_COPY.en.research.summary).toContain(
       "Architecture (Architectural Technology Science)",
     );
 

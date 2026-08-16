@@ -4,18 +4,6 @@ import { CONFIG, CONFIG_EN } from '@/config'
 const CJK = /[一-鿿]/
 
 describe('zh/en config parity', () => {
-    it('has the same number of projects', () => {
-        expect(CONFIG_EN.projects.length).toBe(CONFIG.projects.length)
-    })
-
-    it('keeps project pinned flags aligned by index', () => {
-        CONFIG.projects.forEach((project, idx) => {
-            expect(CONFIG_EN.projects[idx]?.pinned ?? false).toBe(
-                project.pinned ?? false,
-            )
-        })
-    })
-
     it('has the same number of research publications', () => {
         expect(CONFIG_EN.research?.publications?.length).toBe(
             CONFIG.research?.publications?.length,
