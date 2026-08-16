@@ -40,10 +40,12 @@ const PeopleGrid = () => {
                         className='flex items-center gap-3 p-4 transition-colors hover:bg-accent/10'
                     >
                         <Avatar className='size-10 shrink-0'>
-                            <AvatarImage
-                                src={person.avatar}
-                                alt={person.name}
-                            />
+                            {person.avatar && (
+                                <AvatarImage
+                                    src={person.avatar}
+                                    alt={person.name}
+                                />
+                            )}
                             <AvatarFallback>
                                 {getInitials(person.name)}
                             </AvatarFallback>
