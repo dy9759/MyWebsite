@@ -94,7 +94,7 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
             })),
             (item) => pinState.isPinned(item.pinKey, item.pinned),
         ),
-    }))
+    })).filter((group) => group.items.length > 0)
     const hasItems = items.length > 0
     const hasGroups = groups.length > 0
     if (!hasItems && !hasGroups) return null
