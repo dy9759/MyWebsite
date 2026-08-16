@@ -63,9 +63,10 @@ export default function RootLayout({
             fontSans.variable,
           )}
         >
-          {process.env.NODE_ENV === "production" && (
-            <GoogleAnalytics gaId="G-32FLEBL3F6" />
-          )}
+          {process.env.NODE_ENV === "production" &&
+            process.env.NEXT_PUBLIC_GA_ID && (
+              <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+            )}
           <Analytics />
           <LanguageProvider>
             <ThemeProvider

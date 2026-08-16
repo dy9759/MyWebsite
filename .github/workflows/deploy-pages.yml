@@ -49,6 +49,10 @@ jobs:
 
       - name: Build static export
         run: npm run build
+        env:
+          # Public GA4 measurement id — injected only for the production
+          # deploy so forks and local builds don't pollute analytics.
+          NEXT_PUBLIC_GA_ID: G-32FLEBL3F6
 
       - name: Preserve Next.js static assets
         run: touch out/.nojekyll
