@@ -72,6 +72,16 @@ export const formatCountLabel = (
   count: number,
 ) => (language === "zh" ? `${label}（${count}）` : `${label} (${count})`);
 
+// Bound formatCountLabel for the current language — replaces the per-component
+// `withCount` wrappers.
+export function useCountLabel() {
+  const { language } = useLanguage();
+  return useCallback(
+    (label: string, count: number) => formatCountLabel(language, label, count),
+    [language],
+  );
+}
+
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) {

@@ -1,30 +1,21 @@
 'use client'
 
-import Link from 'next/link'
 import Achievements from '@/components/achievements'
+import PageBreadcrumb from '@/components/page-breadcrumb'
 import ResearchIntro from '@/components/research-intro'
 import SectionRailNav from '@/components/section-rail-nav'
 import {
-    formatCountLabel,
+    useCountLabel,
     useLanguage,
     useSiteConfig,
     useSiteCopy,
 } from '@/components/language-provider'
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 
 const ResearchPageContent = () => {
     const copy = useSiteCopy()
     const config = useSiteConfig()
     const { language } = useLanguage()
-    const withCount = (label: string, count: number) =>
-        formatCountLabel(language, label, count)
+    const withCount = useCountLabel()
     const sectionNavItems = [
         {
             href: '#research-overview',
@@ -55,21 +46,10 @@ const ResearchPageContent = () => {
 
             <div className="min-w-0">
                 <div className="flex animate-slide-from-down-and-fade-1 items-center justify-between">
-                    <Breadcrumb className="mb-4 px-4">
-                        <BreadcrumbList>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink asChild>
-                                    <Link href="/">{copy.nav.home}</Link>
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator />
-                            <BreadcrumbItem>
-                                <BreadcrumbPage>
-                                    {copy.nav.research}
-                                </BreadcrumbPage>
-                            </BreadcrumbItem>
-                        </BreadcrumbList>
-                    </Breadcrumb>
+                    <PageBreadcrumb
+                        current={copy.nav.research}
+                        className="mb-4 px-4"
+                    />
                 </div>
 
                 <div className="pt-4">

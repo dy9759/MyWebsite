@@ -4,8 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Icons } from '@/components/icons'
 import {
-    formatCountLabel,
-    useLanguage,
+    useCountLabel,
     useSiteConfig,
     useSiteCopy,
 } from '@/components/language-provider'
@@ -112,11 +111,9 @@ type AchievementsProps = {
 const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const { language } = useLanguage()
     const pinState = usePinnedItems()
     const { editMode } = usePinEditMode()
-    const withCount = (label: string, count: number) =>
-        formatCountLabel(language, label, count)
+    const withCount = useCountLabel()
     const publicationItems = (config.research?.publications ?? [])
         .map((publication) => ({
             ...publication,

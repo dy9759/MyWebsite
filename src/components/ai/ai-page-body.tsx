@@ -1,14 +1,6 @@
 'use client'
 
-import Link from 'next/link'
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
+import PageBreadcrumb from '@/components/page-breadcrumb'
 import AIHero from '@/components/ai/ai-hero'
 import SectionNav from '@/components/ai/section-nav'
 import UsageIntro from '@/components/ai/usage-intro'
@@ -33,23 +25,10 @@ const AIPageBody = () => {
 
                 <div className='flex min-w-0 flex-col gap-12'>
                     <nav className='px-4'>
-                        <Breadcrumb>
-                            <BreadcrumbList>
-                                <BreadcrumbItem>
-                                    <BreadcrumbLink asChild>
-                                        <Link href='/'>
-                                            {copy.ai.breadcrumbHome}
-                                        </Link>
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>
-                                        {copy.ai.breadcrumbCurrent}
-                                    </BreadcrumbPage>
-                                </BreadcrumbItem>
-                            </BreadcrumbList>
-                        </Breadcrumb>
+                        <PageBreadcrumb
+                            current={copy.ai.breadcrumbCurrent}
+                            home={copy.ai.breadcrumbHome}
+                        />
                     </nav>
 
                     <AIHero />

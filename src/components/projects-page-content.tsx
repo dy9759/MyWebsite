@@ -1,21 +1,12 @@
 "use client";
 
 import FeaturedCaseStudies from "@/components/featured-case-studies";
-import { useLanguage, useSiteCopy } from "@/components/language-provider";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { useLanguage } from "@/components/language-provider";
+import PageBreadcrumb from "@/components/page-breadcrumb";
 import { PORTFOLIO_COPY } from "@/content/portfolio";
-import Link from "next/link";
 
 export default function ProjectsPageContent() {
   const { language } = useLanguage();
-  const siteCopy = useSiteCopy();
   const copy = PORTFOLIO_COPY[language];
   const note =
     language === "zh"
@@ -24,19 +15,7 @@ export default function ProjectsPageContent() {
 
   return (
     <div className="px-4 pb-8 pt-4">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">{siteCopy.nav.home}</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{copy.cases.heading}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <PageBreadcrumb current={copy.cases.heading} />
 
       <header className="max-w-3xl pb-10 pt-12">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
