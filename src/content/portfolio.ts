@@ -81,7 +81,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         },
         {
           company: "武汉大学建筑智慧能源实验室（全球前 2% 实验室）",
-          role: "算法研发（兼职）",
+          role: "AI 算法研发（兼职）",
           duration: "2023.1 - 2025.6",
           highlights: [
             "视觉检测：YOLOv8 迁移学习 + SAM 半自动标注构建屋顶光伏检测/分割模型，材质识别 92%、面积误差 <3%。",
@@ -266,7 +266,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           company:
             "Wuhan University Smart Building Energy Lab (top-2% global lab)",
-          role: "Algorithm R&D (part-time)",
+          role: "AI Algorithm R&D (part-time)",
           duration: "Jan 2023 - Jun 2025",
           highlights: [
             "Vision detection: YOLOv8 transfer learning + SAM semi-auto labeling for a rooftop-PV detection/segmentation model — 92% material recognition, <3% area error.",
