@@ -20,7 +20,7 @@ describe("portfolio content", () => {
 
     expect(featuredPeriods).not.toContain("2021—2025");
     expect(featuredPeriods).not.toContain("2022.9—2025.6");
-    expect(PORTFOLIO_COPY.zh.experience.heading).toBe("当前工作");
+    expect(PORTFOLIO_COPY.zh.experience.heading).toBe("工作经验");
   });
 
   it("does not include the fictional timeline from the discarded visual concept", () => {

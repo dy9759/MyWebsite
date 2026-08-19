@@ -16,25 +16,29 @@ const requiredUrlCollections = (config: typeof AI_CONFIG) => [
 ];
 
 describe("public content integrity", () => {
-  it("keeps the verified current role period aligned with the flagship case", () => {
-    expect(PORTFOLIO_COPY.zh.experience.duration).toContain("2025.7");
-    expect(PORTFOLIO_COPY.en.experience.duration).toContain("Jul 2025");
-    expect(PORTFOLIO_COPY.zh.cases.items[0].period).toBe("2025.7—至今");
-    expect(PORTFOLIO_COPY.en.cases.items[0].period).toBe("Jul 2025—Present");
+  it("keeps the current role start aligned with the flagship case", () => {
+    expect(PORTFOLIO_COPY.zh.experience.positions[0].duration).toContain(
+      "2025.7",
+    );
+    expect(PORTFOLIO_COPY.en.experience.positions[0].duration).toContain(
+      "Jul 2025",
+    );
+    expect(PORTFOLIO_COPY.zh.cases.items[0].period).toBe("2025.7—2026.5");
+    expect(PORTFOLIO_COPY.en.cases.items[0].period).toBe("Jul 2025—May 2026");
   });
 
-  it("does not publish the legacy lab timeline as employment experience", () => {
+  it("publishes the owner-confirmed multi-role experience without fabricated grants", () => {
+    // The Wuhan University lab role is owner-confirmed employment history and
+    // is intentionally shown; research grants stay empty (nothing fabricated).
+    const zhDurations = PORTFOLIO_COPY.zh.experience.positions.map(
+      (position) => position.duration,
+    );
+    expect(PORTFOLIO_COPY.zh.experience.positions.length).toBeGreaterThanOrEqual(
+      3,
+    );
+    expect(zhDurations).toContain("2023.1 - 2025.6");
     expect(CONFIG.research?.grants).toEqual([]);
     expect(CONFIG_EN.research?.grants).toEqual([]);
-
-    const publicExperience = JSON.stringify({
-      zh: PORTFOLIO_COPY.zh.experience,
-      en: PORTFOLIO_COPY.en.experience,
-      grantsZh: CONFIG.research?.grants,
-      grantsEn: CONFIG_EN.research?.grants,
-    });
-    expect(publicExperience).not.toMatch(/2023\.1\s*[-—–]\s*2025\.6/);
-    expect(publicExperience).not.toMatch(/Jan 2023\s*[-—–]\s*Jun 2025/i);
   });
 
   it("keeps all primary AI resource links usable", () => {

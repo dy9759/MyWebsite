@@ -6,10 +6,10 @@ export const zhCases: CaseStudy[] = [
     slug: "sayso-voice-ai",
     number: "01",
     status: "已上线",
-    title: "SaySo Voice AI",
+    title: "SaySo Voice Agent",
     summary: "44.5 万次真实交互的 Voice AI 产品实践",
     role: "C 端 Voice Agent 业务线产品负责人",
-    period: "2025.7—至今",
+    period: "2025.7—2026.5",
     problems: [
       "语音输入真实场景噪声、口音和任务类型多样，模型效果与稳定性持续波动。",
       "用户需要快速获得第一次有效输出，同时保留失败重试和人工编辑能力。",
@@ -63,71 +63,14 @@ export const zhCases: CaseStudy[] = [
     needed: ["产品界面截图", "指标漏斗截图", "分场景留存数据"],
   },
   {
-    id: "case-simultaneous-interpretation",
-    slug: "simultaneous-interpretation",
-    number: "02",
-    status: "进行中",
-    title: "实时同传评测与产品验证",
-    summary: "从首字延迟到 ASR→翻译→TTS 全链路评测",
-    role: "产品设计、评测体系与 Demo 推进",
-    period: "进行中",
-    problems: [
-      "端到端同传与级联链路缺少统一、可复现的首字延迟和稳定性口径。",
-      "线上演讲、会议与多人语音场景难以仅靠实验室音频判断真实体验。",
-    ],
-    decision:
-      "同时评测端到端模型与 ASR→翻译→TTS 链路，将延迟拆到每个阶段，并用 trace 连接模型表现与用户可感知体验。",
-    evidence: [
-      { value: "待补充", label: "P50 / P95 首字延迟", placeholder: true },
-      { value: "待补充", label: "真实场景样本量", placeholder: true },
-      { value: "多模型", label: "端到端与级联模型池" },
-      { value: "可视化", label: "全链路 trace" },
-    ],
-    sections: {
-      challenge: [
-        "不同厂商对首字延迟、音频切片和稳定性的定义不一致，横向对比容易失真。",
-        "演讲结束、译音结束和观众鼓掌之间的时间关系，需要通过真实场景视频进行验证。",
-      ],
-      ownership: [
-        "定义端到端和分链路首字延迟评测目标、数据字段与可视化 trace。",
-        "规划火山、阿里、Gemini Live、Azure Realtime 等模型接入方式。",
-        "建立中英双向、数字贸易与国际会议等真实场景数据集计划。",
-      ],
-      decisions: [
-        "将“用户听到第一个可理解译音”的时间作为体验锚点，同时记录模型内部阶段耗时。",
-        "把模型池、数据集、指标和 trace 解耦，支持后续扩展不同供应商。",
-        "优先验证真实会议和演讲场景，而非只依赖干净录音。",
-      ],
-      system: [
-        "输入层：实时音频、在线视频和会议音频。",
-        "模型层：端到端语音翻译，或 ASR→翻译→TTS 级联链路。",
-        "评测层：首字延迟、完整句延迟、稳定性、错误类型和 trace。",
-      ],
-      results: [
-        "已完成评测目标、模型池与真实场景数据源的产品方案。",
-        "定量评测结果仍在收集，当前不公开虚构数字。",
-      ],
-      reflection: [
-        "更低的首字延迟不必然带来更好的同传体验，还需要同时评估语义稳定性和返工。",
-        "供应商指标只有在相同切片、网络和终止条件下才可比较。",
-      ],
-      next: [
-        "补充 P50/P95 首字延迟、完整句延迟与真实场景样本量。",
-        "补充可公开的 trace 截图和多模型对比结果。",
-      ],
-    },
-    links: [],
-    needed: ["P50/P95 延迟数据", "真实场景样本量", "评测平台截图", "公开 Demo"],
-  },
-  {
     id: "case-sayso-team",
     slug: "sayso-team",
-    number: "03",
-    status: "MVP",
-    title: "SaySo Team",
+    number: "02",
+    status: "内部上线使用",
+    title: "SaySo Team · Harness",
     summary: "多人、多 Agent 协作与 Harness 架构",
     role: "产品负责人 / Solo Builder",
-    period: "2026.3—至今",
+    period: "2026.5—至今",
     problems: [
       "Claude Code、Codex、自研 Agent 等执行环境接口和上下文管理方式不同。",
       "多人协作与多 Agent 任务需要权限、过程可观测和人工接管机制。",
@@ -135,7 +78,7 @@ export const zhCases: CaseStudy[] = [
     decision:
       "将 Harness 设计为兼容层，用统一任务协议连接不同 CLI、SDK 与自研 Agent，产品层只关注任务、状态、权限和结果。",
     evidence: [
-      { value: "MVP", label: "当前产品阶段" },
+      { value: "内部上线使用", label: "当前产品阶段" },
       { value: "多运行时", label: "CLI / SDK / 自研 Agent" },
       { value: "待补充", label: "任务成功率", placeholder: true },
       { value: "待补充", label: "真实团队使用量", placeholder: true },
@@ -180,15 +123,75 @@ export const zhCases: CaseStudy[] = [
     ],
     needed: ["MVP 截图", "架构图", "团队用户量", "任务成功率"],
   },
+  {
+    id: "case-model-evaluation",
+    slug: "model-evaluation",
+    number: "03",
+    status: "进行中",
+    title: "模型评测：同传 · 播客 · TTS",
+    summary: "围绕同传、播客与 TTS 场景的模型评测与产品定义",
+    role: "产品设计、评测体系与场景定位",
+    period: "2026.8—至今",
+    problems: [
+      "同传、播客、TTS 等语音模型缺少统一、可复现的评测口径与场景定位。",
+      "模型能力需要转化为明确的产品定义、场景边界与验收标准。",
+    ],
+    decision:
+      "围绕同传、播客、TTS 三类场景分别建立评测集、指标口径与产品定义，用统一 trace 连接模型表现与用户可感知体验。",
+    evidence: [
+      { value: "3 类", label: "同传 / 播客 / TTS 模型场景" },
+      { value: "待补充", label: "各场景评测指标", placeholder: true },
+      { value: "待补充", label: "真实场景样本量", placeholder: true },
+      { value: "可视化", label: "全链路 trace" },
+    ],
+    sections: {
+      challenge: [
+        "同传：端到端与级联链路缺少统一的首字延迟和稳定性口径。",
+        "播客 / TTS：自然度、音色一致性与长文稳定性难以仅靠单一指标衡量。",
+      ],
+      ownership: [
+        "同传：从场景定义、音频数据管线、数据标注到模型评测与 benchmark，搭建可复现的端到端评测闭环。",
+        "定义同传、播客、TTS 三类场景的评测目标、数据字段与产品边界。",
+        "规划多供应商模型接入方式与真实场景数据集。",
+        "将模型能力转化为产品定义、场景定位与验收标准。",
+      ],
+      decisions: [
+        "同传：以“用户听到第一个可理解译音”为体验锚点，记录模型内部各阶段耗时。",
+        "播客 / TTS：以自然度、音色一致性、长文稳定性和可控性作为核心评测维度。",
+        "把模型池、数据集、指标与 trace 解耦，支持后续扩展不同供应商。",
+      ],
+      system: [
+        "场景层：实时同传、播客生成与 TTS 产品化。",
+        "数据层：音频数据管线、数据标注与真实场景 benchmark 数据集。",
+        "模型层：端到端语音翻译、播客与 TTS 模型池。",
+        "评测层：延迟、自然度、稳定性、错误类型与 trace。",
+      ],
+      results: [
+        "已形成同传、播客、TTS 三类场景的评测与产品定义方向。",
+        "定量评测结果仍在收集，当前不公开虚构数字。",
+      ],
+      reflection: [
+        "评测口径与场景定位比单一指标更能驱动产品决策。",
+        "供应商指标只有在相同切片、网络和终止条件下才可比较。",
+      ],
+      next: [
+        "补充各场景 P50/P95 延迟、自然度评分与真实场景样本量。",
+        "补充可公开的评测平台截图与多模型对比结果。",
+      ],
+    },
+    links: [],
+    needed: ["各场景评测指标", "真实场景样本量", "评测平台截图", "公开 Demo"],
+  },
 ];
 
 export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
 
 Object.assign(enCases[0], {
   status: "Live",
+  title: "SaySo Voice Agent",
   summary: "A Voice AI product journey across 444K real interactions",
   role: "Product Lead, Consumer Voice Agent",
-  period: "Jul 2025—Present",
+  period: "Jul 2025—May 2026",
   problems: [
     "Real voice input varies by noise, accent and task, while model quality and stability fluctuate.",
     "Users need a fast first successful output with clear retry and editing paths.",
@@ -235,83 +238,15 @@ Object.assign(enCases[0], {
       "Add public product, journey and funnel screenshots.",
     ],
   },
-  needed: [
-    "Product screenshots",
-    "Conversion funnel",
-    "Scenario retention data",
-  ],
+  needed: ["Product screenshots", "Conversion funnel", "Scenario retention data"],
 });
 
 Object.assign(enCases[1], {
-  status: "In progress",
-  title: "Real-time Interpretation Evaluation",
-  summary:
-    "Full-chain evaluation from first-token latency to ASR→translation→TTS",
-  role: "Product design, evaluation system and demo delivery",
-  period: "In progress",
-  problems: [
-    "End-to-end and cascaded systems lack one reproducible definition of first-token latency and stability.",
-    "Clean lab audio does not represent live talks, meetings and multi-speaker conditions.",
-  ],
-  decision:
-    "Evaluate end-to-end and cascaded systems together, decompose latency by stage, and connect model behavior to perceived experience with traces.",
-  evidence: [
-    {
-      value: "Needed",
-      label: "P50 / P95 first-token latency",
-      placeholder: true,
-    },
-    { value: "Needed", label: "Real-world sample size", placeholder: true },
-    { value: "Multi-model", label: "End-to-end and cascaded pool" },
-    { value: "Traceable", label: "Full-chain visualization" },
-  ],
-  sections: {
-    challenge: [
-      "Vendors define first-token latency, chunking and stability differently, making comparison unreliable.",
-      "The gap between the source ending, translated speech ending and audience response requires real-world video validation.",
-    ],
-    ownership: [
-      "Defined end-to-end and stage-level latency goals, fields and trace views.",
-      "Planned integrations for Volcengine, Alibaba Cloud, Gemini Live and Azure Realtime.",
-      "Designed Chinese-English datasets for digital trade, international events and live talks.",
-    ],
-    decisions: [
-      "Anchored experience on when users hear the first understandable translated speech while recording internal stage times.",
-      "Separated model pools, datasets, metrics and traces so providers can be extended independently.",
-      "Prioritized live meeting and speech conditions over clean audio only.",
-    ],
-    system: [
-      "Input: live audio, online video and meeting audio.",
-      "Models: end-to-end speech translation or ASR→translation→TTS.",
-      "Evaluation: first-token latency, full-sentence latency, stability, error types and traces.",
-    ],
-    results: [
-      "Completed the product plan for evaluation goals, model pool and real-world source collection.",
-      "Quantitative results are still being collected; no invented metrics are published.",
-    ],
-    reflection: [
-      "Lower first-token latency does not guarantee a better experience when semantic stability and rework are ignored.",
-      "Vendor results are comparable only under the same chunking, network and termination conditions.",
-    ],
-    next: [
-      "Add P50/P95 first-token and full-sentence latency plus real-world sample counts.",
-      "Add public trace screenshots and multi-model comparisons.",
-    ],
-  },
-  needed: [
-    "P50/P95 latency",
-    "Real-world sample size",
-    "Platform screenshots",
-    "Public demo",
-  ],
-});
-
-Object.assign(enCases[2], {
-  status: "MVP",
-  summary:
-    "Multi-user, multi-agent collaboration through a harness architecture",
+  status: "Internal launch",
+  title: "SaySo Team · Harness",
+  summary: "Multi-user, multi-agent collaboration through a harness architecture",
   role: "Product Lead / Solo Builder",
-  period: "Mar 2026—Present",
+  period: "May 2026—Present",
   problems: [
     "Claude Code, Codex, SDKs and custom agents expose different interfaces and context models.",
     "Team workflows require permissions, observability and human takeover—not only execution.",
@@ -319,7 +254,7 @@ Object.assign(enCases[2], {
   decision:
     "Designed the harness as a compatibility layer: one task protocol connects CLIs, SDKs and custom agents while the product layer focuses on tasks, state, permissions and outcomes.",
   evidence: [
-    { value: "MVP", label: "Current stage" },
+    { value: "Internal launch", label: "Current stage" },
     { value: "Multi-runtime", label: "CLI / SDK / custom agents" },
     { value: "Needed", label: "Task success rate", placeholder: true },
     { value: "Needed", label: "Real team usage", placeholder: true },
@@ -356,10 +291,67 @@ Object.assign(enCases[2], {
       "Add team usage, task success, human takeover and P95 scheduling latency.",
     ],
   },
+  needed: ["MVP screenshots", "Architecture diagram", "Team usage", "Task success rate"],
+});
+
+Object.assign(enCases[2], {
+  status: "In progress",
+  title: "Model Evaluation: Interpretation · Podcast · TTS",
+  summary:
+    "Model evaluation and product definition across interpretation, podcast and TTS scenarios",
+  role: "Product design, evaluation system and scenario positioning",
+  period: "Aug 2026—Present",
+  problems: [
+    "Interpretation, podcast and TTS speech models lack one reproducible evaluation standard and scenario positioning.",
+    "Model capability must be turned into clear product definitions, scenario boundaries and acceptance criteria.",
+  ],
+  decision:
+    "Build evaluation sets, metric definitions and product definitions for interpretation, podcast and TTS separately, and connect model behavior to perceived experience with a shared trace.",
+  evidence: [
+    { value: "3 tracks", label: "Interpretation / podcast / TTS scenarios" },
+    { value: "Needed", label: "Per-scenario metrics", placeholder: true },
+    { value: "Needed", label: "Real-world sample size", placeholder: true },
+    { value: "Traceable", label: "Full-chain visualization" },
+  ],
+  sections: {
+    challenge: [
+      "Interpretation: end-to-end and cascaded systems lack one definition of first-token latency and stability.",
+      "Podcast / TTS: naturalness, timbre consistency and long-form stability cannot be judged by a single metric.",
+    ],
+    ownership: [
+      "Interpretation: built a reproducible end-to-end loop from scenario definition, audio data pipeline and annotation to model evaluation and benchmarking.",
+      "Defined evaluation goals, data fields and product boundaries for interpretation, podcast and TTS.",
+      "Planned multi-vendor model integrations and real-world datasets.",
+      "Turned model capability into product definitions, scenario positioning and acceptance criteria.",
+    ],
+    decisions: [
+      "Interpretation: anchored experience on when users hear the first understandable translated speech while recording internal stage times.",
+      "Podcast / TTS: used naturalness, timbre consistency, long-form stability and controllability as core evaluation dimensions.",
+      "Separated model pools, datasets, metrics and traces so vendors can be extended independently.",
+    ],
+    system: [
+      "Scenarios: real-time interpretation, podcast generation and TTS productization.",
+      "Data: audio data pipeline, annotation and real-world benchmark datasets.",
+      "Models: end-to-end speech translation, podcast and TTS model pools.",
+      "Evaluation: latency, naturalness, stability, error types and traces.",
+    ],
+    results: [
+      "Defined the evaluation and product-definition direction for interpretation, podcast and TTS.",
+      "Quantitative results are still being collected; no invented metrics are published.",
+    ],
+    reflection: [
+      "Evaluation standards and scenario positioning drive product decisions more than any single metric.",
+      "Vendor results are comparable only under the same chunking, network and termination conditions.",
+    ],
+    next: [
+      "Add per-scenario P50/P95 latency, naturalness scores and real-world sample sizes.",
+      "Add public evaluation-platform screenshots and multi-model comparisons.",
+    ],
+  },
   needed: [
-    "MVP screenshots",
-    "Architecture diagram",
-    "Team usage",
-    "Task success rate",
+    "Per-scenario metrics",
+    "Real-world sample size",
+    "Platform screenshots",
+    "Public demo",
   ],
 });

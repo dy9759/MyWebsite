@@ -67,14 +67,37 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       items: zhCases,
     },
     experience: {
-      heading: "当前工作",
-      company: "宇生月伴(杭州)智能科技有限公司(种子轮，Voice Agent 赛道)",
-      role: "C端 Voice Agent 业务线产品负责人",
-      duration: "2025.7 - 至今",
-      highlights: [
-        "负责 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
-        "主导 LLM、ASR、TTS 与端到端语音模型评测。",
-        "以数据与用户反馈驱动激活、复用和商业化闭环。",
+      heading: "工作经验",
+      positions: [
+        {
+          company: "宇生月伴(杭州)智能科技有限公司(种子轮，Voice Agent 赛道)",
+          role: "C端 Voice Agent 业务线产品负责人",
+          duration: "2025.7 - 至今",
+          highlights: [
+            "负责 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
+            "主导 LLM、ASR、TTS 与端到端语音模型评测。",
+            "以数据与用户反馈驱动激活、复用和商业化闭环。",
+          ],
+        },
+        {
+          company: "武汉大学建筑智慧能源实验室（全球前 2% 实验室）",
+          role: "AI 产品研发（兼职）",
+          duration: "2023.1 - 2025.6",
+          highlights: [
+            "光伏用户需求分析：YOLOv8 迁移学习 + SAM 半自动标注识别测量屋顶光伏，材质识别 92%、面积误差 <3%，勘察从 3 小时缩短到 5 分钟；Agent workflow + SD 批量生成实景选型方案，客户决策周期缩短约 5 天、满意度提升 60%。",
+            "新能源与负荷侧能源管理：GCN-LSTM 结合时空多维特征预测绿电出力（MAE 较 LSTM/XGBoost 降 10%），Q-learning 深度强化学习控制负荷侧能耗（能耗底线降 15%），绿电消纳能力提升 50%。",
+            "行业知识库落地：Coze 做 MVP 验证、Colab 微调 Llama3.2、本地 Python 部署 RAG，交付可自动更新的 AI 问答知识库 MVP，提升团队知识检索效率。",
+          ],
+        },
+        {
+          company: "上海几凡设计教育（杭州校区，考研细分头部）",
+          role: "产品经理（创业）",
+          duration: "2020.6 - 2022.8",
+          highlights: [
+            "用户增长：层次聚类、多元回归分析付费用户画像，提出区域宣讲、优惠精确投放等方案，实现 30% 用户增长与 20% 营收增长。",
+            "产品设计：成本不变下开发“前期直播 + 全程陪跑 + 后期答疑”精品小班，提升核心用户黏性与付费意愿，整体差评退课率降低 15%。",
+          ],
+        },
       ],
     },
     lab: {
@@ -227,15 +250,39 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       items: enCases,
     },
     experience: {
-      heading: "Current Role",
-      company:
-        "Yusheng Yueban (Hangzhou) Intelligent Technology Co., Ltd. (Seed Round, Voice Agent Track)",
-      role: "Consumer Voice Agent Product Lead",
-      duration: "Jul 2025 - Present",
-      highlights: [
-        "Lead product planning, requirements and iteration for a consumer Voice Agent line.",
-        "Own evaluation for LLM, ASR, TTS and end-to-end speech models.",
-        "Connect activation, reuse and monetization through data and user feedback.",
+      heading: "Experience",
+      positions: [
+        {
+          company:
+            "Yusheng Yueban (Hangzhou) Intelligent Technology Co., Ltd. (Seed Round, Voice Agent Track)",
+          role: "Consumer Voice Agent Product Lead",
+          duration: "Jul 2025 - Present",
+          highlights: [
+            "Lead product planning, requirements and iteration for a consumer Voice Agent line.",
+            "Own evaluation for LLM, ASR, TTS and end-to-end speech models.",
+            "Connect activation, reuse and monetization through data and user feedback.",
+          ],
+        },
+        {
+          company:
+            "Wuhan University Smart Building Energy Lab (top-2% global lab)",
+          role: "AI Product R&D (part-time)",
+          duration: "Jan 2023 - Jun 2025",
+          highlights: [
+            "Rooftop PV demand analysis: YOLOv8 transfer learning + SAM semi-auto labeling to detect and measure rooftop PV — 92% material recognition, <3% area error, survey time cut from 3 hours to 5 minutes; Agent workflow + SD to batch-generate realistic options, shortening decisions by ~5 days and lifting satisfaction 60%.",
+            "New-energy and load-side energy management: GCN-LSTM with spatiotemporal features to forecast green-power output (MAE 10% lower than LSTM/XGBoost) and Q-learning deep RL to control load-side consumption (15% lower floor), raising green-power absorption 50%.",
+            "Industry knowledge base: MVP validation on Coze, Llama 3.2 fine-tuning on Colab, and a local Python RAG deployment — a self-updating AI Q&A knowledge base MVP that improved team retrieval efficiency.",
+          ],
+        },
+        {
+          company: "Jifan Design Education (Hangzhou campus, niche exam-prep leader)",
+          role: "Product Manager (founding)",
+          duration: "Jun 2020 - Aug 2022",
+          highlights: [
+            "Growth: hierarchical clustering and multivariate regression on paying-user profiles led to regional outreach and targeted offers, driving 30% user growth and 20% revenue growth.",
+            "Product design: launched a premium small-class format (live pre-course + full guidance + post-course Q&A) at flat cost, improving core-user retention and payment intent and cutting negative-review refunds 15%.",
+          ],
+        },
       ],
     },
     lab: {
