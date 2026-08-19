@@ -84,9 +84,9 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "AI 产品研发（兼职）",
           duration: "2023.1 - 2025.6",
           highlights: [
-            "光伏用户需求分析：YOLOv8 迁移学习 + SAM 半自动标注识别测量屋顶光伏，材质识别 92%、面积误差 <3%，勘察从 3 小时缩短到 5 分钟；Agent workflow + SD 批量生成实景选型方案，客户决策周期缩短约 5 天、满意度提升 60%。",
-            "新能源与负荷侧能源管理：GCN-LSTM 结合时空多维特征预测绿电出力（MAE 较 LSTM/XGBoost 降 10%），Q-learning 深度强化学习控制负荷侧能耗（能耗底线降 15%），绿电消纳能力提升 50%。",
-            "行业知识库落地：Coze 做 MVP 验证、Colab 微调 Llama3.2、本地 Python 部署 RAG，交付可自动更新的 AI 问答知识库 MVP，提升团队知识检索效率。",
+            "光伏识别：YOLOv8 + SAM 测量屋顶光伏，材质识别 92%、勘察从 3 小时缩到 5 分钟。",
+            "绿电管理：GCN-LSTM 预测出力（MAE 降 10%）+ Q-learning 控能耗，绿电消纳提升 50%。",
+            "知识库：Coze + Llama3.2 微调 + 本地 RAG，交付可自动更新的 AI 问答知识库 MVP。",
           ],
         },
         {
@@ -94,8 +94,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "产品经理（创业）",
           duration: "2020.6 - 2022.8",
           highlights: [
-            "用户增长：层次聚类、多元回归分析付费用户画像，提出区域宣讲、优惠精确投放等方案，实现 30% 用户增长与 20% 营收增长。",
-            "产品设计：成本不变下开发“前期直播 + 全程陪跑 + 后期答疑”精品小班，提升核心用户黏性与付费意愿，整体差评退课率降低 15%。",
+            "用户增长：机器学习分析付费用户画像 + 精准投放，实现 30% 用户增长、20% 营收增长。",
+            "产品设计：成本不变下推出精品小班，核心用户黏性提升、退课率降低 15%。",
           ],
         },
       ],
@@ -269,9 +269,9 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "AI Product R&D (part-time)",
           duration: "Jan 2023 - Jun 2025",
           highlights: [
-            "Rooftop PV demand analysis: YOLOv8 transfer learning + SAM semi-auto labeling to detect and measure rooftop PV — 92% material recognition, <3% area error, survey time cut from 3 hours to 5 minutes; Agent workflow + SD to batch-generate realistic options, shortening decisions by ~5 days and lifting satisfaction 60%.",
-            "New-energy and load-side energy management: GCN-LSTM with spatiotemporal features to forecast green-power output (MAE 10% lower than LSTM/XGBoost) and Q-learning deep RL to control load-side consumption (15% lower floor), raising green-power absorption 50%.",
-            "Industry knowledge base: MVP validation on Coze, Llama 3.2 fine-tuning on Colab, and a local Python RAG deployment — a self-updating AI Q&A knowledge base MVP that improved team retrieval efficiency.",
+            "PV recognition: YOLOv8 + SAM to measure rooftop PV — 92% material recognition, survey time cut from 3 hours to 5 minutes.",
+            "Green-power management: GCN-LSTM output forecasting (MAE −10%) + Q-learning load-side control, raising green-power absorption 50%.",
+            "Knowledge base: Coze + Llama 3.2 fine-tuning + local RAG delivered a self-updating AI Q&A knowledge base MVP.",
           ],
         },
         {
@@ -279,8 +279,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "Product Manager (founding)",
           duration: "Jun 2020 - Aug 2022",
           highlights: [
-            "Growth: hierarchical clustering and multivariate regression on paying-user profiles led to regional outreach and targeted offers, driving 30% user growth and 20% revenue growth.",
-            "Product design: launched a premium small-class format (live pre-course + full guidance + post-course Q&A) at flat cost, improving core-user retention and payment intent and cutting negative-review refunds 15%.",
+            "Growth: ML-based user profiling and targeted offers drove 30% user growth and 20% revenue growth.",
+            "Product design: a premium small-class format at flat cost improved retention and cut negative-review refunds 15%.",
           ],
         },
       ],
