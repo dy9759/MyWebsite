@@ -81,12 +81,12 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         },
         {
           company: "武汉大学建筑智慧能源实验室（全球前 2% 实验室）",
-          role: "AI 产品研发（兼职）",
+          role: "算法研发（兼职）",
           duration: "2023.1 - 2025.6",
           highlights: [
-            "光伏识别：YOLOv8 + SAM 测量屋顶光伏，材质识别 92%、勘察从 3 小时缩到 5 分钟。",
-            "绿电管理：GCN-LSTM 预测出力（MAE 降 10%）+ Q-learning 控能耗，绿电消纳提升 50%。",
-            "知识库：Coze + Llama3.2 微调 + 本地 RAG，交付可自动更新的 AI 问答知识库 MVP。",
+            "视觉检测：YOLOv8 迁移学习 + SAM 半自动标注构建屋顶光伏检测/分割模型，材质识别 92%、面积误差 <3%。",
+            "时序预测与强化学习：GCN-LSTM 时空建模预测绿电出力（MAE 较 LSTM/XGBoost 降 10%），Q-learning 优化负荷侧调度。",
+            "大模型微调：Colab 微调 Llama3.2 + 本地 RAG 检索增强，构建可自动更新的问答知识库。",
           ],
         },
         {
@@ -266,12 +266,12 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           company:
             "Wuhan University Smart Building Energy Lab (top-2% global lab)",
-          role: "AI Product R&D (part-time)",
+          role: "Algorithm R&D (part-time)",
           duration: "Jan 2023 - Jun 2025",
           highlights: [
-            "PV recognition: YOLOv8 + SAM to measure rooftop PV — 92% material recognition, survey time cut from 3 hours to 5 minutes.",
-            "Green-power management: GCN-LSTM output forecasting (MAE −10%) + Q-learning load-side control, raising green-power absorption 50%.",
-            "Knowledge base: Coze + Llama 3.2 fine-tuning + local RAG delivered a self-updating AI Q&A knowledge base MVP.",
+            "Vision detection: YOLOv8 transfer learning + SAM semi-auto labeling for a rooftop-PV detection/segmentation model — 92% material recognition, <3% area error.",
+            "Time-series forecasting & RL: GCN-LSTM spatiotemporal modeling for green-power output (MAE 10% below LSTM/XGBoost) and Q-learning for load-side scheduling.",
+            "LLM fine-tuning: Llama 3.2 fine-tuning on Colab + local RAG to build a self-updating Q&A knowledge base.",
           ],
         },
         {
