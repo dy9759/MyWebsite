@@ -28,8 +28,9 @@ export const zhCases: CaseStudy[] = [
         "产品同时覆盖输入法、会议、个人语音助理和办公提效场景，需要统一核心行为与指标口径。",
       ],
       ownership: [
-        "负责 PRD、产品路线图、版本排期、需求优先级与上线验收。",
-        "协同模型、算法、前端、后端和客户端团队，将模型边界转化为接口、交互、埋点和验收标准。",
+        "架构 Agent 链路，主导 LLM 选型与 Agent 评测；亲自清洗 1w+ 用户数据、对比竞品评测，定义评测数据集与产品评测标准，搭建评测平台链路。",
+        "主导客户端语音转写、会议纪要等核心功能迭代研发，以及 UI/UX 布局与设计选型，把控交互细节与产品品味。",
+        "负责 PRD、路线图、排期、优先级与上线验收，协同模型、算法、前后端与客户端团队。",
         "建立激活、完成率、使用深度、复用与订阅转化指标。",
       ],
       decisions: [
@@ -89,6 +90,7 @@ export const zhCases: CaseStudy[] = [
         "团队场景不仅需要“能执行”，还需要知道谁发起、谁审批、执行到哪里和如何回滚。",
       ],
       ownership: [
+        "作为 Claude Code + Codex 双开用户、Manus / OpenClaw / Cowork 等早期体验者，把跨工具真实使用体感转化为 Harness 兼容层设计。",
         "负责产品定位、核心场景、任务模型、界面原型与 MVP 推进。",
         "以 Solo Builder 方式完成可交互 Demo，验证后再拆解研发任务。",
       ],
@@ -100,7 +102,8 @@ export const zhCases: CaseStudy[] = [
       system: [
         "产品层：团队、任务、审批、状态和结果。",
         "Harness 层：任务协议、上下文、权限、日志与模型路由。",
-        "执行层：Claude Code CLI、Codex、Claude SDK 与自研 Agent。",
+        "云端执行：Claude Code Agent SDK 作为 worker 的 agent runtime，处理定时、循环、提醒等线上托管任务。",
+        "本地执行：客户端串联 Claude Code、Codex，通过本地文件、浏览器权限与 computer use 处理本地任务。",
       ],
       results: [
         "已形成 Harness 兼容层与 SaySo Team MVP 方向。",
@@ -210,8 +213,9 @@ Object.assign(enCases[0], {
       "Input, meeting, assistant and productivity scenarios needed one shared core behavior and metric model.",
     ],
     ownership: [
-      "Owned PRDs, roadmap, release planning, prioritization and launch acceptance.",
-      "Worked across model, algorithm, frontend, backend and client teams to turn model limits into product requirements.",
+      "Architected the agent pipeline and led LLM selection and agent evaluation; personally cleaned 10k+ user records, benchmarked against competitors, defined the evaluation dataset and product evaluation standards, and built the evaluation platform.",
+      "Led client-side core features (speech transcription, meeting notes) plus UI/UX layout and design choices, owning interaction detail and product taste.",
+      "Owned PRDs, roadmap, release planning, prioritization and launch acceptance across model, algorithm, frontend, backend and client teams.",
       "Established activation, completion, depth, reuse and subscription metrics.",
     ],
     decisions: [
@@ -265,6 +269,7 @@ Object.assign(enCases[1], {
       "Team workflows need initiator, approval, progress and recovery visibility—not execution alone.",
     ],
     ownership: [
+      "As a heavy Claude Code + Codex dual-runtime user and early adopter of Manus, OpenClaw and Cowork, turned cross-tool hands-on experience into the harness compatibility design.",
       "Owned positioning, core scenarios, task model, interface prototype and MVP delivery.",
       "Built an interactive demo as a solo builder before decomposing engineering work.",
     ],
@@ -276,7 +281,8 @@ Object.assign(enCases[1], {
     system: [
       "Product: teams, tasks, approvals, state and outcomes.",
       "Harness: task protocol, context, permissions, logs and model routing.",
-      "Execution: Claude Code CLI, Codex, Claude SDK and custom agents.",
+      "Cloud execution: Claude Code Agent SDK as the worker agent runtime for scheduled, looped and reminder-based hosted tasks.",
+      "Local execution: the client chains Claude Code and Codex, using local files, browser permissions and computer use for on-device tasks.",
     ],
     results: [
       "Defined the harness compatibility layer and SaySo Team MVP direction.",
