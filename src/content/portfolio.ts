@@ -158,6 +158,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "负责 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
             "主导 LLM、ASR、TTS 与端到端语音模型评测。",
             "以数据与用户反馈驱动激活、复用和商业化闭环。",
+            "拓展 SaySo API / B 端产品线（2026.5 起）：基于输入法的中英文实时转写，按 B 端需求深度开发印尼语等小语种，并与头部硬件厂商达成合作意向。",
           ],
         },
         {
@@ -440,6 +441,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "Lead product planning, requirements and iteration for a consumer Voice Agent line.",
             "Own evaluation for LLM, ASR, TTS and end-to-end speech models.",
             "Connect activation, reuse and monetization through data and user feedback.",
+            "Expanded the SaySo API / B2B line (from May 2026): CN/EN real-time transcription from the input-method product, deep low-resource-language support (e.g. Indonesian) for B2B needs, and a partnership intent with a leading hardware maker.",
           ],
         },
         {
