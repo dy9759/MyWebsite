@@ -28,6 +28,7 @@ export const zhCases: CaseStudy[] = [
         "产品同时覆盖输入法、会议、个人语音助理和办公提效场景，需要统一核心行为与指标口径。",
       ],
       ownership: [
+        "作为产品负责人，从 0 到 1 定义 SaySo 语音产品的核心行为、指标体系与技术方案，对激活、完成率与商业化结果负责。",
         "架构 Agent 链路，主导 LLM 选型与 Agent 评测；亲自清洗 1w+ 用户数据、对比竞品评测，定义评测数据集与产品评测标准，搭建评测平台链路。",
         "主导客户端语音转写、会议纪要等核心功能迭代研发，以及 UI/UX 布局与设计选型，把控交互细节与产品品味。",
         "以产品、UI、测试、前后端的产研组织协作，负责 PRD、路线图、排期、优先级与上线验收，主导客户端 + 后端与 Agent 功能设计，推动国内 / 国外 × Mac / Win 四端上线。",
@@ -214,6 +215,7 @@ Object.assign(enCases[0], {
       "Input, meeting, assistant and productivity scenarios needed one shared core behavior and metric model.",
     ],
     ownership: [
+      "As product lead, defined the SaySo speech product from zero to one — core behavior, metric model and technical approach — and owned activation, completion and commercialization outcomes.",
       "Architected the agent pipeline and led LLM selection and agent evaluation; personally cleaned 10k+ user records, benchmarked against competitors, defined the evaluation dataset and product evaluation standards, and built the evaluation platform.",
       "Led client-side core features (speech transcription, meeting notes) plus UI/UX layout and design choices, owning interaction detail and product taste.",
       "Ran the product / UI / QA / frontend / backend org to own PRDs, roadmap, release planning, prioritization and launch acceptance; led client + backend and agent feature design and shipped four clients (CN / Global x Mac / Win).",
