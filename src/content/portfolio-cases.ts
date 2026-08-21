@@ -7,7 +7,7 @@ export const zhCases: CaseStudy[] = [
     number: "01",
     status: "已上线",
     title: "SaySo Voice Agent",
-    summary: "44.5 万次真实交互的 Voice AI 产品实践",
+    summary: "国内首家 Voice AI 输入产品：44.5 万次真实交互，盲测优于 Whisper / Typeless",
     role: "C 端 Voice Agent 业务线产品负责人",
     period: "2025.7—2026.5",
     problems: [
@@ -15,15 +15,16 @@ export const zhCases: CaseStudy[] = [
       "用户需要快速获得第一次有效输出，同时保留失败重试和人工编辑能力。",
     ],
     decision:
-      "将“完成一次有效语音 / Agent 交互”定义为核心行为，以评测、兜底和可编辑链路连接模型质量、用户体验与转化漏斗。",
+      "确定用户场景后，以“准、快、结构化输出”为三个阶段性目标，覆盖四大核心场景与用户自定义自适应能力，用评测集、兜底和可编辑链路连接模型质量、用户体验与转化漏斗。",
     evidence: [
+      { value: "900ms", label: "稳定首字延迟" },
+      { value: "80% / 95%", label: "盲测胜 Typeless / Whisper" },
       { value: "44.5 万", label: "语音 / Agent 交互" },
       { value: "90.4%", label: "Speaker activation" },
-      { value: "93.3%", label: "整体完成率" },
-      { value: "58.6%", label: "国内成功订单年付占比" },
     ],
     sections: {
       challenge: [
+        "国内首家上线的语音输入产品，国外仅 Whisper、Typeless 等少数竞品；预判大厂将入局，需以差异化建立壁垒。",
         "Voice AI 的价值不只取决于单次识别准确率，还受到延迟、上下文、失败恢复和编辑成本共同影响。",
         "产品同时覆盖输入法、会议、个人语音助理和办公提效场景，需要统一核心行为与指标口径。",
       ],
@@ -35,6 +36,7 @@ export const zhCases: CaseStudy[] = [
         "设计问卷并深度访谈内容创作者、独立老师等居家办公用户，结合线上行为数据与灰度验证，建立激活、完成率、复用与订阅转化指标与需求洞察。",
       ],
       decisions: [
+        "以“准、快、结构化输出”为三个阶段性目标，覆盖四大核心场景与用户自定义自适应能力。",
         "将首次有效输出作为 onboarding 的主目标，减少首次输入前的解释和设置成本。",
         "把 ASR/TTS/LLM 波动显式转化为失败提示、重试、编辑和模型降级策略。",
         "用真实任务评测和线上数据共同决定版本优先级。",
@@ -46,6 +48,7 @@ export const zhCases: CaseStudy[] = [
         "保障层：评测集、埋点、灰度发布、异常兜底和用户反馈闭环。",
       ],
       results: [
+        "场景盲测中，用户体验 80% 胜 Typeless、95% 胜 Whisper；首字延迟最快稳定在 900ms。",
         "截至 2026.05.23，累计 444,694 次语音 / Agent 交互。",
         "2,657 名非删除用户中 2,402 人完成至少一次交互，Speaker activation 为 90.4%。",
         "整体完成率 93.3%；国内成功订单中年付占 58.6%，贡献国内成功付费收入 90.9%。",
@@ -194,7 +197,7 @@ export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
 Object.assign(enCases[0], {
   status: "Live",
   title: "SaySo Voice Agent",
-  summary: "A Voice AI product journey across 444K real interactions",
+  summary: "China's first Voice AI input product: 444K interactions, beating Whisper / Typeless in blind tests",
   role: "Product Lead, Consumer Voice Agent",
   period: "Jul 2025—May 2026",
   problems: [
@@ -202,15 +205,16 @@ Object.assign(enCases[0], {
     "Users need a fast first successful output with clear retry and editing paths.",
   ],
   decision:
-    "Defined one successful voice / agent interaction as the core behavior, then connected evaluation, fallback and editable output to activation and conversion.",
+    "After fixing the user scenarios, set accuracy, speed and structured output as three phased goals across four core scenarios plus user-custom adaptation, connecting model quality, experience and conversion through evaluation sets, fallback and editable output.",
   evidence: [
+    { value: "900ms", label: "Stable first-token latency" },
+    { value: "80% / 95%", label: "Blind-test wins vs Typeless / Whisper" },
     { value: "444K", label: "Voice / Agent interactions" },
     { value: "90.4%", label: "Speaker activation" },
-    { value: "93.3%", label: "Overall completion rate" },
-    { value: "58.6%", label: "Annual share of successful CN orders" },
   ],
   sections: {
     challenge: [
+      "First voice-input product to launch in China; abroad only a few rivals (Whisper, Typeless). With big players expected to enter, differentiation was the moat.",
       "Voice AI experience depends on latency, context, recovery and editing cost—not recognition accuracy alone.",
       "Input, meeting, assistant and productivity scenarios needed one shared core behavior and metric model.",
     ],
@@ -222,6 +226,7 @@ Object.assign(enCases[0], {
       "Designed surveys and ran in-depth interviews with WFH users (content creators, independent teachers), combining them with production behavior data and staged rollout to establish activation, completion, reuse and subscription metrics and user insight.",
     ],
     decisions: [
+      "Set accuracy, speed and structured output as three phased goals across four core scenarios plus user-custom adaptation.",
       "Made the first successful output the primary onboarding goal.",
       "Converted ASR/TTS/LLM variance into retry, editing, fallback and degradation paths.",
       "Used real-task evaluation together with production data to prioritize releases.",
@@ -233,6 +238,7 @@ Object.assign(enCases[0], {
       "Quality: evaluation sets, analytics, staged rollout, fallback and feedback loops.",
     ],
     results: [
+      "In scenario blind tests users preferred the product 80% of the time over Typeless and 95% over Whisper; first-token latency stabilized as low as 900ms.",
       "444,694 voice / agent interactions as of May 23, 2026.",
       "2,402 of 2,657 active records completed at least one interaction: 90.4% speaker activation.",
       "93.3% overall completion; annual plans were 58.6% of successful CN orders and 90.9% of CN paid revenue.",
