@@ -31,7 +31,7 @@ export const zhCases: CaseStudy[] = [
         "架构 Agent 链路，主导 LLM 选型与 Agent 评测；亲自清洗 1w+ 用户数据、对比竞品评测，定义评测数据集与产品评测标准，搭建评测平台链路。",
         "主导客户端语音转写、会议纪要等核心功能迭代研发，以及 UI/UX 布局与设计选型，把控交互细节与产品品味。",
         "负责 PRD、路线图、排期、优先级与上线验收，协同模型、算法、前后端与客户端团队。",
-        "建立激活、完成率、使用深度、复用与订阅转化指标。",
+        "设计问卷并深度访谈内容创作者、独立老师等居家办公用户，结合线上行为数据与灰度验证，建立激活、完成率、复用与订阅转化指标与需求洞察。",
       ],
       decisions: [
         "将首次有效输出作为 onboarding 的主目标，减少首次输入前的解释和设置成本。",
@@ -216,7 +216,7 @@ Object.assign(enCases[0], {
       "Architected the agent pipeline and led LLM selection and agent evaluation; personally cleaned 10k+ user records, benchmarked against competitors, defined the evaluation dataset and product evaluation standards, and built the evaluation platform.",
       "Led client-side core features (speech transcription, meeting notes) plus UI/UX layout and design choices, owning interaction detail and product taste.",
       "Owned PRDs, roadmap, release planning, prioritization and launch acceptance across model, algorithm, frontend, backend and client teams.",
-      "Established activation, completion, depth, reuse and subscription metrics.",
+      "Designed surveys and ran in-depth interviews with WFH users (content creators, independent teachers), combining them with production behavior data and staged rollout to establish activation, completion, reuse and subscription metrics and user insight.",
     ],
     decisions: [
       "Made the first successful output the primary onboarding goal.",
