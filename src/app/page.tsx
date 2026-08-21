@@ -2,6 +2,7 @@ import FeaturedCaseStudies from "@/components/featured-case-studies";
 import Header from "@/components/header";
 import BuilderLabPreview from "@/components/home/builder-lab-preview";
 import Capabilities from "@/components/home/capabilities";
+import Credentials from "@/components/home/credentials";
 import HomeClosingCta from "@/components/home/home-closing-cta";
 import HomeExperience from "@/components/home/home-experience";
 import ResearchEducationSummary from "@/components/home/research-education-summary";
@@ -17,6 +18,7 @@ export default function Home() {
       <HomeExperience />
       <BuilderLabPreview />
       <ResearchEducationSummary />
+      <Credentials />
       <HomeClosingCta />
     </div>
   );

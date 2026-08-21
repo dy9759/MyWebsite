@@ -36,7 +36,7 @@ describe("public content integrity", () => {
     expect(PORTFOLIO_COPY.zh.experience.positions.length).toBeGreaterThanOrEqual(
       3,
     );
-    expect(zhDurations).toContain("2023.1 - 2025.6");
+    expect(zhDurations).toContain("2022.9 - 2025.6");
     expect(CONFIG.research?.grants).toEqual([]);
     expect(CONFIG_EN.research?.grants).toEqual([]);
   });

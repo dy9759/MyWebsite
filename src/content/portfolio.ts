@@ -101,6 +101,38 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         },
       ],
     },
+    credentials: {
+      heading: "荣誉与资质",
+      groups: [
+        {
+          label: "荣誉奖项",
+          items: [
+            "全国绿色建筑设计竞赛 全国最佳设计 / 最佳团队一等奖（1/500+）",
+            "校优秀学生奖学金（多次）",
+            "校三好学生",
+          ],
+        },
+        {
+          label: "技能证书",
+          items: [
+            "Python · SPSS · GIS · Axure",
+            "Prompt / RAG / Agent 等 AI 解决方案",
+            "IBM & Google–Pendo AI 产品管理证书",
+            "英语 CEFR-B2",
+          ],
+        },
+        {
+          label: "学术成果",
+          items: [
+            "SCI 一区 2 篇 · 二区 3 篇",
+            "参与专著 1 部",
+            "学术会议 5 次",
+            "TOP 期刊审稿人",
+            "中国建筑协会 · 中国能源研究会会员",
+          ],
+        },
+      ],
+    },
     cases: {
       heading: "代表案例",
       intro:
@@ -131,7 +163,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           company: "武汉大学建筑智慧能源实验室（全球前 2% 实验室）",
           role: "AI 算法研发（兼职）",
-          duration: "2023.1 - 2025.6",
+          duration: "2022.9 - 2025.6",
           highlights: [
             "视觉检测：YOLOv8 迁移学习 + SAM 半自动标注构建屋顶光伏检测/分割模型，材质识别 92%、面积误差 <3%。",
             "时序预测与强化学习：GCN-LSTM 时空建模预测绿电出力（MAE 较 LSTM/XGBoost 降 10%），Q-learning 优化负荷侧调度。",
@@ -350,6 +382,38 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         },
       ],
     },
+    credentials: {
+      heading: "Honors & Credentials",
+      groups: [
+        {
+          label: "Awards",
+          items: [
+            "National Green Building Design Competition — Best Design / Best Team, First Prize (1/500+)",
+            "University Merit Scholarship (multiple)",
+            "University Merit Student",
+          ],
+        },
+        {
+          label: "Certifications",
+          items: [
+            "Python · SPSS · GIS · Axure",
+            "Prompt / RAG / Agent AI solutions",
+            "IBM & Google–Pendo AI Product Management certificates",
+            "English CEFR-B2",
+          ],
+        },
+        {
+          label: "Academic",
+          items: [
+            "2 SCI Q1 · 3 SCI Q2 papers",
+            "Contributed to 1 monograph",
+            "5 academic conferences",
+            "Reviewer for top journals",
+            "Member, Architectural Society of China · China Energy Research Society",
+          ],
+        },
+      ],
+    },
     cases: {
       heading: "Selected Case Studies",
       intro:
@@ -382,7 +446,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           company:
             "Wuhan University Smart Building Energy Lab (top-2% global lab)",
           role: "AI Algorithm R&D (part-time)",
-          duration: "Jan 2023 - Jun 2025",
+          duration: "Sep 2022 - Jun 2025",
           highlights: [
             "Vision detection: YOLOv8 transfer learning + SAM semi-auto labeling for a rooftop-PV detection/segmentation model — 92% material recognition, <3% area error.",
             "Time-series forecasting & RL: GCN-LSTM spatiotemporal modeling for green-power output (MAE 10% below LSTM/XGBoost) and Q-learning for load-side scheduling.",

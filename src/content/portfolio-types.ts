@@ -71,6 +71,13 @@ export type PortfolioCopy = {
       items: string[];
     }[];
   };
+  credentials: {
+    heading: string;
+    groups: {
+      label: string;
+      items: string[];
+    }[];
+  };
   cases: {
     heading: string;
     intro: string;
