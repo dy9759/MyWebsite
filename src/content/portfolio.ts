@@ -162,7 +162,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         },
         {
           company: "宇生月伴(杭州)智能科技有限公司 · vuilabs",
-          role: "SaySo API / B 端产品",
+          role: "SaySo API / B 端产品负责人",
           duration: "2026.5 - 至今",
           highlights: [
             "负责 SaySo API 接口产品开发，将输入法的中英文实时转写能力产品化为对外 API。",
@@ -455,7 +455,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           company:
             "Yusheng Yueban (Hangzhou) Intelligent Technology · vuilabs",
-          role: "SaySo API / B2B Product",
+          role: "SaySo API / B2B Product Lead",
           duration: "May 2026 - Present",
           highlights: [
             "Own the SaySo API product, productizing the input method's CN/EN real-time transcription into an external API.",

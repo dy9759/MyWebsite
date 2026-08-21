@@ -30,7 +30,7 @@ export const zhCases: CaseStudy[] = [
       ownership: [
         "架构 Agent 链路，主导 LLM 选型与 Agent 评测；亲自清洗 1w+ 用户数据、对比竞品评测，定义评测数据集与产品评测标准，搭建评测平台链路。",
         "主导客户端语音转写、会议纪要等核心功能迭代研发，以及 UI/UX 布局与设计选型，把控交互细节与产品品味。",
-        "负责 PRD、路线图、排期、优先级与上线验收，协同模型、算法、前后端与客户端团队。",
+        "以产品、UI、测试、前后端的产研组织协作，负责 PRD、路线图、排期、优先级与上线验收，主导客户端 + 后端与 Agent 功能设计，推动国内 / 国外 × Mac / Win 四端上线。",
         "设计问卷并深度访谈内容创作者、独立老师等居家办公用户，结合线上行为数据与灰度验证，建立激活、完成率、复用与订阅转化指标与需求洞察。",
       ],
       decisions: [
@@ -41,6 +41,7 @@ export const zhCases: CaseStudy[] = [
       system: [
         "产品层：输入法、会议、个人语音助理与办公提效场景。",
         "能力层：ASR、TTS、LLM 与端到端语音模型。",
+        "客户端架构：Mac 端语音识别输入 / 输出、会议实时转写与灵动岛交互采用 Swift 原生，其余用 Electron 保证多端同步更新。",
         "保障层：评测集、埋点、灰度发布、异常兜底和用户反馈闭环。",
       ],
       results: [
@@ -215,7 +216,7 @@ Object.assign(enCases[0], {
     ownership: [
       "Architected the agent pipeline and led LLM selection and agent evaluation; personally cleaned 10k+ user records, benchmarked against competitors, defined the evaluation dataset and product evaluation standards, and built the evaluation platform.",
       "Led client-side core features (speech transcription, meeting notes) plus UI/UX layout and design choices, owning interaction detail and product taste.",
-      "Owned PRDs, roadmap, release planning, prioritization and launch acceptance across model, algorithm, frontend, backend and client teams.",
+      "Ran the product / UI / QA / frontend / backend org to own PRDs, roadmap, release planning, prioritization and launch acceptance; led client + backend and agent feature design and shipped four clients (CN / Global x Mac / Win).",
       "Designed surveys and ran in-depth interviews with WFH users (content creators, independent teachers), combining them with production behavior data and staged rollout to establish activation, completion, reuse and subscription metrics and user insight.",
     ],
     decisions: [
@@ -226,6 +227,7 @@ Object.assign(enCases[0], {
     system: [
       "Product: input, meetings, personal voice assistant and productivity.",
       "Capabilities: ASR, TTS, LLM and end-to-end speech models.",
+      "Client architecture: Swift-native for Mac speech I/O, live meeting transcription and Dynamic Island; Electron elsewhere for synchronized multi-client updates.",
       "Quality: evaluation sets, analytics, staged rollout, fallback and feedback loops.",
     ],
     results: [
