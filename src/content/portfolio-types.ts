@@ -64,6 +64,13 @@ export type PortfolioCopy = {
     title: string;
     description: string;
   }[];
+  skills: {
+    heading: string;
+    groups: {
+      label: string;
+      items: string[];
+    }[];
+  };
   cases: {
     heading: string;
     intro: string;

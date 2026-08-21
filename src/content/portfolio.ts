@@ -52,6 +52,55 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           "用激活、完成率、复用和订阅转化指标驱动产品判断与规模化增长。",
       },
     ],
+    skills: {
+      heading: "技能栈",
+      groups: [
+        {
+          label: "AI · 语音 · 算法",
+          items: [
+            "LLM",
+            "RAG",
+            "Agent",
+            "ASR / TTS",
+            "端到端语音",
+            "模型评测 / benchmark",
+            "YOLOv8",
+            "GCN-LSTM",
+            "强化学习",
+            "Llama 微调",
+          ],
+        },
+        {
+          label: "Agent · Harness",
+          items: [
+            "Claude Code",
+            "Codex",
+            "Agent SDK",
+            "computer use",
+            "任务协议",
+            "模型路由",
+          ],
+        },
+        {
+          label: "前端 · 客户端 · 移动端",
+          items: ["React", "TypeScript", "Electron", "Swift（macOS / iOS）"],
+        },
+        {
+          label: "后端 · 基建",
+          items: ["Go", "Python（FastAPI）", "Node.js", "Docker", "Kubernetes"],
+        },
+        {
+          label: "产品 · 方法",
+          items: [
+            "PRD",
+            "用户研究（问卷 / 访谈）",
+            "数据分析",
+            "A/B / 灰度",
+            "增长指标",
+          ],
+        },
+      ],
+    },
     cases: {
       heading: "代表案例",
       intro:
@@ -252,6 +301,55 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           "Use activation, completion, reuse and subscription conversion to drive product decisions.",
       },
     ],
+    skills: {
+      heading: "Tech Stack",
+      groups: [
+        {
+          label: "AI · Speech · ML",
+          items: [
+            "LLM",
+            "RAG",
+            "Agent",
+            "ASR / TTS",
+            "End-to-end speech",
+            "Model evaluation / benchmarking",
+            "YOLOv8",
+            "GCN-LSTM",
+            "Reinforcement learning",
+            "Llama fine-tuning",
+          ],
+        },
+        {
+          label: "Agent · Harness",
+          items: [
+            "Claude Code",
+            "Codex",
+            "Agent SDK",
+            "computer use",
+            "Task protocol",
+            "Model routing",
+          ],
+        },
+        {
+          label: "Frontend · Desktop · Mobile",
+          items: ["React", "TypeScript", "Electron", "Swift (macOS / iOS)"],
+        },
+        {
+          label: "Backend · Infra",
+          items: ["Go", "Python (FastAPI)", "Node.js", "Docker", "Kubernetes"],
+        },
+        {
+          label: "Product · Methods",
+          items: [
+            "PRD",
+            "User research (surveys / interviews)",
+            "Data analysis",
+            "A/B / staged rollout",
+            "Growth metrics",
+          ],
+        },
+      ],
+    },
     cases: {
       heading: "Selected Case Studies",
       intro:
