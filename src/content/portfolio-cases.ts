@@ -153,7 +153,7 @@ export const zhCases: CaseStudy[] = [
         "播客 / TTS：自然度、音色一致性与长文稳定性难以仅靠单一指标衡量。",
       ],
       ownership: [
-        "同传：从场景定义、音频数据管线、数据标注到模型评测与 benchmark，搭建可复现的端到端评测闭环。",
+        "同传：与模型研发团队深度配合，推进同传大模型的数据准备、场景化 benchmark 制定与评测集制作，搭建从场景定义、音频数据管线、数据标注到模型评测的可复现闭环。",
         "定义同传、播客、TTS 三类场景的评测目标、数据字段与产品边界。",
         "规划多供应商模型接入方式与真实场景数据集。",
         "将模型能力转化为产品定义、场景定位与验收标准。",
@@ -325,7 +325,7 @@ Object.assign(enCases[2], {
       "Podcast / TTS: naturalness, timbre consistency and long-form stability cannot be judged by a single metric.",
     ],
     ownership: [
-      "Interpretation: built a reproducible end-to-end loop from scenario definition, audio data pipeline and annotation to model evaluation and benchmarking.",
+      "Interpretation: worked closely with the model R&D team on the interpretation LLM — data preparation, scenario benchmarks and evaluation-set creation — building a reproducible loop from scenario definition, audio data pipeline and annotation to model evaluation.",
       "Defined evaluation goals, data fields and product boundaries for interpretation, podcast and TTS.",
       "Planned multi-vendor model integrations and real-world datasets.",
       "Turned model capability into product definitions, scenario positioning and acceptance criteria.",
