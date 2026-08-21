@@ -193,7 +193,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           title: "Harness Skill",
           status: "Open Source",
           summary:
-            "编排 Claude Code 与 Codex 双 Agent 工作流的可复用开发协作流程。",
+            "在 GitHub 发布并维护的开源 Skill：编排 Claude Code × Codex 双 Agent 协作开发工作流。",
           stack: ["Claude Code", "Codex", "Harness"],
           url: "https://github.com/dy9759/claude-codex-orchestration",
           urlLabel: "GitHub",
@@ -477,7 +477,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           title: "Harness Skill",
           status: "Open Source",
           summary:
-            "A reusable Claude Code and Codex dual-agent development workflow.",
+            "An open-source skill published and maintained on GitHub, orchestrating a Claude Code x Codex dual-agent development workflow.",
           stack: ["Claude Code", "Codex", "Harness"],
           url: "https://github.com/dy9759/claude-codex-orchestration",
           urlLabel: "GitHub",
