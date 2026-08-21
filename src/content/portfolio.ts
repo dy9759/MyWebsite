@@ -160,6 +160,23 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       eyebrow: "Research → Product",
       heading: "研究与教育",
       summary: "武汉大学硕士 · 建筑学（建筑技术科学）",
+      education: [
+        {
+          school: "武汉大学",
+          degree: "硕士",
+          field: "建筑学（建筑技术科学）",
+          duration: "2022.09 - 2025.06",
+          detail:
+            "研究方向：人工智能应用、智慧能源、智慧城市、智慧园区；主修建筑智能化、人工智能等课程。GPA 90+/100（Top 5%）。",
+        },
+        {
+          school: "浙大宁波理工学院",
+          degree: "本科",
+          field: "建筑学",
+          duration: "2015.09 - 2020.06",
+          detail: "GPA 85+/100（Top 10%）。",
+        },
+      ],
       intro:
         "研究经历的价值不止是论文数量，而是把复杂问题转化为可验证假设、数据口径、模型方案与决策证据。",
       highlights: [
@@ -351,6 +368,23 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       heading: "Research & Education",
       summary:
         "Wuhan University · MSc in Architecture (Architectural Technology Science)",
+      education: [
+        {
+          school: "Wuhan University",
+          degree: "MSc",
+          field: "Architecture (Architectural Technology Science)",
+          duration: "Sep 2022 - Jun 2025",
+          detail:
+            "Focus: applied AI, smart energy, smart cities and smart parks; coursework in building intelligence and AI. GPA 90+/100 (Top 5%).",
+        },
+        {
+          school: "Zhejiang University Ningbo Institute of Technology",
+          degree: "BEng",
+          field: "Architecture",
+          duration: "Sep 2015 - Jun 2020",
+          detail: "GPA 85+/100 (Top 10%).",
+        },
+      ],
       intro:
         "The value of research is not the publication count alone. It is the ability to turn complex questions into testable hypotheses, data definitions, model choices, and decision evidence.",
       highlights: [

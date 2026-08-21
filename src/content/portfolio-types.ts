@@ -98,6 +98,13 @@ export type PortfolioCopy = {
     eyebrow: string;
     heading: string;
     summary: string;
+    education: {
+      school: string;
+      degree: string;
+      field: string;
+      duration: string;
+      detail?: string;
+    }[];
     intro: string;
     highlights: string[];
     viewAll: string;

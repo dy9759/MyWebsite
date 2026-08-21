@@ -44,6 +44,22 @@ export default function ResearchEducationSummary() {
           ))}
         </ul>
       </div>
+      <ul className="mt-8 grid gap-6 sm:grid-cols-2">
+        {copy.research.education.map((edu) => (
+          <li key={`${edu.school}-${edu.duration}`} className="border-t pt-4">
+            <p className="text-xs text-muted-foreground">{edu.duration}</p>
+            <p className="mt-1 font-semibold">{edu.school}</p>
+            <p className="mt-0.5 text-sm text-muted-foreground">
+              {edu.field} · {edu.degree}
+            </p>
+            {edu.detail ? (
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                {edu.detail}
+              </p>
+            ) : null}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
