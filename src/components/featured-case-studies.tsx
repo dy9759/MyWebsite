@@ -22,7 +22,7 @@ export default function FeaturedCaseStudies({
       {showHeading ? (
         <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
+            <h2 className="text-xl font-semibold tracking-tight">
               {copy.cases.heading}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">

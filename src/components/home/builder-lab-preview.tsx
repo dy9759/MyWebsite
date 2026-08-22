@@ -14,7 +14,7 @@ export default function BuilderLabPreview() {
     <section id="builder-lab" className="scroll-mt-28 px-4">
       <div className="mb-6 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <h2 className="border-l-2 border-accent pl-3 text-2xl font-semibold tracking-tight">
+          <h2 className="border-l-2 border-accent pl-3 text-xl font-semibold tracking-tight">
             {copy.lab.heading}
           </h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">

@@ -9,8 +9,8 @@ export default function HomeExperience() {
 
   return (
     <section id="experience" className="scroll-mt-28 px-4">
-      <div className="mb-6">
-        <h2 className="border-l-2 border-accent pl-3 text-2xl font-semibold tracking-tight">
+      <div className="mb-4">
+        <h2 className="border-l-2 border-accent pl-3 text-xl font-semibold tracking-tight">
           {heading}
         </h2>
         {intro ? (
