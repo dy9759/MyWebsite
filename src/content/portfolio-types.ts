@@ -93,6 +93,7 @@ export type PortfolioCopy = {
   };
   experience: {
     heading: string;
+    intro?: string;
     positions: {
       company: string;
       role: string;

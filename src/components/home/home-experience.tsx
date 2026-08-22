@@ -5,7 +5,7 @@ import { PORTFOLIO_COPY } from "@/content/portfolio";
 
 export default function HomeExperience() {
   const { language } = useLanguage();
-  const { heading, positions } = PORTFOLIO_COPY[language].experience;
+  const { heading, intro, positions } = PORTFOLIO_COPY[language].experience;
 
   return (
     <section id="experience" className="scroll-mt-28 px-4">
@@ -13,6 +13,9 @@ export default function HomeExperience() {
         <h2 className="border-l-2 border-accent pl-3 text-2xl font-semibold tracking-tight">
           {heading}
         </h2>
+        {intro ? (
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">{intro}</p>
+        ) : null}
       </div>
 
       <div className="border-y">

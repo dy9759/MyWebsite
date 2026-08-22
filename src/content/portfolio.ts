@@ -127,6 +127,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "SCI 一区 2 篇 · 二区 3 篇",
             "参与专著 1 部",
             "学术会议 5 次",
+            "深圳大学科研团队科研助理（合作）",
             "TOP 期刊审稿人",
             "中国建筑协会 · 中国能源研究会会员",
           ],
@@ -149,6 +150,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     },
     experience: {
       heading: "工作经验",
+      intro:
+        "一条能力主线：产品直觉（教培创业）→ 技术深度（AI 算法 · 电力低碳）→ AI 产品交付（SaySo Voice / Team / API）。",
       positions: [
         {
           company: "宇生月伴(杭州)智能科技有限公司(种子轮，Voice Agent 赛道)",
@@ -171,8 +174,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           ],
         },
         {
-          company: "武汉大学建筑智慧能源实验室（全球前 2% 实验室）",
-          role: "AI 算法研发（兼职）",
+          company: "杭州稀拓智能科技有限公司",
+          role: "AI 算法研发",
           duration: "2022.9 - 2025.6",
           highlights: [
             "视觉检测：YOLOv8 迁移学习 + SAM 半自动标注构建屋顶光伏检测/分割模型，材质识别 92%、面积误差 <3%。",
@@ -258,7 +261,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           field: "建筑学（建筑技术科学）",
           duration: "2022.09 - 2025.06",
           detail:
-            "研究方向：人工智能应用、智慧能源、智慧城市、智慧园区；主修建筑智能化、人工智能等课程。GPA 90+/100（Top 5%）。",
+            "所在建筑智慧能源实验室为全球前 2%。研究方向：人工智能应用、智慧能源、智慧城市、智慧园区；主修建筑智能化、人工智能等课程。GPA 90+/100（Top 5%）。",
         },
         {
           school: "浙大宁波理工学院",
@@ -418,6 +421,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "2 SCI Q1 · 3 SCI Q2 papers",
             "Contributed to 1 monograph",
             "5 academic conferences",
+            "Research assistant with a Shenzhen University research team (collaboration)",
             "Reviewer for top journals",
             "Member, Architectural Society of China · China Energy Research Society",
           ],
@@ -440,6 +444,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     },
     experience: {
       heading: "Experience",
+      intro:
+        "One throughline: product intuition (edtech founding) -> technical depth (AI algorithms, power & low-carbon) -> AI product delivery (SaySo Voice / Team / API).",
       positions: [
         {
           company:
@@ -464,9 +470,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           ],
         },
         {
-          company:
-            "Wuhan University Smart Building Energy Lab (top-2% global lab)",
-          role: "AI Algorithm R&D (part-time)",
+          company: "Hangzhou Xituo Intelligent Technology",
+          role: "AI Algorithm R&D",
           duration: "Sep 2022 - Jun 2025",
           highlights: [
             "Vision detection: YOLOv8 transfer learning + SAM semi-auto labeling for a rooftop-PV detection/segmentation model — 92% material recognition, <3% area error.",
@@ -558,7 +563,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           field: "Architecture (Architectural Technology Science)",
           duration: "Sep 2022 - Jun 2025",
           detail:
-            "Focus: applied AI, smart energy, smart cities and smart parks; coursework in building intelligence and AI. GPA 90+/100 (Top 5%).",
+            "Smart Building Energy Lab (top 2% globally). Focus: applied AI, smart energy, smart cities and smart parks; coursework in building intelligence and AI. GPA 90+/100 (Top 5%).",
         },
         {
           school: "Zhejiang University Ningbo Institute of Technology",
