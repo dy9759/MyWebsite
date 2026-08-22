@@ -1,6 +1,5 @@
 import FeaturedCaseStudies from "@/components/featured-case-studies";
 import Header from "@/components/header";
-import BuilderLabPreview from "@/components/home/builder-lab-preview";
 import Credentials from "@/components/home/credentials";
 import HomeClosingCta from "@/components/home/home-closing-cta";
 import HomeExperience from "@/components/home/home-experience";
@@ -16,7 +15,6 @@ export default function Home() {
       <FeaturedCaseStudies />
       <ResearchEducationSummary />
       <Credentials />
-      <BuilderLabPreview />
       <HomeClosingCta />
     </div>
   );

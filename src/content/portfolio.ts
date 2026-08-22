@@ -56,7 +56,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       heading: "技能栈",
       groups: [
         {
-          label: "AI · 语音 · 算法",
+          label: "AI · 算法 · Agent",
           items: [
             "LLM",
             "RAG",
@@ -68,26 +68,25 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "GCN-LSTM",
             "强化学习",
             "Llama 微调",
-          ],
-        },
-        {
-          label: "Agent · Harness",
-          items: [
-            "Claude Code",
-            "Codex",
+            "Claude Code / Codex",
             "Agent SDK",
             "computer use",
-            "任务协议",
-            "模型路由",
+            "Harness",
           ],
         },
         {
-          label: "前端 · 客户端 · 移动端",
-          items: ["React", "TypeScript", "Electron", "Swift（macOS / iOS）"],
-        },
-        {
-          label: "后端 · 基建",
-          items: ["Go", "Python（FastAPI）", "Node.js", "Docker", "Kubernetes"],
+          label: "工程 · 全栈",
+          items: [
+            "React",
+            "TypeScript",
+            "Electron",
+            "Swift（macOS / iOS）",
+            "Go",
+            "Python（FastAPI）",
+            "Node.js",
+            "Docker",
+            "Kubernetes",
+          ],
         },
         {
           label: "产品 · 方法",
@@ -341,7 +340,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       heading: "Tech Stack",
       groups: [
         {
-          label: "AI · Speech · ML",
+          label: "AI · ML · Agent",
           items: [
             "LLM",
             "RAG",
@@ -353,26 +352,25 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "GCN-LSTM",
             "Reinforcement learning",
             "Llama fine-tuning",
-          ],
-        },
-        {
-          label: "Agent · Harness",
-          items: [
-            "Claude Code",
-            "Codex",
+            "Claude Code / Codex",
             "Agent SDK",
             "computer use",
-            "Task protocol",
-            "Model routing",
+            "Harness",
           ],
         },
         {
-          label: "Frontend · Desktop · Mobile",
-          items: ["React", "TypeScript", "Electron", "Swift (macOS / iOS)"],
-        },
-        {
-          label: "Backend · Infra",
-          items: ["Go", "Python (FastAPI)", "Node.js", "Docker", "Kubernetes"],
+          label: "Engineering · Full-stack",
+          items: [
+            "React",
+            "TypeScript",
+            "Electron",
+            "Swift (macOS / iOS)",
+            "Go",
+            "Python (FastAPI)",
+            "Node.js",
+            "Docker",
+            "Kubernetes",
+          ],
         },
         {
           label: "Product · Methods",
