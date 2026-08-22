@@ -154,23 +154,14 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         "一条能力主线：产品直觉（教培创业）→ 技术深度（AI 算法 · 电力低碳）→ AI 产品交付（SaySo Voice / Team / API）。",
       positions: [
         {
-          company: "宇生月伴(杭州)智能科技有限公司(种子轮，Voice Agent 赛道)",
-          role: "C端 Voice Agent 业务线产品负责人",
+          company: "宇生月伴(杭州)智能科技有限公司 · vuilabs（种子轮，Voice Agent 赛道）",
+          role: "产品负责人 · C 端 Voice Agent / B 端 API",
           duration: "2025.7 - 至今",
           highlights: [
-            "负责 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
+            "负责 C 端 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
             "主导 LLM、ASR、TTS 与端到端语音模型评测。",
             "以数据与用户反馈驱动激活、复用和商业化闭环。",
-          ],
-        },
-        {
-          company: "宇生月伴(杭州)智能科技有限公司 · vuilabs",
-          role: "SaySo API / B 端产品负责人",
-          duration: "2026.5 - 至今",
-          highlights: [
-            "负责 SaySo API 接口产品开发，将输入法的中英文实时转写能力产品化为对外 API。",
-            "基于 B 端用户需求，深度开发印尼语等小语种能力。",
-            "与头部硬件厂商达成合作意向。",
+            "拓展 SaySo API / B 端产品线（2026.5 起）：把输入法中英文实时转写产品化为对外 API，按 B 端需求深度开发印尼语等小语种，并与头部硬件厂商达成合作意向。",
           ],
         },
         {
@@ -449,24 +440,14 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       positions: [
         {
           company:
-            "Yusheng Yueban (Hangzhou) Intelligent Technology Co., Ltd. (Seed Round, Voice Agent Track)",
-          role: "Consumer Voice Agent Product Lead",
+            "Yusheng Yueban (Hangzhou) Intelligent Technology · vuilabs (Seed Round, Voice Agent Track)",
+          role: "Product Lead · Consumer Voice Agent / B2B API",
           duration: "Jul 2025 - Present",
           highlights: [
-            "Lead product planning, requirements and iteration for a consumer Voice Agent line.",
+            "Lead product planning, requirements and iteration for the consumer Voice Agent line.",
             "Own evaluation for LLM, ASR, TTS and end-to-end speech models.",
             "Connect activation, reuse and monetization through data and user feedback.",
-          ],
-        },
-        {
-          company:
-            "Yusheng Yueban (Hangzhou) Intelligent Technology · vuilabs",
-          role: "SaySo API / B2B Product Lead",
-          duration: "May 2026 - Present",
-          highlights: [
-            "Own the SaySo API product, productizing the input method's CN/EN real-time transcription into an external API.",
-            "Deeply develop low-resource languages (e.g. Indonesian) driven by B2B needs.",
-            "Reached a partnership intent with a leading hardware maker.",
+            "Expanded the SaySo API / B2B line (from May 2026): productized CN/EN real-time transcription into an external API, deep low-resource-language support (e.g. Indonesian), and a partnership intent with a leading hardware maker.",
           ],
         },
         {
