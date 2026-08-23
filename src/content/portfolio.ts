@@ -154,7 +154,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       positions: [
         {
           company: "宇生月伴(杭州)智能科技有限公司 · vuilabs（种子轮，Voice Agent 赛道）",
-          role: "产品负责人 · C 端 Voice Agent / B 端 API",
+          role: "产品负责人 · 同传大模型 / Agent Harness / C 端 Voice Agent 客户端 / B 端 API",
           duration: "2025.7 - 至今",
           highlights: [
             "负责 C 端 Voice Agent 产品线规划、需求定义、团队协作与迭代落地。",
@@ -439,7 +439,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           company:
             "Yusheng Yueban (Hangzhou) Intelligent Technology · vuilabs (Seed Round, Voice Agent Track)",
-          role: "Product Lead · Consumer Voice Agent / B2B API",
+          role: "Product Lead · Interpretation LLM / Agent Harness / Consumer Voice Agent / B2B API",
           duration: "Jul 2025 - Present",
           highlights: [
             "Lead product planning, requirements and iteration for the consumer Voice Agent line.",
