@@ -123,7 +123,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           label: "学术成果",
           items: [
-            "SCI 一区 1 篇 · 二区 3 篇 · 三区 3 篇，北大核心 / 中文期刊 4 篇",
+            "发表 SCI 一区 1 篇 · 二区 3 篇 · 三区 3 篇，北大核心 / 中文期刊 4 篇",
             "参与重大国自然 1 项、专著 1 部",
             "学术会议 5 次",
             "TOP 期刊审稿人",
@@ -395,7 +395,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           label: "Academic",
           items: [
-            "SCI: 1 CAS-Q1, 3 CAS-Q2, 3 CAS-Q3; 4 PKU-core / Chinese-journal papers",
+            "Published SCI: 1 CAS-Q1, 3 CAS-Q2, 3 CAS-Q3; 4 PKU-core / Chinese-journal papers",
             "Contributed to 1 major NSFC project and 1 monograph",
             "5 academic conferences",
             "Reviewer for top journals",
