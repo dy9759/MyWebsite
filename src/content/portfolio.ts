@@ -27,7 +27,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       secondaryCta: "邮件联系",
     },
     metrics: [
-      { value: "44.5 万", label: "语音 / Agent 交互" },
+      { value: "1000 万+", label: "语音 / Agent 交互" },
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "整体完成率" },
       { value: "10 万+", label: "评测案例" },
@@ -311,7 +311,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       secondaryCta: "Email me",
     },
     metrics: [
-      { value: "444K", label: "Voice / Agent interactions" },
+      { value: "10M+", label: "Voice / Agent interactions" },
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "Overall completion rate" },
       { value: "100K+", label: "Evaluation cases" },
