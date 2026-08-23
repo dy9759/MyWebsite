@@ -16,7 +16,7 @@ export default function Capabilities() {
 
   return (
     <section id="capabilities" className="scroll-mt-28 px-4">
-      <h2 className="text-2xl font-semibold tracking-tight">
+      <h2 className="text-xl font-semibold tracking-tight">
         {language === "zh" ? "我能解决什么" : "What I bring"}
       </h2>
       <div className="mt-6 grid border sm:grid-cols-3">
