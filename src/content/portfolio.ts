@@ -98,6 +98,16 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "增长指标",
           ],
         },
+        {
+          label: "证书 · 工具",
+          items: [
+            "SPSS",
+            "GIS",
+            "Axure",
+            "IBM & Google–Pendo AI 产品管理证书",
+            "英语 CEFR-B2",
+          ],
+        },
       ],
     },
     credentials: {
@@ -109,15 +119,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "全国绿色建筑设计竞赛 全国最佳设计 / 最佳团队一等奖（1/500+）",
             "校优秀学生奖学金（多次）",
             "校三好学生",
-          ],
-        },
-        {
-          label: "技能证书",
-          items: [
-            "Python · SPSS · GIS · Axure",
-            "Prompt / RAG / Agent 等 AI 解决方案",
-            "IBM & Google–Pendo AI 产品管理证书",
-            "英语 CEFR-B2",
           ],
         },
         {
@@ -258,13 +259,12 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           degree: "本科",
           field: "建筑学",
           duration: "2015.09 - 2020.06",
-          detail: "GPA 85+/100（Top 10%）。",
+          detail: "GPA 85+/100（Top 10%）；人工智能课程 95/100。",
         },
       ],
       intro:
         "研究经历的价值不止是论文数量，而是把复杂问题转化为可验证假设、数据口径、模型方案与决策证据。",
       highlights: [
-        "多篇 JCR Q1、核心期刊论文与会议成果。",
         "研究覆盖预测、优化、空间模拟与可持续能源。",
         "将复杂问题拆解、数据评测和模型验证能力迁移到 AI 产品。",
       ],
@@ -393,15 +393,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "National Green Building Design Competition — Best Design / Best Team, First Prize (1/500+)",
             "University Merit Scholarship (multiple)",
             "University Merit Student",
-          ],
-        },
-        {
-          label: "Certifications",
-          items: [
-            "Python · SPSS · GIS · Axure",
-            "Prompt / RAG / Agent AI solutions",
-            "IBM & Google–Pendo AI Product Management certificates",
-            "English CEFR-B2",
           ],
         },
         {
@@ -549,13 +540,12 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           degree: "BEng",
           field: "Architecture",
           duration: "Sep 2015 - Jun 2020",
-          detail: "GPA 85+/100 (Top 10%).",
+          detail: "GPA 85+/100 (Top 10%); AI course 95/100.",
         },
       ],
       intro:
         "The value of research is not the publication count alone. It is the ability to turn complex questions into testable hypotheses, data definitions, model choices, and decision evidence.",
       highlights: [
-        "Multiple JCR Q1 and PKU Core journal and conference papers.",
         "Research across prediction, optimization, spatial simulation and sustainable energy.",
         "Transfer complex problem solving, evaluation and model validation into AI products.",
       ],

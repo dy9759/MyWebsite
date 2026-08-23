@@ -14,7 +14,7 @@ export default function Credentials() {
           {heading}
         </h2>
       </div>
-      <dl className="grid gap-6 border-y py-5 md:grid-cols-3">
+      <dl className="grid gap-6 border-y py-5 md:grid-cols-2">
         {groups.map((group) => (
           <div key={group.label} className="grid gap-3">
             <dt className="text-sm font-semibold">{group.label}</dt>
