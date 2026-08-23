@@ -30,21 +30,23 @@ const Header = () => {
             <MapPin className="size-4" aria-hidden="true" />
             {copy.hero.location}
           </span>
-          {config.contactMethods
-            ?.filter((method) => method.href)
-            .map((method) => {
-              const Icon = Icons[method.icon];
-              return (
-                <a
-                  key={method.value}
-                  href={method.href}
-                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-                >
-                  <Icon className="size-4" data-icon="true" aria-hidden="true" />
-                  {method.value}
-                </a>
-              );
-            })}
+          {(() => {
+            const emails =
+              config.contactMethods?.filter((method) => method.href) ?? [];
+            const primary =
+              emails.find((method) => /gmail/i.test(method.value)) ?? emails[0];
+            if (!primary) return null;
+            const Icon = Icons[primary.icon];
+            return (
+              <a
+                href={primary.href}
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+              >
+                <Icon className="size-4" data-icon="true" aria-hidden="true" />
+                {primary.value}
+              </a>
+            );
+          })()}
           {config.socials?.map((social) => {
             const Icon = Icons[social.icon];
             return (

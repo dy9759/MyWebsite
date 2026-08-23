@@ -13,6 +13,10 @@ export default function FeaturedCaseStudies({
 }) {
   const { language } = useLanguage();
   const copy = PORTFOLIO_COPY[language];
+  // Ordered by number: 01 = most recently started, 04 = earliest.
+  const cases = [...copy.cases.items].sort((a, b) =>
+    a.number.localeCompare(b.number),
+  );
 
   return (
     <section
@@ -34,7 +38,7 @@ export default function FeaturedCaseStudies({
       ) : null}
 
       <div className="overflow-hidden border">
-        {copy.cases.items.map((item, index) => (
+        {cases.map((item, index) => (
           <article
             key={item.id}
             className={`flex flex-col gap-3 p-5 md:flex-row md:items-center md:gap-6 ${

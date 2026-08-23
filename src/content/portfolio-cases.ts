@@ -4,7 +4,7 @@ export const zhCases: CaseStudy[] = [
   {
     id: "case-sayso-voice-ai",
     slug: "sayso-voice-ai",
-    number: "01",
+    number: "04",
     status: "已上线",
     title: "SaySo Voice Agent",
     summary: "国内首家 Voice AI 输入产品：1000 万+ 次真实交互，盲测优于 Whisper / Typeless",
@@ -71,7 +71,7 @@ export const zhCases: CaseStudy[] = [
   {
     id: "case-sayso-team",
     slug: "sayso-team",
-    number: "02",
+    number: "03",
     status: "内部上线使用",
     title: "SaySo Team · Harness",
     summary: "多人、多 Agent 协作与 Harness 架构",
@@ -134,7 +134,7 @@ export const zhCases: CaseStudy[] = [
   {
     id: "case-model-evaluation",
     slug: "model-evaluation",
-    number: "03",
+    number: "01",
     status: "进行中",
     title: "模型评测：同传 · 播客 · TTS",
     summary: "围绕同传、播客与 TTS 场景的模型评测与产品定义",
@@ -193,7 +193,7 @@ export const zhCases: CaseStudy[] = [
   {
     id: "case-sayso-api",
     slug: "sayso-api",
-    number: "04",
+    number: "02",
     status: "进行中",
     title: "SaySo API · B 端语音能力",
     summary: "把输入法级中英文实时转写产品化为对外 API，服务 B 端与硬件场景",

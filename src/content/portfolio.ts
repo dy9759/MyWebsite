@@ -116,18 +116,16 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           label: "荣誉奖项",
           items: [
-            "全国绿色建筑设计竞赛 全国最佳设计 / 最佳团队一等奖（1/500+）",
-            "校优秀学生奖学金（多次）",
-            "校三好学生",
+            "全国绿色建筑设计竞赛 最佳设计一等奖、最佳团队一等奖（1/500+）",
+            "校优秀学生奖学金、校三好学生（多次）",
           ],
         },
         {
           label: "学术成果",
           items: [
-            "SCI 一区 2 篇 · 二区 3 篇",
-            "参与专著 1 部",
+            "SCI 一区 1 篇 · 二区 3 篇 · 三区 3 篇，北大核心 / 中文期刊 4 篇",
+            "参与重大国自然 1 项、专著 1 部",
             "学术会议 5 次",
-            "深圳大学科研团队科研助理（合作）",
             "TOP 期刊审稿人",
             "中国建筑协会 · 中国能源研究会会员",
           ],
@@ -154,7 +152,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         "一条能力主线：产品直觉（教培创业）→ 技术深度（AI 算法 · 电力低碳）→ AI 产品交付（SaySo Voice / Team / API）。",
       positions: [
         {
-          company: "宇生月伴(杭州)智能科技有限公司 · vuilabs（种子轮，Voice Agent 赛道）",
+          company: "宇生月伴(杭州)智能科技有限公司 · VUILABS（Pre A 轮，Voice Agent 赛道）",
           role: "产品负责人 · 全栈 Agent 研发 · 同传大模型 / Agent Harness / C 端 Voice Agent 客户端 / B 端 API",
           duration: "2025.7 - 至今",
           highlights: [
@@ -390,18 +388,16 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
         {
           label: "Awards",
           items: [
-            "National Green Building Design Competition — Best Design / Best Team, First Prize (1/500+)",
-            "University Merit Scholarship (multiple)",
-            "University Merit Student",
+            "National Green Building Design Competition — Best Design First Prize and Best Team First Prize (1/500+)",
+            "University Merit Scholarship and Merit Student (multiple)",
           ],
         },
         {
           label: "Academic",
           items: [
-            "2 SCI Q1 · 3 SCI Q2 papers",
-            "Contributed to 1 monograph",
+            "SCI: 1 CAS-Q1, 3 CAS-Q2, 3 CAS-Q3; 4 PKU-core / Chinese-journal papers",
+            "Contributed to 1 major NSFC project and 1 monograph",
             "5 academic conferences",
-            "Research assistant with a Shenzhen University research team (collaboration)",
             "Reviewer for top journals",
             "Member, Architectural Society of China · China Energy Research Society",
           ],
@@ -429,7 +425,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       positions: [
         {
           company:
-            "Yusheng Yueban (Hangzhou) Intelligent Technology · vuilabs (Seed Round, Voice Agent Track)",
+            "Yusheng Yueban (Hangzhou) Intelligent Technology · VUILABS (Pre-A, Voice Agent Track)",
           role: "Product Lead · Full-stack Agent Developer · Interpretation LLM / Agent Harness / Consumer Voice Agent / B2B API",
           duration: "Jul 2025 - Present",
           highlights: [
