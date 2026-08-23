@@ -1,7 +1,6 @@
 import FeaturedCaseStudies from "@/components/featured-case-studies";
 import Header from "@/components/header";
 import Credentials from "@/components/home/credentials";
-import HomeClosingCta from "@/components/home/home-closing-cta";
 import HomeExperience from "@/components/home/home-experience";
 import ResearchEducationSummary from "@/components/home/research-education-summary";
 import Skills from "@/components/home/skills";
@@ -15,7 +14,6 @@ export default function Home() {
       <FeaturedCaseStudies />
       <ResearchEducationSummary />
       <Credentials />
-      <HomeClosingCta />
     </div>
   );
 }
