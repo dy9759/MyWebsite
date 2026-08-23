@@ -7,7 +7,7 @@ export const zhCases: CaseStudy[] = [
     number: "01",
     status: "已上线",
     title: "SaySo Voice Agent",
-    summary: "国内首家 Voice AI 输入产品：44.5 万次真实交互，盲测优于 Whisper / Typeless",
+    summary: "国内首家 Voice AI 输入产品：1000 万+ 次真实交互，盲测优于 Whisper / Typeless",
     role: "C 端 Voice Agent 业务线产品负责人",
     period: "2025.7—2026.5",
     problems: [
@@ -19,7 +19,7 @@ export const zhCases: CaseStudy[] = [
     evidence: [
       { value: "900ms", label: "稳定首字延迟" },
       { value: "80% / 95%", label: "盲测胜 Typeless / Whisper" },
-      { value: "44.5 万", label: "语音 / Agent 交互" },
+      { value: "1000 万+", label: "语音 / Agent 交互" },
       { value: "90.4%", label: "Speaker activation" },
     ],
     sections: {
@@ -49,8 +49,8 @@ export const zhCases: CaseStudy[] = [
       ],
       results: [
         "场景盲测中，用户体验 80% 胜 Typeless、95% 胜 Whisper；首字延迟最快稳定在 900ms。",
-        "截至 2026.05.23，累计 444,694 次语音 / Agent 交互。",
-        "2,657 名非删除用户中 2,402 人完成至少一次交互，Speaker activation 为 90.4%。",
+        "截至 2026.08，累计 1000 万+ 次语音 / Agent 交互。",
+        "非删除用户 Speaker activation 达 90.4%。",
         "整体完成率 93.3%；国内成功订单中年付占 58.6%，贡献国内成功付费收入 90.9%。",
       ],
       reflection: [
@@ -253,7 +253,7 @@ export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
 Object.assign(enCases[0], {
   status: "Live",
   title: "SaySo Voice Agent",
-  summary: "China's first Voice AI input product: 444K interactions, beating Whisper / Typeless in blind tests",
+  summary: "China's first Voice AI input product: 10M+ interactions, beating Whisper / Typeless in blind tests",
   role: "Product Lead, Consumer Voice Agent",
   period: "Jul 2025—May 2026",
   problems: [
@@ -265,7 +265,7 @@ Object.assign(enCases[0], {
   evidence: [
     { value: "900ms", label: "Stable first-token latency" },
     { value: "80% / 95%", label: "Blind-test wins vs Typeless / Whisper" },
-    { value: "444K", label: "Voice / Agent interactions" },
+    { value: "10M+", label: "Voice / Agent interactions" },
     { value: "90.4%", label: "Speaker activation" },
   ],
   sections: {
@@ -295,8 +295,8 @@ Object.assign(enCases[0], {
     ],
     results: [
       "In scenario blind tests users preferred the product 80% of the time over Typeless and 95% over Whisper; first-token latency stabilized as low as 900ms.",
-      "444,694 voice / agent interactions as of May 23, 2026.",
-      "2,402 of 2,657 active records completed at least one interaction: 90.4% speaker activation.",
+      "10M+ voice / agent interactions as of Aug 2026.",
+      "Speaker activation reached 90.4% among active records.",
       "93.3% overall completion; annual plans were 58.6% of successful CN orders and 90.9% of CN paid revenue.",
     ],
     reflection: [
