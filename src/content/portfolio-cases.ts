@@ -76,7 +76,7 @@ export const zhCases: CaseStudy[] = [
     title: "SaySo Team · Harness",
     summary: "多人、多 Agent 协作与 Harness 架构",
     role: "产品负责人 / Solo Builder",
-    period: "2026.5—至今",
+    period: "2026.4—至今",
     problems: [
       "Claude Code、Codex、自研 Agent 等执行环境接口和上下文管理方式不同。",
       "多人协作与多 Agent 任务需要权限、过程可观测和人工接管机制。",
@@ -190,6 +190,62 @@ export const zhCases: CaseStudy[] = [
     links: [],
     needed: ["各场景评测指标", "真实场景样本量", "评测平台截图", "公开 Demo"],
   },
+  {
+    id: "case-sayso-api",
+    slug: "sayso-api",
+    number: "04",
+    status: "进行中",
+    title: "SaySo API · B 端语音能力",
+    summary: "把输入法级中英文实时转写产品化为对外 API，服务 B 端与硬件场景",
+    role: "SaySo API / B 端产品负责人",
+    period: "2026.5—至今",
+    problems: [
+      "C 端积累的实时转写能力，如何以稳定、可计费的对外 API 形式服务 B 端。",
+      "出海与硬件场景对小语种、延迟与稳定性有差异化要求。",
+    ],
+    decision:
+      "以输入法验证过的中英文实时转写为底座，抽象出统一对外 API，按 B 端与硬件需求扩展小语种与场景适配。",
+    evidence: [
+      { value: "中英 + 小语种", label: "覆盖语种（含印尼语）" },
+      { value: "对外 API", label: "产品形态" },
+      { value: "硬件厂商", label: "合作意向" },
+      { value: "待补充", label: "调用量 / 延迟", placeholder: true },
+    ],
+    sections: {
+      challenge: [
+        "C 端能力转 B 端，需要重新定义稳定性、计费、鉴权与 SLA。",
+        "出海与硬件场景对小语种（如印尼语）和端侧延迟要求更高。",
+      ],
+      ownership: [
+        "负责 SaySo API 接口产品开发，将中英文实时转写产品化为对外 API。",
+        "基于 B 端用户需求，深度开发印尼语等小语种能力。",
+        "对接头部硬件厂商，推进合作意向落地。",
+      ],
+      decisions: [
+        "以输入法验证过的转写能力为底座抽象统一 API，而非重造。",
+        "按 B 端场景优先级排小语种与适配，而非一次铺全。",
+      ],
+      system: [
+        "能力层：中英文实时转写与小语种扩展。",
+        "接口层：对外 API（鉴权、计费、SLA）。",
+        "场景层：B 端集成与硬件端侧。",
+      ],
+      results: [
+        "已完成 API 产品化与印尼语等小语种方向，并与头部硬件厂商达成合作意向。",
+        "调用量、延迟与商业化数据仍在积累，不在此虚构。",
+      ],
+      reflection: [
+        "C 端到 B 端不是接口暴露，而是稳定性、计费与 SLA 的重新定义。",
+        "小语种的价值取决于真实 B 端场景，而非语种数量。",
+      ],
+      next: [
+        "补充真实调用量、P95 延迟与小语种准确率。",
+        "补充 B 端接入案例与硬件合作进展。",
+      ],
+    },
+    links: [],
+    needed: ["调用量数据", "P95 延迟", "B 端接入案例", "硬件合作进展"],
+  },
 ];
 
 export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
@@ -260,7 +316,7 @@ Object.assign(enCases[1], {
   title: "SaySo Team · Harness",
   summary: "Multi-user, multi-agent collaboration through a harness architecture",
   role: "Product Lead / Solo Builder",
-  period: "May 2026—Present",
+  period: "Apr 2026—Present",
   problems: [
     "Claude Code, Codex, SDKs and custom agents expose different interfaces and context models.",
     "Team workflows require permissions, observability and human takeover—not only execution.",
@@ -369,5 +425,64 @@ Object.assign(enCases[2], {
     "Real-world sample size",
     "Platform screenshots",
     "Public demo",
+  ],
+});
+
+Object.assign(enCases[3], {
+  status: "In progress",
+  title: "SaySo API · B2B Speech",
+  summary:
+    "Productizing input-method-grade CN/EN real-time transcription into an external API for B2B and hardware",
+  role: "SaySo API / B2B Product Lead",
+  period: "May 2026—Present",
+  problems: [
+    "How to serve B2B with the consumer real-time transcription as a stable, billable external API.",
+    "Overseas and hardware scenarios have distinct needs for low-resource languages, latency and stability.",
+  ],
+  decision:
+    "Use the input-method-proven CN/EN transcription as the base, abstract a unified external API, and extend low-resource languages and scenario adaptation per B2B and hardware needs.",
+  evidence: [
+    { value: "CN/EN + more", label: "Languages (incl. Indonesian)" },
+    { value: "External API", label: "Product form" },
+    { value: "Hardware maker", label: "Partnership intent" },
+    { value: "Needed", label: "Call volume / latency", placeholder: true },
+  ],
+  sections: {
+    challenge: [
+      "Turning a consumer capability into B2B means redefining stability, billing, auth and SLAs.",
+      "Overseas and hardware scenarios demand stronger low-resource-language (e.g. Indonesian) and on-device latency.",
+    ],
+    ownership: [
+      "Own SaySo API product development, productizing CN/EN real-time transcription into an external API.",
+      "Deeply develop low-resource languages (e.g. Indonesian) driven by B2B needs.",
+      "Engage a leading hardware maker and drive the partnership intent forward.",
+    ],
+    decisions: [
+      "Abstract a unified API on top of the input-method-proven transcription rather than rebuilding.",
+      "Sequence languages and adaptation by B2B scenario priority instead of covering everything at once.",
+    ],
+    system: [
+      "Capability: CN/EN real-time transcription with low-resource-language extension.",
+      "Interface: external API (auth, billing, SLA).",
+      "Scenarios: B2B integration and on-device hardware.",
+    ],
+    results: [
+      "Completed API productization and the low-resource-language direction, plus a partnership intent with a leading hardware maker.",
+      "Call volume, latency and commercialization data are still accruing and are not fabricated here.",
+    ],
+    reflection: [
+      "Consumer-to-B2B is not exposing an endpoint; it is redefining stability, billing and SLAs.",
+      "Low-resource-language value depends on real B2B scenarios, not the number of languages.",
+    ],
+    next: [
+      "Add real call volume, P95 latency and low-resource-language accuracy.",
+      "Add B2B integration cases and hardware-partnership progress.",
+    ],
+  },
+  needed: [
+    "Call volume",
+    "P95 latency",
+    "B2B integration cases",
+    "Hardware partnership progress",
   ],
 });
