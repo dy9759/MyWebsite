@@ -30,7 +30,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       { value: "44.5 万", label: "语音 / Agent 交互" },
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "整体完成率" },
-      { value: "1000+", label: "评测案例" },
+      { value: "10 万+", label: "评测案例" },
     ],
     capabilities: [
       {
@@ -314,7 +314,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       { value: "444K", label: "Voice / Agent interactions" },
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "Overall completion rate" },
-      { value: "1,000+", label: "Evaluation cases" },
+      { value: "100K+", label: "Evaluation cases" },
     ],
     capabilities: [
       {
