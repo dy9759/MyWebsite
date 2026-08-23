@@ -177,6 +177,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "联合创始人 · 课程产品负责人",
           duration: "2020.6 - 2022.8",
           highlights: [
+            "市场定位：高净值考研教培市场，客资人均 1w+ 消费 / 年，区域 Top1。",
             "用户增长：机器学习分析付费用户画像 + 精准投放，实现 30% 用户增长、20% 营收增长。",
             "产品设计：成本不变下推出精品小班，核心用户黏性提升、退课率降低 15%。",
           ],
@@ -450,6 +451,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           role: "Co-founder · Course Product Lead",
           duration: "Jun 2020 - Aug 2022",
           highlights: [
+            "Market: high-net-worth exam-prep segment, 10k+ RMB annual spend per lead, regional No.1.",
             "Growth: ML-based user profiling and targeted offers drove 30% user growth and 20% revenue growth.",
             "Product design: a premium small-class format at flat cost improved retention and cut negative-review refunds 15%.",
           ],
