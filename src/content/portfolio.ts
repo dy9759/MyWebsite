@@ -174,8 +174,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           ],
         },
         {
-          company: "上海几凡设计教育（杭州校区，考研细分头部）",
-          role: "产品经理（创业）",
+          company: "上海几凡设计教育杭州校区（区域教培头部）",
+          role: "联合创始人 · 课程产品负责人",
           duration: "2020.6 - 2022.8",
           highlights: [
             "用户增长：机器学习分析付费用户画像 + 精准投放，实现 30% 用户增长、20% 营收增长。",
@@ -459,8 +459,8 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
           ],
         },
         {
-          company: "Jifan Design Education (Hangzhou campus, niche exam-prep leader)",
-          role: "Product Manager (founding)",
+          company: "Jifan Design Education, Hangzhou (regional edtech leader)",
+          role: "Co-founder · Course Product Lead",
           duration: "Jun 2020 - Aug 2022",
           highlights: [
             "Growth: ML-based user profiling and targeted offers drove 30% user growth and 20% revenue growth.",
