@@ -21,7 +21,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       name: "李盛园",
       title: "AI 产品负责人 / Applied AI Builder",
       summary:
-        "从模型评测、产品设计到上线增长，把 AI 能力转化为真实用户持续使用的产品。",
+        "从模型评测、产品设计到用户付费，把 AI 能力转化为真实用户持续使用的产品。",
       location: "Hangzhou, China",
       primaryCta: "查看代表案例",
       secondaryCta: "邮件联系",
@@ -305,7 +305,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       name: "Chauncey Lee",
       title: "AI Product Lead / Applied AI Builder",
       summary:
-        "I turn AI capabilities into products people keep using—from model evaluation and product design to launch and growth.",
+        "I turn AI capabilities into products people keep using—from model evaluation and product design to user monetization.",
       location: "Hangzhou, China",
       primaryCta: "View selected work",
       secondaryCta: "Email me",
