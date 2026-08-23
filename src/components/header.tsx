@@ -1,18 +1,14 @@
 "use client";
 
+import { Icons } from "@/components/icons";
 import { useLanguage, useSiteConfig } from "@/components/language-provider";
-import { Button } from "@/components/ui/button";
 import { PORTFOLIO_COPY } from "@/content/portfolio";
 import { MapPin } from "lucide-react";
-import Link from "next/link";
 
 const Header = () => {
   const config = useSiteConfig();
   const { language } = useLanguage();
   const copy = PORTFOLIO_COPY[language];
-  const primaryEmail = config.contactMethods?.find((method) =>
-    method.href?.startsWith("mailto:"),
-  );
 
   return (
     <header
@@ -29,19 +25,41 @@ const Header = () => {
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
           {copy.hero.summary}
         </p>
-        <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
-          <MapPin className="size-4" aria-hidden="true" />
-          {copy.hero.location}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <Button asChild>
-            <Link href="/projects/">{copy.hero.primaryCta}</Link>
-          </Button>
-          {primaryEmail?.href ? (
-            <Button asChild variant="outline">
-              <Link href={primaryEmail.href}>{copy.hero.secondaryCta}</Link>
-            </Button>
-          ) : null}
+        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin className="size-4" aria-hidden="true" />
+            {copy.hero.location}
+          </span>
+          {config.contactMethods
+            ?.filter((method) => method.href)
+            .map((method) => {
+              const Icon = Icons[method.icon];
+              return (
+                <a
+                  key={method.value}
+                  href={method.href}
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+                >
+                  <Icon className="size-4" data-icon="true" aria-hidden="true" />
+                  {method.value}
+                </a>
+              );
+            })}
+          {config.socials?.map((social) => {
+            const Icon = Icons[social.icon];
+            return (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+              >
+                <Icon className="size-4" data-icon="true" aria-hidden="true" />
+                {social.url.replace(/^https?:\/\//, "")}
+              </a>
+            );
+          })}
         </div>
       </div>
 
