@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowUpRight, Check } from "lucide-react";
 import { useLanguage, useAIConfig } from "@/components/language-provider";
 import { WIKI_TERMS, WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
 import { VIBE_GROUPS, VIBE_TERM_COUNT } from "@/content/wiki-vibe-terms";
 import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
-import WikiLesson, { type Lesson } from "@/components/wiki/wiki-lesson";
-
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+import { getCompleted } from "@/lib/wiki-progress";
+import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
+import WikiOnboarding from "@/components/wiki/wiki-onboarding";
 import { cn } from "@/lib/utils";
 
 export type WikiDomain = "sources" | "vibe" | "course" | "jobs";
@@ -59,19 +60,17 @@ export default function WikiBrowse({
   const ai = useAIConfig();
   const ui = WIKI_UI[language];
 
-  // Lesson bodies load on demand from public/wiki/lessons/*.json.
-  const [openLesson, setOpenLesson] = useState<string | null>(null);
-  const [lessons, setLessons] = useState<Record<string, Lesson | "loading" | "error">>({});
-  const toggleLesson = (lessonId: string) => {
-    setOpenLesson((cur) => (cur === lessonId ? null : lessonId));
-    if (!lessons[lessonId]) {
-      setLessons((prev) => ({ ...prev, [lessonId]: "loading" }));
-      fetch(`${BASE_PATH}/wiki/lessons/${lessonId}.json`)
-        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then((data: Lesson) => setLessons((prev) => ({ ...prev, [lessonId]: data })))
-        .catch(() => setLessons((prev) => ({ ...prev, [lessonId]: "error" })));
-    }
-  };
+  // Loop-completion progress (localStorage) — read after mount to stay
+  // hydration-safe on the static export.
+  const [done, setDone] = useState<Set<string>>(new Set());
+  // Learner profile: undefined = not yet read, null = needs onboarding.
+  const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
+  const [traits, setTraits] = useState<Record<string, number>>({});
+  useEffect(() => {
+    setDone(getCompleted());
+    setProfileState(getProfile());
+    setTraits(getTraits());
+  }, []);
 
   // ---- AI 知识源 (live from AI_CONFIG) ----
   if (domain === "sources") {
@@ -207,88 +206,153 @@ export default function WikiBrowse({
     );
   }
 
-  // ---- 闭环学院 (course) ----
+  // ---- 闭环学院 (course) — Loop Academy look ----
   const c = WIKI_COURSE;
-  const pct = Math.round((c.done / COURSE_TOTAL_LOOPS) * 100);
-  return (
-    <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
-      <div>
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">{c.eyebrow}</p>
-        <h3 className="mt-1 text-lg font-bold tracking-tight">{c.title}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+  const doneCount = done.size;
+  const pct = Math.round((doneCount / COURSE_TOTAL_LOOPS) * 100);
+  if (profile === null) {
+    return (
+      <div className="theme-loop -mx-4 -mb-4 flex flex-1 flex-col overflow-y-auto px-6 py-5">
+        <WikiOnboarding onDone={(p) => setProfileState(p)} />
       </div>
+    );
+  }
+  const mapTitle = `${profile?.name ?? "…"}：从 Vibe Coder 到 Product Builder`;
+  return (
+    <div className="theme-loop -mx-4 -mb-4 flex flex-1 flex-col gap-4 overflow-y-auto px-6 py-5">
       <div>
-        <div className="h-2 overflow-hidden rounded-full bg-muted">
-          <div className="h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
-        </div>
-        <p className="mt-1.5 font-mono text-xs text-muted-foreground">
-          {c.done} / {COURSE_TOTAL_LOOPS} {ui.progress} · {ui.progressEcho}
+        <p className="mb-2 flex items-baseline gap-2">
+          <span
+            className="text-base font-bold"
+            style={{ fontFamily: "var(--loop-font-display)" }}
+          >
+            闭环学院
+          </span>
+          <span
+            className="text-[0.62rem] uppercase"
+            style={{ color: "var(--loop-ink-3)", letterSpacing: "0.24em" }}
+          >
+            Loop Academy
+          </span>
+          {profile ? (
+            <span className="ml-auto flex items-baseline gap-2 text-xs" style={{ color: "var(--loop-ink-3)" }}>
+              {profile.name}
+              <button
+                type="button"
+                className="underline"
+                onClick={() => {
+                  clearProfile();
+                  setProfileState(null);
+                }}
+              >
+                退出
+              </button>
+            </span>
+          ) : null}
+        </p>
+        <p className="loop-map-eyebrow">{c.eyebrow}</p>
+        <h3 className="loop-map-title font-bold">{mapTitle}</h3>
+        <p className="mt-1.5 text-sm leading-6" style={{ color: "var(--loop-ink-2)" }}>
+          {c.desc}
         </p>
       </div>
+      <div className="loop-echo-card">
+        <span aria-hidden="true">🔁</span>
+        <span>
+          {ui.progress.replace("{done}", String(doneCount)).replace("{total}", String(COURSE_TOTAL_LOOPS))}
+          。{ui.progressEcho}
+        </span>
+      </div>
+      <div
+        className="-mt-2 h-1.5 overflow-hidden rounded-full"
+        style={{ background: "var(--loop-raised)", border: "1px solid var(--loop-line)" }}
+      >
+        <div
+          className="h-full rounded-full transition-all"
+          style={{ width: `${pct}%`, background: "var(--loop-green)" }}
+        />
+      </div>
+      {Object.keys(traits).length ? (
+        <div className="flex flex-wrap items-baseline gap-1.5">
+          <span className="text-xs font-semibold" style={{ color: "var(--loop-ink-3)" }}>
+            判断力画像
+          </span>
+          {Object.entries(traits).map(([dim, n]) => (
+            <span
+              key={dim}
+              className="rounded-full px-2 py-0.5 text-xs"
+              style={{ background: "var(--loop-blue-wash)", color: "var(--loop-blue-deep)" }}
+            >
+              {dim} ×{n}
+            </span>
+          ))}
+        </div>
+      ) : null}
       {COURSE_CHAPTERS.map((ch) => (
-        <div key={ch.id} className="rounded-xl border p-3.5">
-          <div className="font-mono text-xs text-accent">第 {ch.index} 章</div>
-          <h4 className="mt-0.5 text-base font-bold">{ch.title}</h4>
-          <p className="mb-2.5 mt-0.5 text-sm text-muted-foreground">{ch.tagline}</p>
-          <div className="grid gap-2 sm:grid-cols-2">
+        <div key={ch.id} className="loop-pillar !mt-0">
+          <div className="flex items-baseline gap-3.5">
+            <span className="loop-pillar-no">第 {ch.index} 章</span>
+            <h4 className="loop-pillar-title font-bold">{ch.title}</h4>
+          </div>
+          <p className="loop-pillar-sub mt-0.5">{ch.tagline}</p>
+          <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
             {ch.nodes.map((l, i) => {
-              const open = openLesson === l.lessonId;
-              const loaded = lessons[l.lessonId];
+              const isDone = done.has(l.lessonId);
               return (
-                <div
+                <Link
                   key={l.id}
-                  className={cn(
-                    "rounded-lg border border-l-2 bg-muted/40",
-                    open ? "border-l-accent sm:col-span-2" : "border-l-border",
-                  )}
+                  href={`/wiki/course/${l.lessonId}/`}
+                  className="loop-card block p-3 transition-shadow hover:shadow-md"
+                  style={{
+                    background: "var(--loop-raised)",
+                    border: "1px solid var(--loop-line)",
+                    borderLeft: `3px solid ${isDone ? "var(--loop-green)" : "var(--loop-line)"}`,
+                    borderRadius: "var(--loop-radius)",
+                  }}
                 >
-                  <button
-                    type="button"
-                    onClick={() => toggleLesson(l.lessonId)}
-                    aria-expanded={open}
-                    className="w-full p-2.5 text-left"
-                  >
-                    <div className="mb-1.5 flex items-center gap-1.5">
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {String(i + 1).padStart(2, "0")}
+                  <div className="mb-1.5 flex items-center gap-1.5">
+                    <span
+                      className="rounded px-1.5 py-0.5 font-mono text-xs font-semibold"
+                      style={{ background: "var(--loop-blue-wash)", color: "var(--loop-blue)" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="rounded-full px-1.5 text-[0.66rem]"
+                      style={{ border: "1px solid var(--loop-blue)", color: "var(--loop-blue)" }}
+                    >
+                      {l.type}
+                    </span>
+                    {isDone ? (
+                      <span
+                        className="inline-flex items-center gap-0.5 text-xs"
+                        style={{ color: "var(--loop-green)" }}
+                      >
+                        <Check className="size-3" /> {language === "zh" ? "已完成" : "Done"}
                       </span>
-                      <span className="rounded-full border border-accent px-1.5 text-[0.62rem] text-accent">
-                        {l.type}
-                      </span>
-                      <span className="ml-auto font-mono text-[0.66rem] text-muted-foreground/60">
-                        {ui.minutesPrefix} {l.minutes} {ui.minutesSuffix}
-                      </span>
-                      <ChevronDown
-                        className={cn(
-                          "size-3.5 text-muted-foreground transition-transform",
-                          open && "rotate-180",
-                        )}
-                      />
-                    </div>
-                    <div className="text-sm font-medium leading-tight">{l.title}</div>
-                    <div className="mt-1 text-xs leading-5 text-muted-foreground">{l.hook}</div>
-                  </button>
-                  {open ? (
-                    <div className="px-2.5 pb-2.5">
-                      {loaded === "loading" || !loaded ? (
-                        <p className="animate-pulse border-t pt-3 font-mono text-xs text-muted-foreground">
-                          …
-                        </p>
-                      ) : loaded === "error" ? (
-                        <p className="border-t pt-3 font-mono text-xs text-muted-foreground">
-                          {language === "zh" ? "加载失败，重试一下。" : "Failed to load — try again."}
-                        </p>
-                      ) : (
-                        <WikiLesson lesson={loaded} />
-                      )}
-                    </div>
-                  ) : null}
-                </div>
+                    ) : null}
+                  </div>
+                  <div className="text-sm font-semibold leading-tight">{l.title}</div>
+                  <div className="mt-1 text-xs leading-5" style={{ color: "var(--loop-ink-2)" }}>
+                    {l.hook}
+                  </div>
+                  <div className="mt-1.5 text-[0.68rem]" style={{ color: "var(--loop-ink-3)" }}>
+                    {ui.minutesPrefix} {l.minutes} {ui.minutesSuffix}
+                  </div>
+                </Link>
               );
             })}
           </div>
-          <div className="mt-2.5 rounded-lg border border-dashed border-accent bg-accent/5 px-3 py-2 text-sm">
-            🚩 {ch.milestone}
+          <div
+            className="mt-3 flex items-start gap-1.5 px-3 py-2 text-sm"
+            style={{
+              border: "1px dashed var(--loop-line)",
+              borderRadius: "var(--loop-radius)",
+              color: "var(--loop-ink-2)",
+            }}
+          >
+            <span aria-hidden="true">🚩</span>
+            <span>{ch.milestone}</span>
           </div>
         </div>
       ))}

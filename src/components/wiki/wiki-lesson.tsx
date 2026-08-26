@@ -3,7 +3,17 @@
 // Renders one 闭环学院 lesson (fetched from public/wiki/lessons/*.json).
 // Handles all 15 step kinds; interactive answers/feedback use <details> so the
 // full content ships while quiz answers stay unspoiled until opened.
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import {
+  QuizGame,
+  JudgmentGame,
+  CodereviewGame,
+  EstimateGame,
+  TheaterGame,
+  DecisionGame,
+} from "@/components/wiki/wiki-lesson-games";
+import { DiagramFrontback, PeoplenetSim, RaceSim } from "@/components/wiki/wiki-lesson-sims";
+import { CommanderSim, GitTimelineSim } from "@/components/wiki/wiki-lesson-sims2";
 
 type Block = {
   kind: string;
@@ -20,6 +30,8 @@ type Block = {
 
 export type LessonStep = {
   kind: string;
+  diagram?: string;
+  sim?: string;
   title?: string;
   paragraphs?: string[];
   question?: string;
@@ -31,7 +43,7 @@ export type LessonStep = {
   blocks?: Block[];
   questions?: {
     stem: string;
-    options: { text: string; misconception?: string }[];
+    options: { text: string; misconception?: string; correct?: boolean }[];
     explain?: string;
   }[];
   scenario?: string[] | string;
@@ -44,11 +56,21 @@ export type LessonStep = {
   further?: { label: string }[];
   debrief?: string[] | string;
   lang?: string;
-  lines?: { code: string }[];
+  minFinds?: number;
+  lines?: { code: string; flaw?: { label: string; severity: string; explain: string } }[];
+  meters?: Record<string, number>;
+  meterLabels?: Record<string, string>;
+  endingLabels?: { good?: string; bad?: string };
   stages?: {
     situation?: string[];
     prompt?: string;
-    choices?: { label: string; detail?: string; consequence?: string[] }[];
+    choices?: {
+      label: string;
+      detail?: string;
+      consequence?: string[];
+      effects?: Record<string, number>;
+      expertNote?: string;
+    }[];
   }[];
   finale?:
     | string
@@ -60,8 +82,10 @@ export type LessonStep = {
       };
   items?: { stem: string; options: string[]; answerIndex: number; reveal?: string }[];
   counterWho?: string;
+  trait?: string;
   moves?: {
     label: string;
+    dimension?: string;
     counter?: string;
     responses?: { label: string; feedback?: string }[];
   }[];
@@ -87,9 +111,13 @@ function Md({ text }: { text: string }) {
   );
 }
 
+// Render helper handed to the game components.
+const md = (text: string) => <Md text={text} />;
+
 function P({ text }: { text: string }) {
+  // Inherits the theme-loop base type (16px / 1.75, ink).
   return (
-    <p className="text-sm leading-6 text-muted-foreground">
+    <p>
       <Md text={text} />
     </p>
   );
@@ -104,46 +132,71 @@ function Reveal({ label, children }: { label: string; children: React.ReactNode 
   );
 }
 
+// 深潜 collapsible (original: dashed blue box, 深潜 badge, 展开▼/收起▲).
+function DeepBlock({ b }: { b: Block }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="loop-deep">
+      <button type="button" className="loop-deep-toggle" onClick={() => setOpen((o) => !o)}>
+        <span className="loop-deep-badge">深潜</span>
+        <span className="loop-deep-title">{b.title}</span>
+        <span className="loop-deep-arrow">{open ? "收起 ▲" : "展开 ▼"}</span>
+      </button>
+      {open ? (
+        <div className="loop-deep-body">
+          <Blocks blocks={b.blocks ?? []} />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+const CALLOUT_ICON: Record<string, string> = { law: "⚖", trap: "⚠", pm: "◎" };
+
 function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <div className="flex flex-col gap-2">
       {blocks.map((b, i) => {
         if (b.kind === "h")
           return (
-            <h6 key={i} className="mt-1 text-sm font-semibold">
+            <h6 key={i} className="mt-2 text-base font-bold">
               {b.text}
             </h6>
           );
         if (b.kind === "p") return <P key={i} text={b.text ?? ""} />;
-        if (b.kind === "html") {
-          // Original site renders styled visualization HTML; we keep its text.
-          const stripped = String(b.html ?? b.text ?? "")
-            .replace(/<[^>]+>/g, " · ")
-            .replace(/(\s*·\s*)+/g, " · ")
-            .replace(/^\s*·\s*|\s*·\s*$/g, "")
-            .trim();
+        if (b.kind === "html")
+          // Raw visualization HTML from the lesson data; viz-* classes are
+          // ported to globals.css under .theme-loop.
           return (
-            <div key={i} className="rounded-md border border-dashed px-3 py-2">
-              <p className="text-sm leading-6 text-muted-foreground">{stripped}</p>
-              {b.caption ? (
-                <p className="mt-1 font-mono text-xs text-muted-foreground/70">{b.caption}</p>
-              ) : null}
+            <div key={i}>
+              <div dangerouslySetInnerHTML={{ __html: String(b.html ?? b.text ?? "") }} />
+              {b.caption ? <p className="loop-codecaption mt-1">{b.caption}</p> : null}
+            </div>
+          );
+        if (b.kind === "callout") {
+          const tone = b.tone && CALLOUT_ICON[b.tone] ? b.tone : "pm";
+          return (
+            <div key={i} className={`loop-callout ${tone}`}>
+              <div className="loop-callout-title">
+                {CALLOUT_ICON[tone]} {b.title}
+              </div>
+              <p className="text-sm leading-7">
+                <Md text={b.text ?? ""} />
+              </p>
             </div>
           );
         }
-        if (b.kind === "callout")
-          return (
-            <div key={i} className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-              {b.title ? <div className="text-xs font-semibold text-accent">{b.title}</div> : null}
-              <P text={b.text ?? ""} />
-            </div>
-          );
         if (b.kind === "list")
           return (
-            <ul key={i} className="flex list-disc flex-col gap-1 pl-5 text-sm leading-6 text-muted-foreground">
+            <ul key={i} className="flex flex-col gap-2">
               {(b.items ?? []).map((item, j) => (
-                <li key={j}>
-                  <Md text={item} />
+                <li key={j} className="flex gap-2">
+                  <span aria-hidden="true" style={{ color: "var(--loop-ink-3)" }}>
+                    —
+                  </span>
+                  <span>
+                    <Md text={item} />
+                  </span>
                 </li>
               ))}
             </ul>
@@ -151,20 +204,11 @@ function Blocks({ blocks }: { blocks: Block[] }) {
         if (b.kind === "code")
           return (
             <div key={i}>
-              <pre className="overflow-x-auto rounded-md border bg-muted/40 p-2.5 font-mono text-xs leading-5">
-                {b.code}
-              </pre>
-              {b.caption ? (
-                <p className="mt-1 font-mono text-xs text-muted-foreground/70">{b.caption}</p>
-              ) : null}
+              <pre className="loop-codeblock">{b.code}</pre>
+              {b.caption ? <p className="loop-codecaption">{b.caption}</p> : null}
             </div>
           );
-        if (b.kind === "deep")
-          return (
-            <Reveal key={i} label={`深入 · ${b.title ?? ""}`}>
-              <Blocks blocks={b.blocks ?? []} />
-            </Reveal>
-          );
+        if (b.kind === "deep") return <DeepBlock key={i} b={b} />;
         return <P key={i} text={b.text ?? ""} />;
       })}
     </div>
@@ -174,6 +218,103 @@ function Blocks({ blocks }: { blocks: Block[] }) {
 function asList(v?: string[] | string): string[] {
   if (!v) return [];
   return Array.isArray(v) ? v : [v];
+}
+
+// 3D flip cards for glossary steps (original: front = term/en/点击翻面, back =
+// blue-wash plain + example; progress gates the 下一步 button).
+function GlossaryCards({
+  cards,
+  onProgress,
+}: {
+  cards: NonNullable<LessonStep["cards"]>;
+  onProgress?: (flipped: number, total: number) => void;
+}) {
+  const [flipped, setFlipped] = useState<Set<number>>(new Set());
+  const flip = (i: number) => {
+    setFlipped((prev) => {
+      const nextSet = new Set(prev);
+      if (nextSet.has(i)) nextSet.delete(i);
+      else nextSet.add(i);
+      onProgress?.(nextSet.size, cards.length);
+      return nextSet;
+    });
+  };
+  const allDone = flipped.size >= cards.length;
+  return (
+    <>
+      <div className="grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+        {cards.map((c, i) => {
+          const isFlipped = flipped.has(i);
+          return (
+            <button
+              key={c.term}
+              type="button"
+              onClick={() => flip(i)}
+              className="text-left"
+              style={{ perspective: 900, height: 168, background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            >
+              <span
+                className="relative block h-full w-full"
+                style={{
+                  transformStyle: "preserve-3d",
+                  transition: "transform .5s",
+                  transform: isFlipped ? "rotateY(180deg)" : "none",
+                }}
+              >
+                {/* front */}
+                <span
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 text-center"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    borderRadius: "var(--loop-radius, 10px)",
+                    border: "1px solid var(--loop-line, #d7dfe8)",
+                    background: "var(--loop-raised, #fff)",
+                    padding: "16px 18px",
+                  }}
+                >
+                  <span
+                    className="text-lg font-bold"
+                    style={{ color: "var(--loop-blue, #2456a6)", fontFamily: "var(--loop-font-display, serif)" }}
+                  >
+                    {c.term}
+                  </span>
+                  <span className="font-mono text-xs" style={{ color: "var(--loop-ink-3, #7b8b9c)" }}>
+                    {c.en}
+                  </span>
+                  <span className="mt-1 text-xs" style={{ color: "var(--loop-ink-3, #7b8b9c)" }}>
+                    点击翻面 ↻
+                  </span>
+                </span>
+                {/* back */}
+                <span
+                  className="absolute inset-0 flex flex-col gap-1.5 overflow-y-auto"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                    borderRadius: "var(--loop-radius, 10px)",
+                    border: "1px solid #c4d5ee",
+                    background: "var(--loop-blue-wash, #e3ecf7)",
+                    padding: "16px 18px",
+                  }}
+                >
+                  <span className="text-sm leading-6">
+                    <Md text={c.plain} />
+                  </span>
+                  <span className="text-xs leading-5" style={{ color: "var(--loop-ink-2, #43566a)" }}>
+                    例：<Md text={c.example} />
+                  </span>
+                </span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+      <p className="text-sm" style={{ color: "var(--loop-ink-3, #7b8b9c)" }}>
+        已翻看 {flipped.size} / {cards.length} 张
+        {allDone ? " ✓ 词汇装备完成" : " —— 全部翻完再继续"}
+      </p>
+    </>
+  );
 }
 
 // Several fields (brief/debrief/intro/…) are string in some lessons and
@@ -188,7 +329,13 @@ function Paras({ v }: { v?: string[] | string }) {
   );
 }
 
-function Step({ s }: { s: LessonStep }) {
+function Step({
+  s,
+  onProgress,
+}: {
+  s: LessonStep;
+  onProgress?: (answered: number, total: number) => void;
+}) {
   const body = (() => {
     switch (s.kind) {
       case "intro":
@@ -208,90 +355,49 @@ function Step({ s }: { s: LessonStep }) {
         return (
           <>
             <Paras v={s.brief} />
-            <div className="grid gap-2 sm:grid-cols-2">
-              {(s.cards ?? []).map((c) => (
-                <div key={c.term} className="rounded-md border px-2.5 py-2">
-                  <div className="font-mono text-xs font-semibold text-accent">
-                    {c.term} <span className="font-normal text-muted-foreground">{c.en}</span>
-                  </div>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                    <Md text={c.plain} />
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground/70">
-                    例：<Md text={c.example} />
-                  </p>
-                </div>
-              ))}
-            </div>
+            <GlossaryCards cards={s.cards ?? []} onProgress={onProgress} />
           </>
         );
       case "whynow":
         return (
-          <>
-            {s.taken ? <P text={s.taken} /> : null}
-            {s.left ? <P text={s.left} /> : null}
-            {s.cost ? (
-              <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                <P text={s.cost} />
+          <div className="loop-whynow">
+            {s.taken ? (
+              <div className="loop-whynow-cell loop-whynow-taken">
+                <h5>AI 拿走了什么</h5>
+                <p>
+                  <Md text={s.taken} />
+                </p>
               </div>
             ) : null}
-          </>
+            {s.left ? (
+              <div className="loop-whynow-cell loop-whynow-left">
+                <h5>留给你的是什么</h5>
+                <p>
+                  <Md text={s.left} />
+                </p>
+              </div>
+            ) : null}
+            {s.cost ? (
+              <div className="loop-whynow-cell loop-whynow-cost">
+                <h5>不学的代价（真实事故）</h5>
+                <p>
+                  <Md text={s.cost} />
+                </p>
+              </div>
+            ) : null}
+          </div>
         );
       case "explain":
         return <Blocks blocks={s.blocks ?? []} />;
       case "quiz":
-        return (
-          <>
-            {(s.questions ?? []).map((q, i) => (
-              <div key={i} className="rounded-md border px-3 py-2">
-                <p className="text-sm font-medium">
-                  <Md text={q.stem} />
-                </p>
-                <ul className="mt-1.5 flex flex-col gap-1">
-                  {q.options.map((o, j) => (
-                    <li key={j} className="text-sm leading-6 text-muted-foreground">
-                      {String.fromCharCode(65 + j)}. <Md text={o.text} />
-                      {o.misconception ? (
-                        <Reveal label="为什么不对">
-                          <P text={o.misconception} />
-                        </Reveal>
-                      ) : null}
-                    </li>
-                  ))}
-                </ul>
-                {q.explain ? (
-                  <Reveal label="解析">
-                    <P text={q.explain} />
-                  </Reveal>
-                ) : null}
-              </div>
-            ))}
-          </>
-        );
+        return <QuizGame s={s} md={md} onProgress={(a, t) => onProgress?.(a, t)} />;
       case "judgment":
         return (
           <>
             {asList(s.scenario).map((p, i) => (
               <P key={i} text={p} />
             ))}
-            {s.prompt ? <p className="text-sm font-medium text-accent">{s.prompt}</p> : null}
-            {(s.choices ?? []).map((c, i) => (
-              <div key={i} className="rounded-md border px-3 py-2">
-                <p className="text-sm font-medium">
-                  <Md text={c.label} />
-                </p>
-                {c.feedback ? (
-                  <Reveal label={c.dimension ? `反馈 · ${c.dimension}` : "反馈"}>
-                    <P text={c.feedback} />
-                  </Reveal>
-                ) : null}
-              </div>
-            ))}
-            {s.takeaway ? (
-              <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                <P text={s.takeaway} />
-              </div>
-            ) : null}
+            <JudgmentGame s={s} md={md} onDone={() => onProgress?.(1, 1)} />
           </>
         );
       case "outro":
@@ -328,14 +434,7 @@ function Step({ s }: { s: LessonStep }) {
         return (
           <>
             <Paras v={s.brief} />
-            <pre className="overflow-x-auto rounded-md border bg-muted/40 p-2.5 font-mono text-xs leading-5">
-              {(s.lines ?? []).map((l) => l.code).join("\n")}
-            </pre>
-            {s.debrief ? (
-              <Reveal label="复盘">
-                <Paras v={s.debrief} />
-              </Reveal>
-            ) : null}
+            <CodereviewGame s={s} md={md} onDone={() => onProgress?.(1, 1)} />
           </>
         );
       case "decision":
@@ -344,113 +443,18 @@ function Step({ s }: { s: LessonStep }) {
             {asList(s.scenario).map((p, i) => (
               <P key={i} text={p} />
             ))}
-            {(s.stages ?? []).map((st, i) => (
-              <div key={i} className="rounded-md border px-3 py-2">
-                {(st.situation ?? []).map((p, j) => (
-                  <P key={j} text={p} />
-                ))}
-                {st.prompt ? <p className="mt-1 text-sm font-medium text-accent">{st.prompt}</p> : null}
-                {(st.choices ?? []).map((c, j) => (
-                  <div key={j} className="mt-1.5">
-                    <p className="text-sm font-medium">
-                      <Md text={c.label} />
-                    </p>
-                    {c.detail ? <P text={c.detail} /> : null}
-                    {c.consequence?.length ? (
-                      <Reveal label="后果">
-                        {c.consequence.map((p, k) => (
-                          <P key={k} text={p} />
-                        ))}
-                      </Reveal>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            ))}
-            {s.finale ? (
-              typeof s.finale === "string" ? (
-                <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                  <P text={s.finale} />
-                </div>
-              ) : (
-                <div className="flex flex-col gap-1.5">
-                  {s.finale.goodEnding?.length ? (
-                    <Reveal label="好结局">
-                      {s.finale.goodEnding.map((p, i) => (
-                        <P key={i} text={p} />
-                      ))}
-                    </Reveal>
-                  ) : null}
-                  {s.finale.badEnding?.length ? (
-                    <Reveal label="坏结局">
-                      {s.finale.badEnding.map((p, i) => (
-                        <P key={i} text={p} />
-                      ))}
-                    </Reveal>
-                  ) : null}
-                  {s.finale.expertDebrief?.length ? (
-                    <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                      <div className="text-xs font-semibold text-accent">专家复盘</div>
-                      {s.finale.expertDebrief.map((p, i) => (
-                        <P key={i} text={p} />
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              )
-            ) : null}
+            <DecisionGame s={s} md={md} onDone={() => onProgress?.(1, 1)} />
           </>
         );
       case "estimate":
-        return (
-          <>
-            {(s.items ?? []).map((it, i) => (
-              <div key={i} className="rounded-md border px-3 py-2">
-                <p className="text-sm font-medium">
-                  <Md text={it.stem} />
-                </p>
-                <ul className="mt-1 flex flex-col gap-0.5 text-sm text-muted-foreground">
-                  {it.options.map((o, j) => (
-                    <li key={j}>
-                      {String.fromCharCode(65 + j)}. <Md text={o} />
-                    </li>
-                  ))}
-                </ul>
-                <Reveal label="答案">
-                  <p className="text-sm font-medium text-accent">
-                    {String.fromCharCode(65 + it.answerIndex)}
-                  </p>
-                  {it.reveal ? <P text={it.reveal} /> : null}
-                </Reveal>
-              </div>
-            ))}
-          </>
-        );
+        return <EstimateGame s={s} md={md} onProgress={(a, t) => onProgress?.(a, t)} />;
       case "theater":
         return (
           <>
             {asList(s.scenario).map((p, i) => (
               <P key={i} text={p} />
             ))}
-            {s.prompt ? <p className="text-sm font-medium text-accent">{s.prompt}</p> : null}
-            {(s.moves ?? []).map((m, i) => (
-              <div key={i} className="rounded-md border px-3 py-2">
-                <p className="text-sm font-medium">
-                  <Md text={m.label} />
-                </p>
-                {m.counter ? <P text={m.counter} /> : null}
-                {(m.responses ?? []).map((r, j) => (
-                  <Reveal key={j} label={r.label}>
-                    {r.feedback ? <P text={r.feedback} /> : null}
-                  </Reveal>
-                ))}
-              </div>
-            ))}
-            {s.takeaway ? (
-              <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                <P text={s.takeaway} />
-              </div>
-            ) : null}
+            <TheaterGame s={s} md={md} onDone={() => onProgress?.(1, 1)} />
           </>
         );
       case "timeline":
@@ -506,13 +510,21 @@ function Step({ s }: { s: LessonStep }) {
           </>
         );
       case "diagram":
+        return (
+          <>
+            <Paras v={s.brief} />
+            {s.diagram === "frontback" ? <DiagramFrontback /> : null}
+            <Paras v={s.debrief} />
+          </>
+        );
       case "sim":
         return (
           <>
             <Paras v={s.brief} />
-            <p className="font-mono text-xs text-muted-foreground/60">
-              （原课为互动{s.kind === "sim" ? "模拟器" : "图解"}，此处收录文字内容）
-            </p>
+            {s.sim === "peoplenet" ? <PeoplenetSim /> : null}
+            {s.sim === "race" ? <RaceSim onFinished={() => onProgress?.(1, 1)} /> : null}
+            {s.sim === "commander" ? <CommanderSim onFinished={() => onProgress?.(1, 1)} /> : null}
+            {s.sim === "gittimeline" ? <GitTimelineSim onFinished={() => onProgress?.(1, 1)} /> : null}
             <Paras v={s.debrief} />
           </>
         );
@@ -529,11 +541,17 @@ function Step({ s }: { s: LessonStep }) {
   );
 }
 
-export default function WikiLesson({ lesson }: { lesson: Lesson }) {
+export default function WikiLesson({
+  lesson,
+  onProgress,
+}: {
+  lesson: Lesson;
+  onProgress?: (answered: number, total: number) => void;
+}) {
   return (
     <div className="flex flex-col gap-4 border-t pt-3">
       {lesson.steps.map((s, i) => (
-        <Step key={i} s={s} />
+        <Step key={i} s={s} onProgress={onProgress} />
       ))}
     </div>
   );

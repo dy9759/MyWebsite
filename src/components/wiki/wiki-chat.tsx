@@ -31,12 +31,18 @@ export default function WikiChat({
   showHeader = true,
   connected = false,
   pending = false,
+  chips,
+  placeholder,
+  footnote,
 }: {
   convo: WikiMsg[];
   onSend: (q: string) => void;
   showHeader?: boolean;
   connected?: boolean;
   pending?: boolean;
+  chips?: string[];
+  placeholder?: string;
+  footnote?: React.ReactNode;
 }) {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
@@ -70,13 +76,15 @@ export default function WikiChat({
         </div>
       ) : null}
 
-      <div className="flex flex-wrap gap-1.5 px-4 pt-2.5">
-        {ui.chips.map((c) => (
+      <div className="flex flex-col gap-1.5 px-4 pt-2.5">
+        <p className="text-center text-sm font-semibold">{ui.chat.emptyPrompt}</p>
+        <p className="text-center text-xs leading-5 text-muted-foreground">{ui.chat.emptySub}</p>
+        {(chips ?? ui.chips).map((c) => (
           <button
             key={c}
             type="button"
             onClick={() => onSend(c)}
-            className="rounded-full border bg-muted/40 px-2.5 py-1 text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+            className="w-full rounded-lg border bg-background px-3 py-1.5 text-left text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
           >
             {c}
           </button>
@@ -112,7 +120,7 @@ export default function WikiChat({
             onKeyDown={(e) => {
               if (e.key === "Enter") submit();
             }}
-            placeholder={ui.chat.placeholder}
+            placeholder={placeholder ?? ui.chat.placeholder}
             aria-label={ui.chat.title}
             disabled={pending}
             className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/60 disabled:opacity-60"
@@ -127,6 +135,9 @@ export default function WikiChat({
           {ui.chat.send}
         </button>
       </div>
+      <p className="px-4 pb-3 text-center font-mono text-[0.66rem] text-muted-foreground/60">
+        {footnote ?? ui.chat.footnote}
+      </p>
     </div>
   );
 }
