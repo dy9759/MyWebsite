@@ -1,8 +1,14 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useLanguage, useAIConfig } from "@/components/language-provider";
 import { WIKI_TERMS, WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
+import { VIBE_GROUPS, VIBE_TERM_COUNT } from "@/content/wiki-vibe-terms";
+import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
+import WikiLesson, { type Lesson } from "@/components/wiki/wiki-lesson";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 import { cn } from "@/lib/utils";
 
 export type WikiDomain = "sources" | "vibe" | "course" | "jobs";
@@ -53,6 +59,20 @@ export default function WikiBrowse({
   const ai = useAIConfig();
   const ui = WIKI_UI[language];
 
+  // Lesson bodies load on demand from public/wiki/lessons/*.json.
+  const [openLesson, setOpenLesson] = useState<string | null>(null);
+  const [lessons, setLessons] = useState<Record<string, Lesson | "loading" | "error">>({});
+  const toggleLesson = (lessonId: string) => {
+    setOpenLesson((cur) => (cur === lessonId ? null : lessonId));
+    if (!lessons[lessonId]) {
+      setLessons((prev) => ({ ...prev, [lessonId]: "loading" }));
+      fetch(`${BASE_PATH}/wiki/lessons/${lessonId}.json`)
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+        .then((data: Lesson) => setLessons((prev) => ({ ...prev, [lessonId]: data })))
+        .catch(() => setLessons((prev) => ({ ...prev, [lessonId]: "error" })));
+    }
+  };
+
   // ---- AI 知识源 (live from AI_CONFIG) ----
   if (domain === "sources") {
     const dedupe = (arr: BrowseItem[]) => {
@@ -101,7 +121,11 @@ export default function WikiBrowse({
   // ---- Vibe Hub ----
   if (domain === "vibe") {
     return (
-      <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 py-4">
+      <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
+        {/* core AI terms (with cross-domain links) */}
+        <p className="font-mono text-xs uppercase tracking-widest text-accent">
+          {language === "zh" ? "核心 · AI" : "Core · AI"}
+        </p>
         {WIKI_TERMS.map((t) => (
           <article key={t.term} className="rounded-lg border border-l-2 border-l-accent p-3">
             <h4 className="font-mono text-sm font-medium text-accent"># {t.term}</h4>
@@ -114,6 +138,39 @@ export default function WikiBrowse({
               ))}
             </div>
           </article>
+        ))}
+
+        {/* real glossary from vibe-hub.org */}
+        <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2 border-t pt-3">
+          <p className="font-mono text-xs uppercase tracking-widest text-accent">
+            {language === "zh" ? `vibe coding 术语 · ${VIBE_TERM_COUNT}` : `Vibe coding terms · ${VIBE_TERM_COUNT}`}
+          </p>
+          <a
+            href="https://vibe-hub.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs text-accent hover:underline"
+          >
+            vibe-hub.org ↗
+          </a>
+        </div>
+        <p className="-mt-1 text-xs text-muted-foreground/70">
+          {language === "zh"
+            ? "另有 Backend / Product / 技术栈 / AI / Git / Design 约 144 词，待接入。"
+            : "Backend / Product / Tech Stack / AI / Git / Design (~144 more) pending import."}
+        </p>
+        {VIBE_GROUPS.map((g) => (
+          <div key={g.cat.en}>
+            <h4 className="mb-1.5 text-sm font-semibold">{g.cat[language]}</h4>
+            <dl className="grid gap-1.5">
+              {g.terms.map((term) => (
+                <div key={term.t} className="rounded-md border bg-muted/30 px-2.5 py-1.5">
+                  <dt className="font-mono text-xs font-medium text-accent">{term.t}</dt>
+                  <dd className="text-xs leading-5 text-muted-foreground">{term.d}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         ))}
       </div>
     );
@@ -152,7 +209,7 @@ export default function WikiBrowse({
 
   // ---- 闭环学院 (course) ----
   const c = WIKI_COURSE;
-  const pct = Math.round((c.done / c.total) * 100);
+  const pct = Math.round((c.done / COURSE_TOTAL_LOOPS) * 100);
   return (
     <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
       <div>
@@ -165,52 +222,76 @@ export default function WikiBrowse({
           <div className="h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
         </div>
         <p className="mt-1.5 font-mono text-xs text-muted-foreground">
-          {c.done} / {c.total} {ui.progress} · {ui.progressEcho}
+          {c.done} / {COURSE_TOTAL_LOOPS} {ui.progress} · {ui.progressEcho}
         </p>
       </div>
-      {c.chapters.map((ch) => (
-        <div key={ch.num} className="rounded-xl border p-3.5">
-          <div className="font-mono text-xs text-accent">{ch.num}</div>
+      {COURSE_CHAPTERS.map((ch) => (
+        <div key={ch.id} className="rounded-xl border p-3.5">
+          <div className="font-mono text-xs text-accent">第 {ch.index} 章</div>
           <h4 className="mt-0.5 text-base font-bold">{ch.title}</h4>
-          <p className="mb-2.5 mt-0.5 text-sm text-muted-foreground">{ch.sub}</p>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {ch.lessons.map((l) => (
-              <div
-                key={l.no}
-                className={cn(
-                  "rounded-lg border border-l-2 bg-muted/40 p-2.5",
-                  l.done ? "border-l-accent" : "border-l-border",
-                )}
-              >
-                <div className="mb-1.5 flex items-center gap-1.5">
-                  <span className="font-mono text-xs text-muted-foreground">{l.no}</span>
-                  <span className="rounded-full border border-accent px-1.5 text-[0.62rem] text-accent">
-                    {l.type}
-                  </span>
-                  <span
-                    className={cn(
-                      "ml-auto text-xs",
-                      l.done ? "text-accent" : "text-muted-foreground/60",
-                    )}
+          <p className="mb-2.5 mt-0.5 text-sm text-muted-foreground">{ch.tagline}</p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {ch.nodes.map((l, i) => {
+              const open = openLesson === l.lessonId;
+              const loaded = lessons[l.lessonId];
+              return (
+                <div
+                  key={l.id}
+                  className={cn(
+                    "rounded-lg border border-l-2 bg-muted/40",
+                    open ? "border-l-accent sm:col-span-2" : "border-l-border",
+                  )}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleLesson(l.lessonId)}
+                    aria-expanded={open}
+                    className="w-full p-2.5 text-left"
                   >
-                    {l.done ? ui.done : ui.todo}
-                  </span>
+                    <div className="mb-1.5 flex items-center gap-1.5">
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="rounded-full border border-accent px-1.5 text-[0.62rem] text-accent">
+                        {l.type}
+                      </span>
+                      <span className="ml-auto font-mono text-[0.66rem] text-muted-foreground/60">
+                        {ui.minutesPrefix} {l.minutes} {ui.minutesSuffix}
+                      </span>
+                      <ChevronDown
+                        className={cn(
+                          "size-3.5 text-muted-foreground transition-transform",
+                          open && "rotate-180",
+                        )}
+                      />
+                    </div>
+                    <div className="text-sm font-medium leading-tight">{l.title}</div>
+                    <div className="mt-1 text-xs leading-5 text-muted-foreground">{l.hook}</div>
+                  </button>
+                  {open ? (
+                    <div className="px-2.5 pb-2.5">
+                      {loaded === "loading" || !loaded ? (
+                        <p className="animate-pulse border-t pt-3 font-mono text-xs text-muted-foreground">
+                          …
+                        </p>
+                      ) : loaded === "error" ? (
+                        <p className="border-t pt-3 font-mono text-xs text-muted-foreground">
+                          {language === "zh" ? "加载失败，重试一下。" : "Failed to load — try again."}
+                        </p>
+                      ) : (
+                        <WikiLesson lesson={loaded} />
+                      )}
+                    </div>
+                  ) : null}
                 </div>
-                <div className="text-sm font-medium leading-tight">{l.title}</div>
-                <div className="mt-1 font-mono text-[0.66rem] text-muted-foreground/60">
-                  {ui.minutesPrefix} {l.min} {ui.minutesSuffix}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-2.5 rounded-lg border border-dashed border-accent bg-accent/5 px-3 py-2 text-sm">
-            🚩 {ui.milestone}：<b className="text-accent">{ch.milestone}</b>
+            🚩 {ch.milestone}
           </div>
         </div>
       ))}
-      <div className="rounded-xl border border-dashed px-3 py-3 text-center font-mono text-xs text-muted-foreground/70">
-        {c.rest}
-      </div>
     </div>
   );
 }

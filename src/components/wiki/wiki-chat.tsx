@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, type WikiReply } from "@/content/wiki";
+import { cn } from "@/lib/utils";
 
 export type WikiMsg =
   | { role: "u"; text: string }
@@ -28,10 +29,14 @@ export default function WikiChat({
   convo,
   onSend,
   showHeader = true,
+  connected = false,
+  pending = false,
 }: {
   convo: WikiMsg[];
   onSend: (q: string) => void;
   showHeader?: boolean;
+  connected?: boolean;
+  pending?: boolean;
 }) {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
@@ -39,7 +44,7 @@ export default function WikiChat({
 
   const submit = () => {
     const q = value.trim();
-    if (!q) return;
+    if (!q || pending) return;
     onSend(q);
     setValue("");
   };
@@ -50,8 +55,15 @@ export default function WikiChat({
         <div className="px-4 pb-1 pt-3.5">
           <p className="flex items-center justify-between gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground/70">
             <span>{ui.chat.title}</span>
-            <span className="rounded-full border border-accent px-1.5 tracking-normal text-accent">
-              {ui.chat.tag}
+            <span
+              className={cn(
+                "rounded-full border px-1.5 tracking-normal",
+                connected
+                  ? "border-accent bg-accent/10 text-accent"
+                  : "border-accent text-accent",
+              )}
+            >
+              {connected ? ui.chat.tagLive : ui.chat.tag}
             </span>
           </p>
           <p className="mt-1 text-sm text-muted-foreground">{ui.chat.sub}</p>
@@ -84,6 +96,11 @@ export default function WikiChat({
             <Answer key={i} data={m.data} />
           ),
         )}
+        {pending ? (
+          <div className="max-w-[90%] animate-pulse self-start rounded-xl rounded-bl-sm border bg-muted/40 px-3 py-2 text-sm text-muted-foreground">
+            …
+          </div>
+        ) : null}
       </div>
 
       <div className="flex items-center gap-2 px-4 pb-4 pt-2">
@@ -97,13 +114,15 @@ export default function WikiChat({
             }}
             placeholder={ui.chat.placeholder}
             aria-label={ui.chat.title}
-            className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/60"
+            disabled={pending}
+            className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/60 disabled:opacity-60"
           />
         </div>
         <button
           type="button"
           onClick={submit}
-          className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground"
+          disabled={pending}
+          className="shrink-0 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-foreground disabled:opacity-60"
         >
           {ui.chat.send}
         </button>

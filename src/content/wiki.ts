@@ -14,21 +14,6 @@ export type WikiTerm = {
   rel: WikiCite[];
 };
 
-export type WikiLesson = {
-  no: string;
-  type: string;
-  done: boolean;
-  title: string;
-  min: number;
-};
-export type WikiChapter = {
-  num: string;
-  title: string;
-  sub: string;
-  lessons: WikiLesson[];
-  milestone: string;
-};
-
 export const WIKI_TERMS: WikiTerm[] = [
   {
     term: "vibe coding",
@@ -78,39 +63,14 @@ export const WIKI_TERMS: WikiTerm[] = [
   },
 ];
 
-// 闭环学院 — replicated from the site's visible structure (chapters 0–1). The
-// remaining chapters need the source content (the origin site is unreachable).
+// 闭环学院 header + the user's own progress. The full course structure lives in
+// wiki-course.ts and lesson bodies in public/wiki/lessons/*.json (imported with
+// the user's authorization — the course is their personalized program).
 export const WIKI_COURSE = {
   eyebrow: "你的建造者旅程",
   title: "lsy：从 Vibe Coder 到 Product Builder",
   desc: "八章 = 你用 AI 做「语音智能体」的真实生命周期。每章知识在被需要的那一刻出现，走完这条路，产出的是一个真实上线的产品。",
   done: 3,
-  total: 29,
-  chapters: [
-    {
-      num: "第 0 章",
-      title: "你刚刚创造了什么",
-      sub: "解剖一次 vibe coding —— 从你已有的经验出发",
-      lessons: [
-        { no: "01", type: "概念", done: true, title: "解剖一次 vibe coding", min: 35 },
-        { no: "02", type: "概念", done: true, title: "本地与服务器：代码住在哪里", min: 35 },
-        { no: "03", type: "概念", done: true, title: "从输入网址到看到页面", min: 35 },
-      ],
-      milestone: "用 AI 生成你产品的 v0.1，亲手画出它的文件地图",
-    },
-    {
-      num: "第 1 章",
-      title: "软件的解剖学",
-      sub: "前端、后端与数据的世界 —— 看懂结构，才能对话、排期、验收",
-      lessons: [
-        { no: "04", type: "概念", done: false, title: "前端：你看得见的那一层", min: 35 },
-        { no: "05", type: "概念", done: false, title: "后端：看不见的逻辑与规则", min: 35 },
-        { no: "06", type: "概念", done: false, title: "数据：信息如何被存下来", min: 35 },
-      ],
-      milestone: "画出你产品的前后端与数据流图",
-    },
-  ] as WikiChapter[],
-  rest: "第 2 – 7 章 · 剩余 23 回路（原站内容，待接入）",
 };
 
 // AI Native 招聘 — job postings from AI-native companies (user-curated links).
@@ -148,6 +108,8 @@ export const WIKI_UI = {
     intro: "浏览四大知识域，或问随行 —— 左右两侧同一底层数据源。",
     protoNote:
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
+    connectedNote:
+      "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
     browseTitle: "AI Sense Wiki · 知识库",
     domains: { sources: "AI 知识源", vibe: "Vibe Hub", course: "闭环学院", jobs: "AI Native 招聘" },
     sourceCats: {
@@ -160,15 +122,13 @@ export const WIKI_UI = {
     related: "关联",
     progress: "个回路已完成",
     progressEcho: "学过的知识会在后续回路里「回声」式复现",
-    done: "✓ 已完成",
-    todo: "○ 未开始",
-    milestone: "里程碑",
     minutesPrefix: "约",
     minutesSuffix: "分钟",
     chat: {
       title: "随行 · 跨域问答",
       sub: "与左侧同一数据源；回答带来源 / 术语 / 课程引用。",
       tag: "演示",
+      tagLive: "已接入",
       placeholder: "问点什么…（演示，未接后端）",
       send: "发送",
     },
@@ -180,6 +140,8 @@ export const WIKI_UI = {
     intro: "Browse four knowledge domains, or ask the companion — both share one data source.",
     protoNote:
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
+    connectedNote:
+      "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
     browseTitle: "AI Sense Wiki · Knowledge base",
     domains: { sources: "AI Sources", vibe: "Vibe Hub", course: "Loop Academy", jobs: "AI-Native Jobs" },
     sourceCats: {
@@ -192,15 +154,13 @@ export const WIKI_UI = {
     related: "Related",
     progress: "loops done",
     progressEcho: "Learned ideas echo back in later loops",
-    done: "✓ Done",
-    todo: "○ Not started",
-    milestone: "Milestone",
     minutesPrefix: "~",
     minutesSuffix: "min",
     chat: {
       title: "Companion · cross-domain Q&A",
       sub: "Same data source as the left; answers cite sources / terms / course.",
       tag: "Demo",
+      tagLive: "Live",
       placeholder: "Ask anything… (demo, no backend)",
       send: "Send",
     },

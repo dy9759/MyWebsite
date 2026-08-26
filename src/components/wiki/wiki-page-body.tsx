@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
-import { WIKI_UI, WIKI_TERMS, WIKI_COURSE, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
+import { WIKI_UI, WIKI_TERMS, WIKI_JOBS, wikiDemoReply, type WikiReply } from "@/content/wiki";
+import { VIBE_TERM_COUNT } from "@/content/wiki-vibe-terms";
+import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
+
+const API_URL = process.env.NEXT_PUBLIC_WIKI_API_URL;
+const CONNECTED = Boolean(API_URL);
 import WikiBrowse, { type WikiDomain, type SourceCat } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
 import { cn } from "@/lib/utils";
@@ -18,25 +23,42 @@ export default function WikiPageBody() {
   const [sourceCat, setSourceCat] = useState<SourceCat>("podcasts");
   const [mode, setMode] = useState<"rail" | "float">("rail");
   const [floatOpen, setFloatOpen] = useState(true);
+  const [pending, setPending] = useState(false);
   const seed = ui.chips[2];
   const [convo, setConvo] = useState<WikiMsg[]>([
     { role: "u", text: seed },
     { role: "a", data: wikiDemoReply(seed, language) },
   ]);
 
-  const send = (q: string) => {
-    setConvo((prev) => [
-      ...prev,
-      { role: "u", text: q },
-      { role: "a", data: wikiDemoReply(q, language) },
-    ]);
+  const send = async (q: string) => {
+    setConvo((prev) => [...prev, { role: "u", text: q }]);
     if (mode === "float") setFloatOpen(true);
+    if (!API_URL) {
+      setConvo((prev) => [...prev, { role: "a", data: wikiDemoReply(q, language) }]);
+      return;
+    }
+    setPending(true);
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ message: q, language }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = (await res.json()) as WikiReply;
+      setConvo((prev) => [...prev, { role: "a", data }]);
+    } catch {
+      // backend unreachable → graceful demo fallback
+      setConvo((prev) => [...prev, { role: "a", data: wikiDemoReply(q, language) }]);
+    } finally {
+      setPending(false);
+    }
   };
 
   const domainCount: Record<WikiDomain, string> = {
     sources: "6",
-    vibe: String(WIKI_TERMS.length),
-    course: String(WIKI_COURSE.total),
+    vibe: String(WIKI_TERMS.length + VIBE_TERM_COUNT),
+    course: String(COURSE_TOTAL_LOOPS),
     jobs: String(WIKI_JOBS.length),
   };
 
@@ -46,7 +68,9 @@ export default function WikiPageBody() {
         <p className="font-mono text-xs uppercase tracking-widest text-accent">{ui.kicker}</p>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">AI Sense Wiki</h1>
         <p className="mt-1 max-w-2xl text-muted-foreground">{ui.intro}</p>
-        <p className="mt-2 font-mono text-xs text-muted-foreground/70">※ {ui.protoNote}</p>
+        <p className="mt-2 font-mono text-xs text-muted-foreground/70">
+          ※ {CONNECTED ? ui.connectedNote : ui.protoNote}
+        </p>
       </header>
 
       <div className="overflow-hidden rounded-xl border shadow-sm">
@@ -92,6 +116,12 @@ export default function WikiPageBody() {
           <section
             aria-label="browse"
             className={cn("flex min-w-0 flex-col", mode === "rail" && "md:border-r")}
+            // loopacademy-style grid-paper background
+            style={{
+              backgroundImage:
+                "linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
           >
             <div className="flex flex-wrap gap-2 px-4 pb-1 pt-3">
               {DOMAINS.map((d) => (
@@ -119,7 +149,7 @@ export default function WikiPageBody() {
           {/* RIGHT: chat rail */}
           {mode === "rail" ? (
             <aside aria-label="companion" className="hidden md:flex md:flex-col">
-              <WikiChat convo={convo} onSend={send} />
+              <WikiChat convo={convo} onSend={send} connected={CONNECTED} pending={pending} />
             </aside>
           ) : null}
 
@@ -139,7 +169,7 @@ export default function WikiPageBody() {
                       <X className="size-4" />
                     </button>
                   </div>
-                  <WikiChat convo={convo} onSend={send} showHeader={false} />
+                  <WikiChat convo={convo} onSend={send} showHeader={false} connected={CONNECTED} pending={pending} />
                 </div>
               ) : null}
               <button
@@ -158,7 +188,7 @@ export default function WikiPageBody() {
       {/* mobile chat (rail mode hides the rail on small screens) */}
       {mode === "rail" ? (
         <div className="mt-4 overflow-hidden rounded-xl border md:hidden">
-          <WikiChat convo={convo} onSend={send} />
+          <WikiChat convo={convo} onSend={send} connected={CONNECTED} pending={pending} />
         </div>
       ) : null}
     </div>
