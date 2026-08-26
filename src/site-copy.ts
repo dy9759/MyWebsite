@@ -8,7 +8,8 @@ export const SITE_COPY = {
       projects: "代表案例",
       lab: "Builder Lab",
       research: "研究",
-      ai: "AI 资源库",
+      ai: "AI Sense Sources",
+      wiki: "Wiki",
     },
     sections: {
       about: "个人介绍",
@@ -60,8 +61,8 @@ export const SITE_COPY = {
     researchSectionNav: "研究分类导航",
     ai: {
       breadcrumbHome: "主页",
-      breadcrumbCurrent: "AI 资源库",
-      sidebarTitle: "AI 资源库",
+      breadcrumbCurrent: "AI Sense Sources",
+      sidebarTitle: "AI Sense Sources",
       sectionNavAria: "AI 资源分类导航",
       sectionNav: {
         usage: "使用说明",
@@ -123,7 +124,8 @@ export const SITE_COPY = {
       projects: "Case Studies",
       lab: "Builder Lab",
       research: "Research",
-      ai: "AI Library",
+      ai: "AI Sense Sources",
+      wiki: "Wiki",
     },
     sections: {
       about: "About",
@@ -175,7 +177,7 @@ export const SITE_COPY = {
     researchSectionNav: "Research category navigation",
     ai: {
       breadcrumbHome: "Home",
-      breadcrumbCurrent: "AI Library",
+      breadcrumbCurrent: "AI Sense Sources",
       sidebarTitle: "AI LIBRARY",
       sectionNavAria: "AI library section navigation",
       sectionNav: {

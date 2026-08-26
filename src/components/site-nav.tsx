@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/lab", labelKey: "lab" },
   { href: "/research", labelKey: "research" },
   { href: "/ai", labelKey: "ai" },
+  { href: "/wiki", labelKey: "wiki" },
 ] as const;
 
 const isActivePath = (pathname: string, href: string) => {

@@ -13,7 +13,7 @@ export default function FeaturedCaseStudies({
 }) {
   const { language } = useLanguage();
   const copy = PORTFOLIO_COPY[language];
-  // Ordered by number: 01 = most recently started, 04 = earliest.
+  // Ordered by number, ranked by impact: 01 = flagship, 04 = earliest-stage.
   const cases = [...copy.cases.items].sort((a, b) =>
     a.number.localeCompare(b.number),
   );

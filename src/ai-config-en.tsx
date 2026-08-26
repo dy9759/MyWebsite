@@ -176,7 +176,7 @@ const SOURCES_USAGE_EN: AIConfig['sourcesUsage'] = [
 export const AI_CONFIG_EN: AIConfig = {
     ...AI_CONFIG,
     hero: {
-        title: 'AI Learning Library',
+        title: 'AI Sense Sources',
         intro: 'This is not an exhaustive AI directory. It is the information system I use to understand model capabilities, product shifts, and the evolution of agents.',
         positioning:
             'I start with first-party launches, technical originals, and long-form interviews, then use community discussion and Chinese-language sources as market context.',

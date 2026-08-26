@@ -12,18 +12,18 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
   zh: {
     nav: {
       home: "首页",
-      cases: "代表案例",
+      cases: "项目经验",
       lab: "Builder Lab",
       research: "研究",
-      ai: "AI 资源库",
+      ai: "AI Sense Sources",
     },
     hero: {
       name: "李盛园",
       title: "AI 产品负责人 / Applied AI Builder",
       summary:
-        "从模型评测、产品设计到用户付费，把 AI 能力转化为真实用户持续使用的产品。",
+        "AI-native builder：双开 Claude Code / Codex、付费追前沿、用 AI 造 AI 产品；从模型评测、产品设计到用户付费，把 AI 能力转化为真实用户持续使用的产品。",
       location: "Hangzhou, China",
-      primaryCta: "查看代表案例",
+      primaryCta: "查看项目经验",
       secondaryCta: "邮件联系",
     },
     metrics: [
@@ -133,7 +133,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     cases: {
-      heading: "代表案例",
+      heading: "项目经验",
       intro:
         "AI 产品从 0 到 1 与规模化落地的实践，覆盖语音、评测与多 Agent 协作。",
       viewAll: "查看全部案例",
@@ -149,7 +149,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     experience: {
       heading: "工作经验",
       intro:
-        "一条能力主线：产品直觉（教培创业）→ 技术深度（AI 算法 · 电力低碳）→ AI 产品交付（SaySo Voice / Team / API）。",
+        "一条命中注定走向 AI 的主线：产品直觉（教培创业）→ 技术深度（AI 算法 · 电力低碳）→ AI 产品交付（SaySo Voice / Team / API）；每一段履历都是为做 AI 产品做的准备。",
       positions: [
         {
           company: "宇生月伴(杭州)智能科技有限公司 · VUILABS（Pre A 轮，Voice Agent 赛道）",
@@ -278,7 +278,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       resumeNote: "中英文 PDF 简历待补充",
     },
     casePage: {
-      back: "返回代表案例",
+      back: "返回项目经验",
       challenge: "背景与挑战",
       ownership: "我的职责",
       decisions: "关键产品判断",
@@ -295,18 +295,18 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
   en: {
     nav: {
       home: "Home",
-      cases: "Case Studies",
+      cases: "Projects",
       lab: "Builder Lab",
       research: "Research",
-      ai: "AI Library",
+      ai: "AI Sense Sources",
     },
     hero: {
       name: "Chauncey Lee",
       title: "AI Product Lead / Applied AI Builder",
       summary:
-        "I turn AI capabilities into products people keep using—from model evaluation and product design to user monetization.",
+        "AI-native builder — dual-run Claude Code / Codex, pay to stay on the frontier, build AI with AI; from model evaluation and product design to user monetization, turning AI into products people keep using.",
       location: "Hangzhou, China",
-      primaryCta: "View selected work",
+      primaryCta: "View projects",
       secondaryCta: "Email me",
     },
     metrics: [
@@ -406,7 +406,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       ],
     },
     cases: {
-      heading: "Selected Case Studies",
+      heading: "Projects",
       intro:
         "Zero-to-one and scaled AI product work across voice, evaluation and multi-agent collaboration.",
       viewAll: "View all case studies",
@@ -422,7 +422,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     experience: {
       heading: "Experience",
       intro:
-        "One throughline: product intuition (edtech founding) -> technical depth (AI algorithms, power & low-carbon) -> AI product delivery (SaySo Voice / Team / API).",
+        "One throughline that always led to AI: product intuition (edtech founding) -> technical depth (AI algorithms, power & low-carbon) -> AI product delivery (SaySo Voice / Team / API); every chapter was preparation for building AI products.",
       positions: [
         {
           company:
@@ -558,7 +558,7 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       resumeNote: "Verified CN / EN PDF resumes needed",
     },
     casePage: {
-      back: "Back to case studies",
+      back: "Back to projects",
       challenge: "Context & challenge",
       ownership: "My ownership",
       decisions: "Key product decisions",
