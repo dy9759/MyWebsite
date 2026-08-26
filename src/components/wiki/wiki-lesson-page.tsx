@@ -95,6 +95,7 @@ export default function WikiLessonPage({
   const [finished, setFinished] = useState(false);
   const [stepProgress, setStepProgress] = useState<Record<number, { answered: number; total: number }>>({});
   const [convo, setConvo] = useState<WikiMsg[]>([]);
+  const [tutorOpen, setTutorOpen] = useState(false);
   // Personalize {{project}}: server render uses the default anchor, the stored
   // profile applies after mount (keeps hydration deterministic).
   const [lessonP, setLessonP] = useState<Lesson>(() =>
@@ -155,6 +156,7 @@ export default function WikiLessonPage({
   };
 
   const sendChat = (q: string) => {
+    setTutorOpen(true);
     setConvo((prevMsgs) => [
       ...prevMsgs,
       { role: "u", text: q },
@@ -164,7 +166,7 @@ export default function WikiLessonPage({
 
   return (
     <div className="theme-loop -mt-4 min-h-[calc(100vh-4rem)] px-4 pb-10 pt-5">
-      <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-[minmax(0,1fr)_320px] md:items-start">
+      <div className="mx-auto" style={{ maxWidth: 780 }}>
         <div className="min-w-0">
           {/* back + chapter context */}
           <nav className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
@@ -381,8 +383,19 @@ export default function WikiLessonPage({
           </footer>
         </div>
 
-        {/* tutor rail */}
-        <aside className="hidden overflow-hidden md:block" style={raised} aria-label="随行导师">
+      </div>
+
+      {/* tutor — floating window, bottom-right */}
+      {tutorOpen ? (
+        <aside
+          className="fixed bottom-24 right-4 z-40 flex flex-col overflow-hidden"
+          style={{
+            ...raised,
+            width: "min(370px, calc(100vw - 2rem))",
+            height: "min(480px, calc(100vh - 8rem))",
+          }}
+          aria-label="随行导师"
+        >
           <div className="flex items-center gap-2 border-b px-4 py-2.5" style={{ borderColor: "var(--loop-line)" }}>
             <b className="text-sm">随行导师</b>
             <span
@@ -391,6 +404,15 @@ export default function WikiLessonPage({
             >
               {node.title}
             </span>
+            <button
+              type="button"
+              aria-label="收起随行导师"
+              onClick={() => setTutorOpen(false)}
+              className="ml-auto text-base leading-none"
+              style={{ color: "var(--loop-ink-3)" }}
+            >
+              ×
+            </button>
           </div>
           <WikiChat
             convo={convo}
@@ -422,7 +444,23 @@ export default function WikiLessonPage({
             }
           />
         </aside>
-      </div>
+      ) : null}
+
+      {/* tutor FAB */}
+      <button
+        type="button"
+        aria-label={tutorOpen ? "收起随行导师" : "打开随行导师"}
+        onClick={() => setTutorOpen((o) => !o)}
+        className="fixed bottom-6 right-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow-lg"
+        style={{ background: "var(--loop-blue)" }}
+      >
+        <span
+          aria-hidden="true"
+          className="inline-block size-2 rounded-full"
+          style={{ background: "var(--loop-green)" }}
+        />
+        随行导师
+      </button>
 
       {/* 问这句 floating action on text selection */}
       {quote ? (
