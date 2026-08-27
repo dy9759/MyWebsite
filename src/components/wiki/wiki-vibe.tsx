@@ -189,6 +189,10 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
           </p>
         </div>
       </div>
+      {(() => {
+        const openLesson = Array.isArray(lessons) ? lessons.find((x) => x.id === openId) ?? null : null;
+        return openLesson ? <VibeDetailModal l={openLesson} onClose={() => setOpenId(null)} /> : null;
+      })()}
     </div>
   );
 }
@@ -238,8 +242,38 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
           />
         )}
       </button>
-      {open ? (
-        <div className="vh-detail">
+    </>
+  );
+}
+
+// Full term detail — shown as a centered floating modal (was an inline
+// expander below the card row).
+function VibeDetailModal({ l, onClose }: { l: Lesson; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose]);
+  return (
+    <div className="vh-modal-backdrop" onClick={onClose} role="presentation">
+      <div
+        className="vh-modal theme-vibe"
+        role="dialog"
+        aria-modal="true"
+        aria-label={l.title}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button type="button" className="vh-modal-close" aria-label="关闭" onClick={onClose}>
+          ×
+        </button>
+        <div className="vh-detail !mt-0">
           <h3>
             {l.title}
             {l.secondaryTitle ? <span className="vh-en">{l.secondaryTitle}</span> : null}
@@ -313,7 +347,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
             </p>
           ) : null}
         </div>
-      ) : null}
-    </>
+      </div>
+    </div>
   );
 }

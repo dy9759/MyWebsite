@@ -565,3 +565,12 @@
 /* shared loop badge pills (course map card + lesson header — issue #64) */
 .theme-loop .loop-no { border-radius: 4px; padding: 2px 6px; font-family: var(--font-mono, ui-monospace); font-size: 12px; font-weight: 600; background: var(--loop-blue-wash); color: var(--loop-blue); }
 .theme-loop .loop-type { border-radius: 999px; padding: 0 6px; font-size: 0.66rem; border: 1px solid var(--loop-blue); color: var(--loop-blue); }
+
+/* term detail as floating modal (was inline expander) */
+.vh-modal-backdrop { position: fixed; inset: 0; z-index: 70; background: rgba(15, 18, 30, 0.45); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+.vh-modal { position: relative; width: min(760px, 100%); max-height: min(84vh, 900px); overflow-y: auto; background: var(--vh-bg, #fff); border: 1px solid var(--vh-line); border-radius: 14px; box-shadow: 0 24px 64px rgba(0,0,0,.28); padding: 22px 26px 26px; }
+.vh-modal .vh-detail { border: none; padding: 0; margin: 0; background: transparent; box-shadow: none; grid-column: auto; }
+.vh-modal-close { position: sticky; top: 0; float: right; margin-left: 12px; border: 1px solid var(--vh-line); background: var(--vh-bg, #fff); color: var(--vh-text-2); border-radius: 999px; width: 30px; height: 30px; font-size: 18px; line-height: 1; cursor: pointer; z-index: 1; }
+.vh-modal-close:hover { color: var(--vh-text); border-color: var(--vh-brand); }
+.dark .vh-modal { background: var(--vh-bg, #101014); }
+.dark .vh-modal-close { background: var(--vh-bg, #101014); }
