@@ -322,6 +322,47 @@ export const COURSE_CHAPTERS: CourseChapter[] = [
         "hook": "组织决定架构；闭环七环里，哪些必须人做 gate——课程总纲。"
       }
     ]
+  },
+  {
+    "id": "ch8",
+    "index": 8,
+    "title": "Harness：给模型造驾驶舱",
+    "tagline": "智能来自模型，落地靠 Harness —— 工具、知识、观察、行动与权限的工程学",
+    "milestone": "里程碑：为你的产品写出一份 Agent Harness 设计：工具清单、权限分级表、记忆与技能规划",
+    "nodes": [
+      {
+        "id": "c8n1",
+        "title": "Harness：模型是引擎，你造驾驶舱",
+        "type": "概念",
+        "minutes": 40,
+        "lessonId": "harness",
+        "hook": "同一个模型，为什么在别人手里是 Agent，在你手里只是聊天框？"
+      },
+      {
+        "id": "c8n2",
+        "title": "护栏与纪律：让 Agent 敢放手",
+        "type": "概念",
+        "minutes": 40,
+        "lessonId": "harnessloop",
+        "hook": "放权的标尺只有一个词：可逆性。审批的敌人不是风险，是疲劳。"
+      },
+      {
+        "id": "c8n3",
+        "title": "长任务的记忆术：压缩、记忆与后台",
+        "type": "概念",
+        "minutes": 35,
+        "lessonId": "harnessctx",
+        "hook": "连续工作几小时的 Agent，靠什么不「失忆」？"
+      },
+      {
+        "id": "c8n4",
+        "title": "从单兵到编队：技能、MCP 与多 Agent",
+        "type": "概念",
+        "minutes": 40,
+        "lessonId": "harnessteam",
+        "hook": "一个 Agent 不够用的时候，组织设计成了你的第二专业。"
+      }
+    ]
   }
 ];
 

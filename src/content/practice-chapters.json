@@ -258,5 +258,19 @@
    "timeline",
    "token-cost"
   ]
+ },
+ "8": {
+  "count": 9,
+  "terms": [
+   "agent-loop",
+   "ai-agent",
+   "context-engineering",
+   "context-window",
+   "mcp",
+   "skill",
+   "sub-agent",
+   "system-prompt",
+   "tool-calling"
+  ]
  }
 }

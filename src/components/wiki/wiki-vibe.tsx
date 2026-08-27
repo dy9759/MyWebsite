@@ -21,7 +21,7 @@ export const VIBE_TOPICS = [
   { id: "backend", title: "后端", count: 99 },
   { id: "product", title: "产品", count: 39 },
   { id: "technology", title: "技术栈", count: 36 },
-  { id: "ai", title: "AI", count: 47 },
+  { id: "ai", title: "AI", count: 62 },
   { id: "git", title: "Git", count: 13 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;

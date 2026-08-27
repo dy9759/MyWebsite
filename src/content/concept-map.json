@@ -2525,6 +2525,114 @@
       "loopId": "git",
       "strength": "mention",
       "via": "p3-extension"
+    },
+    {
+      "termId": "harness",
+      "loopId": "harness",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "permission-boundary",
+      "loopId": "harnessloop",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "sandbox",
+      "loopId": "harnessloop",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "hooks",
+      "loopId": "harnessloop",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "todo-discipline",
+      "loopId": "harnessloop",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "context-compaction",
+      "loopId": "harnessctx",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "agent-memory",
+      "loopId": "harnessctx",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "background-task",
+      "loopId": "harnessctx",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "agent-team",
+      "loopId": "harnessteam",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "harness",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "agent-loop",
+      "loopId": "harness",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "context-engineering",
+      "loopId": "harness",
+      "strength": "mention",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "tool-calling",
+      "loopId": "harnessloop",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "sub-agent",
+      "loopId": "harnessctx",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "context-window",
+      "loopId": "harnessctx",
+      "strength": "mention",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "mcp",
+      "loopId": "harnessteam",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "system-prompt",
+      "loopId": "harness",
+      "strength": "glossary",
+      "via": "ch8-link"
+    },
+    {
+      "termId": "skill",
+      "loopId": "harnessteam",
+      "strength": "glossary",
+      "via": "ch8-link"
     }
   ]
 }

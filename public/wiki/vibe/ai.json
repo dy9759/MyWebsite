@@ -4051,5 +4051,643 @@
     "distinctions": [],
     "source": "course",
     "fromLoop": "evals"
+  },
+  {
+    "id": "harness",
+    "title": "Harness",
+    "secondaryTitle": "Agent Harness",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "模型是引擎，Harness 是整台车：工具、知识、观察、行动接口、权限——缺一个都上不了路。",
+    "hook": "同一个模型，为什么在别人手里是 Agent，在你手里只是聊天框？",
+    "aliases": [
+      "智能体载具",
+      "驾驶舱"
+    ],
+    "path": "/harness",
+    "url": null,
+    "description": "智能来自模型训练，但模型自己没有手脚。Harness 给它配上干活的一切：能调用的工具、领域知识、看得见环境的观察通道、改得动世界的行动接口，以及一圈权限护栏。做 Agent 产品的人大多不是在训模型，而是在造这台车——车造得好不好，直接决定同一个模型能发挥几成。",
+    "usage": {
+      "use": [
+        "把「做 Agent」拆解成造 Harness 的五件套",
+        "为你的领域配专属工具与知识，而不是堆 prompt",
+        "评估 Agent 产品先看 Harness 完整度"
+      ],
+      "avoid": [
+        "用 if-else 流程图拼装「智能」（智能不是编排出来的）",
+        "只调 prompt 不给工具和观察通道",
+        "把聊天窗当成 Agent 产品的全部"
+      ],
+      "scenarios": [
+        "Claude Code / Cursor 这类编码 Agent",
+        "「模型 × Harness」的产品拆解",
+        "Agent 产品评审的第一问"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "ai-agent",
+        "title": "AI Agent"
+      },
+      {
+        "id": "agent-loop",
+        "title": "Agent 循环"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harness"
+  },
+  {
+    "id": "permission-boundary",
+    "title": "权限边界",
+    "secondaryTitle": "Permission Boundary",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "Agent 能自己做什么、什么要举手问人：读随便、写要审、删要拦——信任是设计出来的。",
+    "hook": "你敢让 AI 直接在生产库上执行它写的 SQL 吗？",
+    "aliases": [
+      "审批边界"
+    ],
+    "path": "/permission-boundary",
+    "url": null,
+    "description": "Agent 的能力越强，权限设计越重要。成熟的 Harness 把动作分层：只读操作放行，可逆写入询问，不可逆操作（删除、付款、对外发送）必须人工确认。边界不是不信任模型，而是承认任何执行者——人或 AI——都会犯错，系统要在错误变成事故之前拦一道。",
+    "usage": {
+      "use": [
+        "按「可逆性」给动作分级放权",
+        "不可逆操作强制人工把关",
+        "权限随信任记录逐步放宽而不是一次全开"
+      ],
+      "avoid": [
+        "为了省事全部自动批准",
+        "把审批弹窗多到用户麻木点确认",
+        "让 Agent 自己决定要不要跳过审批"
+      ],
+      "scenarios": [
+        "编码 Agent 的写文件/执行命令审批",
+        "自动化交易类场景的红线设计",
+        "「YOLO 模式」出事故的复盘"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "authz",
+        "title": "授权"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessloop"
+  },
+  {
+    "id": "sandbox",
+    "title": "沙箱",
+    "secondaryTitle": "Sandbox",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "给 Agent 一间可以砸的房间：里面随便折腾，砸坏了重开一间，外面的世界毫发无损。",
+    "hook": "让 AI 放开手脚干活，又不怕它删错东西——怎么两全？",
+    "aliases": [
+      "隔离环境"
+    ],
+    "path": "/sandbox",
+    "url": null,
+    "description": "沙箱是权限边界的物理形态：把 Agent 的执行环境隔离出来——独立的文件目录、受限的网络、用完即弃的容器。里面它可以自由试错，坏了就重建；真正要落到生产的改动，经过审查后再放出去。隔离做得好，你才敢把自主权真正交给 Agent。",
+    "usage": {
+      "use": [
+        "高风险任务先进沙箱跑通再出来",
+        "网络与密钥默认不带进沙箱",
+        "沙箱用完即弃，别让脏状态积累"
+      ],
+      "avoid": [
+        "在生产环境直接放飞 Agent",
+        "沙箱里塞真实用户数据",
+        "把「有沙箱」当成不审查的理由"
+      ],
+      "scenarios": [
+        "容器化的 Agent 执行环境",
+        "git worktree 隔离多任务",
+        "「先在沙箱里试」的工作习惯"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "environment",
+        "title": "环境"
+      },
+      {
+        "id": "permission-boundary",
+        "title": "权限边界"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessloop"
+  },
+  {
+    "id": "hooks",
+    "title": "Hooks",
+    "secondaryTitle": "Hooks",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "在 Agent 动作前后自动插入的检查点：写完文件跑 lint、提交前跑测试——不靠自觉靠机制。",
+    "hook": "怎么保证 Agent 每次改完代码都跑测试——而不是「记得的时候跑」？",
+    "aliases": [
+      "钩子"
+    ],
+    "path": "/hooks",
+    "url": null,
+    "description": "Hook 是 Harness 里的自动化关卡：某类动作发生时（改文件前、执行命令后、任务结束时），固定触发一段检查或处理。它把「应该每次都做」的事从模型的自觉变成系统的必然——模型可能忘、可能偷懒，Hook 不会。质量规范写进 Hook，比写进提示词可靠一个数量级。",
+    "usage": {
+      "use": [
+        "把格式化、lint、测试挂在写文件后自动跑",
+        "危险命令挂前置 Hook 拦截或改写",
+        "Hook 失败信息回传给模型让它自己修"
+      ],
+      "avoid": [
+        "规范只写在提示词里指望模型记住",
+        "Hook 链太长拖慢每一步",
+        "Hook 静默失败没人知道"
+      ],
+      "scenarios": [
+        "保存即格式化的工程约定",
+        "提交前自动跑测试门禁",
+        "敏感操作的前置拦截"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "ci",
+        "title": "持续集成"
+      },
+      {
+        "id": "system-prompt",
+        "title": "系统提示词"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessloop"
+  },
+  {
+    "id": "todo-discipline",
+    "title": "任务清单",
+    "secondaryTitle": "Todo Discipline",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "让 Agent 把计划写下来、边干边勾：不是仪式感，是防它中途忘掉自己要干嘛。",
+    "hook": "长任务干到一半，AI 怎么还记得第 7 步是什么？",
+    "aliases": [
+      "TodoWrite"
+    ],
+    "path": "/todo-discipline",
+    "url": null,
+    "description": "长任务里模型的注意力会漂移：干着干着忘了全局、漏掉步骤、重复劳动。任务清单机制强制它先把计划外化成条目，每完成一项勾掉一项——清单本身就在上下文里，成了持续的自我提醒。这和人类用 checklist 对抗遗忘是同一个原理，只是对模型来说效果更立竿见影。",
+    "usage": {
+      "use": [
+        "多步任务先列清单再动手",
+        "每步完成即勾掉，保持单一进行中",
+        "清单变化让用户可见（进度即透明度）"
+      ],
+      "avoid": [
+        "三步以内的小事也走清单（仪式化）",
+        "列完清单不更新（假进度）",
+        "一口气标记全部完成"
+      ],
+      "scenarios": [
+        "编码 Agent 的任务面板",
+        "长任务的中途「对表」",
+        "验收时核对清单与实际交付"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "acceptance-checklist",
+        "title": "验收清单"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessloop"
+  },
+  {
+    "id": "context-compaction",
+    "title": "上下文压缩",
+    "secondaryTitle": "Context Compaction",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "上下文快满时把过程折叠成摘要：细节丢掉、结论留下——Agent 的「阶段性存档」。",
+    "hook": "聊了三小时的任务，上下文窗口装不下了怎么办？",
+    "aliases": [
+      "compact"
+    ],
+    "path": "/context-compaction",
+    "url": null,
+    "description": "上下文窗口有限，长任务的对话迟早溢出。压缩机制在临界点把已完成部分蒸馏成摘要：留下目标、关键决定、当前状态，丢掉冗长的中间过程。压缩不可避免有损——所以重要结论要及时落到文件里，别指望摘要替你记住一切。这是长任务 Agent 的续航基础设施。",
+    "usage": {
+      "use": [
+        "重要决定随时写进文件而不是只留在对话里",
+        "压缩前让 Agent 总结「当前有效结论」",
+        "长任务按阶段拆分,每段干净开局"
+      ],
+      "avoid": [
+        "把上下文当无限硬盘用",
+        "压缩后不校验关键信息是否还在",
+        "一个会话从立项聊到上线"
+      ],
+      "scenarios": [
+        "Claude Code 的 compact 时刻",
+        "上下文腐烂的预防手段",
+        "跨会话交接文档"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "context-window",
+        "title": "上下文窗口"
+      },
+      {
+        "id": "context-rot",
+        "title": "上下文腐烂"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessctx"
+  },
+  {
+    "id": "agent-memory",
+    "title": "Agent 记忆",
+    "secondaryTitle": "Agent Memory",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "写进文件的长期记忆：偏好、约定、教训——下次会话开始时自动带上，不用每次重新教。",
+    "hook": "为什么每开一个新会话，都要把项目规矩重讲一遍？",
+    "aliases": [
+      "记忆文件"
+    ],
+    "path": "/agent-memory",
+    "url": null,
+    "description": "模型没有跨会话的记忆，Harness 用文件补上：把用户偏好、项目约定、踩过的坑写成持久化的记忆文档，每次启动装载进上下文。它和上下文压缩互补——压缩管一次任务内的续航，记忆管跨任务的积累。记忆的关键是「维护」：过时的记忆比没有记忆更误导。",
+    "usage": {
+      "use": [
+        "改正过的错误写成记忆防止重犯",
+        "记忆条目短小、单一事实、可检索",
+        "定期清理过时与互相矛盾的条目"
+      ],
+      "avoid": [
+        "什么都往记忆里塞（噪声淹没信号）",
+        "记仓库里已有的信息（代码即文档）",
+        "记忆写完从不回看"
+      ],
+      "scenarios": [
+        "CLAUDE.md / memory 目录",
+        "「上次说过的」自动生效",
+        "新会话零冷启动"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "context-compaction",
+        "title": "上下文压缩"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessctx"
+  },
+  {
+    "id": "background-task",
+    "title": "后台任务",
+    "secondaryTitle": "Background Task",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "把慢活挂到后台跑,主线继续干别的:构建、测试、爬取——好 Harness 不让模型干等。",
+    "hook": "一条命令要跑十分钟,Agent 就傻坐十分钟吗?",
+    "aliases": [
+      "异步任务"
+    ],
+    "path": "/background-task",
+    "url": null,
+    "description": "很多真实工作是慢的:编译、测试套件、部署、批量抓取。同步等待浪费的不只是时间,还有上下文——等待期间什么都没发生,窗口却在流逝。后台任务机制让 Agent 发起长操作后继续推进其他步骤,完成时再被叫回来处理结果。这是从「聊天机器人」到「干活的 Agent」的分水岭之一。",
+    "usage": {
+      "use": [
+        "预计超过一两分钟的命令放后台",
+        "后台任务完成有通知回调",
+        "并行推进互不依赖的工序"
+      ],
+      "avoid": [
+        "所有事情串行等待",
+        "后台任务失败无人知晓",
+        "并行改同一批文件引发冲突"
+      ],
+      "scenarios": [
+        "CI 构建的后台执行",
+        "多任务并行的编排",
+        "「等它跑完的时候我们先看下一项」"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "concurrency",
+        "title": "并发"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessctx"
+  },
+  {
+    "id": "agent-team",
+    "title": "多 Agent 协作",
+    "secondaryTitle": "Agent Team",
+    "category": "Harness",
+    "macroCategory": "AI",
+    "tagline": "一个 Agent 不够就上一队:分工、并行、互相校验——但沟通成本的物理学对 AI 同样生效。",
+    "hook": "十个 Agent 一起干活,是十倍速还是十倍乱?",
+    "aliases": [
+      "Multi-agent"
+    ],
+    "path": "/agent-team",
+    "url": null,
+    "description": "复杂任务可以拆给多个 Agent:有的探索、有的实现、有的专门挑错,并行推进再汇总。收益真实——覆盖面与对抗性校验是单体做不到的;代价同样真实——上下文不共享,交接靠文档,Brooks 的沟通成本定律照样适用。规模应当由任务结构决定,而不是由「多就是好」的直觉决定。",
+    "usage": {
+      "use": [
+        "按边界清晰的模块分工",
+        "关键结论用独立 Agent 对抗校验",
+        "交接信息写成结构化产物而不是口头转述"
+      ],
+      "avoid": [
+        "把强耦合的任务硬拆给多个 Agent",
+        "无验收地采信子 Agent 的汇报",
+        "为了排场堆 Agent 数量"
+      ],
+      "scenarios": [
+        "review 的多视角并行扫描",
+        "大迁移的分片执行",
+        "sub-agent 的编排设计"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "sub-agent",
+        "title": "Sub-agent"
+      },
+      {
+        "id": "communication-overhead",
+        "title": "沟通成本"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "harnessteam"
+  },
+  {
+    "id": "asr",
+    "title": "语音识别",
+    "secondaryTitle": "ASR / Speech-to-Text",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "把声音变成文字:语音产品的耳朵——识别错一个词,后面全链路跟着错。",
+    "hook": "会议纪要 App 为什么总把人名写错?",
+    "aliases": [
+      "STT",
+      "转写"
+    ],
+    "path": "/asr",
+    "url": null,
+    "description": "ASR 把音频流转成文本,是所有语音产品的第一环。它的错误会向下游放大:识别错的词进了大模型,再流利的回答也是答非所问。真实场景的难点不在安静朗读,而在口音、噪声、专有名词和多人抢话——评估 ASR 要拿自己场景的真实音频测,通用准确率数字参考价值有限。",
+    "usage": {
+      "use": [
+        "用自己场景的音频建评测集",
+        "专有名词走热词/词表增强",
+        "下游设计容错(让用户能改)"
+      ],
+      "avoid": [
+        "拿厂商演示数字当自己场景的预期",
+        "忽略口音与噪声的分布",
+        "识别文本不给用户修正入口"
+      ],
+      "scenarios": [
+        "会议转写",
+        "语音输入法",
+        "客服通话质检"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "multimodal",
+        "title": "多模态"
+      }
+    ],
+    "distinctions": []
+  },
+  {
+    "id": "tts",
+    "title": "语音合成",
+    "secondaryTitle": "TTS / Text-to-Speech",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "把文字变成声音:语音产品的嘴——自然度之外,首包延迟决定对话像不像「人」。",
+    "hook": "为什么有的语音助手一开口就让人想挂断?",
+    "aliases": [
+      "合成"
+    ],
+    "path": "/tts",
+    "url": null,
+    "description": "TTS 决定产品「说话」的质感:音色、韵律、停连、情感。对话式产品里还有一个隐形指标——首包延迟:从文本就绪到第一个音频包出来的时间,超过几百毫秒对话节奏就断了。流式合成(边生成边播放)是实时对话的标配,整段合成完再播放只适合离线场景。",
+    "usage": {
+      "use": [
+        "对话场景一律流式合成",
+        "音色与产品人设匹配着选",
+        "长文本按句切分边合成边播"
+      ],
+      "avoid": [
+        "整段合成完才开始播放",
+        "忽略数字/多音字的读法校对",
+        "音色频繁切换破坏一致性"
+      ],
+      "scenarios": [
+        "语音助手回话",
+        "有声内容生产",
+        "导航播报"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "asr",
+        "title": "语音识别"
+      }
+    ],
+    "distinctions": []
+  },
+  {
+    "id": "voice-agent",
+    "title": "语音智能体",
+    "secondaryTitle": "Voice Agent",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "能听、能想、能说的完整闭环:ASR + 大模型 + TTS 级联,或端到端一个模型全包。",
+    "hook": "从你说完到它开口,那一秒里发生了多少事?",
+    "aliases": [
+      "语音助手"
+    ],
+    "path": "/voice-agent",
+    "url": null,
+    "description": "语音智能体是语音链路的集大成:听清(ASR)、听懂并决定说什么(LLM)、说出来(TTS),还要处理打断、抢话和沉默。两条技术路线:级联式各环节可控可换,延迟层层累加;端到端语音大模型延迟低、能保留语气情感,但可控性和工具调用还在成熟中。产品化的胜负手往往不在单点指标,而在全链路延迟与打断体验。",
+    "usage": {
+      "use": [
+        "全链路延迟按环节拆解优化",
+        "打断(barge-in)当一等公民设计",
+        "按可控性需求选级联或端到端"
+      ],
+      "avoid": [
+        "只优化单环节指标不看整体体验",
+        "忽略静音与背景人声的边界情况",
+        "把文字机器人加个 TTS 就叫语音智能体"
+      ],
+      "scenarios": [
+        "电话客服机器人",
+        "车载语音交互",
+        "实时口语陪练"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "asr",
+        "title": "语音识别"
+      },
+      {
+        "id": "tts",
+        "title": "语音合成"
+      },
+      {
+        "id": "ai-agent",
+        "title": "AI Agent"
+      }
+    ],
+    "distinctions": []
+  },
+  {
+    "id": "vad",
+    "title": "VAD 语音活动检测",
+    "secondaryTitle": "Voice Activity Detection",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "判断「现在有没有人在说话」:语音链路的守门员,也是打断体验的关键零件。",
+    "hook": "语音助手怎么知道你说完了、而不是在换气?",
+    "aliases": [
+      "静音检测"
+    ],
+    "path": "/vad",
+    "url": null,
+    "description": "VAD 持续判断音频里是否有人声:它决定什么时候开始送识别、什么时候判定「说完了」触发回复、以及用户插话时要不要打断播报。阈值是门手艺:太灵敏,喘气声都触发;太迟钝,用户说完半天没反应。它很少出现在宣传页上,却直接决定对话「跟手不跟手」。",
+    "usage": {
+      "use": [
+        "按场景噪声水平调afterglow/静音阈值",
+        "打断检测与回声消除配套设计",
+        "边界样本(咳嗽/背景电视)专项测试"
+      ],
+      "avoid": [
+        "拿默认阈值上所有场景",
+        "把「说完判定」的延迟全推给网络",
+        "忽略半双工设备的回采问题"
+      ],
+      "scenarios": [
+        "「说完自动发送」的判定",
+        "播报中被用户插话",
+        "嘈杂环境的误触发排查"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "voice-agent",
+        "title": "语音智能体"
+      }
+    ],
+    "distinctions": []
+  },
+  {
+    "id": "simultaneous-interpretation",
+    "title": "同声传译",
+    "secondaryTitle": "Simultaneous Interpretation",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "边听边译边说:延迟与准确的极限拉扯——等整句译得准,抢着译得快,产品要选平衡点。",
+    "hook": "机器同传为什么总在「快但错」和「准但慢」之间摇摆?",
+    "aliases": [
+      "同传",
+      "流式翻译"
+    ],
+    "path": "/simultaneous-interpretation",
+    "url": null,
+    "description": "同传是语音链路难度天花板:源语言还没说完就要开始产出译文。等的越久信息越全、译得越准,但延迟破坏「同步感」;抢得越早越流畅,但常要对没说完的话下注,错了还得改口。工程上靠流式 ASR + 增量翻译 + 可修正的输出策略;产品上要明确场景容忍度——大会字幕能接受两秒,面对面对话不能。",
+    "usage": {
+      "use": [
+        "按场景定延迟预算再定策略",
+        "术语表前置注入保专有名词",
+        "译文允许增量修正并明示状态"
+      ],
+      "avoid": [
+        "拿离线翻译质量预期同传",
+        "首字延迟与整句准确只测其一",
+        "专业场合不做术语准备"
+      ],
+      "scenarios": [
+        "国际会议实时字幕",
+        "跨语言通话",
+        "政务/商务同传服务"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "voice-agent",
+        "title": "语音智能体"
+      },
+      {
+        "id": "latency",
+        "title": "延迟"
+      }
+    ],
+    "distinctions": []
+  },
+  {
+    "id": "speaker-diarization",
+    "title": "说话人分离",
+    "secondaryTitle": "Speaker Diarization",
+    "category": "语音模型",
+    "macroCategory": "AI",
+    "tagline": "多人对话里分清「这句是谁说的」:会议纪要能不能用,一半取决于它。",
+    "hook": "转写全对,但张三的话记在李四头上——这份纪要还能用吗?",
+    "aliases": [
+      "谁在说话"
+    ],
+    "path": "/speaker-diarization",
+    "url": null,
+    "description": "Diarization 给音频里的每一段话标上说话人:先分段聚类「有几个人、哪段是同一人」,再(可选)与已知声纹绑定身份。难点是抢话重叠、短插话和相似声线。它的错误很隐蔽——文字全对、归属全错,读纪要的人却毫无察觉,所以关键场景要允许人工校正归属。",
+    "usage": {
+      "use": [
+        "已知参会人时用声纹注册提准确率",
+        "重叠语音段单独标注置信度",
+        "给用户提供「改归属」的编辑入口"
+      ],
+      "avoid": [
+        "把聚类编号直接当真实身份",
+        "用单人场景指标预估多人会议",
+        "归属错误不提供修正手段"
+      ],
+      "scenarios": [
+        "会议纪要按人分段",
+        "客服质检区分坐席与客户",
+        "访谈整理"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "asr",
+        "title": "语音识别"
+      }
+    ],
+    "distinctions": []
   }
 ]

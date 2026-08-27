@@ -3950,6 +3950,171 @@
   },
   {
     "k": "term",
+    "id": "harness",
+    "topic": "ai",
+    "title": "Harness",
+    "en": "Agent Harness",
+    "al": "智能体载具|驾驶舱",
+    "tag": "同一个模型，为什么在别人手里是 Agent，在你手里只是聊天框？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "permission-boundary",
+    "topic": "ai",
+    "title": "权限边界",
+    "en": "Permission Boundary",
+    "al": "审批边界",
+    "tag": "你敢让 AI 直接在生产库上执行它写的 SQL 吗？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "sandbox",
+    "topic": "ai",
+    "title": "沙箱",
+    "en": "Sandbox",
+    "al": "隔离环境",
+    "tag": "让 AI 放开手脚干活，又不怕它删错东西——怎么两全？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "hooks",
+    "topic": "ai",
+    "title": "Hooks",
+    "en": "Hooks",
+    "al": "钩子",
+    "tag": "怎么保证 Agent 每次改完代码都跑测试——而不是「记得的时候跑」？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "todo-discipline",
+    "topic": "ai",
+    "title": "任务清单",
+    "en": "Todo Discipline",
+    "al": "TodoWrite",
+    "tag": "长任务干到一半，AI 怎么还记得第 7 步是什么？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "context-compaction",
+    "topic": "ai",
+    "title": "上下文压缩",
+    "en": "Context Compaction",
+    "al": "compact",
+    "tag": "聊了三小时的任务，上下文窗口装不下了怎么办？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "agent-memory",
+    "topic": "ai",
+    "title": "Agent 记忆",
+    "en": "Agent Memory",
+    "al": "记忆文件",
+    "tag": "为什么每开一个新会话，都要把项目规矩重讲一遍？",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "background-task",
+    "topic": "ai",
+    "title": "后台任务",
+    "en": "Background Task",
+    "al": "异步任务",
+    "tag": "一条命令要跑十分钟,Agent 就傻坐十分钟吗?",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "agent-team",
+    "topic": "ai",
+    "title": "多 Agent 协作",
+    "en": "Agent Team",
+    "al": "Multi-agent",
+    "tag": "十个 Agent 一起干活,是十倍速还是十倍乱?",
+    "cat": "Harness",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "asr",
+    "topic": "ai",
+    "title": "语音识别",
+    "en": "ASR / Speech-to-Text",
+    "al": "STT|转写",
+    "tag": "会议纪要 App 为什么总把人名写错?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
+    "id": "tts",
+    "topic": "ai",
+    "title": "语音合成",
+    "en": "TTS / Text-to-Speech",
+    "al": "合成",
+    "tag": "为什么有的语音助手一开口就让人想挂断?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
+    "id": "voice-agent",
+    "topic": "ai",
+    "title": "语音智能体",
+    "en": "Voice Agent",
+    "al": "语音助手",
+    "tag": "从你说完到它开口,那一秒里发生了多少事?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
+    "id": "vad",
+    "topic": "ai",
+    "title": "VAD 语音活动检测",
+    "en": "Voice Activity Detection",
+    "al": "静音检测",
+    "tag": "语音助手怎么知道你说完了、而不是在换气?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
+    "id": "simultaneous-interpretation",
+    "topic": "ai",
+    "title": "同声传译",
+    "en": "Simultaneous Interpretation",
+    "al": "同传|流式翻译",
+    "tag": "机器同传为什么总在「快但错」和「准但慢」之间摇摆?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
+    "id": "speaker-diarization",
+    "topic": "ai",
+    "title": "说话人分离",
+    "en": "Speaker Diarization",
+    "al": "谁在说话",
+    "tag": "转写全对,但张三的话记在李四头上——这份纪要还能用吗?",
+    "cat": "语音模型",
+    "src": ""
+  },
+  {
+    "k": "term",
     "id": "git",
     "topic": "git",
     "title": "Git",
@@ -6914,5 +7079,237 @@
     "title": "毕业 · 课程闭环",
     "tag": "康威定律与人机分工（毕业课）",
     "ch": 7
+  },
+  {
+    "k": "loop",
+    "id": "harness",
+    "title": "Harness：模型是引擎，你造驾驶舱",
+    "tag": "同一个模型,为什么在别人手里是 Agent,在你手里只是聊天框?",
+    "ch": 8,
+    "chT": "Harness:给模型造驾驶舱"
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 0,
+    "title": "「做 Agent」到底在做什么",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 1,
+    "title": "模型越强，Harness 越值钱",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 2,
+    "title": "本回路装备",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 3,
+    "title": "五件套：拆一台真车",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 4,
+    "title": "快测：分辨真假 Agent",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 5,
+    "title": "判断时刻：老板要「上 Agent」",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harness",
+    "step": 6,
+    "title": "回路收束",
+    "tag": "Harness：模型是引擎，你造驾驶舱",
+    "ch": 8
+  },
+  {
+    "k": "loop",
+    "id": "harnessloop",
+    "title": "护栏与纪律：让 Agent 敢放手",
+    "tag": "你敢给 AI 多大权限?放权的标尺只有一个词:可逆性。",
+    "ch": 8,
+    "chT": "Harness:给模型造驾驶舱"
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 0,
+    "title": "自主权是设计出来的",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 1,
+    "title": "本回路装备",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 2,
+    "title": "可逆性:权限设计的唯一标尺",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 3,
+    "title": "快测:放权的手感",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 4,
+    "title": "判断时刻:一键全自动的诱惑",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessloop",
+    "step": 5,
+    "title": "回路收束",
+    "tag": "护栏与纪律：让 Agent 敢放手",
+    "ch": 8
+  },
+  {
+    "k": "loop",
+    "id": "harnessctx",
+    "title": "长任务的记忆术:压缩、记忆与后台",
+    "tag": "连续工作几小时的 Agent,靠什么不「失忆」?",
+    "ch": 8,
+    "chT": "Harness:给模型造驾驶舱"
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 0,
+    "title": "Agent 的续航问题",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 1,
+    "title": "本回路装备",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 2,
+    "title": "把「记住」变成系统能力",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 3,
+    "title": "快测:记忆的取舍",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 4,
+    "title": "判断时刻:越用越笨的 Agent",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessctx",
+    "step": 5,
+    "title": "回路收束",
+    "tag": "长任务的记忆术:压缩、记忆与后台",
+    "ch": 8
+  },
+  {
+    "k": "loop",
+    "id": "harnessteam",
+    "title": "从单兵到编队:技能、MCP 与多 Agent",
+    "tag": "一个 Agent 不够用的时候,组织设计成了你的第二专业。",
+    "ch": 8,
+    "chT": "Harness:给模型造驾驶舱"
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 0,
+    "title": "毕业最后一课的呼应",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 1,
+    "title": "本回路装备",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 2,
+    "title": "编队的收益与税",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 3,
+    "title": "快测:什么时候上编队",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 4,
+    "title": "判断时刻:十个 Agent 的方案",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
+  },
+  {
+    "k": "step",
+    "id": "harnessteam",
+    "step": 5,
+    "title": "回路收束",
+    "tag": "从单兵到编队:技能、MCP 与多 Agent",
+    "ch": 8
   }
 ]
