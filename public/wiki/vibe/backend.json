@@ -1804,6 +1804,215 @@
     "fromLoop": "api"
   },
   {
+    "id": "injection",
+    "title": "注入攻击",
+    "secondaryTitle": "Injection",
+    "category": "接口与数据",
+    "macroCategory": "后端",
+    "tagline": "把「数据」伪装成「指令」塞进系统：输入框里写一段 SQL，数据库就照做了。",
+    "hook": "用户名填 '; DROP TABLE users;-- 会发生什么？",
+    "aliases": [
+      "SQL 注入"
+    ],
+    "path": "/injection",
+    "url": null,
+    "description": "程序把用户输入直接拼进 SQL、命令或模板里执行，攻击者就能让输入「越狱」成指令——这就是注入，二十年来始终排在漏洞榜前列。根治不靠过滤黑名单，靠让数据永远走数据通道：参数化查询、预编译语句。",
+    "usage": {
+      "use": [
+        "数据库操作一律参数化查询",
+        "用 ORM 等成熟库而不是手拼 SQL",
+        "对 AI 生成的裸拼接字符串保持警觉"
+      ],
+      "avoid": [
+        "字符串拼接构造 SQL",
+        "靠「过滤敏感词」防注入",
+        "相信「内部接口没人攻击」"
+      ],
+      "scenarios": [
+        "登录框注入试探",
+        "代码评审揪出的拼接 SQL",
+        "安全扫描报告"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "input-validation",
+        "title": "输入校验"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "inputsec"
+  },
+  {
+    "id": "xss",
+    "title": "XSS",
+    "secondaryTitle": "Cross-Site Scripting",
+    "category": "接口与数据",
+    "macroCategory": "后端",
+    "tagline": "注入的浏览器版：把脚本混进用户输入，谁打开页面就在谁的浏览器里执行。",
+    "hook": "评论区发一条「评论」，为什么能偷走所有看到它的人的登录态？",
+    "aliases": [
+      "跨站脚本"
+    ],
+    "path": "/xss",
+    "url": null,
+    "description": "用户输入未经处理直接渲染进页面，输入里的 <script> 就成了页面的一部分——在每个访问者的浏览器里运行，能偷 cookie、改页面、冒充操作。防线是输出转义：内容显示为文本，永远不当代码执行。",
+    "usage": {
+      "use": [
+        "渲染用户内容一律转义（现代框架默认就有，别绕过）",
+        "富文本用白名单过滤库",
+        "关键 cookie 设 HttpOnly"
+      ],
+      "avoid": [
+        "直接把用户输入塞进 innerHTML",
+        "为了「支持 HTML」关掉框架的默认转义",
+        "只防表单、忘了 URL 参数也是输入"
+      ],
+      "scenarios": [
+        "评论区弹窗恶作剧",
+        "富文本编辑器的过滤方案评审",
+        "框架里 dangerouslySetInnerHTML 的命名警告"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "injection",
+        "title": "注入攻击"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "inputsec"
+  },
+  {
+    "id": "input-validation",
+    "title": "输入校验",
+    "secondaryTitle": "Input Validation",
+    "category": "接口与数据",
+    "macroCategory": "后端",
+    "tagline": "安全第一定律：永远不要相信任何外部输入——前端拦的是失误，服务端拦的才是攻击。",
+    "hook": "前端已经做了校验，服务端为什么还要再做一遍？",
+    "aliases": [
+      "服务端校验"
+    ],
+    "path": "/input-validation",
+    "url": null,
+    "description": "前端校验是用户体验：即时提示、少跑一趟。但攻击者不经过你的前端——直接调接口，什么都能传。服务端校验才是安全边界：类型、长度、范围、格式，一样不少地再查一遍。两层各干各的活，谁也替代不了谁。",
+    "usage": {
+      "use": [
+        "服务端把每个入参当敌意输入检查",
+        "校验规则集中定义、两端复用",
+        "拒绝时返回明确错误而不是静默吞掉"
+      ],
+      "avoid": [
+        "「前端已经拦了」就跳过服务端校验",
+        "只校验必填、不校验范围与格式",
+        "对内部服务来的数据盲目信任"
+      ],
+      "scenarios": [
+        "绕过前端直接 curl 调接口",
+        "负数金额下单的经典漏洞",
+        "接口参数规则评审"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "data-validation",
+        "title": "数据校验"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "inputsec"
+  },
+  {
+    "id": "escaping",
+    "title": "转义 / 参数化",
+    "secondaryTitle": "Escaping / Parameterized Query",
+    "category": "接口与数据",
+    "macroCategory": "后端",
+    "tagline": "防注入的两件正装：转义让数据显示成文本，参数化让数据永远进不了指令通道。",
+    "hook": "同样是处理危险输入，「洗干净」和「分开走」有什么区别？",
+    "aliases": [
+      "预编译语句"
+    ],
+    "path": "/escaping",
+    "url": null,
+    "description": "转义是把特殊字符变成无害写法（< 变 &lt;），内容再刁钻也只是文本；参数化是查询语句和数据分两条通道送进数据库，数据无论长什么样都只是值。两者共同点：不靠猜测「哪些输入危险」，而是从结构上让危险不可能发生。",
+    "usage": {
+      "use": [
+        "输出到页面→转义；进数据库→参数化，各就各位",
+        "用框架与库的内置机制",
+        "评审时看结构（拼没拼）而不是看过滤列表全不全"
+      ],
+      "avoid": [
+        "自己写正则「过滤危险字符」",
+        "转义一次就以为处处安全（场景不同转义规则不同）",
+        "部分参数化、部分拼接的混合体"
+      ],
+      "scenarios": [
+        "ORM 的占位符写法",
+        "模板引擎的自动转义",
+        "安全评审的「有没有拼接」一问"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "injection",
+        "title": "注入攻击"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "inputsec"
+  },
+  {
+    "id": "upload-risk",
+    "title": "文件上传风险",
+    "secondaryTitle": "Upload Risk",
+    "category": "接口与数据",
+    "macroCategory": "后端",
+    "tagline": "上传的不只是文件，可能是伪装的可执行代码：改个扩展名，头像变后门。",
+    "hook": "用户上传的「图片」，为什么可能让服务器沦陷？",
+    "aliases": [
+      "恶意上传"
+    ],
+    "path": "/upload-risk",
+    "url": null,
+    "description": "上传接口是把外部文件请进家门。只看扩展名等于看名片认人：把脚本改名 .jpg 一样传得进来；如果存储位置还允许执行，攻击者就有了自己的后门。防法是层层设防——校验真实类型、重命名、限制大小、存到不可执行的位置。",
+    "usage": {
+      "use": [
+        "按文件内容（魔数）识别类型而不是扩展名",
+        "上传后重命名并存对象存储/静态目录",
+        "限制大小与频率"
+      ],
+      "avoid": [
+        "只校验扩展名",
+        "用户文件存进代码目录",
+        "上传目录开执行权限"
+      ],
+      "scenarios": [
+        "头像上传接口评审",
+        "webshell 攻击案例",
+        "对象存储的默认防执行设计"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "upload",
+        "title": "上传"
+      },
+      {
+        "id": "input-validation",
+        "title": "输入校验"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "inputsec"
+  },
+  {
     "id": "browser-storage",
     "title": "浏览器存储",
     "secondaryTitle": "Browser Storage",
@@ -2322,6 +2531,47 @@
     "distinctions": [],
     "source": "course",
     "fromLoop": "datamodel"
+  },
+  {
+    "id": "soft-delete",
+    "title": "软删除",
+    "secondaryTitle": "Soft Delete",
+    "category": "数据库",
+    "macroCategory": "后端",
+    "tagline": "删除不真删：打个「已删除」标记藏起来，数据还在，随时能恢复、能对账。",
+    "hook": "用户手滑删掉的东西，你的产品能找回来吗？",
+    "aliases": [
+      "逻辑删除"
+    ],
+    "path": "/soft-delete",
+    "url": null,
+    "description": "真删（物理删除）是不可逆操作：误删、bug 删、被攻击删，都没有后悔药。软删除给记录加一个 deleted 标记，查询时过滤掉——用户看是删了，数据库里还留着底。代价是所有查询都要记得带过滤条件，且敏感数据该真删时要真删（合规要求）。",
+    "usage": {
+      "use": [
+        "用户数据默认软删除",
+        "查询统一封装过滤逻辑，别每处手写",
+        "定期清理与合规删除并行设计"
+      ],
+      "avoid": [
+        "让 AI 生成的 DELETE 语句直接跑生产",
+        "软删了但某个查询忘了过滤（「已删除」数据诈尸）",
+        "用软删除逃避合规的真删义务"
+      ],
+      "scenarios": [
+        "回收站功能",
+        "误删恢复工单",
+        "「删除的数据怎么还出现在列表里」的 bug"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "database",
+        "title": "数据库"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "authz"
   },
   {
     "id": "backend",
@@ -2986,6 +3236,90 @@
       {
         "id": "authn",
         "title": "认证"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "authz"
+  },
+  {
+    "id": "idor",
+    "title": "IDOR / 越权",
+    "secondaryTitle": "Insecure Direct Object Reference",
+    "category": "账号与权限",
+    "macroCategory": "后端",
+    "tagline": "最常见的越权漏洞：把 URL 或参数里的 id 换成别人的，就能看到别人的数据。",
+    "hook": "订单页地址是 /orders/1024，改成 1023 会发生什么？",
+    "aliases": [
+      "越权访问",
+      "水平越权"
+    ],
+    "path": "/idor",
+    "url": null,
+    "description": "接口收到 id 就直接查库返回，忘了问一句「这条数据属于当前用户吗」——这就是 IDOR。它不需要任何黑客技术，改个数字就能复现，却常年霸榜真实事故清单。防法只有一个：服务端每次访问都校验归属。",
+    "usage": {
+      "use": [
+        "每个带 id 的接口都加归属校验",
+        "上线前用他人 id 手动实测一轮",
+        "敏感资源用不可猜的 id（如随机串）作辅助"
+      ],
+      "avoid": [
+        "相信「用户不会去改 URL」",
+        "只在列表页过滤、详情页裸查",
+        "把不可猜 id 当唯一防线（辅助不是替代）"
+      ],
+      "scenarios": [
+        "改 URL 数字看到别人订单",
+        "渗透测试报告高频项",
+        "「越权访问」事故通报"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "authz",
+        "title": "授权"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "authz"
+  },
+  {
+    "id": "data-masking",
+    "title": "脱敏",
+    "secondaryTitle": "Data Masking",
+    "category": "账号与权限",
+    "macroCategory": "后端",
+    "tagline": "敏感数据展示前先打码：手机号中间四位、身份证只留尾号——能少给就少给。",
+    "hook": "客服系统为什么显示 138****1234，而不是完整手机号？",
+    "aliases": [
+      "数据脱敏",
+      "打码"
+    ],
+    "path": "/data-masking",
+    "url": null,
+    "description": "不是所有看到这条数据的人都需要看到全部字段。脱敏在返回和展示层把敏感信息削到「够用为止」：客服核对身份看尾号就够，导出报表根本不该带身份证。原则是最小披露——泄露时损失也跟着最小。",
+    "usage": {
+      "use": [
+        "接口按角色返回字段而不是一律全量",
+        "日志与报表默认脱敏",
+        "明确哪些字段属于敏感清单"
+      ],
+      "avoid": [
+        "前端打码、接口照传全文（抓包全裸）",
+        "把完整敏感数据打进日志",
+        "「内部系统不用脱敏」的侥幸"
+      ],
+      "scenarios": [
+        "客服后台的打码手机号",
+        "抓包看到接口返回全文的翻车现场",
+        "数据导出评审"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "authz",
+        "title": "授权"
       }
     ],
     "distinctions": [],
@@ -5483,5 +5817,83 @@
     "distinctions": [],
     "source": "course",
     "fromLoop": "secrets"
+  },
+  {
+    "id": "change-freeze",
+    "title": "冻结期",
+    "secondaryTitle": "Change Freeze",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "大促、发布会、假期前：停止一切非必要变更——稳定比新功能值钱的时刻。",
+    "hook": "为什么电商团队双十一前两周什么都不敢上？",
+    "aliases": [
+      "封网",
+      "变更冻结"
+    ],
+    "path": "/change-freeze",
+    "url": null,
+    "description": "每次变更都带着风险，而有些时刻承受不起风险：流量洪峰、关键演示、没人值班的长假。冻结期就是给变更上闸：只放行紧急修复，其他一律排队。这不是保守，是对「变更是事故第一来源」这条统计规律的尊重。",
+    "usage": {
+      "use": [
+        "关键节点前设明确冻结窗口",
+        "冻结期例外走审批而不是口头",
+        "解冻后按优先级有序放行"
+      ],
+      "avoid": [
+        "大促前夜「小改一下」",
+        "冻结期成为拖延借口（节后堆积成山）",
+        "只冻代码不冻配置（配置改动同样能炸）"
+      ],
+      "scenarios": [
+        "双十一封网通知",
+        "假期前的上线截止线",
+        "冻结期紧急修复的审批流"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "deploy",
+        "title": "部署"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "acceptance"
+  },
+  {
+    "id": "time-scales",
+    "title": "毫秒 / 微秒 / 纳秒",
+    "secondaryTitle": "ms / μs / ns",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "计算机世界的时间标尺：内存纳秒级、磁盘微秒级、网络毫秒级——差着上千倍。",
+    "hook": "都说「很快」，内存和网络到底差多少？",
+    "aliases": [
+      "时间量级"
+    ],
+    "path": "/time-scales",
+    "url": null,
+    "description": "1 毫秒 = 1000 微秒 = 100 万纳秒。读内存约百纳秒，读磁盘约百微秒，跨城网络来回几十毫秒——每跨一级慢上千倍。有了这把标尺，性能讨论才有单位：页面慢，先问慢在哪个量级，是代码（纳秒级的事）还是网络往返（毫秒级的事），方向立刻清楚。",
+    "usage": {
+      "use": [
+        "记住内存/磁盘/网络三个量级锚点",
+        "性能问题先定位量级再谈优化",
+        "讨论「快慢」时强制带单位"
+      ],
+      "avoid": [
+        "用「感觉快/慢」代替测量",
+        "在纳秒级的代码里抠性能、放过毫秒级的网络往返",
+        "把不同量级的耗时混在一起比较"
+      ],
+      "scenarios": [
+        "性能排查的第一问「慢在哪一层」",
+        "延迟数字表（Latency Numbers）",
+        "「为什么加缓存」的解释"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "magnitude"
   }
 ]

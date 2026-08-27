@@ -1761,6 +1761,61 @@
   },
   {
     "k": "term",
+    "id": "injection",
+    "topic": "backend",
+    "title": "注入攻击",
+    "en": "Injection",
+    "al": "SQL 注入",
+    "tag": "用户名填 '; DROP TABLE users;-- 会发生什么？",
+    "cat": "接口与数据",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "xss",
+    "topic": "backend",
+    "title": "XSS",
+    "en": "Cross-Site Scripting",
+    "al": "跨站脚本",
+    "tag": "评论区发一条「评论」，为什么能偷走所有看到它的人的登录态？",
+    "cat": "接口与数据",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "input-validation",
+    "topic": "backend",
+    "title": "输入校验",
+    "en": "Input Validation",
+    "al": "服务端校验",
+    "tag": "前端已经做了校验，服务端为什么还要再做一遍？",
+    "cat": "接口与数据",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "escaping",
+    "topic": "backend",
+    "title": "转义 / 参数化",
+    "en": "Escaping / Parameterized Query",
+    "al": "预编译语句",
+    "tag": "同样是处理危险输入，「洗干净」和「分开走」有什么区别？",
+    "cat": "接口与数据",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "upload-risk",
+    "topic": "backend",
+    "title": "文件上传风险",
+    "en": "Upload Risk",
+    "al": "恶意上传",
+    "tag": "用户上传的「图片」，为什么可能让服务器沦陷？",
+    "cat": "接口与数据",
+    "src": "course"
+  },
+  {
+    "k": "term",
     "id": "browser-storage",
     "topic": "backend",
     "title": "浏览器存储",
@@ -1833,6 +1888,17 @@
     "en": "Migration",
     "al": "",
     "tag": "上线后要给表加一列，怎么改才不出事？",
+    "cat": "数据库",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "soft-delete",
+    "topic": "backend",
+    "title": "软删除",
+    "en": "Soft Delete",
+    "al": "逻辑删除",
+    "tag": "用户手滑删掉的东西，你的产品能找回来吗？",
     "cat": "数据库",
     "src": "course"
   },
@@ -1932,6 +1998,28 @@
     "en": "Authorization (AuthZ)",
     "al": "AuthZ|权限",
     "tag": "用户 A 换个 id 就能看用户 B 的订单——问题出在哪？",
+    "cat": "账号与权限",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "idor",
+    "topic": "backend",
+    "title": "IDOR / 越权",
+    "en": "Insecure Direct Object Reference",
+    "al": "越权访问|水平越权",
+    "tag": "订单页地址是 /orders/1024，改成 1023 会发生什么？",
+    "cat": "账号与权限",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "data-masking",
+    "topic": "backend",
+    "title": "脱敏",
+    "en": "Data Masking",
+    "al": "数据脱敏|打码",
+    "tag": "客服系统为什么显示 138****1234，而不是完整手机号？",
     "cat": "账号与权限",
     "src": "course"
   },
@@ -2207,6 +2295,28 @@
     "en": "Key Rotation",
     "al": "密钥轮换",
     "tag": "密钥可能泄露了，删掉聊天记录有用吗？",
+    "cat": "上线与排错",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "change-freeze",
+    "topic": "backend",
+    "title": "冻结期",
+    "en": "Change Freeze",
+    "al": "封网|变更冻结",
+    "tag": "为什么电商团队双十一前两周什么都不敢上？",
+    "cat": "上线与排错",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "time-scales",
+    "topic": "backend",
+    "title": "毫秒 / 微秒 / 纳秒",
+    "en": "ms / μs / ns",
+    "al": "时间量级",
+    "tag": "都说「很快」，内存和网络到底差多少？",
     "cat": "上线与排错",
     "src": "course"
   },
@@ -2594,6 +2704,61 @@
     "tag": "同一个 commit 的测试一会儿过一会儿不过，别只点重试，查清是时序还是共享数据。",
     "cat": "测试",
     "src": ""
+  },
+  {
+    "k": "term",
+    "id": "acceptance",
+    "topic": "technology",
+    "title": "验收",
+    "en": "Acceptance",
+    "al": "收货",
+    "tag": "代码是 AI 写的，出了事算谁的？",
+    "cat": "测试",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "failure-path",
+    "topic": "technology",
+    "title": "失败路径",
+    "en": "Failure Path",
+    "al": "异常路径",
+    "tag": "支付成功的流程谁都会测，支付到一半断网呢？",
+    "cat": "测试",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "evidence",
+    "topic": "technology",
+    "title": "证据",
+    "en": "Evidence",
+    "al": "运行证据",
+    "tag": "「已完成并通过测试」这句话，值多少信任？",
+    "cat": "测试",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "regression",
+    "topic": "technology",
+    "title": "回归",
+    "en": "Regression",
+    "al": "功能回退",
+    "tag": "只是改了个按钮颜色，登录怎么就挂了？",
+    "cat": "测试",
+    "src": "course"
+  },
+  {
+    "k": "term",
+    "id": "acceptance-checklist",
+    "topic": "technology",
+    "title": "验收清单",
+    "en": "Acceptance Checklist",
+    "al": "checklist",
+    "tag": "飞行员几千小时经验，起飞前为什么还要念检查单？",
+    "cat": "测试",
+    "src": "course"
   },
   {
     "k": "term",

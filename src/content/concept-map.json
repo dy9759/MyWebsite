@@ -1805,6 +1805,96 @@
       "loopId": "authz",
       "strength": "glossary",
       "via": "course-import"
+    },
+    {
+      "termId": "idor",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "data-masking",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "soft-delete",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "injection",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "xss",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "input-validation",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "escaping",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "upload-risk",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "acceptance",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "failure-path",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "evidence",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "regression",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "change-freeze",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "acceptance-checklist",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "time-scales",
+      "loopId": "magnitude",
+      "strength": "glossary",
+      "via": "course-import"
     }
   ]
 }

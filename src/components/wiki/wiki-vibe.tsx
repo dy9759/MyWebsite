@@ -25,14 +25,14 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const VIBE_TOPICS = [
   { id: "frontend", title: "前端", count: 138 },
-  { id: "backend", title: "后端", count: 63 },
+  { id: "backend", title: "后端", count: 73 },
   { id: "product", title: "产品", count: 18 },
-  { id: "technology", title: "技术栈", count: 31 },
+  { id: "technology", title: "技术栈", count: 36 },
   { id: "ai", title: "AI", count: 38 },
   { id: "git", title: "Git", count: 13 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;
-export const VIBE_TOTAL = 325;
+export const VIBE_TOTAL = 340;
 
 type Lesson = {
   id: string;
