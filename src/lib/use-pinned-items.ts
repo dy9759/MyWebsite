@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useSyncExternalStore } from 'react'
+import { sortPinnedFirst } from '@/lib/pin'
 
 const STORAGE_KEY = 'personal-site-pins-v1'
 const CHANGE_EVENT = 'personal-site-pins-change'
@@ -87,4 +88,22 @@ export const usePinnedItems = () => {
         isPinned,
         togglePinned,
     }
+}
+
+// Collapses the repeated call-site boilerplate (issue #64): augment each item
+// with its content-derived pinKey, sort pinned-first, and expose the pin state.
+export const usePinnedList = <T extends { pinned?: boolean }>(
+    items: T[],
+    scope: string,
+    nameOf: (item: T) => string,
+) => {
+    const pinState = usePinnedItems()
+    const withKeys = items.map((item) => ({
+        ...item,
+        pinKey: createPinKey(scope, pinSlug(nameOf(item))),
+    }))
+    const sorted = sortPinnedFirst(withKeys, (item) =>
+        pinState.isPinned(item.pinKey, item.pinned),
+    )
+    return { items: sorted, ...pinState }
 }

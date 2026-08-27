@@ -10,13 +10,6 @@ export type {
 
 export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
   zh: {
-    nav: {
-      home: "首页",
-      cases: "项目经验",
-      lab: "Builder Lab",
-      research: "研究",
-      ai: "AI Sense Sources",
-    },
     hero: {
       name: "李盛园",
       title: "AI 产品负责人 / Applied AI Builder",
@@ -31,26 +24,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "整体完成率" },
       { value: "10 万+", label: "评测案例" },
-    ],
-    capabilities: [
-      {
-        id: "product",
-        title: "AI 产品设计与落地",
-        description:
-          "洞察真实用户场景，定义可衡量的 AI 产品方案，从 0 到 1 推动落地并持续迭代。",
-      },
-      {
-        id: "evaluation",
-        title: "模型评测与质量保障",
-        description:
-          "围绕 LLM、ASR、TTS 与端到端语音模型构建评测、兜底和可观测体系。",
-      },
-      {
-        id: "growth",
-        title: "增长与数据驱动",
-        description:
-          "用激活、完成率、复用和订阅转化指标驱动产品判断与规模化增长。",
-      },
     ],
     skills: {
       heading: "技能栈",
@@ -271,12 +244,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       verificationNote:
         "本页仅展示教育背景及论文、会议成果索引；旧实验室时间线不作为公开任职经历。",
     },
-    closing: {
-      text: "正在寻找 Voice AI、Agent 与 Applied AI 方向的产品合作机会。",
-      resume: "查看简历",
-      email: "发送邮件",
-      resumeNote: "中英文 PDF 简历待补充",
-    },
     casePage: {
       back: "返回项目经验",
       challenge: "背景与挑战",
@@ -293,13 +260,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
     },
   },
   en: {
-    nav: {
-      home: "Home",
-      cases: "Projects",
-      lab: "Builder Lab",
-      research: "Research",
-      ai: "AI Sense Sources",
-    },
     hero: {
       name: "Chauncey Lee",
       title: "AI Product Lead / Applied AI Builder",
@@ -314,26 +274,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       { value: "90.4%", label: "Speaker activation" },
       { value: "93.3%", label: "Overall completion rate" },
       { value: "100K+", label: "Evaluation cases" },
-    ],
-    capabilities: [
-      {
-        id: "product",
-        title: "AI Product Delivery",
-        description:
-          "Find real user problems, define measurable product bets, and ship from zero to one.",
-      },
-      {
-        id: "evaluation",
-        title: "Evaluation & Quality",
-        description:
-          "Build evaluation, fallback and observability for LLM, ASR, TTS and speech-to-speech systems.",
-      },
-      {
-        id: "growth",
-        title: "Data-led Growth",
-        description:
-          "Use activation, completion, reuse and subscription conversion to drive product decisions.",
-      },
     ],
     skills: {
       heading: "Tech Stack",
@@ -550,12 +490,6 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
       viewAll: "View papers and outcomes",
       verificationNote:
         "This page publishes verified education plus paper and conference indexes only. Legacy lab timelines are not presented as employment experience.",
-    },
-    closing: {
-      text: "Open to product opportunities and collaboration in Voice AI, agents and Applied AI.",
-      resume: "View resume",
-      email: "Send email",
-      resumeNote: "Verified CN / EN PDF resumes needed",
     },
     casePage: {
       back: "Back to projects",

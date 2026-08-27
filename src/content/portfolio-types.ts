@@ -43,13 +43,6 @@ export type LabProject = {
 };
 
 export type PortfolioCopy = {
-  nav: {
-    home: string;
-    cases: string;
-    lab: string;
-    research: string;
-    ai: string;
-  };
   hero: {
     name: string;
     title: string;
@@ -59,11 +52,6 @@ export type PortfolioCopy = {
     secondaryCta: string;
   };
   metrics: EvidenceItem[];
-  capabilities: {
-    id: string;
-    title: string;
-    description: string;
-  }[];
   skills: {
     heading: string;
     groups: {
@@ -124,12 +112,6 @@ export type PortfolioCopy = {
     highlights: string[];
     viewAll: string;
     verificationNote: string;
-  };
-  closing: {
-    text: string;
-    resume: string;
-    email: string;
-    resumeNote: string;
   };
   casePage: {
     back: string;

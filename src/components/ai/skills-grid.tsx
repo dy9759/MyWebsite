@@ -6,20 +6,12 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const SkillsGrid = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const skillItems = aiConfig.skills.map((skill) => ({
-        ...skill,
-        pinKey: createPinKey('ai-skill', pinSlug(skill.title)),
-    }))
-    const skills = sortPinnedFirst(skillItems, (skill) =>
-        pinState.isPinned(skill.pinKey, skill.pinned),
-    )
+    const { items: skills, isPinned, togglePinned } = usePinnedList(aiConfig.skills, 'ai-skill', (skill) => skill.title)
 
     return (
         <section
@@ -45,13 +37,13 @@ const SkillsGrid = () => {
                                     {skill.title}
                                 </h3>
                                 <PinToggle
-                                    pinned={pinState.isPinned(
+                                    pinned={isPinned(
                                         skill.pinKey,
                                         skill.pinned,
                                     )}
                                     label={skill.title}
                                     onToggle={() =>
-                                        pinState.togglePinned(
+                                        togglePinned(
                                             skill.pinKey,
                                             skill.pinned,
                                         )

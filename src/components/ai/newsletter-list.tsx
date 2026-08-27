@@ -4,20 +4,12 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const NewsletterList = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const newsletterItems = aiConfig.newsletters.map((newsletter) => ({
-        ...newsletter,
-        pinKey: createPinKey('ai-newsletter', pinSlug(newsletter.title)),
-    }))
-    const newsletters = sortPinnedFirst(newsletterItems, (newsletter) =>
-        pinState.isPinned(newsletter.pinKey, newsletter.pinned),
-    )
+    const { items: newsletters, isPinned, togglePinned } = usePinnedList(aiConfig.newsletters, 'ai-newsletter', (newsletter) => newsletter.title)
 
     return (
         <section
@@ -56,10 +48,10 @@ const NewsletterList = () => {
                         </Link>
                         <div className='flex shrink-0 items-center gap-1'>
                             <PinToggle
-                                pinned={pinState.isPinned(n.pinKey, n.pinned)}
+                                pinned={isPinned(n.pinKey, n.pinned)}
                                 label={n.title}
                                 onToggle={() =>
-                                    pinState.togglePinned(n.pinKey, n.pinned)
+                                    togglePinned(n.pinKey, n.pinned)
                                 }
                             />
                             <ArrowUpRight className='size-4 shrink-0 text-muted-foreground' />

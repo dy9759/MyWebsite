@@ -6,20 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Card } from '@/components/ui/card'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { getInitials } from '@/lib/utils'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const PeopleGrid = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const peopleItems = aiConfig.people.map((person) => ({
-        ...person,
-        pinKey: createPinKey('ai-person', pinSlug(person.name)),
-    }))
-    const people = sortPinnedFirst(peopleItems, (person) =>
-        pinState.isPinned(person.pinKey, person.pinned),
-    )
+    const { items: people, isPinned, togglePinned } = usePinnedList(aiConfig.people, 'ai-person', (person) => person.name)
 
     return (
         <section
@@ -71,13 +63,13 @@ const PeopleGrid = () => {
                             </p>
                         </div>
                         <PinToggle
-                            pinned={pinState.isPinned(
+                            pinned={isPinned(
                                 person.pinKey,
                                 person.pinned,
                             )}
                             label={person.name}
                             onToggle={() =>
-                                pinState.togglePinned(
+                                togglePinned(
                                     person.pinKey,
                                     person.pinned,
                                 )

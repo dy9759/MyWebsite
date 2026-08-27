@@ -32,6 +32,12 @@ With no `NEXT_PUBLIC_WIKI_API_URL`, the chat stays in preset demo mode.
 
 ## Deploy
 
+Run with `NODE_ENV=production` — it forces the CORS fail-safe (explicit
+`WIKI_ALLOWED_ORIGINS` required) and keeps Express error responses generic.
+Per-IP rate limiting (`WIKI_RATE_PER_MIN`, default 20/min) and a global daily
+cap (`WIKI_DAILY_CAP`, default 2000) are built in.
+
+
 Any Node host works (a small VM, Fly.io, Render, Railway, a container). Set the
 env vars from `.env.example`, then set the site build's
 `NEXT_PUBLIC_WIKI_API_URL` to the deployed `…/chat` URL and rebuild the site.

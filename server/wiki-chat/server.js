@@ -13,10 +13,18 @@ const {
   ANTHROPIC_MODEL = "deepseek-v4-flash-0731",
   PORT = 8787,
   WIKI_ALLOWED_ORIGINS = "*",
+  WIKI_RATE_PER_MIN = "20",
+  WIKI_DAILY_CAP = "2000",
 } = process.env;
 
 if (!ANTHROPIC_API_KEY) {
   console.error("Missing ANTHROPIC_API_KEY. Set it in the environment (never hardcode).");
+  process.exit(1);
+}
+// Fail safe: an open CORS default is dev-only. In production the operator must
+// name the site origin(s) explicitly, or the server refuses to start.
+if (process.env.NODE_ENV === "production" && WIKI_ALLOWED_ORIGINS === "*") {
+  console.error("WIKI_ALLOWED_ORIGINS must list explicit origins in production (not '*').");
   process.exit(1);
 }
 
@@ -29,6 +37,38 @@ app.use(
     origin: WIKI_ALLOWED_ORIGINS === "*" ? true : WIKI_ALLOWED_ORIGINS.split(",").map((s) => s.trim()),
   }),
 );
+
+// Rate limiting: per-IP sliding minute window + a global daily spend
+// circuit-breaker. In-memory (single instance) — the endpoint proxies a paid
+// model API, so an unlimited public POST is an open proxy for quota burn.
+const perMin = Number(WIKI_RATE_PER_MIN) || 20;
+const dailyCap = Number(WIKI_DAILY_CAP) || 2000;
+const hits = new Map(); // ip → [timestamps]
+let dayKey = new Date().toISOString().slice(0, 10);
+let dayCount = 0;
+app.use("/chat", (req, res, next) => {
+  const now = Date.now();
+  const today = new Date().toISOString().slice(0, 10);
+  if (today !== dayKey) {
+    dayKey = today;
+    dayCount = 0;
+  }
+  if (dayCount >= dailyCap) return res.status(429).json({ error: "daily limit reached" });
+  const ip = req.ip || req.socket.remoteAddress || "?";
+  const windowStart = now - 60_000;
+  const list = (hits.get(ip) ?? []).filter((t) => t > windowStart);
+  if (list.length >= perMin) {
+    hits.set(ip, list);
+    return res.status(429).json({ error: "rate limited" });
+  }
+  list.push(now);
+  hits.set(ip, list);
+  dayCount += 1;
+  if (hits.size > 10_000) {
+    for (const [k, v] of hits) if (!v.some((t) => t > windowStart)) hits.delete(k);
+  }
+  next();
+});
 
 const SYSTEM = `${KNOWLEDGE}
 
@@ -75,5 +115,12 @@ function parseReply(raw, model) {
   }
   return { grounded: `已接入 · ${model}`, text: raw || "（空响应）", cites: [] };
 }
+
+// Terminal error handler: malformed JSON bodies etc. must never surface a
+// stack trace to the client (Express's default does when NODE_ENV≠production).
+app.use((err, _req, res, _next) => {
+  console.error("request error:", err?.message || err);
+  res.status(err?.type === "entity.parse.failed" || err?.status === 400 ? 400 : 500).json({ error: "bad request" });
+});
 
 app.listen(PORT, () => console.log(`wiki-chat backend on :${PORT} → ${ANTHROPIC_BASE_URL} (${ANTHROPIC_MODEL})`));

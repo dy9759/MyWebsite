@@ -1,32 +1,18 @@
 "use client";
 
 // Unified wiki search over VibeHub terms + course loops + course steps.
-// Index is a small static JSON, lazy-loaded on first focus.
+// Index loads via the shared module-level cache on first focus.
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
+import { loadSearchIndex, type SearchEntry, type TermJump } from "@/lib/wiki-data";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export type { TermJump };
 
-type Entry = {
-  k: "term" | "loop" | "step";
-  id: string;
-  topic?: string;
-  title: string;
-  en?: string;
-  al?: string;
-  tag?: string;
-  cat?: string;
-  ch?: number;
-  chT?: string;
-  step?: number;
-};
+const KIND_LABEL: Record<SearchEntry["k"], string> = { term: "术语", loop: "回路", step: "小节" };
+const KIND_RANK: Record<SearchEntry["k"], number> = { term: 0, loop: 1, step: 2 };
 
-export type TermJump = { topic: string; id: string; ts: number };
-
-const KIND_LABEL: Record<Entry["k"], string> = { term: "术语", loop: "回路", step: "小节" };
-
-function rank(e: Entry, q: string): number {
+function rank(e: SearchEntry, q: string): number {
   const t = e.title.toLowerCase();
   if (t === q) return 0;
   if (t.startsWith(q)) return 1;
@@ -39,18 +25,17 @@ function rank(e: Entry, q: string): number {
 
 export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => void }) {
   const router = useRouter();
-  const [index, setIndex] = useState<Entry[] | null>(null);
+  const [index, setIndex] = useState<SearchEntry[] | "loading" | "error" | null>(null);
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
 
   const load = () => {
-    if (index) return;
-    // cache-bust: the index is regenerated whenever content batches land
-    fetch(`${BASE_PATH}/wiki/search-index.json?t=${Date.now()}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+    if (Array.isArray(index) || index === "loading") return;
+    setIndex("loading");
+    loadSearchIndex()
       .then(setIndex)
-      .catch(() => setIndex([]));
+      .catch(() => setIndex("error"));
   };
 
   useEffect(() => {
@@ -63,16 +48,16 @@ export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => voi
 
   const ql = q.trim().toLowerCase();
   const results =
-    index && ql
+    Array.isArray(index) && ql
       ? index
           .map((e) => ({ e, r: rank(e, ql) }))
           .filter((x) => x.r < 9)
-          .sort((a, b) => a.r - b.r || (a.e.k === "term" ? -1 : 1))
+          .sort((a, b) => a.r - b.r || KIND_RANK[a.e.k] - KIND_RANK[b.e.k])
           .slice(0, 10)
           .map((x) => x.e)
       : [];
 
-  const go = (e: Entry) => {
+  const go = (e: SearchEntry) => {
     setOpen(false);
     setQ("");
     if (e.k === "term") onTerm({ topic: e.topic ?? "frontend", id: e.id, ts: Date.now() });
@@ -99,9 +84,17 @@ export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => voi
           className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/50"
         />
       </div>
-      {open && ql && index ? (
+      {open && ql && index && index !== "loading" ? (
         <div className="absolute left-0 right-0 top-11 z-50 overflow-hidden rounded-xl border bg-background shadow-xl">
-          {results.length === 0 ? (
+          {index === "error" ? (
+            <button
+              type="button"
+              onClick={load}
+              className="w-full px-4 py-3 text-left text-sm text-muted-foreground hover:bg-accent/10"
+            >
+              索引加载失败——点击重试。
+            </button>
+          ) : results.length === 0 ? (
             <p className="px-4 py-3 text-sm text-muted-foreground">没有匹配「{q}」的条目。</p>
           ) : (
             results.map((e, i) => (

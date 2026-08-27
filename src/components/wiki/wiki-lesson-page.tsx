@@ -13,30 +13,21 @@ import WikiLesson, { type Lesson } from "@/components/wiki/wiki-lesson";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
 import type { CourseNode } from "@/content/wiki-course";
 import { useLanguage } from "@/components/language-provider";
-import { wikiDemoReply } from "@/content/wiki";
 import { getCompleted, markCompleted } from "@/lib/wiki-progress";
 import { DEFAULT_PROFILE, deepPersonalize, getProfile } from "@/lib/wiki-profile";
-import conceptMap from "@/content/concept-map.json";
+import { LOOP_TERMS, linkRank } from "@/lib/concept-links";
+import { FLOAT_CHAT } from "@/lib/float-chat";
+import {
+  askWiki,
+  loadPractice,
+  loadSearchIndex,
+  WIKI_CONNECTED,
+  type PracticeQ,
+  type SearchEntry,
+} from "@/lib/wiki-data";
 
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-// loopId → mapped termIds (strong links first; curated P3 mentions before auto mentions).
-const LOOP_TERMS = new Map<string, { termId: string; strength: string; via?: string }[]>();
-for (const l of conceptMap.links as { termId: string; loopId: string; strength: string; via?: string }[]) {
-  if (!LOOP_TERMS.has(l.loopId)) LOOP_TERMS.set(l.loopId, []);
-  LOOP_TERMS.get(l.loopId)!.push({ termId: l.termId, strength: l.strength, via: l.via });
-}
-const STRENGTH_RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
-const linkRank = (l: { strength: string; via?: string }) =>
-  (STRENGTH_RANK[l.strength] ?? 9) - (l.strength === "mention" && l.via === "p3-extension" ? 0.5 : 0);
-
-type TermMeta = { id: string; topic: string; title: string; en: string };
-type EchoQ = {
-  id: string;
-  q: string;
-  options: { label: string; feedback: string; correct: boolean }[];
-  term: { title: string };
-};
+type TermMeta = Pick<SearchEntry, "id" | "topic" | "title" | "en">;
+type EchoQ = Pick<PracticeQ, "id" | "q" | "options" | "term">;
 
 type LoopLink = { lessonId: string; title: string } | null;
 
@@ -117,6 +108,7 @@ export default function WikiLessonPage({
   const [stepProgress, setStepProgress] = useState<Record<number, { answered: number; total: number }>>({});
   const [convo, setConvo] = useState<WikiMsg[]>([]);
   const [tutorOpen, setTutorOpen] = useState(false);
+  const [tutorPending, setTutorPending] = useState(false);
   // Personalize {{project}}: server render uses the default anchor, the stored
   // profile applies after mount (keeps hydration deterministic).
   const [lessonP, setLessonP] = useState<Lesson>(() =>
@@ -176,18 +168,17 @@ export default function WikiLessonPage({
       .sort((a, b) => linkRank(a) - linkRank(b));
     if (!mapped.length) return;
     const ids = new Set(mapped.map((m) => m.termId));
-    fetch(`${BASE_PATH}/wiki/search-index.json?t=${Date.now()}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((idx: (TermMeta & { k: string })[]) => {
+    // Silent absence is intended: chips/echo are progressive enhancements.
+    loadSearchIndex()
+      .then((idx) => {
         const byId = new Map(idx.filter((e) => e.k === "term").map((e) => [e.id, e]));
         setRelTerms(
-          mapped.map((m) => byId.get(m.termId)).filter((x): x is TermMeta & { k: string } => !!x).slice(0, 8),
+          mapped.map((m) => byId.get(m.termId)).filter((x): x is SearchEntry => !!x).slice(0, 8),
         );
       })
       .catch(() => {});
-    fetch(`${BASE_PATH}/wiki/vibe/practice.json`)
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((qs: EchoQ[]) => setEchoQs(qs.filter((q) => ids.has(q.id)).slice(0, 3)))
+    loadPractice()
+      .then((qs) => setEchoQs(qs.filter((q) => ids.has(q.id)).slice(0, 3)))
       .catch(() => {});
   }, [node.lessonId]);
 
@@ -201,13 +192,13 @@ export default function WikiLessonPage({
     setFinished(true);
   };
 
-  const sendChat = (q: string) => {
+  const sendChat = async (q: string) => {
     setTutorOpen(true);
-    setConvo((prevMsgs) => [
-      ...prevMsgs,
-      { role: "u", text: q },
-      { role: "a", data: wikiDemoReply(q, language) },
-    ]);
+    setConvo((prevMsgs) => [...prevMsgs, { role: "u", text: q }]);
+    setTutorPending(true);
+    const data = await askWiki(q, language); // live backend when configured, demo fallback otherwise
+    setConvo((prevMsgs) => [...prevMsgs, { role: "a", data }]);
+    setTutorPending(false);
   };
 
   return (
@@ -280,18 +271,10 @@ export default function WikiLessonPage({
           {/* lesson header */}
           <header className="mt-4 p-5" style={raised}>
             <div className="flex flex-wrap items-center gap-2">
-              <span
-                className="rounded px-1.5 py-0.5 font-mono text-xs font-semibold"
-                style={{ background: "var(--loop-blue-wash)", color: "var(--loop-blue)" }}
-              >
+              <span className="loop-no">
                 {String(loopNumber).padStart(2, "0")} / {loopTotal}
               </span>
-              <span
-                className="rounded-full px-1.5 text-[0.66rem]"
-                style={{ border: "1px solid var(--loop-blue)", color: "var(--loop-blue)" }}
-              >
-                {node.type}
-              </span>
+              <span className="loop-type">{node.type}</span>
               <span className="text-xs" style={{ color: "var(--loop-ink-3)" }}>
                 约 {node.minutes} 分钟
               </span>
@@ -330,6 +313,7 @@ export default function WikiLessonPage({
             <p className="loop-step-kicker">{EYEBROW[step.kind] ?? step.kind}</p>
             {step.title ? <h2 className="loop-step-title font-bold">{step.title}</h2> : null}
             <WikiLesson
+              key={idx} // remount per step: same-kind neighbors must not share game state (issue #52)
               lesson={{ ...lessonP, steps: [{ ...step, title: undefined }] }}
               onProgress={(answered, totalCount) =>
                 setStepProgress((prevMap) => ({ ...prevMap, [idx]: { answered, total: totalCount } }))
@@ -484,12 +468,8 @@ export default function WikiLessonPage({
       {/* tutor — floating window, bottom-right */}
       {tutorOpen ? (
         <aside
-          className="fixed bottom-24 right-4 z-40 flex flex-col overflow-hidden"
-          style={{
-            ...raised,
-            width: "min(370px, calc(100vw - 2rem))",
-            height: "min(480px, calc(100vh - 8rem))",
-          }}
+          className={`${FLOAT_CHAT.windowClass} flex flex-col overflow-hidden`}
+          style={{ ...raised, width: FLOAT_CHAT.width, height: FLOAT_CHAT.height }}
           aria-label="随行导师"
         >
           <div className="flex items-center gap-2 border-b px-4 py-2.5" style={{ borderColor: "var(--loop-line)" }}>
@@ -514,6 +494,8 @@ export default function WikiLessonPage({
             convo={convo}
             onSend={sendChat}
             showHeader={false}
+            connected={WIKI_CONNECTED}
+            pending={tutorPending}
             chips={
               JUDGE.has(step.kind)
                 ? ["给我一点提示，但别告诉我答案", "这道题考的是哪个概念?", "我卡住了，帮我理一下思路"]
@@ -547,7 +529,7 @@ export default function WikiLessonPage({
         type="button"
         aria-label={tutorOpen ? "收起随行导师" : "打开随行导师"}
         onClick={() => setTutorOpen((o) => !o)}
-        className="fixed bottom-6 right-4 z-40 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow-lg"
+        className={`${FLOAT_CHAT.fabClass} inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow-lg`}
         style={{ background: "var(--loop-blue)" }}
       >
         <span

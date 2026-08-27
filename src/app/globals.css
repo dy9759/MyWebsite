@@ -292,8 +292,6 @@
 .theme-loop .loop-cmd-result.win { background: var(--loop-green-wash); border-color: #bfe0c8; }
 .theme-loop .loop-cmd-result.lose { background: var(--loop-red-wash); border-color: #eec3c3; }
 .theme-loop .loop-btn-ghost { border: 1px solid var(--loop-line); color: var(--loop-ink-2); background: none; border-radius: 8px; padding: 10px 22px; font-size: 14px; cursor: pointer; }
-.theme-loop .loop-decision-situation { border: 1px solid var(--loop-line); border-radius: var(--loop-radius); background: #fbfcfd; margin: 16px 0; padding: 18px 24px; }
-.dark .theme-loop .loop-decision-situation { background: #131c26; }
 .theme-loop .loop-decision-prompt { color: var(--loop-orange); margin: 18px 0 12px; font-weight: 700; }
 .theme-loop .loop-decision-choice { text-align: left; border: 1px solid var(--loop-line); border-radius: var(--loop-radius); background: var(--loop-raised); width: 100%; margin-bottom: 10px; padding: 14px 18px; transition: all .15s; display: block; cursor: pointer; font: inherit; color: inherit; }
 .theme-loop .loop-decision-choice:hover { border-color: var(--loop-blue); }
@@ -372,7 +370,6 @@
 .theme-vibe .vh-topic:hover { background: var(--vh-bg-hover); }
 .theme-vibe .vh-topic.on { background: var(--vh-brand); border-color: var(--vh-brand); color: #fff; font-weight: 600; }
 .theme-vibe .vh-cat-title { font-family: var(--vh-serif); font-size: 20px; font-weight: 700; margin: 26px 0 4px; }
-.theme-vibe .vh-cat-sub { color: var(--vh-text-3); font-size: 13px; margin-bottom: 14px; }
 .theme-vibe .vh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
 .theme-vibe .vh-card {
   text-align: left; border: 1px solid var(--vh-border); background: var(--vh-bg);
@@ -510,7 +507,7 @@
 .theme-vibe .vd-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; }
 .theme-vibe .vd-step-wrap { display: inline-flex; align-items: center; gap: 2px; }
 .theme-vibe .vd-step { display: inline-flex; flex-direction: column; align-items: center; gap: 1px; border: 1px solid var(--vh-border); border-radius: 7px; background: var(--vh-bg); padding: 4px 8px; }
-.theme-vibe .vd-step b { font-size: 11.5px; font-weight: 600; color: var(--vh-text-1); line-height: 1.25; white-space: nowrap; }
+.theme-vibe .vd-step b { font-size: 11.5px; font-weight: 600; color: var(--vh-text); line-height: 1.25; white-space: nowrap; }
 .theme-vibe .vd-step i { font-style: normal; font-size: 10px; color: var(--vh-text-3); white-space: nowrap; }
 .theme-vibe .vd-step.hot { border-color: var(--vh-brand); background: var(--vh-brand-light); }
 .theme-vibe .vd-step.hot b { color: var(--vh-brand); }
@@ -521,7 +518,7 @@
 /* compare */
 .theme-vibe .vd-compare { display: grid; gap: 8px; }
 .theme-vibe .vd-col { display: flex; flex-direction: column; gap: 3px; border: 1px solid var(--vh-border); border-left: 3px solid var(--vd-tint, var(--vh-border)); border-radius: 7px; background: var(--vh-bg); padding: 7px 9px; }
-.theme-vibe .vd-col b { font-size: 11.5px; font-weight: 700; color: var(--vd-tint, var(--vh-text-1)); }
+.theme-vibe .vd-col b { font-size: 11.5px; font-weight: 700; color: var(--vd-tint, var(--vh-text)); }
 .theme-vibe .vd-col > span { font-size: 11px; color: var(--vh-text-2); line-height: 1.45; }
 /* bars */
 .theme-vibe .vd-bars { display: flex; flex-direction: column; gap: 6px; }
@@ -546,7 +543,7 @@
 .theme-vibe .vd-fail { color: #d9480f; }
 .theme-vibe .vd-gauge-track { display: block; position: relative; height: 12px; border-radius: 6px; background: color-mix(in srgb, var(--vh-border) 55%, transparent); margin-top: 5px; overflow: visible; }
 .theme-vibe .vd-gauge-fill { display: block; height: 100%; border-radius: 6px; background: var(--vd-tint); }
-.theme-vibe .vd-gauge-mark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--vh-text-1); border-radius: 1px; }
+.theme-vibe .vd-gauge-mark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--vh-text); border-radius: 1px; }
 .theme-vibe .vd-gauge-foot { display: block; margin-top: 4px; font-size: 10.5px; color: var(--vh-text-3); }
 /* dark */
 .dark .theme-vibe .vd-step.gate { border-color: #8a6a10; }
@@ -559,9 +556,12 @@
 
 /* 练习场 entry card (course tab, moved from Vibe Hub) */
 .theme-loop .loop-practice-card { display: flex; align-items: center; gap: 10px; border: 1px solid var(--loop-line); border-left: 3px solid var(--loop-blue); border-radius: 10px; background: var(--loop-blue-wash); padding: 10px 14px; font-size: 13.5px; color: var(--loop-ink-2); }
-.theme-loop .loop-practice-card b { color: var(--loop-ink-1); }
+.theme-loop .loop-practice-card b { color: var(--loop-ink); }
 .theme-loop .loop-practice-btn { flex-shrink: 0; border: none; border-radius: 8px; background: var(--loop-blue); color: #fff; font-size: 12.5px; font-weight: 600; padding: 7px 14px; cursor: pointer; }
 .theme-loop .loop-practice-btn:hover { filter: brightness(1.08); }
 .dark .theme-loop .loop-practice-card { background: #16233a; border-left-color: var(--loop-blue); }
 .theme-loop .loop-ch-practice { margin-left: auto; flex-shrink: 0; border: 1px solid var(--loop-line); border-radius: 999px; background: var(--loop-raised); color: var(--loop-blue-deep); font-size: 11.5px; font-weight: 600; padding: 3px 10px; cursor: pointer; }
 .theme-loop .loop-ch-practice:hover { border-color: var(--loop-blue); background: var(--loop-blue-wash); }
+/* shared loop badge pills (course map card + lesson header — issue #64) */
+.theme-loop .loop-no { border-radius: 4px; padding: 2px 6px; font-family: var(--font-mono, ui-monospace); font-size: 12px; font-weight: 600; background: var(--loop-blue-wash); color: var(--loop-blue); }
+.theme-loop .loop-type { border-radius: 999px; padding: 0 6px; font-size: 0.66rem; border: 1px solid var(--loop-blue); color: var(--loop-blue); }

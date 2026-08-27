@@ -2,7 +2,6 @@ import { Icons } from '@/components/icons'
 
 type Config = {
     name: string
-    avatar: string
     title: string
     siteUrl: string
     socials: {
@@ -49,7 +48,6 @@ type Config = {
 
 export const CONFIG: Config = {
     name: '李盛园',
-    avatar: '/images/headshot.jpg',
     title: 'AI 产品负责人 / Applied AI Builder',
     siteUrl: 'https://chauncey.myoii.com/',
     socials: [

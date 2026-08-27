@@ -38,16 +38,29 @@ export function clearProfile() {
   }
 }
 
+const escapeHtml = (s: string) =>
+  s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
 // Replace the personalization token throughout a lesson object. Pure so the
 // server render (default project) and the post-mount client render (stored
-// profile) stay deterministic.
-export function deepPersonalize<T>(value: T, project: string): T {
-  if (typeof value === "string") return value.replaceAll("{{project}}", project) as T;
-  if (Array.isArray(value)) return value.map((v) => deepPersonalize(v, project)) as T;
+// profile) stay deterministic. Fields named "html" render via
+// dangerouslySetInnerHTML, so the user-typed project string is HTML-escaped
+// there (prevents stored self-XSS via the onboarding form).
+export function deepPersonalize<T>(value: T, project: string, key?: string): T {
+  if (typeof value === "string") {
+    const safe = key === "html" ? escapeHtml(project) : project;
+    return value.replaceAll("{{project}}", safe) as T;
+  }
+  if (Array.isArray(value)) return value.map((v) => deepPersonalize(v, project, key)) as T;
   if (value && typeof value === "object") {
     const out: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
-      out[k] = deepPersonalize(v, project);
+      out[k] = deepPersonalize(v, project, k);
     }
     return out as T;
   }

@@ -13,20 +13,12 @@ import {
 import { Badge } from '@/components/ui/badge'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const PodcastGrid = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const podcastItems = aiConfig.podcasts.map((podcast) => ({
-        ...podcast,
-        pinKey: createPinKey('ai-podcast', pinSlug(podcast.title)),
-    }))
-    const podcasts = sortPinnedFirst(podcastItems, (podcast) =>
-        pinState.isPinned(podcast.pinKey, podcast.pinned),
-    )
+    const { items: podcasts, isPinned, togglePinned } = usePinnedList(aiConfig.podcasts, 'ai-podcast', (podcast) => podcast.title)
 
     return (
         <section
@@ -89,13 +81,13 @@ const PodcastGrid = () => {
                                 <TableCell>
                                     <div className='flex justify-end'>
                                         <PinToggle
-                                            pinned={pinState.isPinned(
+                                            pinned={isPinned(
                                                 podcast.pinKey,
                                                 podcast.pinned,
                                             )}
                                             label={podcast.title}
                                             onToggle={() =>
-                                                pinState.togglePinned(
+                                                togglePinned(
                                                     podcast.pinKey,
                                                     podcast.pinned,
                                                 )

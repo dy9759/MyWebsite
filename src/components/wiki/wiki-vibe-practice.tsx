@@ -4,21 +4,7 @@
 // answer reveals the term. Questions come from the harvested lessonPractice
 // data (owner-authorized import), shuffled per visit.
 import { useEffect, useState } from "react";
-
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-type PracticeQ = {
-  id: string;
-  q: string;
-  options: { label: string; feedback: string; correct: boolean }[];
-  term: {
-    title: string;
-    secondaryTitle?: string | null;
-    tagline: string;
-    description?: string | null;
-    url?: string;
-  };
-};
+import { loadPractice, vibePreviewUrl, type PracticeQ } from "@/lib/wiki-data";
 
 function shuffle<T>(arr: T[]): T[] {
   const a = arr.slice();
@@ -41,10 +27,18 @@ export default function WikiVibePractice({ filterTerms }: { filterTerms?: string
     setTried({});
     setSolved(false);
     const allow = filterTerms ? new Set(filterTerms) : null;
-    fetch(`${BASE_PATH}/wiki/vibe/practice.json`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((data: PracticeQ[]) => setDeck(shuffle(allow ? data.filter((q) => allow.has(q.id)) : data)))
-      .catch(() => setDeck("error"));
+    let stale = false; // scope switched before this load resolved → discard
+    loadPractice()
+      .then((data) => {
+        if (stale) return;
+        setDeck(shuffle(allow ? data.filter((q) => allow.has(q.id)) : data));
+      })
+      .catch(() => {
+        if (!stale) setDeck("error");
+      });
+    return () => {
+      stale = true;
+    };
     // filterTerms is stable per scope; re-key by its joined ids
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterTerms?.join(",") ?? ""]);
@@ -118,9 +112,11 @@ export default function WikiVibePractice({ filterTerms }: { filterTerms?: string
               <p style={{ fontSize: 14.5, lineHeight: 1.8, marginTop: 14 }}>{cur.term.description}</p>
             ) : null}
             <img
-              src={`${BASE_PATH}/wiki/vibe/previews/${cur.id}.png?v=2`}
+              src={vibePreviewUrl(cur.id)}
               alt=""
               loading="lazy"
+              width={668}
+              height={296}
               className="vh-thumb"
               style={{ marginTop: 16 }}
               onError={(e) => {

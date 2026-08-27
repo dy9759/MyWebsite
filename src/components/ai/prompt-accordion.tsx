@@ -11,23 +11,15 @@ import {
 import { Button } from '@/components/ui/button'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
     const [copiedKey, setCopiedKey] = useState<string | null>(null)
     const copyTimerRef = useRef<ReturnType<typeof setTimeout>>()
     useEffect(() => () => clearTimeout(copyTimerRef.current), [])
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const siteCopy = useSiteCopy()
-    const promptItems = aiConfig.prompts.map((prompt) => ({
-        ...prompt,
-        pinKey: createPinKey('ai-prompt', pinSlug(prompt.title)),
-    }))
-    const prompts = sortPinnedFirst(promptItems, (prompt) =>
-        pinState.isPinned(prompt.pinKey, prompt.pinned),
-    )
+    const { items: prompts, isPinned, togglePinned } = usePinnedList(aiConfig.prompts, 'ai-prompt', (prompt) => prompt.title)
 
     const copyToClipboard = async (text: string, key: string) => {
         try {
@@ -94,13 +86,13 @@ const PromptAccordion = () => {
                                     )}
                                 </Button>
                                 <PinToggle
-                                    pinned={pinState.isPinned(
+                                    pinned={isPinned(
                                         prompt.pinKey,
                                         prompt.pinned,
                                     )}
                                     label={prompt.title}
                                     onToggle={() =>
-                                        pinState.togglePinned(
+                                        togglePinned(
                                             prompt.pinKey,
                                             prompt.pinned,
                                         )

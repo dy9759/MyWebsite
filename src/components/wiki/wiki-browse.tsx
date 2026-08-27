@@ -254,18 +254,8 @@ export default function WikiBrowse({
                   }}
                 >
                   <div className="mb-1.5 flex items-center gap-1.5">
-                    <span
-                      className="rounded px-1.5 py-0.5 font-mono text-xs font-semibold"
-                      style={{ background: "var(--loop-blue-wash)", color: "var(--loop-blue)" }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      className="rounded-full px-1.5 text-[0.66rem]"
-                      style={{ border: "1px solid var(--loop-blue)", color: "var(--loop-blue)" }}
-                    >
-                      {l.type}
-                    </span>
+                    <span className="loop-no">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="loop-type">{l.type}</span>
                     {isDone ? (
                       <span
                         className="inline-flex items-center gap-0.5 text-xs"

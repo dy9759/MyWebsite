@@ -8,69 +8,12 @@ import type { Language } from "@/components/language-provider";
 export type WikiCite = [string, string];
 export type WikiReply = { grounded: string; text: string; cites: WikiCite[] };
 
-export type WikiTerm = {
-  term: string;
-  def: { zh: string; en: string };
-  rel: WikiCite[];
-};
-
-export const WIKI_TERMS: WikiTerm[] = [
-  {
-    term: "vibe coding",
-    def: {
-      zh: "用自然语言驱动 AI 生成并迭代代码的工作方式。",
-      en: "Driving AI to generate and iterate code through natural language.",
-    },
-    rel: [
-      ["L3", "Latent Space"],
-      ["L2", "simonwillison.net"],
-    ],
-  },
-  {
-    term: "agent harness",
-    def: {
-      zh: "承载 agent 运行、评测与工程化的框架与运行时。",
-      en: "The framework and runtime that hosts agent execution, evaluation and engineering.",
-    },
-    rel: [
-      ["L3", "Latent Space"],
-      ["L2", "Pragmatic Engineer"],
-    ],
-  },
-  {
-    term: "RAG",
-    def: {
-      zh: "检索增强生成：先在知识库检索证据，再生成带引用的回答。",
-      en: "Retrieval-augmented generation: retrieve evidence first, then answer with citations.",
-    },
-    rel: [["架构", "本 Wiki 数据层"]],
-  },
-  {
-    term: "MCP",
-    def: {
-      zh: "Model Context Protocol：把数据 / 工具暴露给外部 Agent 调用。",
-      en: "Model Context Protocol: expose data and tools for external agents to call.",
-    },
-    rel: [["交互层", "MCP 接入"]],
-  },
-  {
-    term: "eval / 评测",
-    def: {
-      zh: "用可复现基准衡量模型与 agent 的质量。",
-      en: "Measuring model and agent quality with reproducible benchmarks.",
-    },
-    rel: [["案例", "模型产品"]],
-  },
-];
-
 // 闭环学院 header + the user's own progress. The full course structure lives in
 // wiki-course.ts and lesson bodies in public/wiki/lessons/*.json (imported with
 // the user's authorization — the course is their personalized program).
 export const WIKI_COURSE = {
   eyebrow: "你的建造者旅程",
-  title: "lsy：从 Vibe Coder 到 Product Builder",
   desc: "八章 = 你用 AI 做「语音智能体」的真实生命周期。每章知识在被需要的那一刻出现，走完这条路，产出的是一个真实上线的产品。",
-  done: 3,
 };
 
 // AI Native 招聘 — job postings from AI-native companies (user-curated links).
@@ -110,14 +53,7 @@ export const WIKI_UI = {
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
-    browseTitle: "AI Sense Wiki · 知识库",
     domains: { sources: "AI 知识源", vibe: "Vibe Hub", course: "闭环学院", jobs: "AI Native 招聘" },
-    sourceCats: {
-      podcasts: "播客",
-      newsletters: "Newsletters",
-      people: "人物",
-      products: "产品",
-    },
     open: "打开",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
@@ -135,7 +71,7 @@ export const WIKI_UI = {
       emptySub: "随行了解你在看什么、你的产品是什么；选中任意条目，也可以直接「问这句」。",
       footnote: "随行了解你的进度与产品背景 · 回答可能附带一道验证小题",
     },
-    form: { float: "悬浮小窗", rail: "满窗边栏", open: "打开随行", close: "关闭" },
+    form: { open: "打开随行", close: "关闭" },
     chips: ["vibe coding 指什么？", "这周 agent 有什么进展？", "闭环学院第 0 章讲什么？"],
   },
   en: {
@@ -145,14 +81,7 @@ export const WIKI_UI = {
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
-    browseTitle: "AI Sense Wiki · Knowledge base",
     domains: { sources: "AI Sources", vibe: "Vibe Hub", course: "Loop Academy", jobs: "AI-Native Jobs" },
-    sourceCats: {
-      podcasts: "Podcasts",
-      newsletters: "Newsletters",
-      people: "People",
-      products: "Products",
-    },
     open: "Open",
     related: "Related",
     progress: "{done} / {total} loops done",
@@ -170,7 +99,7 @@ export const WIKI_UI = {
       emptySub: "The companion knows what you're reading and what you're building; select any item to ask about it.",
       footnote: "Knows your progress and product context · replies may include a quick check",
     },
-    form: { float: "Floating", rail: "Sidebar", open: "Open companion", close: "Close" },
+    form: { open: "Open companion", close: "Close" },
     chips: ["What is vibe coding?", "Agent news this week?", "What is Loop Academy ch.0?"],
   },
 };

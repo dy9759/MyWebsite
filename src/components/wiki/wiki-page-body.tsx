@@ -3,16 +3,15 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
-import { WIKI_UI, WIKI_TERMS, WIKI_JOBS, wikiDemoReply, type WikiReply } from "@/content/wiki";
-import { VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
+import { WIKI_UI, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
+import { VIBE_TOPICS, VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
-import WikiSearch, { type TermJump } from "@/components/wiki/wiki-search";
+import WikiSearch from "@/components/wiki/wiki-search";
+import { askWiki, WIKI_CONNECTED as CONNECTED, type TermJump } from "@/lib/wiki-data";
+import { FLOAT_CHAT } from "@/lib/float-chat";
 import { cn } from "@/lib/utils";
-
-const API_URL = process.env.NEXT_PUBLIC_WIKI_API_URL;
-const CONNECTED = Boolean(API_URL);
 
 const DOMAINS: WikiDomain[] = ["sources", "vibe", "course", "jobs"];
 
@@ -23,12 +22,13 @@ export default function WikiPageBody() {
   const [domain, setDomain] = useState<WikiDomain>("sources");
   const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
 
-  // Deep link from lesson pages: /wiki?vibe=topic:termId
+  // Deep link from lesson pages: /wiki?vibe=topic:termId (allowlisted — the
+  // topic feeds a fetch path, so anything unknown is ignored outright).
   useEffect(() => {
     const m = new URLSearchParams(window.location.search).get("vibe");
     if (!m) return;
     const [topic, id] = m.split(":");
-    if (topic && id) {
+    if (topic && id && VIBE_TOPICS.some((t) => t.id === topic) && /^[a-z0-9-]+$/.test(id)) {
       setDomain("vibe");
       setVibeTarget({ topic, id, ts: Date.now() });
     }
@@ -44,26 +44,10 @@ export default function WikiPageBody() {
   const send = async (q: string) => {
     setChatOpen(true);
     setConvo((prev) => [...prev, { role: "u", text: q }]);
-    if (!API_URL) {
-      setConvo((prev) => [...prev, { role: "a", data: wikiDemoReply(q, language) }]);
-      return;
-    }
     setPending(true);
-    try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ message: q, language }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      const data = (await res.json()) as WikiReply;
-      setConvo((prev) => [...prev, { role: "a", data }]);
-    } catch {
-      // backend unreachable → graceful demo fallback
-      setConvo((prev) => [...prev, { role: "a", data: wikiDemoReply(q, language) }]);
-    } finally {
-      setPending(false);
-    }
+    const data = await askWiki(q, language); // live backend when configured, demo fallback otherwise
+    setConvo((prev) => [...prev, { role: "a", data }]);
+    setPending(false);
   };
 
   const domainCount: Record<WikiDomain, string> = {
@@ -124,7 +108,10 @@ export default function WikiPageBody() {
 
       {/* chat — floating window, bottom-right */}
       {chatOpen ? (
-        <div className="fixed bottom-24 right-4 z-40 flex h-[min(480px,calc(100vh-8rem))] w-[min(370px,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border bg-background shadow-xl">
+        <div
+          className={`${FLOAT_CHAT.windowClass} flex flex-col overflow-hidden rounded-2xl border bg-background shadow-xl`}
+          style={{ width: FLOAT_CHAT.width, height: FLOAT_CHAT.height }}
+        >
           <div className="flex items-center justify-between border-b bg-muted/40 px-3 py-2">
             <b className="text-sm font-semibold">{ui.chat.title}</b>
             <button
@@ -143,7 +130,7 @@ export default function WikiPageBody() {
         type="button"
         aria-label={ui.form.open}
         onClick={() => setChatOpen((o) => !o)}
-        className="fixed bottom-6 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-lg"
+        className={`${FLOAT_CHAT.fabClass} inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-lg`}
       >
         <MessageCircle className="size-4" />
         {ui.chat.title}

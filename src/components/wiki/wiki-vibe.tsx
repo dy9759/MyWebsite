@@ -8,20 +8,13 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import VibeDemo from "@/components/wiki/wiki-vibe-demo";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
-import conceptMap from "@/content/concept-map.json";
+import { TERM_LOOPS, linkRank } from "@/lib/concept-links";
+import { BASE_PATH, vibePreviewUrl, type TermJump } from "@/lib/wiki-data";
 
-// termId → loops that teach/mention it (strong links first).
+// loopId → chapter/title (for the "在闭环学院学这个" chips).
 const LOOP_META = new Map<string, { chapter: number; title: string }>();
 for (const ch of COURSE_CHAPTERS)
   for (const n of ch.nodes) LOOP_META.set(n.lessonId, { chapter: ch.index, title: n.title });
-const TERM_LOOPS = new Map<string, { loopId: string; strength: string }[]>();
-for (const l of conceptMap.links as { termId: string; loopId: string; strength: string }[]) {
-  if (!TERM_LOOPS.has(l.termId)) TERM_LOOPS.set(l.termId, []);
-  TERM_LOOPS.get(l.termId)!.push({ loopId: l.loopId, strength: l.strength });
-}
-const RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
-
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const VIBE_TOPICS = [
   { id: "frontend", title: "前端", count: 138 },
@@ -32,7 +25,7 @@ export const VIBE_TOPICS = [
   { id: "git", title: "Git", count: 13 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;
-export const VIBE_TOTAL = 396;
+export const VIBE_TOTAL = VIBE_TOPICS.reduce((n, t) => n + t.count, 0);
 
 type Lesson = {
   id: string;
@@ -50,7 +43,7 @@ type Lesson = {
   usage?: { use?: string[]; avoid?: string[]; scenarios?: string[] } | null;
 };
 
-export type VibeTarget = { topic: string; id: string; ts: number };
+export type VibeTarget = TermJump;
 
 export default function WikiVibe({ target = null }: { target?: VibeTarget | null }) {
   const [topic, setTopic] = useState<string>("frontend");
@@ -71,7 +64,9 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
   }, [target, topic, cache[topic]]);
 
   useEffect(() => {
-    setOpenId(null);
+    // Keep a pending jump target's card open — clearing here would race the
+    // target effect when the destination topic is already cached (issue #56).
+    setOpenId(target && target.topic === topic ? target.id : null);
     if (cache[topic]) return;
     setCache((prev) => ({ ...prev, [topic]: "loading" }));
     fetch(`${BASE_PATH}/wiki/vibe/${topic}.json`)
@@ -199,8 +194,7 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
 }
 
 function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: () => void }) {
-  // v2 = compact card demos (replaced the detail-page captures)
-  const preview = `${BASE_PATH}/wiki/vibe/previews/${l.id}.png?v=2`;
+  const preview = vibePreviewUrl(l.id);
   return (
     <>
       <button
@@ -235,6 +229,8 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
             src={preview}
             alt=""
             loading="lazy"
+            width={668}
+            height={296}
             className="vh-thumb"
             onError={(e) => {
               e.currentTarget.style.display = "none";
@@ -287,7 +283,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
           {(() => {
             const loops = (TERM_LOOPS.get(l.id) ?? [])
               .slice()
-              .sort((a, b) => (RANK[a.strength] ?? 9) - (RANK[b.strength] ?? 9))
+              .sort((a, b) => linkRank(a) - linkRank(b))
               .slice(0, 3);
             return loops.length ? (
               <p style={{ marginTop: 12, fontSize: 13 }}>

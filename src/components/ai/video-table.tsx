@@ -19,22 +19,14 @@ import VideoFilter, {
 } from '@/components/ai/video-filter'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { type VideoTag } from '@/ai-config'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const COLLAPSED_COUNT = 3
 
 const VideoTable = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const videoItems = aiConfig.videos.map((video) => ({
-        ...video,
-        pinKey: createPinKey('ai-video', pinSlug(video.title)),
-    }))
-    const videos = sortPinnedFirst(videoItems, (video) =>
-        pinState.isPinned(video.pinKey, video.pinned),
-    )
+    const { items: videos, isPinned, togglePinned } = usePinnedList(aiConfig.videos, 'ai-video', (video) => video.title)
 
     const allTags = useMemo<VideoTag[]>(() => {
         const set = new Set<VideoTag>()
@@ -157,13 +149,13 @@ const VideoTable = () => {
                                         <TableCell>
                                             <div className='flex items-center justify-end gap-1'>
                                                 <PinToggle
-                                                    pinned={pinState.isPinned(
+                                                    pinned={isPinned(
                                                         video.pinKey,
                                                         video.pinned,
                                                     )}
                                                     label={video.title}
                                                     onToggle={() =>
-                                                        pinState.togglePinned(
+                                                        togglePinned(
                                                             video.pinKey,
                                                             video.pinned,
                                                         )

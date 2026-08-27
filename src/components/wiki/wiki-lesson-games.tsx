@@ -194,7 +194,13 @@ export function CodereviewGame({
             已标记 {marked.size} 行 · 这段代码里埋着 {flaws.length} 处缺陷，至少找出 {s.minFinds ?? 3} 处再揭晓
           </p>
           <div>
-            <button type="button" className="loop-btn-judge" disabled={marked.size === 0} onClick={reveal}>
+            <button
+              type="button"
+              className="loop-btn-judge"
+              // enforce the stated minimum, capped by the real flaw count so the gate stays satisfiable
+              disabled={marked.size < Math.min(s.minFinds ?? 3, Math.max(flaws.length, 1))}
+              onClick={reveal}
+            >
               揭晓答案
             </button>
           </div>
@@ -380,7 +386,9 @@ export function DecisionGame({
   const cur = stages[stage];
   const finale = typeof s.finale === "object" && s.finale ? s.finale : undefined;
   const threshold = finale?.threshold ?? 50;
-  const good = (meters.health ?? 0) >= threshold;
+  // deciding meter defaults to "health"; lessons can override via finale.meterKey
+  const meterKey = (finale as { meterKey?: string } | undefined)?.meterKey ?? "health";
+  const good = (meters[meterKey] ?? 0) >= threshold;
 
   const pick = (i: number) => {
     if (sel != null) return;

@@ -124,15 +124,6 @@ function P({ text }: { text: string }) {
   );
 }
 
-function Reveal({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <details className="mt-1 rounded-md border bg-muted/30 px-2.5 py-1.5">
-      <summary className="cursor-pointer text-xs font-medium text-accent">{label}</summary>
-      <div className="mt-1.5 flex flex-col gap-1.5">{children}</div>
-    </details>
-  );
-}
-
 // 深潜 collapsible (original: dashed blue box, 深潜 badge, 展开▼/收起▲).
 function DeepBlock({ b }: { b: Block }) {
   const [open, setOpen] = useState(false);

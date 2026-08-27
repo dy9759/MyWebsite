@@ -14,20 +14,12 @@ import { Badge } from '@/components/ui/badge'
 import { Icons } from '@/components/icons'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
-import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 
 const ProductGrid = () => {
-    const pinState = usePinnedItems()
-    const aiConfig = useAIConfig()
+        const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const productItems = aiConfig.products.map((product) => ({
-        ...product,
-        pinKey: createPinKey('ai-product', pinSlug(product.name)),
-    }))
-    const products = sortPinnedFirst(productItems, (product) =>
-        pinState.isPinned(product.pinKey, product.pinned),
-    )
+    const { items: products, isPinned, togglePinned } = usePinnedList(aiConfig.products, 'ai-product', (product) => product.name)
 
     return (
         <section
@@ -92,13 +84,13 @@ const ProductGrid = () => {
                                     <TableCell>
                                         <div className='flex justify-end gap-1'>
                                             <PinToggle
-                                                pinned={pinState.isPinned(
+                                                pinned={isPinned(
                                                     product.pinKey,
                                                     product.pinned,
                                                 )}
                                                 label={product.name}
                                                 onToggle={() =>
-                                                    pinState.togglePinned(
+                                                    togglePinned(
                                                         product.pinKey,
                                                         product.pinned,
                                                     )
