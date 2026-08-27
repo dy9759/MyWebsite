@@ -1,0 +1,130 @@
+# P0 概念映射报告 v3
+
+- 链接: 256（identity 2 · glossary 52 · mention 202）
+- VH 被覆盖: 98/280 · 回路映射: 29/29
+
+## 缺口 A（P2 起草，115）
+- 源代码 (source code) ← 第0章·解剖一次 vibe coding
+- 依赖 (dependency) ← 第0章·解剖一次 vibe coding
+- 运行 / 进程 (run / process) ← 第0章·解剖一次 vibe coding
+- 配置文件 (config file) ← 第0章·解剖一次 vibe coding
+- localhost (localhost / 127.0.0.1) ← 第0章·本地与服务器：代码住在哪里
+- 服务器 (server) ← 第0章·本地与服务器：代码住在哪里
+- IP 地址 (IP address) ← 第0章·本地与服务器：代码住在哪里
+- 部署 (deploy) ← 第0章·本地与服务器：代码住在哪里
+- 渲染 (render) ← 第0章·从输入网址到看到页面
+- 首屏时间 (first paint / LCP) ← 第0章·从输入网址到看到页面
+- 请求 / 响应 (request / response) ← 第1章·前端、后端与数据库
+- 契约 (contract) ← 第1章·API：系统间的契约
+- 幂等 (idempotent) ← 第1章·API：系统间的契约
+- 状态码 (status code) ← 第1章·API：系统间的契约
+- 向后兼容 (backward compatible) ← 第1章·API：系统间的契约
+- 主键与外键 (primary / foreign key) ← 第1章·数据建模：产品的骨架
+- 一对多 / 多对多 (1:N / M:N) ← 第1章·数据建模：产品的骨架
+- 迁移 (migration) ← 第1章·数据建模：产品的骨架
+- 编程语言 (language) ← 第1章·技术栈地图：AI 为什么默认给你这套
+- 框架 (framework) ← 第1章·技术栈地图：AI 为什么默认给你这套
+- BaaS (Backend as a Service) ← 第1章·技术栈地图：AI 为什么默认给你这套
+- 开源 / 闭源 (open / closed source) ← 第1章·技术栈地图：AI 为什么默认给你这套
+- 生态 (ecosystem) ← 第1章·技术栈地图：AI 为什么默认给你这套
+- 概率生成 (next-token prediction) ← 第2章·LLM 是怎么工作的
+- 参数 / 权重 (parameters / weights) ← 第2章·LLM 是怎么工作的
+- 训练 vs 推理 (training vs inference) ← 第2章·LLM 是怎么工作的
+- 温度 (temperature) ← 第2章·LLM 是怎么工作的
+- 训练语料 (training data) ← 第2章·LLM 是怎么工作的
+- spec (specification) ← 第2章·上下文工程与 spec 写作
+- 边界条件 (edge case) ← 第2章·上下文工程与 spec 写作
+- 约束 (constraints) ← 第2章·上下文工程与 spec 写作
+- 范围蔓延 (scope creep) ← 第2章·上下文工程与 spec 写作
+- 越界热情 (unsolicited changes) ← 第2章·AI 失效模式图鉴
+- 打转循环 (doom loop) ← 第2章·AI 失效模式图鉴
+- 过度自信 (overconfidence) ← 第2章·AI 失效模式图鉴
+- 能跑但错了 (works-but-wrong) ← 第2章·AI 失效模式图鉴
+- 上下文腐烂 (context rot) ← 第2章·AI 失效模式图鉴
+- 仓库 (repository / repo) ← 第3章·Git：软件世界的后悔药
+- 环境 (environment) ← 第3章·环境与部署：为什么不能直接改线上
+- On-call (on-call) ← 第3章·环境与部署：为什么不能直接改线上
+- .env 文件 (dotenv) ← 第3章·密钥与配置：最贵的一次 git push
+- 轮换 (key rotation) ← 第3章·密钥与配置：最贵的一次 git push
+- 认证 (Authentication (AuthN)) ← 第4章·认证与授权：最贵的一课
+- 授权 (Authorization (AuthZ)) ← 第4章·认证与授权：最贵的一课
+- IDOR / 越权 (Insecure Direct Object Reference) ← 第4章·认证与授权：最贵的一课
+- 脱敏 (data masking) ← 第4章·认证与授权：最贵的一课
+- 软删除 (soft delete) ← 第4章·认证与授权：最贵的一课
+- 注入攻击 (injection) ← 第4章·输入与数据安全
+- XSS (Cross-Site Scripting) ← 第4章·输入与数据安全
+- 输入校验 (input validation) ← 第4章·输入与数据安全
+- 转义 / 参数化 (escaping / parameterized) ← 第4章·输入与数据安全
+- 文件上传风险 (upload risk) ← 第4章·输入与数据安全
+- 验收 (acceptance) ← 第4章·验收思维：读代码 > 写代码
+- 失败路径 (failure path) ← 第4章·验收思维：读代码 > 写代码
+- 证据 (evidence) ← 第4章·验收思维：读代码 > 写代码
+- 回归 (regression) ← 第4章·验收思维：读代码 > 写代码
+- 冻结期 (change freeze) ← 第4章·验收思维：读代码 > 写代码
+- 验收清单 (acceptance checklist) ← 第4章·验收思维：读代码 > 写代码
+- 毫秒 / 微秒 / 纳秒 (ms / μs / ns) ← 第5章·数量级直觉：快慢与成本的物理学
+- 延迟 (latency) ← 第5章·数量级直觉：快慢与成本的物理学
+- 吞吐 (throughput) ← 第5章·数量级直觉：快慢与成本的物理学
+- 数量级 (order of magnitude) ← 第5章·数量级直觉：快慢与成本的物理学
+- 兜底 / 降级 (fallback / degradation) ← 第5章·非确定性工程：兜底、结构化、流式
+- 护栏 (guardrail) ← 第5章·非确定性工程：兜底、结构化、流式
+- RAG (Retrieval-Augmented Generation) ← 第5章·RAG、Agent 与 MCP
+- 向量检索 (vector search) ← 第5章·RAG、Agent 与 MCP
+- 测试集 (eval set) ← 第5章·Evals：非确定性系统怎么算"够好"
+- 基线 (baseline) ← 第5章·Evals：非确定性系统怎么算"够好"
+- AI 评审 (LLM-as-judge) ← 第5章·Evals：非确定性系统怎么算"够好"
+- 通过率 / 阈值 (pass rate / threshold) ← 第5章·Evals：非确定性系统怎么算"够好"
+- 回归评测 (eval regression) ← 第5章·Evals：非确定性系统怎么算"够好"
+- 日志 (log) ← 第6章·可观测性：出事了你怎么知道
+- 监控指标 (metrics) ← 第6章·可观测性：出事了你怎么知道
+- 链路追踪 (tracing) ← 第6章·可观测性：出事了你怎么知道
+- SLO / 可用性 (SLO / availability) ← 第6章·可观测性：出事了你怎么知道
+- IaaS (Infrastructure as a Service) ← 第6章·云成本：账单从哪来
+- PaaS / 托管平台 (Platform as a Service) ← 第6章·云成本：账单从哪来
+- 带宽 / 流量费 (bandwidth / egress) ← 第6章·云成本：账单从哪来
+- 预算报警 (budget alert) ← 第6章·云成本：账单从哪来
+- 并发 (concurrency) ← 第6章·并发：抢库存为什么会超卖
+- 竞态条件 (race condition) ← 第6章·并发：抢库存为什么会超卖
+- 锁 (lock) ← 第6章·并发：抢库存为什么会超卖
+- 原子操作 (atomic operation) ← 第6章·并发：抢库存为什么会超卖
+- O(1) 常数 (constant time) ← 第6章·复杂度：为什么一万条就卡了
+- O(log n) 对数 (logarithmic) ← 第6章·复杂度：为什么一万条就卡了
+- O(n) 线性 (linear) ← 第6章·复杂度：为什么一万条就卡了
+- O(n²) 平方 (quadratic) ← 第6章·复杂度：为什么一万条就卡了
+- 索引 (index) ← 第6章·复杂度：为什么一万条就卡了
+- 耦合 (coupling) ← 第6章·架构与解耦：为什么越改越乱
+- 解耦 / 模块化 (decoupling / modularity) ← 第6章·架构与解耦：为什么越改越乱
+- 内聚 (cohesion) ← 第6章·架构与解耦：为什么越改越乱
+- 接口 (interface) ← 第6章·架构与解耦：为什么越改越乱
+- 单体 (monolith) ← 第6章·架构与解耦：为什么越改越乱
+- 微服务 (microservices) ← 第6章·架构与解耦：为什么越改越乱
+- 人月 (man-month) ← 第7章·人月神话与 Brooks 定律 ⭐
+- 有效产能 (effective capacity) ← 第7章·人月神话与 Brooks 定律 ⭐
+- 沟通成本 (communication overhead) ← 第7章·人月神话与 Brooks 定律 ⭐
+- 串行 / 并行 (sequential / parallel) ← 第7章·人月神话与 Brooks 定律 ⭐
+- Ramp-up (ramp-up) ← 第7章·人月神话与 Brooks 定律 ⭐
+- 技术债 (technical debt) ← 第7章·技术债：借了就要还
+- 利率 (interest rate) ← 第7章·技术债：借了就要还
+- 重构 (refactoring) ← 第7章·技术债：借了就要还
+- 还款日 (repayment date) ← 第7章·技术债：借了就要还
+- 一次性代码 (throwaway code) ← 第7章·技术债：借了就要还
+- 本质复杂度 (essential complexity) ← 第7章·没有银弹：本质复杂度
+- 偶然复杂度 (accidental complexity) ← 第7章·没有银弹：本质复杂度
+- 银弹 (silver bullet) ← 第7章·没有银弹：本质复杂度
+- 概念完整性 (conceptual integrity) ← 第7章·没有银弹：本质复杂度
+- 顺应性 (conformity) ← 第7章·没有银弹：本质复杂度
+- 康威定律 (Conway's Law) ← 第7章·康威定律与人机分工（毕业课）
+- 逆康威操作 (Inverse Conway Maneuver) ← 第7章·康威定律与人机分工（毕业课）
+- 接口（契约意义） (interface / contract) ← 第7章·康威定律与人机分工（毕业课）
+- 两披萨团队 (two-pizza team) ← 第7章·康威定律与人机分工（毕业课）
+- 闭环七环 (the loop) ← 第7章·康威定律与人机分工（毕业课）
+- Gate（把关点） (gate) ← 第7章·康威定律与人机分工（毕业课）
+
+## 缺口 B（P3 附加题，182）
+- **frontend** (103): 组件、Markdown、HTML、CSS、页面标题、页面元数据、网站图标、Open Graph、Web 应用清单、无障碍、多行文本框、数字输入框、单选框、复选框、开关、滑块、自动完成、级联选择器、树选择、日期选择器、时间选择器、表单、颜色选择器、表单标签、占位文字、卡片、徽标、描述列表、统计数值、标签页、分段控件、折叠面板、树形控件、走马灯、空状态、文件项、图标、聊天界面、图表、应用图标、轻提示、弹窗、气泡确认框、气泡卡片、文字提示、进度条、骨架屏、结果页、旋转加载指示器、导航菜单、面包屑、步骤条、下拉菜单、锚点、回到顶部、跳过导航链接、CTA、用户原声、页头、标志、顶部导航栏、页脚、FAQ、社会证明、顶部导航布局、左侧栏布局、单页滚动布局、文档三栏布局、卡片网格布局、居中窄栏布局、瀑布流、分屏布局、响应式设计、间距、外边距、弹性布局、网格布局、层级、吸顶、居中、盒模型、内容溢出、排版、衬线与非衬线、文本截断、分割线、圆角、阴影、透明度、渐变、圆角的气质、毛玻璃、深色模式、设计令牌、对比度、视觉层级、动画、缓动、悬停、按下、聚焦、拖拽、禁用
+- **backend** (19): URL、HTTP、Cookie、HTTPS、重定向、JSON、CORS、浏览器存储、SQL、路由与端点、SEO、规范网址、XML 站点地图、Robots.txt、找不到页面、网站托管、持续交付 / 持续部署、蓝绿部署、Serverless
+- **product** (12): 用户故事、用户流程、用户旅程、PRD、MVP、产品路线图、甘特图、线框图、情绪板、转化漏斗、增删改查、数据类型
+- **technology** (13): npm、代码规范检查、集成测试、端到端测试、冒烟测试、测试替身、不稳定测试、JavaScript、TypeScript、Python、React、Vue、shadcn/ui
+- **ai** (10): Vibe Coding、AI 应用基础、多模态、Token、对话历史、无状态请求、人在回路、Sub-agent、ReAct、TTFT / TPS
+- **git** (2): 工作树、贮藏
+- **design** (23): 现代简约、苹果风、Notion 风、Bento 便当格、玻璃拟态、新粗野、瑞士排版、杂志编辑风、拟物化、扁平化、材料设计、新拟态、SaaS 产品官网、B2B 企业官网、DTC 品牌电商、深色界面、趣味插画、有机设计、Y2K、孟菲斯、包豪斯、日式侘寂、装饰艺术
