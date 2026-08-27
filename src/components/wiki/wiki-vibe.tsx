@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
+import VibeDemo from "@/components/wiki/wiki-vibe-demo";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
 import conceptMap from "@/content/concept-map.json";
 
@@ -252,16 +253,21 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
           </span>
         </span>
         <span className="vh-tagline-q">{l.hook ?? l.tagline}</span>
-        {/* live-demo capture from the original site; hides itself if absent */}
-        <img
-          src={preview}
-          alt=""
-          loading="lazy"
-          className="vh-thumb"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-        />
+        {l.source === "course" ? (
+          // React 示意图（course 词条无原站截图，用本站 demo 引擎渲染）
+          <VibeDemo id={l.id} />
+        ) : (
+          /* live-demo capture from the original site; hides itself if absent */
+          <img
+            src={preview}
+            alt=""
+            loading="lazy"
+            className="vh-thumb"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        )}
       </button>
       {open ? (
         <div className="vh-detail">
@@ -271,6 +277,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
           </h3>
           <p className="vh-tagline">{l.tagline}</p>
           {l.description ? <p className="vh-desc">{l.description}</p> : null}
+          {l.source === "course" ? <VibeDemo id={l.id} /> : null}
           {l.usage?.use?.length || l.usage?.avoid?.length ? (
             <div className="vh-usage">
               {l.usage?.use?.length ? (
