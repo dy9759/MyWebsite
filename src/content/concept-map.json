@@ -1,1720 +1,1810 @@
 {
- "links": [
-  {
-   "termId": "state",
-   "loopId": "frontback",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "state",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "state",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "state",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "state",
-   "loopId": "git",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "state",
-   "loopId": "nosilver",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "dom",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "前端"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "frontend",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "undo",
-   "loopId": "git",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "button",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "button",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "button",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "button",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "link",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "link",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "link",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "input",
-   "loopId": "inputsec",
-   "strength": "glossary",
-   "via": "输入校验"
-  },
-  {
-   "termId": "rate",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "select",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "select",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "upload",
-   "loopId": "inputsec",
-   "strength": "glossary",
-   "via": "文件上传风险"
-  },
-  {
-   "termId": "table",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "实体 / 表"
-  },
-  {
-   "termId": "list",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "list",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "list",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "list",
-   "loopId": "magnitude",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "list",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "tag",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "avatar",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "timeline",
-   "loopId": "brooks",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "timeline",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "image",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "image",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "quote",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "video",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "sort",
-   "loopId": "frontback",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "sort",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "sort",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "sort",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "filter",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "alert",
-   "loopId": "observability",
-   "strength": "glossary",
-   "via": "报警"
-  },
-  {
-   "termId": "notification",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "notification",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "notification",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "drawer",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "drawer",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "pagination",
-   "loopId": "api",
-   "strength": "glossary",
-   "via": "分页"
-  },
-  {
-   "termId": "pagination",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "search",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "hero",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "hero",
-   "loopId": "magnitude",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "pricing",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "padding",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "position",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "position",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "position",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "position",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "position",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "position",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "position",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "transition",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "spring",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "fade",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "fade",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "cursor",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "domain",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "域名"
-  },
-  {
-   "termId": "domain",
-   "loopId": "url2page",
-   "strength": "glossary",
-   "via": "DNS"
-  },
-  {
-   "termId": "dns",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "cdn",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "port",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "api",
-   "loopId": "api",
-   "strength": "identity",
-   "via": "id"
-  },
-  {
-   "termId": "data-validation",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "校验"
-  },
-  {
-   "termId": "data-validation",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "api-key",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "api-key",
-   "loopId": "secrets",
-   "strength": "glossary",
-   "via": "API Key"
-  },
-  {
-   "termId": "database",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "database",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "database",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "数据库"
-  },
-  {
-   "termId": "database",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "stackmap",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "database",
-   "loopId": "git",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "database",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "database",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "database",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×7"
-  },
-  {
-   "termId": "database",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "magnitude",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "database",
-   "loopId": "ragagent",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "database",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "database",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×7"
-  },
-  {
-   "termId": "database",
-   "loopId": "concurrency",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "database",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "database",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "backend",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "backend",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "后端"
-  },
-  {
-   "termId": "backend",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "backend",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "BaaS"
-  },
-  {
-   "termId": "backend",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "backend",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "backend",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "backend",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "backend",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "backend",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "backend-framework",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "后端"
-  },
-  {
-   "termId": "authentication",
-   "loopId": "authz",
-   "strength": "glossary",
-   "via": "认证"
-  },
-  {
-   "termId": "authorization",
-   "loopId": "authz",
-   "strength": "glossary",
-   "via": "授权"
-  },
-  {
-   "termId": "cache",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "cache",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "cache",
-   "loopId": "magnitude",
-   "strength": "glossary",
-   "via": "缓存"
-  },
-  {
-   "termId": "cache",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "cache",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "cache",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "cache",
-   "loopId": "techdebt",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "env-var",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "env-var",
-   "loopId": "secrets",
-   "strength": "glossary",
-   "via": "环境变量"
-  },
-  {
-   "termId": "deployment",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "部署"
-  },
-  {
-   "termId": "staging",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "staging",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "staging",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "monitoring",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "monitoring",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "monitoring",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "回滚"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "deploy",
-   "strength": "glossary",
-   "via": "回滚"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "rollback",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "feature-flag",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "canary-release",
-   "loopId": "deploy",
-   "strength": "glossary",
-   "via": "灰度发布"
-  },
-  {
-   "termId": "server-log",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "服务器"
-  },
-  {
-   "termId": "use-case",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "product-backlog",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ab-test",
-   "loopId": "nosilver",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "field",
-   "loopId": "frontback",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "field",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "field",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "字段"
-  },
-  {
-   "termId": "field",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "field",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "field",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "field",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "import-export",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "import-export",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "terminal",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "终端"
-  },
-  {
-   "termId": "browser-devtools",
-   "loopId": "frontback",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "browser-devtools",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "build",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "ci",
-   "loopId": "deploy",
-   "strength": "glossary",
-   "via": "CI/CD"
-  },
-  {
-   "termId": "acceptance-criteria",
-   "loopId": "spec",
-   "strength": "glossary",
-   "via": "验收标准"
-  },
-  {
-   "termId": "acceptance-criteria",
-   "loopId": "acceptance",
-   "strength": "glossary",
-   "via": "验收"
-  },
-  {
-   "termId": "test-case",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "test-case",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "unit-test",
-   "loopId": "concurrency",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "regression-test",
-   "loopId": "acceptance",
-   "strength": "glossary",
-   "via": "回归"
-  },
-  {
-   "termId": "test-coverage",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "test-fixture",
-   "loopId": "localserver",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "test-fixture",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "stackmap",
-   "strength": "mention",
-   "via": "zh×9"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "llm",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×8"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "tech-stack",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "nextjs",
-   "loopId": "stackmap",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "nextjs",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "概率生成"
-  },
-  {
-   "termId": "tailwind-css",
-   "loopId": "stackmap",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-hallucination",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "幻觉"
-  },
-  {
-   "termId": "ai-hallucination",
-   "loopId": "aifail",
-   "strength": "glossary",
-   "via": "幻觉"
-  },
-  {
-   "termId": "context-engineering",
-   "loopId": "llm",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "context-engineering",
-   "loopId": "spec",
-   "strength": "glossary",
-   "via": "上下文工程"
-  },
-  {
-   "termId": "context-window",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "上下文窗口"
-  },
-  {
-   "termId": "context-window",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "system-prompt",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "inputsec",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "ragagent",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "prompt",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "structured-output",
-   "loopId": "nondeterm",
-   "strength": "glossary",
-   "via": "结构化输出"
-  },
-  {
-   "termId": "streaming-response",
-   "loopId": "magnitude",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "streaming-response",
-   "loopId": "nondeterm",
-   "strength": "glossary",
-   "via": "流式输出"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "llm",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "git",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "ragagent",
-   "strength": "glossary",
-   "via": "Agent"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "brooks",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "ai-agent",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "harness-engineering",
-   "loopId": "ragagent",
-   "strength": "glossary",
-   "via": "Agent"
-  },
-  {
-   "termId": "mcp",
-   "loopId": "ragagent",
-   "strength": "glossary",
-   "via": "MCP"
-  },
-  {
-   "termId": "skill",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "tool-calling",
-   "loopId": "ragagent",
-   "strength": "glossary",
-   "via": "工具调用"
-  },
-  {
-   "termId": "agent-loop",
-   "loopId": "ragagent",
-   "strength": "glossary",
-   "via": "Agent"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "url2page",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "datamodel",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "stackmap",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "llm",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "authz",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "magnitude",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "ragagent",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "evals",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "observability",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "concurrency",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "complexity",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "brooks",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "token-cost",
-   "loopId": "techdebt",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "rate-limit",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "rate-limit",
-   "loopId": "nondeterm",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "rate-limit",
-   "loopId": "cloudcost",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "git",
-   "loopId": "git",
-   "strength": "identity",
-   "via": "id"
-  },
-  {
-   "termId": "commit",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "commit",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "提交"
-  },
-  {
-   "termId": "commit",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "commit",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×4"
-  },
-  {
-   "termId": "branch",
-   "loopId": "api",
-   "strength": "mention",
-   "via": "zh×5"
-  },
-  {
-   "termId": "branch",
-   "loopId": "spec",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "branch",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "分支"
-  },
-  {
-   "termId": "branch",
-   "loopId": "acceptance",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "merge",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "合并 / 冲突"
-  },
-  {
-   "termId": "merge",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "zh×2"
-  },
-  {
-   "termId": "pull",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "远程仓库 / 推与拉"
-  },
-  {
-   "termId": "push",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "远程仓库 / 推与拉"
-  },
-  {
-   "termId": "push",
-   "loopId": "deploy",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "push",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "zh×3"
-  },
-  {
-   "termId": "clone",
-   "loopId": "secrets",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "pull-request",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "远程仓库 / 推与拉"
-  },
-  {
-   "termId": "gitignore",
-   "loopId": "vibe",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "gitignore",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": ".gitignore"
-  },
-  {
-   "termId": "gitignore",
-   "loopId": "secrets",
-   "strength": "glossary",
-   "via": ".gitignore"
-  },
-  {
-   "termId": "diff",
-   "loopId": "aifail",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "diff",
-   "loopId": "git",
-   "strength": "glossary",
-   "via": "diff"
-  },
-  {
-   "termId": "diff",
-   "loopId": "acceptance",
-   "strength": "glossary",
-   "via": "改动范围"
-  },
-  {
-   "termId": "diff",
-   "loopId": "arch",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "diff",
-   "loopId": "nosilver",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "diff",
-   "loopId": "conway",
-   "strength": "mention",
-   "via": "en"
-  },
-  {
-   "termId": "style-terminal",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "终端"
-  },
-  {
-   "termId": "source-code",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "dependency",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "process",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "config-file",
-   "loopId": "vibe",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "localhost",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "server",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "ip-address",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "deploy",
-   "loopId": "localserver",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "render",
-   "loopId": "url2page",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "first-paint",
-   "loopId": "url2page",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "request-response",
-   "loopId": "frontback",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "contract",
-   "loopId": "api",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "idempotent",
-   "loopId": "api",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "status-code",
-   "loopId": "api",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "backward-compatible",
-   "loopId": "api",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "entity-table",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "primary-foreign-key",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "relation-shape",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "migration",
-   "loopId": "datamodel",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "programming-language",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "framework",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "baas",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "open-closed-source",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "ecosystem",
-   "loopId": "stackmap",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "next-token",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "parameters",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "training-inference",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "temperature",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "training-data",
-   "loopId": "llm",
-   "strength": "glossary",
-   "via": "course-import"
-  },
-  {
-   "termId": "spec",
-   "loopId": "spec",
-   "strength": "glossary",
-   "via": "course-import"
-  }
- ]
+  "links": [
+    {
+      "termId": "state",
+      "loopId": "frontback",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "state",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "state",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "state",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "state",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "state",
+      "loopId": "nosilver",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "dom",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "前端"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "frontend",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "undo",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "button",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "button",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "button",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "button",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "link",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "link",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "link",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "input",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "输入校验"
+    },
+    {
+      "termId": "rate",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "select",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "select",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "upload",
+      "loopId": "inputsec",
+      "strength": "glossary",
+      "via": "文件上传风险"
+    },
+    {
+      "termId": "table",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "实体 / 表"
+    },
+    {
+      "termId": "list",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "list",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "list",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "list",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "list",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "tag",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "avatar",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "timeline",
+      "loopId": "brooks",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "timeline",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "image",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "image",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "quote",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "video",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "sort",
+      "loopId": "frontback",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "sort",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "sort",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "sort",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "filter",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "alert",
+      "loopId": "observability",
+      "strength": "glossary",
+      "via": "报警"
+    },
+    {
+      "termId": "notification",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "notification",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "notification",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "drawer",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "drawer",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "pagination",
+      "loopId": "api",
+      "strength": "glossary",
+      "via": "分页"
+    },
+    {
+      "termId": "pagination",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "search",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "hero",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "hero",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "pricing",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "padding",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "position",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "position",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "position",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "position",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "position",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "position",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "position",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "transition",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "spring",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "fade",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "fade",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "cursor",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "domain",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "域名"
+    },
+    {
+      "termId": "domain",
+      "loopId": "url2page",
+      "strength": "glossary",
+      "via": "DNS"
+    },
+    {
+      "termId": "dns",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "cdn",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "port",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "api",
+      "loopId": "api",
+      "strength": "identity",
+      "via": "id"
+    },
+    {
+      "termId": "data-validation",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "校验"
+    },
+    {
+      "termId": "data-validation",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "api-key",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "api-key",
+      "loopId": "secrets",
+      "strength": "glossary",
+      "via": "API Key"
+    },
+    {
+      "termId": "database",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "database",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "database",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "数据库"
+    },
+    {
+      "termId": "database",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "database",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "database",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "database",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "database",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×7"
+    },
+    {
+      "termId": "database",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "database",
+      "loopId": "ragagent",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "database",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "database",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×7"
+    },
+    {
+      "termId": "database",
+      "loopId": "concurrency",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "database",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "database",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "backend",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "backend",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "后端"
+    },
+    {
+      "termId": "backend",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "backend",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "BaaS"
+    },
+    {
+      "termId": "backend",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "backend",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "backend",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "backend",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "backend",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "backend",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "backend-framework",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "后端"
+    },
+    {
+      "termId": "authentication",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "认证"
+    },
+    {
+      "termId": "authorization",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "授权"
+    },
+    {
+      "termId": "cache",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "cache",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "cache",
+      "loopId": "magnitude",
+      "strength": "glossary",
+      "via": "缓存"
+    },
+    {
+      "termId": "cache",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "cache",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "cache",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "cache",
+      "loopId": "techdebt",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "env-var",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "env-var",
+      "loopId": "secrets",
+      "strength": "glossary",
+      "via": "环境变量"
+    },
+    {
+      "termId": "deployment",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "部署"
+    },
+    {
+      "termId": "staging",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "staging",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "staging",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "monitoring",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "monitoring",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "monitoring",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "回滚"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "deploy",
+      "strength": "glossary",
+      "via": "回滚"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "rollback",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "feature-flag",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "canary-release",
+      "loopId": "deploy",
+      "strength": "glossary",
+      "via": "灰度发布"
+    },
+    {
+      "termId": "server-log",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "服务器"
+    },
+    {
+      "termId": "use-case",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "product-backlog",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ab-test",
+      "loopId": "nosilver",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "field",
+      "loopId": "frontback",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "field",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "field",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "字段"
+    },
+    {
+      "termId": "field",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "field",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "field",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "field",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "import-export",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "import-export",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "terminal",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "终端"
+    },
+    {
+      "termId": "browser-devtools",
+      "loopId": "frontback",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "browser-devtools",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "build",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "ci",
+      "loopId": "deploy",
+      "strength": "glossary",
+      "via": "CI/CD"
+    },
+    {
+      "termId": "acceptance-criteria",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "验收标准"
+    },
+    {
+      "termId": "acceptance-criteria",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "验收"
+    },
+    {
+      "termId": "test-case",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "test-case",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "unit-test",
+      "loopId": "concurrency",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "regression-test",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "回归"
+    },
+    {
+      "termId": "test-coverage",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "test-fixture",
+      "loopId": "localserver",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "test-fixture",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "zh×9"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×8"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "tech-stack",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "nextjs",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "nextjs",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "概率生成"
+    },
+    {
+      "termId": "tailwind-css",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-hallucination",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "幻觉"
+    },
+    {
+      "termId": "ai-hallucination",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "幻觉"
+    },
+    {
+      "termId": "context-engineering",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "context-engineering",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "上下文工程"
+    },
+    {
+      "termId": "context-window",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "上下文窗口"
+    },
+    {
+      "termId": "context-window",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "system-prompt",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "inputsec",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "ragagent",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "prompt",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "structured-output",
+      "loopId": "nondeterm",
+      "strength": "glossary",
+      "via": "结构化输出"
+    },
+    {
+      "termId": "streaming-response",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "streaming-response",
+      "loopId": "nondeterm",
+      "strength": "glossary",
+      "via": "流式输出"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "Agent"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "brooks",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "ai-agent",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "harness-engineering",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "Agent"
+    },
+    {
+      "termId": "mcp",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "MCP"
+    },
+    {
+      "termId": "skill",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "tool-calling",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "工具调用"
+    },
+    {
+      "termId": "agent-loop",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "Agent"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "ragagent",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "evals",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "observability",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "concurrency",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "complexity",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "brooks",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "token-cost",
+      "loopId": "techdebt",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "rate-limit",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "rate-limit",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "rate-limit",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "git",
+      "loopId": "git",
+      "strength": "identity",
+      "via": "id"
+    },
+    {
+      "termId": "commit",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "commit",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "提交"
+    },
+    {
+      "termId": "commit",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "commit",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×4"
+    },
+    {
+      "termId": "branch",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "zh×5"
+    },
+    {
+      "termId": "branch",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "branch",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "分支"
+    },
+    {
+      "termId": "branch",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "merge",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "合并 / 冲突"
+    },
+    {
+      "termId": "merge",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "zh×2"
+    },
+    {
+      "termId": "pull",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "远程仓库 / 推与拉"
+    },
+    {
+      "termId": "push",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "远程仓库 / 推与拉"
+    },
+    {
+      "termId": "push",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "push",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "zh×3"
+    },
+    {
+      "termId": "clone",
+      "loopId": "secrets",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "pull-request",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "远程仓库 / 推与拉"
+    },
+    {
+      "termId": "gitignore",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "gitignore",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": ".gitignore"
+    },
+    {
+      "termId": "gitignore",
+      "loopId": "secrets",
+      "strength": "glossary",
+      "via": ".gitignore"
+    },
+    {
+      "termId": "diff",
+      "loopId": "aifail",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "diff",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "diff"
+    },
+    {
+      "termId": "diff",
+      "loopId": "acceptance",
+      "strength": "glossary",
+      "via": "改动范围"
+    },
+    {
+      "termId": "diff",
+      "loopId": "arch",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "diff",
+      "loopId": "nosilver",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "diff",
+      "loopId": "conway",
+      "strength": "mention",
+      "via": "en"
+    },
+    {
+      "termId": "style-terminal",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "终端"
+    },
+    {
+      "termId": "source-code",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "dependency",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "process",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "config-file",
+      "loopId": "vibe",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "localhost",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "server",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "ip-address",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "deploy",
+      "loopId": "localserver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "render",
+      "loopId": "url2page",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "first-paint",
+      "loopId": "url2page",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "request-response",
+      "loopId": "frontback",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "contract",
+      "loopId": "api",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "idempotent",
+      "loopId": "api",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "status-code",
+      "loopId": "api",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "backward-compatible",
+      "loopId": "api",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "entity-table",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "primary-foreign-key",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "relation-shape",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "migration",
+      "loopId": "datamodel",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "programming-language",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "framework",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "baas",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "open-closed-source",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "ecosystem",
+      "loopId": "stackmap",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "next-token",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "parameters",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "training-inference",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "temperature",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "training-data",
+      "loopId": "llm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "spec",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "edge-case",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "constraints",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "scope-creep",
+      "loopId": "spec",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "unsolicited-changes",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "doom-loop",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "overconfidence",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "works-but-wrong",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "context-rot",
+      "loopId": "aifail",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "repository",
+      "loopId": "git",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "environment",
+      "loopId": "deploy",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "on-call",
+      "loopId": "deploy",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "dotenv",
+      "loopId": "secrets",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "key-rotation",
+      "loopId": "secrets",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "authn",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "authz",
+      "loopId": "authz",
+      "strength": "glossary",
+      "via": "course-import"
+    }
+  ]
 }

@@ -16,6 +16,25 @@ import { useLanguage } from "@/components/language-provider";
 import { wikiDemoReply } from "@/content/wiki";
 import { getCompleted, markCompleted } from "@/lib/wiki-progress";
 import { DEFAULT_PROFILE, deepPersonalize, getProfile } from "@/lib/wiki-profile";
+import conceptMap from "@/content/concept-map.json";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+// loopId → mapped termIds (strong links first).
+const LOOP_TERMS = new Map<string, { termId: string; strength: string }[]>();
+for (const l of conceptMap.links as { termId: string; loopId: string; strength: string }[]) {
+  if (!LOOP_TERMS.has(l.loopId)) LOOP_TERMS.set(l.loopId, []);
+  LOOP_TERMS.get(l.loopId)!.push({ termId: l.termId, strength: l.strength });
+}
+const STRENGTH_RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
+
+type TermMeta = { id: string; topic: string; title: string; en: string };
+type EchoQ = {
+  id: string;
+  q: string;
+  options: { label: string; feedback: string; correct: boolean }[];
+  term: { title: string };
+};
 
 type LoopLink = { lessonId: string; title: string } | null;
 
@@ -145,6 +164,31 @@ export default function WikiLessonPage({
     setFinished(getCompleted().has(node.lessonId));
   }, [node.lessonId]);
 
+  // P1: related terms (chips) + 回声加餐 practice questions for this loop.
+  const [relTerms, setRelTerms] = useState<TermMeta[]>([]);
+  const [echoQs, setEchoQs] = useState<EchoQ[]>([]);
+  const [echoPicked, setEchoPicked] = useState<Record<number, number>>({});
+  useEffect(() => {
+    const mapped = (LOOP_TERMS.get(node.lessonId) ?? [])
+      .slice()
+      .sort((a, b) => (STRENGTH_RANK[a.strength] ?? 9) - (STRENGTH_RANK[b.strength] ?? 9));
+    if (!mapped.length) return;
+    const ids = new Set(mapped.map((m) => m.termId));
+    fetch(`${BASE_PATH}/wiki/search-index.json?t=${Date.now()}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((idx: (TermMeta & { k: string })[]) => {
+        const byId = new Map(idx.filter((e) => e.k === "term").map((e) => [e.id, e]));
+        setRelTerms(
+          mapped.map((m) => byId.get(m.termId)).filter((x): x is TermMeta & { k: string } => !!x).slice(0, 8),
+        );
+      })
+      .catch(() => {});
+    fetch(`${BASE_PATH}/wiki/vibe/practice.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((qs: EchoQ[]) => setEchoQs(qs.filter((q) => ids.has(q.id)).slice(0, 3)))
+      .catch(() => {});
+  }, [node.lessonId]);
+
   const go = (n: number) => {
     setIdx(Math.max(0, Math.min(n, total - 1)));
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -262,6 +306,21 @@ export default function WikiLessonPage({
             <p className="mt-1 text-sm" style={{ color: "var(--loop-ink-2)" }}>
               {node.hook}
             </p>
+            {relTerms.length ? (
+              <p className="mt-2.5 flex flex-wrap items-baseline gap-1.5 text-xs" style={{ color: "var(--loop-ink-3)" }}>
+                相关术语：
+                {relTerms.map((t) => (
+                  <Link
+                    key={t.id}
+                    href={`/wiki?vibe=${t.topic}:${t.id}`}
+                    className="rounded-full px-2 py-0.5"
+                    style={{ background: "var(--loop-blue-wash)", color: "var(--loop-blue-deep)" }}
+                  >
+                    {t.title}
+                  </Link>
+                ))}
+              </p>
+            ) : null}
           </header>
 
           {/* current step */}
@@ -288,6 +347,41 @@ export default function WikiLessonPage({
                   </button>
                 ) : (
                   <>
+                    {echoQs.length ? (
+                      <div
+                        className="px-3.5 py-3"
+                        style={{
+                          border: "1px solid var(--loop-line)",
+                          borderRadius: "var(--loop-radius)",
+                          background: "var(--loop-raised)",
+                        }}
+                      >
+                        <p className="mb-2 text-xs font-semibold tracking-widest" style={{ color: "var(--loop-green)" }}>
+                          🔁 回声加餐 · 用术语库的题再巩固一遍
+                        </p>
+                        {echoQs.map((q, qi) => {
+                          const sel = echoPicked[qi];
+                          return (
+                            <div key={q.id} className="mb-3 last:mb-0">
+                              <p className="mb-1.5 text-sm font-semibold leading-6">{q.q}</p>
+                              {q.options.map((o, oi) => (
+                                <button
+                                  key={oi}
+                                  type="button"
+                                  disabled={sel != null}
+                                  onClick={() => setEchoPicked((prev) => ({ ...prev, [qi]: oi }))}
+                                  className={`loop-opt${sel === oi ? (o.correct ? " picked-right" : " picked-wrong") : sel != null && o.correct ? " picked-right" : ""}`}
+                                  style={{ marginBottom: 6 }}
+                                >
+                                  {o.label}
+                                  {sel === oi ? <span className="loop-opt-fb block">{o.feedback}</span> : null}
+                                </button>
+                              ))}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : null}
                     {isChapterEnd ? (
                       <div
                         className="flex items-start gap-2 px-3 py-2.5 text-sm"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, WIKI_TERMS, WIKI_JOBS, wikiDemoReply, type WikiReply } from "@/content/wiki";
@@ -22,6 +22,17 @@ export default function WikiPageBody() {
 
   const [domain, setDomain] = useState<WikiDomain>("sources");
   const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
+
+  // Deep link from lesson pages: /wiki?vibe=topic:termId
+  useEffect(() => {
+    const m = new URLSearchParams(window.location.search).get("vibe");
+    if (!m) return;
+    const [topic, id] = m.split(":");
+    if (topic && id) {
+      setDomain("vibe");
+      setVibeTarget({ topic, id, ts: Date.now() });
+    }
+  }, []);
   const [chatOpen, setChatOpen] = useState(false);
   const [pending, setPending] = useState(false);
   const seed = ui.chips[2];

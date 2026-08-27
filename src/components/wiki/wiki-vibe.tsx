@@ -5,20 +5,34 @@
 // (MIT-licensed vibe-hub-skill). Data lazy-loads per topic from
 // public/wiki/vibe/{topic}.json; layout follows the original design tokens.
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
+import { COURSE_CHAPTERS } from "@/content/wiki-course";
+import conceptMap from "@/content/concept-map.json";
+
+// termId → loops that teach/mention it (strong links first).
+const LOOP_META = new Map<string, { chapter: number; title: string }>();
+for (const ch of COURSE_CHAPTERS)
+  for (const n of ch.nodes) LOOP_META.set(n.lessonId, { chapter: ch.index, title: n.title });
+const TERM_LOOPS = new Map<string, { loopId: string; strength: string }[]>();
+for (const l of conceptMap.links as { termId: string; loopId: string; strength: string }[]) {
+  if (!TERM_LOOPS.has(l.termId)) TERM_LOOPS.set(l.termId, []);
+  TERM_LOOPS.get(l.termId)!.push({ loopId: l.loopId, strength: l.strength });
+}
+const RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const VIBE_TOPICS = [
   { id: "frontend", title: "前端", count: 138 },
-  { id: "backend", title: "后端", count: 57 },
-  { id: "product", title: "产品", count: 17 },
+  { id: "backend", title: "后端", count: 63 },
+  { id: "product", title: "产品", count: 18 },
   { id: "technology", title: "技术栈", count: 31 },
-  { id: "ai", title: "AI", count: 31 },
-  { id: "git", title: "Git", count: 12 },
+  { id: "ai", title: "AI", count: 38 },
+  { id: "git", title: "Git", count: 13 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;
-export const VIBE_TOTAL = 310;
+export const VIBE_TOTAL = 325;
 
 type Lesson = {
   id: string;
@@ -290,6 +304,31 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
               ))}
             </p>
           ) : null}
+          {(() => {
+            const loops = (TERM_LOOPS.get(l.id) ?? [])
+              .slice()
+              .sort((a, b) => (RANK[a.strength] ?? 9) - (RANK[b.strength] ?? 9))
+              .slice(0, 3);
+            return loops.length ? (
+              <p style={{ marginTop: 12, fontSize: 13 }}>
+                在闭环学院学这个：
+                {loops.map(({ loopId }) => {
+                  const meta = LOOP_META.get(loopId);
+                  if (!meta) return null;
+                  return (
+                    <Link
+                      key={loopId}
+                      href={`/wiki/course/${loopId}/`}
+                      className="vh-chip"
+                      style={{ color: "var(--vh-brand)" }}
+                    >
+                      第 {meta.chapter} 章 · {meta.title}
+                    </Link>
+                  );
+                })}
+              </p>
+            ) : null;
+          })()}
           {l.url ? (
             <p style={{ marginTop: 12 }}>
               <a href={l.url} target="_blank" rel="noopener noreferrer" style={{ color: "var(--vh-brand)", fontSize: 13 }}>

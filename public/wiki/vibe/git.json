@@ -1,1 +1,1191 @@
-[{"id":"git","title":"Git","secondaryTitle":null,"category":"Git","macroCategory":"Git","tagline":"Git 是在本地记录文件版本历史、比较改动并协作同步的版本控制工具","aliases":["Git 版本控制","版本控制"],"path":"/git","url":"https://vibe-hub.org/git","learningOutcome":null,"prerequisites":["terminal"],"description":"例如，完成并检查首页导航后，可以用提交把相关改动保存成一个本地版本，以后查看或恢复；只有推送后 GitHub 才有副本。未 Commit 的改动不会自动进入历史。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"terminal","title":"终端命令行","url":"https://vibe-hub.org/terminal"}],"usage":{"use":["每完成一个能运行的小改动，就保存一个有说明的版本","保存前先看改动清单，确认这次记录的内容正确","出现问题时，先查版本历史，再决定怎样恢复","需要协作或远端副本时，把已保存的版本推到 GitHub"],"avoid":["连续改很多天却不保存版本，出问题后没有清楚的恢复点","版本说明只写“改了”“111”，之后看不出完成了什么","遇到问题就删除项目目录，本地版本历史也会一起丢失","把包含真实密钥的 .env 保存进版本历史"],"scenarios":["GitHub 提交记录页","终端里 git log 翻历史","回滚到上一个 commit","GitHub 仓库首页"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"当前版本已经能运行，接下来要让 Agent 大改首页。怎样先留下可靠的恢复点？","options":[{"label":"复制整个项目文件夹，并用“最终版2”作为备份名","feedback":"复制能留下副本，但无法清楚比较每次变化，也容易产生多个不知道差异的文件夹。","correct":false},{"label":"检查当前改动并创建说明清楚的 Commit，再开始大改","feedback":"Commit 会把确认可用的状态写进版本历史，之后可以比较新改动并回到这个恢复点。","correct":true},{"label":"不保存版本，直接运行 Push，把当前文件传到远端","feedback":"Push 只同步已经 Commit 的历史；未提交的工作区改动不会因此成为可恢复版本。","correct":false}]},"agentPrompt":"在大改首页前，请先查看 git status 和 diff，确认当前版本能运行且没有密钥，再创建说明清楚的 Commit 作为恢复点。告诉我 commit hash 和仍未提交的文件；这一步不要自动 Push 或回滚其他改动。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"Pro Git 官方书籍","source":"git-scm","url":"https://git-scm.com/book/en/v2"},{"title":"Git 命令参考","source":"git-scm","url":"https://git-scm.com/docs"}],"hook":"AI 把我的代码改崩了，我想回到上一个能用的版本。"},{"id":"commit","title":"提交","secondaryTitle":"Commit","category":"Git","macroCategory":"Git","tagline":"给当前项目保存一个可以回看、带说明的版本","aliases":[],"path":"/commit","url":"https://vibe-hub.org/commit","learningOutcome":null,"prerequisites":["git"],"description":"例如修好手机端按钮后，先把这部分改动选进“这次准备保存的清单”，再保存为一个注明“修复手机端按钮错位”的版本。撤销前要区分还没保存的改动和已经分享出去的版本；已经分享的版本通常另存一次反向修改，不直接改写旧记录。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"}],"usage":{"use":[],"avoid":[],"scenarios":["终端里 add + commit","VS Code 源代码管理面板","git log 查看提交记录","GitHub 查看一次 commit 的 diff"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"git status 同时显示 index.html 和 .env 有改动，这次只想提交首页导航。怎么做更安全？","options":[{"label":"只暂存 index.html，检查暂存区差异，再提交“修复首页导航”","feedback":"对。先限定本次范围并检查暂存区，可以避免把 .env 里的密钥写进版本历史。","correct":true},{"label":"运行 git add .，把两个文件一起提交，之后再整理","feedback":"git add . 会把 .env 一起放进暂存区。密钥一旦进入历史，删除文件也不等于消除泄露风险。","correct":false},{"label":"先提交 .env，推送前再从最新版本里删掉","feedback":"删掉最新文件不会抹去之前的提交记录。密钥进入历史后应立即轮换。","correct":false}]},"agentPrompt":"请先查看 git status 和 diff，只提交首页导航相关改动，排除 .env。提交说明写清完成了什么。提交后告诉我 commit hash，并确认这次还没有 push。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-commit 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-commit"},{"title":"记录仓库的改动（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository"}],"hook":"帮我把现在改好的代码存一下，我怕等下越改越乱，回不去了。"},{"id":"branch","title":"分支","secondaryTitle":"Branch","category":"Git","macroCategory":"Git","tagline":"从当前版本另开一条修改路线，让新功能先不混进主版本","aliases":[],"path":"/branch","url":"https://vibe-hub.org/branch","learningOutcome":null,"prerequisites":["commit"],"description":"例如从当前稳定版本另开一条路线，只在这里修改和测试导航，确认后再合回主版本。它和主版本共享已有历史，同时把新的尝试暂时分开；切换前要先收好还没保存的改动。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"commit","title":"提交","url":"https://vibe-hub.org/commit"}],"usage":{"use":["开发新功能或尝试较大的修改时，先从稳定版本创建分支","用 feature/new-nav 等能说明用途的名称","切换前先确认当前改动已经 Commit 或暂时收好","完成并测试后及时合回主版本，不让两边相差太久"],"avoid":["直接在主版本上做不确定的大改动","使用 test1、aaa 等无法说明用途的分支名称","带着未保存的改动随意切换，导致内容出现在错误分支","功能完成很久仍不合回，增加之后的合并难度"],"scenarios":["终端开新分支","GitHub 分支下拉切换","VS Code 左下角分支名","GitHub 分支列表页"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"main 现在稳定，你要尝试一套可能推翻的导航方案。怎样开始更安全？","options":[{"label":"留在 main 直接修改，完成后再决定要不要保留","feedback":"不确定的大改会直接混入稳定路线，之后分辨和撤回实验内容都更困难。","correct":false},{"label":"先收好当前改动，再从最新 main 创建用途明确的分支","feedback":"新分支共享稳定起点，却把后续实验暂时隔开，验证后再决定是否合回。","correct":true},{"label":"为这次导航实验创建一个全新的 Git 仓库","feedback":"新仓库会割裂原有历史和协作关系；同一项目的独立修改路线应使用分支。","correct":false}]},"agentPrompt":"请先收好当前改动并同步最新 main，再创建一个名称说明用途的导航实验分支。只在该分支修改和验证导航，不要直接改 main。完成后告诉我分支名、与 main 的差异和验证结果，先不要合并。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-branch 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-branch"},{"title":"分支简介（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell"}],"hook":"我想试试另一种做法，但又怕把现在这个能跑的版本搞坏。"},{"id":"merge","title":"合并","secondaryTitle":"Merge","category":"Git","macroCategory":"Git","tagline":"合并是把另一条修改路线上的已保存改动放进当前路线的操作。","aliases":[],"path":"/merge","url":"https://vibe-hub.org/merge","learningOutcome":null,"prerequisites":["branch","commit"],"description":"例如功能完成后，可以把功能路线合回主版本。两边都改到同一处时，Git 会提示内容冲突，需要决定保留什么、清理提示标记并重新检查。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"branch","title":"分支","url":"https://vibe-hub.org/branch"},{"id":"commit","title":"提交","url":"https://vibe-hub.org/commit"}],"usage":{"use":["功能分支已经完成并通过测试后，再合回主版本","合并前先确认自己站在准备接收改动的分支上","出现冲突时逐处理解两边改动，再决定最终结果","合并完成后重新运行项目，确认两边功能仍然正常"],"avoid":["没有确认当前分支就开始合并，导致改动进入错误位置","把冲突处理成只保留一边，却没有理解另一边的用途","冲突标记没有清理完整就保存版本","看到命令成功就结束，忘记重新运行和测试"],"scenarios":["终端 git merge 合回主线","冲突文件里的标记","VS Code 冲突解决按钮","GitHub PR 合并按钮"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"功能分支准备进入 main，但两边都改了同一行。怎样处理冲突更可靠？","options":[{"label":"理解两边意图后合并出正确内容，完成冲突标记，再运行相关测试","feedback":"对。冲突不是任选一边；需要保留正确业务结果并验证代码仍能运行。","correct":true},{"label":"总是选择当前分支版本，因为它离自己最近","feedback":"当前分支不一定包含目标分支必须保留的修复。","correct":false},{"label":"保留冲突标记提交，让 CI 之后再决定","feedback":"冲突标记不是可运行代码，应在合并前明确解决。","correct":false}]},"agentPrompt":"请把这个功能分支合并到目标分支。先查看冲突两侧各自要保留什么，解决后确保没有冲突标记，再运行相关测试。完成后说明合并结果和测试结果，不要用“任选一边”的方式处理。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-merge 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-merge"},{"title":"分支与合并基础（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"}],"hook":"我在另一边试的功能成了，怎么把它并回正式版本？"},{"id":"pull","title":"拉取","secondaryTitle":"Pull","category":"Git","macroCategory":"Git","tagline":"拉取是把网上已经保存的新版本同步到当前项目的操作。","aliases":[],"path":"/pull","url":"https://vibe-hub.org/pull","learningOutcome":null,"prerequisites":["git","commit","merge"],"description":"例如同事把改动上传到 GitHub 后，可以拉取到自己电脑上的同一个项目。开始前先保存或收好未完成改动；第一次把整个项目下载到电脑，应使用克隆。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"},{"id":"commit","title":"提交","url":"https://vibe-hub.org/commit"},{"id":"merge","title":"合并","url":"https://vibe-hub.org/merge"}],"usage":{"use":["开始协作前先取得网上的最新版本，减少之后的冲突","Pull 前先查看当前状态，保存或收好未完成改动","第一次取得仓库用克隆，之后同步新增版本再用 Pull","完成后运行项目，确认新版本在本机仍然正常"],"avoid":["手头有混乱的半成品时直接 Pull，把两批改动搅在一起","遇到冲突就随意选择一边，而不理解双方修改","每次想更新都重新 Clone，制造多个重复项目文件夹","把 Pull 当成恢复工具；它不能找回从未 Commit 的本地改动"],"scenarios":["终端 git pull 获取更新","pull 发生冲突","clone 与 pull 的区别","两台设备通过 push 和 pull 同步"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"同事已把修复推到远端，但你本地还有未完成改动。怎样同步更安全？","options":[{"label":"先查看状态并提交或贮藏本地改动，再 Pull，解决冲突后运行检查","feedback":"先收好本地现场能分清两批变化，拉取后的冲突和运行结果也都有明确验收。","correct":true},{"label":"直接 Pull，让 Git 自动决定未完成改动该保留哪一边","feedback":"Git 不能理解业务意图，混合现场会增加冲突和误选内容的风险。","correct":false},{"label":"每次远端更新都重新 Clone 一个“项目-最新版”文件夹","feedback":"重复项目会分散本地改动和环境，已有仓库应通过 Pull 同步新版本。","correct":false}]},"agentPrompt":"请先运行 git status，说明本地未完成改动，并在我确认后选择 Commit 或 Stash。工作区干净后 Pull 最新分支，冲突逐项解释，最后运行项目检查；不要重新 Clone 或自动覆盖一边。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-pull 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-pull"},{"title":"使用远程仓库（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes"}],"hook":"同事说他改完了，我怎么把他那版拿到我电脑上？"},{"id":"push","title":"推送","secondaryTitle":"Push","category":"Git","macroCategory":"Git","tagline":"推送是把电脑上已保存的版本上传到共享代码网站的操作。","aliases":[],"path":"/push","url":"https://vibe-hub.org/push","learningOutcome":null,"prerequisites":["git","commit"],"description":"例如把完成的版本上传到 GitHub，供协作或触发后续发布。它不会上传还没保存的改动；被拒绝时先查看原因并处理网上已有的变化，不要直接强行覆盖。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"},{"id":"commit","title":"提交","url":"https://vibe-hub.org/commit"}],"usage":{"use":["完成 Commit 后，把需要共享的版本上传到 GitHub","推送完成后刷新仓库页面，确认最新版本已经出现","推送前检查版本范围，并确认真实密钥没有被记录","被拒绝时先取得网上变化，处理并测试后再重新 Push"],"avoid":["只 Commit 不 Push，却以为 GitHub 已经有远端副本","被拒绝后直接强制推送，可能覆盖别人已经上传的版本","把真实密钥推到远程；之后删除文件也不能消除泄露风险","没有检查就把所有文件加入版本，可能连依赖和产物一起记录"],"scenarios":["终端 git push 上云","push 被拒的现场","GitHub 上确认新 commit",".gitignore 挡住 .env"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"本地提交修复后，怎样把它安全地交给远端协作？","options":[{"label":"先看提交和目标分支，再 push 到对应远端分支并确认远端提交号","feedback":"对。Push 会写入共享远端，先确认范围和目标分支，随后核对远端结果。","correct":true},{"label":"直接强制推送到 main，让远端完全等于本地","feedback":"强制推送可能覆盖他人的远端历史，不能作为普通交付步骤。","correct":false},{"label":"把改过的文件发给同事，Git 记录不需要同步","feedback":"文件副本会丢失可追溯的提交关系，协作分支也不会更新。","correct":false}]},"agentPrompt":"请查看当前分支、待推送提交和远端跟踪分支；确认只包含这次修复后，push 到对应分支。完成后给出远端分支名和最新 commit hash，不要改写 main 或使用 force。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-push 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-push"},{"title":"使用远程仓库（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes"}],"hook":"我本地改好了，怎么传到 GitHub 上让别人也能看到？"},{"id":"clone","title":"克隆","secondaryTitle":"Clone","category":"Git","macroCategory":"Git","tagline":"克隆是第一次把共享代码网站上的项目和版本记录完整下载到电脑的操作。","aliases":[],"path":"/clone","url":"https://vibe-hub.org/clone","learningOutcome":null,"prerequisites":["terminal","git"],"description":"它会新建项目文件夹，并下载代码和以前保存的版本。例如进入文件夹后先阅读项目说明，再安装需要的工具；之后同步新版本使用拉取。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"terminal","title":"终端命令行","url":"https://vibe-hub.org/terminal"},{"id":"git","title":"Git","url":"https://vibe-hub.org/git"}],"usage":{"use":["第一次参与一个 GitHub 项目时，复制正确的仓库地址再 Clone","Clone 完先进入新文件夹，阅读 README 和项目配置","确认项目需要的运行环境后，再安装依赖并启动","之后同步新增版本使用 Pull，不要重复下载整个项目"],"avoid":["把下载 ZIP 当成 clone；压缩包不包含 Git 历史","在没有写入权限的仓库里直接尝试 Push","反复 Clone 出“项目-2”“项目-最新”等重复文件夹","取得项目后没有安装依赖，就直接尝试启动"],"scenarios":["GitHub Code 按钮复制地址","终端 git clone 下载","clone 后查看提交历史","fork 他人的仓库"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"新成员第一次取得 GitHub 项目，既要修改代码，也要保留版本记录。应该怎样开始？","options":[{"label":"用正确仓库地址 Clone，进入新目录阅读 README，再按配置安装依赖","feedback":"Clone 会取得代码和历史，随后按项目说明建立环境，后续更新再使用 Pull。","correct":true},{"label":"下载 ZIP 并解压，把它当作包含完整 Git 历史的仓库","feedback":"压缩包通常只有当前文件快照，没有分支、提交历史和远端关联。","correct":false},{"label":"每次有更新都再次 Clone，并用文件夹名称区分版本","feedback":"反复下载会制造多个不一致现场，已有仓库应使用 Pull 同步。","correct":false}]},"agentPrompt":"请用给定仓库地址 Clone 到一个明确的新目录，进入后先阅读 README、package 配置和环境示例，再安装依赖并启动。确认 git remote 和当前分支正确；以后同步使用 Pull，不重复 Clone。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-clone 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-clone"}],"hook":"给我一个项目网址，我想把整套代码下载到自己电脑上改。"},{"id":"pull-request","title":"合并请求","secondaryTitle":"Pull Request","category":"Git","macroCategory":"Git","tagline":"合并请求是在 GitHub 或 GitLab 上查看改动、讨论并决定是否合并的页面。","aliases":[],"path":"/pull-request","url":"https://vibe-hub.org/pull-request","learningOutcome":null,"prerequisites":["branch","push","diff"],"description":"例如把新导航的改动上传后，可以创建一个合并请求；其他人能逐行查看变化、留言并确认自动检查结果，再决定是否合进主版本。它不是终端命令，也不表示改动已经进入主版本。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"branch","title":"分支","url":"https://vibe-hub.org/branch"},{"id":"push","title":"推送","url":"https://vibe-hub.org/push"},{"id":"diff","title":"差异对比","url":"https://vibe-hub.org/diff"}],"usage":{"use":["把功能分支 Push 到远程后，在 GitHub 创建 Pull Request","写清目的、主要改动、验证步骤和已知问题","逐页查看改动清单，并等待必要的自动检查通过","确认反馈已经处理后，再按项目约定合入主版本"],"avoid":["把 Pull Request 当成可以在终端直接运行的 Git 命令","只写“改好了”，没有说明目的和验证方式","没有查看改动内容，只因为自动检查通过就直接合入","收到反馈后继续修改，却没有重新检查最新变化"],"scenarios":["GitHub 开 PR 页","PR 对话与 review","Files changed 看改动","按项目约定选择合并方式"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"功能分支已提交 PR，自动检查通过，但评审指出手机端按钮被裁掉。下一步怎样处理？","options":[{"label":"自动检查已经通过，先合并再到 main 修手机问题","feedback":"自动检查没有覆盖这项手机布局问题；已知缺陷不应因为状态为绿色就进入主版本。","correct":false},{"label":"在原分支修复并重新验证，再查看 PR 的最新改动","feedback":"PR 应汇集最新代码、讨论和验证结果；处理反馈后重新检查，才能决定是否合并。","correct":true},{"label":"关闭原 PR，把相同代码复制到 main 后再修手机问题","feedback":"直接复制会绕过原有讨论和改动记录；修复应留在功能分支，让 PR 展示最终差异。","correct":false}]},"agentPrompt":"PR 的自动检查通过，但手机端按钮被裁掉。请在原分支修复，重新检查手机和桌面，并更新 PR 的改动说明与验证结果。确认最新 diff 只包含本功能后再请求评审，不要绕过 PR 直接改 main。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"为项目做贡献（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project"}],"hook":"我改完了，想请人看一眼没问题，再合进正式版本。"},{"id":"worktree","title":"工作树","secondaryTitle":"Worktree","category":"Git","macroCategory":"Git","tagline":"让同一个 Git 仓库同时出现在多个文件夹里，每个文件夹处理一条分支","aliases":[],"path":"/worktree","url":"https://vibe-hub.org/worktree","learningOutcome":null,"prerequisites":["branch","terminal"],"description":"例如，原文件夹继续做首页，另一个文件夹单独处理线上修复，两边可以同时打开和运行。移除额外文件夹前，先保存其中的改动并停止正在运行的服务；不要直接删除文件夹，应使用 Git 的 worktree 命令移除。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"branch","title":"分支","url":"https://vibe-hub.org/branch"},{"id":"terminal","title":"终端命令行","url":"https://vibe-hub.org/terminal"}],"usage":{"use":["当前任务不能中断、又要临时处理另一件事时创建 Worktree","让每个文件夹对应一条明确分支，避免内容混在一起","使用列表命令确认每个文件夹与分支的对应关系","确认改动已保存且服务已停止后，再移除 Worktree"],"avoid":["只是普通切换任务也创建许多工作树，让目录越来越难管理","在两个文件夹里同时尝试打开同一条分支","未保存改动或仍有服务运行时就移除目录","直接删除文件夹；应使用 Worktree 的移除命令更新 Git 记录"],"scenarios":["git worktree add 创建目录","额外目录处理修复","AI 两个窗口并行修改","list 查看与 remove 清理"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"首页分支正在运行且改到一半，现在要并行修线上 Bug，又不想贮藏或切走当前现场。怎样做？","options":[{"label":"为修复分支创建额外 Worktree，在另一个目录独立修改和运行","feedback":"同一仓库的不同分支分配到不同目录，两项任务可同时保留文件和进程现场。","correct":true},{"label":"让两个 Worktree 同时打开首页分支，分别修改不同文件","feedback":"同一分支不能同时检出到两个 Worktree，任务也应使用职责清楚的独立分支。","correct":false},{"label":"复制当前项目文件夹后直接修改，修完再手工把变化文件拷回原目录","feedback":"普通副本没有清楚的分支对应关系，手工回拷也容易遗漏、覆盖或混入当前未完成改动。","correct":false}]},"agentPrompt":"请保留当前首页 Worktree，为最新 main 上的 hotfix 分支创建独立 Worktree 和目录。分别使用不同端口运行；修复合并后先确认目录干净、服务停止，再用 Git Worktree 命令移除。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-worktree 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-worktree"}],"hook":"功能改到一半突然要修紧急 bug，我又不想收拾现在这个现场。"},{"id":"stash","title":"贮藏","secondaryTitle":"Stash","category":"Git","macroCategory":"Git","tagline":"把当前没做完的改动临时收起来，让工作区先恢复干净","aliases":[],"path":"/stash","url":"https://vibe-hub.org/stash","learningOutcome":null,"prerequisites":["git","branch"],"description":"例如，首页改到一半却要切去修 Bug，可以先 Stash，处理完再恢复。刚新建且从未加入 Git 的文件默认不会被收起，操作前要看 git status；Stash 只适合短期中转，正式成果仍要提交。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"},{"id":"branch","title":"分支","url":"https://vibe-hub.org/branch"}],"usage":{"use":["临时切换任务前，用清楚的说明收起未完成改动","回来后先放回改动并确认内容，再继续修改","忘记收过什么时，用列表查看已有记录和说明","任务完成后仍要 Commit，不要长期依赖 Stash 保存成果"],"avoid":["把 Stash 当成正式版本或远端备份","不写说明就连续收起多次，之后无法判断每一份是什么","恢复后没有检查内容，就直接删除 Stash 记录","长期把重要成果放在 Stash 中，却一直不 Commit"],"scenarios":["未完成改动时执行 stash push","stash list 查看暂存清单","stash apply 恢复","确认后 drop 清理"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"功能改到一半要临时切分支修 Bug，其中还有刚新建、尚未跟踪的文件。怎样使用 Stash 更稳妥？","options":[{"label":"先看状态，确认包含哪些文件，带说明贮藏，恢复后再逐项检查","feedback":"状态检查能发现未跟踪文件，清楚说明和恢复验收避免拿错或遗漏临时现场。","correct":true},{"label":"把重要成果长期放在 Stash 里，当作正式版本和远端备份","feedback":"Stash 是本地短期中转，不具备清楚版本历史和远端备份能力。","correct":false},{"label":"直接 Stash 并假设新建文件一定会一起收起，不再查看状态","feedback":"未跟踪文件默认可能不被包含，切换前必须确认实际收起范围。","correct":false}]},"agentPrompt":"请先展示 git status，指出已跟踪和未跟踪改动，再用包含任务名称的说明创建 Stash，并确认工作区干净。修复完成后恢复但先不删除记录，检查内容无误后再清理；正式成果必须 Commit。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-stash 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-stash"},{"title":"贮藏与清理（Pro Git）","source":"git-scm","url":"https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning"}],"hook":"改到一半要切去干别的，先把现在这些东西临时收起来。"},{"id":"gitignore","title":"忽略文件","secondaryTitle":".gitignore","category":"Git","macroCategory":"Git","tagline":"告诉 Git 哪些本地文件不要加入版本记录的规则清单","aliases":[],"path":"/gitignore","url":"https://vibe-hub.org/gitignore","learningOutcome":null,"prerequisites":["git","env-var"],"description":"例如可重新下载的工具文件和本机保存的密钥文件，通常会写进忽略规则。它只对还没被版本记录保存的文件生效；已经保存过的文件不会因此消失，已经泄露的密钥也必须立即更换。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"},{"id":"env-var","title":"环境变量","url":"https://vibe-hub.org/env-var"}],"usage":{"use":["在项目开始时就建立 .gitignore，并用状态列表检查结果","排除 node_modules 等能根据项目配置重新生成的内容","排除真实密钥文件，并提交不含真值的示例配置","参考官方或社区模板后，再按当前项目调整规则"],"avoid":["把依赖目录提交到仓库，增加体积并制造无关差异","把 .gitignore 当成加密工具；它只是告诉 Git 不要记录","文件已经被跟踪后才补规则；还要另外停止跟踪","密钥已经泄露却只删除文件，没有立即更换密钥"],"scenarios":["新建 .gitignore 文件","git status 前后对比","GitHub 模板库",".env 泄露补救"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"真实 `.env` 已经提交并推到远端，现在才把它写进 `.gitignore`。还需要做什么？","options":[{"label":"停止跟踪文件、保留无密钥示例，并立即轮换已经泄露的凭证","feedback":"忽略规则只影响未跟踪内容，历史中的密钥已经暴露，必须作废和更换。","correct":true},{"label":"只提交 `.gitignore`，旧文件和旧密钥会自动从历史消失","feedback":"已跟踪文件不会因新规则消失，历史提交中的内容也仍然存在。","correct":false},{"label":"保留原密钥继续使用，因为 `.gitignore` 已经把它加密隐藏","feedback":"Gitignore 只是匹配排除规则，不会加密已经提交或本地保存的内容。","correct":false}]},"agentPrompt":"请检查 `.env` 是否已被 Git 跟踪；若已提交，先停止跟踪并加入 `.gitignore`，提交不含真值的 `.env.example`。列出所有暴露凭证并立即轮换，不要把忽略规则当成历史清除或加密。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"gitignore 官方文档","source":"git-scm","url":"https://git-scm.com/docs/gitignore"}],"hook":"有些文件我不想让 Git 管，比如密钥和依赖包，怎么排除掉？"},{"id":"diff","title":"差异对比","secondaryTitle":"Diff","category":"Git","macroCategory":"Git","tagline":"把改动前后的内容逐行摆在一起，标出删了什么、加了什么","aliases":[],"path":"/diff","url":"https://vibe-hub.org/diff","learningOutcome":null,"prerequisites":["git","commit"],"description":"例如 AI 修改首页后，对比视图会用 `-` 标出删除的旧内容，用 `+` 标出新增内容。保存版本前要检查还没选入清单和已经选入清单的两部分变化，避免把误删、调试内容或密钥一起保存。","learning":null,"distinctions":[],"prerequisiteLessons":[{"id":"git","title":"Git","url":"https://vibe-hub.org/git"},{"id":"commit","title":"提交","url":"https://vibe-hub.org/commit"}],"usage":{"use":["AI 完成一轮修改后，先看 Diff 再决定是否保存版本","提交前分别检查尚未选择和已经选择的改动","在 Pull Request 的 Files changed 页面集中检查变化","看到大段删除时暂停确认，避免旧功能被意外移除"],"avoid":["只看改了哪些文件，不看每个文件具体变化","一次出现大量无关变化仍直接 Commit","调试文字、临时文件或真实密钥仍在 Diff 中就提交","只因为绿色很多就认为改动正确，仍要理解实际内容"],"scenarios":["终端 git diff","比较最近两个提交","GitHub Files changed 页","AI 修改后先 diff 再 commit"]},"explanation":[],"boundary":null,"flowLesson":null,"lessonPractice":{"title":"Agent 说“只改了按钮颜色”，但状态显示 12 个文件变化，其中还有大段删除。提交前应该怎样确认？","options":[{"label":"逐行检查未暂存和已暂存 Diff，确认误删、调试内容与密钥都不存在","feedback":"Diff 展示实际增删，分别检查两部分才能知道提交最终会包含什么。","correct":true},{"label":"只看修改文件数量，只要按钮文件在列表里就直接提交","feedback":"文件名不能说明每行变化，其他文件中的误删和敏感内容仍可能进入提交。","correct":false},{"label":"看到新增绿色行很多就判断改动正确，不阅读删除内容","feedback":"颜色只表示增加或删除，不评价业务正确性；大段删除尤其需要停下来确认。","correct":false}]},"agentPrompt":"请在提交前分别展示未暂存和已暂存 Diff，按文件解释每项变化，并标记超出“按钮颜色”的内容。重点检查大段删除、调试文字、生成文件和真实密钥；我确认范围后再 Commit。","nextLessons":[],"relatedLessons":[],"visualCapabilities":["preview","interactive-detail","anatomy","variants","scenarios","judgment-practice","agent-dialogue"],"references":[{"title":"git-diff 官方文档","source":"git-scm","url":"https://git-scm.com/docs/git-diff"}],"hook":"帮我看看这次到底改了哪几行，加了什么、删了什么。"}]
+[
+  {
+    "id": "git",
+    "title": "Git",
+    "secondaryTitle": null,
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "Git 是在本地记录文件版本历史、比较改动并协作同步的版本控制工具",
+    "aliases": [
+      "Git 版本控制",
+      "版本控制"
+    ],
+    "path": "/git",
+    "url": "https://vibe-hub.org/git",
+    "learningOutcome": null,
+    "prerequisites": [
+      "terminal"
+    ],
+    "description": "例如，完成并检查首页导航后，可以用提交把相关改动保存成一个本地版本，以后查看或恢复；只有推送后 GitHub 才有副本。未 Commit 的改动不会自动进入历史。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "terminal",
+        "title": "终端命令行",
+        "url": "https://vibe-hub.org/terminal"
+      }
+    ],
+    "usage": {
+      "use": [
+        "每完成一个能运行的小改动，就保存一个有说明的版本",
+        "保存前先看改动清单，确认这次记录的内容正确",
+        "出现问题时，先查版本历史，再决定怎样恢复",
+        "需要协作或远端副本时，把已保存的版本推到 GitHub"
+      ],
+      "avoid": [
+        "连续改很多天却不保存版本，出问题后没有清楚的恢复点",
+        "版本说明只写“改了”“111”，之后看不出完成了什么",
+        "遇到问题就删除项目目录，本地版本历史也会一起丢失",
+        "把包含真实密钥的 .env 保存进版本历史"
+      ],
+      "scenarios": [
+        "GitHub 提交记录页",
+        "终端里 git log 翻历史",
+        "回滚到上一个 commit",
+        "GitHub 仓库首页"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "当前版本已经能运行，接下来要让 Agent 大改首页。怎样先留下可靠的恢复点？",
+      "options": [
+        {
+          "label": "复制整个项目文件夹，并用“最终版2”作为备份名",
+          "feedback": "复制能留下副本，但无法清楚比较每次变化，也容易产生多个不知道差异的文件夹。",
+          "correct": false
+        },
+        {
+          "label": "检查当前改动并创建说明清楚的 Commit，再开始大改",
+          "feedback": "Commit 会把确认可用的状态写进版本历史，之后可以比较新改动并回到这个恢复点。",
+          "correct": true
+        },
+        {
+          "label": "不保存版本，直接运行 Push，把当前文件传到远端",
+          "feedback": "Push 只同步已经 Commit 的历史；未提交的工作区改动不会因此成为可恢复版本。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "在大改首页前，请先查看 git status 和 diff，确认当前版本能运行且没有密钥，再创建说明清楚的 Commit 作为恢复点。告诉我 commit hash 和仍未提交的文件；这一步不要自动 Push 或回滚其他改动。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "Pro Git 官方书籍",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2"
+      },
+      {
+        "title": "Git 命令参考",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs"
+      }
+    ],
+    "hook": "AI 把我的代码改崩了，我想回到上一个能用的版本。"
+  },
+  {
+    "id": "commit",
+    "title": "提交",
+    "secondaryTitle": "Commit",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "给当前项目保存一个可以回看、带说明的版本",
+    "aliases": [],
+    "path": "/commit",
+    "url": "https://vibe-hub.org/commit",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git"
+    ],
+    "description": "例如修好手机端按钮后，先把这部分改动选进“这次准备保存的清单”，再保存为一个注明“修复手机端按钮错位”的版本。撤销前要区分还没保存的改动和已经分享出去的版本；已经分享的版本通常另存一次反向修改，不直接改写旧记录。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      }
+    ],
+    "usage": {
+      "use": [],
+      "avoid": [],
+      "scenarios": [
+        "终端里 add + commit",
+        "VS Code 源代码管理面板",
+        "git log 查看提交记录",
+        "GitHub 查看一次 commit 的 diff"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "git status 同时显示 index.html 和 .env 有改动，这次只想提交首页导航。怎么做更安全？",
+      "options": [
+        {
+          "label": "只暂存 index.html，检查暂存区差异，再提交“修复首页导航”",
+          "feedback": "对。先限定本次范围并检查暂存区，可以避免把 .env 里的密钥写进版本历史。",
+          "correct": true
+        },
+        {
+          "label": "运行 git add .，把两个文件一起提交，之后再整理",
+          "feedback": "git add . 会把 .env 一起放进暂存区。密钥一旦进入历史，删除文件也不等于消除泄露风险。",
+          "correct": false
+        },
+        {
+          "label": "先提交 .env，推送前再从最新版本里删掉",
+          "feedback": "删掉最新文件不会抹去之前的提交记录。密钥进入历史后应立即轮换。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请先查看 git status 和 diff，只提交首页导航相关改动，排除 .env。提交说明写清完成了什么。提交后告诉我 commit hash，并确认这次还没有 push。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-commit 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-commit"
+      },
+      {
+        "title": "记录仓库的改动（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository"
+      }
+    ],
+    "hook": "帮我把现在改好的代码存一下，我怕等下越改越乱，回不去了。"
+  },
+  {
+    "id": "branch",
+    "title": "分支",
+    "secondaryTitle": "Branch",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "从当前版本另开一条修改路线，让新功能先不混进主版本",
+    "aliases": [],
+    "path": "/branch",
+    "url": "https://vibe-hub.org/branch",
+    "learningOutcome": null,
+    "prerequisites": [
+      "commit"
+    ],
+    "description": "例如从当前稳定版本另开一条路线，只在这里修改和测试导航，确认后再合回主版本。它和主版本共享已有历史，同时把新的尝试暂时分开；切换前要先收好还没保存的改动。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "commit",
+        "title": "提交",
+        "url": "https://vibe-hub.org/commit"
+      }
+    ],
+    "usage": {
+      "use": [
+        "开发新功能或尝试较大的修改时，先从稳定版本创建分支",
+        "用 feature/new-nav 等能说明用途的名称",
+        "切换前先确认当前改动已经 Commit 或暂时收好",
+        "完成并测试后及时合回主版本，不让两边相差太久"
+      ],
+      "avoid": [
+        "直接在主版本上做不确定的大改动",
+        "使用 test1、aaa 等无法说明用途的分支名称",
+        "带着未保存的改动随意切换，导致内容出现在错误分支",
+        "功能完成很久仍不合回，增加之后的合并难度"
+      ],
+      "scenarios": [
+        "终端开新分支",
+        "GitHub 分支下拉切换",
+        "VS Code 左下角分支名",
+        "GitHub 分支列表页"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "main 现在稳定，你要尝试一套可能推翻的导航方案。怎样开始更安全？",
+      "options": [
+        {
+          "label": "留在 main 直接修改，完成后再决定要不要保留",
+          "feedback": "不确定的大改会直接混入稳定路线，之后分辨和撤回实验内容都更困难。",
+          "correct": false
+        },
+        {
+          "label": "先收好当前改动，再从最新 main 创建用途明确的分支",
+          "feedback": "新分支共享稳定起点，却把后续实验暂时隔开，验证后再决定是否合回。",
+          "correct": true
+        },
+        {
+          "label": "为这次导航实验创建一个全新的 Git 仓库",
+          "feedback": "新仓库会割裂原有历史和协作关系；同一项目的独立修改路线应使用分支。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请先收好当前改动并同步最新 main，再创建一个名称说明用途的导航实验分支。只在该分支修改和验证导航，不要直接改 main。完成后告诉我分支名、与 main 的差异和验证结果，先不要合并。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-branch 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-branch"
+      },
+      {
+        "title": "分支简介（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell"
+      }
+    ],
+    "hook": "我想试试另一种做法，但又怕把现在这个能跑的版本搞坏。"
+  },
+  {
+    "id": "merge",
+    "title": "合并",
+    "secondaryTitle": "Merge",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "合并是把另一条修改路线上的已保存改动放进当前路线的操作。",
+    "aliases": [],
+    "path": "/merge",
+    "url": "https://vibe-hub.org/merge",
+    "learningOutcome": null,
+    "prerequisites": [
+      "branch",
+      "commit"
+    ],
+    "description": "例如功能完成后，可以把功能路线合回主版本。两边都改到同一处时，Git 会提示内容冲突，需要决定保留什么、清理提示标记并重新检查。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "branch",
+        "title": "分支",
+        "url": "https://vibe-hub.org/branch"
+      },
+      {
+        "id": "commit",
+        "title": "提交",
+        "url": "https://vibe-hub.org/commit"
+      }
+    ],
+    "usage": {
+      "use": [
+        "功能分支已经完成并通过测试后，再合回主版本",
+        "合并前先确认自己站在准备接收改动的分支上",
+        "出现冲突时逐处理解两边改动，再决定最终结果",
+        "合并完成后重新运行项目，确认两边功能仍然正常"
+      ],
+      "avoid": [
+        "没有确认当前分支就开始合并，导致改动进入错误位置",
+        "把冲突处理成只保留一边，却没有理解另一边的用途",
+        "冲突标记没有清理完整就保存版本",
+        "看到命令成功就结束，忘记重新运行和测试"
+      ],
+      "scenarios": [
+        "终端 git merge 合回主线",
+        "冲突文件里的标记",
+        "VS Code 冲突解决按钮",
+        "GitHub PR 合并按钮"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "功能分支准备进入 main，但两边都改了同一行。怎样处理冲突更可靠？",
+      "options": [
+        {
+          "label": "理解两边意图后合并出正确内容，完成冲突标记，再运行相关测试",
+          "feedback": "对。冲突不是任选一边；需要保留正确业务结果并验证代码仍能运行。",
+          "correct": true
+        },
+        {
+          "label": "总是选择当前分支版本，因为它离自己最近",
+          "feedback": "当前分支不一定包含目标分支必须保留的修复。",
+          "correct": false
+        },
+        {
+          "label": "保留冲突标记提交，让 CI 之后再决定",
+          "feedback": "冲突标记不是可运行代码，应在合并前明确解决。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请把这个功能分支合并到目标分支。先查看冲突两侧各自要保留什么，解决后确保没有冲突标记，再运行相关测试。完成后说明合并结果和测试结果，不要用“任选一边”的方式处理。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-merge 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-merge"
+      },
+      {
+        "title": "分支与合并基础（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging"
+      }
+    ],
+    "hook": "我在另一边试的功能成了，怎么把它并回正式版本？"
+  },
+  {
+    "id": "pull",
+    "title": "拉取",
+    "secondaryTitle": "Pull",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "拉取是把网上已经保存的新版本同步到当前项目的操作。",
+    "aliases": [],
+    "path": "/pull",
+    "url": "https://vibe-hub.org/pull",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git",
+      "commit",
+      "merge"
+    ],
+    "description": "例如同事把改动上传到 GitHub 后，可以拉取到自己电脑上的同一个项目。开始前先保存或收好未完成改动；第一次把整个项目下载到电脑，应使用克隆。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      },
+      {
+        "id": "commit",
+        "title": "提交",
+        "url": "https://vibe-hub.org/commit"
+      },
+      {
+        "id": "merge",
+        "title": "合并",
+        "url": "https://vibe-hub.org/merge"
+      }
+    ],
+    "usage": {
+      "use": [
+        "开始协作前先取得网上的最新版本，减少之后的冲突",
+        "Pull 前先查看当前状态，保存或收好未完成改动",
+        "第一次取得仓库用克隆，之后同步新增版本再用 Pull",
+        "完成后运行项目，确认新版本在本机仍然正常"
+      ],
+      "avoid": [
+        "手头有混乱的半成品时直接 Pull，把两批改动搅在一起",
+        "遇到冲突就随意选择一边，而不理解双方修改",
+        "每次想更新都重新 Clone，制造多个重复项目文件夹",
+        "把 Pull 当成恢复工具；它不能找回从未 Commit 的本地改动"
+      ],
+      "scenarios": [
+        "终端 git pull 获取更新",
+        "pull 发生冲突",
+        "clone 与 pull 的区别",
+        "两台设备通过 push 和 pull 同步"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "同事已把修复推到远端，但你本地还有未完成改动。怎样同步更安全？",
+      "options": [
+        {
+          "label": "先查看状态并提交或贮藏本地改动，再 Pull，解决冲突后运行检查",
+          "feedback": "先收好本地现场能分清两批变化，拉取后的冲突和运行结果也都有明确验收。",
+          "correct": true
+        },
+        {
+          "label": "直接 Pull，让 Git 自动决定未完成改动该保留哪一边",
+          "feedback": "Git 不能理解业务意图，混合现场会增加冲突和误选内容的风险。",
+          "correct": false
+        },
+        {
+          "label": "每次远端更新都重新 Clone 一个“项目-最新版”文件夹",
+          "feedback": "重复项目会分散本地改动和环境，已有仓库应通过 Pull 同步新版本。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请先运行 git status，说明本地未完成改动，并在我确认后选择 Commit 或 Stash。工作区干净后 Pull 最新分支，冲突逐项解释，最后运行项目检查；不要重新 Clone 或自动覆盖一边。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-pull 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-pull"
+      },
+      {
+        "title": "使用远程仓库（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes"
+      }
+    ],
+    "hook": "同事说他改完了，我怎么把他那版拿到我电脑上？"
+  },
+  {
+    "id": "push",
+    "title": "推送",
+    "secondaryTitle": "Push",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "推送是把电脑上已保存的版本上传到共享代码网站的操作。",
+    "aliases": [],
+    "path": "/push",
+    "url": "https://vibe-hub.org/push",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git",
+      "commit"
+    ],
+    "description": "例如把完成的版本上传到 GitHub，供协作或触发后续发布。它不会上传还没保存的改动；被拒绝时先查看原因并处理网上已有的变化，不要直接强行覆盖。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      },
+      {
+        "id": "commit",
+        "title": "提交",
+        "url": "https://vibe-hub.org/commit"
+      }
+    ],
+    "usage": {
+      "use": [
+        "完成 Commit 后，把需要共享的版本上传到 GitHub",
+        "推送完成后刷新仓库页面，确认最新版本已经出现",
+        "推送前检查版本范围，并确认真实密钥没有被记录",
+        "被拒绝时先取得网上变化，处理并测试后再重新 Push"
+      ],
+      "avoid": [
+        "只 Commit 不 Push，却以为 GitHub 已经有远端副本",
+        "被拒绝后直接强制推送，可能覆盖别人已经上传的版本",
+        "把真实密钥推到远程；之后删除文件也不能消除泄露风险",
+        "没有检查就把所有文件加入版本，可能连依赖和产物一起记录"
+      ],
+      "scenarios": [
+        "终端 git push 上云",
+        "push 被拒的现场",
+        "GitHub 上确认新 commit",
+        ".gitignore 挡住 .env"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "本地提交修复后，怎样把它安全地交给远端协作？",
+      "options": [
+        {
+          "label": "先看提交和目标分支，再 push 到对应远端分支并确认远端提交号",
+          "feedback": "对。Push 会写入共享远端，先确认范围和目标分支，随后核对远端结果。",
+          "correct": true
+        },
+        {
+          "label": "直接强制推送到 main，让远端完全等于本地",
+          "feedback": "强制推送可能覆盖他人的远端历史，不能作为普通交付步骤。",
+          "correct": false
+        },
+        {
+          "label": "把改过的文件发给同事，Git 记录不需要同步",
+          "feedback": "文件副本会丢失可追溯的提交关系，协作分支也不会更新。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请查看当前分支、待推送提交和远端跟踪分支；确认只包含这次修复后，push 到对应分支。完成后给出远端分支名和最新 commit hash，不要改写 main 或使用 force。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-push 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-push"
+      },
+      {
+        "title": "使用远程仓库（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes"
+      }
+    ],
+    "hook": "我本地改好了，怎么传到 GitHub 上让别人也能看到？"
+  },
+  {
+    "id": "clone",
+    "title": "克隆",
+    "secondaryTitle": "Clone",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "克隆是第一次把共享代码网站上的项目和版本记录完整下载到电脑的操作。",
+    "aliases": [],
+    "path": "/clone",
+    "url": "https://vibe-hub.org/clone",
+    "learningOutcome": null,
+    "prerequisites": [
+      "terminal",
+      "git"
+    ],
+    "description": "它会新建项目文件夹，并下载代码和以前保存的版本。例如进入文件夹后先阅读项目说明，再安装需要的工具；之后同步新版本使用拉取。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "terminal",
+        "title": "终端命令行",
+        "url": "https://vibe-hub.org/terminal"
+      },
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      }
+    ],
+    "usage": {
+      "use": [
+        "第一次参与一个 GitHub 项目时，复制正确的仓库地址再 Clone",
+        "Clone 完先进入新文件夹，阅读 README 和项目配置",
+        "确认项目需要的运行环境后，再安装依赖并启动",
+        "之后同步新增版本使用 Pull，不要重复下载整个项目"
+      ],
+      "avoid": [
+        "把下载 ZIP 当成 clone；压缩包不包含 Git 历史",
+        "在没有写入权限的仓库里直接尝试 Push",
+        "反复 Clone 出“项目-2”“项目-最新”等重复文件夹",
+        "取得项目后没有安装依赖，就直接尝试启动"
+      ],
+      "scenarios": [
+        "GitHub Code 按钮复制地址",
+        "终端 git clone 下载",
+        "clone 后查看提交历史",
+        "fork 他人的仓库"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "新成员第一次取得 GitHub 项目，既要修改代码，也要保留版本记录。应该怎样开始？",
+      "options": [
+        {
+          "label": "用正确仓库地址 Clone，进入新目录阅读 README，再按配置安装依赖",
+          "feedback": "Clone 会取得代码和历史，随后按项目说明建立环境，后续更新再使用 Pull。",
+          "correct": true
+        },
+        {
+          "label": "下载 ZIP 并解压，把它当作包含完整 Git 历史的仓库",
+          "feedback": "压缩包通常只有当前文件快照，没有分支、提交历史和远端关联。",
+          "correct": false
+        },
+        {
+          "label": "每次有更新都再次 Clone，并用文件夹名称区分版本",
+          "feedback": "反复下载会制造多个不一致现场，已有仓库应使用 Pull 同步。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请用给定仓库地址 Clone 到一个明确的新目录，进入后先阅读 README、package 配置和环境示例，再安装依赖并启动。确认 git remote 和当前分支正确；以后同步使用 Pull，不重复 Clone。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-clone 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-clone"
+      }
+    ],
+    "hook": "给我一个项目网址，我想把整套代码下载到自己电脑上改。"
+  },
+  {
+    "id": "pull-request",
+    "title": "合并请求",
+    "secondaryTitle": "Pull Request",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "合并请求是在 GitHub 或 GitLab 上查看改动、讨论并决定是否合并的页面。",
+    "aliases": [],
+    "path": "/pull-request",
+    "url": "https://vibe-hub.org/pull-request",
+    "learningOutcome": null,
+    "prerequisites": [
+      "branch",
+      "push",
+      "diff"
+    ],
+    "description": "例如把新导航的改动上传后，可以创建一个合并请求；其他人能逐行查看变化、留言并确认自动检查结果，再决定是否合进主版本。它不是终端命令，也不表示改动已经进入主版本。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "branch",
+        "title": "分支",
+        "url": "https://vibe-hub.org/branch"
+      },
+      {
+        "id": "push",
+        "title": "推送",
+        "url": "https://vibe-hub.org/push"
+      },
+      {
+        "id": "diff",
+        "title": "差异对比",
+        "url": "https://vibe-hub.org/diff"
+      }
+    ],
+    "usage": {
+      "use": [
+        "把功能分支 Push 到远程后，在 GitHub 创建 Pull Request",
+        "写清目的、主要改动、验证步骤和已知问题",
+        "逐页查看改动清单，并等待必要的自动检查通过",
+        "确认反馈已经处理后，再按项目约定合入主版本"
+      ],
+      "avoid": [
+        "把 Pull Request 当成可以在终端直接运行的 Git 命令",
+        "只写“改好了”，没有说明目的和验证方式",
+        "没有查看改动内容，只因为自动检查通过就直接合入",
+        "收到反馈后继续修改，却没有重新检查最新变化"
+      ],
+      "scenarios": [
+        "GitHub 开 PR 页",
+        "PR 对话与 review",
+        "Files changed 看改动",
+        "按项目约定选择合并方式"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "功能分支已提交 PR，自动检查通过，但评审指出手机端按钮被裁掉。下一步怎样处理？",
+      "options": [
+        {
+          "label": "自动检查已经通过，先合并再到 main 修手机问题",
+          "feedback": "自动检查没有覆盖这项手机布局问题；已知缺陷不应因为状态为绿色就进入主版本。",
+          "correct": false
+        },
+        {
+          "label": "在原分支修复并重新验证，再查看 PR 的最新改动",
+          "feedback": "PR 应汇集最新代码、讨论和验证结果；处理反馈后重新检查，才能决定是否合并。",
+          "correct": true
+        },
+        {
+          "label": "关闭原 PR，把相同代码复制到 main 后再修手机问题",
+          "feedback": "直接复制会绕过原有讨论和改动记录；修复应留在功能分支，让 PR 展示最终差异。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "PR 的自动检查通过，但手机端按钮被裁掉。请在原分支修复，重新检查手机和桌面，并更新 PR 的改动说明与验证结果。确认最新 diff 只包含本功能后再请求评审，不要绕过 PR 直接改 main。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "为项目做贡献（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project"
+      }
+    ],
+    "hook": "我改完了，想请人看一眼没问题，再合进正式版本。"
+  },
+  {
+    "id": "worktree",
+    "title": "工作树",
+    "secondaryTitle": "Worktree",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "让同一个 Git 仓库同时出现在多个文件夹里，每个文件夹处理一条分支",
+    "aliases": [],
+    "path": "/worktree",
+    "url": "https://vibe-hub.org/worktree",
+    "learningOutcome": null,
+    "prerequisites": [
+      "branch",
+      "terminal"
+    ],
+    "description": "例如，原文件夹继续做首页，另一个文件夹单独处理线上修复，两边可以同时打开和运行。移除额外文件夹前，先保存其中的改动并停止正在运行的服务；不要直接删除文件夹，应使用 Git 的 worktree 命令移除。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "branch",
+        "title": "分支",
+        "url": "https://vibe-hub.org/branch"
+      },
+      {
+        "id": "terminal",
+        "title": "终端命令行",
+        "url": "https://vibe-hub.org/terminal"
+      }
+    ],
+    "usage": {
+      "use": [
+        "当前任务不能中断、又要临时处理另一件事时创建 Worktree",
+        "让每个文件夹对应一条明确分支，避免内容混在一起",
+        "使用列表命令确认每个文件夹与分支的对应关系",
+        "确认改动已保存且服务已停止后，再移除 Worktree"
+      ],
+      "avoid": [
+        "只是普通切换任务也创建许多工作树，让目录越来越难管理",
+        "在两个文件夹里同时尝试打开同一条分支",
+        "未保存改动或仍有服务运行时就移除目录",
+        "直接删除文件夹；应使用 Worktree 的移除命令更新 Git 记录"
+      ],
+      "scenarios": [
+        "git worktree add 创建目录",
+        "额外目录处理修复",
+        "AI 两个窗口并行修改",
+        "list 查看与 remove 清理"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "首页分支正在运行且改到一半，现在要并行修线上 Bug，又不想贮藏或切走当前现场。怎样做？",
+      "options": [
+        {
+          "label": "为修复分支创建额外 Worktree，在另一个目录独立修改和运行",
+          "feedback": "同一仓库的不同分支分配到不同目录，两项任务可同时保留文件和进程现场。",
+          "correct": true
+        },
+        {
+          "label": "让两个 Worktree 同时打开首页分支，分别修改不同文件",
+          "feedback": "同一分支不能同时检出到两个 Worktree，任务也应使用职责清楚的独立分支。",
+          "correct": false
+        },
+        {
+          "label": "复制当前项目文件夹后直接修改，修完再手工把变化文件拷回原目录",
+          "feedback": "普通副本没有清楚的分支对应关系，手工回拷也容易遗漏、覆盖或混入当前未完成改动。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请保留当前首页 Worktree，为最新 main 上的 hotfix 分支创建独立 Worktree 和目录。分别使用不同端口运行；修复合并后先确认目录干净、服务停止，再用 Git Worktree 命令移除。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-worktree 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-worktree"
+      }
+    ],
+    "hook": "功能改到一半突然要修紧急 bug，我又不想收拾现在这个现场。"
+  },
+  {
+    "id": "stash",
+    "title": "贮藏",
+    "secondaryTitle": "Stash",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "把当前没做完的改动临时收起来，让工作区先恢复干净",
+    "aliases": [],
+    "path": "/stash",
+    "url": "https://vibe-hub.org/stash",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git",
+      "branch"
+    ],
+    "description": "例如，首页改到一半却要切去修 Bug，可以先 Stash，处理完再恢复。刚新建且从未加入 Git 的文件默认不会被收起，操作前要看 git status；Stash 只适合短期中转，正式成果仍要提交。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      },
+      {
+        "id": "branch",
+        "title": "分支",
+        "url": "https://vibe-hub.org/branch"
+      }
+    ],
+    "usage": {
+      "use": [
+        "临时切换任务前，用清楚的说明收起未完成改动",
+        "回来后先放回改动并确认内容，再继续修改",
+        "忘记收过什么时，用列表查看已有记录和说明",
+        "任务完成后仍要 Commit，不要长期依赖 Stash 保存成果"
+      ],
+      "avoid": [
+        "把 Stash 当成正式版本或远端备份",
+        "不写说明就连续收起多次，之后无法判断每一份是什么",
+        "恢复后没有检查内容，就直接删除 Stash 记录",
+        "长期把重要成果放在 Stash 中，却一直不 Commit"
+      ],
+      "scenarios": [
+        "未完成改动时执行 stash push",
+        "stash list 查看暂存清单",
+        "stash apply 恢复",
+        "确认后 drop 清理"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "功能改到一半要临时切分支修 Bug，其中还有刚新建、尚未跟踪的文件。怎样使用 Stash 更稳妥？",
+      "options": [
+        {
+          "label": "先看状态，确认包含哪些文件，带说明贮藏，恢复后再逐项检查",
+          "feedback": "状态检查能发现未跟踪文件，清楚说明和恢复验收避免拿错或遗漏临时现场。",
+          "correct": true
+        },
+        {
+          "label": "把重要成果长期放在 Stash 里，当作正式版本和远端备份",
+          "feedback": "Stash 是本地短期中转，不具备清楚版本历史和远端备份能力。",
+          "correct": false
+        },
+        {
+          "label": "直接 Stash 并假设新建文件一定会一起收起，不再查看状态",
+          "feedback": "未跟踪文件默认可能不被包含，切换前必须确认实际收起范围。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请先展示 git status，指出已跟踪和未跟踪改动，再用包含任务名称的说明创建 Stash，并确认工作区干净。修复完成后恢复但先不删除记录，检查内容无误后再清理；正式成果必须 Commit。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-stash 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-stash"
+      },
+      {
+        "title": "贮藏与清理（Pro Git）",
+        "source": "git-scm",
+        "url": "https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning"
+      }
+    ],
+    "hook": "改到一半要切去干别的，先把现在这些东西临时收起来。"
+  },
+  {
+    "id": "gitignore",
+    "title": "忽略文件",
+    "secondaryTitle": ".gitignore",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "告诉 Git 哪些本地文件不要加入版本记录的规则清单",
+    "aliases": [],
+    "path": "/gitignore",
+    "url": "https://vibe-hub.org/gitignore",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git",
+      "env-var"
+    ],
+    "description": "例如可重新下载的工具文件和本机保存的密钥文件，通常会写进忽略规则。它只对还没被版本记录保存的文件生效；已经保存过的文件不会因此消失，已经泄露的密钥也必须立即更换。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      },
+      {
+        "id": "env-var",
+        "title": "环境变量",
+        "url": "https://vibe-hub.org/env-var"
+      }
+    ],
+    "usage": {
+      "use": [
+        "在项目开始时就建立 .gitignore，并用状态列表检查结果",
+        "排除 node_modules 等能根据项目配置重新生成的内容",
+        "排除真实密钥文件，并提交不含真值的示例配置",
+        "参考官方或社区模板后，再按当前项目调整规则"
+      ],
+      "avoid": [
+        "把依赖目录提交到仓库，增加体积并制造无关差异",
+        "把 .gitignore 当成加密工具；它只是告诉 Git 不要记录",
+        "文件已经被跟踪后才补规则；还要另外停止跟踪",
+        "密钥已经泄露却只删除文件，没有立即更换密钥"
+      ],
+      "scenarios": [
+        "新建 .gitignore 文件",
+        "git status 前后对比",
+        "GitHub 模板库",
+        ".env 泄露补救"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "真实 `.env` 已经提交并推到远端，现在才把它写进 `.gitignore`。还需要做什么？",
+      "options": [
+        {
+          "label": "停止跟踪文件、保留无密钥示例，并立即轮换已经泄露的凭证",
+          "feedback": "忽略规则只影响未跟踪内容，历史中的密钥已经暴露，必须作废和更换。",
+          "correct": true
+        },
+        {
+          "label": "只提交 `.gitignore`，旧文件和旧密钥会自动从历史消失",
+          "feedback": "已跟踪文件不会因新规则消失，历史提交中的内容也仍然存在。",
+          "correct": false
+        },
+        {
+          "label": "保留原密钥继续使用，因为 `.gitignore` 已经把它加密隐藏",
+          "feedback": "Gitignore 只是匹配排除规则，不会加密已经提交或本地保存的内容。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请检查 `.env` 是否已被 Git 跟踪；若已提交，先停止跟踪并加入 `.gitignore`，提交不含真值的 `.env.example`。列出所有暴露凭证并立即轮换，不要把忽略规则当成历史清除或加密。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "gitignore 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/gitignore"
+      }
+    ],
+    "hook": "有些文件我不想让 Git 管，比如密钥和依赖包，怎么排除掉？"
+  },
+  {
+    "id": "diff",
+    "title": "差异对比",
+    "secondaryTitle": "Diff",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "把改动前后的内容逐行摆在一起，标出删了什么、加了什么",
+    "aliases": [],
+    "path": "/diff",
+    "url": "https://vibe-hub.org/diff",
+    "learningOutcome": null,
+    "prerequisites": [
+      "git",
+      "commit"
+    ],
+    "description": "例如 AI 修改首页后，对比视图会用 `-` 标出删除的旧内容，用 `+` 标出新增内容。保存版本前要检查还没选入清单和已经选入清单的两部分变化，避免把误删、调试内容或密钥一起保存。",
+    "learning": null,
+    "distinctions": [],
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git",
+        "url": "https://vibe-hub.org/git"
+      },
+      {
+        "id": "commit",
+        "title": "提交",
+        "url": "https://vibe-hub.org/commit"
+      }
+    ],
+    "usage": {
+      "use": [
+        "AI 完成一轮修改后，先看 Diff 再决定是否保存版本",
+        "提交前分别检查尚未选择和已经选择的改动",
+        "在 Pull Request 的 Files changed 页面集中检查变化",
+        "看到大段删除时暂停确认，避免旧功能被意外移除"
+      ],
+      "avoid": [
+        "只看改了哪些文件，不看每个文件具体变化",
+        "一次出现大量无关变化仍直接 Commit",
+        "调试文字、临时文件或真实密钥仍在 Diff 中就提交",
+        "只因为绿色很多就认为改动正确，仍要理解实际内容"
+      ],
+      "scenarios": [
+        "终端 git diff",
+        "比较最近两个提交",
+        "GitHub Files changed 页",
+        "AI 修改后先 diff 再 commit"
+      ]
+    },
+    "explanation": [],
+    "boundary": null,
+    "flowLesson": null,
+    "lessonPractice": {
+      "title": "Agent 说“只改了按钮颜色”，但状态显示 12 个文件变化，其中还有大段删除。提交前应该怎样确认？",
+      "options": [
+        {
+          "label": "逐行检查未暂存和已暂存 Diff，确认误删、调试内容与密钥都不存在",
+          "feedback": "Diff 展示实际增删，分别检查两部分才能知道提交最终会包含什么。",
+          "correct": true
+        },
+        {
+          "label": "只看修改文件数量，只要按钮文件在列表里就直接提交",
+          "feedback": "文件名不能说明每行变化，其他文件中的误删和敏感内容仍可能进入提交。",
+          "correct": false
+        },
+        {
+          "label": "看到新增绿色行很多就判断改动正确，不阅读删除内容",
+          "feedback": "颜色只表示增加或删除，不评价业务正确性；大段删除尤其需要停下来确认。",
+          "correct": false
+        }
+      ]
+    },
+    "agentPrompt": "请在提交前分别展示未暂存和已暂存 Diff，按文件解释每项变化，并标记超出“按钮颜色”的内容。重点检查大段删除、调试文字、生成文件和真实密钥；我确认范围后再 Commit。",
+    "nextLessons": [],
+    "relatedLessons": [],
+    "visualCapabilities": [
+      "preview",
+      "interactive-detail",
+      "anatomy",
+      "variants",
+      "scenarios",
+      "judgment-practice",
+      "agent-dialogue"
+    ],
+    "references": [
+      {
+        "title": "git-diff 官方文档",
+        "source": "git-scm",
+        "url": "https://git-scm.com/docs/git-diff"
+      }
+    ],
+    "hook": "帮我看看这次到底改了哪几行，加了什么、删了什么。"
+  },
+  {
+    "id": "repository",
+    "title": "仓库",
+    "secondaryTitle": "Repository / Repo",
+    "category": "Git",
+    "macroCategory": "Git",
+    "tagline": "项目代码与全部版本历史的家：本地一份，远端（如 GitHub）一份副本。",
+    "hook": "「把仓库拉下来」到底拉的是什么？",
+    "aliases": [
+      "repo"
+    ],
+    "path": "/repository",
+    "url": null,
+    "description": "仓库不只是当前代码，还包含每一次提交的完整历史。本地仓库让你离线工作与回溯；远端仓库负责备份与协作。删了本地目录，历史随之消失——除非远端还有副本。",
+    "usage": {
+      "use": [
+        "项目第一天就建仓库",
+        "定期推到远端保平安",
+        "一个产品一个仓库，别散装多处"
+      ],
+      "avoid": [
+        "用压缩包命名 v1/v2/final 当版本管理",
+        "只有本地一份历史",
+        "把密钥推进公开仓库"
+      ],
+      "scenarios": [
+        "GitHub 仓库首页",
+        "git clone 的一瞬间",
+        "「删库跑路」段子背后的真实风险"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "git",
+        "title": "Git"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "git"
+  }
+]
