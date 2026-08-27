@@ -6,7 +6,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
 import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
-import WikiVibe from "@/components/wiki/wiki-vibe";
+import WikiVibe, { type VibeTarget } from "@/components/wiki/wiki-vibe";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
@@ -15,7 +15,13 @@ import SectionRailNav from "@/components/section-rail-nav";
 
 export type WikiDomain = "sources" | "vibe" | "course" | "jobs";
 
-export default function WikiBrowse({ domain }: { domain: WikiDomain }) {
+export default function WikiBrowse({
+  domain,
+  vibeTarget,
+}: {
+  domain: WikiDomain;
+  vibeTarget?: VibeTarget | null;
+}) {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
 
@@ -43,7 +49,7 @@ export default function WikiBrowse({ domain }: { domain: WikiDomain }) {
 
   // ---- Vibe Hub ----
   if (domain === "vibe") {
-    return <WikiVibe />;
+    return <WikiVibe target={vibeTarget ?? null} />;
   }
 
   // ---- AI Native 招聘 (jobs) ----

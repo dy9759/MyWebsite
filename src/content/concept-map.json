@@ -1625,6 +1625,96 @@
    "loopId": "api",
    "strength": "glossary",
    "via": "course-import"
+  },
+  {
+   "termId": "entity-table",
+   "loopId": "datamodel",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "primary-foreign-key",
+   "loopId": "datamodel",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "relation-shape",
+   "loopId": "datamodel",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "migration",
+   "loopId": "datamodel",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "programming-language",
+   "loopId": "stackmap",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "framework",
+   "loopId": "stackmap",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "baas",
+   "loopId": "stackmap",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "open-closed-source",
+   "loopId": "stackmap",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "ecosystem",
+   "loopId": "stackmap",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "next-token",
+   "loopId": "llm",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "parameters",
+   "loopId": "llm",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "training-inference",
+   "loopId": "llm",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "temperature",
+   "loopId": "llm",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "training-data",
+   "loopId": "llm",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "spec",
+   "loopId": "spec",
+   "strength": "glossary",
+   "via": "course-import"
   }
  ]
 }

@@ -8,6 +8,7 @@ import { VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
+import WikiSearch, { type TermJump } from "@/components/wiki/wiki-search";
 import { cn } from "@/lib/utils";
 
 const API_URL = process.env.NEXT_PUBLIC_WIKI_API_URL;
@@ -20,6 +21,7 @@ export default function WikiPageBody() {
   const ui = WIKI_UI[language];
 
   const [domain, setDomain] = useState<WikiDomain>("sources");
+  const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [pending, setPending] = useState(false);
   const seed = ui.chips[2];
@@ -72,6 +74,14 @@ export default function WikiPageBody() {
             MCP · /sse
           </span>
         </p>
+        <div className="mt-3">
+          <WikiSearch
+            onTerm={(jump) => {
+              setDomain("vibe");
+              setVibeTarget(jump);
+            }}
+          />
+        </div>
       </header>
 
       {/* domain tabs */}
@@ -98,7 +108,7 @@ export default function WikiPageBody() {
 
       {/* browse — full width, no frame */}
       <section aria-label="browse" className="flex min-w-0 flex-col">
-        <WikiBrowse domain={domain} />
+        <WikiBrowse domain={domain} vibeTarget={vibeTarget} />
       </section>
 
       {/* chat — floating window, bottom-right */}

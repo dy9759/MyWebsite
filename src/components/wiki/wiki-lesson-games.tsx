@@ -472,3 +472,71 @@ export function DecisionGame({
     </div>
   );
 }
+
+export function TimelineBlock({
+  s,
+  md,
+}: {
+  s: LessonStep;
+  md: Md;
+}) {
+  const [open, setOpen] = useState<Set<number>>(new Set([0]));
+  const events = s.events ?? [];
+  const slips = (s.slips ?? []).filter(
+    (x): x is { at: string; promised: string; note: string } => typeof x !== "string",
+  );
+  const slipStrings = (s.slips ?? []).filter((x): x is string => typeof x === "string");
+  const isDelivery = slips.some((x) => x.promised.includes("交付"));
+  const toggle = (i: number) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  return (
+    <div className="loop-tl-wrap">
+      <div className="loop-tl-events">
+        {events.map((e, i) => (
+          <div
+            key={i}
+            className={`loop-tl-event${open.has(i) ? " open" : ""}`}
+            onClick={() => toggle(i)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(ev) => {
+              if (ev.key === "Enter" || ev.key === " ") toggle(i);
+            }}
+          >
+            <span className="loop-tl-dot" aria-hidden="true" />
+            <span className="loop-tl-year">{e.year}</span>
+            <span className="loop-tl-label">{e.label}</span>
+            {open.has(i) ? <div className="loop-tl-detail">{md(e.detail)}</div> : null}
+          </div>
+        ))}
+      </div>
+      {slips.length ? (
+        <div>
+          {isDelivery ? <div className="loop-tl-slips-title">承诺的交付日期，一推再推 ▼</div> : null}
+          {slips.map((sl, i) => (
+            <div key={i} className="loop-tl-slip-row">
+              <span className="loop-tl-slip-at">{sl.at}</span>
+              <span className="loop-tl-slip-bar">
+                <span
+                  className="loop-tl-slip-fill"
+                  style={{ width: `${Math.min(72, 34 + i * 16)}%` }}
+                />
+                <b style={{ whiteSpace: "nowrap" }}>{sl.promised}</b>
+                <span className="loop-tl-slip-note">{sl.note}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {slipStrings.map((p, i) => (
+        <p key={i} className="loop-tl-detail">{md(p)}</p>
+      ))}
+      {s.punchline ? <div className="loop-tl-punch" style={{ marginTop: 16 }}>{md(s.punchline)}</div> : null}
+    </div>
+  );
+}

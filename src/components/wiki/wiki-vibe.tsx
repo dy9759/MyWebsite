@@ -11,14 +11,14 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const VIBE_TOPICS = [
   { id: "frontend", title: "前端", count: 138 },
-  { id: "backend", title: "后端", count: 53 },
+  { id: "backend", title: "后端", count: 57 },
   { id: "product", title: "产品", count: 17 },
-  { id: "technology", title: "技术栈", count: 26 },
-  { id: "ai", title: "AI", count: 25 },
+  { id: "technology", title: "技术栈", count: 31 },
+  { id: "ai", title: "AI", count: 31 },
   { id: "git", title: "Git", count: 12 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;
-export const VIBE_TOTAL = 295;
+export const VIBE_TOTAL = 310;
 
 type Lesson = {
   id: string;
@@ -36,10 +36,25 @@ type Lesson = {
   usage?: { use?: string[]; avoid?: string[]; scenarios?: string[] } | null;
 };
 
-export default function WikiVibe() {
+export type VibeTarget = { topic: string; id: string; ts: number };
+
+export default function WikiVibe({ target = null }: { target?: VibeTarget | null }) {
   const [topic, setTopic] = useState<string>("frontend");
   const [cache, setCache] = useState<Record<string, Lesson[] | "loading" | "error">>({});
   const [openId, setOpenId] = useState<string | null>(null);
+
+  // Search jump: switch topic, open the term, scroll to it once data is in.
+  useEffect(() => {
+    if (target) setTopic(target.topic);
+  }, [target]);
+  useEffect(() => {
+    if (!target || topic !== target.topic || !Array.isArray(cache[topic])) return;
+    setOpenId(target.id);
+    requestAnimationFrame(() => {
+      document.getElementById(`vh-term-${target.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target, topic, cache[topic]]);
 
   useEffect(() => {
     setOpenId(null);
@@ -200,7 +215,13 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
   const preview = `${BASE_PATH}/wiki/vibe/previews/${l.id}.png?v=2`;
   return (
     <>
-      <button type="button" className={`vh-card${open ? " on" : ""}`} onClick={onToggle} aria-expanded={open}>
+      <button
+        type="button"
+        id={`vh-term-${l.id}`}
+        className={`vh-card${open ? " on" : ""}`}
+        onClick={onToggle}
+        aria-expanded={open}
+      >
         <span className="vh-title-row">
           <h4>{l.title}</h4>
           {l.secondaryTitle ? <span className="vh-en">{l.secondaryTitle}</span> : null}

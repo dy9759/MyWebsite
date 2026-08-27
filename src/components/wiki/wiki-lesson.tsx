@@ -11,6 +11,7 @@ import {
   EstimateGame,
   TheaterGame,
   DecisionGame,
+  TimelineBlock,
 } from "@/components/wiki/wiki-lesson-games";
 import { DiagramFrontback, PeoplenetSim, RaceSim } from "@/components/wiki/wiki-lesson-sims";
 import { CommanderSim, GitTimelineSim } from "@/components/wiki/wiki-lesson-sims2";
@@ -461,29 +462,7 @@ function Step({
         return (
           <>
             <Paras v={s.intro} />
-            <ul className="flex flex-col gap-1.5 border-l-2 border-accent/40 pl-3">
-              {(s.events ?? []).map((e, i) => (
-                <li key={i} className="text-sm leading-6 text-muted-foreground">
-                  <b className="font-mono text-xs text-accent">{e.year}</b> {e.label} —{" "}
-                  <Md text={e.detail} />
-                </li>
-              ))}
-            </ul>
-            {(s.slips ?? []).map((p, i) =>
-              typeof p === "string" ? (
-                <P key={i} text={p} />
-              ) : (
-                <p key={i} className="text-sm leading-6 text-muted-foreground">
-                  <b className="font-mono text-xs text-accent">{p.at}</b> {p.promised}
-                  <span className="text-muted-foreground/70">（{p.note}）</span>
-                </p>
-              ),
-            )}
-            {s.punchline ? (
-              <div className="rounded-md border border-accent/50 bg-accent/5 px-3 py-2">
-                <P text={s.punchline} />
-              </div>
-            ) : null}
+            <TimelineBlock s={s} md={md} />
           </>
         );
       case "curation":
