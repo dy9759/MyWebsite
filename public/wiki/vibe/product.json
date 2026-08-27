@@ -1336,6 +1336,855 @@
     "fromLoop": "spec"
   },
   {
+    "id": "man-month",
+    "title": "人月",
+    "secondaryTitle": "Man-Month",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "用「人数×月份」度量工期：Brooks 五十年前就断言——人和月根本不可互换。",
+    "hook": "一人十个月的活，十个人一个月能交付吗？",
+    "aliases": [
+      "Man-Month"
+    ],
+    "path": "/man-month",
+    "url": null,
+    "description": "人月假设工作量能在人和时间之间自由兑换：十人月的活派十个人，一个月完事。《人月神话》1975 年就戳破了这笔账：软件开发满是沟通与依赖，人一多，协调吃掉的产能常比新增的人手还多。这本书至今年年打新管理者的脸，因为每一代人都忍不住想再试一次。带 AI 干活同样适用：同时开十个 AI 写一个系统，合并冲突耗的时间可能比省下的还多。",
+    "usage": {
+      "use": [
+        "把协调成本单独列进排期",
+        "先看任务可否拆分再谈加人",
+        "用历史项目实际耗时校准估算"
+      ],
+      "avoid": [
+        "拿人数除工作量倒推上线日期",
+        "觉得 1975 年的教训过时了",
+        "把 AI 实例数也当人月来乘"
+      ],
+      "scenarios": [
+        "老板问「加人能提前吗」",
+        "排期会上的工期拉扯",
+        "《人月神话》读书笔记"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "brooks"
+  },
+  {
+    "id": "effective-capacity",
+    "title": "有效产能",
+    "secondaryTitle": "Effective Capacity",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "n 个人的真实产出远小于 n 倍：沟通、等待、返工都在抽税——账面人力是虚的。",
+    "hook": "团队从五人扩到十人，产出翻倍了吗？",
+    "aliases": [],
+    "path": "/effective-capacity",
+    "url": null,
+    "description": "有效产能是刨掉损耗后的真实产出：十个人的团队，实际干活能力往往只剩六七个人的量。税从三处收：沟通对齐花时间、互相等待花时间、理解偏差带来的返工花时间——人越多，税率越高。所以做计划别数人头，看单位时间里真正交付了什么。用 AI 也有同款隐形税：写提示、核验、修返工都是成本，「AI 一分钟出活」不等于你一分钟能收活。",
+    "usage": {
+      "use": [
+        "用实际交付量而非人头做计划",
+        "先估协作损耗再谈扩编",
+        "把核验 AI 产出的时间计入成本"
+      ],
+      "avoid": [
+        "默认十个人就有十份产出",
+        "把开会和等待当免费项",
+        "只夸 AI 生成快不算验收慢"
+      ],
+      "scenarios": [
+        "扩编后产出不升反降",
+        "资源规划表上的人头数",
+        "AI 提效汇报的挤水分"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "man-month",
+        "title": "人月"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "brooks"
+  },
+  {
+    "id": "communication-overhead",
+    "title": "沟通成本",
+    "secondaryTitle": "Communication Overhead",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "人数的平方税：两两沟通路径 n(n-1)/2 条，10 人 45 条——人翻倍，成本翻两番。",
+    "hook": "5 人团队 10 条沟通线，10 人有几条？",
+    "aliases": [
+      "沟通开销"
+    ],
+    "path": "/communication-overhead",
+    "url": null,
+    "description": "沟通成本按人数的平方增长：任意两人之间都是一条要维护的信息通道，5 人 10 条，10 人 45 条，20 人 190 条。人数翻一倍，对齐成本翻两番——这就是「加人反而变慢」的数学底座。解法不是压缩沟通，而是砍掉多余路径：切小组、定接口，让大多数人不必和大多数人说话。架构与组织在这里暗合：模块边界清晰了，人的沟通线也跟着变少。",
+    "usage": {
+      "use": [
+        "把团队切成五人以内的小组",
+        "用接口约定替代反复口头对齐",
+        "先数新增沟通线再决定加人"
+      ],
+      "avoid": [
+        "靠拉大群解决一切对齐",
+        "指望多开会抵消路径爆炸",
+        "团队膨胀却不切分边界"
+      ],
+      "scenarios": [
+        "全员大群的消息轰炸",
+        "一天六个对齐会的日历",
+        "扩编方案的成本测算"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "man-month",
+        "title": "人月"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "brooks"
+  },
+  {
+    "id": "sequential-parallel",
+    "title": "串行 / 并行",
+    "secondaryTitle": "Sequential / Parallel",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "任务能否拆开同时干：只有并行段加人才有效——九个孕妇，一个月生不出孩子。",
+    "hook": "手里的活，哪些能分头干，哪些只能排队等？",
+    "aliases": [],
+    "path": "/sequential-parallel",
+    "url": null,
+    "description": "串行任务前后依赖，必须一步等一步；并行任务互相独立，可以分头同时推进。加人只对并行部分有效——串行链上的活，来一百个人也得排队，孕妇的比喻说的就是这条铁律。所以排期先做依赖分解：找出那条压不动的串行主线（关键路径），它决定工期下限。给多个 AI 分活是同一道题：拆得开就齐头并进，拆不开就老实排队，多开窗口救不了串行。",
+    "usage": {
+      "use": [
+        "先画依赖图再排工期",
+        "找出关键路径当工期底线",
+        "把互相独立的活分给多个 AI"
+      ],
+      "avoid": [
+        "往串行链上硬堆人和 AI",
+        "假装依赖不存在强行并行",
+        "用平均分工代替依赖分析"
+      ],
+      "scenarios": [
+        "排期会上的任务拆解",
+        "多个 AI 窗口的分工设计",
+        "卡在关键路径上的等待"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "man-month",
+        "title": "人月"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "brooks"
+  },
+  {
+    "id": "ramp-up",
+    "title": "Ramp-up",
+    "secondaryTitle": "Ramp-up",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "新人上手爬坡期：头几周产出为负还抽走老人时间——deadline 前加人是雪上加霜。",
+    "hook": "项目只剩三周，这时空降两个人是救兵还是拖累？",
+    "aliases": [
+      "上手期"
+    ],
+    "path": "/ramp-up",
+    "url": null,
+    "description": "Ramp-up 是新成员从进组到真正产出的爬坡期：熟悉业务、读懂代码、摸清流程，头几周不仅零产出，还要占用熟手的时间答疑——团队总产能先降后升。这正是 Brooks 定律「给延期项目加人，只会让它更延期」的核心机制。缩短爬坡靠平时积累：文档、示例、清晰的模块边界。这些东西同样是 AI 读懂你项目的关键——上下文整理得好，人和 AI 上手都快。",
+    "usage": {
+      "use": [
+        "把加人时点提前到爬坡期前",
+        "用文档和示例压缩上手期",
+        "把带新人的时间计入排期"
+      ],
+      "avoid": [
+        "deadline 前一个月空降救兵",
+        "默认新人到岗当天就有产出",
+        "让熟手边赶工边带人还不减量"
+      ],
+      "scenarios": [
+        "延期项目的加人决策",
+        "新人入职首月的产出核算",
+        "AI 接手陌生代码库的冷启动"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "communication-overhead",
+        "title": "沟通成本"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "brooks"
+  },
+  {
+    "id": "technical-debt",
+    "title": "技术债",
+    "secondaryTitle": "Technical Debt",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "为了快先欠着的工程质量：欠债不可耻——可怕的是连欠了多少都没人知道。",
+    "hook": "上线前那句「先这样，后面再改」，后面来了吗？",
+    "aliases": [
+      "Technical Debt"
+    ],
+    "path": "/technical-debt",
+    "url": null,
+    "description": "技术债是有意用「先糙后改」换速度：跳过测试、写死配置、复制粘贴凑合上线，每一笔都在记账。借债本身是正常决策——抢窗口期时借速度完全合理，前提是知道借了什么、打算何时还。危险的是隐性负债：没人记录、没人认账，直到系统改不动才发现账本厚成一摞。vibe coding 时代尤其要盯紧：AI 生成的代码能跑不等于干净，验收只看功能不看质量，等于闭眼签借条。",
+    "usage": {
+      "use": [
+        "把每次「先凑合」记进债务清单",
+        "给每个迭代固定留还债额度",
+        "让 AI 复查自己代码的欠账点"
+      ],
+      "avoid": [
+        "把「以后再改」当成还债计划",
+        "验收只看能跑不看代码质量",
+        "让债务隐形（不知欠多少最致命）"
+      ],
+      "scenarios": [
+        "赶工上线后的遗留清单",
+        "重构立项时的理由陈述",
+        "AI 原型转正式产品的评估"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "techdebt"
+  },
+  {
+    "id": "debt-interest",
+    "title": "利率",
+    "secondaryTitle": "Interest Rate",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "技术债的利息：每次改动都被旧债拖慢一点——利滚利到某天，连本金都还不起。",
+    "hook": "同样的小需求，去年半天上线，如今为何要一周？",
+    "aliases": [
+      "技术债利息"
+    ],
+    "path": "/debt-interest",
+    "url": null,
+    "description": "利息是技术债的日常收费方式：每次改动都得绕开当年的凑合——多读半天代码、多修一个连带 bug、多跑一轮不敢省的回归。单笔不起眼，但按次复利，改得越勤交得越多；AI 也照样付这笔利息，代码越乱，它改得越慢、错得越多。该不该还，别看代码多丑，看利息多高：高频改动区的债优先还，常年不碰的可以继续欠。迭代明显变慢又说不清原因时，先查这笔账。",
+    "usage": {
+      "use": [
+        "按改动频率给债务排还款序",
+        "记录每次被旧代码拖慢的时长",
+        "优先重构高频改动的高息区"
+      ],
+      "avoid": [
+        "哪里代码丑就先重构哪里",
+        "把变慢归咎于团队不够努力",
+        "拖到利息高过产出才想还本"
+      ],
+      "scenarios": [
+        "迭代速度逐季下滑的复盘",
+        "重构优先级的取舍会",
+        "「怎么越做越慢」的拷问"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "technical-debt",
+        "title": "技术债"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "techdebt"
+  },
+  {
+    "id": "refactoring",
+    "title": "重构",
+    "secondaryTitle": "Refactoring",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "不改行为、只改结构的还债动作——有测试护航才叫重构，没有测试叫赌博。",
+    "hook": "改完结构，怎么证明功能一根毛都没动？",
+    "aliases": [
+      "代码重构"
+    ],
+    "path": "/refactoring",
+    "url": null,
+    "description": "重构的定义里有一半是「不改变外部行为」——只动结构，不动功能，目的是让下一次改动更便宜。标准动作是小步修改、每步跑一遍测试，确认行为原封不动。让 AI「顺手优化一下」时这条更要紧：它改得又快又猛，没有测试兜底，你根本不知道它悄悄动了什么。所以顺序是死的：先有测试，再谈重构。",
+    "usage": {
+      "use": [
+        "重构前先确认测试覆盖到位",
+        "小步修改，每改一步跑一遍测试",
+        "要求 AI 重构后自证行为未变"
+      ],
+      "avoid": [
+        "没有测试就大改结构（那是赌博）",
+        "一边重构一边顺手加新功能",
+        "把重构攒成一次大爆炸式重写"
+      ],
+      "scenarios": [
+        "代码越来越难改的还债时刻",
+        "AI 生成代码后的结构整理",
+        "上线前的「顺手优化」争论"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "technical-debt",
+        "title": "技术债"
+      },
+      {
+        "id": "regression-test",
+        "title": "回归测试"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "techdebt"
+  },
+  {
+    "id": "debt-repayment",
+    "title": "还款日",
+    "secondaryTitle": "Repayment Date",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "技术债主动安排的偿还时点：排进路线图的还债窗口——你不挑日子，事故替你挑。",
+    "hook": "上次说「以后再优化」的那笔账，后来还了吗？",
+    "aliases": [
+      "还债窗口"
+    ],
+    "path": "/debt-repayment",
+    "url": null,
+    "description": "技术债本身不可怕，可怕的是只借不还、连还款计划都没有。成熟做法是把偿还排进路线图：比如每个迭代固定留两成时间清欠账，或在大版本之间安排专门的还债窗口。AI 把写代码提速了好几倍，欠债的速度也跟着翻倍——还款日更得定期安排。你不主动挑日子，线上事故会替你挑一个最难看的。",
+    "usage": {
+      "use": [
+        "每个迭代留固定比例还技术债",
+        "给每笔债记账：欠什么、利息多高",
+        "大功能上线后紧跟清理窗口"
+      ],
+      "avoid": [
+        "出了事故才想起还债",
+        "用「业务优先」无限顺延还款日",
+        "攒到一次性还清（会停摆发版）"
+      ],
+      "scenarios": [
+        "路线图上的技术优化项",
+        "迭代排期的时间争夺战",
+        "事故复盘时翻出的旧账"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "debt-interest",
+        "title": "利率"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "techdebt"
+  },
+  {
+    "id": "throwaway-code",
+    "title": "一次性代码",
+    "secondaryTitle": "Throwaway Code",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "说好用完就扔的验证代码：demo、原型都算——最怕的是「暂时先这样」直接上线。",
+    "hook": "那个「先跑通再说」的 demo，在生产环境跑几个月了？",
+    "aliases": [
+      "原型代码"
+    ],
+    "path": "/throwaway-code",
+    "url": null,
+    "description": "一次性代码是合法的偷工减料：为了快速验证想法，故意跳过错误处理、安全和性能，条件只有一个——验证完真的扔。AI 让原型几乎零成本，一晚上能出三个 demo，但「反正能跑，直接上线吧」的诱惑也跟着翻倍。demo 一旦接上真实用户，所有省掉的部分立刻变成债——而「暂时先这样」，是软件史上最长寿的谎言。",
+    "usage": {
+      "use": [
+        "动手前就声明这是用完即扔",
+        "原型和生产代码分开存放",
+        "要转正就按生产标准重写一遍"
+      ],
+      "avoid": [
+        "让 demo 悄悄接上真实用户",
+        "说「暂时先这样」然后再没回来",
+        "给一次性代码续命（扔比修便宜）"
+      ],
+      "scenarios": [
+        "验证想法的快糙猛原型",
+        "hackathon 的通宵产物",
+        "「先上了再说」的争论现场"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "technical-debt",
+        "title": "技术债"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "techdebt"
+  },
+  {
+    "id": "essential-complexity",
+    "title": "本质复杂度",
+    "secondaryTitle": "Essential Complexity",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "问题本身固有的难度：规则多、状态多、分支多——换任何工具都躲不掉。",
+    "hook": "退款要分七种情况，这难度能赖编程语言吗？",
+    "aliases": [
+      "固有复杂度"
+    ],
+    "path": "/essential-complexity",
+    "url": null,
+    "description": "Brooks 把软件的难分成两种，本质复杂度是问题自带的那种：退款要分七种情况、权限有五层嵌套、订单有十几个状态——业务本来就这么复杂，代码只是如实记录。AI 能飞快把规则写成代码，却不能替你决定规则该是什么，这部分难度只会从代码转移进你的 spec。碰到它，出路不是换工具，而是砍需求、把规则本身理简单。",
+    "usage": {
+      "use": [
+        "先分辨难度是不是业务自带",
+        "用砍需求给复杂度瘦身",
+        "把规则理清写进 spec 再生成"
+      ],
+      "avoid": [
+        "指望换框架换模型就变简单",
+        "把没理清的规则直接丢给 AI",
+        "用更多代码掩盖没想清的业务"
+      ],
+      "scenarios": [
+        "业务规则爆炸的排期会",
+        "换了工具还是难的瞬间",
+        "spec 写不下去的卡点"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nosilver"
+  },
+  {
+    "id": "accidental-complexity",
+    "title": "偶然复杂度",
+    "secondaryTitle": "Accidental Complexity",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "工具、流程、历史包袱附赠的难度：与问题本身无关——AI 最能削的就是这块。",
+    "hook": "配环境三小时，写业务半小时——那三小时算什么？",
+    "aliases": [
+      "偶发复杂度"
+    ],
+    "path": "/accidental-complexity",
+    "url": null,
+    "description": "偶然复杂度是手段带来的难，不是问题带来的难：配环境、写构建脚本、背框架仪式、跟报错搏斗——这些跟「用户要什么」毫无关系。AI 恰好是它的克星：模板代码秒出、语法不用背，vibe coding 的爽感大半来自这里。但削到底就见底了，剩下的全是本质复杂度；而且 AI 自己也会制造新的偶然复杂度，比如生成一堆用不上的抽象层。",
+    "usage": {
+      "use": [
+        "把模板化的重复劳动交给 AI",
+        "定期清理仪式化配置和脚本",
+        "审查 AI 产出，删多余抽象"
+      ],
+      "avoid": [
+        "把驾驭复杂工具当成本事",
+        "以为提速十倍还能再提十倍",
+        "放任 AI 生成用不上的花哨层"
+      ],
+      "scenarios": [
+        "配环境耗掉半天的下午",
+        "样板代码复制粘贴现场",
+        "评估 AI 提效上限的讨论"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "essential-complexity",
+        "title": "本质复杂度"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nosilver"
+  },
+  {
+    "id": "silver-bullet",
+    "title": "银弹",
+    "secondaryTitle": "Silver Bullet",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "一招终结所有软件难题的幻想：Brooks 断言它不存在——AI 也不是那颗子弹。",
+    "hook": "号称提效十倍的新工具，上一个是不是也这么说？",
+    "aliases": [
+      "没有银弹"
+    ],
+    "path": "/silver-bullet",
+    "url": null,
+    "description": "银弹是传说里一枪毙掉狼人的子弹。Brooks 在 1986 年断言：没有任何单一技术能让软件开发轻松一个数量级，因为本质复杂度杀不掉。此后每代新工具都被捧上神坛又走下来：面向对象、CASE 工具、低代码，现在轮到 AI。AI 确实把偶然复杂度杀得漂亮，但需求含糊、规则打架、人心难测，一样都没少。把它当趁手的武器用，别当银弹供。",
+    "usage": {
+      "use": [
+        "新工具先小范围试点再推广",
+        "分清它杀的是哪种复杂度",
+        "宣传里的提效数字先打对折"
+      ],
+      "avoid": [
+        "指望换个模型解决所有问题",
+        "把翻车归咎于「用得还不够深」",
+        "用银弹叙事跳过需求梳理"
+      ],
+      "scenarios": [
+        "新模型发布夜的朋友圈",
+        "工具选型的立项汇报",
+        "《人月神话》读书会"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "essential-complexity",
+        "title": "本质复杂度"
+      },
+      {
+        "id": "accidental-complexity",
+        "title": "偶然复杂度"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nosilver"
+  },
+  {
+    "id": "conceptual-integrity",
+    "title": "概念完整性",
+    "secondaryTitle": "Conceptual Integrity",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "整个产品像出自一人之手：概念统一、叫法一致——多人多 AI 协作时最先碎的东西。",
+    "hook": "同一个功能，三个页面三种叫法，用户信哪个？",
+    "aliases": [
+      "概念一致性"
+    ],
+    "path": "/conceptual-integrity",
+    "url": null,
+    "description": "Brooks 认为好系统最珍贵的品质，是整个产品像一个人设计出来的：概念少而统一，同一件事永远同一个叫法、同一套交互。它天生易碎——多人协作会碎，多个 AI 会话各写各的碎得更快：三套弹窗、两种日期格式、同一实体四个名字。守住它靠权威不靠投票：得有人对概念表拍板，写进 spec，每次生成都以它为准。",
+    "usage": {
+      "use": [
+        "维护一份全员共用的术语表",
+        "指定一人对概念冲突拍板",
+        "每个会话开工先喂同一份约定"
+      ],
+      "avoid": [
+        "各模块各起各的名字",
+        "靠民主投票决定设计概念",
+        "放任每次生成自创一套组件"
+      ],
+      "scenarios": [
+        "同一实体多个叫法的产品",
+        "设计评审上的命名之争",
+        "多会话并行后的对齐会"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nosilver"
+  },
+  {
+    "id": "conformity",
+    "title": "顺应性",
+    "secondaryTitle": "Conformity",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "软件被迫迁就外部世界的不规则：法规、旧系统、人的习惯——复杂度从门外进来。",
+    "hook": "产品逻辑再自洽，税法一改你就得跟着改？",
+    "aliases": [
+      "服从性"
+    ],
+    "path": "/conformity",
+    "url": null,
+    "description": "软件必须迁就它接入的世界，而那个世界不讲逻辑：税法说改就改、银行接口用着三十年前的报文格式、用户就认那个反直觉的老习惯。这类复杂度从门外来，不是设计烂——Brooks 把它列为软件固有难度的来源之一。麻烦在于这些不规则常常没有文档，藏在老员工脑子里，AI 靠猜猜不出来：得有人去问、去查，白纸黑字写进 spec。",
+    "usage": {
+      "use": [
+        "立项先盘点外部约束清单",
+        "访谈老员工，把潜规则写下来",
+        "把法规和旧接口约束喂给 AI"
+      ],
+      "avoid": [
+        "假设外部系统讲道理",
+        "把兼容代码当烂设计乱重构",
+        "指望 AI 自动懂行业潜规则"
+      ],
+      "scenarios": [
+        "对接银行老系统的项目",
+        "法规更新引发的紧急改动",
+        "用户拒绝「更合理」的新交互"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "essential-complexity",
+        "title": "本质复杂度"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nosilver"
+  },
+  {
+    "id": "conways-law",
+    "title": "康威定律",
+    "secondaryTitle": "Conway's Law",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "系统结构会复印组织结构：几个团队就长出几块架构——沟通怎么走，接口就怎么长。",
+    "hook": "四个小组写编译器，最后会写出几遍编译？",
+    "aliases": [
+      "康威法则"
+    ],
+    "path": "/conways-law",
+    "url": null,
+    "description": "1967 年康威发现的规律：系统的结构，必然复印出造它的组织的沟通结构。经典笑话是四个小组写编译器，就会写出四遍编译——团队怎么分工，模块就怎么切缝，不说话的两个组之间必然长出最烂的接口。人机协作同理：你把任务怎么切给几个 AI 会话，代码就长成什么形状。所以架构不顺，先查组织和分工，再查代码。",
+    "usage": {
+      "use": [
+        "画出沟通结构再画架构图",
+        "跨团队接口安排专人守护",
+        "给 AI 分活前先想清模块边界"
+      ],
+      "avoid": [
+        "只改架构不改分工（会弹回去）",
+        "在互不沟通的团队间硬接模块",
+        "把烂接口全怪到技术水平上"
+      ],
+      "scenarios": [
+        "架构图与组织图的对照",
+        "跨团队接口扯皮现场",
+        "微服务拆分讨论"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
+    "id": "inverse-conway",
+    "title": "逆康威操作",
+    "secondaryTitle": "Inverse Conway Maneuver",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "把康威定律倒着用：想要什么架构，先把团队和分工排成那个形状。",
+    "hook": "与其画架构图求人遵守，不如直接改排班表？",
+    "aliases": [
+      "逆康威定律"
+    ],
+    "path": "/inverse-conway",
+    "url": null,
+    "description": "既然系统必然复印组织，那就别跟定律对抗，倒过来利用它：想要什么架构，先把组织排成那个形状。想要三个边界清晰的服务，就设三个自治小队；想让两块代码彻底解耦，就让两拨人只靠文档往来。一个人带多个 AI 会话也一样：想要前后端干净分离，就开两个各管一摊的会话，只共享接口约定。它见效慢——改组织比改代码疼得多，成本要提前算。",
+    "usage": {
+      "use": [
+        "先定目标架构，再倒推分工",
+        "按模块边界拆 AI 会话",
+        "让跨边界协作走文档和契约"
+      ],
+      "avoid": [
+        "幻想组织不动架构自己变好",
+        "一个会话写全栈还嫌它耦合",
+        "频繁重组（组织也有切换成本）"
+      ],
+      "scenarios": [
+        "微服务改造前的组织调整",
+        "多 AI 会话的分工设计",
+        "平台团队的组建讨论"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "conways-law",
+        "title": "康威定律"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
+    "id": "interface-contract",
+    "title": "接口（契约意义）",
+    "secondaryTitle": "Interface (Contract)",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "分工的边界约定：说清给什么、还什么——边界上锱铢必较，边界内互不干涉。",
+    "hook": "一句「你搞定支付模块」，AI 怎么知道边界在哪？",
+    "aliases": [
+      "分工契约"
+    ],
+    "path": "/interface-contract",
+    "url": null,
+    "description": "分工意义上的接口，是协作双方的边界约定：我给你什么、你还我什么、什么样算合格——说清这三件事，边界内部就各自自治，互不打探实现细节。这条规矩不分对象：对同事如此，给 AI 派活也如此，「你搞定支付模块」不是契约，「输入订单号、返回支付链接、失败给原因码」才是。契约一旦有人依赖就不能单方面改，动之前先通知所有下游。",
+    "usage": {
+      "use": [
+        "派活先写清输入输出验收线",
+        "边界内放权，不插手实现",
+        "改契约前先通知所有依赖方"
+      ],
+      "avoid": [
+        "用一句「你搞定」当分工",
+        "隔着边界指挥对方怎么实现",
+        "悄悄改约定让下游自己发现"
+      ],
+      "scenarios": [
+        "给 AI 会话划任务边界",
+        "前后端联调对字段",
+        "与外包团队划分责任"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "contract",
+        "title": "契约"
+      },
+      {
+        "id": "conways-law",
+        "title": "康威定律"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
+    "id": "two-pizza-team",
+    "title": "两披萨团队",
+    "secondaryTitle": "Two-Pizza Team",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "两个披萨喂不饱就该拆队：亚马逊的团队上限——管的不是饭量，是沟通路径。",
+    "hook": "6 人团队 15 条沟通线，12 人有多少条？",
+    "aliases": [
+      "双披萨团队"
+    ],
+    "path": "/two-pizza-team",
+    "url": null,
+    "description": "贝索斯给团队定的规模上限：两个披萨喂不饱，就说明该拆了。它真正管的是沟通路径——n 个人有 n×(n-1)÷2 条线，6 人 15 条还能对齐，12 人 66 条就只能靠开大会。AI 让小队更有底气：两三个人带一排 AI 会话，产能顶得上从前的十人团队。但拆队别乱拆，要沿着架构边界切——康威定律就在旁边看着。",
+    "usage": {
+      "use": [
+        "团队近十人就评估拆分",
+        "沿架构边界拆，不按人情拆",
+        "优先用 AI 补产能而非加人"
+      ],
+      "avoid": [
+        "靠加人解决进度落后",
+        "拆完队还要求全员大会同步",
+        "把披萨数当教条硬卡人头"
+      ],
+      "scenarios": [
+        "团队扩张后的效率下滑",
+        "组织设计的白板讨论",
+        "会议人数越开越多的警觉"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "communication-overhead",
+        "title": "沟通成本"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
+    "id": "the-loop",
+    "title": "闭环七环",
+    "secondaryTitle": "The Loop",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "需求→spec→生成→验收→部署→观测→迭代：七步走完才算交付一次，少一步都是半成品。",
+    "hook": "代码生成完了，七步里你才走到第几步？",
+    "aliases": [
+      "七步闭环",
+      "交付闭环"
+    ],
+    "path": "/the-loop",
+    "url": null,
+    "description": "一次合格的交付要走完七环：需求定方向，spec 定细节，生成出代码，验收验证据，部署到线上，观测看真实表现，迭代把学到的喂回需求。AI 真正吃掉的主要是「生成」——七环里最快的一环，剩下六环大半仍要人来主导。vibe coding 的翻车现场几乎都不在生成环，而在被跳过的那环：没验收就部署，没观测就宣布成功。",
+    "usage": {
+      "use": [
+        "每次交付对照七环逐项打卡",
+        "把力气花在生成外的六环",
+        "带着观测数据回到需求环"
+      ],
+      "avoid": [
+        "代码生成完就宣布交付完成",
+        "跳过验收直接部署（赌运气）",
+        "把上线当终点，从不看观测"
+      ],
+      "scenarios": [
+        "课程方法论的主线图",
+        "项目复盘找断在哪一环",
+        "AI 产码之后的流程追问"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "spec",
+        "title": "spec"
+      },
+      {
+        "id": "acceptance",
+        "title": "验收"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
+    "id": "gate",
+    "title": "Gate（把关点）",
+    "secondaryTitle": "Gate",
+    "category": "产品规划",
+    "macroCategory": "产品",
+    "tagline": "闭环里必须由人把守的关口：spec 定稿、验收签收、上线放行——AI 干活，人守门。",
+    "hook": "全流程自动化之后，哪几个闸口还得人按按钮？",
+    "aliases": [
+      "人审关口"
+    ],
+    "path": "/gate",
+    "url": null,
+    "description": "Gate 是流程里必须由人签字放行的关口，闭环七环里至少有三个：spec 定稿，管方向对不对；验收签收，管证据够不够；上线放行，管风险担不担。AI 可以把材料备齐、把建议给足，但按钮必须人来按——签字的本质是责任归属，而 AI 担不了责。守门不是拖慢流程，恰恰是在不可逆动作之前，把最后一次反悔的机会留给人。",
+    "usage": {
+      "use": [
+        "在流程图上标出所有人审关口",
+        "每次过关留下签名和时间戳",
+        "让 AI 备齐材料再进关口"
+      ],
+      "avoid": [
+        "让 AI 自审自批然后放行",
+        "嫌麻烦把关口改成自动通过",
+        "出了事才发现没人签过字"
+      ],
+      "scenarios": [
+        "上线前的最后放行确认",
+        "spec 评审定稿会",
+        "事故追责时翻签字记录"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "the-loop",
+        "title": "闭环七环"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "conway"
+  },
+  {
     "id": "ab-test",
     "title": "A/B 测试",
     "secondaryTitle": "A/B Test",

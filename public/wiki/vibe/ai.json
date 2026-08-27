@@ -1952,6 +1952,88 @@
     "fromLoop": "llm"
   },
   {
+    "id": "fallback",
+    "title": "兜底 / 降级",
+    "secondaryTitle": "Fallback / Degradation",
+    "category": "请求与输出",
+    "macroCategory": "AI",
+    "tagline": "兜底：主路走不通时的备用路径——AI 抽风时，宁可给个简化版也别给白屏。",
+    "hook": "大模型接口挂了，你的页面还剩什么？",
+    "aliases": [
+      "降级"
+    ],
+    "path": "/fallback",
+    "url": null,
+    "description": "兜底是提前设计好的替代路径：依赖不可用、超时或输出不合格时，系统退到一个次优但可用的状态。AI 功能尤其需要——模型可能超时、限流、答非所问，没有兜底就是全体用户看报错。降级可以是缓存的旧结果、规则写死的默认回复，或干脆临时隐藏该功能。原则只有一条：宁可少给，不可崩给。",
+    "usage": {
+      "use": [
+        "给每个 AI 调用点写失败路径",
+        "准备规则版或缓存版的替代结果",
+        "定期演练依赖挂掉的场景"
+      ],
+      "avoid": [
+        "默认第三方接口永远在线",
+        "把报错原文直接甩给用户看",
+        "兜底代码写完从不测试（真出事才发现兜不住）"
+      ],
+      "scenarios": [
+        "AI 服务超时的页面表现",
+        "降级预案的评审会",
+        "「页面白屏」的紧急告警"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "ai-hallucination",
+        "title": "AI 幻觉"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nondeterm"
+  },
+  {
+    "id": "guardrail",
+    "title": "护栏",
+    "secondaryTitle": "Guardrail",
+    "category": "请求与输出",
+    "macroCategory": "AI",
+    "tagline": "护栏：AI 输出进入系统前的检查关卡——格式不对、内容越界，一律拦在门外。",
+    "hook": "AI 生成的内容，敢不看一眼就直接入库吗？",
+    "aliases": [
+      "校验层"
+    ],
+    "path": "/guardrail",
+    "url": null,
+    "description": "护栏是横在 AI 输出和真实系统之间的校验层：先检查格式对不对、字段全不全、值在不在允许范围，再决定放行。模型输出天生不稳定，同一个 prompt 今天返回规整 JSON，明天可能多一句客套话。常见做法有三层：结构校验、白名单过滤、高风险操作加人工闸门。护栏不是不信任 AI，是承认它会出错，并把出错的代价关进笼子。",
+    "usage": {
+      "use": [
+        "让 AI 输出先过校验再入库",
+        "给敏感操作设人工确认闸门",
+        "用白名单限定可选值范围"
+      ],
+      "avoid": [
+        "相信「prompt 里写了就会照做」",
+        "校验失败时静默吞掉不记录",
+        "让 AI 输出直连删改数据的操作"
+      ],
+      "scenarios": [
+        "JSON 解析失败的报错",
+        "AI 客服的敏感词过滤",
+        "自动化流程的人工审批点"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "structured-output",
+        "title": "结构化输出"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "nondeterm"
+  },
+  {
     "id": "ai-agent",
     "title": "AI Agent",
     "secondaryTitle": null,
@@ -3292,6 +3374,88 @@
     "fromLoop": "aifail"
   },
   {
+    "id": "rag",
+    "title": "RAG",
+    "secondaryTitle": "Retrieval-Augmented Generation",
+    "category": "Agent 与工具",
+    "macroCategory": "AI",
+    "tagline": "RAG：先查你的资料库再作答——补上大模型不认识你私有数据这块短板。",
+    "hook": "模型没读过你的产品文档，它怎么答客服问题？",
+    "aliases": [
+      "检索增强生成"
+    ],
+    "path": "/rag",
+    "url": null,
+    "description": "RAG（检索增强生成）的流程是：用户提问后，先从你的知识库里检索出相关片段，塞进 prompt 再让模型回答。它解决的是模型「不知道你的私有数据」这件事——训练数据里没有你的产品手册、内部流程、昨天更新的价格表。效果好坏七成取决于检索质量：查回来的资料不对，模型只能一本正经地瞎编。所以做 RAG 先整理知识库，再调模型。",
+    "usage": {
+      "use": [
+        "先把知识库清洗整理再接模型",
+        "让回答附上引用来源便于核验",
+        "定期检查检索命中的片段质量"
+      ],
+      "avoid": [
+        "拿混乱过时的文档直接建库",
+        "只调 prompt 不查检索环节",
+        "以为接了 RAG 就不会编造（查不到照样编）"
+      ],
+      "scenarios": [
+        "企业知识库问答机器人",
+        "「按内部文档回答」的需求",
+        "AI 答错价格的事故复盘"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "context-window",
+        "title": "上下文窗口"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "ragagent"
+  },
+  {
+    "id": "vector-search",
+    "title": "向量检索",
+    "secondaryTitle": "Vector Search",
+    "category": "Agent 与工具",
+    "macroCategory": "AI",
+    "tagline": "向量检索：按意思相近找内容而非字面匹配——「退款」能搜到「申请退钱」。",
+    "hook": "「怎么退钱」和「退款流程」，机器怎么知道是一回事？",
+    "aliases": [
+      "语义检索"
+    ],
+    "path": "/vector-search",
+    "url": null,
+    "description": "向量检索先把文字压成一串数字（向量），意思越近的内容在数字空间里离得越近，搜索就变成找最近的邻居。传统关键词匹配认字不认意，「笔记本电脑」搜不到「手提电脑」；向量检索按语义找，是 RAG 背后的标配引擎。代价是它近似而不精确——型号、编号这类必须逐字对上的查询，反而要配合关键词检索一起用。",
+    "usage": {
+      "use": [
+        "用向量做语义、用关键词做精确匹配",
+        "拿真实用户问法测一轮召回",
+        "用混合检索兼顾语义与字面"
+      ],
+      "avoid": [
+        "用向量检索查订单号和型号",
+        "把检索效果差全怪到模型头上",
+        "建完索引后文档更新了不同步"
+      ],
+      "scenarios": [
+        "RAG 系统的检索层",
+        "「明明有却搜不到」的排查",
+        "以文搜文、以图搜图"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "rag",
+        "title": "RAG"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "ragagent"
+  },
+  {
     "id": "response-speed",
     "title": "TTFT / TPS",
     "secondaryTitle": null,
@@ -3677,5 +3841,215 @@
       }
     ],
     "hook": "调用太频繁就报错，说什么超过限制，是怎么回事？"
+  },
+  {
+    "id": "eval-set",
+    "title": "测试集",
+    "secondaryTitle": "Eval Set",
+    "category": "性能与成本",
+    "macroCategory": "AI",
+    "tagline": "测试集：固定的一套考题——每次改 prompt 都重考一遍，凭分数说话。",
+    "hook": "改了 prompt 感觉变好了，「感觉」靠谱吗？",
+    "aliases": [
+      "评测集"
+    ],
+    "path": "/eval-set",
+    "url": null,
+    "description": "测试集是一批固定的输入加期望结果：几十到几百个真实场景的问题，配上「什么算答对」的标准。AI 输出不稳定，单看两三个例子的好坏全凭运气，固定考题才能让不同版本公平比较。改 prompt、换模型、调参数，都拿同一套题重考，分数变化就是证据。起步不用贪多——二三十道覆盖典型场景和刁钻边界的题，已经比拍脑袋强十倍。",
+    "usage": {
+      "use": [
+        "拿真实用户问题攒一套考题",
+        "给每道考题写清判分标准",
+        "把线上翻车案例随手补进考题"
+      ],
+      "avoid": [
+        "用三五个顺手例子代表全部",
+        "考题只有正常场景没有刁钻题",
+        "换模型时顺手把考题也换了（成绩没法比）"
+      ],
+      "scenarios": [
+        "换模型前的效果对比",
+        "prompt 调优的评分环节",
+        "「有没有变好」的争论现场"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "next-token",
+        "title": "概率生成"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "evals"
+  },
+  {
+    "id": "baseline",
+    "title": "基线",
+    "secondaryTitle": "Baseline",
+    "category": "性能与成本",
+    "macroCategory": "AI",
+    "tagline": "基线：当前方案的成绩线——没有它，所有「优化」都只是在自说自话。",
+    "hook": "新方案好了 20%？先问一句：比什么好？",
+    "aliases": [
+      "基准线"
+    ],
+    "path": "/baseline",
+    "url": null,
+    "description": "基线是动手优化前先记下的当前成绩：现有 prompt 的通过率、现有流程的耗时、现有方案的成本。它的作用是给「变好了」提供参照物——没有基线，改动之后的 85 分不知道该欢呼还是该回滚。AI 项目尤其容易跳过这步：兴冲冲换了新模型，却说不清旧模型原本考多少分。规矩很简单：先测旧的，再上新的，两个数字摆在一起才叫结论。",
+    "usage": {
+      "use": [
+        "动手改之前先给现状打分",
+        "把基线连同测试条件一起存档",
+        "让新旧方案同题同条件对比"
+      ],
+      "avoid": [
+        "凭印象说「以前好像不行」",
+        "优化完才想起没测过原来的",
+        "拿别人产品的成绩当自己基线"
+      ],
+      "scenarios": [
+        "模型升级前的摸底考",
+        "优化提案里的对照数据",
+        "「值不值得换」的决策会"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "eval-set",
+        "title": "测试集"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "evals"
+  },
+  {
+    "id": "llm-as-judge",
+    "title": "AI 评审",
+    "secondaryTitle": "LLM-as-Judge",
+    "category": "性能与成本",
+    "macroCategory": "AI",
+    "tagline": "AI 评审：让一个模型给另一个模型的答卷打分——便宜快速，但考官也会看走眼。",
+    "hook": "一千条 AI 回答要打分，人工看还是 AI 看？",
+    "aliases": [
+      "LLM-as-Judge",
+      "模型评审"
+    ],
+    "path": "/llm-as-judge",
+    "url": null,
+    "description": "AI 评审是用一个模型当考官，按你写的评分标准给另一个模型的输出打分。人工逐条看一千条回答要一整天，AI 几分钟跑完，成本差两个数量级——这让大规模评测变得可行。但考官模型有自己的偏好：偏爱长回答、偏爱某种口吻，甚至给同款模型放水。所以规矩是定期抽一批让人复核，校准 AI 打分和人工判断的偏差，别把考官的话全当真。",
+    "usage": {
+      "use": [
+        "把评分标准写到能逐条对照",
+        "定期抽样人工复核打分偏差",
+        "给高风险场景保留人工终审"
+      ],
+      "avoid": [
+        "让考官模型和答题模型同款（自己夸自己）",
+        "评分标准只写一句「回答要好」",
+        "从不抽查就全信 AI 打的分"
+      ],
+      "scenarios": [
+        "千条输出的自动打分",
+        "评测流水线的判分环节",
+        "AI 与人工打分的分歧"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "eval-set",
+        "title": "测试集"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "evals"
+  },
+  {
+    "id": "pass-rate",
+    "title": "通过率 / 阈值",
+    "secondaryTitle": "Pass Rate / Threshold",
+    "category": "性能与成本",
+    "macroCategory": "AI",
+    "tagline": "通过率：给「够好」一个数字——达到阈值才准上线，达不到就继续改。",
+    "hook": "AI 功能做到什么程度算能上线？说个数。",
+    "aliases": [
+      "达标线"
+    ],
+    "path": "/pass-rate",
+    "url": null,
+    "description": "通过率是测试集里答对题目的比例，阈值是提前约定的及格线，比如「客服场景通过率≥95% 才上线」。AI 输出没法保证 100% 正确，「够好」必须量化，否则上线与否全凭当天心情和嗓门大小。阈值定多高看代价：写诗错了无伤大雅，报价错了真赔钱——场景越重，线越高，兜底和人工闸门也要跟着配。定了线就照线执行，这是非确定性系统里少有的确定性。",
+    "usage": {
+      "use": [
+        "按出错代价给场景分级定线",
+        "把阈值写进上线检查清单",
+        "守住线：没达标改方案不降线"
+      ],
+      "avoid": [
+        "所有场景共用一个及格线",
+        "差一点就「先上了再说」（线是用来守的）",
+        "追求 100% 通过才肯上线"
+      ],
+      "scenarios": [
+        "上线评审的达标判断",
+        "评测报告的结论一行",
+        "「95% 够不够」的定线会"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "baseline",
+        "title": "基线"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "evals"
+  },
+  {
+    "id": "eval-regression",
+    "title": "回归评测",
+    "secondaryTitle": "Eval Regression",
+    "category": "性能与成本",
+    "macroCategory": "AI",
+    "tagline": "回归评测：每次改动都重考全套题——防止修好了 A 题却悄悄摔坏 B 题。",
+    "hook": "改 prompt 修好了一个问题，其他题还答对吗？",
+    "aliases": [
+      "Regression Eval"
+    ],
+    "path": "/eval-regression",
+    "url": null,
+    "description": "回归评测是每次改动后把整个测试集重跑一遍，对比前后成绩，专抓「按下葫芦浮起瓢」。prompt 尤其脆弱：为某个坏例子加一句指令，很可能扰动一批原本答得好的题——这和传统软件的回归测试是同一个道理，只是从「改代码弄坏功能」换成了「改指令弄坏回答」。把重跑做成自动流程，改完一键出对比报告，才敢放心频繁迭代。",
+    "usage": {
+      "use": [
+        "改完任何一处就全量重跑考题",
+        "盯紧对比报告里变差的题",
+        "把回归跑批接进发布流程"
+      ],
+      "avoid": [
+        "只验证这次想修的那个 case",
+        "总分没掉就忽略个别题变差",
+        "改动攒一大批才跑一次（坏了不知怪谁）"
+      ],
+      "scenarios": [
+        "prompt 上线前的例行跑批",
+        "「上次还好好的」的追查",
+        "发布流水线的评测关卡"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "regression",
+        "title": "回归"
+      },
+      {
+        "id": "eval-set",
+        "title": "测试集"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "evals"
   }
 ]

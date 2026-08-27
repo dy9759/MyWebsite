@@ -2574,6 +2574,51 @@
     "fromLoop": "authz"
   },
   {
+    "id": "db-index",
+    "title": "索引",
+    "secondaryTitle": "Database Index",
+    "category": "数据库",
+    "macroCategory": "后端",
+    "tagline": "数据库的目录页：查得快是因为提前排好了序——不建索引，每次都从头翻到尾。",
+    "hook": "十万条数据里找一个人，翻十七次和翻十万次，差在哪？",
+    "aliases": [
+      "Index"
+    ],
+    "path": "/db-index",
+    "url": null,
+    "description": "索引是数据库提前按某字段排好序的目录：有它，查询走 O(log n) 的二分定位，十万条数据十几次比较就命中；没它，就是 O(n) 的全表扫描，一条条翻到底。几千条数据时感觉不出差别，涨到百万级，一条漏建索引的查询能把页面拖住好几秒。代价是写入要同步维护目录，不是越多越好——让 AI 建表时把「哪些字段常拿来查」说清楚，索引才会建在刀刃上。",
+    "usage": {
+      "use": [
+        "给常出现在查询条件的字段建索引",
+        "用真实量级的数据实测查询速度",
+        "把查询场景连同建表需求告诉 AI"
+      ],
+      "avoid": [
+        "等用户抱怨卡了才想起建索引",
+        "见字段就加索引（写入也要交税）",
+        "拿几百条测试数据断定「不卡」"
+      ],
+      "scenarios": [
+        "列表页越用越慢的排查",
+        "慢查询日志里的全表扫描",
+        "数据量破百万后的首次卡顿"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "database",
+        "title": "数据库"
+      },
+      {
+        "id": "logarithmic-time",
+        "title": "O(log n) 对数"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "complexity"
+  },
+  {
     "id": "backend",
     "title": "后端",
     "secondaryTitle": "Backend",
@@ -2948,6 +2993,562 @@
     "distinctions": [],
     "source": "course",
     "fromLoop": "vibe"
+  },
+  {
+    "id": "concurrency",
+    "title": "并发",
+    "secondaryTitle": "Concurrency",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "多个请求同一瞬间挤进门：你一个人测一百遍都没事的代码，一百人同时用就翻车。",
+    "hook": "自己测一百遍都正常，一百人同时用就崩？",
+    "aliases": [],
+    "path": "/concurrency",
+    "url": null,
+    "description": "并发是多个请求在同一瞬间到达——不是排队进门，而是一起挤进门。单人测试永远是串行的，所以并发 bug 在开发环境几乎必然漏网：两个人同时注册同一个用户名、一百个人同时抢最后一件库存，都是自己点一百遍也复现不了的问题。AI 写代码同样默认串行思维，凡是带「抢」和「同时」的场景，要主动告诉它预期并发量，再用压测验证。",
+    "usage": {
+      "use": [
+        "压测抢购、计数类关键功能",
+        "提示 AI「这里会有并发」再生成",
+        "用数据库唯一约束兜底"
+      ],
+      "avoid": [
+        "拿「我测过没问题」下结论",
+        "先读后写中间不加任何保护",
+        "把并发问题留到用户多了再说"
+      ],
+      "scenarios": [
+        "秒杀活动上线前评审",
+        "重复注册同名用户的 bug",
+        "压测报告的请求曲线"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "concurrency"
+  },
+  {
+    "id": "race-condition",
+    "title": "竞态条件",
+    "secondaryTitle": "Race Condition",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "两个操作抢同一条数据，结果看谁跑得快：库存明明剩 1 件，却卖出去 2 件。",
+    "hook": "库存只剩 1 件，怎么两个人都买到了？",
+    "aliases": [
+      "竞争条件",
+      "Race Condition"
+    ],
+    "path": "/race-condition",
+    "url": null,
+    "description": "竞态条件是并发的典型病灶：两个操作都先读数据、再写回去，中间没有任何隔离。抢最后一件库存时，A 和 B 同时读到「还剩 1」，各自判断能买、各自扣一次——库存变成 -1，超卖发生。它的阴险在于难复现：一千次里可能只出一次，测试全绿照样上线翻车。防法是把「读—判断—写」压成一个不可分割的动作，交给数据库或锁来保证。",
+    "usage": {
+      "use": [
+        "改「先查再改」为原子操作",
+        "让 AI 自查读与写之间的间隙",
+        "用唯一索引挡住重复写入"
+      ],
+      "avoid": [
+        "拿「概率很低」当护身符",
+        "复现不出来就当它不存在",
+        "在前端做判断防超卖（防不住）"
+      ],
+      "scenarios": [
+        "电商超卖事故分析",
+        "优惠券被重复领取",
+        "余额扣成负数的工单"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "concurrency",
+        "title": "并发"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "concurrency"
+  },
+  {
+    "id": "lock",
+    "title": "锁",
+    "secondaryTitle": "Lock",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "关键区门口的独木桥：同一时刻只放一个操作进去——安全了，但后面全在排队。",
+    "hook": "加了锁不超卖了，怎么下单也变慢了？",
+    "aliases": [
+      "互斥锁",
+      "Mutex"
+    ],
+    "path": "/lock",
+    "url": null,
+    "description": "锁的逻辑很朴素：进关键区先领牌子，牌子只有一块，别人来了就等。它是治竞态的直接手段——扣库存前上锁、改完释放，超卖立刻消失。但锁的本质是把并行改回串行：锁的范围越大、握得越久，队伍排得越长；异常时忘了释放，整个系统还会死等。让 AI 加锁时盯两件事：锁的粒度尽量小，出错时必须释放。",
+    "usage": {
+      "use": [
+        "把锁的范围压到最小几行",
+        "给锁设超时避免死等",
+        "能用原子操作就不上锁"
+      ],
+      "avoid": [
+        "一把大锁包住整个函数图省事",
+        "异常分支里忘了释放锁",
+        "到处加锁把系统锁成单车道"
+      ],
+      "scenarios": [
+        "扣库存代码的评审",
+        "死锁导致的服务卡死",
+        "锁还是原子操作的讨论"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "race-condition",
+        "title": "竞态条件"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "concurrency"
+  },
+  {
+    "id": "atomic",
+    "title": "原子操作",
+    "secondaryTitle": "Atomic Operation",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "要么全做完，要么像没发生过：中间状态谁也看不见——扣库存的正确姿势。",
+    "hook": "不加锁也能防超卖，靠的是什么？",
+    "aliases": [
+      "原子性"
+    ],
+    "path": "/atomic",
+    "url": null,
+    "description": "原子操作把「读—算—写」压成一步，执行期间不存在能被插队的中间态。扣库存的正确写法不是「查出来减一再存回去」，而是一句「库存减一，但仅当库存大于零」——数据库一步完成，一万个并发也插不进缝。它比锁更轻：不排长队、不怕忘释放。验收 AI 写的库存、余额、计数逻辑时，先问一句「这步是原子的吗」。",
+    "usage": {
+      "use": [
+        "用数据库原子语句做扣减",
+        "用事务包住转账类多步操作",
+        "验收时追问「中间态可见吗」"
+      ],
+      "avoid": [
+        "查出来在代码里算完再写回",
+        "以为代码只有一行就自动原子",
+        "把原子性寄托在用户手速上"
+      ],
+      "scenarios": [
+        "库存扣减的标准写法",
+        "计数器少计数的排查",
+        "转账事务的代码评审"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "race-condition",
+        "title": "竞态条件"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "concurrency"
+  },
+  {
+    "id": "constant-time",
+    "title": "O(1) 常数",
+    "secondaryTitle": "O(1) Constant Time",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "数据翻一万倍，耗时纹丝不动：报着门牌号直接敲门，不用挨家挨户找。",
+    "hook": "一亿条数据里取一条，凭什么毫秒级？",
+    "aliases": [
+      "常数时间"
+    ],
+    "path": "/constant-time",
+    "url": null,
+    "description": "O(1) 是性能的天花板：数据量再怎么涨，这一步操作的耗时都不变。按主键取一条记录、哈希表里按 key 找值，都是报着门牌号直接敲门——数据从一万涨到一亿，速度几乎原地不动。设计高频操作时尽量给它铺一条 O(1) 路径：查询带上主键或唯一键，别让数据库挨家挨户翻。这也是理解「索引为什么快」的起点。",
+    "usage": {
+      "use": [
+        "高频查询走主键或唯一键",
+        "频繁按 key 取值用哈希结构",
+        "压测验证耗时不随数据量涨"
+      ],
+      "avoid": [
+        "数据少时用遍历没事就一直拖",
+        "把 O(1) 当免费午餐无限堆内存",
+        "分不清「取一条」和「翻一遍」"
+      ],
+      "scenarios": [
+        "按 ID 查订单详情",
+        "缓存命中的耗时曲线",
+        "性能优化方案对比"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "complexity"
+  },
+  {
+    "id": "logarithmic-time",
+    "title": "O(log n) 对数",
+    "secondaryTitle": "O(log n) Logarithmic",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "数据翻倍只多走一步：一亿条里找一条，二十几次比较就够——索引的魔法。",
+    "hook": "猜 1 到 100 的数字，最多几次能猜中？",
+    "aliases": [
+      "对数时间"
+    ],
+    "path": "/logarithmic-time",
+    "url": null,
+    "description": "O(log n) 的秘诀是每一步排除一半：猜 1 到 100 的数，从 50 开始问「大了还是小了」，7 次以内必中。二分查找、数据库索引都是这个原理——一亿条数据只要二十几步，翻倍到两亿也只多一步。给常用查询字段建索引，就是花一点写入和存储的代价，把全表扫描换成对数级查找。查询一慢先查有没有索引，这一招能解决大半问题。",
+    "usage": {
+      "use": [
+        "给常用查询和排序字段建索引",
+        "查询慢先看执行计划走没走索引",
+        "有序数据用二分代替遍历"
+      ],
+      "avoid": [
+        "给每个字段无脑建索引（拖慢写入）",
+        "模糊搜索硬套索引还奇怪没生效",
+        "数据没排序就直接上二分"
+      ],
+      "scenarios": [
+        "慢查询优化第一步",
+        "「加个索引就好了」的时刻",
+        "数据库执行计划分析"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "constant-time",
+        "title": "O(1) 常数"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "complexity"
+  },
+  {
+    "id": "linear-time",
+    "title": "O(n) 线性",
+    "secondaryTitle": "O(n) Linear",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "数据翻倍，耗时跟着翻倍：从头到尾过一遍——一万条起，你开始有感觉。",
+    "hook": "列表一万条时，页面打开慢了半拍，巧合吗？",
+    "aliases": [
+      "线性时间"
+    ],
+    "path": "/linear-time",
+    "url": null,
+    "description": "O(n) 是把数据从头到尾过一遍：数量涨多少，耗时就涨多少。它本身不是错——汇总、导出这类活天生要遍历。问题出在位置：一次遍历放在偶发的后台任务里无所谓，放在每次打开页面都跑的路径上，一万条就是可感的卡顿，百万条就是事故。AI 生成的代码偏爱「全量查出来再在内存里处理」，看到列表功能，本能地问一句「数据涨十倍会怎样」。",
+    "usage": {
+      "use": [
+        "列表页一律分页或懒加载",
+        "把汇总统计挪到后台或预计算",
+        "用十倍数据量做一次压测"
+      ],
+      "avoid": [
+        "全量查出来在内存里慢慢过滤",
+        "拿一百条测试数据下性能结论",
+        "在循环里逐条查数据库"
+      ],
+      "scenarios": [
+        "列表页越用越慢的反馈",
+        "全量导出拖垮服务",
+        "评审里的全表查询"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "constant-time",
+        "title": "O(1) 常数"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "complexity"
+  },
+  {
+    "id": "quadratic-time",
+    "title": "O(n²) 平方",
+    "secondaryTitle": "O(n²) Quadratic",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "数据翻倍，耗时四倍：双重循环两两比较——一万条就是一亿次操作，直接卡死。",
+    "hook": "一万条数据两两比一遍，是多少次运算？",
+    "aliases": [
+      "平方时间"
+    ],
+    "path": "/quadratic-time",
+    "url": null,
+    "description": "O(n²) 通常长这样：循环里再套一层循环，让每条数据和其余每条都见一面。一百条时是一万次操作，眨眼完成；一万条时就是一亿次，页面直接冻住——数据翻倍，耗时四倍，比你的用户增长快得多。查重、找相似、配对撮合是高发区，AI 图省事时也特别爱写双重循环：代码能跑、测试能过，一上量原形毕露。见到嵌套循环，先问一句数据量上限是多少。",
+    "usage": {
+      "use": [
+        "见到嵌套循环先问 n 有多大",
+        "查重改用哈希集合一遍过",
+        "让 AI 重写时明说数据量级"
+      ],
+      "avoid": [
+        "拿「测试数据跑得快」当性能结论",
+        "在循环里再调一次查询或接口",
+        "指望加服务器硬抗平方级增长"
+      ],
+      "scenarios": [
+        "查重功能一上量就卡",
+        "双重 for 循环的评审",
+        "「昨天还好好的」性能悬案"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "linear-time",
+        "title": "O(n) 线性"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "complexity"
+  },
+  {
+    "id": "coupling",
+    "title": "耦合",
+    "secondaryTitle": "Coupling",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "模块间的牵连程度：耦合高时改一处动全身——你以为在改按钮，其实在拆承重墙。",
+    "hook": "只改了登录页，为什么支付也跟着挂了？",
+    "aliases": [
+      "Coupling"
+    ],
+    "path": "/coupling",
+    "url": null,
+    "description": "耦合描述模块之间牵连的深浅：A 直接伸手读 B 的内部数据、两个功能共用一张表、全局变量满天飞，都是在打结。结打得越多，改动的波及面越不可预测——本地测得好好的，上线炸在八竿子打不着的角落。AI 改代码只看得见你给它的上下文，看不见暗处的牵连，高耦合代码库正是它「修一个坏三个」的高发区。粗测方法很朴素：改一个小需求要动几个文件，动得越多，耦合越高。",
+    "usage": {
+      "use": [
+        "验收 AI 改动时追问波及了哪些文件",
+        "用「改一处动几个文件」粗测耦合",
+        "发现互相直连就记下待解耦"
+      ],
+      "avoid": [
+        "让模块直接读写彼此内部数据",
+        "图省事到处共用全局变量",
+        "以为本地能跑就没牵连（炸在别处）"
+      ],
+      "scenarios": [
+        "改 A 功能引爆 B 功能",
+        "AI 修复引发的连环回归",
+        "越改越不敢动的老系统"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
+  },
+  {
+    "id": "decoupling",
+    "title": "解耦 / 模块化",
+    "secondaryTitle": "Decoupling / Modularity",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "把牵连切开：模块之间只走明确的门——改动的爆炸半径从全屋缩到一个房间。",
+    "hook": "换个灯泡，需要先断整栋楼的电吗？",
+    "aliases": [
+      "模块化",
+      "Decoupling"
+    ],
+    "path": "/decoupling",
+    "url": null,
+    "description": "解耦是把纠缠的功能切成边界清晰的模块，彼此只通过约定的接口往来，谁也不伸手进对方内部。好处是影响可预测：支付模块内部推倒重写，只要接口不动，订单模块完全无感。对产品人还有个隐藏红利——边界清晰的代码，AI 一次只需读懂一小块，改起来又快又稳，上下文还省。解耦本身有成本，过度拆分反而添乱：小项目先保证边界清楚，别为拆而拆。",
+    "usage": {
+      "use": [
+        "按业务边界切模块",
+        "限定模块往来只走接口",
+        "动手重构前先画依赖关系图"
+      ],
+      "avoid": [
+        "一上来就拆得七零八落",
+        "拆完又留后门互相直连",
+        "把解耦当业绩而非手段（为拆而拆）"
+      ],
+      "scenarios": [
+        "重构方案评审",
+        "AI 单独重写一个模块",
+        "多人并行开发的分工"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "coupling",
+        "title": "耦合"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
+  },
+  {
+    "id": "cohesion",
+    "title": "内聚",
+    "secondaryTitle": "Cohesion",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "模块内部职责的专一度：一个模块只干一类事——配上低耦合，就是架构的六字真言。",
+    "hook": "一个 utils 文件塞了八百行杂活，算勤快吗？",
+    "aliases": [
+      "Cohesion"
+    ],
+    "path": "/cohesion",
+    "url": null,
+    "description": "内聚衡量一个模块内部职责有多专一：管订单的就只管订单，不顺手管库存、再捎带发邮件。高内聚的模块像收拾好的抽屉，要什么一摸就到；低内聚的是杂物间，什么都塞、什么都难找。它和耦合是一体两面：模块各自职责纯粹了，彼此的牵连自然就少，「高内聚低耦合」说的是同一件事的里外。给 AI 派活同理——一次只让它干一类事，产出明显更稳。",
+    "usage": {
+      "use": [
+        "让每个模块只回答一类问题",
+        "定期把杂物间式代码拆开归位",
+        "给 AI 的任务也按单一职责切"
+      ],
+      "avoid": [
+        "把没处放的代码都丢进 utils",
+        "一个模块又管订单又管发邮件",
+        "只按文件行数拆分不看职责"
+      ],
+      "scenarios": [
+        "评审时被说「这个类太杂」",
+        "utils 文件膨胀成垃圾场",
+        "架构讨论里的六字真言"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "coupling",
+        "title": "耦合"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
+  },
+  {
+    "id": "interface",
+    "title": "接口",
+    "secondaryTitle": "Interface",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "模块之间的合同：只约定能做什么，不暴露怎么做——内部随便换，外面不受伤。",
+    "hook": "用插座时，你关心过发电厂怎么运转吗？",
+    "aliases": [
+      "Interface"
+    ],
+    "path": "/interface",
+    "url": null,
+    "description": "架构里说的接口不是 UI，是模块之间白纸黑字的往来约定：能调什么功能、传什么参数、拿回什么结果，到此为止。只依赖接口不依赖内部实现，对方哪天推倒重写，只要合同没变你毫发无损——解耦靠的就是它。产品人最实用的一招：让 AI 先把模块间接口定下来再写实现，相当于先签合同再开工，返工少一大截。注意接口一旦被使用就很难改，定义时多想一步。",
+    "usage": {
+      "use": [
+        "让 AI 先定接口再动手实现",
+        "用接口文档替代口头约定",
+        "改接口前先查清有谁在用"
+      ],
+      "avoid": [
+        "绕过接口直捅对方内部函数",
+        "随手改接口且不通知使用方",
+        "把这里的接口理解成 UI 界面"
+      ],
+      "scenarios": [
+        "前后端联调前的约定",
+        "API 文档评审",
+        "AI 分模块开发的第一步"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "decoupling",
+        "title": "解耦 / 模块化"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
+  },
+  {
+    "id": "monolith",
+    "title": "单体",
+    "secondaryTitle": "Monolith",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "所有功能装进一个应用：一份代码一次部署——小团队起步的正确默认，不是落后。",
+    "hook": "两个人的团队，真的需要二十个服务吗？",
+    "aliases": [
+      "单体应用",
+      "Monolith"
+    ],
+    "path": "/monolith",
+    "url": null,
+    "description": "单体是把全部功能装进同一个应用：一套代码、一个数据库、一次部署全上线。它常被当成「老土」的代名词，但对小团队是压倒性正确——调试直接、上线简单、没有跨服务扯皮，AI 也更容易看清全貌。真正的问题从不是单体本身，而是内部乱成一锅粥；边界清晰的「模块化单体」能舒服撑到相当大的规模。先把屋里收拾干净，拆家留给真正长大的那天。",
+    "usage": {
+      "use": [
+        "用单体作为新项目默认起点",
+        "守住单体内部的模块边界",
+        "等瓶颈实际出现再谈拆分"
+      ],
+      "avoid": [
+        "把单体当落后架构急着甩掉",
+        "单体内部模块随意互相乱引用",
+        "用「大厂都拆了」说服自己"
+      ],
+      "scenarios": [
+        "新产品的技术选型",
+        "「要不要上微服务」之争",
+        "MVP 阶段的架构决策"
+      ]
+    },
+    "prerequisiteLessons": [],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
+  },
+  {
+    "id": "microservices",
+    "title": "微服务",
+    "secondaryTitle": "Microservices",
+    "category": "后端开发",
+    "macroCategory": "后端",
+    "tagline": "按业务拆成一群独立服务：治的是百人团队的组织病——五人小队用它是自找麻烦。",
+    "hook": "大厂分享里的微服务架构，你的团队有几百人吗？",
+    "aliases": [
+      "Microservices"
+    ],
+    "path": "/microservices",
+    "url": null,
+    "description": "微服务把系统按业务切成多个独立部署的小服务，各队各管一摊、互不等待。它真正解决的是组织规模问题：几百人挤在同一个代码库里互相踩脚，拆开才能并行开工。小团队照搬只会全额继承成本——跨服务调试、网络抖动、部署编排，复杂度立刻到账，好处遥遥无期。判断依据不是技术潮流而是人数：服务边界应该跟着团队边界走，人少就别拆。",
+    "usage": {
+      "use": [
+        "先问团队规模再选架构",
+        "让服务边界跟着团队边界走",
+        "让架构从单体按需逐步演进"
+      ],
+      "avoid": [
+        "五个人维护二十个服务",
+        "为了简历和排面拆微服务",
+        "低估跨服务排障的痛苦"
+      ],
+      "scenarios": [
+        "架构评审的拆分之争",
+        "一个 bug 跨三个服务排查",
+        "听完大厂分享后的冲动"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "monolith",
+        "title": "单体"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "arch"
   },
   {
     "id": "authentication",
@@ -5891,9 +6492,467 @@
         "「为什么加缓存」的解释"
       ]
     },
-    "prerequisiteLessons": [],
+    "prerequisiteLessons": [
+      {
+        "id": "magnitude",
+        "title": "数量级"
+      }
+    ],
     "distinctions": [],
     "source": "course",
     "fromLoop": "magnitude"
+  },
+  {
+    "id": "latency",
+    "title": "延迟",
+    "secondaryTitle": "Latency",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "延迟：从发出请求到看到响应的等待时间——用户不关心你多能扛，只关心这一下多快。",
+    "hook": "点了按钮三秒没反应，你会等还是关掉？",
+    "aliases": [
+      "响应时间"
+    ],
+    "path": "/latency",
+    "url": null,
+    "description": "延迟是单次请求的等待时长，直接决定体感快慢。普通接口几十毫秒算正常，而大模型生成一段回答动辄三五秒——差了两个数量级，这也是 AI 产品要用流式输出先吐第一个字的原因。设计功能前先问：这一步用户能忍多久？答案决定你该同步等、转后台，还是边生成边展示。",
+    "usage": {
+      "use": [
+        "给关键操作定可忍受的延迟上限",
+        "给超过一秒的等待加进度反馈",
+        "用流式输出缩短首字等待时间"
+      ],
+      "avoid": [
+        "用平均值掩盖最慢的那批请求",
+        "把延迟和吞吐混为一谈",
+        "让用户对着空白页干等（还不给转圈）"
+      ],
+      "scenarios": [
+        "AI 回答前的转圈等待",
+        "性能报告里的 P95",
+        "「怎么这么卡」的用户反馈"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "time-scales",
+        "title": "毫秒 / 微秒 / 纳秒"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "magnitude"
+  },
+  {
+    "id": "throughput",
+    "title": "吞吐",
+    "secondaryTitle": "Throughput",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "吞吐：单位时间能处理多少请求——单次再快，一秒只能接一单也会被挤爆。",
+    "hook": "一个接口 0.1 秒返回，一万人同时来呢？",
+    "aliases": [
+      "吞吐量"
+    ],
+    "path": "/throughput",
+    "url": null,
+    "description": "吞吐量衡量系统单位时间的处理能力，和延迟是两个独立维度：延迟是一辆车跑多快，吞吐是这条路一小时过多少辆车。单次很快的系统照样可能被并发压垮，比如 AI 接口普遍有每分钟请求数限额，用户一多就集体排队。评估方案时两个都要问：单次多快，同时能扛多少——答案往往决定要不要加队列或缓存。",
+    "usage": {
+      "use": [
+        "压测时看并发上限而非单次耗时",
+        "提前查清 AI 接口的限流额度",
+        "用队列给高峰流量削峰排队"
+      ],
+      "avoid": [
+        "拿单人测试结果推断上线表现",
+        "以为单次快就等于能扛量",
+        "限流报错了才想起看配额（429 不认人）"
+      ],
+      "scenarios": [
+        "大促活动的流量洪峰",
+        "API 限流的 429 报错",
+        "压测报告里的 QPS"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "latency",
+        "title": "延迟"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "magnitude"
+  },
+  {
+    "id": "magnitude",
+    "title": "数量级",
+    "secondaryTitle": "Order of Magnitude",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "数量级：以 10 倍为一格的粗标尺——方案对错常在数量级上分胜负，不在小数点。",
+    "hook": "一百条数据和一百万条，方案能一样吗？",
+    "aliases": [
+      "量级"
+    ],
+    "path": "/magnitude",
+    "url": null,
+    "description": "数量级是把数字按 10 倍一档归类的粗估法：一百、一千、一万各算一档，档内差异先不管。它的用处是快速判断方案是否成立——一百个用户的做法到十万用户往往直接失效，毫秒级接口和秒级的大模型调用差着三个数量级，能不能同步等结果一算便知。和 AI 讨论技术方案时，先把数据量、调用量、成本的量级报给它，答案质量会完全不同。",
+    "usage": {
+      "use": [
+        "估算先定数量级再抠细节",
+        "问方案前先报数据量级给 AI",
+        "遇量级跃升先重新评估架构"
+      ],
+      "avoid": [
+        "在数量级不明时纠结精确数字",
+        "拿百人规模的验证推千万级结论",
+        "把大模型的秒级耗时当毫秒用"
+      ],
+      "scenarios": [
+        "容量与成本的粗估",
+        "「大概多大量」的灵魂追问",
+        "方案评审的第一道算术"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "time-scales",
+        "title": "毫秒 / 微秒 / 纳秒"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "magnitude"
+  },
+  {
+    "id": "log",
+    "title": "日志",
+    "secondaryTitle": "Log",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "日志：系统的行车记录仪——平时没人看，出事时是唯一能还原现场的证据。",
+    "hook": "凌晨的报错没了现场，你拿什么排查？",
+    "aliases": [],
+    "path": "/log",
+    "url": null,
+    "description": "打日志是让程序在关键节点留下书面记录：什么时间、哪一步、输入什么、结果如何。故障永远发生在你不在场的时候，日志是事后唯一的现场证据——没有它，排查全靠猜。AI 应用更要记全：prompt 发了什么、模型回了什么、耗时多少，不然「AI 昨天抽风」根本无从复盘。让 AI 写代码时，明确要求关键路径打日志，它自己排错也靠这些记录。",
+    "usage": {
+      "use": [
+        "给关键分支和外部调用留日志",
+        "记全 AI 的输入输出和耗时",
+        "给日志带上请求标识便于串联"
+      ],
+      "avoid": [
+        "报错只记「失败了」三个字",
+        "把密码密钥明文写进日志",
+        "出了事才想起来补打日志（现场早没了）"
+      ],
+      "scenarios": [
+        "深夜线上故障的排查",
+        "「AI 为何这么答」的复盘",
+        "用户投诉的证据核对"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "server-log",
+        "title": "服务端日志"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "observability"
+  },
+  {
+    "id": "metrics",
+    "title": "监控指标",
+    "secondaryTitle": "Metrics",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "监控指标：把系统健康压成几条数字曲线——错误率、延迟、量，一眼看出不对劲。",
+    "hook": "三条曲线就能看出系统病没病，是哪三条？",
+    "aliases": [
+      "指标"
+    ],
+    "path": "/metrics",
+    "url": null,
+    "description": "指标是从海量运行数据里提炼出的几个关键数字，随时间画成曲线。经典三件套：错误率（多少请求失败）、延迟（多慢）、流量（多少请求），AI 应用还得加一条成本曲线——token 花费失控比宕机更常见。读指标看的不是绝对值而是形状：突刺、爬坡、断崖各有各的病因。指标贵精不贵多，能触发行动的才配上仪表盘，二十条没人看的曲线不如三条有人管的。",
+    "usage": {
+      "use": [
+        "先配齐错误率、延迟、量三件套",
+        "给 AI 功能单加 token 成本曲线",
+        "给每条指标配「异常了找谁」预案"
+      ],
+      "avoid": [
+        "堆几十条没人看的曲线撑场面",
+        "只看平均值不看最差的尾部",
+        "告警响了才第一次打开仪表盘"
+      ],
+      "scenarios": [
+        "值班大屏的三条曲线",
+        "错误率突刺的告警",
+        "月底 token 账单的追问"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "monitoring",
+        "title": "监控"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "observability"
+  },
+  {
+    "id": "tracing",
+    "title": "链路追踪",
+    "secondaryTitle": "Tracing",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "给每个请求发一张全程车票：经过哪站、每站停了多久，全记在票上——慢在哪一跳一眼看到。",
+    "hook": "接口慢了三秒，是数据库慢还是第三方慢？",
+    "aliases": [
+      "分布式追踪",
+      "Tracing"
+    ],
+    "path": "/tracing",
+    "url": null,
+    "description": "链路追踪给每个请求发一个唯一 ID，随它流经的每个服务一路传递，记下每一跳的耗时。一次下单可能穿过网关、订单、库存、支付四个环节，日志各写各的，只有 trace 能把它们拼成一条完整时间线，慢在哪一跳一目了然。排查问题时把 trace 贴给 AI，比贴十段互不相干的日志有用得多——前提是搭系统时就把它接上。",
+    "usage": {
+      "use": [
+        "让 AI 搭服务时把 trace ID 透传",
+        "排查慢请求先看链路瀑布图",
+        "统一让跨服务日志带上 trace ID"
+      ],
+      "avoid": [
+        "在每个服务里翻日志人肉拼线索",
+        "只看总耗时不看分段耗时",
+        "等出了事故才想起来接入（来不及）"
+      ],
+      "scenarios": [
+        "下单慢三秒的排查",
+        "微服务事故复盘",
+        "性能优化立项之前"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "log",
+        "title": "日志"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "observability"
+  },
+  {
+    "id": "slo",
+    "title": "SLO / 可用性",
+    "secondaryTitle": "SLO / Availability",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "服务质量的承诺线：99.9% 听着近乎完美——换算成宕机时间，一年是 8.7 小时。",
+    "hook": "一年宕机 8.7 小时，你的用户能忍吗？",
+    "aliases": [
+      "服务等级目标",
+      "几个 9"
+    ],
+    "path": "/slo",
+    "url": null,
+    "description": "SLO 是给服务质量画的承诺线，通常用几个 9 表示。99.9% 换算过来是一年允许宕机约 8.7 小时，99.99% 才缩到 52 分钟——而每多一个 9，架构复杂度和成本都会陡增。给自己产品定线前先想清楚：用户要的是四个 9，还是三个 9 加一份诚恳的故障公告；选云服务和 AI API 时，也翻翻对方承诺了几个 9、宕机赔什么。",
+    "usage": {
+      "use": [
+        "按业务算清自己到底需要几个 9",
+        "选服务商先查 SLA 和赔偿条款",
+        "备好状态页和故障公告模板"
+      ],
+      "avoid": [
+        "张口承诺 100% 可用（物理上不存在）",
+        "盲目堆 9 把预算烧在过度架构上",
+        "定了 SLO 却从来不度量不复盘"
+      ],
+      "scenarios": [
+        "云服务商 SLA 条款页",
+        "年度宕机时长复盘",
+        "企业客户合同谈判"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "metrics",
+        "title": "监控指标"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "observability"
+  },
+  {
+    "id": "iaas",
+    "title": "IaaS",
+    "secondaryTitle": "Infrastructure as a Service",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "租毛坯房自己装修：云只给裸机和网络，系统、环境、补丁全归你——自由最大，负担也最大。",
+    "hook": "买了台云服务器，半夜的安全补丁谁来打？",
+    "aliases": [
+      "基础设施即服务"
+    ],
+    "path": "/iaas",
+    "url": null,
+    "description": "IaaS 是云的最底层：租到的是虚拟机、硬盘和网络，相当于拿了一间毛坯房的钥匙。装系统、配环境、开防火墙、打补丁、做扩容，全部自己来——自由度拉满，运维负担也拉满。AI 能替你写运维脚本，但半夜宕机、被入侵挖矿这些事故，最后扛着的还是你；没有专职运维之前，产品人慎选这条路。",
+    "usage": {
+      "use": [
+        "需要特殊环境或极致成本再选它",
+        "让 AI 写运维脚本也自己留快照备份",
+        "没有运维人手时优先考虑 PaaS"
+      ],
+      "avoid": [
+        "为了「听起来专业」上手就租裸机",
+        "装完环境从此不打安全补丁",
+        "root 用弱密码直接裸奔公网"
+      ],
+      "scenarios": [
+        "AWS EC2 购买页面",
+        "自建数据库的选型讨论",
+        "服务器被挖矿的复盘"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "server",
+        "title": "服务器"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "cloudcost"
+  },
+  {
+    "id": "paas",
+    "title": "PaaS / 托管平台",
+    "secondaryTitle": "Platform as a Service",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "精装公寓拎包入住：你只管代码，机器、扩容、证书平台全包——vibe coder 的默认选择。",
+    "hook": "一行运维没做，网站怎么就上线了？",
+    "aliases": [
+      "平台即服务",
+      "托管平台"
+    ],
+    "path": "/paas",
+    "url": null,
+    "description": "PaaS 把服务器细节全收进平台：你推一次代码，Vercel、Railway 这类平台自动完成构建、部署、扩容、续证书。AI 生成的项目大多天然适配这条路，从写完到上线能压进十分钟——这正是它成为 vibe coder 默认选择的原因。代价有两个：按用量计费在量大后可能比裸机贵，深度绑定平台后迁移也有成本；但验证期这笔账几乎总是划算的。",
+    "usage": {
+      "use": [
+        "验证期默认选 PaaS 省下运维时间",
+        "部署当天顺手配好预算报警",
+        "读一遍计费规则再选套餐"
+      ],
+      "avoid": [
+        "项目还没用户就纠结平台贵不贵",
+        "把 API 密钥写死在代码里推上去",
+        "量大了还硬扛天价账单不评估迁移"
+      ],
+      "scenarios": [
+        "Vercel 一键部署",
+        "AI 生成项目的上线首选",
+        "免费额度用超的账单"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "deploy",
+        "title": "部署"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "cloudcost"
+  },
+  {
+    "id": "egress",
+    "title": "带宽 / 流量费",
+    "secondaryTitle": "Bandwidth / Egress",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "数据出云要交过路费：进来免费、出去按 GB 计——账单刺客的常驻位。",
+    "hook": "一个 1GB 的视频被看一万次，等于多少账单？",
+    "aliases": [
+      "出网流量",
+      "Egress 费用"
+    ],
+    "path": "/egress",
+    "url": null,
+    "description": "云厂商的通行规则是「数据进来免费，出去按量收费」——用户每下载一个文件、看一段视频，都在给你的账单加码。大文件站、图床、被爬虫盯上的接口是重灾区：一个 1GB 视频被刷一万次，流出的就是 10TB，够一夜刷出四位数账单。上线任何下载类功能前，先按「如果它火了」算一遍流量账，再把 CDN、防盗链和限流配齐。",
+    "usage": {
+      "use": [
+        "大文件和视频走 CDN 或对象存储",
+        "给下载接口加限流和防盗链",
+        "按「爆款流量」预演一遍账单"
+      ],
+      "avoid": [
+        "以为流量和存储一样便宜",
+        "原图原视频直接对公网裸奔",
+        "被爬崩了才去翻计费文档"
+      ],
+      "scenarios": [
+        "月底账单里最大一项",
+        "视频功能的成本测算",
+        "被恶意刷流量的事故"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "server",
+        "title": "服务器"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "cloudcost"
+  },
+  {
+    "id": "budget-alert",
+    "title": "预算报警",
+    "secondaryTitle": "Budget Alert",
+    "category": "上线与排错",
+    "macroCategory": "后端",
+    "tagline": "给云账单装保险丝：花费过线自动喊人——五分钟配置，救你于一觉醒来的天价账单。",
+    "hook": "睡前一切正常，醒来账单四位数——中间发生了什么？",
+    "aliases": [
+      "费用告警"
+    ],
+    "path": "/budget-alert",
+    "url": null,
+    "description": "预算报警是云平台自带的保险丝：设一个金额阈值，花费冲线就自动发邮件短信，有的还能直接停服务。死循环调用、被刷的接口、忘关的测试实例，都在你睡着时烧钱——尤其 AI API 按 token 计费，一段失控的循环一晚上就能烧穿信用卡。这是所有云配置里性价比最高的五分钟，注册当天就该做完。",
+    "usage": {
+      "use": [
+        "开通任何云服务当天就设报警",
+        "给 AI API 单独设用量硬上限",
+        "分级设阈值：50% 提醒、100% 告警"
+      ],
+      "avoid": [
+        "想着「我用量小不至于」就跳过",
+        "只设提醒不设自动断供",
+        "报警邮件进垃圾箱从没人看"
+      ],
+      "scenarios": [
+        "新云账号的第一项配置",
+        "AI API 用量上限设置",
+        "天价账单事故的复盘"
+      ]
+    },
+    "prerequisiteLessons": [
+      {
+        "id": "monitoring",
+        "title": "监控"
+      }
+    ],
+    "distinctions": [],
+    "source": "course",
+    "fromLoop": "cloudcost"
   }
 ]

@@ -1895,6 +1895,342 @@
       "loopId": "magnitude",
       "strength": "glossary",
       "via": "course-import"
+    },
+    {
+      "termId": "latency",
+      "loopId": "magnitude",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "throughput",
+      "loopId": "magnitude",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "magnitude",
+      "loopId": "magnitude",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "fallback",
+      "loopId": "nondeterm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "guardrail",
+      "loopId": "nondeterm",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "rag",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "vector-search",
+      "loopId": "ragagent",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "eval-set",
+      "loopId": "evals",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "baseline",
+      "loopId": "evals",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "llm-as-judge",
+      "loopId": "evals",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "pass-rate",
+      "loopId": "evals",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "eval-regression",
+      "loopId": "evals",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "log",
+      "loopId": "observability",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "metrics",
+      "loopId": "observability",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "tracing",
+      "loopId": "observability",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "slo",
+      "loopId": "observability",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "iaas",
+      "loopId": "cloudcost",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "paas",
+      "loopId": "cloudcost",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "egress",
+      "loopId": "cloudcost",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "budget-alert",
+      "loopId": "cloudcost",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "concurrency",
+      "loopId": "concurrency",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "race-condition",
+      "loopId": "concurrency",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "lock",
+      "loopId": "concurrency",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "atomic",
+      "loopId": "concurrency",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "constant-time",
+      "loopId": "complexity",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "logarithmic-time",
+      "loopId": "complexity",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "linear-time",
+      "loopId": "complexity",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "quadratic-time",
+      "loopId": "complexity",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "db-index",
+      "loopId": "complexity",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "coupling",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "decoupling",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "cohesion",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "interface",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "monolith",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "microservices",
+      "loopId": "arch",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "man-month",
+      "loopId": "brooks",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "effective-capacity",
+      "loopId": "brooks",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "communication-overhead",
+      "loopId": "brooks",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "sequential-parallel",
+      "loopId": "brooks",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "ramp-up",
+      "loopId": "brooks",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "technical-debt",
+      "loopId": "techdebt",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "debt-interest",
+      "loopId": "techdebt",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "refactoring",
+      "loopId": "techdebt",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "debt-repayment",
+      "loopId": "techdebt",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "throwaway-code",
+      "loopId": "techdebt",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "essential-complexity",
+      "loopId": "nosilver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "accidental-complexity",
+      "loopId": "nosilver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "silver-bullet",
+      "loopId": "nosilver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "conceptual-integrity",
+      "loopId": "nosilver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "conformity",
+      "loopId": "nosilver",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "conways-law",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "inverse-conway",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "interface-contract",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "two-pizza-team",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "the-loop",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
+    },
+    {
+      "termId": "gate",
+      "loopId": "conway",
+      "strength": "glossary",
+      "via": "course-import"
     }
   ]
 }
