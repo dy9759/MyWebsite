@@ -53,6 +53,10 @@ jobs:
           # Public GA4 measurement id — injected only for the production
           # deploy so forks and local builds don't pollute analytics.
           NEXT_PUBLIC_GA_ID: G-32FLEBL3F6
+          # Wiki chat backend URL (…/chat). Set the WIKI_API_URL repository
+          # variable once the server/wiki-chat service is deployed; while the
+          # variable is empty the site falls back to the demo replies.
+          NEXT_PUBLIC_WIKI_API_URL: ${{ vars.WIKI_API_URL }}
 
       - name: Preserve Next.js static assets
         run: touch out/.nojekyll

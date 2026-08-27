@@ -1,14 +1,18 @@
 // AI Sense Wiki chat backend — standalone service (NOT part of the static site).
 // Proxies chat to Bailian's Anthropic-compatible endpoint (deepseek). The API
 // key is read from the environment and never leaves the server.
-import "dotenv/config";
+import { fileURLToPath } from "node:url";
+import dotenv from "dotenv";
+// Resolve .env next to this file, so the server can be launched from any CWD.
+dotenv.config({ path: fileURLToPath(new URL("./.env", import.meta.url)) });
 import express from "express";
 import cors from "cors";
-import Anthropic from "@anthropic-ai/sdk";
 import { KNOWLEDGE } from "./knowledge.js";
 
 const {
-  ANTHROPIC_BASE_URL = "https://dashscope.aliyuncs.com/apps/anthropic",
+  // Bailian OpenAI-compatible endpoint (workspace sk-ws-* keys are accepted
+  // here; the /apps/anthropic proxy 403s them).
+  ANTHROPIC_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1",
   ANTHROPIC_API_KEY,
   ANTHROPIC_MODEL = "deepseek-v4-flash-0731",
   PORT = 8787,
@@ -27,8 +31,6 @@ if (process.env.NODE_ENV === "production" && WIKI_ALLOWED_ORIGINS === "*") {
   console.error("WIKI_ALLOWED_ORIGINS must list explicit origins in production (not '*').");
   process.exit(1);
 }
-
-const client = new Anthropic({ baseURL: ANTHROPIC_BASE_URL, apiKey: ANTHROPIC_API_KEY });
 
 const app = express();
 app.use(express.json({ limit: "32kb" }));
@@ -85,13 +87,21 @@ app.post("/chat", async (req, res) => {
   const message = (req.body?.message || "").toString().slice(0, 4000);
   if (!message.trim()) return res.status(400).json({ error: "empty message" });
   try {
-    const resp = await client.messages.create({
-      model: ANTHROPIC_MODEL,
-      max_tokens: 1024,
-      system: SYSTEM,
-      messages: [{ role: "user", content: message }],
+    const upstream = await fetch(`${ANTHROPIC_BASE_URL}/chat/completions`, {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: `Bearer ${ANTHROPIC_API_KEY}` },
+      body: JSON.stringify({
+        model: ANTHROPIC_MODEL,
+        max_tokens: 1024,
+        messages: [
+          { role: "system", content: SYSTEM },
+          { role: "user", content: message },
+        ],
+      }),
     });
-    const raw = (resp.content?.[0]?.type === "text" ? resp.content[0].text : "").trim();
+    if (!upstream.ok) throw new Error(`upstream ${upstream.status}`);
+    const data = await upstream.json();
+    const raw = (data.choices?.[0]?.message?.content ?? "").trim();
     res.json(parseReply(raw, ANTHROPIC_MODEL));
   } catch (err) {
     console.error("chat error:", err?.message || err);
