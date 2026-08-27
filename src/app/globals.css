@@ -574,3 +574,25 @@
 .vh-modal-close:hover { color: var(--vh-text); border-color: var(--vh-brand); }
 .dark .vh-modal { background: var(--vh-bg, #101014); }
 .dark .vh-modal-close { background: var(--vh-bg, #101014); }
+
+/* AI Slop 专题 */
+.theme-vibe .slop-intro { max-width: 46rem; font-size: 14px; line-height: 1.85; color: var(--vh-text-2); margin-top: 6px; }
+.theme-vibe .slop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.theme-vibe .slop-card { text-align: left; border: 1px solid var(--vh-line); border-radius: 10px; background: var(--vh-bg); padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 5px; transition: border-color .15s, box-shadow .15s; }
+.theme-vibe .slop-card:hover { border-color: var(--vh-brand); box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+.theme-vibe .slop-card b { font-size: 13.5px; color: var(--vh-text); }
+.theme-vibe .slop-card span { font-size: 12px; line-height: 1.6; color: var(--vh-text-3); }
+.theme-vibe .slop-modal-title { font-size: 19px; font-weight: 750; color: var(--vh-text); display: flex; align-items: baseline; gap: 10px; }
+.theme-vibe .slop-why, .theme-vibe .slop-fix { margin-top: 14px; font-size: 13.5px; line-height: 1.85; color: var(--vh-text-2); }
+.theme-vibe .slop-why b, .theme-vibe .slop-fix b { display: block; font-size: 12px; letter-spacing: 1px; margin-bottom: 4px; }
+.theme-vibe .slop-why b { color: var(--vh-red, #dc2626); }
+.theme-vibe .slop-fix b { color: var(--vh-green, #16a34a); }
+.theme-vibe .slop-pair { margin-top: 18px; border: 1px solid var(--vh-line); border-radius: 12px; padding: 16px 18px; background: var(--vh-bg); }
+.theme-vibe .slop-pair-title { font-size: 14px; font-weight: 700; color: var(--vh-text); }
+.theme-vibe .slop-pair-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+@media (min-width: 780px) { .theme-vibe .slop-pair-grid { grid-template-columns: 1fr 1fr; } }
+.theme-vibe .slop-stage { border: 1px dashed var(--vh-line); border-radius: 10px; padding: 12px; min-height: 120px; }
+.theme-vibe .slop-cap { margin-top: 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; }
+.theme-vibe .slop-cap.bad { color: var(--vh-red, #dc2626); }
+.theme-vibe .slop-cap.good { color: var(--vh-green, #16a34a); }
+.theme-vibe .slop-note { margin-top: 10px; font-size: 12.5px; line-height: 1.75; color: var(--vh-text-3); }

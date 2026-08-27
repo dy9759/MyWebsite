@@ -7,6 +7,7 @@ import { useLanguage } from "@/components/language-provider";
 import { WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
 import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiVibe, { type VibeTarget } from "@/components/wiki/wiki-vibe";
+import WikiSlop from "@/components/wiki/wiki-slop";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
@@ -15,7 +16,7 @@ import PRACTICE_CHAPTERS from "@/content/practice-chapters.json";
 import AIPageBody from "@/components/ai/ai-page-body";
 import SectionRailNav from "@/components/section-rail-nav";
 
-export type WikiDomain = "sources" | "vibe" | "course" | "jobs";
+export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop";
 
 export default function WikiBrowse({
   domain,
@@ -59,6 +60,10 @@ export default function WikiBrowse({
   }
 
   // ---- AI Native 招聘 (jobs) ----
+  if (domain === "slop") {
+    return <WikiSlop />;
+  }
+
   if (domain === "jobs") {
     return (
       <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 py-4">

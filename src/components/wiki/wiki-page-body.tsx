@@ -5,6 +5,7 @@ import { MessageCircle, X } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
 import { VIBE_TOPICS, VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
+import { SLOP_TOTAL } from "@/components/wiki/wiki-slop";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
@@ -13,7 +14,7 @@ import { askWiki, WIKI_CONNECTED as CONNECTED, type TermJump } from "@/lib/wiki-
 import { FLOAT_CHAT } from "@/lib/float-chat";
 import { cn } from "@/lib/utils";
 
-const DOMAINS: WikiDomain[] = ["sources", "vibe", "course", "jobs"];
+const DOMAINS: WikiDomain[] = ["sources", "vibe", "course", "slop", "jobs"];
 
 export default function WikiPageBody() {
   const { language } = useLanguage();
@@ -54,6 +55,7 @@ export default function WikiPageBody() {
     sources: "6",
     vibe: String(VIBE_TOTAL),
     course: String(COURSE_TOTAL_LOOPS),
+    slop: String(SLOP_TOTAL),
     jobs: String(WIKI_JOBS.length),
   };
 

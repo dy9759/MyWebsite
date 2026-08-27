@@ -13,7 +13,7 @@ export type WikiReply = { grounded: string; text: string; cites: WikiCite[] };
 // the user's authorization — the course is their personalized program).
 export const WIKI_COURSE = {
   eyebrow: "你的建造者旅程",
-  desc: "八章 = 你用 AI 做「语音智能体」的真实生命周期。每章知识在被需要的那一刻出现，走完这条路，产出的是一个真实上线的产品。",
+  desc: "九章 = 你用 AI 做「语音智能体」的真实生命周期。每章知识在被需要的那一刻出现，走完这条路，产出的是一个真实上线的产品。",
 };
 
 // AI Native 招聘 — job postings from AI-native companies (user-curated links).
@@ -53,7 +53,7 @@ export const WIKI_UI = {
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
-    domains: { sources: "AI 知识源", vibe: "Vibe Hub", course: "闭环学院", jobs: "AI Native 招聘" },
+    domains: { sources: "AI 知识源", vibe: "Vibe Hub", course: "闭环学院", jobs: "AI Native 招聘", slop: "AI Slop" },
     open: "打开",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
@@ -81,7 +81,7 @@ export const WIKI_UI = {
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
-    domains: { sources: "AI Sources", vibe: "Vibe Hub", course: "Loop Academy", jobs: "AI-Native Jobs" },
+    domains: { sources: "AI Sources", vibe: "Vibe Hub", course: "Loop Academy", jobs: "AI-Native Jobs", slop: "AI Slop" },
     open: "Open",
     related: "Related",
     progress: "{done} / {total} loops done",
