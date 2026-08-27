@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { href: "/projects", labelKey: "projects" },
   { href: "/lab", labelKey: "lab" },
   { href: "/research", labelKey: "research" },
-  { href: "/ai", labelKey: "ai" },
   { href: "/wiki", labelKey: "wiki" },
 ] as const;
 

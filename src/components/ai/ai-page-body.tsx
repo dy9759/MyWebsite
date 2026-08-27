@@ -16,7 +16,7 @@ import SkillsGrid from '@/components/ai/skills-grid'
 import BigTechWatch from '@/components/ai/big-tech-watch'
 import { useSiteCopy } from '@/components/language-provider'
 
-const AIPageBody = () => {
+const AIPageBody = ({ embedded = false }: { embedded?: boolean }) => {
     const copy = useSiteCopy()
     return (
         <div className='theme-radix-nova'>
@@ -24,12 +24,14 @@ const AIPageBody = () => {
                 <SectionNav />
 
                 <div className='flex min-w-0 flex-col gap-12'>
-                    <nav className='px-4'>
-                        <PageBreadcrumb
-                            current={copy.ai.breadcrumbCurrent}
-                            home={copy.ai.breadcrumbHome}
-                        />
-                    </nav>
+                    {!embedded && (
+                        <nav className='px-4'>
+                            <PageBreadcrumb
+                                current={copy.ai.breadcrumbCurrent}
+                                home={copy.ai.breadcrumbHome}
+                            />
+                        </nav>
+                    )}
 
                     <AIHero />
                     <UsageIntro />

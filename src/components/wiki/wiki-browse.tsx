@@ -3,61 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { useLanguage, useAIConfig } from "@/components/language-provider";
-import { WIKI_TERMS, WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
-import { VIBE_GROUPS, VIBE_TERM_COUNT } from "@/content/wiki-vibe-terms";
+import { useLanguage } from "@/components/language-provider";
+import { WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
 import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
+import WikiVibe from "@/components/wiki/wiki-vibe";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
-import { cn } from "@/lib/utils";
+import AIPageBody from "@/components/ai/ai-page-body";
+import SectionRailNav from "@/components/section-rail-nav";
 
 export type WikiDomain = "sources" | "vibe" | "course" | "jobs";
-export type SourceCat = "podcasts" | "newsletters" | "people" | "products";
-const SOURCE_CATS: SourceCat[] = ["podcasts", "newsletters", "people", "products"];
 
-type BrowseItem = { title: string; desc: string; url: string };
-
-function BrowseCard({ item, openLabel }: { item: BrowseItem; openLabel: string }) {
-  return (
-    <article className="rounded-lg border p-3 transition-colors hover:border-accent">
-      <div className="flex items-baseline justify-between gap-3">
-        <h4 className="text-sm font-semibold leading-tight">{item.title}</h4>
-        {item.url ? (
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-0.5 rounded-md border px-1.5 py-0.5 text-xs text-accent transition-colors hover:border-accent"
-          >
-            {openLabel}
-            <ArrowUpRight className="size-3" />
-          </a>
-        ) : null}
-      </div>
-      {item.desc ? (
-        <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{item.desc}</p>
-      ) : null}
-      {item.url ? (
-        <span className="mt-2 inline-block font-mono text-xs text-muted-foreground/70">
-          {item.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-        </span>
-      ) : null}
-    </article>
-  );
-}
-
-export default function WikiBrowse({
-  domain,
-  sourceCat,
-  onSourceCat,
-}: {
-  domain: WikiDomain;
-  sourceCat: SourceCat;
-  onSourceCat: (c: SourceCat) => void;
-}) {
+export default function WikiBrowse({ domain }: { domain: WikiDomain }) {
   const { language } = useLanguage();
-  const ai = useAIConfig();
   const ui = WIKI_UI[language];
 
   // Loop-completion progress (localStorage) — read after mount to stay
@@ -74,105 +33,17 @@ export default function WikiBrowse({
 
   // ---- AI 知识源 (live from AI_CONFIG) ----
   if (domain === "sources") {
-    const dedupe = (arr: BrowseItem[]) => {
-      const seen = new Set<string>();
-      return arr.filter((x) => (seen.has(x.title) ? false : (seen.add(x.title), true)));
-    };
-    const catItems: Record<SourceCat, BrowseItem[]> = {
-      podcasts: dedupe(ai.podcasts.map((p) => ({ title: p.title, desc: p.description, url: p.url }))),
-      newsletters: dedupe(ai.newsletters.map((n) => ({ title: n.title, desc: n.description, url: n.url }))),
-      people: dedupe(ai.people.map((p) => ({ title: p.name, desc: p.role, url: p.url }))),
-      products: dedupe(ai.products.map((p) => ({ title: p.name, desc: p.description, url: p.url }))),
-    };
+    // Full AI Sense Sources page, embedded as the AI 知识源 domain.
     return (
-      <div className="flex min-h-0 flex-1 flex-col">
-        <div className="flex gap-2 overflow-x-auto px-4 py-3">
-          {SOURCE_CATS.map((c) => (
-            <button
-              key={c}
-              type="button"
-              role="tab"
-              aria-selected={c === sourceCat}
-              onClick={() => onSourceCat(c)}
-              className={cn(
-                "shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-sm transition-colors",
-                c === sourceCat
-                  ? "border-accent bg-accent/10 font-medium text-accent"
-                  : "bg-muted/40 text-muted-foreground hover:border-accent",
-              )}
-            >
-              {ui.sourceCats[c]}
-              <span className="ml-1.5 font-mono text-xs opacity-70">
-                {catItems[c].length}
-              </span>
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 pb-4">
-          {catItems[sourceCat].map((item) => (
-            <BrowseCard key={item.title} item={item} openLabel={ui.open} />
-          ))}
-        </div>
+      <div className="min-w-0 flex-1 py-2">
+        <AIPageBody embedded />
       </div>
     );
   }
 
   // ---- Vibe Hub ----
   if (domain === "vibe") {
-    return (
-      <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
-        {/* core AI terms (with cross-domain links) */}
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">
-          {language === "zh" ? "核心 · AI" : "Core · AI"}
-        </p>
-        {WIKI_TERMS.map((t) => (
-          <article key={t.term} className="rounded-lg border border-l-2 border-l-accent p-3">
-            <h4 className="font-mono text-sm font-medium text-accent"># {t.term}</h4>
-            <p className="mt-1 text-sm leading-6 text-muted-foreground">{t.def[language]}</p>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {t.rel.map(([tag, name]) => (
-                <span key={tag + name} className="rounded-full border px-2 py-0.5 font-mono text-xs text-muted-foreground">
-                  {tag} · <b className="font-medium text-accent">{name}</b>
-                </span>
-              ))}
-            </div>
-          </article>
-        ))}
-
-        {/* real glossary from vibe-hub.org */}
-        <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2 border-t pt-3">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            {language === "zh" ? `vibe coding 术语 · ${VIBE_TERM_COUNT}` : `Vibe coding terms · ${VIBE_TERM_COUNT}`}
-          </p>
-          <a
-            href="https://vibe-hub.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-xs text-accent hover:underline"
-          >
-            vibe-hub.org ↗
-          </a>
-        </div>
-        <p className="-mt-1 text-xs text-muted-foreground/70">
-          {language === "zh"
-            ? "另有 Backend / Product / 技术栈 / AI / Git / Design 约 144 词，待接入。"
-            : "Backend / Product / Tech Stack / AI / Git / Design (~144 more) pending import."}
-        </p>
-        {VIBE_GROUPS.map((g) => (
-          <div key={g.cat.en}>
-            <h4 className="mb-1.5 text-sm font-semibold">{g.cat[language]}</h4>
-            <dl className="grid gap-1.5">
-              {g.terms.map((term) => (
-                <div key={term.t} className="rounded-md border bg-muted/30 px-2.5 py-1.5">
-                  <dt className="font-mono text-xs font-medium text-accent">{term.t}</dt>
-                  <dd className="text-xs leading-5 text-muted-foreground">{term.d}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        ))}
-      </div>
-    );
+    return <WikiVibe />;
   }
 
   // ---- AI Native 招聘 (jobs) ----
@@ -219,7 +90,16 @@ export default function WikiBrowse({
   }
   const mapTitle = `${profile?.name ?? "…"}：从 Vibe Coder 到 Product Builder`;
   return (
-    <div className="theme-loop -mx-4 -mb-4 flex flex-1 flex-col gap-4 overflow-y-auto px-6 py-5">
+    <div className="theme-loop -mx-4 -mb-4 grid gap-4 overflow-y-auto px-6 py-5 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start">
+      <SectionRailNav
+        ariaLabel="课程章节导航"
+        label="闭环学院"
+        items={COURSE_CHAPTERS.map((ch) => ({
+          href: `#course-ch${ch.index}`,
+          label: `第 ${ch.index} 章 ${ch.title}`,
+        }))}
+      />
+      <div className="flex min-w-0 flex-col gap-4">
       <div>
         <p className="mb-2 flex items-baseline gap-2">
           <span
@@ -289,7 +169,7 @@ export default function WikiBrowse({
         </div>
       ) : null}
       {COURSE_CHAPTERS.map((ch) => (
-        <div key={ch.id} className="loop-pillar !mt-0">
+        <div key={ch.id} id={`course-ch${ch.index}`} className="loop-pillar !mt-0 scroll-mt-28">
           <div className="flex items-baseline gap-3.5">
             <span className="loop-pillar-no">第 {ch.index} 章</span>
             <h4 className="loop-pillar-title font-bold">{ch.title}</h4>
@@ -356,6 +236,7 @@ export default function WikiBrowse({
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }
