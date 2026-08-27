@@ -1535,6 +1535,96 @@
    "loopId": "vibe",
    "strength": "glossary",
    "via": "终端"
+  },
+  {
+   "termId": "source-code",
+   "loopId": "vibe",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "dependency",
+   "loopId": "vibe",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "process",
+   "loopId": "vibe",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "config-file",
+   "loopId": "vibe",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "localhost",
+   "loopId": "localserver",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "server",
+   "loopId": "localserver",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "ip-address",
+   "loopId": "localserver",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "deploy",
+   "loopId": "localserver",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "render",
+   "loopId": "url2page",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "first-paint",
+   "loopId": "url2page",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "request-response",
+   "loopId": "frontback",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "contract",
+   "loopId": "api",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "idempotent",
+   "loopId": "api",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "status-code",
+   "loopId": "api",
+   "strength": "glossary",
+   "via": "course-import"
+  },
+  {
+   "termId": "backward-compatible",
+   "loopId": "api",
+   "strength": "glossary",
+   "via": "course-import"
   }
  ]
 }

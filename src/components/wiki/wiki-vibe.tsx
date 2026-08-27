@@ -5,20 +5,20 @@
 // (MIT-licensed vibe-hub-skill). Data lazy-loads per topic from
 // public/wiki/vibe/{topic}.json; layout follows the original design tokens.
 import { useEffect, useMemo, useState } from "react";
-import SectionRailNav from "@/components/section-rail-nav";
+import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const VIBE_TOPICS = [
-  { id: "frontend", title: "前端", count: 136 },
-  { id: "backend", title: "后端", count: 40 },
+  { id: "frontend", title: "前端", count: 138 },
+  { id: "backend", title: "后端", count: 53 },
   { id: "product", title: "产品", count: 17 },
   { id: "technology", title: "技术栈", count: 26 },
   { id: "ai", title: "AI", count: 25 },
   { id: "git", title: "Git", count: 12 },
   { id: "design", title: "设计风格", count: 24 },
 ] as const;
-export const VIBE_TOTAL = 280;
+export const VIBE_TOTAL = 295;
 
 type Lesson = {
   id: string;
@@ -27,6 +27,7 @@ type Lesson = {
   category: string;
   tagline: string;
   hook?: string;
+  source?: string;
   aliases?: string[];
   url?: string;
   description?: string | null;
@@ -42,7 +43,7 @@ export default function WikiVibe() {
 
   useEffect(() => {
     setOpenId(null);
-    if (cache[topic]) return;
+    if (topic === "practice" || cache[topic]) return;
     setCache((prev) => ({ ...prev, [topic]: "loading" }));
     fetch(`${BASE_PATH}/wiki/vibe/${topic}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
@@ -64,16 +65,68 @@ export default function WikiVibe() {
 
   return (
     <div className="theme-vibe -mx-4 -mb-4 rounded-none px-4 pb-6 pt-4 md:px-6">
-      <div className="grid gap-6 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start">
-        <SectionRailNav
-          ariaLabel="术语分类导航"
-          label="Vibe Hub"
-          items={groups.map(([cat], i) => ({ href: `#vh-c${i}`, label: cat }))}
-          className="theme-vibe"
-        />
+      <div className="grid gap-6 md:grid-cols-[9rem_minmax(0,1fr)] md:items-start">
+        {/* left rail: topics as primary nav, active topic's categories nested */}
+        <nav aria-label="术语主题与分类导航" className="sticky top-28 z-40 hidden self-start md:block">
+          <span
+            className="mb-1 block px-2 text-[10px] font-medium uppercase tracking-wide"
+            style={{ color: "var(--vh-text-3)" }}
+          >
+            Vibe Hub
+          </span>
+          <button
+            type="button"
+            onClick={() => setTopic("practice")}
+            className="w-full rounded-md px-2 py-1.5 text-left text-xs transition-colors"
+            style={
+              topic === "practice"
+                ? { background: "var(--vh-brand-light)", color: "var(--vh-brand)", fontWeight: 600 }
+                : { color: "var(--vh-text-2)" }
+            }
+          >
+            练习
+            <span className="vh-count">254</span>
+          </button>
+          {VIBE_TOPICS.map((t) => (
+            <div key={t.id}>
+              <button
+                type="button"
+                onClick={() => setTopic(t.id)}
+                className="w-full rounded-md px-2 py-1.5 text-left text-xs transition-colors"
+                style={
+                  topic === t.id
+                    ? { background: "var(--vh-brand-light)", color: "var(--vh-brand)", fontWeight: 600 }
+                    : { color: "var(--vh-text-2)" }
+                }
+              >
+                {t.title}
+                <span className="vh-count">{t.count}</span>
+              </button>
+              {topic === t.id
+                ? groups.map(([cat], i) => (
+                    <a
+                      key={cat}
+                      href={`#vh-c${i}`}
+                      className="block rounded-md py-1 pl-5 pr-2 text-xs transition-colors hover:underline"
+                      style={{ color: "var(--vh-text-3)" }}
+                    >
+                      {cat}
+                    </a>
+                  ))
+                : null}
+            </div>
+          ))}
+        </nav>
         <div className="min-w-0">
-          {/* topic tabs */}
-          <div className="flex flex-wrap gap-1">
+          {/* mobile topic switcher (rail is desktop-only) */}
+          <div className="flex flex-wrap gap-1 md:hidden">
+            <button
+              type="button"
+              className={`vh-topic${topic === "practice" ? " on" : ""}`}
+              onClick={() => setTopic("practice")}
+            >
+              练习
+            </button>
             {VIBE_TOPICS.map((t) => (
               <button
                 key={t.id}
@@ -86,7 +139,11 @@ export default function WikiVibe() {
               </button>
             ))}
           </div>
-          <h2 className="vh-page-title">
+          {topic === "practice" ? (
+            <WikiVibePractice />
+          ) : (
+            <>
+          <h2 className="vh-page-title !mt-0">
             {VIBE_TOPICS.find((t) => t.id === topic)?.title} VibeCoding 术语
           </h2>
 
@@ -130,6 +187,8 @@ export default function WikiVibe() {
             </a>{" "}
             MIT）
           </p>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -145,6 +204,14 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
         <span className="vh-title-row">
           <h4>{l.title}</h4>
           {l.secondaryTitle ? <span className="vh-en">{l.secondaryTitle}</span> : null}
+          {l.source === "course" ? (
+            <span
+              className="rounded-full px-1.5 text-[0.62rem]"
+              style={{ background: "var(--vh-brand-light)", color: "var(--vh-brand)" }}
+            >
+              闭环学院
+            </span>
+          ) : null}
           <span className="vh-star" aria-hidden="true">
             ☆
           </span>

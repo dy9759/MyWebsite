@@ -430,3 +430,25 @@
 .theme-vibe .vh-card .vh-tagline-q { color: var(--vh-text-2); font-size: 14px; line-height: 1.7; margin-top: 8px; display: flex; gap: 6px; }
 .theme-vibe .vh-card .vh-tagline-q:before { content: "“"; color: var(--vh-brand); font-family: Georgia, serif; font-size: 20px; line-height: 1; }
 .theme-vibe .vh-thumb { margin: 14px 0 0; border-color: var(--vh-border); }
+
+/* VibeHub practice (练习) */
+.theme-vibe .vh-practice { display: grid; gap: 32px; align-items: center; min-height: 60vh; }
+@media (min-width: 900px) { .theme-vibe .vh-practice { grid-template-columns: 1fr 1fr; } }
+.theme-vibe .vh-pq { font-size: 28px; font-weight: 800; line-height: 1.4; letter-spacing: -.01em; margin-bottom: 26px; }
+.theme-vibe .vh-popt { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; background: var(--vh-bg-hover); border: 1px solid transparent; border-radius: var(--vh-radius-lg); padding: 15px 18px; font-size: 14.5px; line-height: 1.6; color: var(--vh-text); cursor: pointer; margin-bottom: 12px; transition: all .15s var(--vh-ease); font-family: inherit; }
+.theme-vibe .vh-popt:hover:not(:disabled) { border-color: var(--vh-border); background: var(--vh-bg-soft); }
+.theme-vibe .vh-popt:disabled { cursor: default; }
+.theme-vibe .vh-popt .vh-pletter { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--vh-bg); border: 1px solid var(--vh-border); display: grid; place-items: center; font-size: 12.5px; font-weight: 600; color: var(--vh-text-2); }
+.theme-vibe .vh-popt.right { background: var(--vh-green-light); border-color: var(--vh-green); }
+.theme-vibe .vh-popt.right .vh-pletter { background: var(--vh-green); border-color: var(--vh-green); color: #fff; }
+.theme-vibe .vh-popt.wrong { background: var(--vh-red-light); border-color: var(--vh-red); }
+.theme-vibe .vh-popt.wrong .vh-pletter { background: var(--vh-red); border-color: var(--vh-red); color: #fff; }
+.theme-vibe .vh-pfb { font-size: 13.5px; line-height: 1.7; border-radius: var(--vh-radius); padding: 10px 14px; margin: -4px 0 12px 40px; }
+.theme-vibe .vh-pfb.good { background: var(--vh-green-light); color: var(--vh-green); }
+.theme-vibe .vh-pfb.miss { background: var(--vh-red-light); color: var(--vh-red); }
+.theme-vibe .vh-plabel { color: var(--vh-text-3); font-size: 13px; margin-bottom: 8px; }
+.theme-vibe .vh-plock { border: 1px solid var(--vh-border); border-radius: 16px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--vh-brand) 6%, var(--vh-bg-soft)), var(--vh-bg-soft)); min-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--vh-text-3); font-size: 13px; }
+.theme-vibe .vh-plock .vh-peye { font-size: 22px; opacity: .55; }
+.theme-vibe .vh-preveal { border: 1px solid var(--vh-border); border-radius: 16px; background: var(--vh-bg); box-shadow: var(--vh-shadow-card); padding: 26px 30px; min-height: 420px; }
+.theme-vibe .vh-pnext { margin-top: 18px; background: var(--vh-brand); color: #fff; border: none; border-radius: 10px; padding: 11px 26px; font-size: 14.5px; font-weight: 600; cursor: pointer; }
+.theme-vibe .vh-pnext:hover { background: var(--vh-brand-hover); }
