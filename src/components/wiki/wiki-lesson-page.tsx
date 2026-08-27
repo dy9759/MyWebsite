@@ -20,13 +20,15 @@ import conceptMap from "@/content/concept-map.json";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-// loopId → mapped termIds (strong links first).
-const LOOP_TERMS = new Map<string, { termId: string; strength: string }[]>();
-for (const l of conceptMap.links as { termId: string; loopId: string; strength: string }[]) {
+// loopId → mapped termIds (strong links first; curated P3 mentions before auto mentions).
+const LOOP_TERMS = new Map<string, { termId: string; strength: string; via?: string }[]>();
+for (const l of conceptMap.links as { termId: string; loopId: string; strength: string; via?: string }[]) {
   if (!LOOP_TERMS.has(l.loopId)) LOOP_TERMS.set(l.loopId, []);
-  LOOP_TERMS.get(l.loopId)!.push({ termId: l.termId, strength: l.strength });
+  LOOP_TERMS.get(l.loopId)!.push({ termId: l.termId, strength: l.strength, via: l.via });
 }
 const STRENGTH_RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
+const linkRank = (l: { strength: string; via?: string }) =>
+  (STRENGTH_RANK[l.strength] ?? 9) - (l.strength === "mention" && l.via === "p3-extension" ? 0.5 : 0);
 
 type TermMeta = { id: string; topic: string; title: string; en: string };
 type EchoQ = {
@@ -171,7 +173,7 @@ export default function WikiLessonPage({
   useEffect(() => {
     const mapped = (LOOP_TERMS.get(node.lessonId) ?? [])
       .slice()
-      .sort((a, b) => (STRENGTH_RANK[a.strength] ?? 9) - (STRENGTH_RANK[b.strength] ?? 9));
+      .sort((a, b) => linkRank(a) - linkRank(b));
     if (!mapped.length) return;
     const ids = new Set(mapped.map((m) => m.termId));
     fetch(`${BASE_PATH}/wiki/search-index.json?t=${Date.now()}`)

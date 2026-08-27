@@ -2231,6 +2231,300 @@
       "loopId": "conway",
       "strength": "glossary",
       "via": "course-import"
+    },
+    {
+      "termId": "url",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "http",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "https",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "redirect",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "html",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "css",
+      "loopId": "url2page",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "json",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "cors",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "route",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "not-found-page",
+      "loopId": "api",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "cookie",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "browser-storage",
+      "loopId": "authz",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "sql",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "crud",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "data-type",
+      "loopId": "datamodel",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "web-hosting",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "cd",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "blue-green-deployment",
+      "loopId": "deploy",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "serverless",
+      "loopId": "cloudcost",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "user-story",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "user-flow",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "prd",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "mvp",
+      "loopId": "spec",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "gantt-chart",
+      "loopId": "brooks",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "npm",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "vibe-coding",
+      "loopId": "vibe",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "lint",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "integration-test",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "e2e-test",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "smoke-test",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "test-double",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "flaky-test",
+      "loopId": "acceptance",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "javascript",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "typescript",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "python",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "react",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "vue",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "shadcn-ui",
+      "loopId": "stackmap",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "ai-basics",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "multimodal",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "token",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "conversation-history",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "stateless-request",
+      "loopId": "llm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "human-in-the-loop",
+      "loopId": "nondeterm",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "sub-agent",
+      "loopId": "ragagent",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "react-pattern",
+      "loopId": "ragagent",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "response-speed",
+      "loopId": "magnitude",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "worktree",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "p3-extension"
+    },
+    {
+      "termId": "stash",
+      "loopId": "git",
+      "strength": "mention",
+      "via": "p3-extension"
     }
   ]
 }
