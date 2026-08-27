@@ -6,7 +6,6 @@
 // public/wiki/vibe/{topic}.json; layout follows the original design tokens.
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
 import VibeDemo from "@/components/wiki/wiki-vibe-demo";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
 import conceptMap from "@/content/concept-map.json";
@@ -73,7 +72,7 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
 
   useEffect(() => {
     setOpenId(null);
-    if (topic === "practice" || cache[topic]) return;
+    if (cache[topic]) return;
     setCache((prev) => ({ ...prev, [topic]: "loading" }));
     fetch(`${BASE_PATH}/wiki/vibe/${topic}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
@@ -104,19 +103,6 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
           >
             Vibe Hub
           </span>
-          <button
-            type="button"
-            onClick={() => setTopic("practice")}
-            className="w-full rounded-md px-2 py-1.5 text-left text-xs transition-colors"
-            style={
-              topic === "practice"
-                ? { background: "var(--vh-brand-light)", color: "var(--vh-brand)", fontWeight: 600 }
-                : { color: "var(--vh-text-2)" }
-            }
-          >
-            练习
-            <span className="vh-count">254</span>
-          </button>
           {VIBE_TOPICS.map((t) => (
             <div key={t.id}>
               <button
@@ -150,13 +136,6 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
         <div className="min-w-0">
           {/* mobile topic switcher (rail is desktop-only) */}
           <div className="flex flex-wrap gap-1 md:hidden">
-            <button
-              type="button"
-              className={`vh-topic${topic === "practice" ? " on" : ""}`}
-              onClick={() => setTopic("practice")}
-            >
-              练习
-            </button>
             {VIBE_TOPICS.map((t) => (
               <button
                 key={t.id}
@@ -169,10 +148,6 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
               </button>
             ))}
           </div>
-          {topic === "practice" ? (
-            <WikiVibePractice />
-          ) : (
-            <>
           <h2 className="vh-page-title !mt-0">
             {VIBE_TOPICS.find((t) => t.id === topic)?.title} VibeCoding 术语
           </h2>
@@ -217,8 +192,6 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
             </a>{" "}
             MIT）
           </p>
-            </>
-          )}
         </div>
       </div>
     </div>

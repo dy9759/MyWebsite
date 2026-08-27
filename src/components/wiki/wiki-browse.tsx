@@ -10,6 +10,7 @@ import WikiVibe, { type VibeTarget } from "@/components/wiki/wiki-vibe";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
+import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
 import AIPageBody from "@/components/ai/ai-page-body";
 import SectionRailNav from "@/components/section-rail-nav";
 
@@ -31,6 +32,8 @@ export default function WikiBrowse({
   // Learner profile: undefined = not yet read, null = needs onboarding.
   const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
   const [traits, setTraits] = useState<Record<string, number>>({});
+  // 练习场 (moved here from Vibe Hub): toggles the practice deck view.
+  const [practiceOpen, setPracticeOpen] = useState(false);
   useEffect(() => {
     setDone(getCompleted());
     setProfileState(getProfile());
@@ -158,7 +161,22 @@ export default function WikiBrowse({
           style={{ width: `${pct}%`, background: "var(--loop-green)" }}
         />
       </div>
-      {Object.keys(traits).length ? (
+      {/* 练习场 — 254 道术语题（自 Vibe Hub 移入） */}
+      <div className="loop-practice-card">
+        <span aria-hidden="true">✍️</span>
+        <span className="min-w-0 flex-1">
+          <b>练习场</b> · 254 题——刷术语判断题，答对解锁完整词条。
+        </span>
+        <button type="button" className="loop-practice-btn" onClick={() => setPracticeOpen((o) => !o)}>
+          {practiceOpen ? "返回课程地图" : "进入练习"}
+        </button>
+      </div>
+      {practiceOpen ? (
+        <div className="theme-vibe -mx-2 rounded-xl px-2">
+          <WikiVibePractice />
+        </div>
+      ) : null}
+      {!practiceOpen && Object.keys(traits).length ? (
         <div className="flex flex-wrap items-baseline gap-1.5">
           <span className="text-xs font-semibold" style={{ color: "var(--loop-ink-3)" }}>
             判断力画像
@@ -174,7 +192,7 @@ export default function WikiBrowse({
           ))}
         </div>
       ) : null}
-      {COURSE_CHAPTERS.map((ch) => (
+      {!practiceOpen && COURSE_CHAPTERS.map((ch) => (
         <div key={ch.id} id={`course-ch${ch.index}`} className="loop-pillar !mt-0 scroll-mt-28">
           <div className="flex items-baseline gap-3.5">
             <span className="loop-pillar-no">第 {ch.index} 章</span>

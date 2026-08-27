@@ -556,3 +556,10 @@
 .dark .theme-vibe .vd-line.hot { stroke: #ff7a45; }
 .dark .theme-vibe .vd-pass { color: #4cc06a; }
 .dark .theme-vibe .vd-fail { color: #ff7a45; }
+
+/* 练习场 entry card (course tab, moved from Vibe Hub) */
+.theme-loop .loop-practice-card { display: flex; align-items: center; gap: 10px; border: 1px solid var(--loop-line); border-left: 3px solid var(--loop-blue); border-radius: 10px; background: var(--loop-blue-wash); padding: 10px 14px; font-size: 13.5px; color: var(--loop-ink-2); }
+.theme-loop .loop-practice-card b { color: var(--loop-ink-1); }
+.theme-loop .loop-practice-btn { flex-shrink: 0; border: none; border-radius: 8px; background: var(--loop-blue); color: #fff; font-size: 12.5px; font-weight: 600; padding: 7px 14px; cursor: pointer; }
+.theme-loop .loop-practice-btn:hover { filter: brightness(1.08); }
+.dark .theme-loop .loop-practice-card { background: #16233a; border-left-color: var(--loop-blue); }
