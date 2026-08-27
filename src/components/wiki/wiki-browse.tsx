@@ -11,6 +11,7 @@ import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
 import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
+import PRACTICE_CHAPTERS from "@/content/practice-chapters.json";
 import AIPageBody from "@/components/ai/ai-page-body";
 import SectionRailNav from "@/components/section-rail-nav";
 
@@ -32,8 +33,10 @@ export default function WikiBrowse({
   // Learner profile: undefined = not yet read, null = needs onboarding.
   const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
   const [traits, setTraits] = useState<Record<string, number>>({});
-  // 练习场 (moved here from Vibe Hub): toggles the practice deck view.
-  const [practiceOpen, setPracticeOpen] = useState(false);
+  // 练习 (moved here from Vibe Hub), 拆散进章节:
+  // null = closed, "all" = 综合练习 (整副 254 题), number = 某章的题集.
+  const [practiceScope, setPracticeScope] = useState<null | "all" | number>(null);
+  const practiceOpen = practiceScope !== null;
   useEffect(() => {
     setDone(getCompleted());
     setProfileState(getProfile());
@@ -161,19 +164,42 @@ export default function WikiBrowse({
           style={{ width: `${pct}%`, background: "var(--loop-green)" }}
         />
       </div>
-      {/* 练习场 — 254 道术语题（自 Vibe Hub 移入） */}
+      {/* 练习 — 已拆散进各章（章内按钮），此卡为整副综合练习 */}
       <div className="loop-practice-card">
         <span aria-hidden="true">✍️</span>
         <span className="min-w-0 flex-1">
-          <b>练习场</b> · 254 题——刷术语判断题，答对解锁完整词条。
+          {practiceScope === null ? (
+            <>
+              <b>综合练习</b> · 254 题——各章也有「本章练习」，按章刷题。
+            </>
+          ) : practiceScope === "all" ? (
+            <>
+              <b>综合练习</b> · 全部 254 题
+            </>
+          ) : (
+            <>
+              <b>第 {practiceScope} 章练习</b> ·{" "}
+              {(PRACTICE_CHAPTERS as Record<string, { count: number }>)[String(practiceScope)]?.count ?? 0} 题
+            </>
+          )}
         </span>
-        <button type="button" className="loop-practice-btn" onClick={() => setPracticeOpen((o) => !o)}>
+        <button
+          type="button"
+          className="loop-practice-btn"
+          onClick={() => setPracticeScope(practiceOpen ? null : "all")}
+        >
           {practiceOpen ? "返回课程地图" : "进入练习"}
         </button>
       </div>
       {practiceOpen ? (
         <div className="theme-vibe -mx-2 rounded-xl px-2">
-          <WikiVibePractice />
+          <WikiVibePractice
+            filterTerms={
+              practiceScope === "all" || practiceScope === null
+                ? undefined
+                : (PRACTICE_CHAPTERS as Record<string, { terms: string[] }>)[String(practiceScope)]?.terms
+            }
+          />
         </div>
       ) : null}
       {!practiceOpen && Object.keys(traits).length ? (
@@ -197,6 +223,19 @@ export default function WikiBrowse({
           <div className="flex items-baseline gap-3.5">
             <span className="loop-pillar-no">第 {ch.index} 章</span>
             <h4 className="loop-pillar-title font-bold">{ch.title}</h4>
+            {((PRACTICE_CHAPTERS as Record<string, { count: number }>)[String(ch.index)]?.count ?? 0) > 0 ? (
+              <button
+                type="button"
+                className="loop-ch-practice"
+                onClick={() => {
+                  setPracticeScope(ch.index);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                ✍️ 本章练习 ·{" "}
+                {(PRACTICE_CHAPTERS as Record<string, { count: number }>)[String(ch.index)].count} 题
+              </button>
+            ) : null}
           </div>
           <p className="loop-pillar-sub mt-0.5">{ch.tagline}</p>
           <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">

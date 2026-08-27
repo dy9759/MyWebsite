@@ -29,23 +29,32 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export default function WikiVibePractice() {
+export default function WikiVibePractice({ filterTerms }: { filterTerms?: string[] }) {
   const [deck, setDeck] = useState<PracticeQ[] | "loading" | "error">("loading");
   const [idx, setIdx] = useState(0);
   const [tried, setTried] = useState<Record<number, boolean>>({});
   const [solved, setSolved] = useState(false);
 
   useEffect(() => {
+    setDeck("loading");
+    setIdx(0);
+    setTried({});
+    setSolved(false);
+    const allow = filterTerms ? new Set(filterTerms) : null;
     fetch(`${BASE_PATH}/wiki/vibe/practice.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((data: PracticeQ[]) => setDeck(shuffle(data)))
+      .then((data: PracticeQ[]) => setDeck(shuffle(allow ? data.filter((q) => allow.has(q.id)) : data)))
       .catch(() => setDeck("error"));
-  }, []);
+    // filterTerms is stable per scope; re-key by its joined ids
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterTerms?.join(",") ?? ""]);
 
   if (deck === "loading")
     return <p className="mt-6 animate-pulse text-sm" style={{ color: "var(--vh-text-3)" }}>加载中…</p>;
   if (deck === "error")
     return <p className="mt-6 text-sm" style={{ color: "var(--vh-red)" }}>加载失败，刷新重试。</p>;
+  if (!deck.length)
+    return <p className="mt-6 text-sm" style={{ color: "var(--vh-text-3)" }}>本章暂无练习题。</p>;
 
   const cur = deck[idx % deck.length];
 

@@ -563,3 +563,5 @@
 .theme-loop .loop-practice-btn { flex-shrink: 0; border: none; border-radius: 8px; background: var(--loop-blue); color: #fff; font-size: 12.5px; font-weight: 600; padding: 7px 14px; cursor: pointer; }
 .theme-loop .loop-practice-btn:hover { filter: brightness(1.08); }
 .dark .theme-loop .loop-practice-card { background: #16233a; border-left-color: var(--loop-blue); }
+.theme-loop .loop-ch-practice { margin-left: auto; flex-shrink: 0; border: 1px solid var(--loop-line); border-radius: 999px; background: var(--loop-raised); color: var(--loop-blue-deep); font-size: 11.5px; font-weight: 600; padding: 3px 10px; cursor: pointer; }
+.theme-loop .loop-ch-practice:hover { border-color: var(--loop-blue); background: var(--loop-blue-wash); }
