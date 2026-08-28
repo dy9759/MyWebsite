@@ -145,9 +145,9 @@ export const zhCases: CaseStudy[] = [
     slug: "model-evaluation",
     number: "03",
     status: "进行中",
-    title: "同传：大模型 + API + 移动端 App",
+    title: "同传产品：大模型 + API + 移动端 App",
     summary:
-      "面向政务 / 文旅 / 商务场景专项微调的实时同传大模型，中英日韩输入、18 种语言输出，以模型、对外 API 与移动端 App 三种形态交付——从产品定义、数据、标注到评测与产品化全栈自建",
+      "面向政务 / 文旅 / 商务场景专项微调的实时同传大模型，中英日韩输入、18 种语言输出，以模型、对外 API 与移动端 App 三种形态交付——从 0 到 1 完成产品定义、数据、标注、评测与产品化的全栈自建",
     role: "产品负责人 + 全栈 / 团队负责人",
     period: "2026.7—至今",
     problems: [
@@ -342,9 +342,9 @@ Object.assign(enCases[1], {
 
 Object.assign(enCases[2], {
   status: "In progress",
-  title: "Interpretation: LLM + API + Mobile App",
+  title: "Interpretation Product: LLM + API + Mobile App",
   summary:
-    "A real-time interpretation LLM fine-tuned for government, culture-tourism and business scenarios — CN/EN/JA/KO input, 18 output languages — delivered as model, external API and mobile app, built full-stack from product definition and data to annotation, evaluation and productization",
+    "A real-time interpretation LLM fine-tuned for government, culture-tourism and business scenarios — CN/EN/JA/KO input, 18 output languages — delivered as model, external API and mobile app — built from zero to one, full-stack across product definition, data, annotation, evaluation and productization",
   role: "Product Lead + Full-stack / Team Lead",
   period: "Jul 2026—Present",
   problems: [
