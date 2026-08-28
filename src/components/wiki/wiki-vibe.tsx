@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import VibeDemo from "@/components/wiki/wiki-vibe-demo";
+import { hasVibeDemo } from "@/content/vibe-demos";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
 import { TERM_LOOPS, linkRank } from "@/lib/concept-links";
 import { BASE_PATH, vibePreviewUrl, type TermJump } from "@/lib/wiki-data";
@@ -224,7 +225,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
           </span>
         </span>
         <span className="vh-tagline-q">{l.hook ?? l.tagline}</span>
-        {l.source === "course" ? (
+        {l.source === "course" || hasVibeDemo(l.id) ? (
           // React 示意图（course 词条无原站截图，用本站 demo 引擎渲染）
           <VibeDemo id={l.id} />
         ) : (
@@ -280,7 +281,7 @@ function VibeDetailModal({ l, onClose }: { l: Lesson; onClose: () => void }) {
           </h3>
           <p className="vh-tagline">{l.tagline}</p>
           {l.description ? <p className="vh-desc">{l.description}</p> : null}
-          {l.source === "course" ? <VibeDemo id={l.id} /> : null}
+          {l.source === "course" || hasVibeDemo(l.id) ? <VibeDemo id={l.id} /> : null}
           {l.usage?.use?.length || l.usage?.avoid?.length ? (
             <div className="vh-usage">
               {l.usage?.use?.length ? (

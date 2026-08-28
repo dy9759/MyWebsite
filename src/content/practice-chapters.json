@@ -260,16 +260,25 @@
   ]
  },
  "8": {
-  "count": 9,
+  "count": 18,
   "terms": [
    "agent-loop",
+   "agent-memory",
+   "agent-team",
    "ai-agent",
+   "background-task",
+   "context-compaction",
    "context-engineering",
    "context-window",
+   "harness",
+   "hooks",
    "mcp",
+   "permission-boundary",
+   "sandbox",
    "skill",
    "sub-agent",
    "system-prompt",
+   "todo-discipline",
    "tool-calling"
   ]
  }

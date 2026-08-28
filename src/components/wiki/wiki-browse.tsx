@@ -34,7 +34,7 @@ export default function WikiBrowse({
   // Learner profile: undefined = not yet read, null = needs onboarding.
   const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
   const [traits, setTraits] = useState<Record<string, number>>({});
-  // 练习 (moved here from Vibe Hub), 拆散进章节:
+  // 练习（自建造者词典移入）,拆散进章节:
   // null = closed, "all" = 综合练习 (整副 254 题), number = 某章的题集.
   const [practiceScope, setPracticeScope] = useState<null | "all" | number>(null);
   const practiceOpen = practiceScope !== null;
@@ -169,17 +169,17 @@ export default function WikiBrowse({
           style={{ width: `${pct}%`, background: "var(--loop-green)" }}
         />
       </div>
-      {/* 练习 — 已拆散进各章（章内按钮），此卡为整副综合练习 */}
+      {/* 练习 — 已拆散进各章（章内按钮），此卡为整副 269 题综合练习 */}
       <div className="loop-practice-card">
         <span aria-hidden="true">✍️</span>
         <span className="min-w-0 flex-1">
           {practiceScope === null ? (
             <>
-              <b>综合练习</b> · 254 题——各章也有「本章练习」，按章刷题。
+              <b>综合练习</b> · 269 题——各章也有「本章练习」，按章刷题。
             </>
           ) : practiceScope === "all" ? (
             <>
-              <b>综合练习</b> · 全部 254 题
+              <b>综合练习</b> · 全部 269 题
             </>
           ) : (
             <>
