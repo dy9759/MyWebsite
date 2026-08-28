@@ -8,6 +8,7 @@ dotenv.config({ path: fileURLToPath(new URL("./.env", import.meta.url)) });
 import express from "express";
 import cors from "cors";
 import { KNOWLEDGE } from "./knowledge.js";
+import { mountMcp } from "./mcp.js";
 
 const {
   // Bailian OpenAI-compatible endpoint (workspace sk-ws-* keys are accepted
@@ -18,6 +19,7 @@ const {
   PORT = 8787,
   WIKI_ALLOWED_ORIGINS = "*",
   WIKI_RATE_PER_MIN = "20",
+  WIKI_SITE_URL = "http://localhost:3000",
   WIKI_DAILY_CAP = "2000",
 } = process.env;
 
@@ -48,14 +50,19 @@ const dailyCap = Number(WIKI_DAILY_CAP) || 2000;
 const hits = new Map(); // ip → [timestamps]
 let dayKey = new Date().toISOString().slice(0, 10);
 let dayCount = 0;
-app.use("/chat", (req, res, next) => {
-  const now = Date.now();
+// Shared spend gate for /chat and the MCP ask_wiki tool.
+function spendDaily() {
   const today = new Date().toISOString().slice(0, 10);
   if (today !== dayKey) {
     dayKey = today;
     dayCount = 0;
   }
-  if (dayCount >= dailyCap) return res.status(429).json({ error: "daily limit reached" });
+  if (dayCount >= dailyCap) return false;
+  dayCount += 1;
+  return true;
+}
+app.use("/chat", (req, res, next) => {
+  const now = Date.now();
   const ip = req.ip || req.socket.remoteAddress || "?";
   const windowStart = now - 60_000;
   const list = (hits.get(ip) ?? []).filter((t) => t > windowStart);
@@ -65,7 +72,7 @@ app.use("/chat", (req, res, next) => {
   }
   list.push(now);
   hits.set(ip, list);
-  dayCount += 1;
+  if (!spendDaily()) return res.status(429).json({ error: "daily limit reached" });
   if (hits.size > 10_000) {
     for (const [k, v] of hits) if (!v.some((t) => t > windowStart)) hits.delete(k);
   }
@@ -77,32 +84,39 @@ const SYSTEM = `${KNOWLEDGE}
 # 回复格式（必须遵守）
 只输出一个紧凑 JSON 对象，不要任何多余文字或 markdown：
 {"grounded": string, "text": string, "cites": [[tag, name], ...]}
-- grounded：一句话，说明命中了哪个域/几条（如「命中 闭环学院 · 第 0 章」）。
+- grounded：一句话，说明命中了哪个域/几条（如「命中 建造者学院 · 第 0 章」）。
 - text：正文答案，用用户语言。
-- cites：最多 4 个 [标签, 名称]，指向你用到的来源/术语/课程/招聘条目。`;
+- cites：最多 4 个 [标签, 名称]，指向你用到的来源/术语/课程/招聘条目。
+- 当问题属于学习性质（课程/术语/概念）时，在 text 结尾另起一行附一道验证小题：
+  以「小题：」开头的一句话提问，检验刚才讲的核心点，不给选项不给答案。
+  闲聊、招聘、来源检索类问题不附。`;
 
 app.get("/health", (_req, res) => res.json({ ok: true, model: ANTHROPIC_MODEL }));
+
+async function askUpstream(message) {
+  const upstream = await fetch(`${ANTHROPIC_BASE_URL}/chat/completions`, {
+    method: "POST",
+    headers: { "content-type": "application/json", authorization: `Bearer ${ANTHROPIC_API_KEY}` },
+    body: JSON.stringify({
+      model: ANTHROPIC_MODEL,
+      max_tokens: 1024,
+      messages: [
+        { role: "system", content: SYSTEM },
+        { role: "user", content: message },
+      ],
+    }),
+  });
+  if (!upstream.ok) throw new Error(`upstream ${upstream.status}`);
+  const data = await upstream.json();
+  const raw = (data.choices?.[0]?.message?.content ?? "").trim();
+  return parseReply(raw, ANTHROPIC_MODEL);
+}
 
 app.post("/chat", async (req, res) => {
   const message = (req.body?.message || "").toString().slice(0, 4000);
   if (!message.trim()) return res.status(400).json({ error: "empty message" });
   try {
-    const upstream = await fetch(`${ANTHROPIC_BASE_URL}/chat/completions`, {
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${ANTHROPIC_API_KEY}` },
-      body: JSON.stringify({
-        model: ANTHROPIC_MODEL,
-        max_tokens: 1024,
-        messages: [
-          { role: "system", content: SYSTEM },
-          { role: "user", content: message },
-        ],
-      }),
-    });
-    if (!upstream.ok) throw new Error(`upstream ${upstream.status}`);
-    const data = await upstream.json();
-    const raw = (data.choices?.[0]?.message?.content ?? "").trim();
-    res.json(parseReply(raw, ANTHROPIC_MODEL));
+    res.json(await askUpstream(message));
   } catch (err) {
     console.error("chat error:", err?.message || err);
     res.status(502).json({ error: "upstream failed" });
@@ -125,6 +139,9 @@ function parseReply(raw, model) {
   }
   return { grounded: `已接入 · ${model}`, text: raw || "（空响应）", cites: [] };
 }
+
+// MCP endpoint (GET /sse + POST /messages) — external agents get ask_wiki / search_wiki.
+mountMcp(app, { askUpstream, spendDaily, siteUrl: WIKI_SITE_URL });
 
 // Terminal error handler: malformed JSON bodies etc. must never surface a
 // stack trace to the client (Express's default does when NODE_ENV≠production).

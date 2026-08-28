@@ -30,6 +30,14 @@ With no `NEXT_PUBLIC_WIKI_API_URL`, the chat stays in preset demo mode.
 - `GET /health` → `{ ok, model }`
 - `POST /chat` body `{ "message": "..." }` → `{ "grounded": "...", "text": "...", "cites": [["tag","name"], ...] }`
 
+## MCP
+
+The server exposes an MCP endpoint (`GET /sse` + `POST /messages`) with two
+tools: `ask_wiki` (grounded Q&A over the knowledge digest, sharing the same
+daily spend cap as `/chat`) and `search_wiki` (keyword lookup over the site's
+public `search-index.json`, origin set by `WIKI_SITE_URL`). Connect any MCP
+client to `http://<host>:8787/sse`.
+
 ## Deploy
 
 Run with `NODE_ENV=production` — it forces the CORS fail-safe (explicit
