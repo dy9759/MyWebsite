@@ -145,50 +145,57 @@ export const zhCases: CaseStudy[] = [
     slug: "model-evaluation",
     number: "03",
     status: "进行中",
-    title: "模型产品：政务同传大模型",
+    title: "同传：大模型 + API + 移动端 App",
     summary:
-      "面向政务场景专项微调的实时同传大模型，从产品定义、数据、标注到评测与产品化全栈自建",
+      "面向政务 / 文旅 / 商务场景专项微调的实时同传大模型，中英日韩输入、18 种语言输出，以模型、对外 API 与移动端 App 三种形态交付——从产品定义、数据、标注到评测与产品化全栈自建",
     role: "产品负责人 + 全栈 / 团队负责人",
     period: "2026.7—至今",
     problems: [
-      "通用同传大模型在政务场景的术语、表达与合规上适配不足，与火山等大厂同质化。",
+      "通用同传大模型在政务 / 文旅 / 商务等垂直场景的术语、表达与合规上适配不足，与火山等大厂同质化。",
       "缺少政务场景的数据、标注、评测与产品化闭环，模型迭代没有量化抓手。",
+      "模型能力要真正落到会议现场，还需要 API 接入与移动端 App 两种交付形态。",
     ],
     decision:
-      "把产品定位在政务场景专项微调、与大厂差异化竞争；从爬虫、数据管线、标注平台、评测体系到产品展示页全栈自建，用评测与 bad case 反哺模型迭代。",
+      "把产品定位在政务 / 文旅 / 商务垂直场景专项微调、与大厂差异化竞争；从爬虫、数据管线、标注平台、评测体系到产品展示页全栈自建，用评测与 bad case 反哺模型迭代；交付形态不止模型——同步产品化对外 API 与移动端 App。",
     evidence: [
       { value: "10s→2s", label: "首字延迟" },
       { value: "60%→98%", label: "场景翻译 benchmark 准确率" },
       { value: "1w+ 小时", label: "爬取政务场景数据" },
+      { value: "中英日韩 → 18 语种", label: "输入 / 输出语言覆盖" },
       { value: "待补充", label: "音色克隆 MOS 评分", placeholder: true },
     ],
     sections: {
       challenge: [
-        "政务场景对术语准确性、表达规范与合规要求高，通用模型直接迁移效果差。",
+        "政务 / 文旅 / 商务场景对术语准确性、表达规范与合规要求高，通用模型直接迁移效果差。",
         "首字延迟、翻译质量与音色克隆需同时优化，且缺少可复现的评测口径。",
+        "多语种同传：中英日韩输入、18 种语言输出，小语种的质量与评测口径都要同步跟上。",
       ],
       ownership: [
-        "产品：定义政务同传场景与产品指标（延迟、翻译质量、音色），锚定政务专项微调的差异化定位。",
+        "产品：定义政务 / 文旅 / 商务同传场景与产品指标（延迟、翻译质量、音色），锚定政务专项微调的差异化定位；规划模型 / API / 移动端 App 三种交付形态。",
         "数据：定义主题关键词，短时间内爬取 1w+ 小时场景数据，并构建 bad case 扩展数据集。",
         "评测：主导定义场景评测集与 bad case 评测集。",
-        "全栈：从 0 到 1 搭建数据标注平台、模型调试与评测平台、同传产品展示页，部署模型并打通数据管线。",
+        "全栈：从 0 到 1 搭建数据标注平台、模型调试与评测平台、同传产品展示页，部署模型并打通数据管线；推进同传能力的对外 API 与移动端 App 产品化。",
         "团队：带领研发 / 标注团队推进数据、标注、评测与模型迭代闭环。",
       ],
       decisions: [
-        "产品定位在政务场景专项微调，与火山等大厂形成差异化，而非拼通用能力。",
+        "产品定位在政务 / 文旅 / 商务垂直场景专项微调，与火山等大厂形成差异化，而非拼通用能力。",
         "以“用户听到第一个可理解译音”为体验锚点，把首字延迟作为核心指标。",
         "用 bad case 评测集反哺数据与后训练，形成可量化的模型优化闭环。",
+        "交付形态上不停在「模型」：API 服务会议系统集成，移动端 App 覆盖现场随行使用。",
       ],
       system: [
         "数据层：主题关键词爬虫、场景数据与 bad case 扩展数据集、数据管线。",
         "标注层：从 0 到 1 自建数据标注平台与评测体系。",
-        "模型层：政务专项微调的端到端同传大模型（延迟 / 翻译 / 音色）。",
+        "模型层：垂直场景专项微调的端到端同传大模型（延迟 / 翻译 / 音色），中英日韩输入、18 种语言输出。",
         "产品层：模型调试与评测平台、同传产品展示页。",
+        "交付层：对外同传 API 与移动端 App（现场 / 随行同传入口）。",
       ],
       results: [
         "首字延迟从约 10s 优化到 2s。",
         "场景内翻译质量 benchmark 评分准确率从 60% 提升到 98%。",
         "爬取 1w+ 小时政务场景数据，音色克隆质量同步提升。",
+        "同传能力已延伸出对外 API 与移动端 App 两种产品形态（接入与使用数据积累中）。",
+        "语言覆盖：中英日韩输入，输出扩展到 18 种语言。",
       ],
       reflection: [
         "垂直场景专项微调比拼通用能力更能建立差异化壁垒。",
@@ -198,10 +205,11 @@ export const zhCases: CaseStudy[] = [
         "推进政务同传大模型作为省级 / 国家级大会官方同传服务的落地与验证。",
         "补充 P50/P95 延迟、音色克隆 MOS 与真实场景样本量。",
         "补充可公开的评测平台截图与多模型对比结果。",
+        "补充 API 接入案例与移动端 App 的使用数据。",
       ],
     },
     links: [],
-    needed: ["P50/P95 延迟数据", "音色克隆评分", "评测平台截图", "公开 Demo"],
+    needed: ["P50/P95 延迟数据", "音色克隆评分", "评测平台截图", "公开 Demo", "API 接入与 App 使用数据"],
   },
 ];
 
@@ -334,44 +342,47 @@ Object.assign(enCases[1], {
 
 Object.assign(enCases[2], {
   status: "In progress",
-  title: "Model Product: Government Interpretation LLM",
+  title: "Interpretation: LLM + API + Mobile App",
   summary:
-    "A real-time interpretation LLM fine-tuned for government scenarios—built full-stack from product definition and data to annotation, evaluation and productization",
+    "A real-time interpretation LLM fine-tuned for government, culture-tourism and business scenarios — CN/EN/JA/KO input, 18 output languages — delivered as model, external API and mobile app, built full-stack from product definition and data to annotation, evaluation and productization",
   role: "Product Lead + Full-stack / Team Lead",
   period: "Jul 2026—Present",
   problems: [
-    "General interpretation LLMs underfit government terminology, phrasing and compliance—undifferentiated from vendors like Volcano.",
+    "General interpretation LLMs underfit the terminology, phrasing and compliance of government / culture-tourism / business scenarios—undifferentiated from vendors like Volcano.",
     "No data, annotation, evaluation or productization loop for government scenarios, so model iteration had no quantitative lever.",
+    "Landing the model in real venues also required two delivery forms: API integration and a mobile app.",
   ],
   decision:
-    "Positioned the product as a government-specialized fine-tune differentiated from big vendors; built the crawler, data pipeline, annotation platform, evaluation system and demo page full-stack, feeding evaluation and bad cases back into model iteration.",
+    "Positioned the product as a vertical-scenario fine-tune (government / culture-tourism / business) differentiated from big vendors; built the crawler, data pipeline, annotation platform, evaluation system and demo page full-stack, feeding evaluation and bad cases back into model iteration; delivery goes beyond the model itself with a productized external API and mobile app.",
   evidence: [
     { value: "10s→2s", label: "First-token latency" },
     { value: "60%→98%", label: "In-scenario translation benchmark accuracy" },
     { value: "10k+ hrs", label: "Crawled government-scenario data" },
+    { value: "CN/EN/JA/KO → 18", label: "Input / output languages" },
     { value: "Needed", label: "Voice-clone MOS score", placeholder: true },
   ],
   sections: {
     challenge: [
-      "Government scenarios demand high terminology accuracy, phrasing norms and compliance; general models transfer poorly.",
+      "Government, culture-tourism and business scenarios demand high terminology accuracy, phrasing norms and compliance; general models transfer poorly.",
       "First-token latency, translation quality and voice cloning must improve together, with no reproducible evaluation standard.",
+      "Multilingual interpretation — CN/EN/JA/KO input with 18 output languages — needs low-resource quality and evaluation to keep pace.",
     ],
     ownership: [
-      "Product: defined government interpretation scenarios and product metrics (latency, translation quality, timbre), anchoring the government-specialized differentiation.",
+      "Product: defined government / culture-tourism / business interpretation scenarios and product metrics (latency, translation quality, timbre), anchoring the government-specialized differentiation; planned three delivery forms — model / API / mobile app.",
       "Data: defined topic keywords, crawled 10k+ hours of scenario data in a short window and built a bad-case expansion dataset.",
       "Evaluation: led the definition of the scenario evaluation set and the bad-case evaluation set.",
-      "Full-stack: built the annotation platform, model-debugging and evaluation platform, and interpretation demo page from scratch, deployed models and wired the data pipeline.",
+      "Full-stack: built the annotation platform, model-debugging and evaluation platform, and interpretation demo page from scratch, deployed models and wired the data pipeline; drove productization of the external API and the mobile app.",
       "Team: led R&D / annotation to run the data, annotation, evaluation and model-iteration loop.",
     ],
     decisions: [
-      "Positioned on a government-specialized fine-tune, differentiating from vendors like Volcano rather than competing on general capability.",
+      "Positioned on a vertical-scenario fine-tune (government / culture-tourism / business), differentiating from vendors like Volcano rather than competing on general capability.",
       "Anchored experience on when users hear the first understandable translated speech, making first-token latency the core metric.",
       "Fed the bad-case evaluation set back into data and post-training to form a quantifiable model-optimization loop.",
     ],
     system: [
       "Data: topic-keyword crawler, scenario data and bad-case expansion dataset, data pipeline.",
       "Annotation: self-built annotation platform and evaluation system from scratch.",
-      "Model: government-specialized end-to-end interpretation LLM (latency / translation / timbre).",
+      "Model: vertical-scenario end-to-end interpretation LLM (latency / translation / timbre), CN/EN/JA/KO input with 18 output languages.",
       "Product: model-debugging and evaluation platform, interpretation demo page.",
     ],
     results: [
@@ -394,6 +405,7 @@ Object.assign(enCases[2], {
     "Voice-clone score",
     "Platform screenshots",
     "Public demo",
+    "API integration & app usage data",
   ],
 });
 
