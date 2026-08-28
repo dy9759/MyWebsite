@@ -94,7 +94,7 @@ export default function WikiBrowse({
     );
   }
 
-  // ---- 闭环学院 (course) — Loop Academy look ----
+  // ---- 建造者学院 (course) — Builder Academy look ----
   const c = WIKI_COURSE;
   const doneCount = done.size;
   const pct = Math.round((doneCount / COURSE_TOTAL_LOOPS) * 100);
@@ -110,7 +110,7 @@ export default function WikiBrowse({
     <div className="theme-loop -mx-4 -mb-4 grid gap-4 overflow-y-auto px-6 py-5 md:grid-cols-[8rem_minmax(0,1fr)] md:items-start">
       <SectionRailNav
         ariaLabel="课程章节导航"
-        label="闭环学院"
+        label="建造者学院"
         items={COURSE_CHAPTERS.map((ch) => ({
           href: `#course-ch${ch.index}`,
           label: `第 ${ch.index} 章 ${ch.title}`,
@@ -123,13 +123,13 @@ export default function WikiBrowse({
             className="text-base font-bold"
             style={{ fontFamily: "var(--loop-font-display)" }}
           >
-            闭环学院
+            建造者学院
           </span>
           <span
             className="text-[0.62rem] uppercase"
             style={{ color: "var(--loop-ink-3)", letterSpacing: "0.24em" }}
           >
-            Loop Academy
+            Builder Academy
           </span>
           {profile ? (
             <span className="ml-auto flex items-baseline gap-2 text-xs" style={{ color: "var(--loop-ink-3)" }}>

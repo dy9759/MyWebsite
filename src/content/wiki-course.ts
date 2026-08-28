@@ -1,4 +1,4 @@
-// 闭环学院 course data — imported with authorization (the course is the
+// 建造者学院 course data — imported with authorization (the course is the
 // user's own personalized program, anchored on their product). Structure only;
 // full lesson bodies live in public/wiki/lessons/*.json and load on demand.
 export type CourseNode = {

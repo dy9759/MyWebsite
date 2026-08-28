@@ -1,6 +1,6 @@
 "use client";
 
-// Interactive step engines for 闭环学院 lessons, replicating the original
+// Interactive step engines for 建造者学院 lessons, replicating the original
 // games: quiz (答题), judgment (选择+画像), codereview (点行找茬), estimate,
 // theater (剧场推演), decision (决策模拟 with meters). Each reports progress
 // so the pager can gate 继续.

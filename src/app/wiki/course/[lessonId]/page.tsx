@@ -23,7 +23,7 @@ export function generateMetadata({
   const loop = LOOPS.find(({ node }) => node.lessonId === params.lessonId);
   if (!loop) return {};
   return {
-    title: `${loop.node.title} · 闭环学院`,
+    title: `${loop.node.title} · 建造者学院`,
     description: loop.node.hook,
   };
 }

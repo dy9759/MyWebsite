@@ -1,6 +1,6 @@
 "use client";
 
-// Full-page lesson view for one 闭环学院 loop, replicating the original flow:
+// Full-page lesson view for one 建造者学院 loop, replicating the original flow:
 // a step rail (in-lesson map nav) on top, one step per screen with 上一步 /
 // 下一步 paging, interactive steps gating the continue button, and a tutor
 // rail on the right. Completion records progress and hands off to the next

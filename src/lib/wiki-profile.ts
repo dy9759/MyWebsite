@@ -1,4 +1,4 @@
-// Learner profile for the 闭环学院 domain (original: onboarding writes name /
+// Learner profile for the 建造者学院 domain (original: onboarding writes name /
 // role / product; lesson content personalizes on the {{project}} token). Kept
 // in localStorage; falls back to the program's original anchors.
 export type WikiProfile = { name: string; role: string; project: string };

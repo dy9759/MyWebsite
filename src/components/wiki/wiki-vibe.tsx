@@ -11,7 +11,7 @@ import { COURSE_CHAPTERS } from "@/content/wiki-course";
 import { TERM_LOOPS, linkRank } from "@/lib/concept-links";
 import { BASE_PATH, vibePreviewUrl, type TermJump } from "@/lib/wiki-data";
 
-// loopId → chapter/title (for the "在闭环学院学这个" chips).
+// loopId → chapter/title (for the "在建造者学院学这个" chips).
 const LOOP_META = new Map<string, { chapter: number; title: string }>();
 for (const ch of COURSE_CHAPTERS)
   for (const n of ch.nodes) LOOP_META.set(n.lessonId, { chapter: ch.index, title: n.title });
@@ -96,7 +96,7 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
             className="mb-1 block px-2 text-[10px] font-medium uppercase tracking-wide"
             style={{ color: "var(--vh-text-3)" }}
           >
-            Vibe Hub
+            建造者词典
           </span>
           {VIBE_TOPICS.map((t) => (
             <div key={t.id}>
@@ -216,7 +216,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
               className="rounded-full px-1.5 text-[0.62rem]"
               style={{ background: "var(--vh-brand-light)", color: "var(--vh-brand)" }}
             >
-              闭环学院
+              建造者学院
             </span>
           ) : null}
           <span className="vh-star" aria-hidden="true">
@@ -321,7 +321,7 @@ function VibeDetailModal({ l, onClose }: { l: Lesson; onClose: () => void }) {
               .slice(0, 3);
             return loops.length ? (
               <p style={{ marginTop: 12, fontSize: 13 }}>
-                在闭环学院学这个：
+                在建造者学院学这个：
                 {loops.map(({ loopId }) => {
                   const meta = LOOP_META.get(loopId);
                   if (!meta) return null;

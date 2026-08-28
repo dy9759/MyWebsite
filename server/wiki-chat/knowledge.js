@@ -10,14 +10,14 @@ export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据�
 - Newsletters(约 63)：simonwillison.net、The Pragmatic Engineer、Stratechery、Import AI、Interconnects 等。
 - 人物：Karpathy、Sam Altman(Blog)、宝玉 等。产品：NotebookLM、Granola 等。
 
-## Vibe Hub（vibe coding 术语库，411 词 / 7 大类，含课程扩充）
+## 建造者词典 Builder Lexicon（vibe coding 术语库，411 词 / 7 大类，来自 vibe-hub.org 授权导入 + 课程扩充）
 - 分类：前端 138、后端 99、产品 39、技术栈 36、AI 62、Git 13、设计风格 24。
 - AI 类按「LLM + Harness + 语音模型」理解：AI 基础 / 上下文 / 请求与输出 / Agent 与工具 / 性能与成本 / Harness / 语音模型。
 - Harness 类关键词：Harness（模型是引擎、Harness 是驾驶舱：工具+知识+观察+行动+权限）、权限边界（按可逆性分级放权）、沙箱、Hooks（动作前后自动检查）、任务清单、上下文压缩、Agent 记忆、后台任务、多 Agent 协作。
 - 语音模型类：语音识别 ASR、语音合成 TTS、语音智能体（级联 vs 端到端）、VAD、同声传译（延迟与准确的拉扯）、说话人分离。
 - 术语卡点开是浮窗：定义、建议/避免、场景、前置、关联课程章节。
 
-## 闭环学院（课程，九章 / 33 回路，面向产品人的工程课，锚定学员产品「语音智能体」）
+## 建造者学院（课程，九章 / 33 回路，面向产品人的工程课，锚定学员产品「语音智能体」）
 - 第 0 章 你刚刚创造了什么：解剖一次 vibe coding / 本地与服务器 / 从网址到页面。
 - 第 1 章 软件的解剖学：前后端与数据库 / API 契约 / 数据建模 / 技术栈地图。
 - 第 2 章 认识你的 AI 程序员：LLM 原理 / 上下文工程与 spec / AI 失效模式图鉴。

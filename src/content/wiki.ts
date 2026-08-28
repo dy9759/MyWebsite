@@ -1,4 +1,4 @@
-// AI Sense Wiki content: Vibe 术语库 + 闭环学院 course + bilingual chrome and
+// AI Sense Wiki content: 建造者词典术语库 + 建造者学院 course + bilingual chrome and
 // the demo (frontend-shell) reply rules. The "AI 知识源" domain is not stored
 // here — it is read live from AI_CONFIG (useAIConfig) so it stays in sync with
 // the sources library. Chat is a frontend shell: replies are preset rules, no
@@ -8,7 +8,7 @@ import type { Language } from "@/components/language-provider";
 export type WikiCite = [string, string];
 export type WikiReply = { grounded: string; text: string; cites: WikiCite[] };
 
-// 闭环学院 header + the user's own progress. The full course structure lives in
+// 建造者学院 header + the user's own progress. The full course structure lives in
 // wiki-course.ts and lesson bodies in public/wiki/lessons/*.json (imported with
 // the user's authorization — the course is their personalized program).
 export const WIKI_COURSE = {
@@ -48,12 +48,12 @@ export const WIKI_JOBS: WikiJob[] = [
 export const WIKI_UI = {
   zh: {
     kicker: "个人 AI 信息系统",
-    intro: "浏览四大知识域，或问随行 —— 左右两侧同一底层数据源。",
+    intro: "浏览五大知识域，或问随行 —— 左右两侧同一底层数据源。",
     protoNote:
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
-    domains: { sources: "AI 知识源", vibe: "Vibe Hub", course: "闭环学院", jobs: "AI Native 招聘", slop: "AI Slop" },
+    domains: { sources: "AI 知识源", vibe: "建造者词典", course: "建造者学院", jobs: "AI Native 招聘", slop: "AI Slop" },
     open: "打开",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
@@ -72,16 +72,16 @@ export const WIKI_UI = {
       footnote: "随行了解你的进度与产品背景 · 回答可能附带一道验证小题",
     },
     form: { open: "打开随行", close: "关闭" },
-    chips: ["vibe coding 指什么？", "这周 agent 有什么进展？", "闭环学院第 0 章讲什么？"],
+    chips: ["vibe coding 指什么？", "这周 agent 有什么进展？", "建造者学院第 0 章讲什么？"],
   },
   en: {
     kicker: "Personal AI sense system",
-    intro: "Browse four knowledge domains, or ask the companion — both share one data source.",
+    intro: "Browse five knowledge domains, or ask the companion — both share one data source.",
     protoNote:
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
-    domains: { sources: "AI Sources", vibe: "Vibe Hub", course: "Loop Academy", jobs: "AI-Native Jobs", slop: "AI Slop" },
+    domains: { sources: "AI Sources", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "AI-Native Jobs", slop: "AI Slop" },
     open: "Open",
     related: "Related",
     progress: "{done} / {total} loops done",
@@ -100,7 +100,7 @@ export const WIKI_UI = {
       footnote: "Knows your progress and product context · replies may include a quick check",
     },
     form: { open: "Open companion", close: "Close" },
-    chips: ["What is vibe coding?", "Agent news this week?", "What is Loop Academy ch.0?"],
+    chips: ["What is vibe coding?", "Agent news this week?", "What is Builder Academy ch.0?"],
   },
 };
 
@@ -110,7 +110,7 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   const zh = lang === "zh";
   if (/闭环|学院|回路|课/.test(q) || s.includes("loop academy") || s.includes("academy") || s.includes("ch.0")) {
     return {
-      grounded: zh ? "命中 闭环学院 · 第 0 章" : "Loop Academy · ch.0",
+      grounded: zh ? "命中 建造者学院 · 第 0 章" : "Builder Academy · ch.0",
       text: zh
         ? "第 0 章「你刚刚创造了什么」用三个回路解剖一次 vibe coding：AI 生成的文件、本地 vs 服务器、从网址到页面；里程碑是生成产品 v0.1 并画出文件地图。"
         : "Chapter 0 dissects one vibe-coding session in three loops — the generated files, local vs server, and URL-to-page; the milestone is a v0.1 product with a file map.",
@@ -128,7 +128,7 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   }
   if (s.includes("vibe") || q.includes("术语")) {
     return {
-      grounded: zh ? "命中 Vibe Hub 1 条 · AI 知识源 2 条" : "Vibe Hub 1 · AI Sources 2",
+      grounded: zh ? "命中 建造者词典 1 条 · AI 知识源 2 条" : "Builder Lexicon 1 · AI Sources 2",
       text: zh
         ? "指用自然语言驱动 AI 生成并迭代代码的工作方式。本周 Latent Space 与 simonwillison.net 都在谈它与 agent harness 的结合。"
         : "Driving AI to generate and iterate code via natural language. This week Latent Space and simonwillison.net both discuss its tie to agent harness.",
@@ -147,8 +147,8 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   return {
     grounded: zh ? "已跨三域检索 · 命中 2 条" : "Cross-domain · 2 hits",
     text: zh
-      ? "这是演示的预设回答：真实版会在与左侧同一份数据源（AI 知识源 + Vibe Hub + 闭环学院）上检索，给出带引用的回答。"
-      : "Preset demo answer: the real version retrieves over the same data source (AI Sources + Vibe Hub + Loop Academy) and answers with citations.",
+      ? "这是演示的预设回答：真实版会在与左侧同一份数据源（AI 知识源 + 建造者词典 + 建造者学院）上检索，给出带引用的回答。"
+      : "Preset demo answer: the real version retrieves over the same data source (AI Sources + Builder Lexicon + Builder Academy) and answers with citations.",
     cites: [["L3", "Latent Space"], ["术语", "AI Sense Wiki"]],
   };
 }

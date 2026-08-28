@@ -28,7 +28,7 @@ export default function WikiOnboarding({ onDone }: { onDone: (p: WikiProfile) =>
 
   return (
     <div className="loop-onboard-card">
-      <div className="loop-onboard-eyebrow">LOOP ACADEMY · 闭环学院</div>
+      <div className="loop-onboard-eyebrow">LOOP ACADEMY · 建造者学院</div>
       <h1 className="loop-onboard-title">生成你的学习地图</h1>
       <p className="loop-onboard-lede">
         课程会围绕你的产品展开——模拟器、案例、判断题都会发生在这个产品里。

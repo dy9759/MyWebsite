@@ -1,6 +1,6 @@
 "use client";
 
-// Renders one 闭环学院 lesson (fetched from public/wiki/lessons/*.json).
+// Renders one 建造者学院 lesson (fetched from public/wiki/lessons/*.json).
 // Handles all 15 step kinds; interactive answers/feedback use <details> so the
 // full content ships while quiz answers stay unspoiled until opened.
 import { Fragment, useState } from "react";

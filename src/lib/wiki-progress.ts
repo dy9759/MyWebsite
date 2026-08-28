@@ -1,4 +1,4 @@
-// Loop-completion progress for the 闭环学院 domain, kept in localStorage so it
+// Loop-completion progress for the 建造者学院 domain, kept in localStorage so it
 // works on the static export. Seeded with the loops already finished on the
 // original program (chapter 0).
 const KEY = "wiki-course-progress";
