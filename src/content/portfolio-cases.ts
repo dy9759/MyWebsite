@@ -82,16 +82,17 @@ export const zhCases: CaseStudy[] = [
     slug: "sayso-team",
     number: "02",
     status: "内部上线使用",
-    title: "SaySo Team · Harness",
-    summary: "多人、多 Agent 协作与 Harness 架构",
+    title: "Harness 产品：SaySo Team · Voice Agent Harness",
+    summary: "一套 Harness 底座，两条产品线：SaySo Team 多人多 Agent 协作，与支撑 C 端语音产品的 Voice Agent Harness 运行时",
     role: "产品负责人 / Solo Builder",
     period: "2026.4—至今",
     problems: [
       "Claude Code、Codex、自研 Agent 等执行环境接口和上下文管理方式不同。",
       "多人协作与多 Agent 任务需要权限、过程可观测和人工接管机制。",
+      "语音智能体同样需要 Harness 能力：工具调用、上下文、权限与观测要在实时语音链路里发生。",
     ],
     decision:
-      "将 Harness 设计为兼容层，用统一任务协议连接不同 CLI、SDK 与自研 Agent，产品层只关注任务、状态、权限和结果。",
+      "将 Harness 设计为兼容层，用统一任务协议连接不同 CLI、SDK 与自研 Agent，产品层只关注任务、状态、权限和结果；同一套底座向上支撑 SaySo Team 协作产品与 Voice Agent 运行时。",
     evidence: [
       { value: "内部上线使用", label: "当前产品阶段" },
       { value: "多运行时", label: "CLI / SDK / 自研 Agent" },
@@ -107,6 +108,7 @@ export const zhCases: CaseStudy[] = [
         "作为 Claude Code + Codex 双开用户、Manus / OpenClaw / Cowork 等早期体验者，把跨工具真实使用体感转化为 Harness 兼容层设计。",
         "负责产品定位、核心场景、任务模型、界面原型与 MVP 推进。",
         "以 Solo Builder 方式完成可交互 Demo，验证后再拆解研发任务。",
+        "把 C 端 Voice Agent 的运行时抽象为 Voice Agent Harness，与 SaySo Team 共用任务协议与权限模型。",
       ],
       decisions: [
         "用统一任务协议和适配器隔离 Claude Code、Codex、SDK 与自研 Agent 差异。",
@@ -118,9 +120,10 @@ export const zhCases: CaseStudy[] = [
         "Harness 层：任务协议、上下文、权限、日志与模型路由。",
         "云端执行：Claude Code Agent SDK 作为 worker 的 agent runtime，处理定时、循环、提醒等线上托管任务。",
         "本地执行：客户端串联 Claude Code、Codex，通过本地文件、浏览器权限与 computer use 处理本地任务。",
+        "Voice Agent Harness：语音链路的 Agent 运行时——ASR / LLM / TTS 工具编排、打断与状态管理，支撑 SaySo C 端语音产品。",
       ],
       results: [
-        "已形成 Harness 兼容层与 SaySo Team MVP 方向。",
+        "已形成 Harness 兼容层与 SaySo Team MVP 方向；同一底座同时支撑 Voice Agent 运行时。",
         "真实团队使用量与任务成功率仍需补充，不在当前页面虚构。",
       ],
       reflection: [
@@ -287,16 +290,17 @@ Object.assign(enCases[0], {
 
 Object.assign(enCases[1], {
   status: "Internal launch",
-  title: "SaySo Team · Harness",
-  summary: "Multi-user, multi-agent collaboration through a harness architecture",
+  title: "Harness Product: SaySo Team · Voice Agent Harness",
+  summary: "One harness foundation, two product lines: SaySo Team multi-user multi-agent collaboration, and the Voice Agent Harness runtime behind the consumer speech products",
   role: "Product Lead / Solo Builder",
   period: "Apr 2026—Present",
   problems: [
     "Claude Code, Codex, SDKs and custom agents expose different interfaces and context models.",
     "Team workflows require permissions, observability and human takeover—not only execution.",
+    "Voice agents need the same harness capabilities—tool calling, context, permissions and observability—inside a real-time speech pipeline.",
   ],
   decision:
-    "Designed the harness as a compatibility layer: one task protocol connects CLIs, SDKs and custom agents while the product layer focuses on tasks, state, permissions and outcomes.",
+    "Designed the harness as a compatibility layer: one task protocol connects CLIs, SDKs and custom agents while the product layer focuses on tasks, state, permissions and outcomes; the same foundation powers both SaySo Team and the Voice Agent runtime.",
   evidence: [
     { value: "Internal launch", label: "Current stage" },
     { value: "Multi-runtime", label: "CLI / SDK / custom agents" },
@@ -325,7 +329,7 @@ Object.assign(enCases[1], {
       "Local execution: the client chains Claude Code and Codex, using local files, browser permissions and computer use for on-device tasks.",
     ],
     results: [
-      "Defined the harness compatibility layer and SaySo Team MVP direction.",
+      "Defined the harness compatibility layer and SaySo Team MVP direction; the same foundation also powers the Voice Agent runtime.",
       "Real team usage and task success rates still need evidence and are not fabricated here.",
     ],
     reflection: [
