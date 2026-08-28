@@ -14,13 +14,14 @@ import { askWiki, WIKI_CONNECTED as CONNECTED, type TermJump } from "@/lib/wiki-
 import { FLOAT_CHAT } from "@/lib/float-chat";
 import { cn } from "@/lib/utils";
 
-const DOMAINS: WikiDomain[] = ["sources", "vibe", "course", "slop", "jobs"];
+// 三层信息架构：共识（词典/学院/品味）→ 前沿（信号）→ 机会
+const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "sources", "jobs"];
 
 export default function WikiPageBody() {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
 
-  const [domain, setDomain] = useState<WikiDomain>("sources");
+  const [domain, setDomain] = useState<WikiDomain>("vibe");
   const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
 
   // Deep link from lesson pages: /wiki?vibe=topic:termId (allowlisted — the

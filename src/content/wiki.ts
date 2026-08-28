@@ -53,7 +53,7 @@ export const WIKI_UI = {
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
-    domains: { sources: "AI 知识源", vibe: "建造者词典", course: "建造者学院", jobs: "AI Native 招聘", slop: "AI Slop" },
+    domains: { sources: "建造者信号", vibe: "建造者词典", course: "建造者学院", jobs: "建造者机会", slop: "建造者品味" },
     open: "打开",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
@@ -81,7 +81,7 @@ export const WIKI_UI = {
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
-    domains: { sources: "AI Sources", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "AI-Native Jobs", slop: "AI Slop" },
+    domains: { sources: "Builder Signals", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "Builder Openings", slop: "Builder Taste" },
     open: "Open",
     related: "Related",
     progress: "{done} / {total} loops done",
@@ -119,7 +119,7 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   }
   if (q.includes("招聘") || q.includes("岗位") || s.includes("deepseek") || s.includes("flowith") || s.includes("hiring") || s.includes("job")) {
     return {
-      grounded: zh ? "命中 AI Native 招聘 · 2 家" : "AI-Native Jobs · 2 hits",
+      grounded: zh ? "命中 建造者机会 · 2 家" : "Builder Openings · 2 hits",
       text: zh
         ? "DeepSeek / 幻方 Harness 团队在招 Agent 运行时、评测与工程化；AI native 创业公司 Flowith 也有多个岗位。点卡片打开原始招聘链接。"
         : "DeepSeek / High-Flyer's Harness team is hiring for agent runtime, evaluation and engineering; AI-native startup Flowith also has openings. Open a card for the original posting.",
@@ -128,7 +128,7 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   }
   if (s.includes("vibe") || q.includes("术语")) {
     return {
-      grounded: zh ? "命中 建造者词典 1 条 · AI 知识源 2 条" : "Builder Lexicon 1 · AI Sources 2",
+      grounded: zh ? "命中 建造者词典 1 条 · 建造者信号 2 条" : "Builder Lexicon 1 · Builder Signals 2",
       text: zh
         ? "指用自然语言驱动 AI 生成并迭代代码的工作方式。本周 Latent Space 与 simonwillison.net 都在谈它与 agent harness 的结合。"
         : "Driving AI to generate and iterate code via natural language. This week Latent Space and simonwillison.net both discuss its tie to agent harness.",
@@ -137,7 +137,7 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   }
   if (s.includes("agent") || q.includes("进展") || q.includes("这周") || s.includes("harness") || s.includes("week")) {
     return {
-      grounded: zh ? "基于 AI 知识源检索 · 命中 3 条" : "AI Sources · 3 hits",
+      grounded: zh ? "基于 建造者信号 检索 · 命中 3 条" : "Builder Signals · 3 hits",
       text: zh
         ? "Latent Space 与 The Pragmatic Engineer 本周都在谈 agent harness 的评测与工程化；simonwillison.net 有一篇可上手的 SDK 实操。"
         : "Latent Space and The Pragmatic Engineer both cover agent-harness evaluation and engineering this week; simonwillison.net has a hands-on SDK piece.",
@@ -147,8 +147,8 @@ export function wikiDemoReply(q: string, lang: Language): WikiReply {
   return {
     grounded: zh ? "已跨三域检索 · 命中 2 条" : "Cross-domain · 2 hits",
     text: zh
-      ? "这是演示的预设回答：真实版会在与左侧同一份数据源（AI 知识源 + 建造者词典 + 建造者学院）上检索，给出带引用的回答。"
-      : "Preset demo answer: the real version retrieves over the same data source (AI Sources + Builder Lexicon + Builder Academy) and answers with citations.",
+      ? "这是演示的预设回答：真实版会在与左侧同一份数据源（建造者信号 + 建造者词典 + 建造者学院）上检索，给出带引用的回答。"
+      : "Preset demo answer: the real version retrieves over the same data source (Builder Signals + Builder Lexicon + Builder Academy) and answers with citations.",
     cites: [["L3", "Latent Space"], ["术语", "AI Sense Wiki"]],
   };
 }

@@ -3,9 +3,9 @@
 // this with real retrieval (RAG) over the full source/term/course/job data.
 export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据下面的知识库作答，答案要落到具体来源/术语/课程/招聘条目，不要编造。
 
-# 数据源（五大知识域）
+# 数据源（五大知识域：共识=词典/学院/品味，前沿=信号，机会=Openings）
 
-## AI 知识源（来自站点 ai-config，真实来源库，6 层结构）
+## 建造者信号 Builder Signals（原 AI 知识源：播客 / newsletter 等时效性前沿信息，6 层结构）
 - 播客(约 47)：Latent Space、Lenny's Podcast、No Priors、Dwarkesh、The Cognitive Revolution、Y Combinator 等。
 - Newsletters(约 63)：simonwillison.net、The Pragmatic Engineer、Stratechery、Import AI、Interconnects 等。
 - 人物：Karpathy、Sam Altman(Blog)、宝玉 等。产品：NotebookLM、Granola 等。
@@ -30,13 +30,13 @@ export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据�
 - 每回路含互动（快测/判断/找茬/决策等），完成后有「回声加餐」练习；练习共 254 题并拆分到各章。
 - 初始进度 3/33（第 0 章已完成）。
 
-## AI Slop 专题（22 种 AI 味模式图鉴）
+## 建造者品味 Builder Taste（AI Slop 图鉴，22 种 AI 味模式）
 - 视觉 slop：蓝紫渐变、渐变文字标题、玻璃光球、三等宽卡片、框里套框、分割线成瘾、Emoji 当图标、无层级字号。
 - 文字 AI 味：「不是X而是Y」、黑话（闭环/抓手/赋能）、套话开场、什么都分点、无差别夸赞、滥用引号、比喻堆砌、「如果你愿意…」。
 - 交互：一切居中、元素飞入、到处补说明、同一操作换名、只放图标、移动端堆到底。
 - 页内有 4 组「slop vs 更好版本」实时对照（hero/特性区/文案/强调）。
 
-## AI Native 招聘
+## 建造者机会 Builder Openings（AI native 岗位）
 - DeepSeek · 幻方 High-Flyer：Harness 团队（Agent 运行时/评测/工程化）。
 - Flowith：AI native 创业公司，多个岗位。
 
