@@ -10,7 +10,6 @@ export default async function sitemap() {
     "projects/",
     "projects/sayso-voice-ai/",
     "projects/model-evaluation/",
-    "projects/sayso-api/",
     "projects/sayso-team/",
     "lab/",
     "research/",

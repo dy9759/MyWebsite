@@ -7,15 +7,16 @@ export const zhCases: CaseStudy[] = [
     number: "01",
     status: "已上线",
     title: "SaySo Voice Agent",
-    summary: "国内首家 Voice AI 输入产品：1000 万+ 次真实交互，盲测优于 Whisper / Typeless",
-    role: "C 端 Voice Agent 业务线产品负责人",
-    period: "2025.7—2026.5",
+    summary: "国内首家 Voice AI 输入产品：1000 万+ 次真实交互，盲测优于 Whisper / Typeless；转写能力已产品化为 B 端 API",
+    role: "C 端 Voice Agent 业务线产品负责人 · SaySo API B 端产品负责人",
+    period: "2025.7—至今",
     problems: [
       "语音输入真实场景噪声、口音和任务类型多样，模型效果与稳定性持续波动。",
       "用户需要快速获得第一次有效输出，同时保留失败重试和人工编辑能力。",
+      "C 端积累的实时转写能力，如何以稳定、可计费的对外 API 形式服务 B 端与硬件场景。",
     ],
     decision:
-      "确定用户场景后，以“准、快、结构化输出”为三个阶段性目标，覆盖四大核心场景与用户自定义自适应能力，用评测集、兜底和可编辑链路连接模型质量、用户体验与转化漏斗。",
+      "确定用户场景后，以“准、快、结构化输出”为三个阶段性目标，覆盖四大核心场景与用户自定义自适应能力，用评测集、兜底和可编辑链路连接模型质量、用户体验与转化漏斗；C 端验证后的转写底座进一步抽象为对外 API，按 B 端与硬件需求扩展小语种。",
     evidence: [
       { value: "900ms", label: "稳定首字延迟" },
       { value: "80% / 95%", label: "盲测胜 Typeless / Whisper" },
@@ -27,6 +28,7 @@ export const zhCases: CaseStudy[] = [
         "国内首家上线的语音输入产品，国外仅 Whisper、Typeless 等少数竞品；预判大厂将入局，需以差异化建立壁垒。",
         "Voice AI 的价值不只取决于单次识别准确率，还受到延迟、上下文、失败恢复和编辑成本共同影响。",
         "产品同时覆盖输入法、会议、个人语音助理和办公提效场景，需要统一核心行为与指标口径。",
+        "C 端能力转 B 端需要重新定义稳定性、计费、鉴权与 SLA；出海与硬件场景对小语种（如印尼语）和端侧延迟要求更高。",
       ],
       ownership: [
         "作为产品负责人，从 0 到 1 定义 SaySo 语音产品的核心行为、指标体系与技术方案，对激活、完成率与商业化结果负责。",
@@ -34,39 +36,46 @@ export const zhCases: CaseStudy[] = [
         "主导客户端语音转写、会议纪要等核心功能迭代研发，以及 UI/UX 布局与设计选型，把控交互细节与产品品味。",
         "以产品、UI、测试、前后端的产研组织协作，负责 PRD、路线图、排期、优先级与上线验收，主导客户端 + 后端与 Agent 功能设计，推动国内 / 国外 × Mac / Win 四端上线。",
         "设计问卷并深度访谈内容创作者、独立老师等居家办公用户，结合线上行为数据与灰度验证，建立激活、完成率、复用与订阅转化指标与需求洞察。",
+        "B 端延伸（2026.5 起）：负责 SaySo API 接口产品开发，把输入法验证过的中英文实时转写产品化为对外 API，并按 B 端需求深度开发印尼语等小语种。",
+        "对接头部硬件厂商，推进合作意向落地。",
       ],
       decisions: [
         "以“准、快、结构化输出”为三个阶段性目标，覆盖四大核心场景与用户自定义自适应能力。",
         "将首次有效输出作为 onboarding 的主目标，减少首次输入前的解释和设置成本。",
         "把 ASR/TTS/LLM 波动显式转化为失败提示、重试、编辑和模型降级策略。",
         "用真实任务评测和线上数据共同决定版本优先级。",
+        "以验证过的转写能力为底座抽象统一对外 API，按 B 端场景优先级扩小语种与适配，而非一次铺全。",
       ],
       system: [
         "产品层：输入法、会议、个人语音助理与办公提效场景。",
         "能力层：ASR、TTS、LLM 与端到端语音模型。",
         "客户端架构：Mac 端语音识别输入 / 输出、会议实时转写与灵动岛交互采用 Swift 原生，其余用 Electron 保证多端同步更新。",
         "保障层：评测集、埋点、灰度发布、异常兜底和用户反馈闭环。",
+        "B 端接口层：对外 API（鉴权、计费、SLA），服务 B 端集成与硬件端侧。",
       ],
       results: [
         "场景盲测中，用户体验 80% 胜 Typeless、95% 胜 Whisper；首字延迟最快稳定在 900ms。",
         "截至 2026.08，累计 1000 万+ 次语音 / Agent 交互。",
         "非删除用户 Speaker activation 达 90.4%。",
         "整体完成率 93.3%；国内成功订单中年付占 58.6%，贡献国内成功付费收入 90.9%。",
+        "B 端线：完成 API 产品化与印尼语等小语种方向，与头部硬件厂商达成合作意向（调用量与延迟数据积累中）。",
       ],
       reflection: [
         "商业化仍处于早期，年付偏好是高意向用户信号，不能单独代表整体规模化转化。",
         "语音产品应持续区分模型问题、网络问题、交互问题与用户预期问题，避免用单一准确率解释体验。",
+        "C 端到 B 端不是接口暴露，而是稳定性、计费与 SLA 的重新定义。",
       ],
       next: [
         "补充分场景留存、P50/P95 首字延迟和会员转化样本量。",
         "增加可公开的产品界面、用户流程和指标漏斗截图。",
+        "补充 API 调用量、P95 延迟、小语种准确率与 B 端接入案例。",
       ],
     },
     links: [
       { label: "国内版", url: "https://sayso.cn/" },
       { label: "国际版", url: "https://sayso.ai/" },
     ],
-    needed: ["产品界面截图", "指标漏斗截图", "分场景留存数据"],
+    needed: ["产品界面截图", "指标漏斗截图", "分场景留存数据", "API 调用量与硬件合作进展"],
   },
   {
     id: "case-sayso-team",
@@ -134,7 +143,7 @@ export const zhCases: CaseStudy[] = [
   {
     id: "case-model-evaluation",
     slug: "model-evaluation",
-    number: "04",
+    number: "03",
     status: "进行中",
     title: "模型产品：政务同传大模型",
     summary:
@@ -194,62 +203,6 @@ export const zhCases: CaseStudy[] = [
     links: [],
     needed: ["P50/P95 延迟数据", "音色克隆评分", "评测平台截图", "公开 Demo"],
   },
-  {
-    id: "case-sayso-api",
-    slug: "sayso-api",
-    number: "03",
-    status: "进行中",
-    title: "SaySo API · B 端语音能力",
-    summary: "把输入法级中英文实时转写产品化为对外 API，服务 B 端与硬件场景",
-    role: "SaySo API / B 端产品负责人",
-    period: "2026.5—至今",
-    problems: [
-      "C 端积累的实时转写能力，如何以稳定、可计费的对外 API 形式服务 B 端。",
-      "出海与硬件场景对小语种、延迟与稳定性有差异化要求。",
-    ],
-    decision:
-      "以输入法验证过的中英文实时转写为底座，抽象出统一对外 API，按 B 端与硬件需求扩展小语种与场景适配。",
-    evidence: [
-      { value: "中英 + 小语种", label: "覆盖语种（含印尼语）" },
-      { value: "对外 API", label: "产品形态" },
-      { value: "硬件厂商", label: "合作意向" },
-      { value: "待补充", label: "调用量 / 延迟", placeholder: true },
-    ],
-    sections: {
-      challenge: [
-        "C 端能力转 B 端，需要重新定义稳定性、计费、鉴权与 SLA。",
-        "出海与硬件场景对小语种（如印尼语）和端侧延迟要求更高。",
-      ],
-      ownership: [
-        "负责 SaySo API 接口产品开发，将中英文实时转写产品化为对外 API。",
-        "基于 B 端用户需求，深度开发印尼语等小语种能力。",
-        "对接头部硬件厂商，推进合作意向落地。",
-      ],
-      decisions: [
-        "以输入法验证过的转写能力为底座抽象统一 API，而非重造。",
-        "按 B 端场景优先级排小语种与适配，而非一次铺全。",
-      ],
-      system: [
-        "能力层：中英文实时转写与小语种扩展。",
-        "接口层：对外 API（鉴权、计费、SLA）。",
-        "场景层：B 端集成与硬件端侧。",
-      ],
-      results: [
-        "已完成 API 产品化与印尼语等小语种方向，并与头部硬件厂商达成合作意向。",
-        "调用量、延迟与商业化数据仍在积累，不在此虚构。",
-      ],
-      reflection: [
-        "C 端到 B 端不是接口暴露，而是稳定性、计费与 SLA 的重新定义。",
-        "小语种的价值取决于真实 B 端场景，而非语种数量。",
-      ],
-      next: [
-        "补充真实调用量、P95 延迟与小语种准确率。",
-        "补充 B 端接入案例与硬件合作进展。",
-      ],
-    },
-    links: [],
-    needed: ["调用量数据", "P95 延迟", "B 端接入案例", "硬件合作进展"],
-  },
 ];
 
 export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
@@ -257,15 +210,16 @@ export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
 Object.assign(enCases[0], {
   status: "Live",
   title: "SaySo Voice Agent",
-  summary: "China's first Voice AI input product: 10M+ interactions, beating Whisper / Typeless in blind tests",
-  role: "Product Lead, Consumer Voice Agent",
-  period: "Jul 2025—May 2026",
+  summary: "China's first Voice AI input product: 10M+ interactions, beating Whisper / Typeless in blind tests; transcription now productized as a B2B API",
+  role: "Product Lead, Consumer Voice Agent · SaySo API B2B Product Lead",
+  period: "Jul 2025—Present",
   problems: [
     "Real voice input varies by noise, accent and task, while model quality and stability fluctuate.",
     "Users need a fast first successful output with clear retry and editing paths.",
+    "How to serve B2B and hardware scenarios with the consumer transcription stack as a stable, billable external API.",
   ],
   decision:
-    "After fixing the user scenarios, set accuracy, speed and structured output as three phased goals across four core scenarios plus user-custom adaptation, connecting model quality, experience and conversion through evaluation sets, fallback and editable output.",
+    "After fixing the user scenarios, set accuracy, speed and structured output as three phased goals across four core scenarios plus user-custom adaptation, connecting model quality, experience and conversion through evaluation sets, fallback and editable output; the proven transcription base was then abstracted into an external API extended per B2B and hardware needs.",
   evidence: [
     { value: "900ms", label: "Stable first-token latency" },
     { value: "80% / 95%", label: "Blind-test wins vs Typeless / Whisper" },
@@ -277,6 +231,7 @@ Object.assign(enCases[0], {
       "First voice-input product to launch in China; abroad only a few rivals (Whisper, Typeless). With big players expected to enter, differentiation was the moat.",
       "Voice AI experience depends on latency, context, recovery and editing cost—not recognition accuracy alone.",
       "Input, meeting, assistant and productivity scenarios needed one shared core behavior and metric model.",
+      "Consumer-to-B2B meant redefining stability, billing, auth and SLAs; overseas and hardware scenarios demand stronger low-resource languages (e.g. Indonesian) and on-device latency.",
     ],
     ownership: [
       "As product lead, defined the SaySo speech product from zero to one — core behavior, metric model and technical approach — and owned activation, completion and commercialization outcomes.",
@@ -284,35 +239,42 @@ Object.assign(enCases[0], {
       "Led client-side core features (speech transcription, meeting notes) plus UI/UX layout and design choices, owning interaction detail and product taste.",
       "Ran the product / UI / QA / frontend / backend org to own PRDs, roadmap, release planning, prioritization and launch acceptance; led client + backend and agent feature design and shipped four clients (CN / Global x Mac / Win).",
       "Designed surveys and ran in-depth interviews with WFH users (content creators, independent teachers), combining them with production behavior data and staged rollout to establish activation, completion, reuse and subscription metrics and user insight.",
+      "B2B extension (from May 2026): own SaySo API product development, productizing the input-method-proven CN/EN real-time transcription into an external API with deep low-resource-language support (e.g. Indonesian).",
+      "Engaged a leading hardware maker and drove the partnership intent forward.",
     ],
     decisions: [
       "Set accuracy, speed and structured output as three phased goals across four core scenarios plus user-custom adaptation.",
       "Made the first successful output the primary onboarding goal.",
       "Converted ASR/TTS/LLM variance into retry, editing, fallback and degradation paths.",
       "Used real-task evaluation together with production data to prioritize releases.",
+      "Abstracted a unified external API on the proven transcription base, sequencing languages and adaptation by B2B scenario priority.",
     ],
     system: [
       "Product: input, meetings, personal voice assistant and productivity.",
       "Capabilities: ASR, TTS, LLM and end-to-end speech models.",
       "Client architecture: Swift-native for Mac speech I/O, live meeting transcription and Dynamic Island; Electron elsewhere for synchronized multi-client updates.",
       "Quality: evaluation sets, analytics, staged rollout, fallback and feedback loops.",
+      "B2B interface: external API (auth, billing, SLA) serving integrations and on-device hardware.",
     ],
     results: [
       "In scenario blind tests users preferred the product 80% of the time over Typeless and 95% over Whisper; first-token latency stabilized as low as 900ms.",
       "10M+ voice / agent interactions as of Aug 2026.",
       "Speaker activation reached 90.4% among active records.",
       "93.3% overall completion; annual plans were 58.6% of successful CN orders and 90.9% of CN paid revenue.",
+      "B2B line: completed API productization and the low-resource-language direction, with a partnership intent from a leading hardware maker (volume and latency data still accruing).",
     ],
     reflection: [
       "Commercialization is still early; annual-plan preference is a high-intent signal, not proof of scaled conversion.",
       "Speech products must separate model, network, interaction and expectation failures.",
+      "Consumer-to-B2B is not exposing an endpoint; it is redefining stability, billing and SLAs.",
     ],
     next: [
       "Add scenario retention, P50/P95 first-token latency and conversion sample sizes.",
       "Add public product, journey and funnel screenshots.",
+      "Add API call volume, P95 latency, low-resource-language accuracy and B2B integration cases.",
     ],
   },
-  needed: ["Product screenshots", "Conversion funnel", "Scenario retention data"],
+  needed: ["Product screenshots", "Conversion funnel", "Scenario retention data", "API volume & hardware partnership progress"],
 });
 
 Object.assign(enCases[1], {
@@ -435,61 +397,3 @@ Object.assign(enCases[2], {
   ],
 });
 
-Object.assign(enCases[3], {
-  status: "In progress",
-  title: "SaySo API · B2B Speech",
-  summary:
-    "Productizing input-method-grade CN/EN real-time transcription into an external API for B2B and hardware",
-  role: "SaySo API / B2B Product Lead",
-  period: "May 2026—Present",
-  problems: [
-    "How to serve B2B with the consumer real-time transcription as a stable, billable external API.",
-    "Overseas and hardware scenarios have distinct needs for low-resource languages, latency and stability.",
-  ],
-  decision:
-    "Use the input-method-proven CN/EN transcription as the base, abstract a unified external API, and extend low-resource languages and scenario adaptation per B2B and hardware needs.",
-  evidence: [
-    { value: "CN/EN + more", label: "Languages (incl. Indonesian)" },
-    { value: "External API", label: "Product form" },
-    { value: "Hardware maker", label: "Partnership intent" },
-    { value: "Needed", label: "Call volume / latency", placeholder: true },
-  ],
-  sections: {
-    challenge: [
-      "Turning a consumer capability into B2B means redefining stability, billing, auth and SLAs.",
-      "Overseas and hardware scenarios demand stronger low-resource-language (e.g. Indonesian) and on-device latency.",
-    ],
-    ownership: [
-      "Own SaySo API product development, productizing CN/EN real-time transcription into an external API.",
-      "Deeply develop low-resource languages (e.g. Indonesian) driven by B2B needs.",
-      "Engage a leading hardware maker and drive the partnership intent forward.",
-    ],
-    decisions: [
-      "Abstract a unified API on top of the input-method-proven transcription rather than rebuilding.",
-      "Sequence languages and adaptation by B2B scenario priority instead of covering everything at once.",
-    ],
-    system: [
-      "Capability: CN/EN real-time transcription with low-resource-language extension.",
-      "Interface: external API (auth, billing, SLA).",
-      "Scenarios: B2B integration and on-device hardware.",
-    ],
-    results: [
-      "Completed API productization and the low-resource-language direction, plus a partnership intent with a leading hardware maker.",
-      "Call volume, latency and commercialization data are still accruing and are not fabricated here.",
-    ],
-    reflection: [
-      "Consumer-to-B2B is not exposing an endpoint; it is redefining stability, billing and SLAs.",
-      "Low-resource-language value depends on real B2B scenarios, not the number of languages.",
-    ],
-    next: [
-      "Add real call volume, P95 latency and low-resource-language accuracy.",
-      "Add B2B integration cases and hardware-partnership progress.",
-    ],
-  },
-  needed: [
-    "Call volume",
-    "P95 latency",
-    "B2B integration cases",
-    "Hardware partnership progress",
-  ],
-});

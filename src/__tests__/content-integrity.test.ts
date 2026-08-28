@@ -23,8 +23,9 @@ describe("public content integrity", () => {
     expect(PORTFOLIO_COPY.en.experience.positions[0].duration).toContain(
       "Jul 2025",
     );
-    expect(PORTFOLIO_COPY.zh.cases.items[0].period).toBe("2025.7—2026.5");
-    expect(PORTFOLIO_COPY.en.cases.items[0].period).toBe("Jul 2025—May 2026");
+    // Case 01 absorbed the SaySo API B2B line (2026.5—), so it now runs open-ended.
+    expect(PORTFOLIO_COPY.zh.cases.items[0].period).toBe("2025.7—至今");
+    expect(PORTFOLIO_COPY.en.cases.items[0].period).toBe("Jul 2025—Present");
   });
 
   it("publishes the owner-confirmed multi-role experience without fabricated grants", () => {
