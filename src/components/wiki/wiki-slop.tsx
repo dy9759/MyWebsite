@@ -4,6 +4,7 @@
 // 目录主题整合自 killaislop.com 与 vibe-hub.org/anti-ai-flavor（经站主授权，
 // 见页尾致谢）；全部讲解文案与对比演示为本站原创重写。
 import { useEffect, useState } from "react";
+import { SLOP_DEMOS } from "@/components/wiki/wiki-slop-demos";
 
 type SlopItem = { id: string; name: string; group: string; why: string; fix: string };
 
@@ -25,6 +26,8 @@ const ITEMS: SlopItem[] = [
   { id: "hedge-praise", name: "动不动夸你「抓住了本质」", group: "文字", why: "「这是一个非常好的问题」「你说到了点子上」——无差别的赞美是奉承，不是反馈，读者第二次就免疫了。", fix: "省掉评价，直接回应内容。真想肯定，指出具体哪一点对、为什么对。" },
   { id: "quote-everything", name: "什么都要加「引号」", group: "文字", why: "普通词汇被引号包裹：「智能」的「体验」带来「价值」——引号本该标记特殊用法，滥用后只剩阴阳怪气。", fix: "只有术语首次出现或反讽时才用引号。其余全删，句子立刻干净。" },
   { id: "grand-metaphor", name: "夸张比喻堆砌", group: "文字", why: "「像一场革命」「如同交响乐般优雅」——比喻不锚定具体事实时，只是辞藻通胀，稀释了真正的信息。", fix: "一篇文章最多留一个比喻，并且让它干活：能帮读者理解机制的留下，装饰性的删光。" },
+  { id: "emotional-catchphrase", name: "「稳稳接住你」式共情", group: "文字", why: "「你不是太敏感，你只是太清醒」「我就在这里，稳稳地接住你」——套模板的情感话术，第一次见暖，第十次见起鸡皮疙瘩：共情成了口癖，就不再是共情。", fix: "回应具体的事，而不是发共情模板：把「接住你」换成「这个问题我查了，是 X 造成的，今晚修」。" },
+  { id: "single-char-verbs", name: "单字动作口癖", group: "文字", why: "「收一下」「提一层」「落回去」「拉齐」——把动作压缩成单字黑话，显得干练，实际谁也不知道具体要做什么。正常说话不这么说。", fix: "每个单字动作展开成「动词+对象+标准」：「收一下」→「把范围缩到这两个场景」；说人话是最高级的干练。" },
   { id: "if-you-wish", name: "「如果你愿意，我还可以…」", group: "文字", why: "结尾永远缀一句主动加码的服务话术。放在产品文案里，就是典型的对话残留——它暴露了文本的生成来源。", fix: "文案止于信息说完的那一刻。行动号召要具体（「导出 CSV」），不要万能追加（「还想要什么都可以」）。" },
   // ---- 交互与结构 ----
   { id: "center-everything", name: "一切居中", group: "交互", why: "标题居中、正文居中、按钮居中——居中是最不需要决策的对齐方式，也最难建立扫读的锚点线。", fix: "默认左对齐，让眼睛有一条稳定的起跑线。居中留给真正的仪式时刻：空状态、成功页。" },
@@ -58,6 +61,34 @@ function DemoPair({ title, slop, better, note }: { title: string; slop: React.Re
   );
 }
 
+// slop / 清理后 live comparison inside the modal (all renders self-built).
+function SlopDemoStage({ id }: { id: string }) {
+  const demo = SLOP_DEMOS[id];
+  const [mode, setMode] = useState<"slop" | "fixed">("slop");
+  if (!demo) return null;
+  return (
+    <div style={{ marginTop: 14 }}>
+      <div className="slop-toggle" role="tablist" aria-label="对照切换">
+        <button type="button" role="tab" aria-selected={mode === "slop"} className={mode === "slop" ? "on bad" : ""} onClick={() => setMode("slop")}>
+          ● slop
+        </button>
+        <button type="button" role="tab" aria-selected={mode === "fixed"} className={mode === "fixed" ? "on good" : ""} onClick={() => setMode("fixed")}>
+          ● 清理后
+        </button>
+      </div>
+      <div className="slop-stage" style={{ marginTop: 8 }}>{mode === "slop" ? demo.slop : demo.fixed}</div>
+      {demo.signals?.length ? (
+        <p className="slop-signals">
+          <span>信号</span>
+          {demo.signals.map((sig) => (
+            <code key={sig}>{sig}</code>
+          ))}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 function SlopModal({ item, onClose }: { item: SlopItem; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -74,6 +105,7 @@ function SlopModal({ item, onClose }: { item: SlopItem; onClose: () => void }) {
       <div className="vh-modal theme-vibe" role="dialog" aria-modal="true" aria-label={item.name} onClick={(e) => e.stopPropagation()}>
         <button type="button" className="vh-modal-close" aria-label="关闭" onClick={onClose}>×</button>
         <h3 className="slop-modal-title">{item.name}<span className="vh-en">{item.group} slop</span></h3>
+        <SlopDemoStage id={item.id} />
         <p className="slop-why"><b>为什么是 slop</b>{item.why}</p>
         <p className="slop-fix"><b>怎么改</b>{item.fix}</p>
       </div>
@@ -101,7 +133,7 @@ export default function WikiSlop() {
           <div className="slop-grid">
             {ITEMS.filter((i) => i.group === g).map((i) => (
               <button key={i.id} type="button" className="slop-card" onClick={() => setOpen(i)}>
-                <b>{i.name}</b>
+                <b>{i.name}{SLOP_DEMOS[i.id] ? <em className="slop-demo-hint">对照</em> : null}</b>
                 <span>{i.why.slice(0, 42)}…</span>
               </button>
             ))}
