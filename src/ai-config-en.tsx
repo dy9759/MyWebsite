@@ -71,6 +71,12 @@ const SOURCES_EN: AIConfig['sources'] = [
                     if (item.name === 'F5-TTS — 项目主页示例') {
                         return { ...item, name: 'F5-TTS — project demo page' }
                     }
+                    if (item.name.startsWith('Cursor — Compile')) {
+                        return { ...item, name: 'Cursor — Compile (YouTube · Cursor conference & product talks)' }
+                    }
+                    if (item.name.startsWith('Figma — Config')) {
+                        return { ...item, name: 'Figma — Config (YouTube · Figma Config conference talks)' }
+                    }
                     if (
                         item.name ===
                         '3D Gaussian Splatting(高斯泼溅,三维重建开创性论文)'

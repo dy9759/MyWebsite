@@ -95,6 +95,14 @@ export const AI_SOURCES: AIConfig['sources'] = [
                             name: 'Salesforce — Discover Agentforce',
                             url: 'https://www.salesforce.com/plus/experience/discover_agentforce/series/discover_agentforce/episode/episode-s1e4',
                         },
+                        {
+                            name: 'Cursor — Compile（YouTube 频道 · Cursor 大会与产品分享）',
+                            url: 'https://www.youtube.com/@cursor',
+                        },
+                        {
+                            name: 'Figma — Config（YouTube 频道 · Figma Config 大会 talks）',
+                            url: 'https://www.youtube.com/@figma',
+                        },
                     ],
                 },
                 {

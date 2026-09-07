@@ -9,6 +9,7 @@ export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据�
 - 播客(约 47)：Latent Space、Lenny's Podcast、No Priors、Dwarkesh、The Cognitive Revolution、Y Combinator 等。
 - Newsletters(约 63)：simonwillison.net、The Pragmatic Engineer、Stratechery、Import AI、Interconnects 等。
 - 人物：Karpathy、Sam Altman(Blog)、宝玉 等。产品：NotebookLM、Granola 等。
+- YouTube 频道：AI Engineer、Cursor Compile、Figma Config 等大会/产品 talks。
 
 ## 建造者词典 Builder Lexicon（vibe coding 术语库，411 词 / 7 大类，来自 vibe-hub.org 授权导入 + 课程扩充）
 - 分类：前端 138、后端 99、产品 39、技术栈 36、AI 62、Git 13、设计风格 24。
