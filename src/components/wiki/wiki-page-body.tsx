@@ -13,6 +13,7 @@ import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
 import WikiSearch from "@/components/wiki/wiki-search";
 import { askWiki, WIKI_CONNECTED as CONNECTED, type TermJump } from "@/lib/wiki-data";
 import { FLOAT_CHAT } from "@/lib/float-chat";
+import { loadSession } from "@/lib/fde-store";
 import { cn } from "@/lib/utils";
 
 // 三层信息架构：共识（词典/学院/品味）→ 前沿（信号）→ 机会
@@ -24,11 +25,24 @@ export default function WikiPageBody() {
 
   const [domain, setDomain] = useState<WikiDomain>("vibe");
   const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
+  const [fdeTarget, setFdeTarget] = useState<{ id: string; ts: number } | null>(null);
+  const [fdeLive, setFdeLive] = useState(false); // unfinished FDE attempt in storage
 
   // Deep link from lesson pages: /wiki?vibe=topic:termId (allowlisted — the
   // topic feeds a fetch path, so anything unknown is ignored outright).
   useEffect(() => {
-    const m = new URLSearchParams(window.location.search).get("vibe");
+    const params = new URLSearchParams(window.location.search);
+    // /wiki?domain=fde — allowlisted against the tab list.
+    const d = params.get("domain");
+    if (d && (DOMAINS as string[]).includes(d)) setDomain(d as WikiDomain);
+    // An unfinished FDE attempt: mark the tab; a running timed exam takes the
+    // user straight back to it unless the URL asked for another domain.
+    const s = loadSession();
+    if (s) {
+      setFdeLive(true);
+      if (s.mode === "full" && !d) setDomain("fde");
+    }
+    const m = params.get("vibe");
     if (!m) return;
     const [topic, id] = m.split(":");
     if (topic && id && VIBE_TOPICS.some((t) => t.id === topic) && /^[a-z0-9-]+$/.test(id)) {
@@ -80,6 +94,10 @@ export default function WikiPageBody() {
               setDomain("vibe");
               setVibeTarget(jump);
             }}
+            onFde={(id) => {
+              setDomain("fde");
+              setFdeTarget({ id, ts: Date.now() });
+            }}
           />
         </div>
       </header>
@@ -102,13 +120,16 @@ export default function WikiPageBody() {
           >
             {ui.domains[d]}
             <span className="ml-1.5 font-mono text-xs opacity-70">{domainCount[d]}</span>
+            {d === "fde" && fdeLive ? (
+              <span className="ml-1.5 rounded-full bg-orange-500/15 px-1.5 text-xs text-orange-600">{ui.inProgress}</span>
+            ) : null}
           </button>
         ))}
       </div>
 
       {/* browse — full width, no frame */}
       <section aria-label="browse" className="flex min-w-0 flex-col">
-        <WikiBrowse domain={domain} vibeTarget={vibeTarget} />
+        <WikiBrowse domain={domain} vibeTarget={vibeTarget} fdeTarget={fdeTarget} onFdeLive={setFdeLive} />
       </section>
 
       {/* chat — floating window, bottom-right */}

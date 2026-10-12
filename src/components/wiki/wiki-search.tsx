@@ -9,8 +9,8 @@ import { loadSearchIndex, type SearchEntry, type TermJump } from "@/lib/wiki-dat
 
 export type { TermJump };
 
-const KIND_LABEL: Record<SearchEntry["k"], string> = { term: "术语", loop: "回路", step: "小节" };
-const KIND_RANK: Record<SearchEntry["k"], number> = { term: 0, loop: 1, step: 2 };
+const KIND_LABEL: Record<SearchEntry["k"], string> = { term: "术语", loop: "回路", step: "小节", fde: "FDE 题" };
+const KIND_RANK: Record<SearchEntry["k"], number> = { term: 0, loop: 1, step: 2, fde: 3 };
 
 function rank(e: SearchEntry, q: string): number {
   const t = e.title.toLowerCase();
@@ -23,7 +23,7 @@ function rank(e: SearchEntry, q: string): number {
   return 9;
 }
 
-export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => void }) {
+export default function WikiSearch({ onTerm, onFde }: { onTerm: (jump: TermJump) => void; onFde: (id: string) => void }) {
   const router = useRouter();
   const [index, setIndex] = useState<SearchEntry[] | "loading" | "error" | null>(null);
   const [q, setQ] = useState("");
@@ -61,6 +61,7 @@ export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => voi
     setOpen(false);
     setQ("");
     if (e.k === "term") onTerm({ topic: e.topic ?? "frontend", id: e.id, ts: Date.now() });
+    else if (e.k === "fde") onFde(e.id);
     else router.push(`/wiki/course/${e.id}/`);
   };
 
@@ -107,10 +108,10 @@ export default function WikiSearch({ onTerm }: { onTerm: (jump: TermJump) => voi
                 <span className="shrink-0 rounded-full border border-accent px-1.5 text-[0.62rem] text-accent">
                   {KIND_LABEL[e.k]}
                 </span>
-                <span className="font-medium">{e.title}</span>
+                <span className={e.k === "fde" ? "line-clamp-1 font-medium" : "font-medium"}>{e.title}</span>
                 {e.en ? <span className="font-mono text-xs text-muted-foreground">{e.en}</span> : null}
                 <span className="ml-auto truncate pl-2 text-xs text-muted-foreground/70">
-                  {e.k === "term" ? e.cat : e.k === "loop" ? `第 ${e.ch} 章` : `第 ${e.ch} 章 · ${e.tag}`}
+                  {e.k === "term" || e.k === "fde" ? e.cat : e.k === "loop" ? `第 ${e.ch} 章` : `第 ${e.ch} 章 · ${e.tag}`}
                 </span>
               </button>
             ))

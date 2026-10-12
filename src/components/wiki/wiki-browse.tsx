@@ -22,9 +22,13 @@ export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop" | "fde"
 export default function WikiBrowse({
   domain,
   vibeTarget,
+  fdeTarget,
+  onFdeLive,
 }: {
   domain: WikiDomain;
   vibeTarget?: VibeTarget | null;
+  fdeTarget?: { id: string; ts: number } | null;
+  onFdeLive?: (live: boolean) => void;
 }) {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
@@ -66,7 +70,7 @@ export default function WikiBrowse({
   }
 
   if (domain === "fde") {
-    return <WikiFde />;
+    return <WikiFde target={fdeTarget ?? null} onLive={onFdeLive} />;
   }
 
   if (domain === "jobs") {

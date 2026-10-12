@@ -73,7 +73,7 @@ const UI = {
 
 type Done = { session: FdeSession; result: FdeResult };
 
-function newSession(mode: FdeMode, domain: FdeDomain | null): FdeSession | null {
+function newSession(mode: FdeMode, domain: FdeDomain | null, firstId?: string): FdeSession | null {
   let questions;
   if (mode === "full") questions = buildExam(FDE_QUESTIONS);
   else if (mode === "wrong") {
@@ -83,6 +83,8 @@ function newSession(mode: FdeMode, domain: FdeDomain | null): FdeSession | null 
     questions = shuffle(FDE_QUESTIONS.filter((q) => !domain || q.domain === domain)).map((q) => shuffleOptions(q));
   }
   if (!questions.length) return null;
+  // Search jump: put the chosen question first.
+  if (firstId) questions = [...questions.filter((q) => q.id === firstId), ...questions.filter((q) => q.id !== firstId)];
   const deadline = mode === "full" ? Date.now() + EXAM_CONFIG.durationSeconds * 1000 : null;
   return { mode, domain, questions, answers: {}, marks: [], checked: [], index: 0, deadline };
 }
@@ -172,7 +174,13 @@ function ResultView({ done, onRetry, onHome }: { done: Done; onRetry: () => void
   );
 }
 
-export default function WikiFde() {
+export default function WikiFde({
+  target = null,
+  onLive,
+}: {
+  target?: { id: string; ts: number } | null;
+  onLive?: (live: boolean) => void;
+}) {
   const { language } = useLanguage();
   const t = UI[language];
   const labels = FDE_DOMAIN_LABELS[language];
@@ -189,6 +197,7 @@ export default function WikiFde() {
     sessionRef.current = s;
     setSession(s);
     saveSession(s);
+    onLive?.(!!s);
   };
 
   // Read storage after mount (hydration-safe on the static export).
@@ -202,11 +211,20 @@ export default function WikiFde() {
     }
   }, []);
 
-  const start = (mode: FdeMode, d: FdeDomain | null = null) => {
+  const start = (mode: FdeMode, d: FdeDomain | null = null, firstId?: string) => {
     setDone(null);
     setResumed(false);
-    update(newSession(mode, d));
+    update(newSession(mode, d, firstId));
   };
+
+  // Search hit → practise that question's domain starting from it. Never
+  // clobbers an attempt in progress (the session restore runs first).
+  useEffect(() => {
+    if (!target || sessionRef.current || loadSession()) return;
+    const q = FDE_QUESTIONS.find((x) => x.id === target.id);
+    if (q) start("practice", q.domain, q.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target?.ts]);
 
   const onCheck = (id: string, correct: boolean) => {
     setWrongCount((correct ? updateWrong([], [id]) : updateWrong([id])).length);
@@ -226,8 +244,9 @@ export default function WikiFde() {
     sessionRef.current = null;
     saveSession(null);
     setSession(null);
+    onLive?.(false);
     setDone(graded.length ? { session: s, result } : null);
-  }, []);
+  }, [onLive]);
 
   if (session) {
     return (

@@ -1,7 +1,7 @@
 // MCP endpoint for the AI Sense Wiki backend — exposes the knowledge base to
 // external agents over SSE (GET /sse + POST /messages).
 // Tools: ask_wiki (grounded Q&A via the same upstream model) and search_wiki
-// (term/loop lookup over the site's public search index).
+// (term/loop/FDE-question lookup over the site's public search index).
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
@@ -22,7 +22,7 @@ export function mountMcp(app, { askUpstream, spendDaily, siteUrl }) {
 
   server.tool(
     "ask_wiki",
-    "向 AI Sense Wiki 知识库提问（建造者词典 411 词 / 建造者学院九章课程 / 建造者品味 / 信号源 / 机会）。返回带引用的中文或英文回答。",
+    "向 AI Sense Wiki 知识库提问（建造者词典 411 词 / 建造者学院九章课程 / 建造者品味 / FDE 能力测试 / 信号源 / 机会）。返回带引用的中文或英文回答。",
     { question: z.string().max(4000).describe("要问的问题"), language: z.enum(["zh", "en"]).optional() },
     async ({ question }) => {
       if (!spendDaily()) return { content: [{ type: "text", text: "daily limit reached" }] };
@@ -34,7 +34,7 @@ export function mountMcp(app, { askUpstream, spendDaily, siteUrl }) {
 
   server.tool(
     "search_wiki",
-    "在建造者词典的术语、课程回路与小节里搜索关键词，返回最多 10 条命中（含类型与所属分类/章节）。",
+    "在建造者词典的术语、课程回路与小节、FDE 能力测试题目里搜索关键词，返回最多 10 条命中（含类型与所属分类/章节/知识域）。",
     { query: z.string().min(1).max(100).describe("搜索关键词（中英皆可）") },
     async ({ query }) => {
       const idx = await loadIndex();
@@ -45,8 +45,8 @@ export function mountMcp(app, { askUpstream, spendDaily, siteUrl }) {
         )
         .slice(0, 10)
         .map((e) => {
-          const kind = e.k === "term" ? "术语" : e.k === "loop" ? "回路" : "小节";
-          const where = e.k === "term" ? `${e.topic}/${e.cat}` : `第 ${e.ch} 章`;
+          const kind = e.k === "term" ? "术语" : e.k === "loop" ? "回路" : e.k === "fde" ? "FDE 题" : "小节";
+          const where = e.k === "term" ? `${e.topic}/${e.cat}` : e.k === "fde" ? `FDE · ${e.cat}` : `第 ${e.ch} 章`;
           return `- [${kind}] ${e.title}${e.en ? ` (${e.en})` : ""} — ${where}`;
         });
       return { content: [{ type: "text", text: hits.length ? hits.join("\n") : `没有匹配「${query}」的条目` }] };

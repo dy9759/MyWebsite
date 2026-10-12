@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   EXAM_CONFIG,
@@ -67,6 +69,12 @@ describe("fde exam", () => {
       expect(exam.filter((q) => q.type === "multiple")).toHaveLength(20);
       expect(calculateResult(exam, {}).max).toBe(100);
     }
+  });
+
+  it("search index carries exactly the bank's questions (run scripts/build-fde-index.mjs)", () => {
+    const idx = JSON.parse(readFileSync(join(process.cwd(), "public/wiki/search-index.json"), "utf8")) as { k: string; id: string }[];
+    const fde = idx.filter((e) => e.k === "fde").map((e) => e.id).sort();
+    expect(fde).toEqual(FDE_QUESTIONS.map((q) => q.id).sort());
   });
 
   it("builds one variant per concept and fills every domain quota", () => {

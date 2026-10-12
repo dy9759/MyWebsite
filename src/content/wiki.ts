@@ -48,13 +48,14 @@ export const WIKI_JOBS: WikiJob[] = [
 export const WIKI_UI = {
   zh: {
     kicker: "个人 AI 信息系统",
-    intro: "浏览五大知识域，或问随行 —— 左右两侧同一底层数据源。",
+    intro: "浏览六大知识域，或问随行 —— 左右两侧同一底层数据源。",
     protoNote:
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
     domains: { sources: "建造者信号", vibe: "建造者词典", course: "建造者学院", jobs: "建造者机会", slop: "建造者品味", fde: "FDE 能力测试" },
     open: "打开",
+    inProgress: "进行中",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
     progressEcho: "学过的知识会在后续回路里「回声」式复现——这是记忆的物理学。",
@@ -76,13 +77,14 @@ export const WIKI_UI = {
   },
   en: {
     kicker: "Personal AI sense system",
-    intro: "Browse five knowledge domains, or ask the companion — both share one data source.",
+    intro: "Browse six knowledge domains, or ask the companion — both share one data source.",
     protoNote:
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
     domains: { sources: "Builder Signals", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "Builder Openings", slop: "Builder Taste", fde: "FDE Study" },
     open: "Open",
+    inProgress: "in progress",
     related: "Related",
     progress: "{done} / {total} loops done",
     progressEcho: "Learned ideas echo back in later loops — the physics of memory.",

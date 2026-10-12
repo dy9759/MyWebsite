@@ -7,7 +7,7 @@ export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // Deploy-stable content version — bump when regenerating search-index.json,
 // practice.json, or the preview PNGs (replaces per-mount Date.now() busters).
-export const WIKI_DATA_VERSION = "3";
+export const WIKI_DATA_VERSION = "4";
 export const PREVIEW_VERSION = "2";
 
 export const vibePreviewUrl = (id: string) =>
@@ -17,7 +17,7 @@ export const vibePreviewUrl = (id: string) =>
 export type TermJump = { topic: string; id: string; ts: number };
 
 export type SearchEntry = {
-  k: "term" | "loop" | "step";
+  k: "term" | "loop" | "step" | "fde";
   id: string;
   topic?: string;
   title: string;
