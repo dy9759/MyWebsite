@@ -59,6 +59,16 @@ describe("fde exam", () => {
     expect(new Set(FDE_QUESTIONS.map((q) => q.id)).size).toBe(FDE_QUESTIONS.length);
   });
 
+  // Only meaningful once the full bank is imported; placeholders can't fill quotas.
+  it.skipIf(!examReady(FDE_QUESTIONS))("real bank yields the official 40 single + 20 multiple / 100-point paper", () => {
+    for (const seed of [1, 2, 3, 4, 5]) {
+      const exam = buildExam(FDE_QUESTIONS, seeded(seed));
+      expect(exam.filter((q) => q.type === "single")).toHaveLength(40);
+      expect(exam.filter((q) => q.type === "multiple")).toHaveLength(20);
+      expect(calculateResult(exam, {}).max).toBe(100);
+    }
+  });
+
   it("builds one variant per concept and fills every domain quota", () => {
     const exam = buildExam(syntheticBank(), seeded(1));
     const total = Object.values(EXAM_CONFIG.domainQuota).reduce((a, b) => a + b, 0);
