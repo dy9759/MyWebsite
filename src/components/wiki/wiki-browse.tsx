@@ -24,11 +24,13 @@ export default function WikiBrowse({
   vibeTarget,
   fdeTarget,
   onFdeLive,
+  onFdeTargetUsed,
 }: {
   domain: WikiDomain;
   vibeTarget?: VibeTarget | null;
   fdeTarget?: { id: string; ts: number } | null;
   onFdeLive?: (live: boolean) => void;
+  onFdeTargetUsed?: () => void;
 }) {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
@@ -70,7 +72,7 @@ export default function WikiBrowse({
   }
 
   if (domain === "fde") {
-    return <WikiFde target={fdeTarget ?? null} onLive={onFdeLive} />;
+    return <WikiFde target={fdeTarget ?? null} onLive={onFdeLive} onTargetUsed={onFdeTargetUsed} />;
   }
 
   if (domain === "jobs") {

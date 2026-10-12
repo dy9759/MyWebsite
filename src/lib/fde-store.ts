@@ -40,7 +40,8 @@ function write(key: string, value: unknown) {
 }
 
 export function getWrong(): string[] {
-  return read<string[]>(WRONG_KEY, []);
+  const v = read<unknown>(WRONG_KEY, []);
+  return Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [];
 }
 
 // Add ids answered wrong, drop ids answered right; returns the new book.
@@ -71,7 +72,8 @@ export type FdeRecord = {
 };
 
 export function getHistory(): FdeRecord[] {
-  return read<FdeRecord[]>(HISTORY_KEY, []);
+  const v = read<unknown>(HISTORY_KEY, []);
+  return Array.isArray(v) ? (v as FdeRecord[]).filter((r) => r && typeof r.score === "number" && r.byDomain) : [];
 }
 
 // Append a finished attempt, keeping the newest HISTORY_MAX.
@@ -82,7 +84,8 @@ export function addHistory(r: FdeRecord): FdeRecord[] {
 }
 
 export function loadSession(): FdeSession | null {
-  return read<FdeSession | null>(SESSION_KEY, null);
+  const v = read<FdeSession | null>(SESSION_KEY, null);
+  return v && Array.isArray(v.questions) && v.questions.length && v.answers ? v : null;
 }
 
 export function saveSession(s: FdeSession | null) {

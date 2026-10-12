@@ -189,9 +189,11 @@ function ResultView({ done, onRetry, onHome }: { done: Done; onRetry: () => void
 export default function WikiFde({
   target = null,
   onLive,
+  onTargetUsed,
 }: {
   target?: { id: string; ts: number } | null;
   onLive?: (live: boolean) => void;
+  onTargetUsed?: () => void; // clear the jump so remounting the tab doesn't replay it
 }) {
   const { language } = useLanguage();
   const t = UI[language];
@@ -234,7 +236,9 @@ export default function WikiFde({
   // Search hit → practise that question's domain starting from it. Never
   // clobbers an attempt in progress (the session restore runs first).
   useEffect(() => {
-    if (!target || sessionRef.current || loadSession()) return;
+    if (!target) return;
+    onTargetUsed?.();
+    if (sessionRef.current || loadSession()) return;
     const q = FDE_QUESTIONS.find((x) => x.id === target.id);
     if (q) start("practice", q.domain, q.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps

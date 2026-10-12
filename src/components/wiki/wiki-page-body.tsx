@@ -129,7 +129,7 @@ export default function WikiPageBody() {
 
       {/* browse — full width, no frame */}
       <section aria-label="browse" className="flex min-w-0 flex-col">
-        <WikiBrowse domain={domain} vibeTarget={vibeTarget} fdeTarget={fdeTarget} onFdeLive={setFdeLive} />
+        <WikiBrowse domain={domain} vibeTarget={vibeTarget} fdeTarget={fdeTarget} onFdeLive={setFdeLive} onFdeTargetUsed={() => setFdeTarget(null)} />
       </section>
 
       {/* chat — floating window, bottom-right */}
