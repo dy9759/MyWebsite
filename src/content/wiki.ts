@@ -53,7 +53,7 @@ export const WIKI_UI = {
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
-    domains: { sources: "建造者信号", vibe: "建造者词典", course: "建造者学院", jobs: "建造者机会", slop: "建造者品味" },
+    domains: { sources: "建造者信号", vibe: "建造者词典", course: "建造者学院", jobs: "建造者机会", slop: "建造者品味", fde: "FDE 能力测试" },
     open: "打开",
     related: "关联",
     progress: "已完成 {done} / {total} 个回路",
@@ -81,7 +81,7 @@ export const WIKI_UI = {
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
-    domains: { sources: "Builder Signals", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "Builder Openings", slop: "Builder Taste" },
+    domains: { sources: "Builder Signals", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "Builder Openings", slop: "Builder Taste", fde: "FDE Study" },
     open: "Open",
     related: "Related",
     progress: "{done} / {total} loops done",

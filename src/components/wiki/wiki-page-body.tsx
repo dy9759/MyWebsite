@@ -6,6 +6,7 @@ import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
 import { VIBE_TOPICS, VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
 import { SLOP_TOTAL } from "@/components/wiki/wiki-slop";
+import { FDE_TOTAL } from "@/components/wiki/wiki-fde";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
@@ -15,7 +16,7 @@ import { FLOAT_CHAT } from "@/lib/float-chat";
 import { cn } from "@/lib/utils";
 
 // 三层信息架构：共识（词典/学院/品味）→ 前沿（信号）→ 机会
-const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "sources", "jobs"];
+const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "fde", "sources", "jobs"];
 
 export default function WikiPageBody() {
   const { language } = useLanguage();
@@ -57,6 +58,7 @@ export default function WikiPageBody() {
     vibe: String(VIBE_TOTAL),
     course: String(COURSE_TOTAL_LOOPS),
     slop: String(SLOP_TOTAL),
+    fde: String(FDE_TOTAL),
     jobs: String(WIKI_JOBS.length),
   };
 
