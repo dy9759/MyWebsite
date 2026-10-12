@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: fileURLToPath(new URL("./.env", import.meta.url)) });
 import express from "express";
 import cors from "cors";
-import { KNOWLEDGE } from "./knowledge.js";
+import { chatBody, parseReply } from "./prompt.js";
 import { mountMcp } from "./mcp.js";
 
 const {
@@ -21,7 +21,13 @@ const {
   WIKI_RATE_PER_MIN = "20",
   WIKI_SITE_URL = "http://localhost:3000",
   WIKI_DAILY_CAP = "2000",
+  WIKI_MCP_DAILY_CAP = "200",
+  WIKI_MCP_TOKEN = "",
+  WIKI_MCP_MAX_SESSIONS = "20",
 } = process.env;
+
+// Last-resort guard: a stray rejection must never take the chat down.
+process.on("unhandledRejection", (err) => console.error("unhandled rejection:", err?.message || err));
 
 if (!ANTHROPIC_API_KEY) {
   console.error("Missing ANTHROPIC_API_KEY. Set it in the environment (never hardcode).");
@@ -61,7 +67,8 @@ function spendDaily() {
   dayCount += 1;
   return true;
 }
-app.use("/chat", (req, res, next) => {
+// Per-IP sliding-minute limiter, shared by /chat and the MCP endpoints.
+function rateLimit(req, res, next) {
   const now = Date.now();
   const ip = req.ip || req.socket.remoteAddress || "?";
   const windowStart = now - 60_000;
@@ -72,24 +79,16 @@ app.use("/chat", (req, res, next) => {
   }
   list.push(now);
   hits.set(ip, list);
-  if (!spendDaily()) return res.status(429).json({ error: "daily limit reached" });
   if (hits.size > 10_000) {
     for (const [k, v] of hits) if (!v.some((t) => t > windowStart)) hits.delete(k);
   }
   next();
+}
+app.use("/chat", rateLimit, (_req, res, next) => {
+  if (!spendDaily()) return res.status(429).json({ error: "daily limit reached" });
+  next();
 });
 
-const SYSTEM = `${KNOWLEDGE}
-
-# 回复格式（必须遵守）
-只输出一个紧凑 JSON 对象，不要任何多余文字或 markdown：
-{"grounded": string, "text": string, "cites": [[tag, name], ...]}
-- grounded：一句话，说明命中了哪个域/几条（如「命中 建造者学院 · 第 0 章」）。
-- text：正文答案，用用户语言。
-- cites：最多 4 个 [标签, 名称]，指向你用到的来源/术语/课程/招聘条目。
-- 当问题属于学习性质（课程/术语/概念）时，在 text 结尾另起一行附一道验证小题：
-  以「小题：」开头的一句话提问，检验刚才讲的核心点，不给选项不给答案。
-  闲聊、招聘、来源检索类问题不附。`;
 
 app.get("/health", (_req, res) => res.json({ ok: true, model: ANTHROPIC_MODEL }));
 
@@ -97,14 +96,8 @@ async function askUpstream(message) {
   const upstream = await fetch(`${ANTHROPIC_BASE_URL}/chat/completions`, {
     method: "POST",
     headers: { "content-type": "application/json", authorization: `Bearer ${ANTHROPIC_API_KEY}` },
-    body: JSON.stringify({
-      model: ANTHROPIC_MODEL,
-      max_tokens: 1024,
-      messages: [
-        { role: "system", content: SYSTEM },
-        { role: "user", content: message },
-      ],
-    }),
+    body: JSON.stringify(chatBody(ANTHROPIC_MODEL, message)),
+    signal: AbortSignal.timeout(30_000),
   });
   if (!upstream.ok) throw new Error(`upstream ${upstream.status}`);
   const data = await upstream.json();
@@ -123,25 +116,17 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-// The model is asked for strict JSON; fall back to wrapping raw text if it drifts.
-function parseReply(raw, model) {
-  try {
-    const json = JSON.parse(raw.replace(/^```json\s*|\s*```$/g, ""));
-    if (json && typeof json.text === "string") {
-      return {
-        grounded: typeof json.grounded === "string" ? json.grounded : `已接入 · ${model}`,
-        text: json.text,
-        cites: Array.isArray(json.cites) ? json.cites.filter((c) => Array.isArray(c) && c.length === 2).slice(0, 4) : [],
-      };
-    }
-  } catch {
-    /* not JSON — fall through */
-  }
-  return { grounded: `已接入 · ${model}`, text: raw || "（空响应）", cites: [] };
-}
 
 // MCP endpoint (GET /sse + POST /messages) — external agents get ask_wiki / search_wiki.
-mountMcp(app, { askUpstream, spendDaily, siteUrl: WIKI_SITE_URL });
+mountMcp(app, {
+  askUpstream,
+  spendDaily,
+  rateLimit,
+  siteUrl: WIKI_SITE_URL,
+  token: WIKI_MCP_TOKEN,
+  mcpDailyCap: Number(WIKI_MCP_DAILY_CAP) || 200,
+  maxSessions: Number(WIKI_MCP_MAX_SESSIONS) || 20,
+});
 
 // Terminal error handler: malformed JSON bodies etc. must never surface a
 // stack trace to the client (Express's default does when NODE_ENV≠production).

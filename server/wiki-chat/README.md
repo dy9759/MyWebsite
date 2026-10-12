@@ -38,6 +38,16 @@ daily spend cap as `/chat`) and `search_wiki` (keyword lookup over the site's
 public `search-index.json`, origin set by `WIKI_SITE_URL`). Connect any MCP
 client to `http://<host>:8787/sse`.
 
+Each SSE connection gets its own MCP server instance. Guards: the per-IP
+limiter (`WIKI_RATE_PER_MIN`) covers `/sse` and `/messages`; `ask_wiki` has its
+own daily budget (`WIKI_MCP_DAILY_CAP`, default 200); open sessions are capped
+(`WIKI_MCP_MAX_SESSIONS`, default 20) and idle ones close after 30 minutes. Set
+`WIKI_MCP_TOKEN` to require `Authorization: Bearer <token>`.
+
+The system prompt and reply parsing live in `prompt.js`, which the static site
+also imports for its bring-your-own-key mode — edit the knowledge digest in
+`knowledge.js` once and both paths pick it up.
+
 ## Deploy
 
 Run with `NODE_ENV=production` — it forces the CORS fail-safe (explicit
