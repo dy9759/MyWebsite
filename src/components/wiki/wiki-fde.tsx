@@ -22,7 +22,19 @@ import {
   type FdeDomain,
   type FdeResult,
 } from "@/lib/fde-exam";
-import { getWrong, loadSession, saveSession, updateWrong, type FdeMode, type FdeSession } from "@/lib/fde-store";
+import WikiFdeStats from "@/components/wiki/wiki-fde-stats";
+import {
+  addHistory,
+  getHistory,
+  getWrong,
+  loadSession,
+  pruneWrong,
+  saveSession,
+  updateWrong,
+  type FdeMode,
+  type FdeRecord,
+  type FdeSession,
+} from "@/lib/fde-store";
 
 export const FDE_TOTAL = FDE_QUESTIONS.length;
 
@@ -192,6 +204,7 @@ export default function WikiFde({
   const [domain, setDomain] = useState<FdeDomain | "">("");
   const [wrongCount, setWrongCount] = useState(0);
   const [resumed, setResumed] = useState(false);
+  const [history, setHistory] = useState<FdeRecord[]>([]);
 
   const update = (s: FdeSession | null) => {
     sessionRef.current = s;
@@ -202,7 +215,8 @@ export default function WikiFde({
 
   // Read storage after mount (hydration-safe on the static export).
   useEffect(() => {
-    setWrongCount(getWrong().length);
+    setWrongCount(pruneWrong(new Set(FDE_QUESTIONS.map((q) => q.id))).length);
+    setHistory(getHistory());
     const saved = loadSession();
     if (saved?.questions?.length) {
       sessionRef.current = saved;
@@ -240,6 +254,10 @@ export default function WikiFde({
     if (s.mode === "full") {
       const right = graded.filter((q) => !result.wrongIds.includes(q.id)).map((q) => q.id);
       setWrongCount(updateWrong(result.wrongIds, right).length);
+    }
+    if (graded.length) {
+      const { score, max, passed, byDomain } = result;
+      setHistory(addHistory({ at: Date.now(), mode: s.mode, score, max, passed, byDomain }));
     }
     sessionRef.current = null;
     saveSession(null);
@@ -306,6 +324,7 @@ export default function WikiFde({
           <p className="mt-2 font-mono text-xs text-muted-foreground">{t.count.replace("{n}", String(wrongCount))}</p>
         </ModeCard>
       </div>
+      {history.length ? <WikiFdeStats history={history} onPractise={(d) => start("practice", d)} /> : null}
     </div>
   );
 }

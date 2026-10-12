@@ -7,6 +7,7 @@ import {
   FDE_QUESTIONS,
   buildExam,
   calculateResult,
+  domainMastery,
   examReady,
   scoreQuestion,
   shuffleOptions,
@@ -121,5 +122,15 @@ describe("fde exam", () => {
     expect(none.score).toBe(0);
     expect(none.passed).toBe(false);
     expect(none.wrongIds).toHaveLength(exam.length);
+  });
+
+  it("aggregates domain mastery across attempts, weakest first", () => {
+    const m = domainMastery([
+      { byDomain: { ai: { correct: 3, total: 4 }, safety: { correct: 1, total: 4 } } },
+      { byDomain: { ai: { correct: 1, total: 4 }, core: { correct: 2, total: 2 } } },
+    ]);
+    expect(m.map((x) => x.domain)).toEqual(["safety", "ai", "core"]);
+    expect(m[1]).toMatchObject({ correct: 4, total: 8, rate: 0.5 });
+    expect(domainMastery([])).toEqual([]);
   });
 });

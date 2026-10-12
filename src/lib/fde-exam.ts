@@ -138,3 +138,21 @@ export function calculateResult(questions: FdeQuestion[], answers: Record<string
   score = Number(score.toFixed(1));
   return { score, max, passed: score >= EXAM_CONFIG.passScore, wrongIds, byDomain };
 }
+
+export type DomainMastery = { domain: FdeDomain; correct: number; total: number; rate: number };
+
+// Aggregate per-domain accuracy across attempts, weakest first; untouched
+// domains are omitted.
+export function domainMastery(attempts: { byDomain: FdeResult["byDomain"] }[]): DomainMastery[] {
+  const out: DomainMastery[] = [];
+  for (const domain of FDE_DOMAINS) {
+    let correct = 0;
+    let total = 0;
+    for (const a of attempts) {
+      correct += a.byDomain[domain]?.correct ?? 0;
+      total += a.byDomain[domain]?.total ?? 0;
+    }
+    if (total) out.push({ domain, correct, total, rate: correct / total });
+  }
+  return out.sort((a, b) => a.rate - b.rate || b.total - a.total);
+}
