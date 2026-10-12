@@ -2,6 +2,7 @@
 // cache-bust policy, and module-level caches so repeated mounts reuse one
 // request instead of refetching per component.
 import { WIKI_UI, wikiDemoReply, type WikiReply } from "@/content/wiki";
+import { askByok, getByok, useByok } from "@/lib/wiki-byok";
 
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -67,12 +68,22 @@ export const loadPractice = (): Promise<PracticeQ[]> => {
 };
 
 // One chat-send implementation for the /wiki chat and the lesson tutor:
-// POST to the configured backend, graceful demo fallback otherwise.
+// configured backend (local dev) → visitor's own key (public site) → demo.
 export const WIKI_API_URL = process.env.NEXT_PUBLIC_WIKI_API_URL;
 export const WIKI_CONNECTED = Boolean(WIKI_API_URL);
 
+// "backend" | "byok" | null — whether answers come from a real model right now.
+export function useWikiLive(): "backend" | "byok" | null {
+  const byok = useByok();
+  if (WIKI_CONNECTED) return "backend";
+  return byok ? "byok" : null;
+}
+
 export async function askWiki(message: string, language: keyof typeof WIKI_UI): Promise<WikiReply> {
-  if (!WIKI_API_URL) return wikiDemoReply(message, language);
+  if (!WIKI_API_URL) {
+    const byok = getByok();
+    return byok ? askByok(byok, message, language) : wikiDemoReply(message, language);
+  }
   try {
     const res = await fetch(WIKI_API_URL, {
       method: "POST",

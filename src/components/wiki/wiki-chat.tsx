@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, type WikiReply } from "@/content/wiki";
 import { cn } from "@/lib/utils";
+import { WIKI_CONNECTED } from "@/lib/wiki-data";
+import WikiByokPanel from "@/components/wiki/wiki-byok-panel";
 
 export type WikiMsg =
   | { role: "u"; text: string }
@@ -111,6 +113,8 @@ export default function WikiChat({
         ) : null}
       </div>
 
+      {/* Public site (no backend): visitors can plug in their own key. */}
+      {WIKI_CONNECTED ? null : <WikiByokPanel />}
       <div className="flex items-center gap-2 px-4 pb-4 pt-2">
         <div className="flex flex-1 items-center rounded-lg border bg-background px-2.5 py-1.5">
           <input
@@ -120,7 +124,7 @@ export default function WikiChat({
             onKeyDown={(e) => {
               if (e.key === "Enter") submit();
             }}
-            placeholder={placeholder ?? ui.chat.placeholder}
+            placeholder={placeholder ?? (connected ? ui.chat.placeholderLive : ui.chat.placeholder)}
             aria-label={ui.chat.title}
             disabled={pending}
             className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/60 disabled:opacity-60"

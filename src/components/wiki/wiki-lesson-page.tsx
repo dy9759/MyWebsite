@@ -21,7 +21,7 @@ import {
   askWiki,
   loadPractice,
   loadSearchIndex,
-  WIKI_CONNECTED,
+  useWikiLive,
   type PracticeQ,
   type SearchEntry,
 } from "@/lib/wiki-data";
@@ -103,6 +103,7 @@ export default function WikiLessonPage({
 }) {
   const router = useRouter();
   const { language } = useLanguage();
+  const live = useWikiLive();
   const [idx, setIdx] = useState(0);
   const [finished, setFinished] = useState(false);
   const [stepProgress, setStepProgress] = useState<Record<number, { answered: number; total: number }>>({});
@@ -494,7 +495,7 @@ export default function WikiLessonPage({
             convo={convo}
             onSend={sendChat}
             showHeader={false}
-            connected={WIKI_CONNECTED}
+            connected={Boolean(live)}
             pending={tutorPending}
             chips={
               JUDGE.has(step.kind)

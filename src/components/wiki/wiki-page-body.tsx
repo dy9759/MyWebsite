@@ -11,7 +11,7 @@ import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
 import WikiSearch from "@/components/wiki/wiki-search";
-import { askWiki, WIKI_CONNECTED as CONNECTED, type TermJump } from "@/lib/wiki-data";
+import { askWiki, useWikiLive, type TermJump } from "@/lib/wiki-data";
 import { FLOAT_CHAT } from "@/lib/float-chat";
 import { loadSession } from "@/lib/fde-store";
 import { cn } from "@/lib/utils";
@@ -22,6 +22,7 @@ const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "fde", "sources", "jobs
 export default function WikiPageBody() {
   const { language } = useLanguage();
   const ui = WIKI_UI[language];
+  const live = useWikiLive();
 
   const [domain, setDomain] = useState<WikiDomain>("vibe");
   const [vibeTarget, setVibeTarget] = useState<TermJump | null>(null);
@@ -83,7 +84,7 @@ export default function WikiPageBody() {
         <h1 className="mt-1 text-3xl font-bold tracking-tight">AI Sense Wiki</h1>
         <p className="mt-1 max-w-2xl text-muted-foreground">{ui.intro}</p>
         <p className="mt-2 flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground/70">
-          <span>※ {CONNECTED ? ui.connectedNote : ui.protoNote}</span>
+          <span>※ {live === "backend" ? ui.connectedNote : live === "byok" ? ui.byokNote : ui.protoNote}</span>
           <span className="rounded-full border border-accent bg-accent/10 px-2 py-0.5 text-accent">
             MCP · /sse
           </span>
@@ -149,7 +150,7 @@ export default function WikiPageBody() {
               <X className="size-4" />
             </button>
           </div>
-          <WikiChat convo={convo} onSend={send} showHeader={false} connected={CONNECTED} pending={pending} />
+          <WikiChat convo={convo} onSend={send} showHeader={false} connected={Boolean(live)} pending={pending} />
         </div>
       ) : null}
       <button

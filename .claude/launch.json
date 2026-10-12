@@ -12,6 +12,20 @@
             "autoPort": true
         },
         {
+            "name": "dev-public",
+            "runtimeExecutable": "env",
+            "runtimeArgs": [
+                "NEXT_PUBLIC_WIKI_API_URL=",
+                "npm",
+                "run",
+                "dev",
+                "--",
+                "-p",
+                "3001"
+            ],
+            "port": 3001
+        },
+        {
             "name": "wiki-chat",
             "runtimeExecutable": "node",
             "runtimeArgs": [

@@ -53,6 +53,7 @@ export const WIKI_UI = {
       "演示壳 · 对话为预设规则、未接后端；真实版由 Claude Agent SDK × 百炼在同一数据源上检索、带引用作答。",
     connectedNote:
       "已接入后端 · 经百炼驱动 deepseek-v4-flash-0731 在知识库上作答（密钥仅服务端）。",
+    byokNote: "已用你自己的百炼 Key 直连模型作答 · Key 只存在你的浏览器。",
     domains: { sources: "建造者信号", vibe: "建造者词典", course: "建造者学院", jobs: "建造者机会", slop: "建造者品味", fde: "FDE 能力测试" },
     open: "打开",
     inProgress: "进行中",
@@ -67,6 +68,7 @@ export const WIKI_UI = {
       tag: "演示",
       tagLive: "已接入",
       placeholder: "问点什么…（演示，未接后端）",
+      placeholderLive: "问点什么…",
       send: "发送",
       emptyPrompt: "任何一步没看懂，随时问我。",
       emptySub: "随行了解你在看什么、你的产品是什么；选中任意条目，也可以直接「问这句」。",
@@ -82,6 +84,7 @@ export const WIKI_UI = {
       "Frontend shell · replies are preset rules, no backend. The real version retrieves and cites via Claude Agent SDK × Bailian on the same data source.",
     connectedNote:
       "Backend connected · answers over the knowledge base via Bailian-driven deepseek-v4-flash-0731 (key server-side only).",
+    byokNote: "Answering with your own Bailian key, called directly from your browser · the key never leaves it.",
     domains: { sources: "Builder Signals", vibe: "Builder Lexicon", course: "Builder Academy", jobs: "Builder Openings", slop: "Builder Taste", fde: "FDE Study" },
     open: "Open",
     inProgress: "in progress",
@@ -96,6 +99,7 @@ export const WIKI_UI = {
       tag: "Demo",
       tagLive: "Live",
       placeholder: "Ask anything… (demo, no backend)",
+      placeholderLive: "Ask anything…",
       send: "Send",
       emptyPrompt: "Stuck on any step? Just ask.",
       emptySub: "The companion knows what you're reading and what you're building; select any item to ask about it.",
