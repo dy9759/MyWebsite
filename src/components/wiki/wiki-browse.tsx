@@ -8,7 +8,8 @@ import { WIKI_COURSE, WIKI_JOBS, WIKI_UI } from "@/content/wiki";
 import { COURSE_CHAPTERS, COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiVibe, { type VibeTarget } from "@/components/wiki/wiki-vibe";
 import WikiSlop from "@/components/wiki/wiki-slop";
-import WikiFde from "@/components/wiki/wiki-fde";
+import WikiFdeChapters from "@/components/wiki/wiki-fde-chapters";
+import { FDE_CHAPTERS } from "@/content/fde-course";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
@@ -17,7 +18,7 @@ import PRACTICE_CHAPTERS from "@/content/practice-chapters.json";
 import AIPageBody from "@/components/ai/ai-page-body";
 import SectionRailNav from "@/components/section-rail-nav";
 
-export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop" | "fde";
+export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop";
 
 export default function WikiBrowse({
   domain,
@@ -71,10 +72,6 @@ export default function WikiBrowse({
     return <WikiSlop />;
   }
 
-  if (domain === "fde") {
-    return <WikiFde target={fdeTarget ?? null} onLive={onFdeLive} onTargetUsed={onFdeTargetUsed} />;
-  }
-
   if (domain === "jobs") {
     return (
       <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 py-4">
@@ -122,10 +119,10 @@ export default function WikiBrowse({
       <SectionRailNav
         ariaLabel="课程章节导航"
         label="建造者学院"
-        items={COURSE_CHAPTERS.map((ch) => ({
-          href: `#course-ch${ch.index}`,
-          label: `第 ${ch.index} 章 ${ch.title}`,
-        }))}
+        items={[
+          ...COURSE_CHAPTERS.map((ch) => ({ href: `#course-ch${ch.index}`, label: `第 ${ch.index} 章 ${ch.title}` })),
+          ...FDE_CHAPTERS.map((ch) => ({ href: `#course-${ch.id}`, label: `第 ${ch.index} 章 ${ch.title}` })),
+        ]}
       />
       <div className="flex min-w-0 flex-col gap-4">
       <div>
@@ -305,6 +302,9 @@ export default function WikiBrowse({
           </div>
         </div>
       ))}
+      {!practiceOpen ? (
+        <WikiFdeChapters target={fdeTarget ?? null} onLive={onFdeLive} onTargetUsed={onFdeTargetUsed} />
+      ) : null}
       </div>
     </div>
   );

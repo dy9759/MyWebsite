@@ -6,7 +6,6 @@ import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
 import { VIBE_TOPICS, VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
 import { SLOP_TOTAL } from "@/components/wiki/wiki-slop";
-import { FDE_TOTAL } from "@/components/wiki/wiki-fde";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
 import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
@@ -17,7 +16,7 @@ import { loadSession } from "@/lib/fde-store";
 import { cn } from "@/lib/utils";
 
 // 三层信息架构：共识（词典/学院/品味）→ 前沿（信号）→ 机会
-const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "fde", "sources", "jobs"];
+const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "sources", "jobs"];
 
 export default function WikiPageBody() {
   const { language } = useLanguage();
@@ -33,15 +32,21 @@ export default function WikiPageBody() {
   // topic feeds a fetch path, so anything unknown is ignored outright).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    // /wiki?domain=fde — allowlisted against the tab list.
+    // /wiki?domain=<tab> — allowlisted against the tab list. "fde" is an alias
+    // for the academy's FDE 认证篇 (第 9–12 章).
     const d = params.get("domain");
-    if (d && (DOMAINS as string[]).includes(d)) setDomain(d as WikiDomain);
-    // An unfinished FDE attempt: mark the tab; a running timed exam takes the
-    // user straight back to it unless the URL asked for another domain.
+    const goFde = () => {
+      setDomain("course");
+      setTimeout(() => document.getElementById("course-fde")?.scrollIntoView({ block: "start" }), 300);
+    };
+    if (d === "fde") goFde();
+    else if (d && (DOMAINS as string[]).includes(d)) setDomain(d as WikiDomain);
+    // An unfinished FDE attempt marks the academy tab; a running timed exam
+    // takes the user straight back to it unless the URL named another tab.
     const s = loadSession();
     if (s) {
       setFdeLive(true);
-      if (s.mode === "full" && !d) setDomain("fde");
+      if (s.mode === "full" && !d) goFde();
     }
     const m = params.get("vibe");
     if (!m) return;
@@ -73,7 +78,6 @@ export default function WikiPageBody() {
     vibe: String(VIBE_TOTAL),
     course: String(COURSE_TOTAL_LOOPS),
     slop: String(SLOP_TOTAL),
-    fde: String(FDE_TOTAL),
     jobs: String(WIKI_JOBS.length),
   };
 
@@ -96,7 +100,7 @@ export default function WikiPageBody() {
               setVibeTarget(jump);
             }}
             onFde={(id) => {
-              setDomain("fde");
+              setDomain("course");
               setFdeTarget({ id, ts: Date.now() });
             }}
           />
@@ -121,7 +125,7 @@ export default function WikiPageBody() {
           >
             {ui.domains[d]}
             <span className="ml-1.5 font-mono text-xs opacity-70">{domainCount[d]}</span>
-            {d === "fde" && fdeLive ? (
+            {d === "course" && fdeLive ? (
               <span className="ml-1.5 rounded-full bg-orange-500/15 px-1.5 text-xs text-orange-600">{ui.inProgress}</span>
             ) : null}
           </button>

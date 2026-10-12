@@ -13,6 +13,7 @@ export type FdeMode = "full" | "practice" | "wrong";
 export type FdeSession = {
   mode: FdeMode;
   domain: FdeDomain | null;
+  lessons?: string[] | null; // practice scoped to academy lessons (FDE 认证篇)
   questions: FdeQuestion[];
   answers: Record<string, number[]>;
   marks: string[];

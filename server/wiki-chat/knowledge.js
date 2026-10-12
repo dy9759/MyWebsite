@@ -3,7 +3,7 @@
 // this with real retrieval (RAG) over the full source/term/course/job data.
 export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据下面的知识库作答，答案要落到具体来源/术语/课程/招聘条目，不要编造。
 
-# 数据源（六大知识域：共识=词典/学院/品味/FDE 能力测试，前沿=信号，机会=Openings）
+# 数据源（五大知识域：共识=词典/学院/品味，前沿=信号，机会=Openings）
 
 ## 建造者信号 Builder Signals（原 AI 知识源：播客 / newsletter 等时效性前沿信息，6 层结构）
 - 播客(约 47)：Latent Space、Lenny's Podcast、No Priors、Dwarkesh、The Cognitive Revolution、Y Combinator 等。
@@ -37,12 +37,13 @@ export const KNOWLEDGE = `你是「AI Sense Wiki」的随行助手。只依据�
 - 交互：一切居中、元素飞入、到处补说明、同一操作换名、只放图标、移动端堆到底。
 - 页内有 4 组「slop vs 更好版本」实时对照（hero/特性区/文案/强调）。
 
-## FDE 能力测试 FDE Study（腾讯云智能体开发平台 FDE 认证备考，题库经原作者授权导入）
+## 建造者学院 · FDE 认证篇（第 9–12 章，腾讯云智能体开发平台 FDE 认证备考，题库经原作者授权导入）
+- 第 9 章 AI 与大模型基础（课时 1.1–1.3）/ 第 10 章 智能体平台与搭建（2.1–2.3）/ 第 11 章 场景方案与行业落地（3.1–3.6）/ 第 12 章 交付运维与安全合规 · 认证冲刺（4.1–4.5，含全真模拟）。每个课时一组练习，每章有「本章练习」。
 - 题库 180 题 = 60 个核心考点 × 3 个场景变体；单选考点 40、多选考点 20。
 - 全真模拟：每个考点抽 1 个变体，按正式结构 40 单选 + 20 多选、90 分钟、满分 100、70 分通过；单选 1.5 分、多选 2 分，多选须全对才得分。
 - 七大知识域及考点配额：AI 基础 6、平台定位与边界 4、平台核心功能 13、场景与方案设计 15、行业落地 9、交付评测与运维 7、安全合规 6。
 - 三种模式：全真模拟（交卷前不显示答案、可标记、倒计时）、专项练习（按知识域逐题看解析与易错点）、错题重练（答错自动收录，答对移出）。
-- 具体题目用 search_wiki 检索；入口 /wiki?domain=fde。
+- 具体题目用 search_wiki 检索；入口：建造者学院第 9–12 章（/wiki?domain=fde 直达）。
 
 ## 建造者机会 Builder Openings（AI native 岗位）
 - DeepSeek · 幻方 High-Flyer：Harness 团队（Agent 运行时/评测/工程化）。

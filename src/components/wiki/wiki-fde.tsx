@@ -36,7 +36,7 @@ import {
   type FdeSession,
 } from "@/lib/fde-store";
 
-export const FDE_TOTAL = FDE_QUESTIONS.length;
+const FDE_TOTAL = FDE_QUESTIONS.length;
 
 const UI = {
   zh: {
@@ -85,20 +85,23 @@ const UI = {
 
 type Done = { session: FdeSession; result: FdeResult };
 
-function newSession(mode: FdeMode, domain: FdeDomain | null, firstId?: string): FdeSession | null {
+export type FdeScope = { domain?: FdeDomain | null; lessons?: string[] | null; firstId?: string };
+
+function newSession(mode: FdeMode, { domain = null, lessons = null, firstId }: FdeScope = {}): FdeSession | null {
   let questions;
   if (mode === "full") questions = buildExam(FDE_QUESTIONS);
   else if (mode === "wrong") {
     const ids = new Set(getWrong());
     questions = shuffle(FDE_QUESTIONS.filter((q) => ids.has(q.id))).map((q) => shuffleOptions(q));
   } else {
-    questions = shuffle(FDE_QUESTIONS.filter((q) => !domain || q.domain === domain)).map((q) => shuffleOptions(q));
+    const pool = FDE_QUESTIONS.filter((q) => (!domain || q.domain === domain) && (!lessons || lessons.includes(q.lesson)));
+    questions = shuffle(pool).map((q) => shuffleOptions(q));
   }
   if (!questions.length) return null;
   // Search jump: put the chosen question first.
   if (firstId) questions = [...questions.filter((q) => q.id === firstId), ...questions.filter((q) => q.id !== firstId)];
   const deadline = mode === "full" ? Date.now() + EXAM_CONFIG.durationSeconds * 1000 : null;
-  return { mode, domain, questions, answers: {}, marks: [], checked: [], index: 0, deadline };
+  return { mode, domain, lessons, questions, answers: {}, marks: [], checked: [], index: 0, deadline };
 }
 
 function ModeCard({ copy, onStart, disabled, children }: { copy: string[]; onStart: () => void; disabled?: boolean; children?: React.ReactNode }) {
@@ -190,10 +193,14 @@ export default function WikiFde({
   target = null,
   onLive,
   onTargetUsed,
+  onHome,
 }: {
-  target?: { id: string; ts: number } | null;
+  // id: a search hit (practise its domain from that question);
+  // lessons: an academy lesson / chapter practice request.
+  target?: { ts: number; id?: string; lessons?: string[] } | null;
   onLive?: (live: boolean) => void;
-  onTargetUsed?: () => void; // clear the jump so remounting the tab doesn't replay it
+  onTargetUsed?: () => void; // clear the jump so remounting doesn't replay it
+  onHome?: () => void; // back on the home view (the academy re-docks it)
 }) {
   const { language } = useLanguage();
   const t = UI[language];
@@ -227,10 +234,10 @@ export default function WikiFde({
     }
   }, []);
 
-  const start = (mode: FdeMode, d: FdeDomain | null = null, firstId?: string) => {
+  const start = (mode: FdeMode, scope: FdeScope = {}) => {
     setDone(null);
     setResumed(false);
-    update(newSession(mode, d, firstId));
+    update(newSession(mode, scope));
   };
 
   // Search hit → practise that question's domain starting from it. Never
@@ -238,9 +245,14 @@ export default function WikiFde({
   useEffect(() => {
     if (!target) return;
     onTargetUsed?.();
+    if (target.lessons) {
+      // Explicit academy request — the caller already confirmed any discard.
+      start("practice", { lessons: target.lessons });
+      return;
+    }
     if (sessionRef.current || loadSession()) return;
     const q = FDE_QUESTIONS.find((x) => x.id === target.id);
-    if (q) start("practice", q.domain, q.id);
+    if (q) start("practice", { domain: q.domain, firstId: q.id });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target?.ts]);
 
@@ -267,8 +279,12 @@ export default function WikiFde({
     saveSession(null);
     setSession(null);
     onLive?.(false);
-    setDone(graded.length ? { session: s, result } : null);
-  }, [onLive]);
+    if (graded.length) setDone({ session: s, result });
+    else {
+      setDone(null);
+      onHome?.(); // nothing graded → straight back home
+    }
+  }, [onLive, onHome]);
 
   if (session) {
     return (
@@ -280,7 +296,12 @@ export default function WikiFde({
   }
 
   if (done) {
-    return <ResultView done={done} onRetry={() => start(done.session.mode, done.session.domain)} onHome={() => setDone(null)} />;
+    return <ResultView done={done} onRetry={() => start(done.session.mode, { domain: done.session.domain, lessons: done.session.lessons })}
+        onHome={() => {
+          setDone(null);
+          onHome?.();
+        }}
+      />;
   }
 
   const domainCount = (d: FdeDomain | "") => FDE_QUESTIONS.filter((q) => !d || q.domain === d).length;
@@ -308,7 +329,7 @@ export default function WikiFde({
       </header>
       <div className="grid gap-3 md:grid-cols-3">
         <ModeCard copy={t.full} onStart={() => start("full")} disabled={!ready} />
-        <ModeCard copy={t.practice} onStart={() => start("practice", domain || null)}>
+        <ModeCard copy={t.practice} onStart={() => start("practice", { domain: domain || null })}>
           <select
             value={domain}
             onChange={(e) => setDomain(e.target.value as FdeDomain | "")}
@@ -328,7 +349,7 @@ export default function WikiFde({
           <p className="mt-2 font-mono text-xs text-muted-foreground">{t.count.replace("{n}", String(wrongCount))}</p>
         </ModeCard>
       </div>
-      {history.length ? <WikiFdeStats history={history} onPractise={(d) => start("practice", d)} /> : null}
+      {history.length ? <WikiFdeStats history={history} onPractise={(d) => start("practice", { domain: d })} /> : null}
     </div>
   );
 }
