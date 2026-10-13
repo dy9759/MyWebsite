@@ -64,9 +64,9 @@ env vars from `.env.example`, then set the site build's
 
 - **Key is server-side only.** It lives in this service's env, never in the
   frontend bundle or git. The static site is fully public.
-- **Rotate the exposed keys.** The keys pasted earlier in chat (`sk-b70852…`,
-  `sk-ws-H.EP…`) are compromised — revoke and regenerate; put the new one only
-  in `.env` here.
+- **Rotate any exposed key.** If a key is ever pasted into a chat, log or
+  commit, revoke it at the provider first, then put the new one only in `.env`
+  here.
 - **Restrict CORS** in production: set `WIKI_ALLOWED_ORIGINS` to your site's
   origin(s), not `*`.
 - Consider adding rate limiting / an allowlist before exposing publicly.

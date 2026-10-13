@@ -9,10 +9,11 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
+import { MAX_MESSAGE } from "./prompt.js";
 
 const IDLE_MS = 30 * 60_000;
 
-export function mountMcp(app, { askUpstream, spendDaily, rateLimit, siteUrl, token, mcpDailyCap, maxSessions }) {
+export function mountMcp(app, { askUpstream, spendDaily, refundDaily, rateLimit, siteUrl, token, mcpDailyCap, maxSessions }) {
   let indexCache = null;
   let indexAt = 0;
   async function loadIndex() {
@@ -45,10 +46,18 @@ export function mountMcp(app, { askUpstream, spendDaily, rateLimit, siteUrl, tok
     server.tool(
       "ask_wiki",
       "向 AI Sense Wiki 知识库提问（建造者词典 411 词 / 建造者学院课程（含 FDE 认证章节）/ 建造者品味 / 信号源 / 机会）。返回带引用的中文或英文回答。",
-      { question: z.string().max(4000).describe("要问的问题"), language: z.enum(["zh", "en"]).optional() },
+      { question: z.string().max(MAX_MESSAGE).describe("要问的问题"), language: z.enum(["zh", "en"]).optional() },
       async ({ question }) => {
+        if (!question.trim()) return { content: [{ type: "text", text: "empty question" }] };
         if (!spendMcp()) return { content: [{ type: "text", text: "daily limit reached" }] };
-        const reply = await askUpstream(question);
+        let reply;
+        try {
+          reply = await askUpstream(question);
+        } catch (err) {
+          mcpCount = Math.max(0, mcpCount - 1);
+          refundDaily();
+          return { isError: true, content: [{ type: "text", text: `upstream failed: ${err?.message || err}` }] };
+        }
         const cites = (reply.cites ?? []).map(([tag, name]) => `[${tag}] ${name}`).join(" · ");
         return { content: [{ type: "text", text: `${reply.grounded}\n\n${reply.text}${cites ? `\n\n引用：${cites}` : ""}` }] };
       },

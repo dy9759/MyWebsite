@@ -81,12 +81,12 @@ const ERRORS: Record<string, { zh: string; en: string }> = {
 // the visitor sees what went wrong instead of a silent demo answer.
 export async function askByok(cfg: ByokConfig, message: string, language: "zh" | "en"): Promise<WikiReply> {
   // Loaded on demand: the knowledge digest only ships to visitors who use it.
-  const { chatBody, parseReply } = await import("../../server/wiki-chat/prompt.js");
+  const { MAX_MESSAGE, chatBody, parseReply } = await import("../../server/wiki-chat/prompt.js");
   try {
     const res = await fetch(`${BYOK_ENDPOINTS[cfg.region]}/chat/completions`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${cfg.key}` },
-      body: JSON.stringify(chatBody(cfg.model, message.slice(0, 4000))),
+      body: JSON.stringify(chatBody(cfg.model, message.slice(0, MAX_MESSAGE))),
       signal: AbortSignal.timeout(60_000),
     });
     if (!res.ok) throw new Error(String(res.status));

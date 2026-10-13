@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: fileURLToPath(new URL("./.env", import.meta.url)) });
 import express from "express";
 import cors from "cors";
-import { chatBody, parseReply } from "./prompt.js";
+import { MAX_MESSAGE, chatBody, parseReply } from "./prompt.js";
 import { mountMcp } from "./mcp.js";
 
 const {
@@ -24,6 +24,10 @@ const {
   WIKI_MCP_DAILY_CAP = "200",
   WIKI_MCP_TOKEN = "",
   WIKI_MCP_MAX_SESSIONS = "20",
+  // Which proxies may set X-Forwarded-For (Express "trust proxy"). Default:
+  // only a reverse proxy on this host. Set the hop count (e.g. "1") when a
+  // platform proxy fronts the service, so the limiter keys on the client IP.
+  WIKI_TRUST_PROXY = "loopback",
 } = process.env;
 
 // Last-resort guard: a stray rejection must never take the chat down.
@@ -41,6 +45,7 @@ if (process.env.NODE_ENV === "production" && WIKI_ALLOWED_ORIGINS === "*") {
 }
 
 const app = express();
+app.set("trust proxy", /^\d+$/.test(WIKI_TRUST_PROXY) ? Number(WIKI_TRUST_PROXY) : WIKI_TRUST_PROXY);
 app.use(express.json({ limit: "32kb" }));
 app.use(
   cors({
@@ -67,6 +72,10 @@ function spendDaily() {
   dayCount += 1;
   return true;
 }
+// Give a slot back when the upstream call fails — no tokens were billed.
+function refundDaily() {
+  if (dayCount > 0) dayCount -= 1;
+}
 // Per-IP sliding-minute limiter, shared by /chat and the MCP endpoints.
 function rateLimit(req, res, next) {
   const now = Date.now();
@@ -84,10 +93,7 @@ function rateLimit(req, res, next) {
   }
   next();
 }
-app.use("/chat", rateLimit, (_req, res, next) => {
-  if (!spendDaily()) return res.status(429).json({ error: "daily limit reached" });
-  next();
-});
+app.use("/chat", rateLimit);
 
 
 app.get("/health", (_req, res) => res.json({ ok: true, model: ANTHROPIC_MODEL }));
@@ -106,11 +112,14 @@ async function askUpstream(message) {
 }
 
 app.post("/chat", async (req, res) => {
-  const message = (req.body?.message || "").toString().slice(0, 4000);
+  const message = (req.body?.message || "").toString().slice(0, MAX_MESSAGE);
   if (!message.trim()) return res.status(400).json({ error: "empty message" });
+  // Charge the daily budget only for a valid request, and refund on failure.
+  if (!spendDaily()) return res.status(429).json({ error: "daily limit reached" });
   try {
     res.json(await askUpstream(message));
   } catch (err) {
+    refundDaily();
     console.error("chat error:", err?.message || err);
     res.status(502).json({ error: "upstream failed" });
   }
@@ -121,6 +130,7 @@ app.post("/chat", async (req, res) => {
 mountMcp(app, {
   askUpstream,
   spendDaily,
+  refundDaily,
   rateLimit,
   siteUrl: WIKI_SITE_URL,
   token: WIKI_MCP_TOKEN,
