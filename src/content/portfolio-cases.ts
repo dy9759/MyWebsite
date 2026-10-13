@@ -220,6 +220,10 @@ export const enCases: CaseStudy[] = zhCases.map((item) => ({ ...item }));
 
 Object.assign(enCases[0], {
   status: "Live",
+  links: [
+    { label: "China", url: "https://sayso.cn/" },
+    { label: "International", url: "https://sayso.ai/" },
+  ],
   title: "SaySo Voice Agent",
   summary: "China's first Voice AI input product: 10M+ interactions, beating Whisper / Typeless in blind tests; transcription now productized as a B2B API",
   role: "Product Lead, Consumer Voice Agent · SaySo API B2B Product Lead",
@@ -316,6 +320,7 @@ Object.assign(enCases[1], {
       "As a heavy Claude Code + Codex dual-runtime user and early adopter of Manus, OpenClaw and Cowork, turned cross-tool hands-on experience into the harness compatibility design.",
       "Owned positioning, core scenarios, task model, interface prototype and MVP delivery.",
       "Built an interactive demo as a solo builder before decomposing engineering work.",
+      "Abstracted the consumer Voice Agent's runtime into a Voice Agent Harness that shares SaySo Team's task protocol and permission model.",
     ],
     decisions: [
       "Used one task protocol and adapters to isolate Claude Code, Codex, SDK and custom-agent differences.",
@@ -327,6 +332,7 @@ Object.assign(enCases[1], {
       "Harness: task protocol, context, permissions, logs and model routing.",
       "Cloud execution: Claude Code Agent SDK as the worker agent runtime for scheduled, looped and reminder-based hosted tasks.",
       "Local execution: the client chains Claude Code and Codex, using local files, browser permissions and computer use for on-device tasks.",
+      "Voice Agent Harness: the agent runtime for the voice pipeline — ASR / LLM / TTS tool orchestration, barge-in and state management — powering SaySo's consumer voice products.",
     ],
     results: [
       "Defined the harness compatibility layer and SaySo Team MVP direction; the same foundation also powers the Voice Agent runtime.",
@@ -382,17 +388,21 @@ Object.assign(enCases[2], {
       "Positioned on a vertical-scenario fine-tune (government / culture-tourism / business), differentiating from vendors like Volcano rather than competing on general capability.",
       "Anchored experience on when users hear the first understandable translated speech, making first-token latency the core metric.",
       "Fed the bad-case evaluation set back into data and post-training to form a quantifiable model-optimization loop.",
+      "Didn't stop at the model as the deliverable: an API for conference-system integration, and a mobile app for on-site and on-the-go use.",
     ],
     system: [
       "Data: topic-keyword crawler, scenario data and bad-case expansion dataset, data pipeline.",
       "Annotation: self-built annotation platform and evaluation system from scratch.",
       "Model: vertical-scenario end-to-end interpretation LLM (latency / translation / timbre), CN/EN/JA/KO input with 18 output languages.",
       "Product: model-debugging and evaluation platform, interpretation demo page.",
+      "Delivery: external interpretation API and mobile app (on-site / on-the-go interpretation entry points).",
     ],
     results: [
       "Cut first-token latency from ~10s to 2s.",
       "Raised in-scenario translation benchmark accuracy from 60% to 98%.",
       "Crawled 10k+ hours of government-scenario data; voice-clone quality improved alongside.",
+      "The interpretation capability now extends into two product forms — an external API and a mobile app (integration and usage data still accumulating).",
+      "Language coverage: CN/EN/JA/KO input, with output extended to 18 languages.",
     ],
     reflection: [
       "A vertical-scenario specialized fine-tune builds a stronger moat than competing on general capability.",
@@ -402,6 +412,7 @@ Object.assign(enCases[2], {
       "Drive the government interpretation LLM toward official interpretation service for provincial / national conferences.",
       "Add P50/P95 latency, voice-clone MOS and real-world sample sizes.",
       "Add public evaluation-platform screenshots and multi-model comparisons.",
+      "Add API integration cases and mobile app usage data.",
     ],
   },
   needed: [

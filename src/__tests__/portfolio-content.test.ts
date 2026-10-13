@@ -35,17 +35,26 @@ describe("portfolio content", () => {
     expect(new Set(CASE_SLUGS).size).toBe(CASE_SLUGS.length);
   });
 
-  it("keeps case ids and slugs aligned across languages", () => {
-    const zh = PORTFOLIO_COPY.zh.cases.items.map(({ id, slug }) => ({
-      id,
-      slug,
-    }));
-    const en = PORTFOLIO_COPY.en.cases.items.map(({ id, slug }) => ({
-      id,
-      slug,
-    }));
-
-    expect(en).toEqual(zh);
+  // The old id/slug check could never fail (enCases copies them from zh);
+  // compare the full shape instead (issue #92).
+  it("keeps zh and en copy structurally aligned, with no Chinese left in en", () => {
+    const gaps: string[] = [];
+    const cjk = /[\u4e00-\u9fff]/;
+    const walk = (zh: unknown, en: unknown, path: string) => {
+      if (Array.isArray(zh)) {
+        if (!Array.isArray(en)) return void gaps.push(`${path}: en is not an array`);
+        if (zh.length !== en.length) gaps.push(`${path}: zh ${zh.length} vs en ${en.length}`);
+        zh.forEach((z, i) => walk(z, en[i], `${path}[${i}]`));
+      } else if (zh && typeof zh === "object") {
+        if (!en || typeof en !== "object") return void gaps.push(`${path}: missing in en`);
+        for (const k of Object.keys(zh)) walk((zh as Record<string, unknown>)[k], (en as Record<string, unknown>)[k], `${path}.${k}`);
+      } else if (typeof zh === "string") {
+        if (typeof en !== "string") gaps.push(`${path}: missing in en`);
+        else if (cjk.test(en)) gaps.push(`${path}: en still contains Chinese`);
+      }
+    };
+    walk(PORTFOLIO_COPY.zh, PORTFOLIO_COPY.en, "copy");
+    expect(gaps).toEqual([]);
   });
 
   it("marks unknown evidence as placeholders instead of numbers", () => {

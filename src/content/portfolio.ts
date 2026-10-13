@@ -321,6 +321,16 @@ export const PORTFOLIO_COPY: Record<PortfolioLanguage, PortfolioCopy> = {
             "Growth metrics",
           ],
         },
+        {
+          label: "Certificates · Tools",
+          items: [
+            "SPSS",
+            "GIS",
+            "Axure",
+            "IBM & Google–Pendo AI Product Management certificates",
+            "English CEFR-B2",
+          ],
+        },
       ],
     },
     credentials: {
