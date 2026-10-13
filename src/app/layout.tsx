@@ -2,7 +2,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/components/language-provider";
 import { CONFIG } from "@/config";
 import { cn } from "@/lib/utils";
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
@@ -67,7 +66,6 @@ export default function RootLayout({
             process.env.NEXT_PUBLIC_GA_ID && (
               <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
             )}
-          <Analytics />
           <LanguageProvider>
             <ThemeProvider
               attribute="class"
