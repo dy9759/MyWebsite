@@ -90,8 +90,8 @@ const VideoTable = () => {
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {visible.map((video, idx) => (
-                                    <TableRow key={idx}>
+                                {visible.map((video) => (
+                                    <TableRow key={video.pinKey}>
                                         <TableCell>
                                             <div className='flex items-center gap-1.5'>
                                                 {video.url ? (

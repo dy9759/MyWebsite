@@ -26,9 +26,9 @@ const NewsletterList = () => {
             </div>
 
             <ul className='flex flex-col divide-y divide-border rounded-lg border'>
-                {newsletters.map((n, idx) => (
+                {newsletters.map((n) => (
                     <li
-                        key={idx}
+                        key={n.pinKey}
                         className='flex items-start justify-between gap-3 p-3 transition-colors hover:bg-accent/10'
                     >
                         <Link

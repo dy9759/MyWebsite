@@ -26,9 +26,9 @@ const SkillsGrid = () => {
             </div>
 
             <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                {skills.map((skill, idx) => (
+                {skills.map((skill) => (
                     <Card
-                        key={idx}
+                        key={skill.pinKey}
                         className='flex flex-col gap-3 p-4 transition-colors hover:bg-accent/10'
                     >
                         <div className='flex flex-col gap-1'>

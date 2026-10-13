@@ -67,6 +67,7 @@ export const SITE_COPY = {
       podcasts: {
         heading: "Podcasts",
         description: "深度访谈与行业内幕。",
+        columns: { name: "播客", description: "简介", link: "链接" },
       },
       videos: {
         heading: "Videos & TLDW Notes",
@@ -75,6 +76,7 @@ export const SITE_COPY = {
       products: {
         heading: "Products & Tools",
         description: "我日常用来加速工作的 AI 产品。",
+        columns: { name: "产品", description: "我为什么用它", link: "链接" },
       },
       prompts: {
         heading: "Prompt Library",
@@ -157,6 +159,7 @@ export const SITE_COPY = {
       podcasts: {
         heading: "Podcasts",
         description: "Deep interviews and inside takes on the industry.",
+        columns: { name: "Podcast", description: "Description", link: "Link" },
       },
       videos: {
         heading: "Videos & TLDW Notes",
@@ -165,6 +168,7 @@ export const SITE_COPY = {
       products: {
         heading: "Products & Tools",
         description: "AI products I use daily to speed up my work.",
+        columns: { name: "Product", description: "Why I use it", link: "Link" },
       },
       prompts: {
         heading: "Prompt Library",

@@ -1,24 +1,13 @@
 'use client'
 
-import Link from 'next/link'
-import { ArrowUpRight, Star } from 'lucide-react'
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/ui/table'
-import { Badge } from '@/components/ui/badge'
-import PinToggle from '@/components/pin-toggle'
+import PinnedLinkTable from '@/components/ai/pinned-link-table'
 import { useAIConfig, useSiteCopy } from '@/components/language-provider'
 import { usePinnedList } from '@/lib/use-pinned-items'
 
 const PodcastGrid = () => {
-        const aiConfig = useAIConfig()
+    const aiConfig = useAIConfig()
     const copy = useSiteCopy()
-    const { items: podcasts, isPinned, togglePinned } = usePinnedList(aiConfig.podcasts, 'ai-podcast', (podcast) => podcast.title)
+    const { items, isPinned, togglePinned } = usePinnedList(aiConfig.podcasts, 'ai-podcast', (podcast) => podcast.title)
 
     return (
         <section
@@ -27,89 +16,16 @@ const PodcastGrid = () => {
         >
             <div className='flex flex-col gap-1'>
                 <h2 className='text-xl font-bold'>{copy.ai.podcasts.heading}</h2>
-                <p className='text-sm text-muted-foreground'>
-                    {copy.ai.podcasts.description}
-                </p>
+                <p className='text-sm text-muted-foreground'>{copy.ai.podcasts.description}</p>
             </div>
-
-            <div className='overflow-x-auto rounded-lg border'>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Podcast</TableHead>
-                            <TableHead className='hidden sm:table-cell'>
-                                Description
-                            </TableHead>
-                            <TableHead className='w-10 text-right'>
-                                Link
-                            </TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {podcasts.map((podcast, idx) => (
-                            <TableRow key={idx}>
-                                <TableCell>
-                                    <div className='flex items-center gap-1.5'>
-                                        <Link
-                                            href={podcast.url}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            className='font-medium hover:underline'
-                                        >
-                                            {podcast.title}
-                                        </Link>
-                                        {podcast.featured && (
-                                            <Badge
-                                                variant='outline'
-                                                className='gap-0.5 border-accent/60 text-[10px] text-accent'
-                                            >
-                                                <Star className='size-2.5 fill-current' />
-                                                Rec
-                                            </Badge>
-                                        )}
-                                    </div>
-                                    <div className='mt-0.5 text-xs text-muted-foreground'>
-                                        {podcast.host}
-                                    </div>
-                                    <div className='mt-1 text-xs text-muted-foreground sm:hidden'>
-                                        {podcast.description}
-                                    </div>
-                                </TableCell>
-                                <TableCell className='hidden text-sm text-muted-foreground sm:table-cell'>
-                                    {podcast.description}
-                                </TableCell>
-                                <TableCell>
-                                    <div className='flex justify-end'>
-                                        <PinToggle
-                                            pinned={isPinned(
-                                                podcast.pinKey,
-                                                podcast.pinned,
-                                            )}
-                                            label={podcast.title}
-                                            onToggle={() =>
-                                                togglePinned(
-                                                    podcast.pinKey,
-                                                    podcast.pinned,
-                                                )
-                                            }
-                                            className='mr-1'
-                                        />
-                                        <Link
-                                            href={podcast.url}
-                                            target='_blank'
-                                            rel='noopener noreferrer'
-                                            aria-label={podcast.title}
-                                            className='text-muted-foreground hover:text-foreground'
-                                        >
-                                            <ArrowUpRight className='size-4' />
-                                        </Link>
-                                    </div>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </div>
+            <PinnedLinkTable
+                items={items}
+                columns={copy.ai.podcasts.columns}
+                nameOf={(podcast) => podcast.title}
+                subtitleOf={(podcast) => podcast.host}
+                isPinned={isPinned}
+                togglePinned={togglePinned}
+            />
         </section>
     )
 }

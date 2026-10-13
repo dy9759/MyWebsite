@@ -108,8 +108,8 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
 
             {hasItems && (
                 <ul className="flex flex-col gap-1 text-sm">
-                    {items.map((it, i) => (
-                        <li key={i}>
+                    {items.map((it) => (
+                        <li key={it.pinKey}>
                             <ItemLink
                                 {...it}
                                 pinned={pinState.isPinned(it.pinKey, it.pinned, it.legacyKey)}
@@ -130,8 +130,8 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                                 {g.label}
                             </div>
                             <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm">
-                                {g.items.map((it, ii) => (
-                                    <li key={ii}>
+                                {g.items.map((it) => (
+                                    <li key={it.pinKey}>
                                         <ItemLink
                                             {...it}
                                             pinned={pinState.isPinned(it.pinKey, it.pinned, it.legacyKey)}

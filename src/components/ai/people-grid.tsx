@@ -26,9 +26,9 @@ const PeopleGrid = () => {
             </div>
 
             <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-                {people.map((person, idx) => (
+                {people.map((person) => (
                     <Card
-                        key={idx}
+                        key={person.pinKey}
                         className='flex items-center gap-3 p-4 transition-colors hover:bg-accent/10'
                     >
                         <Avatar className='size-10 shrink-0'>

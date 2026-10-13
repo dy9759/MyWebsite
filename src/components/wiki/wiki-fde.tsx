@@ -335,6 +335,7 @@ export default function WikiFde({
         <ModeCard copy={t.full} onStart={() => start("full")} disabled={!ready} />
         <ModeCard copy={t.practice} onStart={() => start("practice", { domain: domain || null })}>
           <select
+            aria-label={t.practice[0]}
             value={domain}
             onChange={(e) => setDomain(e.target.value as FdeDomain | "")}
             className="mt-2 rounded-lg border bg-background px-2 py-1.5 text-sm"

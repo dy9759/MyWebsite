@@ -57,6 +57,20 @@ export default function WikiPageBody() {
       setVibeTarget({ topic, id, ts: Date.now() });
     }
   }, []);
+  const onTabKey = (e: React.KeyboardEvent) => {
+    const i = DOMAINS.indexOf(domain);
+    const next =
+      e.key === "ArrowRight" ? DOMAINS[(i + 1) % DOMAINS.length]
+      : e.key === "ArrowLeft" ? DOMAINS[(i - 1 + DOMAINS.length) % DOMAINS.length]
+      : e.key === "Home" ? DOMAINS[0]
+      : e.key === "End" ? DOMAINS[DOMAINS.length - 1]
+      : null;
+    if (!next) return;
+    e.preventDefault();
+    setDomain(next);
+    document.getElementById(`wiki-tab-${next}`)?.focus();
+  };
+
   const seed = ui.chips[2];
   const chat = useWikiChat(language, [
     { role: "u", text: seed },
@@ -97,14 +111,17 @@ export default function WikiPageBody() {
         </div>
       </header>
 
-      {/* domain tabs */}
-      <div className="mb-2 flex flex-wrap gap-2">
+      {/* domain tabs — roving tabindex, arrow keys move between tabs */}
+      <div role="tablist" aria-label="AI Sense Wiki" className="mb-2 flex flex-wrap gap-2" onKeyDown={onTabKey}>
         {DOMAINS.map((d) => (
           <button
             key={d}
+            id={`wiki-tab-${d}`}
             type="button"
             role="tab"
             aria-selected={d === domain}
+            aria-controls="wiki-panel"
+            tabIndex={d === domain ? 0 : -1}
             onClick={() => setDomain(d)}
             className={cn(
               "rounded-lg border px-3 py-1.5 text-sm font-semibold transition-colors",
@@ -123,7 +140,7 @@ export default function WikiPageBody() {
       </div>
 
       {/* browse — full width, no frame */}
-      <section aria-label="browse" className="flex min-w-0 flex-col">
+      <section id="wiki-panel" role="tabpanel" aria-labelledby={`wiki-tab-${domain}`} className="flex min-w-0 flex-col">
         <WikiBrowse domain={domain} vibeTarget={vibeTarget} onVibeTargetUsed={() => setVibeTarget(null)} fdeTarget={fdeTarget} onFdeLive={setFdeLive} onFdeTargetUsed={() => setFdeTarget(null)} />
       </section>
 

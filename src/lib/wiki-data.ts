@@ -79,6 +79,18 @@ export function useWikiLive(): "backend" | "byok" | null {
   return byok ? "byok" : null;
 }
 
+// A backend reply is only trusted if it has the WikiReply shape (issue #83);
+// cites are optional and filtered to [tag, name] string pairs.
+export function toWikiReply(v: unknown): WikiReply | null {
+  if (!v || typeof v !== "object") return null;
+  const o = v as Record<string, unknown>;
+  if (typeof o.text !== "string") return null;
+  const cites = Array.isArray(o.cites)
+    ? o.cites.filter((c): c is [string, string] => Array.isArray(c) && c.length === 2 && c.every((x) => typeof x === "string"))
+    : [];
+  return { grounded: typeof o.grounded === "string" ? o.grounded : "", text: o.text, cites };
+}
+
 export async function askWiki(message: string, language: keyof typeof WIKI_UI): Promise<WikiReply> {
   if (!WIKI_API_URL) {
     const byok = getByok();
@@ -91,7 +103,7 @@ export async function askWiki(message: string, language: keyof typeof WIKI_UI): 
       body: JSON.stringify({ message, language }),
     });
     if (!res.ok) throw new Error(String(res.status));
-    return (await res.json()) as WikiReply;
+    return toWikiReply(await res.json()) ?? wikiDemoReply(message, language);
   } catch {
     return wikiDemoReply(message, language);
   }

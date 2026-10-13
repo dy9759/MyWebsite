@@ -11,9 +11,9 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { filterPinned, sortPinnedFirst } from '@/lib/pin'
+import { filterPinned } from '@/lib/pin'
 import PinToggle from '@/components/pin-toggle'
-import { createPinKey, pinSlug, stablePinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { usePinnedList } from '@/lib/use-pinned-items'
 import { usePinEditMode } from '@/lib/use-pin-edit-mode'
 import { byYearDesc } from '@/lib/year-sort'
 
@@ -111,39 +111,25 @@ type AchievementsProps = {
 const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const config = useSiteConfig()
     const copy = useSiteCopy()
-    const pinState = usePinnedItems()
     const { editMode } = usePinEditMode()
     const withCount = useCountLabel()
-    const publicationItems = (config.research?.publications ?? [])
-        .map((publication) => ({
-            ...publication,
-            pinKey: createPinKey('research-publication', stablePinSlug(publication.url, publication.title)),
-            legacyKey: createPinKey('research-publication', pinSlug(publication.title)),
-        }))
-        .sort(byYearDesc)
-    const conferenceItems = (config.research?.conferences ?? [])
-        .map((conference) => ({
-            ...conference,
-            pinKey: createPinKey('research-conference', stablePinSlug(conference.url, conference.title)),
-            legacyKey: createPinKey('research-conference', pinSlug(conference.title)),
-        }))
-        .sort(byYearDesc)
-    const allPubs = sortPinnedFirst(publicationItems, (publication) =>
-        pinState.isPinned(publication.pinKey, publication.pinned, publication.legacyKey),
+    // Year-sorted first; usePinnedList then floats pinned items up (stable).
+    const pubPins = usePinnedList(
+        [...(config.research?.publications ?? [])].sort(byYearDesc),
+        'research-publication',
+        (publication) => publication.title,
     )
-    const allConfs = sortPinnedFirst(conferenceItems, (conference) =>
-        pinState.isPinned(conference.pinKey, conference.pinned, conference.legacyKey),
+    const confPins = usePinnedList(
+        [...(config.research?.conferences ?? [])].sort(byYearDesc),
+        'research-conference',
+        (conference) => conference.title,
     )
     const pubs = pinnedOnly
-        ? filterPinned(allPubs, (publication) =>
-              pinState.isPinned(publication.pinKey, publication.pinned, publication.legacyKey),
-          )
-        : allPubs
+        ? filterPinned(pubPins.items, (p) => pubPins.isPinned(p.pinKey, p.pinned))
+        : pubPins.items
     const confs = pinnedOnly
-        ? filterPinned(allConfs, (conference) =>
-              pinState.isPinned(conference.pinKey, conference.pinned, conference.legacyKey),
-          )
-        : allConfs
+        ? filterPinned(confPins.items, (c) => confPins.isPinned(c.pinKey, c.pinned))
+        : confPins.items
     // When pinnedOnly (home teaser), keep the header + "view all research"
     // link even with an empty pin set so the section stays discoverable.
     if (pubs.length === 0 && confs.length === 0 && !pinnedOnly) return null
@@ -181,20 +167,20 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                               )}
                     </h3>
                     <div className='space-y-0'>
-                        {pubs.map((p, idx) => (
+                        {pubs.map((p) => (
                             <Entry
-                                key={idx}
+                                key={p.pinKey}
                                 authors={p.authors}
                                 title={p.title}
                                 venue={p.venue}
                                 year={p.year}
                                 url={p.url}
                                 tier={p.tier}
-                                pinned={pinState.isPinned(p.pinKey, p.pinned, p.legacyKey)}
+                                pinned={pubPins.isPinned(p.pinKey, p.pinned)}
                                 onTogglePinned={
                                     editMode
                                         ? () =>
-                                              pinState.togglePinned(p.pinKey, p.pinned, p.legacyKey)
+                                              pubPins.togglePinned(p.pinKey, p.pinned)
                                         : undefined
                                 }
                             />
@@ -214,19 +200,19 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                               )}
                     </h3>
                     <div className='space-y-0'>
-                        {confs.map((c, idx) => (
+                        {confs.map((c) => (
                             <Entry
-                                key={idx}
+                                key={c.pinKey}
                                 authors={c.authors}
                                 title={c.title}
                                 venue={c.venue}
                                 year={c.year}
                                 url={c.url}
-                                pinned={pinState.isPinned(c.pinKey, c.pinned, c.legacyKey)}
+                                pinned={confPins.isPinned(c.pinKey, c.pinned)}
                                 onTogglePinned={
                                     editMode
                                         ? () =>
-                                              pinState.togglePinned(c.pinKey, c.pinned, c.legacyKey)
+                                              confPins.togglePinned(c.pinKey, c.pinned)
                                         : undefined
                                 }
                             />

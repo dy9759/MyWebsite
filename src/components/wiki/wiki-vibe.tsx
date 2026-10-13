@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import VibeDemo from "@/components/wiki/wiki-vibe-demo";
+import VhModal from "@/components/wiki/vh-modal";
 import { hasVibeDemo } from "@/content/vibe-demos";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
 import { TERM_LOOPS, linkRank } from "@/lib/concept-links";
@@ -218,7 +219,7 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
         aria-expanded={open}
       >
         <span className="vh-title-row">
-          <h4>{l.title}</h4>
+          <span className="vh-card-title">{l.title}</span>
           {l.secondaryTitle ? <span className="vh-en">{l.secondaryTitle}</span> : null}
           {l.source === "course" ? (
             <span
@@ -258,30 +259,8 @@ function VibeCard({ l, open, onToggle }: { l: Lesson; open: boolean; onToggle: (
 // Full term detail — shown as a centered floating modal (was an inline
 // expander below the card row).
 function VibeDetailModal({ l, onClose }: { l: Lesson; onClose: () => void }) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
   return (
-    <div className="vh-modal-backdrop" onClick={onClose} role="presentation">
-      <div
-        className="vh-modal theme-vibe"
-        role="dialog"
-        aria-modal="true"
-        aria-label={l.title}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button type="button" className="vh-modal-close" aria-label="关闭" onClick={onClose}>
-          ×
-        </button>
+    <VhModal label={l.title} onClose={onClose}>
         <div className="vh-detail !mt-0">
           <h3>
             {l.title}
@@ -356,7 +335,6 @@ function VibeDetailModal({ l, onClose }: { l: Lesson; onClose: () => void }) {
             </p>
           ) : null}
         </div>
-      </div>
-    </div>
+    </VhModal>
   );
 }

@@ -5,6 +5,7 @@
 // 见页尾致谢）；全部讲解文案与对比演示为本站原创重写。
 import { useEffect, useState } from "react";
 import { SLOP_DEMOS } from "@/components/wiki/wiki-slop-demos";
+import VhModal from "@/components/wiki/vh-modal";
 
 type SlopItem = { id: string; name: string; group: string; why: string; fix: string };
 
@@ -90,26 +91,13 @@ function SlopDemoStage({ id }: { id: string }) {
 }
 
 function SlopModal({ item, onClose }: { item: SlopItem; onClose: () => void }) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [onClose]);
   return (
-    <div className="vh-modal-backdrop" onClick={onClose} role="presentation">
-      <div className="vh-modal theme-vibe" role="dialog" aria-modal="true" aria-label={item.name} onClick={(e) => e.stopPropagation()}>
-        <button type="button" className="vh-modal-close" aria-label="关闭" onClick={onClose}>×</button>
-        <h3 className="slop-modal-title">{item.name}<span className="vh-en">{item.group} slop</span></h3>
-        <SlopDemoStage id={item.id} />
-        <p className="slop-why"><b>为什么是 slop</b>{item.why}</p>
-        <p className="slop-fix"><b>怎么改</b>{item.fix}</p>
-      </div>
-    </div>
+    <VhModal label={item.name} onClose={onClose}>
+      <h3 className="slop-modal-title">{item.name}<span className="vh-en">{item.group} slop</span></h3>
+      <SlopDemoStage id={item.id} />
+      <p className="slop-why"><b>为什么是 slop</b>{item.why}</p>
+      <p className="slop-fix"><b>怎么改</b>{item.fix}</p>
+    </VhModal>
   );
 }
 

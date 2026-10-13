@@ -43,8 +43,8 @@ export default function WikiOnboarding({ onDone }: { onDone: (p: WikiProfile) =>
           placeholder="你的名字或昵称"
         />
       </div>
-      <div className="loop-field">
-        <label>你的角色</label>
+      <fieldset className="loop-field">
+        <legend>你的角色</legend>
         <div className="loop-role-row">
           {ROLES.map((r) => (
             <button
@@ -52,12 +52,13 @@ export default function WikiOnboarding({ onDone }: { onDone: (p: WikiProfile) =>
               type="button"
               className={`loop-role-pill${role === r ? " on" : ""}`}
               onClick={() => setRole(r)}
+              aria-pressed={role === r}
             >
               {r}
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
       <div className="loop-field">
         <label htmlFor="ob-project">你想做（或正在做）的产品</label>
         <textarea

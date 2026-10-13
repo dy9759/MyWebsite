@@ -224,14 +224,15 @@ function GlossaryCards({
   onProgress?: (flipped: number, total: number) => void;
 }) {
   const [flipped, setFlipped] = useState<Set<number>>(new Set());
+  // Compute the next set in the event handler and report progress outside
+  // the state updater — calling the parent's setState from inside an updater
+  // runs during render (issue #86).
   const flip = (i: number) => {
-    setFlipped((prev) => {
-      const nextSet = new Set(prev);
-      if (nextSet.has(i)) nextSet.delete(i);
-      else nextSet.add(i);
-      onProgress?.(nextSet.size, cards.length);
-      return nextSet;
-    });
+    const nextSet = new Set(flipped);
+    if (nextSet.has(i)) nextSet.delete(i);
+    else nextSet.add(i);
+    setFlipped(nextSet);
+    onProgress?.(nextSet.size, cards.length);
   };
   const allDone = flipped.size >= cards.length;
   return (

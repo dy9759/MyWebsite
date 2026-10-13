@@ -17,7 +17,7 @@ function Answer({ data }: { data: WikiReply }) {
       <span className="mb-1 block font-mono text-xs text-accent">✓ {data.grounded}</span>
       {data.text}
       <div className="mt-2 flex flex-wrap gap-1.5">
-        {data.cites.map(([tag, name]) => (
+        {(data.cites ?? []).map(([tag, name]) => (
           <span key={tag + name} className="rounded-full border px-2 py-0.5 font-mono text-xs text-muted-foreground">
             {tag} · <b className="font-medium text-accent">{name}</b>
           </span>
