@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { byYearDesc, yearSortValue } from '@/lib/year-sort'
+import { byYearDesc, toEnglishDate, yearSortValue } from '@/lib/year-sort'
 
 describe('yearSortValue', () => {
     it('parses zh year formats', () => {
@@ -38,5 +38,17 @@ describe('yearSortValue', () => {
             'May 2025',
             '2023.10',
         ])
+    })
+})
+
+describe('toEnglishDate', () => {
+    it('converts any zh YYYY.M date, not just a fixed table (#100)', () => {
+        expect(toEnglishDate('2025.11')).toBe('Nov 2025')
+        expect(toEnglishDate('2023.10')).toBe('Oct 2023')
+        expect(toEnglishDate('2024.1')).toBe('Jan 2024')
+        expect(toEnglishDate('2026')).toBe('2026')
+        expect(toEnglishDate('录用')).toBe('Accepted')
+        expect(toEnglishDate('2024.13')).toBe('2024')
+        expect(toEnglishDate('soon')).toBe('soon')
     })
 })

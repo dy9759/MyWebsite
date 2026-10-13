@@ -2,7 +2,7 @@
   "name": "wiki-chat-backend",
   "version": "0.1.0",
   "private": true,
-  "description": "Standalone backend for AI Sense Wiki chat. Proxies to Bailian's Anthropic-compatible endpoint (deepseek). Runs separately from the static site.",
+  "description": "Standalone backend for AI Sense Wiki chat. Calls Bailian's OpenAI-compatible endpoint (deepseek) and serves an MCP endpoint. Runs separately from the static site.",
   "type": "module",
   "scripts": {
     "start": "node server.js",

@@ -1,4 +1,4 @@
-export type Pinnable = {
+type Pinnable = {
     pinned?: boolean
 }
 

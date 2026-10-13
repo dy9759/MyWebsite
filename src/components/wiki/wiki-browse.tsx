@@ -45,7 +45,7 @@ export default function WikiBrowse({
   const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
   const [traits, setTraits] = useState<Record<string, number>>({});
   // 练习（自建造者词典移入）,拆散进章节:
-  // null = closed, "all" = 综合练习 (整副 254 题), number = 某章的题集.
+  // null = closed, "all" = 综合练习 (整副 269 题), number = 某章的题集.
   const [practiceScope, setPracticeScope] = useState<null | "all" | number>(null);
   const practiceOpen = practiceScope !== null;
   useEffect(() => {

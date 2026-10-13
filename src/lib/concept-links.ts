@@ -6,7 +6,7 @@ export type ConceptLink = { termId: string; loopId: string; strength: string; vi
 
 const LINKS = conceptMap.links as ConceptLink[];
 
-export const STRENGTH_RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
+const STRENGTH_RANK: Record<string, number> = { identity: 0, glossary: 1, mention: 2 };
 
 // Curated P3 mentions rank just above auto mentions — in both directions.
 export const linkRank = (l: { strength: string; via?: string }) =>

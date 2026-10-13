@@ -26,6 +26,7 @@ export type SearchEntry = {
   al?: string;
   tag?: string;
   cat?: string;
+  src?: string; // term source tag carried by the generated index
   ch?: number;
   chT?: string;
   step?: number;

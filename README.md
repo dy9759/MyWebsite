@@ -64,7 +64,15 @@ npm run build
 - `/projects/[slug]/`：独立案例页
 - `/lab/`：Builder Lab
 - `/research/`：研究与算法
-- `/ai/`：AI Learning Library
+- `/wiki/`：AI Sense Wiki——五大知识域（建造者词典 / 学院 / 品味 / 信号 / 机会）；建造者学院第 9–12 章为 FDE 认证篇
+- `/wiki/course/[lessonId]/`：建造者学院课程页
+- `/ai/`：旧链接，客户端跳转到 `/wiki/` 的信号域
+
+### 随行对话与后端
+
+- 线上（GitHub Pages）没有后端：访客可在随行面板填入自己的百炼 Key，浏览器直连百炼；未填 Key 时为演示回答。
+- 本地开发可运行 [`server/wiki-chat`](./server/wiki-chat/README.md)（同时提供 MCP `/sse`），并在 `.env.local` 设置 `NEXT_PUBLIC_WIKI_API_URL=http://localhost:8787/chat`。
+- 仓库变量 `WIKI_API_URL` 通常留空；只有公开部署了 `server/wiki-chat` 时才设置。
 
 Pull Request 会由 `quality.yml` 执行测试、Lint 与静态构建；推送到 `main` 后再由部署工作流发布 GitHub Pages。
 

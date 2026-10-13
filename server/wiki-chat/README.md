@@ -1,11 +1,12 @@
 # AI Sense Wiki — chat backend
 
-A tiny standalone service that powers the Wiki's 随行 chat. It is **not** part of
-the static site (GitHub Pages has no server runtime) — run/deploy it separately
-and point the frontend at it.
+A tiny standalone service that powers the Wiki's 随行 chat and MCP endpoint. It
+is **not** part of the static site (GitHub Pages has no server runtime). The
+public site does not use it — visitors bring their own Bailian key instead —
+so it normally runs only locally.
 
 ```
-frontend (static site)  --POST /chat-->  this service  --Anthropic API-->  百炼 → deepseek-v4-flash-0731
+frontend (local dev)  --POST /chat-->  this service  --fetch, OpenAI-compatible /chat/completions-->  百炼 → deepseek-v4-flash-0731
 ```
 
 ## Run locally
@@ -69,12 +70,13 @@ env vars from `.env.example`, then set the site build's
   here.
 - **Restrict CORS** in production: set `WIKI_ALLOWED_ORIGINS` to your site's
   origin(s), not `*`.
-- Consider adding rate limiting / an allowlist before exposing publicly.
+- If you ever expose it publicly, set `WIKI_MCP_TOKEN` and `WIKI_TRUST_PROXY`
+  as well; rate limits and daily budgets are already built in (see above).
 
 ## Notes
 
 - v1 grounds answers on a static knowledge summary (`knowledge.js`). v2 can
   swap in real retrieval (RAG) over the full source / term / course / job data.
-- Verify Bailian's exact Anthropic-compatible path for your account; adjust
-  `ANTHROPIC_BASE_URL` if needed. This service uses the official
-  `@anthropic-ai/sdk` against that base URL.
+- It calls Bailian's OpenAI-compatible `/chat/completions` with plain `fetch`
+  (no SDK); adjust `ANTHROPIC_BASE_URL` / `ANTHROPIC_MODEL` for your account.
+  The env var names are historical.

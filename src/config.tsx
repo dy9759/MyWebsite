@@ -1,3 +1,4 @@
+import { toEnglishDate } from '@/lib/year-sort'
 import { Icons } from '@/components/icons'
 
 type Config = {
@@ -209,20 +210,7 @@ export const CONFIG: Config = {
     },
 }
 
-const EN_DATE_LABELS: Record<string, string> = {
-    '2023.10': 'Oct 2023',
-    '2024.1': 'Jan 2024',
-    '2024.3': 'Mar 2024',
-    '2024.6': 'Jun 2024',
-    '2024.7': 'Jul 2024',
-    '2024.9': 'Sep 2024',
-    '2024.12': 'Dec 2024',
-    '2025.3': 'Mar 2025',
-    '2025.5': 'May 2025',
-    录用: 'Accepted',
-}
-
-const toEnglishDateLabel = (value: string) => EN_DATE_LABELS[value] ?? value
+const toEnglishDateLabel = toEnglishDate
 
 const EN_TIER_LABELS: Record<string, string> = {
     中科院一区: 'CAS Q1',

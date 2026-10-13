@@ -13,6 +13,18 @@ const EN_MONTHS: Record<string, number> = {
     Dec: 12,
 }
 
+const MONTH_NAMES = Object.keys(EN_MONTHS) // Jan … Dec, in order
+
+// zh "YYYY" / "YYYY.M" → en "YYYY" / "Mon YYYY"; 录用 → Accepted. Anything
+// else passes through unchanged (issue #100: no hand-maintained table).
+export const toEnglishDate = (value: string): string => {
+    if (value === '录用') return 'Accepted'
+    const m = value.match(/^(\d{4})(?:\.(\d{1,2}))?$/)
+    if (!m) return value
+    const month = m[2] ? MONTH_NAMES[Number(m[2]) - 1] : undefined
+    return month ? `${month} ${m[1]}` : m[1]
+}
+
 // 录用/Accepted = forthcoming, sorts above dated entries
 export const yearSortValue = (year: string): number => {
     if (year === '录用' || year === 'Accepted') return Number.MAX_SAFE_INTEGER

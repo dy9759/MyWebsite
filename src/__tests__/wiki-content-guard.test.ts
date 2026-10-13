@@ -27,7 +27,7 @@ describe("vibe topic counts", () => {
 describe("practice deck", () => {
   const practice = readJson(join(PUB, "vibe", "practice.json")) as { id: string }[];
 
-  it("the 254-question literal in the course UI matches practice.json", () => {
+  it("the deck-size literal in the course UI matches practice.json", () => {
     // wiki-browse.tsx renders the deck size as a literal — keep them in sync.
     const browse = readFileSync(join(process.cwd(), "src", "components", "wiki", "wiki-browse.tsx"), "utf8");
     expect(browse).toContain(`${practice.length} 题`);
@@ -42,9 +42,11 @@ describe("practice deck", () => {
     for (const ch of COURSE_CHAPTERS) {
       const terms = new Set<string>();
       for (const n of ch.nodes) for (const t of Array.from(loopTerms.get(n.lessonId) ?? [])) terms.add(t);
-      const expected = practice.filter((q) => terms.has(q.id)).length;
-      const stored = (practiceChapters as Record<string, { count: number }>)[String(ch.index)];
-      expect(stored?.count, `chapter ${ch.index}`).toBe(expected);
+      // The UI filters by `terms`, so check the list itself, not just `count`.
+      const expectedTerms = practice.filter((q) => terms.has(q.id)).map((q) => q.id).sort();
+      const stored = (practiceChapters as Record<string, { count: number; terms: string[] }>)[String(ch.index)];
+      expect([...(stored?.terms ?? [])].sort(), `chapter ${ch.index} terms`).toEqual(expectedTerms);
+      expect(stored?.count, `chapter ${ch.index} count`).toBe(stored?.terms.length);
     }
   });
 });
