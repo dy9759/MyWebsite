@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { WIKI_UI, WIKI_JOBS, wikiDemoReply } from "@/content/wiki";
 import { VIBE_TOPICS, VIBE_TOTAL } from "@/components/wiki/wiki-vibe";
 import { SLOP_TOTAL } from "@/components/wiki/wiki-slop";
 import { COURSE_TOTAL_LOOPS } from "@/content/wiki-course";
 import WikiBrowse, { type WikiDomain } from "@/components/wiki/wiki-browse";
-import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
+import WikiChat from "@/components/wiki/wiki-chat";
+import WikiFloatChat from "@/components/wiki/wiki-float-chat";
 import WikiSearch from "@/components/wiki/wiki-search";
-import { askWiki, useWikiLive, type TermJump } from "@/lib/wiki-data";
-import { FLOAT_CHAT } from "@/lib/float-chat";
+import { useWikiLive, type TermJump } from "@/lib/wiki-data";
+import { useWikiChat } from "@/lib/use-wiki-chat";
 import { loadSession } from "@/lib/fde-store";
 import { cn } from "@/lib/utils";
 
@@ -56,22 +57,11 @@ export default function WikiPageBody() {
       setVibeTarget({ topic, id, ts: Date.now() });
     }
   }, []);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [pending, setPending] = useState(false);
   const seed = ui.chips[2];
-  const [convo, setConvo] = useState<WikiMsg[]>([
+  const chat = useWikiChat(language, [
     { role: "u", text: seed },
     { role: "a", data: wikiDemoReply(seed, language) },
   ]);
-
-  const send = async (q: string) => {
-    setChatOpen(true);
-    setConvo((prev) => [...prev, { role: "u", text: q }]);
-    setPending(true);
-    const data = await askWiki(q, language); // live backend when configured, demo fallback otherwise
-    setConvo((prev) => [...prev, { role: "a", data }]);
-    setPending(false);
-  };
 
   const domainCount: Record<WikiDomain, string> = {
     sources: "6",
@@ -134,38 +124,31 @@ export default function WikiPageBody() {
 
       {/* browse — full width, no frame */}
       <section aria-label="browse" className="flex min-w-0 flex-col">
-        <WikiBrowse domain={domain} vibeTarget={vibeTarget} fdeTarget={fdeTarget} onFdeLive={setFdeLive} onFdeTargetUsed={() => setFdeTarget(null)} />
+        <WikiBrowse domain={domain} vibeTarget={vibeTarget} onVibeTargetUsed={() => setVibeTarget(null)} fdeTarget={fdeTarget} onFdeLive={setFdeLive} onFdeTargetUsed={() => setFdeTarget(null)} />
       </section>
 
       {/* chat — floating window, bottom-right */}
-      {chatOpen ? (
-        <div
-          className={`${FLOAT_CHAT.windowClass} flex flex-col overflow-hidden rounded-2xl border bg-background shadow-xl`}
-          style={{ width: FLOAT_CHAT.width, height: FLOAT_CHAT.height }}
-        >
-          <div className="flex items-center justify-between border-b bg-muted/40 px-3 py-2">
-            <b className="text-sm font-semibold">{ui.chat.title}</b>
-            <button
-              type="button"
-              aria-label={ui.form.close}
-              onClick={() => setChatOpen(false)}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <X className="size-4" />
-            </button>
-          </div>
-          <WikiChat convo={convo} onSend={send} showHeader={false} connected={Boolean(live)} pending={pending} />
-        </div>
-      ) : null}
-      <button
-        type="button"
-        aria-label={ui.form.open}
-        onClick={() => setChatOpen((o) => !o)}
-        className={`${FLOAT_CHAT.fabClass} inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow-lg`}
+      <WikiFloatChat
+        open={chat.open}
+        onOpenChange={chat.setOpen}
+        title={<b className="text-sm font-semibold">{ui.chat.title}</b>}
+        closeLabel={ui.form.close}
+        windowLabel={ui.chat.title}
+        windowClassName="rounded-2xl border bg-background shadow-xl"
+        headerStyle={{ background: "hsl(var(--muted) / 0.4)" }}
+        fab={{
+          ariaLabel: ui.form.open,
+          className: "bg-accent text-accent-foreground",
+          label: (
+            <>
+              <MessageCircle className="size-4" />
+              {ui.chat.title}
+            </>
+          ),
+        }}
       >
-        <MessageCircle className="size-4" />
-        {ui.chat.title}
-      </button>
+        <WikiChat convo={chat.convo} onSend={chat.send} showHeader={false} connected={Boolean(live)} pending={chat.pending} />
+      </WikiFloatChat>
     </div>
   );
 }

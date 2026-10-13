@@ -86,7 +86,8 @@ export default function WikiChat({
             key={c}
             type="button"
             onClick={() => onSend(c)}
-            className="w-full rounded-lg border bg-background px-3 py-1.5 text-left text-sm text-foreground transition-colors hover:border-accent hover:text-accent"
+            disabled={pending}
+            className="w-full rounded-lg border bg-background px-3 py-1.5 text-left text-sm text-foreground transition-colors hover:border-accent hover:text-accent disabled:opacity-60"
           >
             {c}
           </button>

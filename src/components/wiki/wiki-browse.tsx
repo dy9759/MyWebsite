@@ -23,12 +23,14 @@ export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop";
 export default function WikiBrowse({
   domain,
   vibeTarget,
+  onVibeTargetUsed,
   fdeTarget,
   onFdeLive,
   onFdeTargetUsed,
 }: {
   domain: WikiDomain;
   vibeTarget?: VibeTarget | null;
+  onVibeTargetUsed?: () => void;
   fdeTarget?: { id: string; ts: number } | null;
   onFdeLive?: (live: boolean) => void;
   onFdeTargetUsed?: () => void;
@@ -64,7 +66,7 @@ export default function WikiBrowse({
 
   // ---- Vibe Hub ----
   if (domain === "vibe") {
-    return <WikiVibe target={vibeTarget ?? null} />;
+    return <WikiVibe target={vibeTarget ?? null} onTargetUsed={onVibeTargetUsed} />;
   }
 
   // ---- AI Native 招聘 (jobs) ----

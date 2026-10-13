@@ -10,15 +10,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Flag } from "lucide-react";
 import WikiLesson, { type Lesson } from "@/components/wiki/wiki-lesson";
-import WikiChat, { type WikiMsg } from "@/components/wiki/wiki-chat";
+import WikiChat from "@/components/wiki/wiki-chat";
+import WikiFloatChat from "@/components/wiki/wiki-float-chat";
+import { useWikiChat } from "@/lib/use-wiki-chat";
 import type { CourseNode } from "@/content/wiki-course";
 import { useLanguage } from "@/components/language-provider";
 import { getCompleted, markCompleted } from "@/lib/wiki-progress";
 import { DEFAULT_PROFILE, deepPersonalize, getProfile } from "@/lib/wiki-profile";
 import { LOOP_TERMS, linkRank } from "@/lib/concept-links";
-import { FLOAT_CHAT } from "@/lib/float-chat";
 import {
-  askWiki,
   loadPractice,
   loadSearchIndex,
   useWikiLive,
@@ -107,9 +107,7 @@ export default function WikiLessonPage({
   const [idx, setIdx] = useState(0);
   const [finished, setFinished] = useState(false);
   const [stepProgress, setStepProgress] = useState<Record<number, { answered: number; total: number }>>({});
-  const [convo, setConvo] = useState<WikiMsg[]>([]);
-  const [tutorOpen, setTutorOpen] = useState(false);
-  const [tutorPending, setTutorPending] = useState(false);
+  const tutor = useWikiChat(language);
   // Personalize {{project}}: server render uses the default anchor, the stored
   // profile applies after mount (keeps hydration deterministic).
   const [lessonP, setLessonP] = useState<Lesson>(() =>
@@ -191,15 +189,6 @@ export default function WikiLessonPage({
   const complete = () => {
     markCompleted(node.lessonId);
     setFinished(true);
-  };
-
-  const sendChat = async (q: string) => {
-    setTutorOpen(true);
-    setConvo((prevMsgs) => [...prevMsgs, { role: "u", text: q }]);
-    setTutorPending(true);
-    const data = await askWiki(q, language); // live backend when configured, demo fallback otherwise
-    setConvo((prevMsgs) => [...prevMsgs, { role: "a", data }]);
-    setTutorPending(false);
   };
 
   return (
@@ -466,14 +455,16 @@ export default function WikiLessonPage({
 
       </div>
 
-      {/* tutor — floating window, bottom-right */}
-      {tutorOpen ? (
-        <aside
-          className={`${FLOAT_CHAT.windowClass} flex flex-col overflow-hidden`}
-          style={{ ...raised, width: FLOAT_CHAT.width, height: FLOAT_CHAT.height }}
-          aria-label="随行导师"
-        >
-          <div className="flex items-center gap-2 border-b px-4 py-2.5" style={{ borderColor: "var(--loop-line)" }}>
+      {/* tutor — floating window + FAB, bottom-right */}
+      <WikiFloatChat
+        open={tutor.open}
+        onOpenChange={tutor.setOpen}
+        windowLabel="随行导师"
+        closeLabel="收起随行导师"
+        windowStyle={raised}
+        headerStyle={{ borderColor: "var(--loop-line)" }}
+        title={
+          <>
             <b className="text-sm">随行导师</b>
             <span
               className="truncate rounded-full px-2 py-0.5 text-xs"
@@ -481,65 +472,52 @@ export default function WikiLessonPage({
             >
               {node.title}
             </span>
-            <button
-              type="button"
-              aria-label="收起随行导师"
-              onClick={() => setTutorOpen(false)}
-              className="ml-auto text-base leading-none"
-              style={{ color: "var(--loop-ink-3)" }}
-            >
-              ×
-            </button>
-          </div>
-          <WikiChat
-            convo={convo}
-            onSend={sendChat}
-            showHeader={false}
-            connected={Boolean(live)}
-            pending={tutorPending}
-            chips={
-              JUDGE.has(step.kind)
-                ? ["给我一点提示，但别告诉我答案", "这道题考的是哪个概念?", "我卡住了，帮我理一下思路"]
-                : [
-                    `“${step.title ?? node.title}”里没看懂的地方能再讲一遍吗?`,
-                    "用我自己的产品再举一个例子",
-                    "这个知识在我和工程师开会时怎么用?",
-                  ]
-            }
-            placeholder={
-              JUDGE.has(step.kind)
-                ? "练习环节：我会给你线索，但不会直接给答案…"
-                : "这里没看懂 / 帮我再举个例子 / 为什么…"
-            }
-            footnote={
-              JUDGE.has(step.kind) ? (
-                <>
-                  当前是<b style={{ color: "var(--loop-orange)" }}>苏格拉底模式</b>
-                  ：判断/练习环节导师只给线索不给答案——被引导着想出来的，才是你的。
-                </>
-              ) : (
-                "导师了解你的进度与产品背景 · 回答可能附带一道验证小题"
-              )
-            }
-          />
-        </aside>
-      ) : null}
-
-      {/* tutor FAB */}
-      <button
-        type="button"
-        aria-label={tutorOpen ? "收起随行导师" : "打开随行导师"}
-        onClick={() => setTutorOpen((o) => !o)}
-        className={`${FLOAT_CHAT.fabClass} inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow-lg`}
-        style={{ background: "var(--loop-blue)" }}
+          </>
+        }
+        fab={{
+          ariaLabel: tutor.open ? "收起随行导师" : "打开随行导师",
+          className: "text-white",
+          style: { background: "var(--loop-blue)" },
+          label: (
+            <>
+              <span aria-hidden="true" className="inline-block size-2 rounded-full" style={{ background: "var(--loop-green)" }} />
+              随行导师
+            </>
+          ),
+        }}
       >
-        <span
-          aria-hidden="true"
-          className="inline-block size-2 rounded-full"
-          style={{ background: "var(--loop-green)" }}
+        <WikiChat
+          convo={tutor.convo}
+          onSend={tutor.send}
+          showHeader={false}
+          connected={Boolean(live)}
+          pending={tutor.pending}
+          chips={
+            JUDGE.has(step.kind)
+              ? ["给我一点提示，但别告诉我答案", "这道题考的是哪个概念?", "我卡住了，帮我理一下思路"]
+              : [
+                  `“${step.title ?? node.title}”里没看懂的地方能再讲一遍吗?`,
+                  "用我自己的产品再举一个例子",
+                  "这个知识在我和工程师开会时怎么用?",
+                ]
+          }
+          placeholder={
+            JUDGE.has(step.kind)
+              ? "练习环节：我会给你线索，但不会直接给答案…"
+              : "这里没看懂 / 帮我再举个例子 / 为什么…"
+          }
+          footnote={
+            JUDGE.has(step.kind) ? (
+              <>
+                当前是<b style={{ color: "var(--loop-orange)" }}>苏格拉底模式</b>
+                ：判断/练习环节导师只给线索不给答案——被引导着想出来的，才是你的。
+              </>
+            ) : (
+              "导师了解你的进度与产品背景 · 回答可能附带一道验证小题"
+            )
+          }
         />
-        随行导师
-      </button>
+      </WikiFloatChat>
 
       {/* 问这句 floating action on text selection */}
       {quote ? (
@@ -548,7 +526,7 @@ export default function WikiLessonPage({
           className="loop-quote-ask"
           style={{ left: quote.x, top: Math.max(8, quote.y), transform: "translateX(-50%)" }}
           onClick={() => {
-            sendChat(`问这句：「${quote.text}」`);
+            tutor.send(`问这句：「${quote.text}」`);
             window.getSelection()?.removeAllRanges();
             setQuote(null);
           }}

@@ -46,7 +46,13 @@ type Lesson = {
 
 export type VibeTarget = TermJump;
 
-export default function WikiVibe({ target = null }: { target?: VibeTarget | null }) {
+export default function WikiVibe({
+  target = null,
+  onTargetUsed,
+}: {
+  target?: VibeTarget | null;
+  onTargetUsed?: () => void; // clear the jump so returning to the tab doesn't reopen it
+}) {
   const [topic, setTopic] = useState<string>("frontend");
   const [cache, setCache] = useState<Record<string, Lesson[] | "loading" | "error">>({});
   const [openId, setOpenId] = useState<string | null>(null);
@@ -58,6 +64,7 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
   useEffect(() => {
     if (!target || topic !== target.topic || !Array.isArray(cache[topic])) return;
     setOpenId(target.id);
+    onTargetUsed?.();
     requestAnimationFrame(() => {
       document.getElementById(`vh-term-${target.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
     });
@@ -68,7 +75,8 @@ export default function WikiVibe({ target = null }: { target?: VibeTarget | null
     // Keep a pending jump target's card open — clearing here would race the
     // target effect when the destination topic is already cached (issue #56).
     setOpenId(target && target.topic === topic ? target.id : null);
-    if (cache[topic]) return;
+    // Loaded or in flight → nothing to do; a previous "error" retries.
+    if (Array.isArray(cache[topic]) || cache[topic] === "loading") return;
     setCache((prev) => ({ ...prev, [topic]: "loading" }));
     fetch(`${BASE_PATH}/wiki/vibe/${topic}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
