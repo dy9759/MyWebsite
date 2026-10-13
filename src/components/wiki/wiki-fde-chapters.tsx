@@ -56,12 +56,14 @@ export default function WikiFdeChapters({
 
   // A search hit docks the runner in that question's chapter (the bank is
   // fetched on demand to look the lesson up — same chunk the runner uses).
+  // Clear the parent's target only once the lookup lands: clearing it changes
+  // target?.ts, and the cleanup would cancel the lookup before it resolves.
   useEffect(() => {
     if (!target) return;
-    onTargetUsed?.();
     let alive = true;
     import("@/lib/fde-bank").then(({ FDE_QUESTIONS }) => {
       if (!alive) return;
+      onTargetUsed?.();
       const lesson = FDE_QUESTIONS.find((q) => q.id === target.id)?.lesson;
       setAt((lesson && chapterOfLesson(lesson)?.id) || FDE_LAST_CHAPTER);
       setRunKey((k) => k + 1);
