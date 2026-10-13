@@ -2,6 +2,9 @@ import { CONFIG } from "@/config";
 import { CASE_SLUGS } from "@/content/portfolio";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
 
+// Required by `output: "export"` since Next 15.
+export const dynamic = "force-static";
+
 // Generated from the same sources as the static routes (issue #89), so new
 // case studies and lessons appear automatically. /ai/ is omitted: it is only
 // a client-side redirect into /wiki/.

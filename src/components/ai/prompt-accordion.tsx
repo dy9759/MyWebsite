@@ -15,7 +15,7 @@ import { usePinnedList } from '@/lib/use-pinned-items'
 
 const PromptAccordion = () => {
     const [copiedKey, setCopiedKey] = useState<string | null>(null)
-    const copyTimerRef = useRef<ReturnType<typeof setTimeout>>()
+    const copyTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
     useEffect(() => () => clearTimeout(copyTimerRef.current), [])
         const aiConfig = useAIConfig()
     const siteCopy = useSiteCopy()

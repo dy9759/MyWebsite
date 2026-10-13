@@ -15,12 +15,13 @@ export function generateStaticParams() {
   return LOOPS.map(({ node }) => ({ lessonId: node.lessonId }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { lessonId: string };
-}): Metadata {
-  const loop = LOOPS.find(({ node }) => node.lessonId === params.lessonId);
+  params: Promise<{ lessonId: string }>;
+}): Promise<Metadata> {
+  const { lessonId } = await params;
+  const loop = LOOPS.find(({ node }) => node.lessonId === lessonId);
   if (!loop) return {};
   return {
     title: `${loop.node.title} · 建造者学院`,
@@ -33,12 +34,13 @@ function readLesson(lessonId: string): Lesson {
   return JSON.parse(readFileSync(file, "utf8")) as Lesson;
 }
 
-export default function CourseLessonPage({
+export default async function CourseLessonPage({
   params,
 }: {
-  params: { lessonId: string };
+  params: Promise<{ lessonId: string }>;
 }) {
-  const index = LOOPS.findIndex(({ node }) => node.lessonId === params.lessonId);
+  const { lessonId } = await params;
+  const index = LOOPS.findIndex(({ node }) => node.lessonId === lessonId);
   if (index < 0) notFound();
   const { chapter, node } = LOOPS[index];
   const prev = LOOPS[index - 1] ?? null;
@@ -46,7 +48,7 @@ export default function CourseLessonPage({
 
   return (
     <WikiLessonPage
-      lesson={readLesson(params.lessonId)}
+      lesson={readLesson(lessonId)}
       chapterIndex={chapter.index}
       chapterTitle={chapter.title}
       milestone={chapter.milestone}
