@@ -1,0 +1,67 @@
+name: wiki-chat backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "server/wiki-chat/**"
+      - ".github/workflows/wiki-chat.yml"
+  pull_request:
+    paths:
+      - "server/wiki-chat/**"
+      - ".github/workflows/wiki-chat.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server/wiki-chat
+    env:
+      # Dummy key: the smoke test never calls the upstream model.
+      ANTHROPIC_API_KEY: dummy
+      PORT: "8787"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: server/wiki-chat/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Syntax check
+        run: for f in *.js; do node --check "$f"; done
+
+      - name: Start server
+        run: |
+          node server.js > server.log 2>&1 &
+          for i in $(seq 1 20); do curl -sf http://localhost:8787/health && exit 0; sleep 0.5; done
+          cat server.log; exit 1
+
+      - name: Two concurrent MCP sessions keep the process alive (#66)
+        run: |
+          curl -s -N -m 3 -o sse1.txt http://localhost:8787/sse &
+          curl -s -N -m 3 -o sse2.txt http://localhost:8787/sse &
+          wait
+          test "$(cat sse1.txt sse2.txt | grep -c 'event: endpoint')" = 2
+          curl -sf http://localhost:8787/health
+
+      - name: Empty message is rejected without upstream call
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"message":" "}' http://localhost:8787/chat)
+          test "$code" = 400
+
+      - name: Server log
+        if: always()
+        run: cat server.log || true

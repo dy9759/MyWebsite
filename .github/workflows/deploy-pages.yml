@@ -11,9 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+# Never cancel a deploy mid-flight: a newer push queues behind it instead.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -47,15 +48,24 @@ jobs:
       - name: Run type checks
         run: npm run typecheck
 
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**', 'public/**', 'server/wiki-chat/*.js') }}
+          restore-keys: |
+            nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+
       - name: Build static export
         run: npm run build
         env:
           # Public GA4 measurement id — injected only for the production
           # deploy so forks and local builds don't pollute analytics.
           NEXT_PUBLIC_GA_ID: G-32FLEBL3F6
-          # Wiki chat backend URL (…/chat). Set the WIKI_API_URL repository
-          # variable once the server/wiki-chat service is deployed; while the
-          # variable is empty the site falls back to the demo replies.
+          # Wiki chat backend URL (…/chat). Normally left empty: the public
+          # site then lets visitors bring their own Bailian key (or shows demo
+          # replies). Set the WIKI_API_URL repository variable only if a
+          # server/wiki-chat instance is publicly deployed.
           NEXT_PUBLIC_WIKI_API_URL: ${{ vars.WIKI_API_URL }}
 
       - name: Preserve Next.js static assets
