@@ -1,8 +1,34 @@
 // 建造者学院 · FDE 认证篇 — the FDE question bank split into four academy
 // chapters, one per module of the official course (lessons 1.x–4.x). Chapter
-// titles and taglines are written here; per-lesson question counts and domains
-// are derived from the bank so they never drift.
-import { FDE_DOMAIN_LABELS, FDE_QUESTIONS, type FdeDomain } from "@/lib/fde-exam";
+// titles and taglines are written here. Per-lesson counts and domains are kept
+// as static data so the academy shell never imports the ~165 KB bank; a test
+// (fde-exam.test.ts) asserts they match the bank exactly.
+import { FDE_DOMAIN_LABELS, type FdeDomain } from "@/lib/fde-exam";
+
+// Mirrors fde-questions.json `attribution` (asserted by the same test).
+export const FDE_SOURCE = { title: "腾讯云 FDE 能力测试", url: "https://tencent-fde-ability-test.pages.dev/" };
+
+export const FDE_LESSONS: Record<string, { count: number; domains: FdeDomain[] }> = {
+  "1.1": { count: 3, domains: ["ai"] },
+  "1.2": { count: 9, domains: ["ai"] },
+  "1.3": { count: 6, domains: ["ai"] },
+  "2.1": { count: 12, domains: ["positioning"] },
+  "2.2上": { count: 15, domains: ["core"] },
+  "2.2中": { count: 21, domains: ["core", "safety"] },
+  "2.2下": { count: 6, domains: ["core"] },
+  "2.3": { count: 6, domains: ["delivery"] },
+  "3.1": { count: 30, domains: ["solution", "industry", "safety"] },
+  "3.2": { count: 12, domains: ["solution", "industry"] },
+  "3.3": { count: 9, domains: ["solution", "industry"] },
+  "3.4": { count: 9, domains: ["solution", "industry"] },
+  "3.5": { count: 12, domains: ["solution", "industry"] },
+  "3.6": { count: 6, domains: ["solution"] },
+  "4.1": { count: 9, domains: ["delivery", "safety"] },
+  "4.2": { count: 6, domains: ["delivery", "safety"] },
+  "4.3": { count: 3, domains: ["delivery"] },
+  "4.4": { count: 3, domains: ["delivery"] },
+  "4.5": { count: 3, domains: ["delivery"] },
+};
 
 export type FdeChapter = {
   id: string;
@@ -54,19 +80,13 @@ export function chapterOfLesson(lesson: string): FdeChapter | undefined {
   return FDE_CHAPTERS.find((ch) => ch.lessons.includes(lesson));
 }
 
-export function chapterOfQuestion(id: string): FdeChapter | undefined {
-  const q = FDE_QUESTIONS.find((x) => x.id === id);
-  return q ? chapterOfLesson(q.lesson) : undefined;
-}
-
 export type FdeLessonInfo = { lesson: string; count: number; domains: string[] };
 
 export function lessonInfo(lesson: string, language: "zh" | "en"): FdeLessonInfo {
-  const qs = FDE_QUESTIONS.filter((q) => q.lesson === lesson);
-  const domains = Array.from(new Set(qs.map((q) => q.domain))) as FdeDomain[];
-  return { lesson, count: qs.length, domains: domains.map((d) => FDE_DOMAIN_LABELS[language][d]) };
+  const l = FDE_LESSONS[lesson] ?? { count: 0, domains: [] };
+  return { lesson, count: l.count, domains: l.domains.map((d) => FDE_DOMAIN_LABELS[language][d]) };
 }
 
 export function chapterCount(ch: FdeChapter): number {
-  return FDE_QUESTIONS.filter((q) => ch.lessons.includes(q.lesson)).length;
+  return ch.lessons.reduce((n, l) => n + (FDE_LESSONS[l]?.count ?? 0), 0);
 }

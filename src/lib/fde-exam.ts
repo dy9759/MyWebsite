@@ -1,6 +1,6 @@
 // FDE 能力测试 — pure exam logic (组卷 / 计分), kept framework-free so it is
 // unit-testable. Every function takes an optional rng so tests can pin a seed.
-import BANK from "@/content/fde-questions.json";
+// The question bank itself lives in fde-bank.ts (imported only where needed).
 
 export type FdeDomain = "ai" | "positioning" | "core" | "solution" | "industry" | "delivery" | "safety";
 
@@ -20,8 +20,6 @@ export type FdeQuestion = {
 
 export type FdeAttribution = { title: string; url: string; importedAt: string } | null;
 
-export const FDE_QUESTIONS = BANK.questions as FdeQuestion[];
-export const FDE_ATTRIBUTION = BANK.attribution as FdeAttribution;
 
 export const FDE_DOMAINS: FdeDomain[] = ["ai", "positioning", "core", "solution", "industry", "delivery", "safety"];
 

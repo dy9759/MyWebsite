@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import {
   EXAM_CONFIG,
   FDE_DOMAINS,
-  FDE_QUESTIONS,
   buildExam,
   calculateResult,
   domainMastery,
@@ -13,6 +12,8 @@ import {
   shuffleOptions,
   type FdeQuestion,
 } from "@/lib/fde-exam";
+import { FDE_ATTRIBUTION, FDE_QUESTIONS } from "@/lib/fde-bank";
+import { FDE_CHAPTERS, FDE_LESSONS, FDE_SOURCE } from "@/content/fde-course";
 
 // Deterministic rng (mulberry32) so shuffles are reproducible.
 function seeded(seed: number) {
@@ -132,5 +133,22 @@ describe("fde exam", () => {
     expect(m.map((x) => x.domain)).toEqual(["safety", "ai", "core"]);
     expect(m[1]).toMatchObject({ correct: 4, total: 8, rate: 0.5 });
     expect(domainMastery([])).toEqual([]);
+  });
+
+  it("academy chapter metadata matches the bank (counts, domains, coverage, source)", () => {
+    const actual: Record<string, { count: number; domains: Set<string> }> = {};
+    for (const q of FDE_QUESTIONS) {
+      const row = (actual[q.lesson] ??= { count: 0, domains: new Set() });
+      row.count += 1;
+      row.domains.add(q.domain);
+    }
+    expect(Object.keys(FDE_LESSONS).sort()).toEqual(Object.keys(actual).sort());
+    for (const [lesson, meta] of Object.entries(FDE_LESSONS)) {
+      expect(meta.count, lesson).toBe(actual[lesson].count);
+      expect([...meta.domains].sort(), lesson).toEqual(Array.from(actual[lesson].domains).sort());
+    }
+    // Every lesson sits in exactly one chapter.
+    expect(FDE_CHAPTERS.flatMap((c) => c.lessons).sort()).toEqual(Object.keys(actual).sort());
+    if (FDE_ATTRIBUTION) expect(FDE_SOURCE).toMatchObject({ title: FDE_ATTRIBUTION.title, url: FDE_ATTRIBUTION.url });
   });
 });

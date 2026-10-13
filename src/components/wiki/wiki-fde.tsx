@@ -10,10 +10,8 @@ import { useLanguage } from "@/components/language-provider";
 import WikiFdeExam from "@/components/wiki/wiki-fde-exam";
 import {
   EXAM_CONFIG,
-  FDE_ATTRIBUTION,
   FDE_DOMAINS,
   FDE_DOMAIN_LABELS,
-  FDE_QUESTIONS,
   buildExam,
   calculateResult,
   examReady,
@@ -22,6 +20,7 @@ import {
   type FdeDomain,
   type FdeResult,
 } from "@/lib/fde-exam";
+import { FDE_ATTRIBUTION, FDE_QUESTIONS } from "@/lib/fde-bank";
 import WikiFdeStats from "@/components/wiki/wiki-fde-stats";
 import {
   addHistory,

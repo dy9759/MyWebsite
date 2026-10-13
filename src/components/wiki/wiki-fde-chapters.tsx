@@ -6,19 +6,25 @@
 // the last one, which also hosts the mock exam / wrong-answer book / stats).
 // Moving it remounts it — the attempt lives in localStorage, so it resumes.
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
-import WikiFde from "@/components/wiki/wiki-fde";
 import {
   FDE_CHAPTERS,
   FDE_LAST_CHAPTER,
+  FDE_SOURCE,
   chapterCount,
   chapterOfLesson,
-  chapterOfQuestion,
   lessonInfo,
 } from "@/content/fde-course";
-import { FDE_ATTRIBUTION } from "@/lib/fde-exam";
 import { loadSession, saveSession } from "@/lib/fde-store";
+
+// The runner carries the ~165 KB question bank — load it only when the academy
+// actually renders it, not with the /wiki page.
+const WikiFde = dynamic(() => import("@/components/wiki/wiki-fde"), {
+  ssr: false,
+  loading: () => <p className="py-6 text-center text-sm text-muted-foreground">…</p>,
+});
 
 type Request = { ts: number; id?: string; lessons?: string[] };
 
@@ -47,12 +53,21 @@ export default function WikiFdeChapters({
     if (ch) setAt(ch.id);
   }, []);
 
-  // A search hit docks the runner in that question's chapter.
+  // A search hit docks the runner in that question's chapter (the bank is
+  // fetched on demand to look the lesson up — same chunk the runner uses).
   useEffect(() => {
     if (!target) return;
-    setAt(chapterOfQuestion(target.id)?.id ?? FDE_LAST_CHAPTER);
-    setRequest({ ts: target.ts, id: target.id });
     onTargetUsed?.();
+    let alive = true;
+    import("@/lib/fde-bank").then(({ FDE_QUESTIONS }) => {
+      if (!alive) return;
+      const lesson = FDE_QUESTIONS.find((q) => q.id === target.id)?.lesson;
+      setAt((lesson && chapterOfLesson(lesson)?.id) || FDE_LAST_CHAPTER);
+      setRequest({ ts: target.ts, id: target.id });
+    });
+    return () => {
+      alive = false;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target?.ts]);
 
@@ -82,15 +97,15 @@ export default function WikiFdeChapters({
         <p className="mt-0.5 leading-6" style={{ color: "var(--loop-ink-2)" }}>
           腾讯云智能体开发平台 FDE 认证备考：四章对应官方课程的四个模块，每个课时一组练习，第 12 章收尾全真模拟。
         </p>
-        {FDE_ATTRIBUTION ? (
+        {FDE_SOURCE ? (
           <a
-            href={FDE_ATTRIBUTION.url}
+            href={FDE_SOURCE.url}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-1 inline-flex items-center gap-0.5 text-xs underline"
             style={{ color: "var(--loop-ink-3)" }}
           >
-            题目来源：{FDE_ATTRIBUTION.title}
+            题目来源：{FDE_SOURCE.title}
             <ArrowUpRight className="size-3" />
           </a>
         ) : null}
