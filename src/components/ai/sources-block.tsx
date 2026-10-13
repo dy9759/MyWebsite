@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import PinToggle from '@/components/pin-toggle'
 import { useAIConfig } from '@/components/language-provider'
 import { sortPinnedFirst } from '@/lib/pin'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, stablePinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 import { hasUsableUrl } from '@/lib/content'
 
 const ItemLink = ({
@@ -75,21 +75,19 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
     const items = sortPinnedFirst(
         (layer.items ?? []).filter(hasUsableUrl).map((item) => ({
             ...item,
-            pinKey: createPinKey(
-                'ai-source',
-                layerIndex,
-                'item',
-                pinSlug(item.name),
-            ),
+            pinKey: createPinKey('ai-source', layerIndex, 'item', stablePinSlug(item.url, item.name)),
+            legacyKey: createPinKey('ai-source', layerIndex, 'item', pinSlug(item.name)),
         })),
-        (item) => pinState.isPinned(item.pinKey, item.pinned),
+        (item) => pinState.isPinned(item.pinKey, item.pinned, item.legacyKey),
     )
     const groups = (layer.groups ?? []).map((group) => ({
         ...group,
         items: sortPinnedFirst(
             group.items.filter(hasUsableUrl).map((item) => ({
                 ...item,
-                pinKey: createPinKey(
+                // Stable key drops the (translated) group label — the URL is unique.
+                pinKey: createPinKey('ai-source', layerIndex, 'group', stablePinSlug(item.url, item.name)),
+                legacyKey: createPinKey(
                     'ai-source',
                     layerIndex,
                     'group',
@@ -97,7 +95,7 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                     pinSlug(item.name),
                 ),
             })),
-            (item) => pinState.isPinned(item.pinKey, item.pinned),
+            (item) => pinState.isPinned(item.pinKey, item.pinned, item.legacyKey),
         ),
     })).filter((group) => group.items.length > 0)
     const hasItems = items.length > 0
@@ -114,9 +112,9 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                         <li key={i}>
                             <ItemLink
                                 {...it}
-                                pinned={pinState.isPinned(it.pinKey, it.pinned)}
+                                pinned={pinState.isPinned(it.pinKey, it.pinned, it.legacyKey)}
                                 onTogglePinned={() =>
-                                    pinState.togglePinned(it.pinKey, it.pinned)
+                                    pinState.togglePinned(it.pinKey, it.pinned, it.legacyKey)
                                 }
                             />
                         </li>
@@ -136,15 +134,9 @@ const SourcesBlock = ({ layerIndex, title }: SourcesBlockProps) => {
                                     <li key={ii}>
                                         <ItemLink
                                             {...it}
-                                            pinned={pinState.isPinned(
-                                                it.pinKey,
-                                                it.pinned,
-                                            )}
+                                            pinned={pinState.isPinned(it.pinKey, it.pinned, it.legacyKey)}
                                             onTogglePinned={() =>
-                                                pinState.togglePinned(
-                                                    it.pinKey,
-                                                    it.pinned,
-                                                )
+                                                pinState.togglePinned(it.pinKey, it.pinned, it.legacyKey)
                                             }
                                         />
                                     </li>

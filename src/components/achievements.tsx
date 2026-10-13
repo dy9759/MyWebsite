@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { filterPinned, sortPinnedFirst } from '@/lib/pin'
 import PinToggle from '@/components/pin-toggle'
-import { createPinKey, pinSlug, usePinnedItems } from '@/lib/use-pinned-items'
+import { createPinKey, pinSlug, stablePinSlug, usePinnedItems } from '@/lib/use-pinned-items'
 import { usePinEditMode } from '@/lib/use-pin-edit-mode'
 import { byYearDesc } from '@/lib/year-sort'
 
@@ -117,29 +117,31 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
     const publicationItems = (config.research?.publications ?? [])
         .map((publication) => ({
             ...publication,
-            pinKey: createPinKey('research-publication', pinSlug(publication.title)),
+            pinKey: createPinKey('research-publication', stablePinSlug(publication.url, publication.title)),
+            legacyKey: createPinKey('research-publication', pinSlug(publication.title)),
         }))
         .sort(byYearDesc)
     const conferenceItems = (config.research?.conferences ?? [])
         .map((conference) => ({
             ...conference,
-            pinKey: createPinKey('research-conference', pinSlug(conference.title)),
+            pinKey: createPinKey('research-conference', stablePinSlug(conference.url, conference.title)),
+            legacyKey: createPinKey('research-conference', pinSlug(conference.title)),
         }))
         .sort(byYearDesc)
     const allPubs = sortPinnedFirst(publicationItems, (publication) =>
-        pinState.isPinned(publication.pinKey, publication.pinned),
+        pinState.isPinned(publication.pinKey, publication.pinned, publication.legacyKey),
     )
     const allConfs = sortPinnedFirst(conferenceItems, (conference) =>
-        pinState.isPinned(conference.pinKey, conference.pinned),
+        pinState.isPinned(conference.pinKey, conference.pinned, conference.legacyKey),
     )
     const pubs = pinnedOnly
         ? filterPinned(allPubs, (publication) =>
-              pinState.isPinned(publication.pinKey, publication.pinned),
+              pinState.isPinned(publication.pinKey, publication.pinned, publication.legacyKey),
           )
         : allPubs
     const confs = pinnedOnly
         ? filterPinned(allConfs, (conference) =>
-              pinState.isPinned(conference.pinKey, conference.pinned),
+              pinState.isPinned(conference.pinKey, conference.pinned, conference.legacyKey),
           )
         : allConfs
     // When pinnedOnly (home teaser), keep the header + "view all research"
@@ -188,14 +190,11 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 year={p.year}
                                 url={p.url}
                                 tier={p.tier}
-                                pinned={pinState.isPinned(p.pinKey, p.pinned)}
+                                pinned={pinState.isPinned(p.pinKey, p.pinned, p.legacyKey)}
                                 onTogglePinned={
                                     editMode
                                         ? () =>
-                                              pinState.togglePinned(
-                                                  p.pinKey,
-                                                  p.pinned,
-                                              )
+                                              pinState.togglePinned(p.pinKey, p.pinned, p.legacyKey)
                                         : undefined
                                 }
                             />
@@ -223,14 +222,11 @@ const Achievements = ({ pinnedOnly = false }: AchievementsProps) => {
                                 venue={c.venue}
                                 year={c.year}
                                 url={c.url}
-                                pinned={pinState.isPinned(c.pinKey, c.pinned)}
+                                pinned={pinState.isPinned(c.pinKey, c.pinned, c.legacyKey)}
                                 onTogglePinned={
                                     editMode
                                         ? () =>
-                                              pinState.togglePinned(
-                                                  c.pinKey,
-                                                  c.pinned,
-                                              )
+                                              pinState.togglePinned(c.pinKey, c.pinned, c.legacyKey)
                                         : undefined
                                 }
                             />

@@ -262,34 +262,16 @@ export const AI_CONFIG: AIConfig = {
         },
         // Onepod 信源 — 播客频道（海外科技 / AI / 产品 / 创业 YouTube）
         {
-            title: 'Y Combinator',
-            host: 'YouTube',
-            description: '创业者、AI 公司和早期产品构建者的一手访谈。',
-            url: 'https://www.youtube.com/@ycombinator',
-        },
-        {
             title: 'Every',
             host: 'YouTube',
             description: '围绕 AI、知识工作、组织和软件产品的深度内容。',
             url: 'https://www.youtube.com/@EveryInc',
         },
         {
-            title: "Lenny's Podcast",
-            host: 'YouTube',
-            description: '产品增长、创业和团队建设的一线经验。',
-            url: 'https://www.youtube.com/@LennysPodcast',
-        },
-        {
             title: 'Peter Yang',
             host: 'YouTube',
             description: '产品、创作者经济和 AI 工作流相关访谈。',
             url: 'https://www.youtube.com/@PeterYangYT',
-        },
-        {
-            title: 'Latent Space',
-            host: 'YouTube',
-            description: '面向 AI 工程师和研究者的技术访谈与行业讨论。',
-            url: 'https://www.youtube.com/@LatentSpacePod',
         },
         {
             title: 'The MAD Podcast (Matt Turck)',
@@ -362,18 +344,6 @@ export const AI_CONFIG: AIConfig = {
             host: 'YouTube',
             description: 'AI 研究、模型能力和前沿科学应用。',
             url: 'https://www.youtube.com/@googledeepmind',
-        },
-        {
-            title: 'Mckay Wrigley',
-            host: 'YouTube',
-            description: 'AI coding、产品构建和个人自动化实践。',
-            url: 'https://www.youtube.com/@realmckaywrigley',
-        },
-        {
-            title: 'No Priors',
-            host: 'YouTube',
-            description: 'AI 创业者、研究者和投资人访谈。',
-            url: 'https://www.youtube.com/@NoPriorsPodcast',
         },
         {
             title: 'The AI Daily Brief',

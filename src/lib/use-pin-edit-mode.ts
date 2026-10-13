@@ -5,9 +5,15 @@ import { useCallback, useEffect, useState } from 'react'
 const STORAGE_KEY = 'personal-site-pin-edit-mode'
 const CHANGE_EVENT = 'pin-edit-mode-change'
 
+// localStorage can throw (blocked storage, Safari private mode) — this hook
+// runs in the footer of every page, so it must never take the tree down.
 const readStoredEditMode = () => {
     if (typeof window === 'undefined') return false
-    return window.localStorage.getItem(STORAGE_KEY) === '1'
+    try {
+        return window.localStorage.getItem(STORAGE_KEY) === '1'
+    } catch {
+        return false
+    }
 }
 
 export const usePinEditMode = () => {
@@ -21,10 +27,14 @@ export const usePinEditMode = () => {
     }, [])
 
     const toggleEditMode = useCallback(() => {
-        window.localStorage.setItem(
-            STORAGE_KEY,
-            readStoredEditMode() ? '0' : '1',
-        )
+        try {
+            window.localStorage.setItem(
+                STORAGE_KEY,
+                readStoredEditMode() ? '0' : '1',
+            )
+        } catch {
+            return
+        }
         window.dispatchEvent(new Event(CHANGE_EVENT))
     }, [])
 

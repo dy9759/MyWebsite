@@ -161,7 +161,9 @@ function Blocks({ blocks }: { blocks: Block[] }) {
           // ported to globals.css under .theme-loop.
           return (
             <div key={i}>
-              <div dangerouslySetInnerHTML={{ __html: String(b.html ?? b.text ?? "") }} />
+              {/* Only the escaped `html` field is ever injected; a block with
+                  just `text` renders as plain text (issue #98). */}
+              {typeof b.html === "string" ? <div dangerouslySetInnerHTML={{ __html: b.html }} /> : <p>{b.text ?? ""}</p>}
               {b.caption ? <p className="loop-codecaption mt-1">{b.caption}</p> : null}
             </div>
           );
