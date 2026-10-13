@@ -1,6 +1,8 @@
 // Learner profile for the 建造者学院 domain (original: onboarding writes name /
 // role / product; lesson content personalizes on the {{project}} token). Kept
 // in localStorage; falls back to the program's original anchors.
+import { readJSON, writeJSON } from "@/lib/safe-storage";
+
 export type WikiProfile = { name: string; role: string; project: string };
 
 const KEY = "wiki-course-profile";
@@ -13,29 +15,16 @@ export const DEFAULT_PROFILE: WikiProfile = {
 };
 
 export function getProfile(): WikiProfile | null {
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return JSON.parse(raw) as WikiProfile;
-  } catch {
-    /* storage unavailable */
-  }
-  return null;
+  const p = readJSON<Partial<WikiProfile> | null>(KEY, null);
+  return p && typeof p.name === "string" && typeof p.project === "string" ? (p as WikiProfile) : null;
 }
 
 export function setProfile(p: WikiProfile) {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(p));
-  } catch {
-    /* ignore */
-  }
+  writeJSON(KEY, p);
 }
 
 export function clearProfile() {
-  try {
-    localStorage.removeItem(KEY);
-  } catch {
-    /* ignore */
-  }
+  writeJSON(KEY, null);
 }
 
 const escapeHtml = (s: string) =>
@@ -69,22 +58,12 @@ export function deepPersonalize<T>(value: T, project: string, key?: string): T {
 
 // 判断力画像 archive — dimension counts accumulated from judge-type games.
 export function markTrait(dimension: string): void {
-  try {
-    const raw = localStorage.getItem(TRAIT_KEY);
-    const counts: Record<string, number> = raw ? JSON.parse(raw) : {};
-    counts[dimension] = (counts[dimension] ?? 0) + 1;
-    localStorage.setItem(TRAIT_KEY, JSON.stringify(counts));
-  } catch {
-    /* ignore */
-  }
+  const counts = getTraits();
+  counts[dimension] = (counts[dimension] ?? 0) + 1;
+  writeJSON(TRAIT_KEY, counts);
 }
 
 export function getTraits(): Record<string, number> {
-  try {
-    const raw = localStorage.getItem(TRAIT_KEY);
-    if (raw) return JSON.parse(raw) as Record<string, number>;
-  } catch {
-    /* ignore */
-  }
-  return {};
+  const v = readJSON<unknown>(TRAIT_KEY, {});
+  return v && typeof v === "object" && !Array.isArray(v) ? (v as Record<string, number>) : {};
 }

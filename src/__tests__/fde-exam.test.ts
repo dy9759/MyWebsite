@@ -14,6 +14,7 @@ import {
 } from "@/lib/fde-exam";
 import { FDE_ATTRIBUTION, FDE_QUESTIONS } from "@/lib/fde-bank";
 import { FDE_CHAPTERS, FDE_LESSONS, FDE_SOURCE } from "@/content/fde-course";
+import { compactSession, restoreSession, type FdeSession } from "@/lib/fde-store";
 
 // Deterministic rng (mulberry32) so shuffles are reproducible.
 function seeded(seed: number) {
@@ -150,5 +151,48 @@ describe("fde exam", () => {
     // Every lesson sits in exactly one chapter.
     expect(FDE_CHAPTERS.flatMap((c) => c.lessons).sort()).toEqual(Object.keys(actual).sort());
     if (FDE_ATTRIBUTION) expect(FDE_SOURCE).toMatchObject({ title: FDE_ATTRIBUTION.title, url: FDE_ATTRIBUTION.url });
+  });
+
+  describe("persisted sessions (#97)", () => {
+    const bank = syntheticBank();
+    const session = (qs: FdeQuestion[]): FdeSession => ({
+      mode: "practice",
+      domain: null,
+      questions: qs,
+      answers: Object.fromEntries(qs.map((q) => [q.id, q.answer])),
+      marks: [qs[0].id],
+      checked: qs.map((q) => q.id),
+      index: qs.length - 1,
+      deadline: null,
+    });
+
+    it("stores ids + option order only, and restores the same shuffled view", () => {
+      const qs = bank.slice(0, 4).map((q) => shuffleOptions(q, seeded(11)));
+      const stored = compactSession(session(qs));
+      expect(stored).not.toHaveProperty("questions");
+      expect(JSON.stringify(stored)).not.toContain(qs[0].stem);
+      const back = restoreSession(stored, bank)!;
+      expect(back.questions.map((q) => q.options)).toEqual(qs.map((q) => q.options));
+      expect(back.questions.map((q) => q.answer)).toEqual(qs.map((q) => q.answer));
+    });
+
+    it("drops questions missing from a re-imported bank, with their answers", () => {
+      const qs = bank.slice(0, 3).map((q) => shuffleOptions(q, seeded(5)));
+      const stored = compactSession(session(qs));
+      const reimported = bank.filter((q) => q.id !== qs[1].id);
+      const back = restoreSession(stored, reimported)!;
+      expect(back.questions.map((q) => q.id)).toEqual([qs[0].id, qs[2].id]);
+      expect(Object.keys(back.answers)).not.toContain(qs[1].id);
+      expect(back.checked).not.toContain(qs[1].id);
+      expect(back.index).toBe(1);
+      expect(restoreSession(stored, [])).toBeNull();
+    });
+
+    it("migrates the legacy full-copy format", () => {
+      const qs = bank.slice(0, 2).map((q) => shuffleOptions(q, seeded(9)));
+      const legacy = { ...session(qs), questions: qs.map(({ order: _o, ...q }) => q) };
+      const back = restoreSession(legacy, bank)!;
+      expect(back.questions.map((q) => q.answer)).toEqual(qs.map((q) => q.answer));
+    });
   });
 });

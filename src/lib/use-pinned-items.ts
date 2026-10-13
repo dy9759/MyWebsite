@@ -2,6 +2,7 @@
 
 import { useCallback, useSyncExternalStore } from 'react'
 import { sortPinnedFirst } from '@/lib/pin'
+import { readRaw, writeRaw } from '@/lib/safe-storage'
 
 const STORAGE_KEY = 'personal-site-pins-v1'
 const CHANGE_EVENT = 'personal-site-pins-change'
@@ -35,12 +36,7 @@ let cache: { raw: string | null; parsed: PinOverrides } = {
 
 const readStoredPins = (): PinOverrides => {
     if (typeof window === 'undefined') return EMPTY
-    let raw: string | null = null
-    try {
-        raw = window.localStorage.getItem(STORAGE_KEY)
-    } catch {
-        return EMPTY
-    }
+    const raw = readRaw(STORAGE_KEY)
     if (raw === cache.raw) return cache.parsed
     let parsed: PinOverrides = EMPTY
     try {
@@ -101,11 +97,8 @@ export const usePinnedItems = () => {
                 ...current,
                 [key]: !resolvePinned(current, key, defaultPinned, legacyKey),
             }
-            try {
-                window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-            } catch {
-                return // storage blocked or full — leave the pin unchanged
-            }
+            // Storage blocked or full — leave the pin unchanged.
+            if (!writeRaw(STORAGE_KEY, JSON.stringify(next))) return
             window.dispatchEvent(new Event(CHANGE_EVENT))
         },
         [],

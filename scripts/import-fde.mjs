@@ -14,7 +14,6 @@
 // sending. Its output is validated before anything is written.
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
-import path from "node:path";
 
 const SOURCE_URL = "https://tencent-fde-ability-test.pages.dev/";
 const DOMAINS = new Set(["ai", "positioning", "core", "solution", "industry", "delivery", "safety"]);
@@ -29,7 +28,7 @@ if (!args.includes("--authorized")) {
   process.exit(1);
 }
 
-const out = flag("--out") ?? path.resolve("src/content/fde-questions.json");
+const out = flag("--out") ?? new URL("../src/content/fde-questions.json", import.meta.url).pathname;
 const from = flag("--from");
 
 async function loadHtml() {
@@ -118,4 +117,4 @@ const doc = {
 };
 fs.writeFileSync(out, JSON.stringify(doc, null, 1) + "\n");
 console.log(`wrote ${questions.length} questions → ${out}`);
-console.log("next: node scripts/build-fde-index.mjs, bump WIKI_DATA_VERSION, update FDE_LESSONS if lessons changed");
+console.log("next: node scripts/build-fde-index.mjs (also bumps WIKI_DATA_VERSION); update FDE_LESSONS if lessons changed");

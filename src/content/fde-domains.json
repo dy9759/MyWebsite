@@ -1,0 +1,9 @@
+{
+ "ai": { "zh": "AI 基础", "en": "AI fundamentals" },
+ "positioning": { "zh": "平台定位与边界", "en": "Platform scope" },
+ "core": { "zh": "平台核心功能", "en": "Core features" },
+ "solution": { "zh": "场景与方案设计", "en": "Solution design" },
+ "industry": { "zh": "行业落地", "en": "Industry delivery" },
+ "delivery": { "zh": "交付、评测与运维", "en": "Rollout & evaluation" },
+ "safety": { "zh": "安全合规", "en": "Safety & compliance" }
+}

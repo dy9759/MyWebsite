@@ -1,6 +1,7 @@
 // FDE 能力测试 — pure exam logic (组卷 / 计分), kept framework-free so it is
 // unit-testable. Every function takes an optional rng so tests can pin a seed.
 // The question bank itself lives in fde-bank.ts (imported only where needed).
+import DOMAIN_LABELS from "@/content/fde-domains.json";
 
 export type FdeDomain = "ai" | "positioning" | "core" | "solution" | "industry" | "delivery" | "safety";
 
@@ -16,6 +17,7 @@ export type FdeQuestion = {
   answer: number[];
   explanation: string;
   trap: string;
+  order?: number[]; // after shuffleOptions: order[i] = original index of option i
 };
 
 export type FdeAttribution = { title: string; url: string; importedAt: string } | null;
@@ -23,25 +25,10 @@ export type FdeAttribution = { title: string; url: string; importedAt: string } 
 
 export const FDE_DOMAINS: FdeDomain[] = ["ai", "positioning", "core", "solution", "industry", "delivery", "safety"];
 
+// Single source for domain labels, shared with scripts/build-fde-index.mjs.
 export const FDE_DOMAIN_LABELS: Record<"zh" | "en", Record<FdeDomain, string>> = {
-  zh: {
-    ai: "AI 基础",
-    positioning: "平台定位与边界",
-    core: "平台核心功能",
-    solution: "场景与方案设计",
-    industry: "行业落地",
-    delivery: "交付、评测与运维",
-    safety: "安全合规",
-  },
-  en: {
-    ai: "AI fundamentals",
-    positioning: "Platform scope",
-    core: "Core features",
-    solution: "Solution design",
-    industry: "Industry delivery",
-    delivery: "Rollout & evaluation",
-    safety: "Safety & compliance",
-  },
+  zh: Object.fromEntries(FDE_DOMAINS.map((d) => [d, DOMAIN_LABELS[d].zh])) as Record<FdeDomain, string>,
+  en: Object.fromEntries(FDE_DOMAINS.map((d) => [d, DOMAIN_LABELS[d].en])) as Record<FdeDomain, string>,
 };
 
 // Official format: 60 questions (40 single + 20 multiple), 90 min, 70 to pass.
@@ -66,9 +53,25 @@ export function shuffle<T>(items: T[], rng: Rng = Math.random): T[] {
 
 // Shuffle options and remap the answer indexes to the new order.
 export function shuffleOptions(q: FdeQuestion, rng: Rng = Math.random): FdeQuestion {
-  const mixed = shuffle(q.options.map((text, old) => ({ text, old })), rng);
-  const answer = q.answer.map((old) => mixed.findIndex((m) => m.old === old)).sort((a, b) => a - b);
-  return { ...q, options: mixed.map((m) => m.text), answer };
+  return applyOrder(q, shuffle(q.options.map((_, i) => i), rng));
+}
+
+// Re-present a bank question with its options in `order` (indexes into the
+// original options), remapping the answer. Returns null if `order` is not a
+// permutation of the question's options.
+export function applyOrder(q: FdeQuestion, order: number[]): FdeQuestion;
+export function applyOrder(q: FdeQuestion, order: unknown): FdeQuestion | null;
+export function applyOrder(q: FdeQuestion, order: unknown): FdeQuestion | null {
+  const n = q.options.length;
+  if (!Array.isArray(order) || order.length !== n || new Set(order).size !== n || !order.every((i) => Number.isInteger(i) && i >= 0 && i < n))
+    return null;
+  const ord = order as number[];
+  return {
+    ...q,
+    options: ord.map((i) => q.options[i]),
+    answer: q.answer.map((old) => ord.indexOf(old)).sort((a, b) => a - b),
+    order: ord,
+  };
 }
 
 function conceptsByDomain(questions: FdeQuestion[]): Record<string, FdeQuestion[][]> {

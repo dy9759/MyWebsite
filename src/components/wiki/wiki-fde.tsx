@@ -27,6 +27,7 @@ import {
   getHistory,
   getWrong,
   loadSession,
+  restoreSession,
   pruneWrong,
   saveSession,
   updateWrong,
@@ -225,8 +226,12 @@ export default function WikiFde({
   useEffect(() => {
     setWrongCount(pruneWrong(new Set(FDE_QUESTIONS.map((q) => q.id))).length);
     setHistory(getHistory());
-    const saved = loadSession();
-    if (saved?.questions?.length) {
+    // Rebuild against the current bank; a session whose questions are all
+    // gone is discarded rather than graded against stale answers (#97).
+    const stored = loadSession();
+    const saved = stored ? restoreSession(stored, FDE_QUESTIONS) : null;
+    if (stored && !saved) saveSession(null);
+    if (saved) {
       sessionRef.current = saved;
       setSession(saved);
       setResumed(true);

@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
+import { readRaw, writeRaw } from '@/lib/safe-storage'
 
 const STORAGE_KEY = 'personal-site-pin-edit-mode'
 const CHANGE_EVENT = 'pin-edit-mode-change'
@@ -9,11 +10,7 @@ const CHANGE_EVENT = 'pin-edit-mode-change'
 // runs in the footer of every page, so it must never take the tree down.
 const readStoredEditMode = () => {
     if (typeof window === 'undefined') return false
-    try {
-        return window.localStorage.getItem(STORAGE_KEY) === '1'
-    } catch {
-        return false
-    }
+    return readRaw(STORAGE_KEY) === '1'
 }
 
 export const usePinEditMode = () => {
@@ -27,14 +24,7 @@ export const usePinEditMode = () => {
     }, [])
 
     const toggleEditMode = useCallback(() => {
-        try {
-            window.localStorage.setItem(
-                STORAGE_KEY,
-                readStoredEditMode() ? '0' : '1',
-            )
-        } catch {
-            return
-        }
+        if (!writeRaw(STORAGE_KEY, readStoredEditMode() ? '0' : '1')) return
         window.dispatchEvent(new Event(CHANGE_EVENT))
     }, [])
 
