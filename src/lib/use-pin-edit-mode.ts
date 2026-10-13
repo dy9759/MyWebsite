@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 import { readRaw, writeRaw } from '@/lib/safe-storage'
 
 const STORAGE_KEY = 'personal-site-pin-edit-mode'
@@ -13,15 +13,19 @@ const readStoredEditMode = () => {
     return readRaw(STORAGE_KEY) === '1'
 }
 
-export const usePinEditMode = () => {
-    const [editMode, setEditMode] = useState(false)
+const subscribe = (onChange: () => void) => {
+    window.addEventListener(CHANGE_EVENT, onChange)
+    return () => window.removeEventListener(CHANGE_EVENT, onChange)
+}
 
-    useEffect(() => {
-        setEditMode(readStoredEditMode())
-        const sync = () => setEditMode(readStoredEditMode())
-        window.addEventListener(CHANGE_EVENT, sync)
-        return () => window.removeEventListener(CHANGE_EVENT, sync)
-    }, [])
+const getServerSnapshot = () => false
+
+export const usePinEditMode = () => {
+    const editMode = useSyncExternalStore(
+        subscribe,
+        readStoredEditMode,
+        getServerSnapshot,
+    )
 
     const toggleEditMode = useCallback(() => {
         if (!writeRaw(STORAGE_KEY, readStoredEditMode() ? '0' : '1')) return

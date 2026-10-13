@@ -18,6 +18,8 @@ import {
   lessonInfo,
 } from "@/content/fde-course";
 import { loadSession, saveSession } from "@/lib/fde-store";
+import { useStoredState } from "@/lib/use-hydrated";
+import type { FdeTarget } from "@/components/wiki/wiki-fde";
 
 // The runner carries the ~165 KB question bank — load it only when the academy
 // actually renders it, not with the /wiki page.
@@ -26,7 +28,11 @@ const WikiFde = dynamic(() => import("@/components/wiki/wiki-fde"), {
   loading: () => <p className="py-6 text-center text-sm text-muted-foreground">…</p>,
 });
 
-type Request = { ts: number; id?: string; lessons?: string[] };
+// Resume where an unfinished lesson attempt was started.
+function resumeChapter() {
+  const lesson = loadSession()?.lessons?.[0];
+  return (lesson && chapterOfLesson(lesson)?.id) || FDE_LAST_CHAPTER;
+}
 
 const DISCARD = {
   zh: "还有一份未完成的作答，开始新的练习会放弃它，确定吗？",
@@ -43,15 +49,10 @@ export default function WikiFdeChapters({
   onTargetUsed?: () => void;
 }) {
   const { language } = useLanguage();
-  const [at, setAt] = useState(FDE_LAST_CHAPTER);
-  const [request, setRequest] = useState<Request | null>(null);
-
-  // Resume where an unfinished lesson attempt was started.
-  useEffect(() => {
-    const lesson = loadSession()?.lessons?.[0];
-    const ch = lesson ? chapterOfLesson(lesson) : undefined;
-    if (ch) setAt(ch.id);
-  }, []);
+  const [at, setAt] = useStoredState(resumeChapter, FDE_LAST_CHAPTER);
+  const [request, setRequest] = useState<FdeTarget | null>(null);
+  // Each request remounts the runner, which starts from it on mount.
+  const [runKey, setRunKey] = useState(0);
 
   // A search hit docks the runner in that question's chapter (the bank is
   // fetched on demand to look the lesson up — same chunk the runner uses).
@@ -63,7 +64,8 @@ export default function WikiFdeChapters({
       if (!alive) return;
       const lesson = FDE_QUESTIONS.find((q) => q.id === target.id)?.lesson;
       setAt((lesson && chapterOfLesson(lesson)?.id) || FDE_LAST_CHAPTER);
-      setRequest({ ts: target.ts, id: target.id });
+      setRunKey((k) => k + 1);
+      setRequest({ id: target.id });
     });
     return () => {
       alive = false;
@@ -78,7 +80,8 @@ export default function WikiFdeChapters({
       saveSession(null);
     }
     setAt(chapterId);
-    setRequest({ ts: Date.now(), lessons });
+    setRunKey((k) => k + 1);
+    setRequest({ lessons });
     requestAnimationFrame(() =>
       document.getElementById(`course-${chapterId}`)?.scrollIntoView({ behavior: "smooth", block: "start" }),
     );
@@ -155,6 +158,7 @@ export default function WikiFdeChapters({
           {at === ch.id ? (
             <div className="mt-3 rounded-xl border bg-background px-4">
               <WikiFde
+                key={runKey}
                 target={request}
                 onLive={onLive}
                 onTargetUsed={() => setRequest(null)}

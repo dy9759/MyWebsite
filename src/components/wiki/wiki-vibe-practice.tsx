@@ -21,11 +21,19 @@ export default function WikiVibePractice({ filterTerms }: { filterTerms?: string
   const [tried, setTried] = useState<Record<number, boolean>>({});
   const [solved, setSolved] = useState(false);
 
-  useEffect(() => {
+  // filterTerms is stable per scope; re-key by its joined ids. A new scope
+  // resets the runner during render, before the new deck loads.
+  const scope = filterTerms?.join(",") ?? "";
+  const [deckScope, setDeckScope] = useState(scope);
+  if (scope !== deckScope) {
+    setDeckScope(scope);
     setDeck("loading");
     setIdx(0);
     setTried({});
     setSolved(false);
+  }
+
+  useEffect(() => {
     const allow = filterTerms ? new Set(filterTerms) : null;
     let stale = false; // scope switched before this load resolved → discard
     loadPractice()
@@ -39,9 +47,8 @@ export default function WikiVibePractice({ filterTerms }: { filterTerms?: string
     return () => {
       stale = true;
     };
-    // filterTerms is stable per scope; re-key by its joined ids
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterTerms?.join(",") ?? ""]);
+  }, [scope]);
 
   if (deck === "loading")
     return <p className="mt-6 animate-pulse text-sm" style={{ color: "var(--vh-text-3)" }}>加载中…</p>;

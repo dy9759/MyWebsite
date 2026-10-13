@@ -2,7 +2,7 @@
 
 // Bring-your-own-key settings for the companion chat — only rendered on the
 // public site (no backend configured). See src/lib/wiki-byok.ts.
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { KeyRound } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
 import { BYOK_DEFAULT_MODEL, saveByok, useByok, type ByokRegion } from "@/lib/wiki-byok";
@@ -51,19 +51,19 @@ export default function WikiByokPanel() {
   const [remember, setRemember] = useState(false);
 
   // Prefill from the saved config each time the form opens.
-  useEffect(() => {
-    if (!open) return;
+  const openForm = () => {
     setRegion(cfg?.region ?? "cn");
     setModel(cfg?.model ?? BYOK_DEFAULT_MODEL);
     setKey(cfg?.key ?? "");
     setRemember(cfg?.remember ?? false);
-  }, [open, cfg]);
+    setOpen(true);
+  };
 
   if (!open) {
     return (
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={openForm}
         className="mx-4 mb-1 inline-flex items-center gap-1.5 self-start text-xs text-accent hover:underline"
       >
         <KeyRound className="size-3.5" />

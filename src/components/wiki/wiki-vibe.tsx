@@ -54,17 +54,32 @@ export default function WikiVibe({
   target?: VibeTarget | null;
   onTargetUsed?: () => void; // clear the jump so returning to the tab doesn't reopen it
 }) {
-  const [topic, setTopic] = useState<string>("frontend");
-  const [cache, setCache] = useState<Record<string, Lesson[] | "loading" | "error">>({});
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [topic, setTopic] = useState<string>(target?.topic ?? "frontend");
+  // No entry = loading (or not requested yet).
+  const [cache, setCache] = useState<Record<string, Lesson[] | "error">>({});
+  const [openId, setOpenId] = useState<string | null>(target?.id ?? null);
 
-  // Search jump: switch topic, open the term, scroll to it once data is in.
-  useEffect(() => {
-    if (target) setTopic(target.topic);
-  }, [target]);
+  // Switching topic closes the open card; a previous failed load retries.
+  const showTopic = (next: string, open: string | null = null) => {
+    setTopic(next);
+    setOpenId(open);
+    setCache((prev) => {
+      if (prev[next] !== "error") return prev;
+      const rest = { ...prev };
+      delete rest[next];
+      return rest;
+    });
+  };
+
+  // Search jump: switch topic and open the term during render (its card stays
+  // open while the topic loads — issue #56), then scroll to it once data is in.
+  const [seenTarget, setSeenTarget] = useState(target);
+  if (target !== seenTarget) {
+    setSeenTarget(target);
+    if (target) showTopic(target.topic, target.id);
+  }
   useEffect(() => {
     if (!target || topic !== target.topic || !Array.isArray(cache[topic])) return;
-    setOpenId(target.id);
     onTargetUsed?.();
     requestAnimationFrame(() => {
       document.getElementById(`vh-term-${target.id}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -72,21 +87,16 @@ export default function WikiVibe({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target, topic, cache[topic]]);
 
+  const lessons = cache[topic];
   useEffect(() => {
-    // Keep a pending jump target's card open — clearing here would race the
-    // target effect when the destination topic is already cached (issue #56).
-    setOpenId(target && target.topic === topic ? target.id : null);
-    // Loaded or in flight → nothing to do; a previous "error" retries.
-    if (Array.isArray(cache[topic]) || cache[topic] === "loading") return;
-    setCache((prev) => ({ ...prev, [topic]: "loading" }));
+    // Loaded or failed → nothing to do (showTopic clears a failure to retry).
+    if (lessons) return;
     fetch(`${BASE_PATH}/wiki/vibe/${topic}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
       .then((data: Lesson[]) => setCache((prev) => ({ ...prev, [topic]: data })))
       .catch(() => setCache((prev) => ({ ...prev, [topic]: "error" })));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic]);
+  }, [topic, lessons]);
 
-  const lessons = cache[topic];
   const groups = useMemo(() => {
     if (!Array.isArray(lessons)) return [];
     const byCat = new Map<string, Lesson[]>();
@@ -112,7 +122,7 @@ export default function WikiVibe({
             <div key={t.id}>
               <button
                 type="button"
-                onClick={() => setTopic(t.id)}
+                onClick={() => showTopic(t.id)}
                 className="w-full rounded-md px-2 py-1.5 text-left text-xs transition-colors"
                 style={
                   topic === t.id
@@ -146,7 +156,7 @@ export default function WikiVibe({
                 key={t.id}
                 type="button"
                 className={`vh-topic${topic === t.id ? " on" : ""}`}
-                onClick={() => setTopic(t.id)}
+                onClick={() => showTopic(t.id)}
               >
                 {t.title}
                 <span className="vh-count">{t.count}</span>
@@ -157,7 +167,7 @@ export default function WikiVibe({
             {VIBE_TOPICS.find((t) => t.id === topic)?.title} VibeCoding 术语
           </h2>
 
-          {lessons === "loading" || !lessons ? (
+          {!lessons ? (
             <p className="mt-6 animate-pulse text-sm" style={{ color: "var(--vh-text-3)" }}>
               加载中…
             </p>

@@ -4,7 +4,7 @@
 // Escape + backdrop close, body scroll lock, and proper focus management —
 // focus moves into the dialog, Tab / Shift+Tab stay inside it, and focus
 // returns to the opener on close.
-import { useEffect, useRef } from "react";
+import { useEffect, useEffectEvent, useRef } from "react";
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -19,8 +19,7 @@ export default function VhModal({
   children: React.ReactNode;
 }) {
   const dialog = useRef<HTMLDivElement>(null);
-  const close = useRef(onClose);
-  close.current = onClose;
+  const close = useEffectEvent(() => onClose());
 
   useEffect(() => {
     const opener = document.activeElement as HTMLElement | null;
@@ -29,7 +28,7 @@ export default function VhModal({
     dialog.current?.focus();
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") return close.current();
+      if (e.key === "Escape") return close();
       if (e.key !== "Tab" || !dialog.current) return;
       const items = Array.from(dialog.current.querySelectorAll<HTMLElement>(FOCUSABLE));
       if (!items.length) return e.preventDefault();

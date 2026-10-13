@@ -10,14 +10,17 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
+import { readRaw, writeRaw } from "@/lib/safe-storage";
+import { useStoredState } from "@/lib/use-hydrated";
 
 export type Language = "zh" | "en";
 
 const STORAGE_KEY = "personal-site-language";
 
+const readStoredLanguage = (): Language =>
+  readRaw(STORAGE_KEY) === "en" ? "en" : "zh";
 
 type LanguageContextValue = {
   language: Language;
@@ -29,27 +32,22 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("zh");
-  const [hasLoadedStoredLanguage, setHasLoadedStoredLanguage] = useState(false);
+  const [language, setLanguageState] = useStoredState<Language>(
+    readStoredLanguage,
+    "zh",
+  );
 
-  const setLanguage = useCallback((nextLanguage: Language) => {
-    setLanguageState(nextLanguage);
-  }, []);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "zh" || stored === "en") {
-      setLanguageState(stored);
-    }
-    setHasLoadedStoredLanguage(true);
-  }, []);
+  const setLanguage = useCallback(
+    (nextLanguage: Language) => {
+      setLanguageState(nextLanguage);
+      writeRaw(STORAGE_KEY, nextLanguage);
+    },
+    [setLanguageState],
+  );
 
   useEffect(() => {
-    if (!hasLoadedStoredLanguage) return;
-
-    window.localStorage.setItem(STORAGE_KEY, language);
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
-  }, [hasLoadedStoredLanguage, language]);
+  }, [language]);
 
   const value = useMemo(
     () => ({

@@ -14,10 +14,44 @@ import WikiSearch from "@/components/wiki/wiki-search";
 import { useWikiLive, type TermJump } from "@/lib/wiki-data";
 import { useWikiChat } from "@/lib/use-wiki-chat";
 import { loadSession } from "@/lib/fde-store";
+import { useHydrated } from "@/lib/use-hydrated";
 import { cn } from "@/lib/utils";
 
 // 三层信息架构：共识（词典/学院/品味）→ 前沿（信号）→ 机会
 const DOMAINS: WikiDomain[] = ["vibe", "course", "slop", "sources", "jobs"];
+
+type Landing = { domain?: WikiDomain; vibeTarget?: TermJump; fdeLive: boolean; scrollFde: boolean };
+
+// Deep link from lesson pages: /wiki?vibe=topic:termId (allowlisted — the
+// topic feeds a fetch path, so anything unknown is ignored outright).
+function readLanding(): Landing {
+  const params = new URLSearchParams(window.location.search);
+  const out: Landing = { fdeLive: false, scrollFde: false };
+  // /wiki?domain=<tab> — allowlisted against the tab list. "fde" is an alias
+  // for the academy's FDE 认证篇 (第 9–12 章).
+  const d = params.get("domain");
+  const goFde = () => {
+    out.domain = "course";
+    out.scrollFde = true;
+  };
+  if (d === "fde") goFde();
+  else if (d && (DOMAINS as string[]).includes(d)) out.domain = d as WikiDomain;
+  // An unfinished FDE attempt marks the academy tab; a running timed exam
+  // takes the user straight back to it unless the URL named another tab.
+  const s = loadSession();
+  if (s) {
+    out.fdeLive = true;
+    if (s.mode === "full" && !d) goFde();
+  }
+  const m = params.get("vibe");
+  if (!m) return out;
+  const [topic, id] = m.split(":");
+  if (topic && id && VIBE_TOPICS.some((t) => t.id === topic) && /^[a-z0-9-]+$/.test(id)) {
+    out.domain = "vibe";
+    out.vibeTarget = { topic, id };
+  }
+  return out;
+}
 
 export default function WikiPageBody() {
   const { language } = useLanguage();
@@ -29,34 +63,22 @@ export default function WikiPageBody() {
   const [fdeTarget, setFdeTarget] = useState<{ id: string; ts: number } | null>(null);
   const [fdeLive, setFdeLive] = useState(false); // unfinished FDE attempt in storage
 
-  // Deep link from lesson pages: /wiki?vibe=topic:termId (allowlisted — the
-  // topic feeds a fetch path, so anything unknown is ignored outright).
+  // URL + storage are read once on the client, during render (the static
+  // export renders the defaults above).
+  const hydrated = useHydrated();
+  const [landing, setLanding] = useState<Landing | null>(null);
+  if (hydrated && !landing) {
+    const l = readLanding();
+    setLanding(l);
+    if (l.domain) setDomain(l.domain);
+    if (l.vibeTarget) setVibeTarget(l.vibeTarget);
+    setFdeLive(l.fdeLive);
+  }
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    // /wiki?domain=<tab> — allowlisted against the tab list. "fde" is an alias
-    // for the academy's FDE 认证篇 (第 9–12 章).
-    const d = params.get("domain");
-    const goFde = () => {
-      setDomain("course");
-      setTimeout(() => document.getElementById("course-fde")?.scrollIntoView({ block: "start" }), 300);
-    };
-    if (d === "fde") goFde();
-    else if (d && (DOMAINS as string[]).includes(d)) setDomain(d as WikiDomain);
-    // An unfinished FDE attempt marks the academy tab; a running timed exam
-    // takes the user straight back to it unless the URL named another tab.
-    const s = loadSession();
-    if (s) {
-      setFdeLive(true);
-      if (s.mode === "full" && !d) goFde();
-    }
-    const m = params.get("vibe");
-    if (!m) return;
-    const [topic, id] = m.split(":");
-    if (topic && id && VIBE_TOPICS.some((t) => t.id === topic) && /^[a-z0-9-]+$/.test(id)) {
-      setDomain("vibe");
-      setVibeTarget({ topic, id, ts: Date.now() });
-    }
-  }, []);
+    if (!landing?.scrollFde) return;
+    const t = setTimeout(() => document.getElementById("course-fde")?.scrollIntoView({ block: "start" }), 300);
+    return () => clearTimeout(t);
+  }, [landing]);
   const onTabKey = (e: React.KeyboardEvent) => {
     const i = DOMAINS.indexOf(domain);
     const next =

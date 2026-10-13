@@ -15,7 +15,7 @@ export const vibePreviewUrl = (id: string) =>
   `${BASE_PATH}/wiki/vibe/previews/${id}.png?v=${PREVIEW_VERSION}`;
 
 // A jump target into the Vibe Hub (from search or a lesson deep link).
-export type TermJump = { topic: string; id: string; ts: number };
+export type TermJump = { topic: string; id: string };
 
 export type SearchEntry = {
   k: "term" | "loop" | "step" | "fde";

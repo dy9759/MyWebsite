@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
@@ -12,11 +12,15 @@ import WikiFdeChapters from "@/components/wiki/wiki-fde-chapters";
 import { FDE_CHAPTERS } from "@/content/fde-course";
 import { getCompleted } from "@/lib/wiki-progress";
 import { clearProfile, getProfile, getTraits, type WikiProfile } from "@/lib/wiki-profile";
+import { useStoredState } from "@/lib/use-hydrated";
 import WikiOnboarding from "@/components/wiki/wiki-onboarding";
 import WikiVibePractice from "@/components/wiki/wiki-vibe-practice";
 import PRACTICE_CHAPTERS from "@/content/practice-chapters.json";
 import AIPageBody from "@/components/ai/ai-page-body";
 import SectionRailNav from "@/components/section-rail-nav";
+
+const EMPTY_DONE = new Set<string>();
+const EMPTY_TRAITS: Record<string, number> = {};
 
 export type WikiDomain = "sources" | "vibe" | "course" | "jobs" | "slop";
 
@@ -40,19 +44,14 @@ export default function WikiBrowse({
 
   // Loop-completion progress (localStorage) — read after mount to stay
   // hydration-safe on the static export.
-  const [done, setDone] = useState<Set<string>>(new Set());
+  const [done] = useStoredState(getCompleted, EMPTY_DONE);
   // Learner profile: undefined = not yet read, null = needs onboarding.
-  const [profile, setProfileState] = useState<WikiProfile | null | undefined>(undefined);
-  const [traits, setTraits] = useState<Record<string, number>>({});
+  const [profile, setProfileState] = useStoredState<WikiProfile | null | undefined>(getProfile, undefined);
+  const [traits] = useStoredState(getTraits, EMPTY_TRAITS);
   // 练习（自建造者词典移入）,拆散进章节:
   // null = closed, "all" = 综合练习 (整副 269 题), number = 某章的题集.
   const [practiceScope, setPracticeScope] = useState<null | "all" | number>(null);
   const practiceOpen = practiceScope !== null;
-  useEffect(() => {
-    setDone(getCompleted());
-    setProfileState(getProfile());
-    setTraits(getTraits());
-  }, []);
 
   // ---- AI 知识源 (live from AI_CONFIG) ----
   if (domain === "sources") {

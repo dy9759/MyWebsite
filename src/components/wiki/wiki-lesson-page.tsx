@@ -5,7 +5,7 @@
 // 下一步 paging, interactive steps gating the continue button, and a tutor
 // rail on the right. Completion records progress and hands off to the next
 // loop.
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Flag } from "lucide-react";
@@ -17,6 +17,7 @@ import type { CourseNode } from "@/content/wiki-course";
 import { useLanguage } from "@/components/language-provider";
 import { getCompleted, markCompleted } from "@/lib/wiki-progress";
 import { DEFAULT_PROFILE, deepPersonalize, getProfile } from "@/lib/wiki-profile";
+import { useStoredState } from "@/lib/use-hydrated";
 import { LOOP_TERMS, linkRank } from "@/lib/concept-links";
 import {
   loadPractice,
@@ -105,18 +106,20 @@ export default function WikiLessonPage({
   const { language } = useLanguage();
   const live = useWikiLive();
   const [idx, setIdx] = useState(0);
-  const [finished, setFinished] = useState(false);
+  const [finished, setFinished] = useStoredState(
+    () => getCompleted().has(node.lessonId),
+    false,
+    node.lessonId,
+  );
   const [stepProgress, setStepProgress] = useState<Record<number, { answered: number; total: number }>>({});
   const tutor = useWikiChat(language);
   // Personalize {{project}}: server render uses the default anchor, the stored
   // profile applies after mount (keeps hydration deterministic).
-  const [lessonP, setLessonP] = useState<Lesson>(() =>
-    deepPersonalize(lesson, DEFAULT_PROFILE.project),
+  const [project] = useStoredState(
+    () => getProfile()?.project ?? DEFAULT_PROFILE.project,
+    DEFAULT_PROFILE.project,
   );
-  useEffect(() => {
-    const project = getProfile()?.project ?? DEFAULT_PROFILE.project;
-    setLessonP(deepPersonalize(lesson, project));
-  }, [lesson]);
+  const lessonP = useMemo<Lesson>(() => deepPersonalize(lesson, project), [lesson, project]);
   // 问这句 — select any lesson text to ask the tutor about it.
   const mainRef = useRef<HTMLDivElement>(null);
   const [quote, setQuote] = useState<{ text: string; x: number; y: number } | null>(null);
@@ -152,10 +155,6 @@ export default function WikiLessonPage({
     (step.kind === "quiz" || step.kind === "estimate") && prog
       ? `作答 ${prog.answered}/${prog.total}`
       : "完成互动后继续";
-
-  useEffect(() => {
-    setFinished(getCompleted().has(node.lessonId));
-  }, [node.lessonId]);
 
   // P1: related terms (chips) + 回声加餐 practice questions for this loop.
   const [relTerms, setRelTerms] = useState<TermMeta[]>([]);

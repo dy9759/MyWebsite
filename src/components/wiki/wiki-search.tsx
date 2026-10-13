@@ -60,7 +60,7 @@ export default function WikiSearch({ onTerm, onFde }: { onTerm: (jump: TermJump)
   const go = (e: SearchEntry) => {
     setOpen(false);
     setQ("");
-    if (e.k === "term") onTerm({ topic: e.topic ?? "frontend", id: e.id, ts: Date.now() });
+    if (e.k === "term") onTerm({ topic: e.topic ?? "frontend", id: e.id });
     else if (e.k === "fde") onFde(e.id);
     else router.push(`/wiki/course/${e.id}/`);
   };

@@ -104,6 +104,31 @@ function newSession(mode: FdeMode, { domain = null, lessons = null, firstId }: F
   return { mode, domain, lessons, questions, answers: {}, marks: [], checked: [], index: 0, deadline };
 }
 
+// id: a search hit (practise its domain from that question);
+// lessons: an academy lesson / chapter practice request.
+export type FdeTarget = { id?: string; lessons?: string[] };
+
+// Initial runner state, read once on mount — the runner is client-only
+// (ssr: false), so reading storage here can't cause a hydration mismatch. The
+// academy remounts it (key) for every new target.
+function initialRun(target: FdeTarget | null) {
+  // Rebuild against the current bank; a session whose questions are all
+  // gone is discarded rather than graded against stale answers (#97).
+  const stored = loadSession();
+  const saved = stored ? restoreSession(stored, FDE_QUESTIONS) : null;
+  const stale = !!stored && !saved;
+  // An academy request starts a new attempt (the caller already confirmed any
+  // discard); a search hit never clobbers an attempt in progress.
+  let scope: FdeScope | null = null;
+  if (target?.lessons) scope = { lessons: target.lessons };
+  else if (target?.id && !saved) {
+    const q = FDE_QUESTIONS.find((x) => x.id === target.id);
+    if (q) scope = { domain: q.domain, firstId: q.id };
+  }
+  if (scope) return { session: newSession("practice", scope), started: true, resumed: false, stale };
+  return { session: saved, started: false, resumed: !!saved, stale };
+}
+
 function ModeCard({ copy, onStart, disabled, children }: { copy: string[]; onStart: () => void; disabled?: boolean; children?: React.ReactNode }) {
   return (
     <article className="flex flex-col rounded-xl border p-4">
@@ -195,9 +220,7 @@ export default function WikiFde({
   onTargetUsed,
   onHome,
 }: {
-  // id: a search hit (practise its domain from that question);
-  // lessons: an academy lesson / chapter practice request.
-  target?: { ts: number; id?: string; lessons?: string[] } | null;
+  target?: FdeTarget | null;
   onLive?: (live: boolean) => void;
   onTargetUsed?: () => void; // clear the jump so remounting doesn't replay it
   onHome?: () => void; // back on the home view (the academy re-docks it)
@@ -207,13 +230,14 @@ export default function WikiFde({
   const labels = FDE_DOMAIN_LABELS[language];
   const ready = examReady(FDE_QUESTIONS);
 
-  const [session, setSession] = useState<FdeSession | null>(null);
-  const sessionRef = useRef<FdeSession | null>(null);
+  const [init] = useState(() => initialRun(target));
+  const [session, setSession] = useState<FdeSession | null>(init.session);
+  const sessionRef = useRef<FdeSession | null>(init.session);
   const [done, setDone] = useState<Done | null>(null);
   const [domain, setDomain] = useState<FdeDomain | "">("");
-  const [wrongCount, setWrongCount] = useState(0);
-  const [resumed, setResumed] = useState(false);
-  const [history, setHistory] = useState<FdeRecord[]>([]);
+  const [wrongCount, setWrongCount] = useState(() => pruneWrong(new Set(FDE_QUESTIONS.map((q) => q.id))).length);
+  const [resumed, setResumed] = useState(init.resumed);
+  const [history, setHistory] = useState<FdeRecord[]>(getHistory);
 
   const update = (s: FdeSession | null) => {
     sessionRef.current = s;
@@ -222,20 +246,14 @@ export default function WikiFde({
     onLive?.(!!s);
   };
 
-  // Read storage after mount (hydration-safe on the static export).
+  // Persist what the initial state decided — side effects stay out of render.
   useEffect(() => {
-    setWrongCount(pruneWrong(new Set(FDE_QUESTIONS.map((q) => q.id))).length);
-    setHistory(getHistory());
-    // Rebuild against the current bank; a session whose questions are all
-    // gone is discarded rather than graded against stale answers (#97).
-    const stored = loadSession();
-    const saved = stored ? restoreSession(stored, FDE_QUESTIONS) : null;
-    if (stored && !saved) saveSession(null);
-    if (saved) {
-      sessionRef.current = saved;
-      setSession(saved);
-      setResumed(true);
-    }
+    if (init.started) {
+      saveSession(init.session);
+      onLive?.(!!init.session);
+    } else if (init.stale) saveSession(null);
+    if (target) onTargetUsed?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const start = (mode: FdeMode, scope: FdeScope = {}) => {
@@ -243,22 +261,6 @@ export default function WikiFde({
     setResumed(false);
     update(newSession(mode, scope));
   };
-
-  // Search hit → practise that question's domain starting from it. Never
-  // clobbers an attempt in progress (the session restore runs first).
-  useEffect(() => {
-    if (!target) return;
-    onTargetUsed?.();
-    if (target.lessons) {
-      // Explicit academy request — the caller already confirmed any discard.
-      start("practice", { lessons: target.lessons });
-      return;
-    }
-    if (sessionRef.current || loadSession()) return;
-    const q = FDE_QUESTIONS.find((x) => x.id === target.id);
-    if (q) start("practice", { domain: q.domain, firstId: q.id });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target?.ts]);
 
   const onCheck = (id: string, correct: boolean) => {
     setWrongCount((correct ? updateWrong([], [id]) : updateWrong([id])).length);
