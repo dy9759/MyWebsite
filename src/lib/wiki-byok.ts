@@ -77,6 +77,14 @@ const ERRORS: Record<string, { zh: string; en: string }> = {
   "429": { zh: "请求太频繁或额度不足，稍后再试。", en: "Rate limited or out of quota — try again later." },
 };
 
+// Visitor-facing text for a failed Bailian call (HTTP status or network error).
+export function byokErrorText(code: string, language: "zh" | "en"): string {
+  return (
+    ERRORS[code]?.[language] ??
+    (language === "zh" ? `调用失败（${code || "网络错误"}），请稍后再试。` : `Request failed (${code || "network error"}) — try again later.`)
+  );
+}
+
 // Ask Bailian directly with the visitor's key. Errors come back as a reply so
 // the visitor sees what went wrong instead of a silent demo answer.
 export async function askByok(cfg: ByokConfig, message: string, language: "zh" | "en"): Promise<WikiReply> {
@@ -94,8 +102,7 @@ export async function askByok(cfg: ByokConfig, message: string, language: "zh" |
     const raw = String(data.choices?.[0]?.message?.content ?? "").trim();
     return parseReply(raw, cfg.model) as WikiReply;
   } catch (e) {
-    const code = e instanceof Error ? e.message : "";
-    const msg = ERRORS[code]?.[language] ?? (language === "zh" ? `调用失败（${code || "网络错误"}），请稍后再试。` : `Request failed (${code || "network error"}) — try again later.`);
+    const msg = byokErrorText(e instanceof Error ? e.message : "", language);
     return { grounded: language === "zh" ? "自带 Key · 出错" : "Your key · error", text: msg, cites: [] };
   }
 }

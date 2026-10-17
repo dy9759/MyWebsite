@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/lab", labelKey: "lab" },
   { href: "/research", labelKey: "research" },
   { href: "/wiki", labelKey: "wiki" },
+  { href: "/books", labelKey: "books" },
 ] as const;
 
 const isActivePath = (pathname: string, href: string) => {
@@ -30,7 +31,7 @@ const SiteNav = () => {
       className="sticky top-0 z-50 mb-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80"
     >
       <div className="flex min-h-10 items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-4 overflow-x-auto pr-2 text-sm sm:gap-6">
+        <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 pr-2 text-sm sm:flex-nowrap sm:gap-6 sm:overflow-x-auto">
           {NAV_ITEMS.map((item) => {
             const active = isActivePath(pathname, item.href);
             return (
@@ -39,7 +40,7 @@ const SiteNav = () => {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "border-b-2 border-transparent pb-1 text-muted-foreground transition-colors hover:text-foreground",
+                  "shrink-0 whitespace-nowrap border-b-2 border-transparent pb-1 text-muted-foreground transition-colors hover:text-foreground",
                   active && "border-foreground text-foreground",
                 )}
               >

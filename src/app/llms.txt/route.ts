@@ -1,0 +1,22 @@
+import { CONFIG } from "@/config";
+import { getAllNotes } from "@/lib/books/notes";
+
+// llms.txt (https://llmstxt.org): a Markdown index that points AI tools at
+// plain-text versions of the site's long-form content.
+export const dynamic = "force-static";
+
+export function GET() {
+  const site = CONFIG.siteUrl.replace(/\/$/, "");
+  const notes = getAllNotes()
+    .map((n) => `- [${n.title}](${site}/books/notes/${n.slug}/note.md): ${n.summary}`)
+    .join("\n");
+  const body = `# ${CONFIG.name}
+
+> ${CONFIG.descriptionRaw}
+
+## 读书笔记
+
+${notes}
+`;
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+}

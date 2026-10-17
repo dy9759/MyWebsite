@@ -1,6 +1,7 @@
 import { CONFIG } from "@/config";
 import { CASE_SLUGS } from "@/content/portfolio";
 import { COURSE_CHAPTERS } from "@/content/wiki-course";
+import { getAllNotes } from "@/lib/books/notes";
 
 // Required by `output: "export"` since Next 15.
 export const dynamic = "force-static";
@@ -22,6 +23,8 @@ export default async function sitemap() {
     "research/",
     "wiki/",
     ...Array.from(new Set(lessonIds)).map((id) => `wiki/course/${id}/`),
+    "books/",
+    ...getAllNotes().map((n) => `books/notes/${n.slug}/`),
   ];
 
   const lastModified = new Date().toISOString();

@@ -12,5 +12,6 @@ export default defineConfig([
     },
   },
   // .claude/ holds agent worktrees (full repo copies) — never lint them.
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", ".claude/**"]),
+  // public/vendor/ holds third-party code vendored as-is (foliate-js, pdf.js).
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", ".claude/**", "public/vendor/**"]),
 ]);
