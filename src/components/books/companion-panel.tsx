@@ -15,6 +15,16 @@ import {
   type ChatMessage,
 } from "@/lib/books/companion";
 import { renderSafeMarkdown } from "@/lib/books/safe-markdown";
+import { CatalogGoal, NoteBlock, downloadText } from "@/components/books/companion-extras";
+import type { CatalogEntry } from "@/lib/books/catalog";
+import {
+  buildNoteMessages,
+  buildOutputMessages,
+  buildQuizMessages,
+  buildRawNote,
+  goalFromEntry,
+  type NoteSource,
+} from "@/lib/books/companion-tasks";
 import { getSummary, listSummaries, putSummary } from "@/lib/books/store";
 import { useByok } from "@/lib/wiki-byok";
 
@@ -37,6 +47,12 @@ const UI = {
     cached: "已缓存，不会重复计费",
     stop: "停止",
     citeHint: "点击「引文」或页码可跳回原文。",
+    makeOutput: "生成阅读产出",
+    quiz: "理解检验",
+    quizLabel: "理解检验：出 3 道题",
+    note: "整理读书笔记",
+    rawNote: "导出阅读记录",
+    noteEmpty: "还没有章节总结或问答，先读一读、问一问再整理。",
     citeMiss: "没在本章找到这句原文（模型可能改写了引文）。",
   },
   en: {
@@ -57,6 +73,12 @@ const UI = {
     cached: "Cached — not billed again",
     stop: "Stop",
     citeHint: "Click a 「quote」 or page ref to jump back to the source.",
+    makeOutput: "Draft reading output",
+    quiz: "Quiz me",
+    quizLabel: "Quiz: 3 questions",
+    note: "Write reading note",
+    rawNote: "Export reading log",
+    noteEmpty: "No summaries or Q&A yet — read and ask a bit first.",
     citeMiss: "Could not find that quote in this chapter (the model may have paraphrased it).",
   },
 };
@@ -72,13 +94,17 @@ type Props = {
   onClose: () => void;
   // Navigates the reader to a citation inside the given chapter range.
   onCite: (cite: Citation, chapter: ChapterText) => Promise<boolean>;
+  // Reading-catalog entry for this book, if any, and a way to (re)link it.
+  catalogEntry: CatalogEntry | null;
+  onLinkCatalog: (id: string | null) => void;
+  author?: string;
 };
 
 const proseClass =
-  "text-sm leading-6 [&_.book-cite]:cursor-pointer [&_.book-cite]:rounded [&_.book-cite]:text-left [&_.book-cite]:text-primary [&_.book-cite]:underline [&_.book-cite]:decoration-dotted [&_.book-cite]:underline-offset-4 hover:[&_.book-cite]:bg-primary/10 [&_h2]:mt-3 [&_h2]:font-semibold [&_h3]:mt-2 [&_h3]:font-medium [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mt-1.5 [&_ul]:list-disc [&_ul]:pl-5";
+  "text-sm leading-6 [&_.book-cite]:cursor-pointer [&_.book-cite]:rounded [&_.book-cite]:text-left [&_.book-cite]:text-primary [&_.book-cite]:underline [&_.book-cite]:decoration-dotted [&_.book-cite]:underline-offset-4 hover:[&_.book-cite]:bg-primary/10 [&_h2]:mt-3 [&_h2]:font-semibold [&_h3]:mt-2 [&_h3]:font-medium [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mt-1.5 [&_ul]:list-disc [&_ul]:pl-5 [&_table]:my-2 [&_table]:w-full [&_table]:text-xs [&_td]:border [&_td]:px-1.5 [&_td]:py-1 [&_th]:border [&_th]:bg-muted/50 [&_th]:px-1.5 [&_th]:py-1 [&_th]:text-left";
 
 export default function CompanionPanel(props: Props) {
-  const { bookId, bookTitle, locationKey, resolveChapter, selection, onClearSelection, onClose, onCite } = props;
+  const { bookId, bookTitle, locationKey, resolveChapter, selection, onClearSelection, onClose, onCite, catalogEntry, onLinkCatalog, author } = props;
   const { language } = useLanguage();
   const t = UI[language];
   const cfg = useByok();
@@ -89,6 +115,7 @@ export default function CompanionPanel(props: Props) {
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [note, setNote] = useState("");
   const abortRef = useRef<AbortController | null>(null);
   const resolveRef = useRef(resolveChapter);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -135,6 +162,7 @@ export default function CompanionPanel(props: Props) {
     chapterTitle: chapter.title || t.chapter,
     text: chapter.text,
     truncated: chapter.truncated,
+    goal: catalogEntry ? goalFromEntry(catalogEntry, language) : undefined,
   };
 
   const run = async (messages: ChatMessage[], onText: (s: string) => void) => {
@@ -198,6 +226,38 @@ export default function CompanionPanel(props: Props) {
     );
   };
 
+  // Runs a one-off task whose request shows as a labelled turn in the thread,
+  // so follow-ups (e.g. answering a quiz) keep it in the chat history.
+  const runTask = async (label: string, messages: ChatMessage[]) => {
+    setThread((cur) => [...cur, { role: "user", content: label }, { role: "assistant", content: "" }]);
+    await run(messages, (s) => setThread((cur) => [...cur.slice(0, -1), { role: "assistant", content: s }]));
+  };
+
+  const noteSource = async (): Promise<NoteSource> => ({
+    bookTitle,
+    author,
+    entry: catalogEntry,
+    summaries: (await listSummaries(bookId)).map((x) => ({ title: x.title, text: x.text })),
+    thread,
+    date: new Date().toISOString().slice(0, 10),
+  });
+
+  const exportNote = async (withAi: boolean) => {
+    const src = await noteSource();
+    if (!src.summaries.length && !src.thread.length) {
+      setError(t.noteEmpty);
+      return;
+    }
+    const slug = bookTitle.replace(/[\\/:*?"<>|\s]+/g, "-").slice(0, 60);
+    if (!withAi) {
+      downloadText(`${slug}-reading-log.md`, buildRawNote(src));
+      return;
+    }
+    setNote("");
+    const text = await run(buildNoteMessages(src, language), setNote);
+    if (!text) setNote("");
+  };
+
   const [citeMsg, setCiteMsg] = useState("");
   const onClickAnswer = async (e: React.MouseEvent) => {
     const cite = readCitation(e.target as HTMLElement);
@@ -236,6 +296,8 @@ export default function CompanionPanel(props: Props) {
           </p>
         )}
 
+        <CatalogGoal entry={catalogEntry} onLink={onLinkCatalog} />
+
         <div className="flex flex-wrap gap-2">
           <Button size="sm" variant="outline" disabled={disabled} onClick={summarize}>
             {summary ? t.resummarize : t.summarize}
@@ -243,7 +305,34 @@ export default function CompanionPanel(props: Props) {
           <Button size="sm" variant="outline" disabled={disabled} onClick={recap}>
             {t.recap}
           </Button>
+          {catalogEntry && (
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={disabled}
+              onClick={() => ctx && runTask(`${t.makeOutput}：${catalogEntry.output}`, buildOutputMessages(ctx, catalogEntry.output, language))}
+            >
+              {t.makeOutput}
+            </Button>
+          )}
+          <Button size="sm" variant="outline" disabled={disabled} onClick={() => ctx && runTask(t.quizLabel, buildQuizMessages(ctx, language))}>
+            {t.quiz}
+          </Button>
+          <Button size="sm" variant="outline" disabled={!cfg || busy} onClick={() => exportNote(true)}>
+            {t.note}
+          </Button>
+          <Button size="sm" variant="ghost" disabled={busy} onClick={() => exportNote(false)}>
+            {t.rawNote}
+          </Button>
         </div>
+
+        {note && (
+          <NoteBlock
+            markdown={note}
+            filename={`${bookTitle.replace(/[\\/:*?"<>|\s]+/g, "-").slice(0, 60)}.md`}
+            onClose={() => setNote("")}
+          />
+        )}
 
         {summary && (
           <div className="rounded-md border bg-muted/30 p-3">

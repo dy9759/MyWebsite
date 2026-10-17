@@ -24,6 +24,7 @@ export default async function sitemap() {
     "wiki/",
     ...Array.from(new Set(lessonIds)).map((id) => `wiki/course/${id}/`),
     "books/",
+    "books/catalog/",
     ...getAllNotes().map((n) => `books/notes/${n.slug}/`),
   ];
 

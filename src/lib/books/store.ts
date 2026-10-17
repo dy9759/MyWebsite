@@ -12,6 +12,9 @@ export type StoredBook = {
   size: number;
   addedAt: number;
   file: Blob;
+  // Reading-catalog entry this file is (auto-matched or picked by hand);
+  // "" means the visitor unlinked it on purpose.
+  catalogId?: string;
 };
 
 export type BookMeta = Omit<StoredBook, "file">;

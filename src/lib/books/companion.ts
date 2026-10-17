@@ -12,6 +12,8 @@ export type ChapterContext = {
   chapterTitle: string;
   text: string;
   truncated: boolean;
+  // Why the reader is reading this book (from the reading catalog), if known.
+  goal?: string;
 };
 
 const SYSTEM: Record<Lang, string> = {
@@ -31,7 +33,7 @@ Rules:
 5. Answer in English, concisely, using Markdown.`,
 };
 
-function chapterBlock(ctx: ChapterContext, lang: Lang): string {
+export function chapterBlock(ctx: ChapterContext, lang: Lang): string {
   const note = ctx.truncated
     ? lang === "zh"
       ? "\n（注意：本章较长，以下只截取了前面一部分。）"
@@ -60,9 +62,20 @@ const SUMMARY_ASK: Record<Lang, string> = {
 (3 questions that deepen understanding)`,
 };
 
+const QUIZ_RULE: Record<Lang, string> = {
+  zh: "如果你在上一轮给读者出了理解检验题，读者这一轮的回复就是作答：逐题评价（对/部分对/不对），用「」给出原文依据，再给出参考答案和一句改进建议。",
+  en: "If you set comprehension questions in your previous turn, the reader's reply is their answer: grade each one (correct / partly / incorrect), cite the chapter in 「」, then give a model answer and one tip.",
+};
+
+// System prompt for chapter-grounded tasks: base rules, the reader's reading
+// goal when the book is in the catalog, and how to grade quiz answers.
+export function systemFor(ctx: Pick<ChapterContext, "goal">, lang: Lang): string {
+  return [SYSTEM[lang], ctx.goal, QUIZ_RULE[lang]].filter(Boolean).join("\n\n");
+}
+
 export function buildSummaryMessages(ctx: ChapterContext, lang: Lang): ChatMessage[] {
   return [
-    { role: "system", content: SYSTEM[lang] },
+    { role: "system", content: systemFor(ctx, lang) },
     { role: "user", content: `${chapterBlock(ctx, lang)}\n\n${SUMMARY_ASK[lang]}` },
   ];
 }
@@ -84,7 +97,7 @@ export function buildChatMessages(
   const intro = lang === "zh" ? "这是我正在读的这一章。" : "This is the chapter I am reading.";
   const ack = lang === "zh" ? "好的，我已读完这一章，请提问。" : "Got it — I have read the chapter. Ask away.";
   return [
-    { role: "system", content: SYSTEM[lang] },
+    { role: "system", content: systemFor(ctx, lang) },
     { role: "user", content: `${intro}\n${chapterBlock(ctx, lang)}` },
     { role: "assistant", content: ack },
     ...history.slice(-8),

@@ -40,6 +40,18 @@ const SOURCES_EN: AIConfig['sources'] = [
         description:
             'Understanding Silicon Valley means going beyond technology into society and culture. VC + CEO personal sites / Twitter / LinkedIn + American business biographies.',
         items: renameItem(AI_CONFIG.sources[1].items, {
+            'AI PM 分级阅读目录(105 项)': {
+                name: 'AI PM Reading Catalog (105 items, ranked)',
+                note: 'Ranked by priority / importance / score: evals, agents, monetization, biographies and industry history',
+            },
+            'Product Talk — Teresa Torres': { note: 'Continuous discovery, intro to AI evals' },
+            "Lenny's Newsletter": { note: 'AI product interviews and book lists; read what fits current work' },
+            'Creator Economy — Peter Yang': { note: 'Hands-on AI product interviews and written tutorials' },
+            'Bessemer Atlas': { note: 'AI pricing and business models; investor view, validate yourself' },
+            'One Useful Thing — Ethan Mollick': { note: 'Working with AI, organizational adoption' },
+            'AI as Normal Technology — Narayanan & Kapoor': { note: 'Counter-view: read alongside the optimist essays' },
+            'Stripe Press': { note: 'Innovation history and long reads' },
+            'Gates Notes — Books': { note: 'Book reviews; separate blurbs, reviews and dates' },
             'Amazon Best-Sellers: Computer & Tech Biographies': {
                 note: 'Steve Jobs / Elon Musk biographies + Twitter / Uber / Salesforce / Walmart / Starbucks / OpenAI founder books',
             },
@@ -62,6 +74,8 @@ const SOURCES_EN: AIConfig['sources'] = [
                 'Technical Blogs & Reports',
                 'Papers (read deep: problem definition / evaluation / project demo)',
                 'Domain People · Personal Sites · LinkedIn · X',
+                'AI Engineering · Evals · Model Fundamentals (author blogs & primary sources)',
+                'AI Experience Design Research',
                 'Open Source Community',
             ]
             return {

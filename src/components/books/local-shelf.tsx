@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/components/language-provider";
 import { Button } from "@/components/ui/button";
+import { matchCatalog } from "@/lib/books/catalog";
 import { ACCEPTED_EXTENSIONS, detectFormat, titleFromFileName } from "@/lib/books/formats";
 import {
   bookIdFor,
@@ -66,6 +67,7 @@ export default function LocalShelf() {
         size: file.size,
         addedAt: Date.now(),
         file,
+        catalogId: matchCatalog(titleFromFileName(file.name))?.id,
       });
     }
     if (inputRef.current) inputRef.current.value = "";

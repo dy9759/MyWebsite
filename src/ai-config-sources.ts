@@ -41,6 +41,56 @@ export const AI_SOURCES: AIConfig['sources'] = [
                     url: 'https://hardcoresoftware.learningbyshipping.com/',
                 },
                 {
+                    name: 'AI PM 分级阅读目录(105 项)',
+                    url: '/books/catalog/',
+                    note: '按优先级 / 重要性 / 推荐指数分级的书单:评测、Agent、商业化、人物传记与产业史',
+                    pinned: true,
+                },
+                {
+                    name: 'Product Talk — Teresa Torres',
+                    url: 'https://www.producttalk.org/',
+                    note: '持续发现、AI 评测入门',
+                },
+                {
+                    name: "Lenny's Newsletter",
+                    url: 'https://www.lennysnewsletter.com/',
+                    note: 'AI 产品访谈与书单,优先读与当前工作相关的',
+                },
+                {
+                    name: 'Product Compass — Paweł Huryn',
+                    url: 'https://www.productcompass.pm/',
+                },
+                {
+                    name: 'Creator Economy — Peter Yang',
+                    url: 'https://creatoreconomy.so/',
+                    note: 'AI 产品实操访谈与文字教程',
+                },
+                {
+                    name: 'Bessemer Atlas',
+                    url: 'https://www.bvp.com/atlas',
+                    note: 'AI 定价与商业模式;投资机构观点,需自己验证',
+                },
+                {
+                    name: 'One Useful Thing — Ethan Mollick',
+                    url: 'https://www.oneusefulthing.org/',
+                    note: '人与 AI 协作、组织采用',
+                },
+                {
+                    name: 'AI as Normal Technology — Narayanan & Kapoor',
+                    url: 'https://www.normaltech.ai/',
+                    note: '反方视角:和乐观派长文成组对读',
+                },
+                {
+                    name: 'Stripe Press',
+                    url: 'https://press.stripe.com/',
+                    note: '创新史与长期读物',
+                },
+                {
+                    name: 'Gates Notes — Books',
+                    url: 'https://www.gatesnotes.com/books',
+                    note: '书评;区分推荐语、独立书评与推荐时间',
+                },
+                {
                     name: "Lenny's Newsletter — State of the Product Job Market",
                     url: 'https://www.lennysnewsletter.com/p/state-of-the-product-job-market-in',
                 },
@@ -176,6 +226,34 @@ export const AI_SOURCES: AIConfig['sources'] = [
                     ],
                 },
                 {
+                    label: 'AI 工程 · 评测 · 模型原理(作者博客与一手资料)',
+                    items: [
+                        { name: 'Anthropic Engineering', url: 'https://www.anthropic.com/engineering' },
+                        {
+                            name: 'OpenAI — A practical guide to building agents',
+                            url: 'https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/',
+                        },
+                        { name: 'Chip Huyen', url: 'https://huyenchip.com/' },
+                        { name: 'Hamel Husain', url: 'https://hamel.dev/' },
+                        { name: 'Shreya Shankar', url: 'https://www.sh-reya.com/' },
+                        { name: 'Simon Willison', url: 'https://simonwillison.net/' },
+                        { name: "Lilian Weng — Lil'Log", url: 'https://lilianweng.github.io/' },
+                        { name: 'Interconnects — Nathan Lambert', url: 'https://www.interconnects.ai/' },
+                        { name: 'Ahead of AI — Sebastian Raschka', url: 'https://magazine.sebastianraschka.com/' },
+                        { name: 'Hugging Face Learn', url: 'https://huggingface.co/learn' },
+                    ],
+                },
+                {
+                    label: 'AI 体验设计研究',
+                    items: [
+                        { name: 'Google PAIR — People + AI Guidebook', url: 'https://pair.withgoogle.com/guidebook/' },
+                        {
+                            name: 'Microsoft Research — Guidelines for Human-AI Interaction',
+                            url: 'https://www.microsoft.com/en-us/research/project/guidelines-for-human-ai-interaction/',
+                        },
+                    ],
+                },
+                {
                     label: '开源社区',
                     items: [
                         {
@@ -263,6 +341,7 @@ export const AI_SOURCES: AIConfig['sources'] = [
                         { name: '张无常 (公众号)' },
                         { name: '爱范儿', url: 'https://www.ifanr.com/' },
                         { name: '真格基金', url: 'https://zhenfund.com/' },
+                        { name: '宝玉的分享', url: 'https://www.baoyu.io/' },
                     ],
                 },
                 {

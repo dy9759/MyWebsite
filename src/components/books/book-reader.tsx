@@ -14,7 +14,8 @@ import { findQuotePage, quoteProbes, type Citation } from "@/lib/books/citations
 import { formatContributor, openBookFile, type FoliateView } from "@/lib/books/foliate";
 import { FONT_MAX, FONT_MIN, useReaderPrefs } from "@/lib/books/reader-prefs";
 import { attachSwipe, type SwipeDir } from "@/lib/books/swipe";
-import { getBook, getProgress, putBook, putProgress } from "@/lib/books/store";
+import { CATALOG_BY_ID, matchCatalog, type CatalogEntry } from "@/lib/books/catalog";
+import { getBook, getProgress, putBook, putProgress, type StoredBook } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
 
 type Status = "loading" | "ready" | "missing" | "error";
@@ -49,6 +50,9 @@ export default function BookReader() {
   const turnAreaRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<FoliateView | null>(null);
   const fileRef = useRef<File | null>(null);
+  const storedRef = useRef<StoredBook | null>(null);
+  const [catalogEntry, setCatalogEntry] = useState<CatalogEntry | null>(null);
+  const [author, setAuthor] = useState("");
   // Selections made by citation jumps must not land in the "selected" chip.
   const ignoreSelectionUntil = useRef(0);
   const [status, setStatus] = useState<Status>("loading");
@@ -106,9 +110,16 @@ export default function BookReader() {
       const metaTitle = formatContributor(book.metadata?.title) || stored.title;
       const author = formatContributor(book.metadata?.author);
       setTitle(metaTitle);
+      setAuthor(author || stored.author || "");
       setToc(book.toc ?? []);
-      if (metaTitle !== stored.title || (author && author !== stored.author)) {
-        void putBook({ ...stored, title: metaTitle, author: author || stored.author });
+      // Link to the reading catalog: keep a stored link, else try the
+      // embedded title (often better than the file name).
+      const catalogId = stored.catalogId ?? matchCatalog(metaTitle, stored.title)?.id;
+      setCatalogEntry(catalogId ? (CATALOG_BY_ID.get(catalogId) ?? null) : null);
+      const updated = { ...stored, title: metaTitle, author: author || stored.author, catalogId };
+      storedRef.current = updated;
+      if (metaTitle !== stored.title || updated.author !== stored.author || catalogId !== stored.catalogId) {
+        void putBook(updated);
       }
 
       // Keep the latest non-empty selection in the book for the AI companion.
@@ -434,6 +445,17 @@ export default function BookReader() {
               onClearSelection={() => setSelection("")}
               onClose={() => setShowAi(false)}
               onCite={onCite}
+              catalogEntry={catalogEntry}
+              author={author}
+              onLinkCatalog={(cid) => {
+                setCatalogEntry(cid ? (CATALOG_BY_ID.get(cid) ?? null) : null);
+                const stored = storedRef.current;
+                if (stored) {
+                  // "" records an explicit "not in the catalog" so auto-match stays off.
+                  storedRef.current = { ...stored, catalogId: cid ?? "" };
+                  void putBook(storedRef.current);
+                }
+              }}
             />
           </aside>
         )}

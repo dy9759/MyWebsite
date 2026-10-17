@@ -14,6 +14,10 @@ export const SITE_COPY = {
     books: {
       title: "读书",
       intro: "我的读书笔记，以及一个可以打开你自己电子书的阅读器。",
+      catalogHeading: "AI PM 分级阅读目录",
+      catalogIntro: "105 项读物：评测、Agent、技术书、产品与商业方法、人物传记与产业史。按优先级、重要性和推荐指数分级，附推荐理由、读法、阅读产出和阅读路线。",
+      catalogCta: "打开阅读目录",
+      catalogNow: "现在最值得读",
       notesHeading: "读书笔记",
       notesEmpty: "笔记整理中。",
       draft: "草稿",
@@ -137,6 +141,10 @@ export const SITE_COPY = {
     books: {
       title: "Books",
       intro: "My reading notes, plus a reader for opening your own e-books.",
+      catalogHeading: "AI PM Reading Catalog",
+      catalogIntro: "105 reads on evals, agents, AI engineering, product and business methods, biographies and industry history — ranked by priority, importance and score, with reasons, how to read, outputs and reading routes (in Chinese).",
+      catalogCta: "Open the catalog",
+      catalogNow: "Read first",
       notesHeading: "Reading notes",
       notesEmpty: "Notes coming soon.",
       draft: "Draft",
