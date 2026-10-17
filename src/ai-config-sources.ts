@@ -22,6 +22,12 @@ export const AI_SOURCES: AIConfig['sources'] = [
                 '理解硅谷不能只看技术,也要看社会与文化。VC + CEO 的个人网站/推特/LinkedIn + 美国商业传记。',
             items: [
                 {
+                    name: 'Amazon Best-Sellers: Computer & Tech Biographies',
+                    url: 'https://www.amazon.com/Best-Sellers-Computer-Technology-Biographies/zgbs/books/3568',
+                    note: '乔布斯传、马斯克传 + Twitter / Uber / Salesforce / 沃尔玛 / 星巴克 / OpenAI 创始人传记',
+                    pinned: true,
+                },
+                {
                     name: 'Ben Thompson — Stratechery',
                     url: 'https://stratechery.com/',
                 },
@@ -37,11 +43,6 @@ export const AI_SOURCES: AIConfig['sources'] = [
                 {
                     name: "Lenny's Newsletter — State of the Product Job Market",
                     url: 'https://www.lennysnewsletter.com/p/state-of-the-product-job-market-in',
-                },
-                {
-                    name: 'Amazon Best-Sellers: Computer & Tech Biographies',
-                    url: 'https://www.amazon.com/Best-Sellers-Computer-Technology-Biographies/zgbs/books/3568',
-                    note: '乔布斯传、马斯克传 + Twitter / Uber / Salesforce / 沃尔玛 / 星巴克 / OpenAI 创始人传记',
                 },
             ],
         },
