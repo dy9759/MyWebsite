@@ -33,6 +33,7 @@ const DB_NAME = "books";
 const FILES = "files";
 const PROGRESS = "progress";
 const SUMMARIES = "summaries";
+const TRANSLATIONS = "translations";
 
 // AI chapter summaries, cached so the same chapter is never paid for twice.
 // `key` is `${bookId}::${chapterKey}`; `start` orders chapters for recaps.
@@ -48,10 +49,10 @@ export type ChapterSummary = {
 
 function openDb(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, 2);
+    const req = indexedDB.open(DB_NAME, 3);
     req.onupgradeneeded = () => {
       const db = req.result;
-      for (const [name, keyPath] of [[FILES, "id"], [PROGRESS, "id"], [SUMMARIES, "key"]]) {
+      for (const [name, keyPath] of [[FILES, "id"], [PROGRESS, "id"], [SUMMARIES, "key"], [TRANSLATIONS, "key"]]) {
         if (!db.objectStoreNames.contains(name)) db.createObjectStore(name, { keyPath });
       }
     };
@@ -118,4 +119,56 @@ export async function listSummaries(bookId: string): Promise<ChapterSummary[]> {
   const range = IDBKeyRange.bound(`${bookId}::`, `${bookId}::\uffff`);
   const all = await run<ChapterSummary[]>(SUMMARIES, "readonly", (s) => s.getAll(range));
   return all.sort((a, b) => a.start - b.start);
+}
+
+// Paragraph translations, keyed by target language + a hash of the source
+// text, so the same paragraph is never paid for twice (in any book).
+type CachedTranslation = { key: string; text: string };
+
+export function translationKey(target: string, source: string): string {
+  // cyrb53: fast 53-bit string hash; collisions are irrelevant at book scale.
+  let h1 = 0xdeadbeef;
+  let h2 = 0x41c6ce57;
+  for (let i = 0; i < source.length; i++) {
+    const ch = source.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return `${target}::${(4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36)}`;
+}
+
+export async function getTranslations(keys: string[]): Promise<Map<string, string>> {
+  const db = await openDb();
+  try {
+    const store = db.transaction(TRANSLATIONS, "readonly").objectStore(TRANSLATIONS);
+    const rows = await Promise.all(
+      keys.map(
+        (k) =>
+          new Promise<CachedTranslation | undefined>((resolve) => {
+            const req = store.get(k);
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => resolve(undefined);
+          }),
+      ),
+    );
+    return new Map(rows.filter((r): r is CachedTranslation => !!r).map((r) => [r.key, r.text]));
+  } finally {
+    db.close();
+  }
+}
+
+export async function putTranslations(entries: [string, string][]) {
+  const db = await openDb();
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction(TRANSLATIONS, "readwrite");
+      for (const [key, text] of entries) tx.objectStore(TRANSLATIONS).put({ key, text });
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+  } finally {
+    db.close();
+  }
 }

@@ -12,8 +12,12 @@ const CITE_RE =
 // Runs on already-sanitised HTML (see safe-markdown.ts). Quote text cannot
 // contain tags (the pattern excludes < >) and is already HTML-escaped by the
 // renderer, so only `"` needs escaping to reuse it in an attribute.
-export function linkifyCitations(html: string): string {
+// `pages: false` (reflowable books) leaves page refs as plain text — they
+// cannot resolve to anything there.
+export function linkifyCitations(html: string, opts: { pages?: boolean } = {}): string {
+  const pages = opts.pages ?? true;
   return html.replace(CITE_RE, (m, quote?: string, p1?: string, p2?: string) => {
+    if (!quote && !pages) return m;
     if (quote) {
       return `<button type="button" class="book-cite" data-quote="${quote.replace(/"/g, "&quot;")}">「${quote}」</button>`;
     }
@@ -34,7 +38,7 @@ export function readCitation(el: HTMLElement): Citation | null {
 // try the longest unbroken piece first, then shorter anchors from it.
 export function quoteProbes(quote: string): string[] {
   const pieces = quote
-    .split(/…+|\.{3,}|⋯+/)
+    .split(/[[(（]\s*(?:…+|\.{3,}|⋯+)\s*[\])）]|…+|\.{3,}|⋯+/)
     .map((p) => p.trim().replace(/^[，。、；：,.;:\s]+|[，。、；：,.;:\s]+$/g, ""))
     .filter((p) => p.length >= 4)
     .sort((a, b) => b.length - a.length);

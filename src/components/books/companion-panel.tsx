@@ -11,6 +11,7 @@ import {
   buildChatMessages,
   buildRecapMessages,
   buildSummaryMessages,
+  hasPageMarkers,
   streamChat,
   type ChatMessage,
 } from "@/lib/books/companion";
@@ -265,7 +266,8 @@ export default function CompanionPanel(props: Props) {
     const ok = await onCite(cite, chapter);
     setCiteMsg(ok ? "" : t.citeMiss);
   };
-  const answerHtml = (md: string) => linkifyCitations(renderSafeMarkdown(md));
+  const answerHtml = (md: string) =>
+    linkifyCitations(renderSafeMarkdown(md), { pages: !!chapter && hasPageMarkers(chapter.text) });
 
   const disabled = !cfg || !chapter || busy || chapter.scanned;
 

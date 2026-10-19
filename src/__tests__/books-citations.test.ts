@@ -26,6 +26,13 @@ describe("linkifyCitations", () => {
     expect(div.querySelectorAll(".book-cite")).toHaveLength(1);
   });
 
+  it("leaves page refs as text for reflowable books", () => {
+    const div = document.createElement("div");
+    div.innerHTML = linkifyCitations(renderSafeMarkdown("「a real quote」 (p.3)"), { pages: false });
+    expect([...div.querySelectorAll<HTMLElement>(".book-cite")].map((b) => readCitation(b))).toEqual([{ quote: "a real quote" }]);
+    expect(div.textContent).toContain("(p.3)");
+  });
+
   it("ignores very short brackets", () => {
     expect(render("「是」").querySelector(".book-cite")).toBeNull();
   });
@@ -34,6 +41,11 @@ describe("linkifyCitations", () => {
 describe("quoteProbes", () => {
   it("prefers the longest piece of an elided quote", () => {
     expect(quoteProbes("大企业失败……是因为它们倾听了最好的客户")[0]).toBe("是因为它们倾听了最好的客户");
+  });
+  it("treats bracketed [...] as an elision, not part of the quote", () => {
+    expect(quoteProbes("Bad data gives us false negatives [...] and—more dangerously—false positives")[0]).toBe(
+      "and—more dangerously—false positives",
+    );
   });
   it("adds head and tail anchors for long quotes", () => {
     const probes = quoteProbes("管理良好的公司之所以失败往往不是因为犯了错误");

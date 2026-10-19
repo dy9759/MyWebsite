@@ -14,7 +14,7 @@ export const BYOK_ENDPOINTS: Record<ByokRegion, string> = {
   cn: "https://dashscope.aliyuncs.com/compatible-mode/v1",
   intl: "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
 };
-export const BYOK_DEFAULT_MODEL = "qwen-plus";
+export const BYOK_DEFAULT_MODEL = "deepseek-v4.1-flash";
 
 const STORE_KEY = "wiki-byok-v1";
 const EVENT = "wiki-byok-change";
@@ -91,12 +91,19 @@ export async function askByok(cfg: ByokConfig, message: string, language: "zh" |
   // Loaded on demand: the knowledge digest only ships to visitors who use it.
   const { MAX_MESSAGE, chatBody, parseReply } = await import("../../server/wiki-chat/prompt.js");
   try {
-    const res = await fetch(`${BYOK_ENDPOINTS[cfg.region]}/chat/completions`, {
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${cfg.key}` },
-      body: JSON.stringify(chatBody(cfg.model, message.slice(0, MAX_MESSAGE))),
-      signal: AbortSignal.timeout(60_000),
-    });
+    // Thinking off: hybrid models (e.g. deepseek-v4.1-flash) otherwise spend
+    // part of the max_tokens budget reasoning. Retry without the flag if a
+    // model rejects it.
+    const body = chatBody(cfg.model, message.slice(0, MAX_MESSAGE));
+    const send = (noThinking: boolean) =>
+      fetch(`${BYOK_ENDPOINTS[cfg.region]}/chat/completions`, {
+        method: "POST",
+        headers: { "content-type": "application/json", authorization: `Bearer ${cfg.key}` },
+        body: JSON.stringify(noThinking ? { ...body, enable_thinking: false } : body),
+        signal: AbortSignal.timeout(60_000),
+      });
+    let res = await send(true);
+    if (res.status === 400) res = await send(false);
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
     const raw = String(data.choices?.[0]?.message?.content ?? "").trim();

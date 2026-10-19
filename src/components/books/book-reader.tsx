@@ -5,12 +5,20 @@ import { useSearchParams } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, List, Maximize, Minimize, Sparkles } from "lucide-react";
-import { useSiteCopy } from "@/components/language-provider";
+import { useLanguage, useSiteCopy } from "@/components/language-provider";
 import { Button } from "@/components/ui/button";
 import BookToc, { type TocItem } from "@/components/books/book-toc";
 import CompanionPanel from "@/components/books/companion-panel";
-import { getChapterText, getPdfPageText, type ChapterText } from "@/lib/books/chapter-text";
-import { findQuotePage, quoteProbes, type Citation } from "@/lib/books/citations";
+import PageTurnZone from "@/components/books/page-turn-zone";
+import SelectionTranslate from "@/components/books/selection-translate";
+import TranslateControls from "@/components/books/translate-controls";
+import { BILINGUAL_CSS } from "@/lib/books/bilingual";
+import { getChapterText, type ChapterText } from "@/lib/books/chapter-text";
+import type { Citation } from "@/lib/books/citations";
+import { navigateToCitation } from "@/lib/books/cite-nav";
+import { useBilingual } from "@/lib/books/use-bilingual";
+import { useFullscreen } from "@/lib/books/use-fullscreen";
+import { useByok } from "@/lib/wiki-byok";
 import { formatContributor, openBookFile, type FoliateView } from "@/lib/books/foliate";
 import { FONT_MAX, FONT_MIN, useReaderPrefs } from "@/lib/books/reader-prefs";
 import { attachSwipe, type SwipeDir } from "@/lib/books/swipe";
@@ -39,7 +47,7 @@ const readerCss = (dark: boolean, fontSize: number) => `
   a:link { color: ${dark ? "#8ab4f8" : "#1a56db"}; }
   img, svg { max-width: 100%; height: auto; }
   pre { white-space: pre-wrap; }
-`;
+${BILINGUAL_CSS}`;
 
 export default function BookReader() {
   const copy = useSiteCopy().books;
@@ -66,14 +74,25 @@ export default function BookReader() {
   const [showAi, setShowAi] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [prefs, setPrefs] = useReaderPrefs();
-  const { pdfSingle, pdfZoom, fontSize } = prefs;
-  const rootRef = useRef<HTMLDivElement>(null);
-  const [nativeFull, setNativeFull] = useState(false);
-  // Fallback for browsers without the element Fullscreen API (iPhone Safari):
-  // the reader just covers the viewport.
-  const [cssFull, setCssFull] = useState(false);
-  const fullscreen = nativeFull || cssFull;
+  const { pdfSingle, pdfZoom, fontSize, bilingual, translateTo } = prefs;
+  const { rootRef, fullscreen, toggle: toggleFullscreen, exitCss } = useFullscreen();
   const [selection, setSelection] = useState("");
+  const { language } = useLanguage();
+  const cfg = useByok();
+  // Bumped whenever foliate loads a section, so the bilingual view picks it up.
+  const [docVersion, setDocVersion] = useState(0);
+  const getDocs = useCallback(
+    () => ((viewRef.current?.renderer?.getContents?.() ?? []) as { doc: Document }[]).map((c) => c.doc),
+    [],
+  );
+  const { progress: trProgress, error: trError } = useBilingual({
+    enabled: bilingual && !fixed && status === "ready",
+    pref: translateTo,
+    cfg,
+    uiLang: language,
+    getDocs,
+    docVersion,
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -139,6 +158,7 @@ export default function BookReader() {
         // foliate's paginator swipes reflowable books itself; fixed-layout
         // pages (PDF) have no touch paging, so add it.
         if (isFixed) attachSwipe(doc, (dir) => turnBySwipe(viewRef.current, dir));
+        setDocVersion((v) => v + 1);
       });
 
       view.addEventListener("relocate", (e) => {
@@ -199,29 +219,6 @@ export default function BookReader() {
     if (status === "ready" && fixed) viewRef.current?.renderer?.setAttribute("zoom", pdfZoom);
   }, [pdfZoom, fixed, status]);
 
-  const toggleFullscreen = useCallback(() => {
-    if (document.fullscreenElement) {
-      void document.exitFullscreen();
-    } else if (cssFull) {
-      setCssFull(false);
-    } else if (document.fullscreenEnabled && rootRef.current?.requestFullscreen) {
-      // Some embedded webviews (in-app browsers) never settle the request;
-      // fall back to covering the viewport if nothing happens quickly.
-      const fallback = setTimeout(() => {
-        if (!document.fullscreenElement) setCssFull(true);
-      }, 800);
-      rootRef.current
-        .requestFullscreen()
-        .then(() => clearTimeout(fallback))
-        .catch(() => {
-          clearTimeout(fallback);
-          setCssFull(true);
-        });
-    } else {
-      setCssFull(true);
-    }
-  }, [cssFull]);
-
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (isTextEntry(e.target)) return;
@@ -232,21 +229,12 @@ export default function BookReader() {
         void (e.key === "ArrowLeft" ? viewRef.current?.goLeft() : viewRef.current?.goRight());
       }
       if ((e.key === "f" || e.key === "F") && !e.metaKey && !e.ctrlKey && !e.altKey) toggleFullscreen();
-      if (e.key === "Escape") setCssFull(false);
-    };
-    const onFsChange = () => {
-      const active = document.fullscreenElement === rootRef.current;
-      setNativeFull(active);
-      if (active) setCssFull(false);
+      if (e.key === "Escape") exitCss();
     };
     // Capture phase, so nothing inside the reader can swallow the keys.
     window.addEventListener("keydown", onKey, true);
-    document.addEventListener("fullscreenchange", onFsChange);
-    return () => {
-      window.removeEventListener("keydown", onKey, true);
-      document.removeEventListener("fullscreenchange", onFsChange);
-    };
-  }, [toggleFullscreen]);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [toggleFullscreen, exitCss]);
 
   const resolveChapter = useCallback(() => {
     const view = viewRef.current;
@@ -254,40 +242,13 @@ export default function BookReader() {
     return getChapterText(view.book, fileRef.current, currentHref, sectionIndex);
   }, [currentHref, sectionIndex]);
 
-  // Jump from an AI citation back into the book. PDFs navigate by page;
-  // reflowable books search the chapter's sections and select the match.
   const onCite = useCallback(async (cite: Citation, chapter: ChapterText): Promise<boolean> => {
     const view = viewRef.current;
     const file = fileRef.current;
     if (!view || !file) return false;
-    const fixed = view.book.rendition?.layout === "pre-paginated";
-    if (cite.page) {
-      if (!fixed || cite.page < 1 || cite.page > view.book.sections.length) return false;
-      await view.goTo(cite.page - 1);
-      return true;
-    }
-    if (!cite.quote) return false;
-    if (fixed) {
-      const pages = [];
-      for (let i = chapter.start; i < chapter.end; i++) {
-        pages.push({ page: i + 1, text: await getPdfPageText(file, i) });
-      }
-      const page = findQuotePage(pages, cite.quote);
-      if (page) await view.goTo(page - 1);
-      return page != null;
-    }
-    for (const query of quoteProbes(cite.quote)) {
-      for (let index = chapter.start; index < chapter.end; index++) {
-        for await (const result of view.search({ query, index })) {
-          if (result === "done" || !result.cfi) continue;
-          ignoreSelectionUntil.current = Date.now() + 1000;
-          await view.select(result.cfi);
-          setTimeout(() => view.clearSearch(), 4000);
-          return true;
-        }
-      }
-    }
-    return false;
+    return navigateToCitation(view, file, cite, chapter, () => {
+      ignoreSelectionUntil.current = Date.now() + 1000;
+    });
   }, []);
 
   const goTo = (href: string) => {
@@ -360,6 +321,9 @@ export default function BookReader() {
                 <PageTurnZone side="right" label={copy.next} onClick={() => viewRef.current?.goRight()} />
               </>
             )}
+            {status === "ready" && selection && (
+              <SelectionTranslate selection={selection} pref={translateTo} onDismiss={() => setSelection("")} />
+            )}
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2">
             <Button variant="outline" size="icon" aria-label={copy.prev} onClick={() => viewRef.current?.goLeft()}>
@@ -419,10 +383,30 @@ export default function BookReader() {
                 </Button>
               </div>
             )}
+            {status === "ready" && (
+              <div className="order-last flex w-full justify-center md:order-none md:w-auto">
+                <TranslateControls
+                  canBilingual={!fixed}
+                  bilingual={bilingual}
+                  onBilingual={(on) => setPrefs({ bilingual: on })}
+                  target={translateTo}
+                  onTarget={(t) => setPrefs({ translateTo: t })}
+                  progress={trProgress}
+                  hasKey={!!cfg}
+                  zh={language === "zh"}
+                />
+              </div>
+            )}
             <Button variant="outline" size="icon" aria-label={copy.next} onClick={() => viewRef.current?.goRight()}>
               <ChevronRight className="h-4 w-4" />
             </Button>
           </div>
+          {trError && <p className="mt-1 text-xs text-destructive">{trError}</p>}
+          {bilingual && !fixed && status === "ready" && !cfg && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              {language === "zh" ? "双语对照需要你的百炼 Key：点右上角 AI 配置。" : "Bilingual view needs your Bailian key — set it in the AI panel."}
+            </p>
+          )}
         </div>
 
         {showAi && status === "ready" && (
@@ -461,26 +445,5 @@ export default function BookReader() {
         )}
       </div>
     </div>
-  );
-}
-
-// Click/tap strip along a page edge that turns the page; the arrow shows on
-// hover so it stays out of the way of the text.
-function PageTurnZone({ side, label, onClick }: { side: "left" | "right"; label: string; onClick: () => void }) {
-  const Icon = side === "left" ? ChevronLeft : ChevronRight;
-  return (
-    <button
-      type="button"
-      aria-label={label}
-      onClick={onClick}
-      className={cn(
-        "group absolute inset-y-0 z-[1] flex w-[7%] min-w-10 items-center",
-        side === "left" ? "left-0 justify-start pl-1" : "right-0 justify-end pr-1",
-      )}
-    >
-      <span className="rounded-full bg-background/80 p-1.5 opacity-0 shadow transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-        <Icon className="h-5 w-5" />
-      </span>
-    </button>
   );
 }

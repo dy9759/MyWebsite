@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CATALOG, CATALOG_BY_ID } from "@/lib/books/catalog";
-import { buildChatMessages } from "@/lib/books/companion";
+import { buildChatMessages, systemFor } from "@/lib/books/companion";
 import {
   buildAdvisorMessages,
   buildNoteMessages,
@@ -62,5 +62,12 @@ describe("advisor", () => {
     expect(user.split("\n").filter((l) => /^R\d{3}\|/.test(l))).toHaveLength(CATALOG.length);
     expect(user).toContain("R046|P0|S|5|已读|The Mom Test");
     expect(user).toContain("已读的不要再推荐");
+  });
+});
+
+describe("page rule", () => {
+  it("asks for (p.N) only when the chapter has page markers", () => {
+    expect(systemFor({ text: "[第 3 页]\n正文" }, "zh")).toContain("(p.N)");
+    expect(systemFor({ text: "plain epub text" }, "zh")).not.toContain("(p.N)");
   });
 });
