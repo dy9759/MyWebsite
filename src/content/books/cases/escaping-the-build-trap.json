@@ -1,153 +1,426 @@
 {
  "I. The Build Trap": [
   {
-   "point": "只顾交付更多功能，会让公司忘了真正要创造的价值",
    "core": "The build trap is a terrifying place for companies because it distracts them. Everyone is so focused on shipping more software that they lose sight of what is important: producing value for customers, hitting business goals, and innovating against competitors.",
-   "caseTitle": "Marquetly 赶工十个功能",
    "case": "Then the calls began pouring in. The site was breaking because the features they rushed to launch were not well tested. Teachers were frustrated because there was so much new functionality that got in the way of them trying to accomplish their most important tasks: creating courses and responding to student comments. Many of the teachers decided to take their courses down, and the account managers were left scrambling to bring them back.",
-   "explain": "团队赶工上线十个未充分测试的功能，导致站点故障、老师下架课程，学生端几乎无人使用，营收仍下滑——产出很多，却没有创造客户价值。"
+   "point": "只顾交付更多功能，会让公司忘了真正要创造的价值",
+   "explain": "Marquetly 赶工上线十个功能，因测试不足导致站点故障；教师因新功能干扰核心任务而下架课程，学生端无人使用，营收增速仍下滑。证明只重产出会忽视客户价值与业务目标。",
+   "caseTitle": "Marquetly 赶工十个功能",
+   "importance": 3
+  },
+  {
+   "point": "战略过度分散、资源不足，团队无法成功",
+   "explain": "Marquetly 同时推进20个大型项目，每个只配一名初级产品经理和一个开发团队，资源被摊薄，无法保证任何项目成功，体现“抹花生酱”式战略摊薄的危害。",
+   "caseTitle": "Marquetly多项目并行",
+   "importance": 3,
+   "core": "You are peanut-buttering your strategy—meaning that you have so many strategic initiatives spread over very few people.",
+   "case": "At one point, there were 20 major projects in progress. When I say major, I really mean major. A new mobile app was being developed, along with a new backend system for the teachers to monitor their classes. These were large undertakings, meant for multiple teams, but only one product manager—and a junior one at that—and one development team were assigned to each."
+  },
+  {
+   "point": "产出多不等于价值大，混淆产出与成果是陷阱",
+   "explain": "团队赶工上线大量功能后，学生端采用率为零，营收增长继续下滑。说明以功能数量衡量进展，而非以实际用户价值和业务成果衡量，是构建陷阱的核心错误。",
+   "caseTitle": "功能上线无人使用",
+   "importance": 3,
+   "core": "It’s about confusing output-centric measures of progress with real measures of value.",
+   "case": "A few weeks later, we checked in on the adoption of the features on the student side. Nothing. No one was using them. All that work, all those features, and Marquetly was still in the same place. Its revenue growth was declining, and the company was feeling the heat."
   }
  ],
  "1. The Value Exchange System": [
   {
-   "point": "不理解用户问题时，公司会拿交付功能数当作价值的替代指标",
    "core": "Instead of doing the work to learn this information about customers, they create a proxy that is easy to measure. “Value” becomes the quantity of features that are delivered, and, as a result, the number of features shipped becomes the primary metric of success.",
-   "caseTitle": "只有 2% 被使用的功能",
    "case": "I once worked with a company that made a data platform for enterprise companies. It had a total of 30 features, with about 40 more on the backlog, when I came in. When I measured the customer use of those existing features, we discovered people used only 2% of them consistently. And yet, development was underway to add more, instead of trying to reevaluate what they already had.",
-   "explain": "该数据平台已有30个功能，用户持续使用的仅约2%，团队却仍在开发新功能，而非复盘已有功能的价值，正说明用功能数量替代了真实用户价值。"
+   "point": "不理解用户问题时，公司会拿交付功能数当作价值的替代指标",
+   "explain": "数据平台30个功能仅2%被持续使用，公司却继续开发新功能，而非重新评估已有功能，证明功能数量成了易测的价值替代品。",
+   "caseTitle": "只有 2% 被使用的功能",
+   "importance": 3
+  },
+  {
+   "point": "以产出数量而非业务成果衡量价值，会陷入build trap",
+   "explain": "Marquetly领导层庆祝单月上线10个功能，但没有一个达成目标，说明用产出数量衡量成功会掩盖价值缺失。",
+   "caseTitle": "Marquetly 10功能庆祝",
+   "importance": 3,
+   "core": "Instead of associating value with the outcomes they want to create for their businesses and customers, they measure value by the number of things they produce.",
+   "case": "Marquetly was a clear example of this when the leaders celebrated the 10 features the company shipped in a single month, but none of those features achieved their goals."
+  },
+  {
+   "point": "用易测的代理指标奖励员工，会强化产出导向的错误行为",
+   "explain": "开发者按代码量、产品经理按文档或待办量、团队按功能数量受奖励，说明考核指标本身在驱动大家追求产出而非价值。",
+   "caseTitle": "代理指标奖励员工",
+   "importance": 2,
+   "core": "Instead of doing the work to learn this information about customers, they create a proxy that is easy to measure. “Value” becomes the quantity of features that are delivered, and, as a result, the number of features shipped becomes the primary metric of success.",
+   "case": "Developers are rewarded for writing tons of functional code. Designers are rewarded for fine-tuning interactions and creating pixel-perfect designs. Product managers are rewarded for writing long specification documents or, in an Agile world, creating extensive backlogs. The team is rewarded for shipping massive quantities of features."
+  },
+  {
+   "point": "为对齐竞品而盲目开发功能，是陷入build trap的原因之一",
+   "explain": "公司快速跟进竞品每个功能，甚至不知这些功能对竞品是否有效，管理层仍坚持功能对齐，说明功能开发脱离用户价值判断。",
+   "caseTitle": "追赶竞品功能对齐",
+   "importance": 2,
+   "core": "Instead of doing the work to learn this information about customers, they create a proxy that is easy to measure. “Value” becomes the quantity of features that are delivered, and, as a result, the number of features shipped becomes the primary metric of success.",
+   "case": "The company was playing a game of catch-up—trying to fast-follow its competitors on every feature it released. It didn’t even know whether these features were working out well for their competitors, but management insisted on parity."
+  },
+  {
+   "point": "销售过度承诺导致大量一次性功能，偏离可规模化战略",
+   "explain": "为签合同给客户任何承诺，结果产生大量只满足单一客户需求的一次性功能，而非服务多客户的可规模化战略选择。",
+   "caseTitle": "销售过度承诺定制功能",
+   "importance": 2,
+   "core": "Instead of doing the work to learn this information about customers, they create a proxy that is easy to measure. “Value” becomes the quantity of features that are delivered, and, as a result, the number of features shipped becomes the primary metric of success.",
+   "case": "The company also overpromised during the sales process, giving customers whatever it took to get the contract signed. The result was a ton of one-off features that satisfied the needs of only one client, rather than a strategic choice to build what would scale for many clients."
   }
  ],
  "4. The Product-Led Organization": [
   {
-   "point": "产品导向型公司围绕业务结果排优先级，而非依赖某个人",
    "core": "Product-led companies optimize for their business outcomes, align their product strategy to these goals, and then prioritize the most effective projects that will help develop those products into sustainable drivers of growth.",
-   "caseTitle": "乔布斯之后的苹果",
    "case": "Visionary-led companies can be very powerful—when you have the right visionary. But, there aren’t too many Steve Jobses floating around. Also, when that visionary leaves, what happens to the product direction? It usually crumbles. This has been something Apple has had to contend with since CEO Tim Cook took over.",
-   "explain": "乔布斯离开后，苹果的产品方向难以为继，说明愿景者导向依赖单个人、不可持续；产品导向则把战略对齐业务目标，不因个人去留而散。"
+   "point": "产品导向型公司围绕业务结果排优先级，而非依赖某个人",
+   "explain": "苹果在乔布斯离开后产品方向常被质疑，说明依赖愿景者的组织不可持续，产品导向应围绕业务结果而非个人。",
+   "caseTitle": "乔布斯之后的苹果",
+   "importance": 3
+  },
+  {
+   "point": "销售导向让合同定义产品战略，导致无用功能",
+   "explain": "数据平台有30个无人使用的功能，因为路线图由对客户的承诺驱动，未对齐整体战略，证明销售导向的失败。",
+   "caseTitle": "数据平台30个无人用功能",
+   "importance": 3,
+   "core": "Sales-led companies let their contracts define their product strategy.",
+   "case": "Remember my example of the data platform that had 30 features that no one used? That was a sales-led company. The product roadmap and direction were driven by what was promised to customers, without aligning back to the overall strategy."
+  },
+  {
+   "point": "技术不能驱动产品战略，产品战略必须主导",
+   "explain": "技术导向公司产出很多很酷的东西却没有买家，说明仅凭技术能力推进产品会偏离价值，需产品战略主导。",
+   "caseTitle": "技术导向公司无买家",
+   "importance": 3,
+   "core": "Technology is critical to a software company’s success, but it cannot drive the product strategy. The product strategy must lead.",
+   "case": "Companies that let their technology lead the way often find themselves spinning their wheels, producing lots of very cool things, with no buyers."
   }
  ],
  "6. Bad Product Manager Archetypes": [
   {
-   "point": "产品经理不是迷你CEO，没有职权，只能靠影响力带团队",
    "core": "Product managers, on the other hand, can’t change many of the things a CEO can in an organization. They especially don’t have authority over people, because they are not people managers at the team level. Instead, they need to rely on influencing them to actually move in a certain direction.",
-   "caseTitle": "想当乔布斯的 Nick",
    "case": "Frankly, Nick was terrible to the designers and developers. He specifically wanted to be a product manager because he fancied himself the next Steve Jobs, a visionary who would dictate, from on high, to his team everything they should build. Needless to say, the rest of his team didn’t like that very much. He was frustrated. “The team won’t listen to me. I can’t get them to build what I want.”",
-   "explain": "Nick自诩下一个乔布斯，想高高在上替团队决定一切，结果设计师和开发者都不买账，他抱怨“团队不听我的”，正说明没有职权、靠发号施令行不通。"
+   "point": "产品经理不是迷你CEO，没有职权，只能靠影响力带团队",
+   "explain": "Nick自视为乔布斯式的愿景家，对团队发号施令，结果设计师和开发者都不愿听他的，证明靠职权命令行不通。",
+   "caseTitle": "想当乔布斯的 Nick",
+   "importance": 3
+  },
+  {
+   "point": "服务员型产品经理只被动接单，没有目标、愿景和取舍",
+   "explain": "Marquetly 90%的产品负责人把利益相关方的需求直接变成开发清单，没有目标与决策，正是“订单接收者”的典型。",
+   "caseTitle": "Marquetly的订单接收者",
+   "importance": 3,
+   "core": "Waiters are reactive thinkers, not strategic thinkers.",
+   "case": "The waiter is a product manager who, at heart, is an order taker. They go to their stakeholders, customers, or managers, ask for what they want, and turn those wants into a list of items to be developed. There is no goal. There is no vision. There is no decision making involved. This was the archetype of 90% of the product owner teams at Marquetly."
+  },
+  {
+   "point": "产品经理负责回答“为什么”，而非项目管理的“什么时候”",
+   "explain": "项目经理关心何时完成、是否按时，产品经理则要回答为何构建、如何交付价值，二者需要不同的战略思维。",
+   "caseTitle": "项目经理论",
+   "importance": 3,
+   "core": "Answering why is very different than answering when. It requires a strategic mindset that understands the customer, business, market, and organization.",
+   "case": "Product managers are not project managers, although a little project management is needed to execute on the role correctly. Project managers are responsible for the when. When will a project finish? Is everyone on track? Will we hit our deadline? Product managers are responsible for the why? Why are we building this? How does it deliver value to our customers? How does it help meet the goals of the business?"
   }
  ],
  "7. A Great Product Manager": [
   {
-   "point": "好的产品经理承认不知道答案，用实验验证假设、降低风险",
    "core": "They need to know that there are assumptions that they must tackle along the way, approaching them with a scientific mindset to validate them and to reduce risk. Ultimately, the goal for the product manager is that—reducing risk by focusing on learning.",
-   "caseTitle": "Meghan 的房贷实验",
    "case": "Meghan explained to our team what one experiment entailed: manually taking on the work to understand how to establish an online system for uploading and verifying required documents for mortgages. The team worked with select first-time applicants and had them email the documents. The bank designated a person to review documents and to approve them during this experiment. Over that time, new applicants completed their applications 90% more often than those who had come into the office to have them verified.",
-   "explain": "Meghan 不先写需求，而是手动模拟线上上传验证流程做实验，用90%的完成率提升验证了假设，以低成本学习降低风险。"
+   "point": "好的产品经理承认不知道答案，用实验验证假设、降低风险",
+   "explain": "Meghan 不先建系统，而是手动让首批申请人邮件提交文件、由专人审核，用实验验证在线验证房贷文件的可行性，结果完成率高出 90%，证明以科学方法验证假设能降低风险。",
+   "caseTitle": "Meghan 的房贷实验",
+   "importance": 3
   }
  ],
  "10. What Is Strategy?": [
   {
-   "point": "把战略当成功能计划，就无法判断做的是否正确",
    "core": "Thinking of strategy as a plan is what gets us into the build trap. We keep adding new features to the list but have no way to evaluate whether they are the right features in the holistic context of our company.",
-   "caseTitle": "CTO 要三个月规格书",
    "case": "“No,” he said. “You need to have a strategy. By the end of a week, I want to see a specification document that has all the content for the site laid out, the backend you want, and everything you are going to build over the next three months.” I pushed back. “How can they possibly tell you what they should build if they’re not sure why they are building it? They can’t figure out the right product until they know what problem they are solving.”",
-   "explain": "CTO 要求一周内交出三个月完整规格说明，只列要建的功能，却不问为什么建、解决什么问题，因此无从判断这些功能在全局中是否正确。"
+   "point": "把战略当成功能计划，就无法判断做的是否正确",
+   "explain": "CTO 要求一周内交出三个月完整规格文档，作者反问：不知道为何构建，怎能确定该构建什么？说明功能清单无法替代战略判断。",
+   "caseTitle": "CTO 要三个月规格书",
+   "importance": 3
+  },
+  {
+   "point": "好战略是超越具体迭代的决策框架",
+   "explain": "Bungay 定义战略为受当前能力约束、与现有情境连贯对齐的可部署决策框架，而非详细计划，支撑全章核心论点。",
+   "caseTitle": "Bungay的战略定义",
+   "importance": 3,
+   "core": "A good strategy should transcend the iterations of features, focusing more on the higher-level goals and vision.",
+   "case": "Strategy is a deployable decision-making framework, enabling action to achieve desired outcomes, constrained by current capabilities, coherently aligned to the existing context."
+  },
+  {
+   "point": "战略是帮助决策的框架，而非详细计划",
+   "explain": "团队先聚焦诊断注册漏斗第3步流失原因，再决定构建什么，体现战略作为决策框架指导行动，而非罗列功能。",
+   "caseTitle": "Marquetly团队诊断注册漏斗",
+   "importance": 2,
+   "core": "Good strategy isn’t a detailed plan. It’s a framework that helps you make decisions.",
+   "case": "“We have the sign-up funnel, and we can see that people are falling off on Step 3. We need to start diagnosing exactly why they are falling off. That’s our goal for this week. How do we make that happen?” I asked the team, just as the CTO wandered into our meeting and took a seat."
+  },
+  {
+   "point": "把战略当计划会陷入构建陷阱",
+   "explain": "公司花数月做年度战略规划，详列任务、成本与收入，却无法评估功能在全局中是否正确，陷入不断添加功能的构建陷阱。",
+   "caseTitle": "年度战略规划与预算",
+   "importance": 2,
+   "core": "Thinking of strategy as a plan is what gets us into the build trap.",
+   "case": "Many companies spend months in “strategic planning” for the following year, creating comprehensive and detailed outlines of the tasks they will accomplish, the cost of those actions, and the revenue they will generate. This often is tied to the budgeting process, and teams must present business cases and timelines in order to secure funding for these projects."
+  },
+  {
+   "point": "缺乏验证的战略常沦为待办清单",
+   "explain": "作者问“怎么知道这是对的事？”多数人无法直接回答，或说“老板让做的”，说明没有战略框架就无法判断构建是否正确。",
+   "caseTitle": "作者反问为何构建",
+   "importance": 2,
+   "core": "Thinking of strategy as a plan is what gets us into the build trap. We keep adding new features to the list but have no way to evaluate whether they are the right features in the holistic context of our company.",
+   "case": "When I ask people what their strategy is and they begin reciting their to-do’s, I always ask this follow-up question: “How do you know that this is the right thing to build?” Most of the time, I cannot get a straight answer to that question, or I hear, “I have no idea, but my boss told me to build it.”"
   }
  ],
  "11. Strategic Gaps": [
   {
-   "point": "用更细的指令填补鸿沟只会更糟，应在意图对齐下给团队自主权",
    "core": "Product teams need the freedom to explore solutions and to adjust their actions according to the data they receive. As long as they are aligned with the overall strategic intents and vision for the company, management should feel comfortable granting the necessary autonomy to capable teams.",
-   "caseTitle": "B 公司的五年路线图",
    "case": "These teams, meanwhile, had been talking to customers and knew that these solutions the consultants had come up with were not what customers wanted. Yet their performance reviews were based on delivering those products. They wanted to do right by the customer, but they couldn’t, for fear of losing their jobs. And so they built the wrong thing—knowingly. At the end of the year, Company B missed all of its goals, and the teams were penalized, even though they delivered on their roadmaps.",
-   "explain": "B公司团队明知顾问方案不符合客户需求，却因绩效绑定路线图而被迫交付错误产品，最终目标落空。这证明缺乏自主权时，细节指令反而导致失败。"
+   "point": "用更细的指令填补鸿沟只会更糟，应在意图对齐下给团队自主权",
+   "explain": "B公司团队明知咨询方案不符合客户需求，却因考核绑定路线图而被迫交付错误产品，年终目标全失。证明缺乏自主调整权时，按指令执行反而背离战略意图。",
+   "caseTitle": "B 公司的五年路线图",
+   "importance": 3
+  },
+  {
+   "point": "高层不应索要更多细节，而应聚焦定义和传达战略意图",
+   "explain": "Marquetly的CTO要求团队列出尚未验证产品的每个细节以获取确定感，这正暴露知识鸿沟：用细节缓解不确定，反而偏离战略意图。",
+   "caseTitle": "Marquetly CTO索要细节",
+   "importance": 3,
+   "core": "Instead of seeking more detailed information, upper management should be limiting its direction to defining and communicating the strategic intent, or the goals of the business.",
+   "case": "We also saw this gap surface with the CTO of Marquetly. He demanded that we lay out every single detail of a not-yet-validated product so that he could feel more certain about what we were doing."
+  },
+  {
+   "point": "领导传递功能需求而非结果目标，造成上下对齐鸿沟",
+   "explain": "同一公司百个团队的产品经理与领导对“为何做当前项目”给出不同答案，因领导只下达功能需求而非预期结果，团队无法将活动连接回公司目标。",
+   "caseTitle": "百团队目标脱节",
+   "importance": 3,
+   "core": "Product teams need the freedom to explore solutions and to adjust their actions according to the data they receive. As long as they are aligned with the overall strategic intents and vision for the company, management should feel comfortable granting the necessary autonomy to capable teams.",
+   "case": "At one company, I walked around asking all of the product managers on the hundred or so teams why they were working on their current project. I then asked their leaders the same question. I got two different answers from these two different levels. They could not connect the activities of the teams back to the outcomes of the companies because leadership had passed down feature requests rather than expected outcomes and goals."
+  },
+  {
+   "point": "缺乏战略框架时，团队自主权名存实亡",
+   "explain": "Marquetly产品经理被要求拥有愿景却不断被塞给解决方案，尝试不同建议即被否决，敏捷宣称的自主团队并未实现，说明自主需以战略意图对齐为前提。",
+   "caseTitle": "Marquetly自主权争执",
+   "importance": 2,
+   "core": "Product teams need the freedom to explore solutions and to adjust their actions according to the data they receive. As long as they are aligned with the overall strategic intents and vision for the company, management should feel comfortable granting the necessary autonomy to capable teams.",
+   "case": "At Marquetly, the product managers were very frustrated by their lack of autonomy. One experienced product manager told me, “I keep having leaders tell me to own the vision of my product, but I’m not allowed. My manager keeps handing me solutions. Every time I try to suggest something different, I’m shut down. When we went Agile, we were told that our Scrum teams were supposed to be autonomous. This is definitely not autonomy.”"
+  },
+  {
+   "point": "用目标与学习叙事沟通工作，而非罗列未验证细节",
+   "explain": "产品经理以“提升获客—已知问题—下一步探索”讲述工作，将行动连接公司目标并承认未知，示范了以战略意图对齐替代细节堆砌的沟通方式。",
+   "caseTitle": "产品经理讲目标故事",
+   "importance": 2,
+   "core": "Product teams need the freedom to explore solutions and to adjust their actions according to the data they receive. As long as they are aligned with the overall strategic intents and vision for the company, management should feel comfortable granting the necessary autonomy to capable teams.",
+   "case": "Consider a product manager telling you the following: “I’m building this because it’s going to help increase acquisitions, and new customer-acquisition is our big goal to drive the revenue prioritized at the corporate level. I know my product can bring people in. We know there’s a problem here, but we’re not sure what it is yet. Our next step is to discover that problem, tackle it with a solution, and then try to optimize the solution so we can increase acquisition.”"
   }
  ],
  "12. Creating a Good Strategic Framework": [
   {
-   "point": "按年度锁定功能清单会失去焦点，应持续评估、持续投资",
    "core": "Tying budgeting, strategy, and product development to this artificial yearly time cycle only creates lack of focus and follow-through. Instead, companies should be continuously evaluating where they are and where they need to take action, and then fund those decisions.",
-   "caseTitle": "Marquetly 的十一月规划",
    "case": "When the company went into its planning meetings in November, everyone would emerge with a list of features to build and then dole them out to the product managers. The product managers then were responsible for estimating the amount of time it would take to complete the features with their development counterparts. After reporting these estimates back to the leadership team, they would then plan the budget and organize the roadmap.",
-   "explain": "Marquetly 十一月规划会上产出一份功能清单，分发给产品经理估算工时、再据此编预算和路线图，战略被锁进一年一度的功能交付循环，缺乏持续评估与调整的空间。"
+   "point": "按年度锁定功能清单会失去焦点，应持续评估、持续投资",
+   "explain": "Marquetly 每年十一月开规划会，产出一份功能清单分给产品经理估算，再据此做预算和路线图，这种年度循环导致缺乏焦点和后续跟进。",
+   "caseTitle": "Marquetly 的十一月规划",
+   "importance": 3
+  },
+  {
+   "point": "OKR 若只关注输出而非结果，就无法驱动战略实现",
+   "explain": "Marquetly 的 OKR 写成“上线新教师平台”和“2018年6月前交付”，全是输出，没有与业务或用户结果挂钩。",
+   "caseTitle": "输出导向的OKR示例",
+   "importance": 3,
+   "core": "Goals were set on the leadership level, as well. They had revenue targets they were promising to investors, based on entering this enterprise market.",
+   "case": "Chris was a huge fan of Objectives and Key Results (OKRs) and had implemented them throughout the company, but they were very output-oriented instead of outcome-oriented. “Ship the first version of the new teacher platform,” was how one objective was described. And “Deliver by June 2018” was considered a key result. They weren’t tied to any outcome—either business or user-oriented."
+  },
+  {
+   "point": "把工作视为“赌注”并给予自主权能促进创新和实验",
+   "explain": "Spotify 用 DIBBs（数据、洞察、信念、赌注）运作，前三个要素支撑一个“赌注”，这种框架设定了不同的期望类型，鼓励实验而非指令。",
+   "caseTitle": "Spotify的DIBBs与创新",
+   "importance": 3,
+   "core": "Spotify maintains innovation by not establishing mandates about what to build from a higher-up perspective.",
+   "case": "The company operates using something called DIBBs, which stands for Data, Insights, Beliefs, and Bets. The first three things, data, insight, and beliefs, inform a piece of work called a bet. The concept of thinking of initiatives as bets is powerful because it sets up a different type of expectation."
+  },
+  {
+   "point": "僵化的年度规划周期会阻碍持续战略调整和长期项目",
+   "explain": "Marquetly 十一月恐慌式预测未来一年，把功能清单塞进甘特图，工作一年到12月31日就停止并采用新战略，不留长期赌注空间。",
+   "caseTitle": "年度规划循环问题",
+   "importance": 2,
+   "core": "Tying budgeting, strategy, and product development to this artificial yearly time cycle only creates lack of focus and follow-through.",
+   "case": "In November, the company goes into panic mode, running around like chickens with their heads cut off, trying to predict the future for the next year. Revenue, commitments to shareholders, and budgets all get set. The laundry list of features that need to be built piles up into detailed Gantt charts. And then January 1 hits, and they get to work. They work on these things for a year, reach the arbitrary deadline of December 31, and then stop to adopt their next strategy."
+  },
+  {
+   "point": "缺乏清晰战略会导致团队被动响应需求，无法对齐目标",
+   "explain": "Jen 问产品经理为什么做某些事，没人能回答，没有目标、没有方向，只是被动地构建客户请求。",
+   "caseTitle": "Jen首周发现战略脱节",
+   "importance": 2,
+   "core": "When strategy is communicated well in an organization, product development and management are synchronized.",
+   "case": "“I went around to all the product managers in the organization and asked them why they were working on certain things. None of them could answer me,” she said. “No goals, no direction. They are just reactively building requests from customers.”"
+  },
+  {
+   "point": "领导层对战略缺乏共识是战略框架失效的典型表现",
+   "explain": "Jen 问领导层公司最重要的事是什么，每个人答案都不同，说明他们对战略或公司愿景没有对齐。",
+   "caseTitle": "领导层目标不一致",
+   "importance": 2,
+   "core": "A good company strategy should be made up of two parts: the operational framework, or how to keep the day-to-day activities of a company moving; and the strategic framework, or how the company realizes the vision through product and service development in the market.",
+   "case": "“Then I went to my peers in the leadership team and asked them what was the most important thing we could do as a company,” continued Jen. “They all gave me different answers. It’s pretty clear we’re not aligned on what our strategy is or what we want to become as a company.”"
   }
  ],
  "13. Company-Level Vision and Strategic Intents": [
   {
-   "point": "战略意图必须少而高层，太多就会把力量摊薄",
    "core": "Getting the right level and number of strategic intents is incredibly important. As Marquetly found out before, too many higher-level goals, and you are back to peanut buttering.",
-   "caseTitle": "5000 人 80 个意图",
    "case": "I once saw a company with 5,000 people have 80 strategic intents. With 5,000 people, they shipped only one feature per quarter because everyone was wildly distracted and working on too many things. One intent is usually good for a small company, and three are plenty for a large organization.",
-   "explain": "5000人的公司设了80个战略意图，人人被分散到太多事情上，结果每季度只交付一个功能，正说明意图过多等于抹花生酱。"
+   "point": "战略意图必须少而高层，太多就会把力量摊薄",
+   "explain": "5000人公司设80个战略意图，结果每季度只交付一个功能，证明意图过多导致全员分心、执行力低下。",
+   "caseTitle": "5000人80个意图",
+   "importance": 3
+  },
+  {
+   "point": "战略意图应处于高层级且聚焦业务",
+   "explain": "Netflix以“引领流媒体市场”为意图，统一了设备接入和内容投入等决策，目标达成后又转向自制内容。",
+   "caseTitle": "Netflix战略意图",
+   "importance": 2,
+   "core": "Strategic intents should be at a high level and business focused.",
+   "case": "Netflix had a clear strategic intent: “Lead the streaming market.” All of its decisions, from enabling internet-connected devices to focusing on creating more content for users, helped to achieve this goal. It pushed them in the right direction. When that goal was realized, Netflix changed course to maintain its position by creating its own content—another strategic intent."
+  },
+  {
+   "point": "公司愿景是战略架构的枢纽，为一切提供方向",
+   "explain": "亚马逊以“地球最以客户为中心的公司”为愿景，为多产品线提供统一方向和决策框架。",
+   "caseTitle": "亚马逊公司愿景",
+   "importance": 2,
+   "core": "The company vision is the linchpin in the strategy architecture. It sets the direction and provides meaning for everything that follows.",
+   "case": "Amazon is an example of a company with a great vision and strategy, both of which serve its products well. On its website, Amazon notes that its company vision is, “to be Earth’s most customer-centric company, where customers can find and discover anything they might want to buy online, and endeavors to offer its customers the lowest possible prices.”"
   }
  ],
  "15. The Product Kata": [
   {
-   "point": "先判断所处阶段，非核心问题直接用最佳实践，别乱做实验",
    "core": "One of the biggest mistakes I’ve seen in product management is teams rushing in to apply a tool or practice at the wrong stage. Many times, they are experimenting unnecessarily when the problem is not yet known or when there is already a good idea about the solution.",
-   "caseTitle": "电商结账页",
    "case": "A good example of this is a checkout page on an e-commerce website. If you don’t want to get into the business of being a checkout service for other e-commerce companies, don’t spend all your time here. There’s lots of experimentation that has already happened around this particular solution, and you can harness that.",
-   "explain": "电商结账页并非核心价值主张，已有大量现成实验成果，直接借鉴即可，不必在此反复试验，把精力留给核心问题。"
+   "point": "先判断所处阶段，非核心问题直接用最佳实践，别乱做实验",
+   "explain": "电商结账页已有大量现成实验结论，若不以此为核心业务，就不必重复实验，直接借鉴最佳实践即可。",
+   "caseTitle": "电商结账页",
+   "importance": 3
+  },
+  {
+   "point": "达成产品举措可以有多个选项",
+   "explain": "Marquetly 为增加内容这一产品举措列出三个选项，说明从举措到具体方案存在多条路径，需要选择而非直接执行。",
+   "caseTitle": "Marquetly三个选项",
+   "importance": 2,
+   "core": "There can be many options that help reach the product initiative",
+   "case": "There can be many options that help reach the product initiative, as we saw with the three we had to produce more content at Marquetly."
   }
  ],
  "16. Understanding the Direction and Setting Success Metrics": [
   {
-   "point": "虚荣指标好看但不能指导决策，要用可行动的基线数据设目标",
    "core": "Although these numbers may make you look great to investors, they do not help product teams or businesses make decisions. They do not cause you to change your behavior or priorities.",
-   "caseTitle": "61 天才发布一门课",
    "case": "“Yeah, I found similar information in the databases and event records,” said Rich. “On average, it takes a teacher 61 days from the day they start a course until they publish one. Over 75% of the teachers who start a course never publish it. I think some of the issues that Chris discovered could be causing it.”",
-   "explain": "教师从开课到发布平均需61天、超75%的教师从未发布课程，这类基线数据揭示了真实问题，能推动团队改变优先级，而非只让投资人好看。"
+   "point": "虚荣指标好看但不能指导决策，要用可行动的基线数据设目标",
+   "explain": "Rich 用教师发布课程平均耗时61天、超75%教师从未发布的数据，揭示可行动的基线问题，而非虚荣指标。",
+   "caseTitle": "61 天才发布一门课",
+   "importance": 3
+  },
+  {
+   "point": "将方向转化为可量化的成功指标，并确保指标与投入相匹配",
+   "explain": "Christa 团队用“我们相信……能带来……”的选项声明，把加快课程创建转化为发布率50%、第二门课创建率30%的具体指标。",
+   "caseTitle": "Christa团队选项声明",
+   "importance": 3,
+   "core": "The success metrics need to be commensurate with the length of the bet there.",
+   "case": "We believe that, by making it faster and easier for teachers to create courses, we can increase the rate of published courses to 50% and increase the number of second courses created to 30%."
+  },
+  {
+   "point": "基于历史数据设定现实可行的收入增长目标",
+   "explain": "用留存率从40%提升到70%带来每月9万美元、获客翻倍带来每年700万美元，推算出总计超800万美元的现实目标。",
+   "caseTitle": "Marquetly收入目标测算",
+   "importance": 2,
+   "core": "When setting goals, it’s important to be realistic.",
+   "case": "if we increase the retention rate from 40% to 70%, we will be gaining $90,000 a month in revenue. If we double our acquisition rate, we can get a little over $7 million a year more. That brings us to a total of just over $8 million a year"
   }
  ],
  "17. Problem Exploration": [
   {
-   "point": "先找到问题根因，再谈方案，一个问题背后可能藏着更大的问题",
    "core": "It’s easy to fall into the trap of solving problems before you find their root causes. We’re all prone to problem solve, even if we don’t know what the problem is.",
-   "caseTitle": "老师寄来的原始视频",
    "case": "They asked the teachers to send them whatever they had in any format that worked for them. Things came in to them in all shapes and forms. There were Dropbox links, Google Docs, spreadsheets of curriculum, and links to YouTube. The most surprising thing was the format the videos came in. Teachers were sending them unedited, with instructions on how they wanted them edited. The audio files came separately.",
-   "explain": "老师寄来未编辑的视频并附上编辑说明，团队原以为只需处理内容上传，实际发现视频剪辑才是真正痛点，说明根因常比表面问题更深。"
+   "point": "先找到问题根因，再谈方案，一个问题背后可能藏着更大的问题",
+   "explain": "老师寄来未编辑的视频并附上编辑说明，说明他们卡住的不是录入内容，而是视频剪辑耗时巨大，揭示了更深层的问题。",
+   "caseTitle": "老师寄来的原始视频",
+   "importance": 3
   },
   {
-   "point": "不要把“缺某个功能”当成问题本身，要追问背后的真实需求",
-   "explain": "公司把“用户没有自定义仪表盘”当作问题，解决方案就是加仪表盘，这正是把功能缺失误认为问题本身的典型错误。",
-   "caseTitle": "自定义仪表盘对话",
    "core": "One easy slip when you’re in this mode is pretending that the problem is the lack of a feature.",
-   "case": "Me: “What problem are you solving for your users?” Company: “Our users don’t have custom dashboards.” Me: “So…what is your solution?” Company: “Custom dashboards.”"
+   "case": "Me: “What problem are you solving for your users?” Company: “Our users don’t have custom dashboards.” Me: “So…what is your solution?” Company: “Custom dashboards.”",
+   "point": "不要把“缺某个功能”当成问题本身，要追问背后的真实需求",
+   "explain": "公司把“用户没有自定义仪表盘”当作问题，解决方案就是“自定义仪表盘”，陷入循环，未追问用户真正要完成的任务。",
+   "caseTitle": "自定义仪表盘对话",
+   "importance": 3
   }
  ],
  "18. Solution Exploration": [
   {
-   "point": "实验是为学习而构建，不必先建完整系统就能验证需求",
    "core": "Experimentation is all about building to learn. It allows you to understand your customers better and to prove whether there is value in solving a problem.",
-   "caseTitle": "Zappos 的绿野仙踪实验",
    "case": "Back in the day, founder Nick Swinmurn wanted to see whether people would really buy shoes online. He put a simple website up on WordPress. Visitors could view and then buy the shoes online. But, on the backend, it was just Nick, singlehandedly running around, buying shoes from Sears and shipping them out from UPS himself, as each order came in.",
-   "explain": "Zappos 用 WordPress 建简单网站，后台由创始人亲自买鞋发货，以极低成本验证了人们是否真愿在线买鞋，正是“为学习而构建”。"
+   "point": "实验是为学习而构建，不必先建完整系统就能验证需求",
+   "explain": "Zappos 创始人用 WordPress 建简单网站展示鞋子，后台由他手动采购发货，以此验证人们是否真的会在网上买鞋，无需先建完整电商系统。",
+   "caseTitle": "Zappos 的绿野仙踪实验",
+   "importance": 3
+  },
+  {
+   "point": "礼宾式实验：先人工交付服务，学习后再自动化",
+   "explain": "SEO 公司用 Excel 手动为少数客户提供关键词排名预测，了解客户关注因素和可接受的确定性，一个月后才编码成产品功能并成功推广。",
+   "caseTitle": "SEO公司Excel预测工具",
+   "importance": 3,
+   "core": "Concierge experiments are particularly interesting for B2B companies because this is how many of these companies got started—by taking on the work for the customers and then later automating it.",
+   "case": "At an SEO company, we used Excel to model a forecasting tool to predict where organizations’ keywords would rank. We were able to deliver the spreadsheet manually to a few clients and gauge their response. We learned what types of factors they were most interested in controlling and what percentage of certainty made them feel comfortable. After a month of using spreadsheets, we were able to code the feature into our product and to launch to our user base with wide success."
   }
  ],
  "19. Building and Optimizing Your Solution": [
   {
    "point": "功能达成目标才算完成，上线只是验证假设的开始",
-   "core": "Often, teams ship a first version of the feature and then move on to the next, without measuring the outcomes for the user.",
-   "caseTitle": "视频编辑上线首月",
-   "case": "After a month, Christa pulled the numbers to compare to the team’s success metrics. “Our adoption rate isn’t quite where we need it to be,” she told the team. “We only had 60% of the teachers adopt the video-editing software in that first month. The ones who did adopt it are surpassing our previous published course rate with a 75% publish rate. We need to figure out what is standing in the teachers’ way of taking us up on it.",
-   "explain": "视频编辑上线首月采用率仅60%，未达成功标准；团队据此分析教师使用障碍，而非直接转向下一个功能，体现以目标达成而非代码上线定义完成。"
+   "explain": "视频编辑功能上线首月采用率仅60%，未达成功标准；团队没有转向下一功能，而是继续诊断未采用原因并迭代。",
+   "caseTitle": "首月指标未达标",
+   "importance": 3,
+   "core": "We are done developing or iterating on a feature only when it has reached its goals.",
+   "case": "“Our adoption rate isn’t quite where we need it to be,” she told the team. “We only had 60% of the teachers adopt the video-editing software in that first month. The ones who did adopt it are surpassing our previous published course rate with a 75% publish rate. We need to figure out what is standing in the teachers’ way of taking us up on it. Let’s reach out to those who did not adopt it last month and find out why.”"
+  },
+  {
+   "point": "先做小实验验证解决方案，能降低风险并证明可行性",
+   "explain": "团队用两个小实验验证教师愿意自行编辑视频，发布率从25%提升到75%，证明方案可行后才继续投入。",
+   "caseTitle": "Marquetly视频编辑实验",
+   "importance": 3,
+   "core": "By experimenting first, we were able to determine that the teachers will do video editing on their own if given the right tools",
+   "case": "We ran two small experiments over the last month to help solve this problem, and we were able to increase the publish rate from 25% to 75%, by providing our teachers with simple-to-use video-editing software."
   }
  ],
  "20. Outcome-Focused Communication": [
   {
-   "point": "用结果而非产出汇报进展，透明能换来更多自主",
    "core": "Visibility in organizations is absolutely key. The more leaders can understand where teams are, the more they will step back and let the teams execute.",
-   "caseTitle": "Karen的季度业务回顾",
    "case": "“This quarter, we were able to launch the video-editing software and onboard 150 new classes to our site, all in key areas of interest for our users. Since the launch of those courses, we have seen an increase in acquisition rate from 15% to 25%, and our retention numbers have risen to 60%. We’re well on our way to reaching our goals.",
-   "explain": "Karen在季度业务回顾中不罗列上线功能，而用获客率15%升至25%、留存率60%等业务结果说明进展，让高层看清团队所处位置，从而放心放手让团队执行。"
+   "point": "用结果而非产出汇报进展，透明能换来更多自主",
+   "explain": "Karen在季度业务回顾中汇报上线课程数、获客率从15%升至25%、留存达60%等业务结果，而非功能数量，让高层看到进展后更愿意放手让团队执行。",
+   "caseTitle": "Karen的季度业务回顾",
+   "importance": 3
+  },
+  {
+   "point": "季度业务回顾应讨论战略意图进展与财务结果",
+   "explain": "Marquetly季度业务回顾中，高管层讨论上线课程、获客率与留存率等业务结果，并关联战略意图，证明该会议应聚焦战略与财务成果而非功能清单。",
+   "caseTitle": "Marquetly季度业务回顾",
+   "importance": 3,
+   "core": "During quarterly business review meetings, the senior leadership team, made up of the executives and the highest level of the organization, should be discussing progress toward the strategic intents and outcomes of a financial nature.",
+   "case": "“This quarter, we were able to launch the video-editing software and onboard 150 new classes to our site, all in key areas of interest for our users. Since the launch of those courses, we have seen an increase in acquisition rate from 15% to 25%, and our retention numbers have risen to 60%. We’re well on our way to reaching our goals. With the additional efforts fromn other teams around this strategic intent, we’ll hit our goal early—within a year and a half.”"
   }
  ],
  "21. Rewards and Incentives": [
   {
-   "point": "把奖励绑在交付上，人们就会为交差而乱建",
-   "explain": "团队年底为凑记分卡上的交付项，赶工上线任何能打勾的东西，一月再返工收拾烂代码，奖金照拿——正说明奖励绑定“是否发布”会催生为交差而建。",
-   "caseTitle": "记分卡催生垃圾代码",
    "core": "Tying livelihoods to the fact that you shipped product at all, instead of learning or solving problems for customers, is what gets people into the build trap.",
-   "case": "“Do you want to know what we do in December? We stop everything we’re doing and look at the scorecard. If we haven’t delivered on the items there, because they were really not as important as we thought a year ago, we just start building anything that will satisfy those requirements. Melissa, we literally ship whatever shit we can build in time that will check that box. Come January, we spend all our time pulling apart all the sloppy code. But, hey, we all get our bonuses in March.”"
+   "case": "“Do you want to know what we do in December? We stop everything we’re doing and look at the scorecard. If we haven’t delivered on the items there, because they were really not as important as we thought a year ago, we just start building anything that will satisfy those requirements. Melissa, we literally ship whatever shit we can build in time that will check that box. Come January, we spend all our time pulling apart all the sloppy code. But, hey, we all get our bonuses in March.”",
+   "point": "把奖励绑在交付上，人们就会为交差而乱建",
+   "explain": "案例中团队年底为凑记分卡而仓促交付任何能打勾的功能，一月再返工，证明奖励绑定“是否发布”会催生垃圾代码。",
+   "caseTitle": "记分卡催生垃圾代码",
+   "importance": 3
+  },
+  {
+   "point": "奖金绑定上线会让人不敢质疑错误产品",
+   "explain": "产品经理因全部奖金与发布该产品挂钩，明知方向错误却害怕提出，证明奖励绑定发布扼杀说真话的勇气。",
+   "caseTitle": "产品经理怕丢奖金不敢说",
+   "importance": 3,
+   "core": "Tying livelihoods to the fact that you shipped product at all, instead of learning or solving problems for customers, is what gets people into the build trap.",
+   "case": "I once had a product manager attend one of my workshops at a conference. At the end, she came up and told me that she thinks she is building the wrong thing: “I want to talk to my boss about it, but I’m afraid. I’m basically putting myself out of a job because I’m saying the product I own is not the right product to build. My entire bonus is tied to launching this thing.”"
   }
  ]
 }

@@ -1,56 +1,246 @@
 {
  "ebscohost (3)": [
   {
-   "point": "好假设要可测试、精确、单一，写清谁、付多少、做什么",
    "core": "A well-formed business hypothesis describes a testable, precise, and discrete thing you want to investigate.",
-   "caseTitle": "按年级定制的科学盒子",
    "case": "We believe millennial parents with kids ages 5–9 will pay $15 a month for curated science projects that match their kids’ education level.",
-   "explain": "该假设明确锁定人群（5–9岁孩子的千禧父母）、价格（每月15美元）与产品（匹配教育水平的科学项目），成功标准清晰可测，正是精确单一假设的范例。"
+   "point": "好假设要可测试、精确、单一，写清谁、付多少、做什么",
+   "explain": "该假设明确对象（5–9岁孩子的千禧父母）、价格（每月15美元）与内容（匹配教育水平的科学项目），成功标准清晰，可直接设计实验验证。",
+   "caseTitle": "按年级定制的科学盒子",
+   "importance": 3
+  },
+  {
+   "point": "刻意写反向假设，避免只求证自己相信的事",
+   "explain": "与正向假设相反，断言父母不会订阅，迫使团队同时检验证伪方向，防止陷入确认偏误、只收集支持性证据。",
+   "caseTitle": "反向假设防确认偏误",
+   "importance": 3,
+   "core": "In order to prevent this from occurring create a few hypotheses that try to disprove your assumptions.",
+   "case": "“We believe that millennial parents won’t subscribe to monthly educational science projects for their kids.”"
+  },
+  {
+   "point": "创业经验来自多次失败尝试的积累",
+   "explain": "Rovio在《愤怒的小鸟》成功前经历六年、51款失败游戏，说明创业经验由反复试错积累，支持团队应选有创业经验者。",
+   "caseTitle": "Rovio失败51款游戏",
+   "importance": 2,
+   "core": "It’s not a coincidence that successful businesses benefit from those who already have entrepreneurial experience.",
+   "case": "Rovio’s hit game, Angry Birds, was preceded by six years and 51 failed games."
+  },
+  {
+   "point": "团队初建时常缺共享目标、语境与语言",
+   "explain": "团队对齐地图作为可视化工具，帮助成员在启动时对齐使命、目标与承诺，正是针对团队初建缺乏共享语境的问题。",
+   "caseTitle": "团队对齐地图",
+   "importance": 2,
+   "core": "Teams often lack a shared goal, context, and language when being formed.",
+   "case": "The Team Alignment Map, created by Stefano Mastrogiacomo, is a visual tool that allows participants to prepare for action: hold more productive meetings and structure the content of their conversations."
+  },
+  {
+   "point": "跨职能团队需具备交付产品与学习客户的核心能力",
+   "explain": "设计、产品、工程组成的常见跨职能团队示例，具体说明团队应覆盖把产品做出来并接触客户所需的各项能力。",
+   "caseTitle": "跨职能团队示例",
+   "importance": 1,
+   "core": "A cross-functional team has all the core abilities needed to ship the product and learn from customers.",
+   "case": "A common basic example of a cross-functional team consists of design, product, and engineering."
   }
  ],
  "BlandDavidJOste_2020_Experiment_TestingBusinessIdeas": [
   {
-   "point": "证据不会自己说话，要把多个实验的证据放在一起分析",
    "core": "Evidence does not speak on its own. Gather the evidence you have from different experiments for a specific hypothesis and analyze it.",
-   "caseTitle": "科学盒子的三类证据",
    "case": "Month of February: “science fair ideas” had 5k–10k searches. “kindergarten science fair ideas” had 10k–15k searches. “first grade science fair ideas” had 1k–5k searches. “second grade science fair ideas” had less than 1k searches. “third grade science fair ideas” had less than 1k searches. Concierge Data EVIDENCE STRENGTH Time to Create = 2 hours for each kit Cost to Create = $10–$15 Cost to Ship = $5–$8 Parent Customer Satisfaction Score = Partially Satisfied",
-   "explain": "搜索量数据、礼宾式实验的成本与满意度数据来自不同类型实验，单看各自有限，合起来才能判断需求与可行性。"
+   "point": "证据不会自己说话，要把多个实验的证据放在一起分析",
+   "explain": "科学盒子案例中，搜索量数据与礼宾式实验的运营数据、满意度评分并列呈现，说明单一证据无法直接得出结论，必须汇总分析才能判断假设是否成立。",
+   "caseTitle": "科学盒子的三类证据",
+   "importance": 3
+  },
+  {
+   "point": "访谈中人们说的不一定是他们实际会做的",
+   "explain": "千禧父母在访谈中表达想要独特科学项目，但这只是口头偏好，不能直接等同于购买行为，说明访谈引语属于较弱证据。",
+   "caseTitle": "访谈引语证据",
+   "importance": 3,
+   "core": "What people say in an interview or survey is not necessarily what they do in real life or will do in the future.",
+   "case": "“We want our child to have a unique science fair project that stands out, not the same one as every other kid.”"
+  },
+  {
+   "point": "可观察的行为通常是预测未来行动的良好指标",
+   "explain": "搜索量数据记录了千禧父母实际搜索“science fair ideas”的行为，而非他们声称的意愿，因此比访谈观点更能预测未来行动。",
+   "caseTitle": "搜索量数据证据",
+   "importance": 3,
+   "core": "Observable behavior is generally a good predictor of how people act and what people might do in the future.",
+   "case": "Month of February: “science fair ideas” had 5k–10k searches."
+  },
+  {
+   "point": "不同实验产生不同证据，人工交付可低成本验证需求",
+   "explain": "为20个孩子手动定制科学项目套件，以极低成本模拟真实服务，产生关于需求与运营可行性的直接证据，说明礼宾式实验能有效验证假设。",
+   "caseTitle": "礼宾式手动定制实验",
+   "importance": 2,
+   "core": "Different experiments create different evidence",
+   "case": "manually curate science project kits for 20 children of millennial parents."
+  },
+  {
+   "point": "实验能产生量化的运营与满意度数据",
+   "explain": "礼宾实验记录了制作时间、成本、运费和满意度评分，这些量化数据为判断假设提供了具体依据，展示了实验证据的多样性。",
+   "caseTitle": "礼宾数据证据",
+   "importance": 2,
+   "core": "Different experiments create different evidence",
+   "case": "Time to Create = 2 hours for each kit Cost to Create = $10–$15 Cost to Ship = $5–$8 Parent Customer Satisfaction Score = Partially Satisfied"
+  },
+  {
+   "point": "同一假设可用不同实验产生不同类型证据",
+   "explain": "对千禧父母搜索行为进行趋势分析，与访谈、礼宾实验等共同构成多类型证据，说明不同实验方法能相互补充验证同一假设。",
+   "caseTitle": "搜索趋势分析实验",
+   "importance": 2,
+   "core": "Different experiments create different evidence",
+   "case": "perform trend analyses on millennial parents searching online for kids’ science project solutions."
+  },
+  {
+   "point": "好实验需明确对象、情境与测试要素",
+   "explain": "千禧父母科学项目访谈案例展示了如何将假设转化为可执行的客户访谈实验，明确测试对象和内容，但未涉及完整实验设计要素。",
+   "caseTitle": "千禧父母科学项目访谈",
+   "importance": 1,
+   "core": "A well-formed business experiment is made up of four components:",
+   "case": "millennial parents prefer curated science projects that fit their kids’ education level."
   }
  ],
  "BlandDavidJOste_2020_DiscoveryExperiments_TestingBusinessIdeas": [
   {
-   "point": "亲眼观察客户真实使用，才能弥补说与做之间的差距",
    "core": "There is nothing more effective than observing a customer when and where they are actually experiencing the pain and problems we are trying to solve.",
-   "caseTitle": "Intuit 跟随回家",
    "case": "In those days software was installed on a physical computer via floppy discs (sounds crazy), so Scott and our product teams asked real customers if they could watch them install the software after it was purchased. Through observation, product teams uncovered new insights, and complete surprises about how customers actually used our software in the real world.",
-   "explain": "Intuit 团队到客户家中观察软件安装过程，发现访谈中听不到的真实使用细节与意外，证明直接观察行为比只听客户陈述更能揭示真实问题。"
+   "point": "亲眼观察客户真实使用，才能弥补说与做之间的差距",
+   "explain": "Intuit产品团队上门观察客户安装软件，发现客户实际使用中的意外洞察，证明观察能揭示访谈无法捕捉的行为差距。",
+   "caseTitle": "Intuit 跟随回家",
+   "importance": 3
+  },
+  {
+   "point": "访谈后需用亲和排序将笔记聚类为主题",
+   "explain": "该案例给出将每条引述和洞察写在便签上、按主题归类的具体步骤，说明如何从零散访谈笔记中提炼模式。",
+   "caseTitle": "亲和排序整理反馈",
+   "importance": 2,
+   "core": "There is nothing more effective than observing a customer when and where they are actually experiencing the pain and problems we are trying to solve.",
+   "case": "As a team, set aside 30 – 60 minutes and bring your notes. • Make sure there is plenty of wall space if meeting in person. • Write one quote per sticky note. • Write one insight per sticky note. • Place the interviewee name or initials on the bottom of the sticky note. • Place all stickies on the wall. • Sort them into similar themes."
+  },
+  {
+   "point": "访谈前用筛选问题排除不合格受访者",
+   "explain": "通过询问自行车拥有数量（0、1、2、3+）快速排除不相关或极端用户，证明筛选问题能节省访谈时间。",
+   "caseTitle": "Craigslist筛选受访者",
+   "importance": 2,
+   "core": "There is nothing more effective than observing a customer when and where they are actually experiencing the pain and problems we are trying to solve.",
+   "case": "For example, if you are looking for people who own a bicycle, ask: “How many bicycles do you own — 0, 1, 2, or 3+?” If people answer 0, then it saves you from interviewing those who do not own a bicycle. If people answer 3+, they also might not be ideal candidates because they own so many bicycles."
+  },
+  {
+   "point": "用80%准确率标准检验访谈排序是否可靠",
+   "explain": "访谈10个匹配客户后，若8人将任务/痛点/收益排在同一位置，则达到80%准确率，说明排序结果可信。",
+   "caseTitle": "80%排序准确率标准",
+   "importance": 2,
+   "core": "There is nothing more effective than observing a customer when and where they are actually experiencing the pain and problems we are trying to solve.",
+   "case": "If you’ve interviewed 10 customers that match your Customer Profile, then ideally you want the customer jobs, pains, and gains ranking from your Customer Profile to be at the 80%+ accuracy rate. Which means 8 out of 10 ranked job 1 as #1, job 2 as #2, job 3 as #3, and so on."
   }
  ],
  "BlandDavidJOste_2020_EmailCampaign_TestingBusinessIdeas": [
   {
-   "point": "粗糙的实体原型能让人一眼看到问题，快速对齐判断",
    "core": "3D print is ideal for rapidly testing iterations of your physical solution with customers.",
-   "caseTitle": "NSA 的 CubeSat 模型",
    "case": "The team set out to devise a way to help these stakeholders quickly and unequivocally see the need for a new solution. After a few failed attempts, the team and their coach wondered if using a 3D-printer to create a life-sized mockup of the CubeSat might help them see it. They were ready the next day! Evidence The stakeholders immediately saw the need for a new solution after seeing how the currently certified encryption product simply wouldn’t fit in the 3D printed mock-up!",
-   "explain": "团队用3D打印等比例立方星模型，利益相关者看到现有加密产品根本装不进去，立刻意识到需要新方案，无需冗长论证。"
+   "point": "粗糙实体原型能让人一眼看到问题，快速对齐判断",
+   "explain": "团队用3D打印等比例立方星模型，利益相关者立刻发现现有加密产品根本装不进去，从而直观看到新方案的必要性。",
+   "caseTitle": "NSA 的 CubeSat 模型",
+   "importance": 3
+  },
+  {
+   "point": "随身携带非功能原型，在真实生活中检验需求",
+   "explain": "Hawkins用木块和打印界面做成掌上电脑模型，带在身上数月，以检验价值主张在真实世界中的吸引力。",
+   "caseTitle": "Palm木块原型",
+   "importance": 3,
+   "core": "3D print is ideal for rapidly testing iterations of your physical solution with customers.",
+   "case": "Jeff Hawkins cut a block of wood to fit the overall size of the envisioned product and printed out a simple user interface, like the one he envisioned. He taped the printout over the wooden block and used a wooden chopstick as the stylus. This was rough enough that it only took hours to create. He then carried it around in his pocket at work for months to determine the desirability of the value proposition in the real world."
+  },
+  {
+   "point": "用实体宣传册测试价值主张并获取转化信号",
+   "explain": "团队在农业展会上发放专业宣传册，清晰陈述价值主张，并通过电话或邮件联系作为行动号召来测试兴趣。",
+   "caseTitle": "农场保险宣传册测试",
+   "importance": 2,
+   "core": "We believe that farmers desire a new type of financial/insurance risk protection offering.",
+   "case": "The team went to a farming trade show in Missouri and handed out professional physical marketing brochures with a clearly articulated value proposition and solution. They had a call to action of getting in touch with the team via a phone call or email for more information."
+  },
+  {
+   "point": "用极简邮件实验快速验证社区需求",
+   "explain": "Ryan用20分钟在Linkydink创建分享组，邀请朋友贡献并通过Quibb和Twitter推广，低成本测试产品社区假设。",
+   "caseTitle": "Product Hunt邮件实验",
+   "importance": 2,
+   "core": "Ryan believed that product people would join an online community to share, discover, and discuss new and interesting products.",
+   "case": "In only 20 minutes, Ryan created a group on Linkydink, a link-sharing tool built by the folks over at Makeshift. At the time, it allowed people to share links with a group and send them out as a daily email. He then invited a few of his startup friends to contribute to the group. To promote it, Ryan announced the experiment on Quibb (a technology focused, online community) and Twitter."
+  },
+  {
+   "point": "用视觉游戏收集并排序客户阻碍因素",
+   "explain": "快艇游戏中客户写下“锚”并放置，通过位置和聚类识别哪些阻碍更严重地拖慢用户。",
+   "caseTitle": "Speed Boat识别阻碍",
+   "importance": 2,
+   "core": "3D print is ideal for rapidly testing iterations of your physical solution with customers.",
+   "case": "Give each customer a few minutes to think before writing down anchors. After they’ve placed them near the speed boat, note their location. Anchors that are in groups, repeating the same thing in different ways, are clustered together. If they are deeper below the speed boat, then it means they are slowing things down more so than others."
   }
  ],
  "BlandDavidJOste_2020_CardSorting_TestingBusinessIdeas": [
   {
-   "point": "礼宾式实验用人工交付价值，先验证需求再谈规模",
-   "explain": "用户点击行动号召并回答问卷后，产品经理 Dave Masters 手工整合信息生成 PDF 交付，全程由人完成价值交付，借此低成本验证买卖房时机这一需求是否真实，再决定是否自动化。",
-   "caseTitle": "Realtor.com 人工PDF",
    "core": "Concierge is ideal for learning firsthand about steps needed to create, capture, and deliver value to a customer.",
-   "case": "The team did a simple concierge experiment that was triggered by a call to action. When clicked, the modal window highlighting a value proposition for insights on timing your ability to buy and sell at the same time appeared. Users would then click through a series of questions. Once complete, Dave Masters (the product manager) manually created the output by piecing together insights from other parts found throughout Realtor.com into a PDF."
+   "case": "The team did a simple concierge experiment that was triggered by a call to action. When clicked, the modal window highlighting a value proposition for insights on timing your ability to buy and sell at the same time appeared. Users would then click through a series of questions. Once complete, Dave Masters (the product manager) manually created the output by piecing together insights from other parts found throughout Realtor.com into a PDF.",
+   "point": "礼宾式实验用人工交付价值，先验证需求再谈规模",
+   "explain": "Realtor.com 团队用行动号召触发问卷，产品经理 Dave Masters 手工把站内洞察拼成 PDF 交付，人工完成价值交付来验证买卖房时机需求。",
+   "caseTitle": "Realtor.com 人工PDF",
+   "importance": 3
+  },
+  {
+   "point": "行动号召的响应量可验证痛点假设是否成立",
+   "explain": "团队原估3小时30个注册，实际几分钟超80个，快到关不掉，注册量远超预期直接证明目标用户确有该痛点。",
+   "caseTitle": "Realtor.com 80人注册",
+   "importance": 2,
+   "core": "Hypothesis validated — audience has problem.",
+   "case": "80 signups in just a few minutes. It surpassed expectations quite quickly. Based on site statistical data, the team had estimated that it would generate 30 signups within 3 hours. It generated more than 80 signups in a few minutes, faster than they could even shut it off."
+  },
+  {
+   "point": "等比实体原型适合小样本高保真验证后再决定规模化",
+   "explain": "Zoku 搭建1:1微公寓实体原型，接来150名差旅专业人士实地体验，在投入规模化前验证他们是否愿住数周乃至数月。",
+   "caseTitle": "Zoku 微公寓原型",
+   "importance": 2,
+   "core": "Life-sized prototypes are ideal for testing higher fidelity solutions with customers at a small sample size, before deciding to scale your solution.",
+   "case": "The team built a Life-Sized prototype of the micro-apartment to test with traveling professionals to determine if they’d stay for weeks and months. They sourced 150 traveling professionals, shuttling them over from their workplaces, to interact with the Life-Sized Prototype."
+  },
+  {
+   "point": "验证问卷用失望度问题衡量需求强度，40%才算契合",
+   "explain": "Sean Ellis 测试只问一个问题：不能再用产品会有多失望；作者认为得分达到40%才可称实现产品市场契合。",
+   "caseTitle": "Sean Ellis 测试问题",
+   "importance": 2,
+   "core": "It can be argued that you’ve not achieved product/market fit until a score of 40% is reached.",
+   "case": "The Sean Ellis Test keys in on one important question: “How disappointed would you be if you could no longer use this product? Very disappointed, somewhat disappointed, or not disappointed?”"
+  },
+  {
+   "point": "NPS 用推荐意愿问题量化客户口碑",
+   "explain": "NPS 问卷核心是0到10分的推荐意愿题，再用推荐者占比减贬损者占比得出净值，作为验证阶段的量化信号。",
+   "caseTitle": "NPS 推荐意愿问题",
+   "importance": 1,
+   "core": "% PROMOTERS - % DETRACTORS = NPS",
+   "case": "The key question for a NPS survey is: “How likely is it that you would recommend this product to a friend or colleague? 0 (not at all) to 10 (extremely likely)”"
+  },
+  {
+   "point": "实体原型能揭示空间体验而非仅面积",
+   "explain": "Zoku 在多轮验证中发现空间体验不同于平方英尺，受睡眠区百叶、大窗与智能灯光等视线与感受因素正面影响。",
+   "caseTitle": "Zoku 空间体验洞察",
+   "importance": 1,
+   "core": "The experience of the space means more than the size of the space.",
+   "case": "During the course of all the validation rounds they learned that “the experience of space” is different from the amount of square feet and can be positively influenced by clear sight lines through the furniture (the shutters in the sleeping area), large windows, and smart lighting."
   }
  ],
  "BlandDavidJOste_2020_WizardOfOz_TestingBusinessIdeas": [
   {
-   "point": "模拟销售可在开发前测试不同价格档位",
    "core": "Mock sale is ideal for determining different price points for your product.",
-   "caseTitle": "Buffer 的三档定价",
    "case": "Joel decided to test viability by adding three different payment tier options to the landing page. Free = $0/month for 1 tweet a day and 5 tweets in your buffer queue. Standard = $5/month for 10 tweets a day and 50 tweets in your buffer queue. Max = $20/month for unlimited tweets a day and unlimited tweets in your buffer queue.",
-   "explain": "Buffer 在落地页挂出免费、5美元、20美元三档，用各档注册量判断用户最愿接受的价格，无需先开发产品即可验证定价。"
+   "point": "模拟销售可在开发前测试不同价格档位",
+   "explain": "Buffer 在落地页放三档价格（免费、5美元、20美元），不实际扣款，用注册量判断哪档最受欢迎，从而在开发前确定定价。",
+   "caseTitle": "Buffer 的三档定价",
+   "importance": 3
+  },
+  {
+   "point": "意向书可验证B2B客户的真实购买意愿",
+   "explain": "Thrive Smart Systems 让感兴趣客户按拟购数量写意向书，并做成模板分发，用不具法律约束的承诺显示认真程度、验证需求。",
+   "caseTitle": "Thrive Smart Systems",
+   "importance": 2,
+   "core": "They began to test this hypothesis by asking interested customers to write a Letter of Intent for how many units they were willing to purchase.",
+   "case": "They began to test this hypothesis by asking interested customers to write a Letter of Intent for how many units they were willing to purchase. After receiving a few, they created a LOI template to pass out to each person that expresses interest in buying the product."
   }
  ]
 }

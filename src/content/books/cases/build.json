@@ -1,149 +1,470 @@
 {
  "Chapter 1.4: Don’t (Only) Look Down": [
   {
-   "point": "执行者要抬头环顾，平行团队常能看到你看不到的问题",
    "core": "I hadn’t realized it, but all those people working parallel to me could see things I couldn’t. They had a completely different view of our world—a view that I wanted to understand.",
-   "caseTitle": "没人在乎会走路的柠檬",
    "case": "“I don’t know why anyone needs the lemon,” she said. She was talking about a little animated emoji we’d just added. It would walk across your emails, doing things even modern emojis can’t dream of. Ah, I thought. She wasn’t an engineer. She didn’t get it. So I rushed to explain: it was so innovative! Here’s how we made it! So cool, right? Didn’t she think so? “Yeah, it’s cute, I guess,” she said, and shrugged. “But I just want email that works. I don’t care about the lemon. Nobody’s going to care about the damn walking lemon.”",
-   "explain": "工程师沉迷炫技的走路柠檬表情，产品经理直言用户只想要能用的邮件。平行视角戳破了技术自嗨，证明环顾四周能发现盲区。"
+   "point": "执行者要抬头环顾，平行团队常能看到你看不到的问题",
+   "explain": "作者炫耀会走路的柠檬表情，产品经理 Tracy 直接说没人会在乎它，只想要能用的邮箱。工程师视角与用户视角的落差，正说明平行团队能看到自己看不到的问题。",
+   "caseTitle": "没人在乎会走路的柠檬",
+   "importance": 3
+  },
+  {
+   "point": "跨职能对话能暴露项目真实风险",
+   "explain": "Tracy 追问与 Sony 合作的广告承诺能否兑现，此时发布已第五次推迟、功能落空、产品又慢又有 bug。她关心的是幕后真相而非领导层说辞，说明环顾能发现撞墙迹象。",
+   "caseTitle": "Tracy 追问交付承诺",
+   "importance": 2,
+   "core": "I hadn’t realized it, but all those people working parallel to me could see things I couldn’t. They had a completely different view of our world—a view that I wanted to understand.",
+   "case": "“We just worked with Sony marketing to make an ad campaign saying the Magic Link will be able to do all these things. Is it true? Can we actually deliver?”\nThis was probably around the fifth time we’d pushed back our launch date. Many of the features we’d promised investors and partners had fallen through. The product was slow and buggy. And she wanted to know what was happening behind the scenes—not just what she was hearing from leadership."
+  },
+  {
+   "point": "只低头做事会忽视外部预警信号",
+   "explain": "作者只在“天塌下来”时才抬头，平时小行星般的问题（零件未发明、构建失败、网络不通）掠过工位，他只拂掉键盘继续干，形象说明长期埋头会错过预警。",
+   "caseTitle": "General Magic 小行星比喻",
+   "importance": 2,
+   "core": "I hadn’t realized it, but all those people working parallel to me could see things I couldn’t. They had a completely different view of our world—a view that I wanted to understand.",
+   "case": "I only looked up when the sky was falling. Really falling. Before that, an occasional asteroid would rocket through my cubicle at General Magic—when the parts for a good touchscreen hadn’t been invented yet, or the software I just wrote “broke the build,” or the mobile networks we needed barely functioned—but I’d just brush off my keyboard and keep going."
+  },
+  {
+   "point": "依赖上级看路、自己不抬头会撞墙",
+   "explain": "作者信任 Bill、Andy、Marc 掌舵，只顾证明自己，默认他们会看大局、会发现正前方的砖墙。这种心态正是只盯脚下、不环顾四周的典型代价。",
+   "caseTitle": "信任英雄而忽视大局",
+   "importance": 2,
+   "core": "I hadn’t realized it, but all those people working parallel to me could see things I couldn’t. They had a completely different view of our world—a view that I wanted to understand.",
+   "case": "I trusted Bill, Andy, and Marc to steer the ship. All that was required of me was to prove myself. That’s the one downside of working with your heroes. You’re so busy learning your craft from them that you just assume they’re looking at the big picture. You assume they’ll notice the brick wall directly in their path."
+  },
+  {
+   "point": "抬头环顾后才能识别死路并调整方向",
+   "explain": "作者终于抬头环顾，发现正撞的墙永远不会移动：使命仍鼓舞人，但路径被堵。他保留使命、换新目标、左转找到下一份工作，说明抬头能带来方向修正。",
+   "caseTitle": "发现墙后换目标",
+   "importance": 2,
+   "core": "I hadn’t realized it, but all those people working parallel to me could see things I couldn’t. They had a completely different view of our world—a view that I wanted to understand.",
+   "case": "When I finally looked up and around, I realized we were bashing our heads against a wall that was never going to move. Our mission was still inspiring, but our path there was blocked. So I held on to the mission, but I found a new goal to walk toward. I stepped off the path and took a hard left. And that’s how I found my next job."
   }
  ],
  "Chapter 2.2: Data Versus Opinion": [
   {
-   "point": "全新产品没有足够数据，过度依赖测试只会陷入瘫痪",
    "core": "If a product is really new, there’s nothing to compare it to, nothing to optimize, nothing to test.",
-   "caseTitle": "Philips 的用户测试",
    "case": "So you’d run the test. And then run it again. On Monday the customer panel would pick option X. On Friday, the same group would go with option Y. Meanwhile, we were paying millions of dollars to consultants who took a month and a half to put their own slant on everything.",
-   "explain": "同一批用户周一选X、周五选Y，测试结果反复摇摆，无法作为决策依据，反而拖垮团队，说明新产品缺乏可比数据时测试只会造成瘫痪。"
+   "point": "全新产品没有足够数据，过度依赖测试只会陷入瘫痪",
+   "explain": "Philips 的焦点小组周一选 X、周五选 Y，数据反复无常，团队陷入分析瘫痪，证明新产品无法靠测试数据决策。",
+   "caseTitle": "Philips 的用户测试",
+   "importance": 3
+  },
+  {
+   "point": "A/B 测试只是工具，不能替代产品设计",
+   "explain": "A/B 测试可以优化按钮颜色位置，但不能测试用户是否该在线购买，说明测试只能诊断局部，不能决定产品核心。",
+   "caseTitle": "A/B 测试的局限",
+   "importance": 3,
+   "core": "A/B and user testing is not product design. It’s a tool. A test. At best, a diagnosis.",
+   "case": "So you can A/B test where the “Buy” button should go on a Web page, whether it should be blue or orange, but you shouldn’t be testing whether or not a customer should buy online."
+  },
+  {
+   "point": "数据无法解决观点驱动的问题",
+   "explain": "Philips 聘请外部咨询公司设小组收集数据，试图用数据解决本属观点驱动的产品决策，结果徒劳。",
+   "caseTitle": "Philips 的消费者小组",
+   "importance": 2,
+   "core": "But data can’t solve an opinion-based problem.",
+   "case": "So we hired an external consulting firm and told them we were targeting “mobile professionals.” They set up panels in different states, paying thirty to forty people a hundred bucks each to come see our presentation for a few hours."
+  },
+  {
+   "point": "缺乏数据时需靠洞察形成观点",
+   "explain": "General Magic 团队空谈 Joe Sixpack 却从未见过他，说明没有用户数据时只能凭想象，需靠洞察弥补。",
+   "caseTitle": "General Magic 的 Joe",
+   "importance": 2,
+   "core": "If you don’t have enough data to make a decision, you’ll need insights to inform your opinion.",
+   "case": "At General Magic we talked constantly about building a product for Joe Sixpack, but nobody had ever met the guy."
+  },
+  {
+   "point": "全新产品无法用数据证明市场存在",
+   "explain": "Philips 领导层直到发布前仍索要数据证明市场存在，但新产品无法 definitively 证明，说明观点型决策需担责。",
+   "caseTitle": "Philips 领导层索要数据",
+   "importance": 2,
+   "core": "But when you’re making something new, there’s no way to definitively prove that people will like it.",
+   "case": "However, the ever-changing leadership at Philips never did. Right up until launch, they were asking us for data to prove that a market for our products existed."
   }
  ],
  "Chapter 3.1: Make the Intangible Tangible": [
   {
-   "point": "原型要覆盖完整客户旅程，把无形体验做成有形",
    "core": "Prototype as much of the full customer experience as possible. Make the intangible tangible so you can’t overlook the less showy but incredibly important parts of the journey.",
-   "caseTitle": "Nest 盒里的螺丝刀",
    "case": "So we changed the prototype. Not the thermostat prototype—the installation prototype. We added one new element: a little screwdriver. It had four different head options, fit in the palm of your hand. It was sleek and cute. But more importantly, it was unbelievably handy.",
-   "explain": "Nest 不只改恒温器原型，而是改“安装原型”，加一把小螺丝刀，把安装这一不显眼却关键的环节做成可触摸的原型，避免被忽视。"
+   "point": "原型要覆盖完整客户旅程，把无形体验做成有形",
+   "explain": "作者主张把整段旅程都做成原型，以免遗漏不显眼却关键的环节；Nest 改的不是恒温器原型，而是安装原型，加一把小螺丝刀，把安装体验变得有形可感。",
+   "caseTitle": "Nest 盒里的螺丝刀",
+   "importance": 3
   },
   {
-   "point": "营销要提前原型化，从旅程第一刻开始",
-   "explain": "Nest 把产品名、标语、核心卖点直接印在包装盒上，反复拿在手里修改，用可触摸的包装原型倒逼信息优先级，让营销在无产品可营销前就被验证。",
-   "caseTitle": "Nest包装盒原型",
+   "point": "产品不只是硬件本体，而是完整用户体验",
+   "explain": "Nest 团队一度只盯着恒温器本体，忽视了占据用户大部分体验的手机 App，说明只做硬件会漏掉旅程中的关键触点。",
+   "caseTitle": "Nest恒温器App被忽视",
+   "importance": 3,
+   "core": "Your product isn’t only your product. It’s the whole user experience",
+   "case": "But we weren’t paying enough attention to what was probably the most important part of the customer experience: the app on your phone."
+  },
+  {
    "core": "Start from that very first moment of the customer journey. You should be prototyping your marketing long before you have anything to market.",
-   "case": "The packaging led everything. The product name, the tagline, the top features, their priority order, the main value props—they were literally printed on a cardboard box that we constantly held, looked at, tweaked, revised."
+   "case": "The packaging led everything. The product name, the tagline, the top features, their priority order, the main value props—they were literally printed on a cardboard box that we constantly held, looked at, tweaked, revised.",
+   "point": "营销要提前原型化，从旅程第一刻开始",
+   "explain": "Nest 把产品名、标语、核心卖点直接印在包装盒上，反复拿在手里修改，用实体盒子倒逼团队聚焦用户最先要理解的信息。",
+   "caseTitle": "Nest包装盒原型",
+   "importance": 2
+  },
+  {
+   "point": "旅程每一分钟都要顺畅，靠真实测试发现摩擦",
+   "explain": "测试者反馈安装耗时约一小时，团队意识到 Beth 这类用户不会接受关电、开墙、摆弄电线一小时，说明必须逐段测试旅程而非只看产品。",
+   "caseTitle": "安装测试耗时一小时",
+   "importance": 2,
+   "core": "Every minute, from opening the box to reading the instructions to getting it on their wall to turning on the heat for the first time, had to be incredibly smooth.",
+   "case": "Soon our testers reported in: It went fine. Everything’s up and running! But it took about an hour to install. We winced. Crap. An hour was way too long. Beth from Pennsylvania would not be cool with turning off the power, opening up the wall, and fiddling with unknown wires for an hour. This needed to be an easy DIY project, a quick upgrade."
   }
  ],
  "Chapter 3.2: Why Storytelling": [
   {
-   "point": "产品故事驱动一切，故事讲不通就改产品",
-   "explain": "iPhone 因故事需要而改用玻璃面板、去掉实体键盘——故事中不成立的部分，倒逼产品做出真实修改，证明故事先于并决定产品。",
-   "caseTitle": "故事驱动iPhone设计",
    "core": "The story of your product, your company, and your vision should drive everything you do.",
-   "case": "It was the story of the product. And it drove what we built.\nIf part of the story didn’t work, then part of the product wasn’t going to work, either, and would need to be changed. That’s ultimately why the iPhone had a glass front face instead of plastic and why it didn’t have a hardware keyboard. Because the story of the “Jesus Phone” wouldn’t hold together if it got scratched the first time you put it in your pocket or if you’d be forced to watch movies on a tiny little screen. We were telling the story of a phone that would change everything. So that’s what we had to build."
+   "case": "It was the story of the product. And it drove what we built.\nIf part of the story didn’t work, then part of the product wasn’t going to work, either, and would need to be changed. That’s ultimately why the iPhone had a glass front face instead of plastic and why it didn’t have a hardware keyboard. Because the story of the “Jesus Phone” wouldn’t hold together if it got scratched the first time you put it in your pocket or if you’d be forced to watch movies on a tiny little screen. We were telling the story of a phone that would change everything. So that’s what we had to build.",
+   "point": "产品故事驱动一切，故事讲不通就改产品",
+   "explain": "iPhone因故事要求不刮花、能看大屏，所以弃塑料用玻璃、去掉实体键盘，证明故事直接决定产品设计。",
+   "caseTitle": "故事驱动iPhone设计",
+   "importance": 3
+  },
+  {
+   "point": "用“怀疑病毒”唤醒用户对旧问题的烦恼",
+   "explain": "乔布斯先让观众重新意识到日常挫败并感到恼火，从而为解决方案做好情绪铺垫，证明故事要聚焦“为什么”。",
+   "caseTitle": "病毒式怀疑技巧",
+   "importance": 3,
+   "core": "It reminds people of the problem that’s being solved—it focuses on the “why.”",
+   "case": "He used a technique I later came to call the virus of doubt. It’s a way to get into people’s heads, remind them about a daily frustration, get them annoyed about it all over again. If you can infect them with the virus of doubt—“Maybe my experience isn’t as good as I thought, maybe it could be better”—then you prime them for your solution. You get them angry about how it works now so they can get excited about a new way of doing things."
+  },
+  {
+   "point": "故事讲不通的部分倒逼产品修改",
+   "explain": "iPhone故事要求手机不刮花、能看大屏，因此改用玻璃面板并取消实体键盘，说明故事是产品决策的检验标准。",
+   "caseTitle": "iPhone玻璃屏幕决策",
+   "importance": 2,
+   "core": "The story of your product, your company, and your vision should drive everything you do.",
+   "case": "If part of the story didn’t work, then part of the product wasn’t going to work, either, and would need to be changed. That’s ultimately why the iPhone had a glass front face instead of plastic and why it didn’t have a hardware keyboard. Because the story of the “Jesus Phone” wouldn’t hold together if it got scratched the first time you put it in your pocket or if you’d be forced to watch movies on a tiny little screen. We were telling the story of a phone that would change everything. So that’s what we had to build."
+  },
+  {
+   "point": "用类比把复杂概念讲简单并便于传播",
+   "explain": "“1000首歌装进口袋”把抽象容量变成可视画面，让用户一眼理解iPod价值并愿意向亲友转述。",
+   "caseTitle": "1000 songs in your p",
+   "importance": 2,
+   "core": "The story of your product, your company, and your vision should drive everything you do.",
+   "case": "That’s why “1,000 songs in your pocket” was so powerful. Everyone had CDs and tapes in bulky players that only let you listen to 10–15 songs, one album at a time. So “1,000 songs in your pocket” was an incredible contrast—it let people visualize this intangible thing—all the music they loved all together in one place, easy to find, easy to hold—and gave them a way to tell their friends and family why this new iPod thing was so cool."
   }
  ],
  "Chapter 3.3: Evolution Versus Disruption Versus Execution": [
   {
-   "point": "V1 要有颠覆性，但颠覆还需扎实执行，有时连渠道也要一起颠覆",
    "core": "Your version one (V1) product should be disruptive, not evolutionary. But disruption alone will not guarantee success—you can’t ignore the fundamentals of execution because you think all you need is a brilliant disruption.",
-   "caseTitle": "Nest 绕开安装商渠道",
    "case": "So we had to go completely around the existing channel. We had to create a new market: selling directly to homeowners in a world where homeowners did not buy thermostats. And we had to sell in places where thermostats had never been sold before. Our first retail partner was Best Buy, and they had no idea where to put Nest. It’s not like they had a thermostat aisle.",
-   "explain": "Nest 不只做颠覆性温控器，还绕开安装商渠道，直接面向房主并在 Best Buy 等从未卖过温控器的地方销售，说明颠覆必须配上渠道与执行的创新才能落地。"
+   "point": "V1 要有颠覆性，但颠覆还需扎实执行，有时连渠道也要一起颠覆",
+   "explain": "Nest 不仅做出颠覆性恒温器，还绕开传统安装商渠道，直接面向房主并在 Best Buy 等从未卖过恒温器的地方销售，证明颠覆产品需配套渠道创新才能成功。",
+   "caseTitle": "Nest 绕开安装商渠道",
+   "importance": 3
+  },
+  {
+   "point": "一次改变太多、试图颠覆一切会让产品失败",
+   "explain": "Fire Phone 兑现了所有承诺却每项都做不好，因为试图改变太多，颠覆沦为噱头，项目失败，说明 V1 不能同时颠覆过多。",
+   "caseTitle": "亚马逊Fire Phone",
+   "importance": 3,
+   "core": "Just don’t overshoot. Don’t try to disrupt everything at once. Don’t make the Amazon Fire Phone.",
+   "case": "When it launched, the Fire Phone did everything he had promised—but none of it well. They tried to do too much, change too much. So the disruptions turned into gimmicks, and the project failed. It was a hard, painful lesson that they haven’t made again. Do. Fail. Learn."
+  },
+  {
+   "point": "颠覆不能过度偏离用户心智模型，否则难以被理解",
+   "explain": "谷歌眼镜的外观和技术都太新，人们不知道它是做什么的，缺乏直觉理解，证明产品不能把用户推离心智模型太远。",
+   "caseTitle": "谷歌眼镜",
+   "importance": 3,
+   "core": "You can’t push people too far outside their mental model. Not at first.",
+   "case": "Or you change too many things too fast and regular people can’t recognize or understand what you’ve made. That’s one of the (many) issues that befell Google Glass. The look, the technology—it was all so new that people had no idea what to do with it. There was no intuitive understanding of what the thing was for."
+  },
+  {
+   "point": "颠覆要分阶段，给用户站稳的时间再推下一步",
+   "explain": "第一代 iPod 没有 iTunes 音乐商店，因为从 CD 到 MP3 已是足够大的一跳，需让用户先适应，说明颠覆应分阶段推进。",
+   "caseTitle": "第一代iPod无iTunes商店",
+   "importance": 3,
+   "core": "We’d only be successful if they had time to catch their balance before we asked them to jump again.",
+   "case": "That third reason explains why the first-generation iPod didn’t have the iTunes music store. There was no music marketplace, the term “podcast” was months away, and users just ripped their CDs with iTunes or pirated them online."
   }
  ],
  "Chapter 3.4: Your First Adventure—and Your Second": [
   {
-   "point": "V1靠愿景，V2有客户后应让数据和洞察优先",
    "core": "The lesson is about when and how vision and data should guide your decisions. In the very beginning, before there are customers, vision is more important than pretty much anything else.",
-   "caseTitle": "第一代iPod只支持Mac",
    "case": "The critics loved it. So did the people who already had Apple computers. Unfortunately, at that time there weren’t many of them. The iPod cost $399. The entry-level iMac cost $1,300. Even though the iPod was by far the best MP3 player on the market, nobody was going to drop $1,700 on the complete Apple package just to listen to Radiohead more easily.",
-   "explain": "初代iPod只支持Mac，靠乔布斯愿景吸引苹果老用户，却因价格门槛卖不动；说明V1阶段愿景主导，但市场反馈出现后需转向数据。"
+   "point": "V1阶段没有客户时，愿景比数据更重要",
+   "explain": "初代iPod只支持Mac，虽获好评但受限于Mac用户太少，销量不佳。这证明V1阶段缺乏市场数据时，愿景主导决策，但可能犯错。",
+   "caseTitle": "第一代iPod只支持Mac",
+   "importance": 3
   },
   {
-   "point": "V2阶段真实客户数据应压过原始愿景",
-   "explain": "团队用真实付费用户的收入与洞察证明iPod必须支持PC，迫使乔布斯放弃原计划，正体现V2阶段数据优先于愿景。",
-   "caseTitle": "iPod V2转向PC",
    "core": "Once you start iterating on an existing product, V2, your second adventure, you’ll have experience and customers and the luxury of plenty of data-driven decisions.",
-   "case": "We came to Steve and said it needed to work on PCs. It had to.\nNo.\nAbsolutely not.\nForcing Steve to abandon his original plan was almost impossible. But we waged an all-out war trying to prove to him that this wasn’t an opinion-driven decision anymore. This was data. We were in V2. We had real revenue and insights from actual paying customers (although not enough of either)."
+   "case": "We came to Steve and said it needed to work on PCs. It had to.\nNo.\nAbsolutely not.\nForcing Steve to abandon his original plan was almost impossible. But we waged an all-out war trying to prove to him that this wasn’t an opinion-driven decision anymore. This was data. We were in V2. We had real revenue and insights from actual paying customers (although not enough of either).",
+   "point": "V2阶段有付费用户后，数据应优先于愿景",
+   "explain": "iPod V2团队用真实收入和客户洞察证明必须支持PC，迫使乔布斯放弃原愿景。这显示V2阶段数据应压过原始愿景。",
+   "caseTitle": "iPod V2转向PC",
+   "importance": 3
+  },
+  {
+   "point": "面对全新用户群，旧用户数据不可靠",
+   "explain": "iPhone去掉键盘遭市场团队反对，因黑莓用户钟爱键盘。但旧用户数据无法预测新用户需求，说明V1愿景需超越旧数据。",
+   "caseTitle": "iPhone键盘之争",
+   "importance": 2,
+   "core": "In the very beginning, before there are customers, vision is more important than pretty much anything else.",
+   "case": "The marketing team fought Steve Jobs the hardest about the iPhone keyboard. But a lot of us rebelled. In 2005 the most popular “smart” phone by far was the BlackBerry—fondly known as the Crackberry. People were addicted. BlackBerry owned 25 percent of the market and was growing fast. And the BlackBerry die-hards would always tell you that the very best thing about their very favorite gadget was obvious. It was the keyboard."
+  },
+  {
+   "point": "无数据可依时，领导者应以愿景拍板",
+   "explain": "iPhone键盘争论数周无定论，乔布斯以“要么加入要么离开”拍板。这证明V1阶段缺乏数据时，强愿景是决策依据。",
+   "caseTitle": "史蒂夫下最后通牒",
+   "importance": 2,
+   "core": "The lesson is about when and how vision and data should guide your decisions. In the very beginning, before there are customers, vision is more important than pretty much anything else.",
+   "case": "After weeks and weeks of argument, Steve put his foot down. There was no data that would definitively prove it would work. There was no data that would prove it wouldn’t. This was an opinion-driven decision and Steve’s opinion was the one that counted most. “So either get on board right now or you’re off the team,” Steve said. That settled it for marketing."
+  },
+  {
+   "point": "V1愿景可能错误，需在V2用数据修正",
+   "explain": "初代iPod本为卖Mac而设计，但市场反应不佳。这显示V1愿景可能偏离实际，进入V2后需依据数据调整方向。",
+   "caseTitle": "初代iPod只配Mac",
+   "importance": 2,
+   "core": "The lesson is about when and how vision and data should guide your decisions. In the very beginning, before there are customers, vision is more important than pretty much anything else.",
+   "case": "Most people don’t realize what the iPod was originally built for. Its purpose wasn’t just to play music—it was made to sell Macintosh computers. That’s what was in Steve Jobs’s head: We’re going to make something amazing that will only work with our Macs. People will love it so much that they’ll start buying Macs again."
   }
  ],
  "Chapter 3.5: Heartbeats and Handcuffs": [
   {
-   "point": "用硬性截止日期约束自己，才能及时做取舍和重置",
    "core": "When you handcuff yourself to a deadline—ideally an external, immovable date like Christmas or a big conference—you have to execute and get creative to finish on time. The external heartbeat, the constraint, drives the creativity, which fuels the innovation.",
-   "caseTitle": "iPhone 的短周期重置",
    "case": "Our initial concept was an iPod + phone: keep the click wheel, change everything around it. Within three weeks, we could see it was a nonstarter. The click wheel was the main design element but we couldn’t make it into a dial without turning the whole thing into a rotary phone. The initial hypothesis—that we could repurpose the iPod’s iconic design and hardware—proved incorrect. So we hit reset. New hypothesis. This time we would start from scratch, so we gave ourselves five months.",
-   "explain": "iPhone 团队给每个概念设短周期，点击轮方案三周内被判定行不通，随即重置假设、重新给五个月，硬期限迫使团队快速止损并转向。"
+   "point": "用硬性截止日期约束自己，才能及时做取舍和重置",
+   "explain": "iPhone 团队给每个概念设短周期，点击轮方案三周内被证伪，随即重置并设定五个月新期限，证明硬期限迫使快速决策。",
+   "caseTitle": "iPhone 的短周期重置",
+   "importance": 3
+  },
+  {
+   "point": "缺乏硬性截止日期会导致无限延期，需要外部约束",
+   "explain": "General Magic 原计划九个月发货，却一再延期四年，说明没有不可移动的外部截止日期，团队就难以做出取舍。",
+   "caseTitle": "General Magic 四年延期",
+   "importance": 3,
+   "core": "You need constraints to make good decisions and the best constraint in the world is time.",
+   "case": "When I joined General Magic, the plan was to ship in nine months. Then the launch got delayed by six months. And another six months. And another. It kept going like that for four years."
+  },
+  {
+   "point": "硬期限让人快速证伪假设并重置",
+   "explain": "点击轮方案在三个星期内被看出行不通，团队因此迅速放弃初始假设并重置方向，体现短周期验证的价值。",
+   "caseTitle": "点击轮方案三周否决",
+   "importance": 2,
+   "core": "The initial hypothesis—that we could repurpose the iPod’s iconic design and hardware—proved incorrect.",
+   "case": "Within three weeks, we could see it was a nonstarter. The click wheel was the main design element but we couldn’t make it into a dial without turning the whole thing into a rotary phone."
+  },
+  {
+   "point": "用短期限强制验证方向、及时止损",
+   "explain": "初代 iPhone 团队给自己设定十周期限，迫使自己在有限时间内验证概念，避免无休止探索。",
+   "caseTitle": "初代iPhone十周试验",
+   "importance": 2,
+   "core": "So you have to force yourself to stop. Construct a deadline and handcuff yourself to it.",
+   "case": "For the first version of the iPhone, we gave ourselves ten weeks."
+  },
+  {
+   "point": "内部节奏必须与其他团队同步",
+   "explain": "Velo 上市时营销团队对产品毫无概念，说明只建立内部心跳而不与其他团队同步，会导致执行脱节。",
+   "caseTitle": "Velo上市营销脱节",
+   "importance": 2,
+   "core": "We had figured out our internal heartbeat, but had never synced it with any other team.",
+   "case": "And they had absolutely no idea what to do with it. They’d never seen it before. They didn’t know how to sell it, where to sell it, how to advertise it."
   }
  ],
  "Chapter 3.6: Three Generations": [
   {
-   "point": "颠覆性产品通常要三代才能打通市场并盈利",
-   "explain": "Nest三代演进：V1证明需求，V2让零售商愿意进货，V3重塑业务、降成本、拓渠道并实现盈利，正对应做产品、修产品、建业务。",
-   "caseTitle": "Nest恒温器三代演进",
    "core": "You make the product. You fix the product. You build the business.",
-   "case": "With every generation the product became sleeker, slimmer, and less expensive to build. You can see the leap from V1 to V2 in the product itself. When we launched the first generation, it was the most modern, beautifully made thermostat on the market. The moment we shipped V2, the original instantly looked heavy and clunky and outdated. By the time we reached V3, the changes to the product were more subtle but our business had been completely reinvented—costs were driven down, we were selling in new channels and countries, we had a slew of new partnerships, and customer support had been streamlined."
+   "case": "With every generation the product became sleeker, slimmer, and less expensive to build. You can see the leap from V1 to V2 in the product itself. When we launched the first generation, it was the most modern, beautifully made thermostat on the market. The moment we shipped V2, the original instantly looked heavy and clunky and outdated. By the time we reached V3, the changes to the product were more subtle but our business had been completely reinvented—costs were driven down, we were selling in new channels and countries, we had a slew of new partnerships, and customer support had been streamlined.",
+   "point": "颠覆性产品通常要三代才能打通市场并盈利",
+   "explain": "Nest恒温器从V1到V2产品外观显著改进，V3时产品变化虽小但成本、渠道、合作与客服全面重构，证明三代才能做对产品并建立盈利业务。",
+   "caseTitle": "Nest恒温器三代演进",
+   "importance": 3
+  },
+  {
+   "point": "V3阶段才能建立成熟渠道和商业生态",
+   "explain": "Nest V1只能官网直销验证需求，V2让零售商考虑进货，V3才进入Target、Best Buy等主流渠道并开辟智能家居专区，说明渠道能力随代际成熟。",
+   "caseTitle": "Nest三代渠道突破",
+   "importance": 2,
+   "core": "With V3 you have a chance to get it all right—the product, the company, and your business model.",
+   "case": "Gen 3 is when we really locked in our channel partners. With V1 we couldn’t properly break into retail. All we could do was sell our thermostats on nest.com to prove that people wanted to buy them. V2 made retailers sit up and consider us: Oh, maybe we should stock it.\nBut with V3 we were in Target and Best Buy and Home Depot and Lowe’s and Walmart and Costco—and not just on some distant shelf. We created completely new sections of each store dedicated to connected home products, creating a space not only for Nest but for the burgeoning smart home ecosystem that started to spring up around us."
+  },
+  {
+   "point": "跳过产品迭代只靠资本扩张无法盈利",
+   "explain": "共享滑板车公司靠资本大量投放抢占市场，却始终无法进入V2或V3阶段优化单位经济和整体盈利，最终资金耗尽失败。",
+   "caseTitle": "共享滑板车公司失败",
+   "importance": 2,
+   "core": "They couldn’t get to V2 or V3.",
+   "case": "A few years ago the major cities of the world were flooded with scooter- and bike-sharing companies. All at once it seemed like they were everywhere. And that was the approach—these companies wanted to get as much market share as they could in order to acquire customers.\nThey had enough capital that they just bought up whatever bikes they could and expanded and expanded and expanded.\nBut they could never make it profitable. They couldn’t get to V2 or V3. By the time they started figuring it out, they ran out of money—the endless pool ran dry."
+  },
+  {
+   "point": "只优化产品而不优化商业无法持续",
+   "explain": "许多Kickstarter项目只算产品毛利，忽视办公、保险、客服、广告等整体成本，未优化商业模型，因此无法建立持久公司。",
+   "caseTitle": "Kickstarter项目失败",
+   "importance": 2,
+   "core": "Until you optimize the business, not just the product, you can never build something lasting.",
+   "case": "That’s why so many Kickstarter projects have failed. They thought, “If I build it for $50 and sell it for $200, then I’ll make money. My company will be a success.” But that’s not how companies work. That $150 profit gets sucked away with every new office chair and dependent on your employees’ insurance, with every customer support call and Instagram ad. Until you optimize the business, not just the product, you can never build something lasting."
   }
  ],
  "Chapter 4.1: How to Spot a Great Idea": [
   {
-   "point": "好点子是止痛药，最好来自你自己反复经历的痛点",
    "core": "Painkillers eliminate something that’s constantly bothering you. A regular irritation you can’t get rid of. And the best pain—so to speak—is one you experience in your own life.",
-   "caseTitle": "太浩湖冰冷的木屋",
    "case": "Every time my wife and I drove up to our Lake Tahoe ski cabin on Friday nights after work, we’d have to keep our snow jackets on until the next day. The house took all night to heat up since we kept it just above freezing when we were away to avoid wasting energy and money. And I felt the pain. Walking into that frigid house drove me nuts. It was mind-boggling that there wasn’t a way to warm it up before we got there.",
-   "explain": "作者每次周五夜到太浩湖木屋都要穿着雪衣挨冻到第二天，这个反复折磨他的日常痛点，正是催生好点子的“止痛药”。"
+   "point": "好点子是止痛药，最好来自你自己反复经历的痛点",
+   "explain": "作者在太浩湖小屋反复挨冻，这个持续困扰他的痛点成为创业起点，证明最好的点子源于亲身经历。",
+   "caseTitle": "太浩湖冰冷的木屋",
+   "importance": 3
+  },
+  {
+   "point": "好点子会一直追着你跑，即使研究后仍挥之不去",
+   "explain": "作者说恒温器这个点子追了他十年，说明真正的好点子经得起时间考验，让人无法停止思考。",
+   "caseTitle": "恒温器追逐十年",
+   "importance": 3,
+   "core": "It follows you around. Even after you research and learn about it and try it out and realize how hard it’ll be to get it right, you can’t stop thinking about it.",
+   "case": "For me, this whole process took ten years. That’s how long the thermostat chased me."
+  },
+  {
+   "point": "好点子往往源于日常反复遭遇的挫折",
+   "explain": "作者对滑雪小屋加热问题的沮丧，驱使他动手寻找解决方案，印证了挫折催生创业点子。",
+   "caseTitle": "滑雪小屋挨冻",
+   "importance": 2,
+   "core": "Most startups are born from people getting so frustrated with something in their daily experience that they start digging in and trying to find a solution.",
+   "case": "Every time my wife and I drove up to our Lake Tahoe ski cabin on Friday nights after work, we’d have to keep our snow jackets on until the next day. The house took all night to heat up since we kept it just above freezing when we were away to avoid wasting energy and money."
+  },
+  {
+   "point": "真正的痛点会驱动人反复尝试，即使失败也不放弃",
+   "explain": "作者花费大量时间和金钱远程控制恒温器，假期都在接线，说明痛点足够强就会持续投入。",
+   "caseTitle": "拆解HVAC远程控制",
+   "importance": 2,
+   "core": "Painkillers eliminate something that’s constantly bothering you. A regular irritation you can’t get rid of. And the best pain—so to speak—is one you experience in your own life.",
+   "case": "I spent dozens of hours and thousands of dollars trying to hack security and computer equipment tied to an analog phone so I could fire up the thermostat remotely. Half my vacations were spent elbow-deep in wiring, electronics littering the floor."
+  },
+  {
+   "point": "市场空白和用户不满是识别好点子的信号",
+   "explain": "现有恒温器丑陋昂贵且不节能，与iPhone价格对比，凸显了未被满足的需求和机会。",
+   "caseTitle": "丑陋昂贵的恒温器",
+   "importance": 2,
+   "core": "Painkillers eliminate something that’s constantly bothering you. A regular irritation you can’t get rid of. And the best pain—so to speak—is one you experience in your own life.",
+   "case": "All the top-of-the-line thermostats were hideous beige boxes with bizarrely confusing user interfaces. They touted the fact that they had touchscreens and clocks and calendars and showed digital photos. None of them saved energy. None could be controlled remotely. And they cost around $400. The iPhone was selling for $499."
+  },
+  {
+   "point": "认真研究并直面风险，反而能增强信心",
+   "explain": "作者列出所有风险包括“有人在乎吗”，但了解风险后更有信心，说明调研是验证点子的关键。",
+   "caseTitle": "向投资人列风险",
+   "importance": 2,
+   "core": "But knowing what can kill you makes you stronger.",
+   "case": "So we listed our risks: building an AI, compatibility with hundreds of different (and ancient) HVAC systems, customer installation, retail, and the really big one—would anyone even care?"
   }
  ],
  "Chapter 4.4: You Can Only Have One Customer": [
   {
-   "point": "一个产品只能主要服务一类客户，否则会被撕裂",
-   "core": "For the vast majority of businesses, losing sight of the main customer you’re building for is the beginning of the end.",
-   "caseTitle": "DICE 选定歌迷",
-   "case": "DICE needed to attract all three customers. It needed to keep all three happy to be successful. But DICE only had one team and one product. And every time it made concessions to the venues, the experience for the fans and artists suffered. When it tried to please the artists, the venues complained. My advice was simple: Nothing has changed. The rules still apply. You gotta pick one.",
-   "explain": "DICE同时面对歌迷、场地和艺人三方，每次迁就场地就损害歌迷与艺人体验，讨好艺人又引来场地不满；最终只能选定歌迷为唯一客户。"
+   "point": "消费品牌强行做B2B会因缺乏基因而失败",
+   "explain": "苹果作为典型消费品牌，试图为企业客户造服务器，结果项目失败，证明同时服务两类相反客户会撕裂产品。",
+   "caseTitle": "苹果做企业服务器失败",
+   "importance": 3,
+   "core": "any company that tries to do both B2B and B2C will fail.",
+   "case": "Before the days of Linux servers, when Windows servers dominated the landscape, Apple decided to try B2B. To build their own servers. The project started just before I joined—Apple was desperately trying to crack the code on how to increase computer sales and bring in more developers. Corporate users needed to run all kinds of enterprise software from servers, so the quintessential consumer brand built a server for the enterprise."
   },
   {
-   "point": "坚持服务消费者成功后，企业市场会自然被吸引过来",
-   "explain": "苹果先为消费者做出iPhone，CIO起初不愿放行，但CEO和员工因喜爱而要求带入办公室，企业市场由此被倒逼打开，无需改写核心定位。",
-   "caseTitle": "iPhone反向进入企业",
    "core": "It was Apple’s success at creating something for consumers that led to their success in the enterprise.",
-   "case": "After the iPhone launched, CIOs were slow to clear it for business use. And while CEOs usually cede anything IT-related to the CIO, this time the CEOs rose up and demanded change. They loved their iPhones. So did their employees. And they wanted to use them at the office."
+   "case": "After the iPhone launched, CIOs were slow to clear it for business use. And while CEOs usually cede anything IT-related to the CIO, this time the CEOs rose up and demanded change. They loved their iPhones. So did their employees. And they wanted to use them at the office.",
+   "point": "坚持服务消费者成功后，企业市场会自然被吸引过来",
+   "explain": "iPhone本是消费产品，CEO和员工爱上后倒逼CIO放行，企业市场随之打开，说明专注消费者反而能带入企业。",
+   "caseTitle": "iPhone反向进入企业",
+   "importance": 3
+  },
+  {
+   "core": "For the vast majority of businesses, losing sight of the main customer you’re building for is the beginning of the end.",
+   "case": "DICE needed to attract all three customers. It needed to keep all three happy to be successful. But DICE only had one team and one product. And every time it made concessions to the venues, the experience for the fans and artists suffered. When it tried to please the artists, the venues complained. My advice was simple: Nothing has changed. The rules still apply. You gotta pick one.",
+   "point": "一个产品只能主要服务一类客户，否则会被撕裂",
+   "explain": "DICE同时讨好歌迷、场地和艺人，每次向场地妥协都损害歌迷体验，证明必须选定唯一主客户。",
+   "caseTitle": "DICE 选定歌迷",
+   "importance": 3
+  },
+  {
+   "point": "B2B2C最终由终端消费者支撑商业模式",
+   "explain": "DICE将“歌迷是唯一客户”定为黄金法则，并让场地和艺人相信服务好歌迷一切自然成立。",
+   "caseTitle": "DICE的粉丝黄金法则",
+   "importance": 2,
+   "core": "ultimately it’s the end consumer who carries the business model on their back.",
+   "case": "Now it’s their “Golden Rule”: Our Only Customer Is The Fan. And they make sure the venues and artists believe it, too. They remind them, continually, that if DICE does right by the fans, everything else will follow."
+  },
+  {
+   "point": "焦点从消费者转向企业会带来恶果",
+   "explain": "许多社交平台为向企业卖用户数据而嫁接B2B销售，最终偏离消费者，走上危险道路。",
+   "caseTitle": "社交平台转向卖数据",
+   "importance": 2,
+   "core": "When attention and focus shift away from the consumer and toward the businesses bringing in the real money, companies go down some very dark alleys.",
+   "case": "Eventually many of these companies realize their most lucrative option is to sell users’ data to big business. That means bolting on B2B sales so they can resell customer data hundreds or even thousands of times. That’s the story of Facebook and Twitter and Google and Instagram and many, many others."
   }
  ],
  "Chapter 5.2: Breakpoints": [
   {
-   "point": "新增管理层时公司会出现断点，沟通变慢、信息不均，需提前调整组织",
    "core": "Breakpoints almost always come when you need to add new layers of management, inevitably leading to communication problems, confusion, and slowdowns.",
-   "caseTitle": "Google 的全员大会",
    "case": "And if you don’t recognize that, you get trapped. Like Google. Up until very recently, all 140,000 people at Google attended a 2–3 hour all-hands meeting every week—the famous (or infamous) TGIF meeting.",
-   "explain": "Google 14 万人每周仍开 2–3 小时全员会，这种早期有效的沟通方式在规模扩大后难以为继，正说明新增层级后沟通会失效，必须重新设计信息同步方式。"
+   "point": "新增管理层时公司会出现断点，沟通变慢、信息不均，需提前调整组织",
+   "explain": "Google 14 万人仍每周开 2-3 小时全员会，说明早期沟通形式在规模扩大后失效，正是断点导致沟通问题的典型。",
+   "caseTitle": "Google 的全员大会",
+   "importance": 3
+  },
+  {
+   "point": "增长会在一切顺利时突袭，小事如生日蛋糕也会变成文化冲突",
+   "explain": "六人团队每年六次生日庆祝可行，三百人时几乎每天有人生日，无法全员放假，揭示规模扩大后惯例难以为继的隐性断点。",
+   "caseTitle": "生日蛋糕的规模困境",
+   "importance": 3,
+   "core": "Growth can catch you off-guard like that. Because everything always falls apart just when it feels like nothing can stop you.",
+   "case": "If you have a team of six, then six days of the year it’s someone’s birthday.\nSo you get a cake, take the afternoon to celebrate. It’s nice.\nWhen you have a team of three hundred, there’s a birthday practically every day. Should we still celebrate each one? The whole team can’t keep taking the afternoon off. And do you still get cake? Is cake important to your culture? You want to do everything you can for your team but there are hard realities. There are deadlines. There are budgets. And people are expensing a lot of goddamn cake."
   }
  ],
  "Chapter 5.3: Design for Everyone": [
   {
-   "point": "对抗习惯化，重新发现被忽视的日常不便",
+   "point": "设计思维：先理解用户痛点，再找解决方案",
+   "explain": "用户抱怨遥控器太多时，不应急于合并成一个复杂遥控器，而要先弄清他何时、看什么、和谁看、每个遥控器怎么用，从而还原真实使用场景。",
+   "caseTitle": "电视遥控器问题",
+   "importance": 3,
+   "core": "Deploy design thinking: This is a well-known strategy originated by IDEO’s David Kelley that encourages you to identify your customer and their pain points, deeply understand the problem you’re trying to solve, and systematically uncover ways to solve it.",
+   "case": "For example, a person complains that they have too many TV remotes. Instead of immediately jumping in and combining all the remotes into one giant, ridiculously complicated remote, you should take time to understand your customer: What do they do when they sit down on the couch? What are they watching? When are they watching? Who’s watching with them? What do they use each remote for and how often? Where do they keep them? What happens when they grab the wrong one?"
+  },
+  {
    "core": "2. Avoid habituation: Everyone gets used to things. Life is full of tiny and enormous inconveniences that you no longer notice because your brain has simply accepted them as unchangeable reality and filtered them out.",
-   "caseTitle": "开箱即满电的 iPod",
    "case": "You’d get a new gadget, take it out of the box, then you’d have to plug it in for an hour before you could turn it on. It was annoying, but it was life. Then Steve said, “We’re not going to let that happen to our product.” It was typical for electronics to run for thirty minutes in the factory to make sure they worked. We ran the iPod for more than two hours.",
-   "explain": "人们习惯电子设备开箱后需充电一小时，乔布斯拒绝接受这种“常态”，让iPod出厂即满电，证明设计师应觉察并消除被习惯化的麻烦。"
+   "point": "对抗习惯化，重新发现被忽视的日常不便",
+   "explain": "电子设备开箱后要先充电一小时，人们早已视为理所当然；iPod 团队拒绝接受这一“常态”，让出厂测试延长到两小时，使电池充满。",
+   "caseTitle": "开箱即满电的 iPod",
+   "importance": 3
   }
  ],
  "Chapter 5.4: A Method to the Marketing": [
   {
-   "point": "好营销是讲真话，既要真实又要措辞严谨",
    "core": "But good marketing isn’t bullshitting. It’s not about making something up, crafting a fiction, exaggerating your product’s benefits, and burying its faults.",
-   "caseTitle": "节能文案的拉锯",
    "case": "When the creative team wrote “The Nest Learning Thermostat saves energy,” the legal team made it “can save.” When they wrote “Customers saved 20–50% on their energy bills,” legal brought out the red pen and changed it to “Typical users experienced up to 20% in energy savings.”",
-   "explain": "创意团队写“节省能源”“省20–50%”，法务改为“可节省”“典型用户最多省20%”，说明营销不夸大、不埋没缺陷，用严谨措辞讲真实能力。"
+   "point": "好营销是讲真话，既要真实又要措辞严谨",
+   "explain": "Nest 创意团队写“节省能源”，法务改为“可以节省”；写“节省20-50%”，法务改为“最多20%”。这证明好营销需真实且措辞严谨，不夸大。",
+   "caseTitle": "节能文案的拉锯",
+   "importance": 3
+  },
+  {
+   "point": "营销应前置，与产品开发并行，原型化产品叙事",
+   "explain": "Nest 官网首批标签页之一“Why we made it”直接与怀疑受众沟通，注入疑问，说明营销与产品开发并行，原型化叙事。",
+   "caseTitle": "Why We Made It页面",
+   "importance": 3,
+   "core": "Use marketing to prototype your product narrative.",
+   "case": "One of the first tabs on nest.com was called “Why we made it”—that’s where we connected directly with a skeptical audience, where we injected the virus of doubt."
   }
  ],
  "Chapter 5.5: The Point of PMs": [
   {
-   "point": "产品经理是团队里客户的代言人，要把客户故事讲给所有人",
    "core": "And the reason for it is simple: the customer needs a voice on the team.",
-   "caseTitle": "Nest Secure 的单键传感器",
    "case": "But Sophie had been interviewing people and noticed that while men usually focused on empty homes, women focused on full ones. When they were alone or alone with the kids, women wanted extra protection. Especially at night. Sophie’s job was to tell their story—to help a single engineer who lived alone understand a parent’s perspective.",
-   "explain": "Sophie通过访谈发现女性更关注“家里有人”时的安全需求，她把这一客户故事讲给独居的工程师听，让工程团队理解父母视角，从而设计出贴合真实痛点的产品。"
+   "point": "产品经理是客户的代言人，要把客户故事讲给团队听",
+   "explain": "Sophie通过访谈发现女性更关注家中有人的安全，她把这一视角讲给独居的男性工程师，帮助团队理解用户真实需求。",
+   "caseTitle": "Nest Secure 的单键传感器",
+   "importance": 3
+  },
+  {
+   "point": "用用户故事而非数据来说服团队，让事实有上下文",
+   "explain": "Joz和作者没有给乔布斯数字，而是描绘了Sarah、Tom等通勤者和学生的使用场景，使需求更具体、更有说服力。",
+   "caseTitle": "用人物角色说服乔布斯",
+   "importance": 3,
+   "core": "The numbers were empty without customers, the facts meaningless without context.",
+   "case": "So Joz and I didn’t bring Steve numbers—we brought him customers. Commuters like Sarah only use the iPod going to and from work, students like Tom use it throughout the day, but in short bursts between classes or basketball games."
   }
  ]
 }

@@ -12,6 +12,7 @@ describe("note cases", () => {
     it(`${note.slug}: cases fit the note's chapters and stay short`, () => {
       const labels = new Set(splitNote(note.markdown).chapters.map((c) => c.label));
       let total = 0;
+      let cjkChars = 0;
       for (const [label, items] of Object.entries(cases)) {
         expect(labels.has(label), `unknown chapter ${label}`).toBe(true);
         // As many as matter; ranked by importance.
@@ -23,9 +24,11 @@ describe("note cases", () => {
           expect(c.core.length).toBeLessThanOrEqual(isCjk(c.core) ? 130 : 320);
           expect(c.case.length).toBeLessThanOrEqual(isCjk(c.case) ? 320 : 650);
           total += c.core.length + c.case.length;
+          if (isCjk(c.case)) cjkChars += c.core.length + c.case.length;
         }
       }
-      expect(total).toBeLessThanOrEqual(12000);
+      // Per-book cap on verbatim book text: 25k chars (10k for Chinese books).
+      expect(total).toBeLessThanOrEqual(cjkChars > total / 2 ? 10000 : 25000);
     });
   }
 });

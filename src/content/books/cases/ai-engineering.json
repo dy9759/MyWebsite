@@ -1,38 +1,242 @@
 {
  "1. Introduction to Building AI Applications with Foundation Models": [
   {
-   "point": "AI产品最难的是最后一公里，早期演示成功会误导排期",
    "core": "Planning an AI product needs to account for its last mile challenge. Initial success with foundation models can be misleading.",
-   "caseTitle": "LinkedIn 的 80% 到 95%",
    "case": "LinkedIn (2024) shared the same sentiment. It took them one month to achieve 80% of the experience they wanted. This initial success made them grossly underestimate how much time it’d take them to improve the product. They found it took them four more months to finally surpass 95%. A lot of time was spent working on the product kinks and dealing with hallucinations. The slow speed of achieving each subsequent 1% gain was discouraging.",
-   "explain": "LinkedIn 一个月做到 80% 体验，却再花四个月才超过 95%，大量时间耗在细节打磨和幻觉处理上，说明演示容易、产品化极难。"
+   "point": "AI产品最难的是最后一公里，早期演示成功会误导排期",
+   "explain": "LinkedIn一个月做到80%体验，却再花四个月才超过95%，大量时间用于处理产品缺陷和幻觉，证明演示容易产品化难。",
+   "caseTitle": "LinkedIn 的 80% 到 95%",
+   "importance": 3
+  },
+  {
+   "point": "基础模型使产品优先成为可能，数据模型投入可后置",
+   "explain": "传统ML先收集数据训练模型、产品最后；现在可先构建产品，待验证有前景再投资数据和模型，降低应用层门槛。",
+   "caseTitle": "传统ML与AI工程流程对比",
+   "importance": 3,
+   "core": "In traditional ML engineering, model development and product development are often disjointed processes, with ML engineers rarely involved in product decisions at many organizations.",
+   "case": "With traditional ML engineering, you usually start with gathering data and training a model. Building the product comes last. However, with AI models readily available today, it’s possible to start with building the product first, and only invest in data and models once the product shows promise, as visualized in Figure 1-16."
+  },
+  {
+   "point": "全栈工程师能快速将想法变成演示并迭代",
+   "explain": "全栈工程师相比传统ML工程师的优势在于快速构建演示、获取反馈并迭代，体现AI工程兴起后应用层门槛降低。",
+   "caseTitle": "全栈工程师快速迭代优势",
+   "importance": 2,
+   "core": "with AI models readily available today, it’s possible to start with building the product first, and only invest in data and models once the product shows promise",
+   "case": "An advantage that full-stack engineers have over traditional ML engineers is their ability to quickly turn ideas into demos, get feedback, and iterate."
+  },
+  {
+   "point": "基础模型让AI工程师更深入参与产品构建",
+   "explain": "传统ML工程师很少参与产品决策，而基础模型时代AI工程师更深入产品构建，说明人与AI分工及工程角色变化。",
+   "caseTitle": "AI工程师深度参与产品",
+   "importance": 2,
+   "core": "Planning an AI product needs to account for its last mile challenge. Initial success with foundation models can be misleading.",
+   "case": "However, with foundation models, AI engineers tend to be much more involved in building the product."
+  },
+  {
+   "point": "写作是AI的理想应用，能显著提效并容忍错误",
+   "explain": "MIT实验显示使用ChatGPT的写作任务平均时间减少40%、质量提升18%，证明AI在写作场景的实用价值。",
+   "caseTitle": "ChatGPT写作实验",
+   "importance": 2,
+   "core": "Writing is an ideal application for AI because we do it a lot, it can be quite tedious, and we have a high tolerance for mistakes.",
+   "case": "To study the impact of ChatGPT on writing, an MIT study (Noy and Zhang, 2023) assigned occupation-specific writing tasks to 453 college-educated professionals and randomly exposed half of them to ChatGPT. Their results show that among those exposed to ChatGPT, the average time taken decreased by 40% and output quality rose by 18%."
   }
  ],
  "2. Understanding Foundation Models": [
   {
-   "point": "训练数据的分布决定模型能力边界，数据少的语言表现明显更差",
    "core": "An AI model is only as good as the data it was trained on.",
-   "caseTitle": "GPT-4 做欧拉计划题",
    "case": "Similarly, when tested on six math problems on Project Euler, Yennie Jun found that GPT-4 was able to solve problems in English more than three times as often compared to Armenian or Farsi.1 GPT-4 failed in all six questions for Burmese and Amharic, as shown in Figure 2-2.",
-   "explain": "GPT-4在欧拉计划六道数学题上，英语解题成功率是亚美尼亚语、波斯语的三倍以上，缅甸语和阿姆哈拉语则全部失败，直观显示训练数据中语言占比直接划定了模型的能力边界。"
+   "point": "训练数据的分布决定模型能力边界，数据少的语言表现明显更差",
+   "explain": "GPT-4在欧拉计划数学题上，英语解题成功率是亚美尼亚语或波斯语的三倍以上，缅甸语和阿姆哈拉语则全部失败，证明训练数据中语言分布不均导致模型在低资源语言上能力显著下降。",
+   "caseTitle": "GPT-4 做欧拉计划题",
+   "importance": 3
+  },
+  {
+   "point": "英语在互联网数据中占主导，导致通用模型在英语上表现远好于其他语言",
+   "explain": "在涵盖57个学科、14000道题的MMLU基准上，GPT-4在英语上的表现远优于泰卢固语等代表性不足的语言，直接证明训练数据语言分布不均造成多语言性能差异。",
+   "caseTitle": "GPT-4多语言性能差异",
+   "importance": 3,
+   "core": "Given the dominance of English in the internet data, it’s not surprising that general-purpose models work much better for English than other languages, according to multiple studies.",
+   "case": "on the MMLU benchmark, a suite of 14,000 multiple-choice problems spanning 57 subjects, GPT-4 performed much better in English than under-represented languages like Telugu, as shown in Figure 2-1 (OpenAI, 2023)."
+  },
+  {
+   "point": "采样使模型具有概率性，相同输入可能产生不同输出",
+   "explain": "用同一提示让ChatGPT给文章打分，两次运行分别得到3/5和5/5，直接证明采样带来的随机性导致输出不一致。",
+   "caseTitle": "ChatGPT评分不一致",
+   "importance": 3,
+   "core": "Same input, different outputs: Giving the model the same prompt twice leads to two very different responses.",
+   "case": "Figure 2-23 shows an example of me trying to use ChatGPT to score essays. The same prompt gave me two different scores when I ran it twice: 3/5 and 5/5."
+  },
+  {
+   "point": "幻觉对依赖事实性的任务是致命的",
+   "explain": "2023年6月，一家律所因使用ChatGPT准备案件，未察觉其幻觉倾向，向法庭提交了虚构的法律研究而被罚款，说明幻觉在事实性任务中会造成严重后果。",
+   "caseTitle": "律所因幻觉被罚款",
+   "importance": 3,
+   "core": "Hallucinations are fatal for tasks that depend on factuality.",
+   "case": "In June 2023, a law firm was fined for submitting fictitious legal research to court. They had used ChatGPT to prepare their case, unaware of ChatGPT’s tendency to hallucinate."
+  },
+  {
+   "point": "模型在非英语语言上可能出现意外的行为差异，如更易生成虚假信息",
+   "explain": "NewsGuard要求ChatGPT-3.5生成关于中国的虚假文章，英文提示七次中六次拒绝，而简体中文和繁体中文提示七次全部生成虚假内容，说明非英语语言下模型行为可能更不安全。",
+   "caseTitle": "ChatGPT中文 misinforma",
+   "importance": 2,
+   "core": "Models can also have unexpected performance challenges in non-English languages.",
+   "case": "In April 2023, NewsGuard asked ChatGPT-3.5 to produce misinformation articles about China in English, simplified Chinese, and traditional Chinese. For English, ChatGPT declined to produce false claims for six out of seven prompts. However, it produced false claims in simplified Chinese and traditional Chinese all seven times."
+  },
+  {
+   "point": "模型可能因无法区分给定数据与生成数据而产生幻觉（自我欺骗）",
+   "explain": "LLaVA-v1.5-7B被要求识别洗发水瓶标签上的成分，却先说服自己图中是牛奶，进而将牛奶列入成分，展示模型混淆自身生成内容与输入数据导致幻觉。",
+   "caseTitle": "LLaVA自我欺骗",
+   "importance": 2,
+   "core": "The first hypothesis, originally expressed by Ortega et al. at DeepMind in 2021, is that a language model hallucinates because it can’t differentiate between the data it’s given and the data it generates.",
+   "case": "Figure 2-24 shows an example of self-delusion by the model LLaVA-v1.5-7B. I asked the model to identify ingredients listed on the product’s label in the image, which is a bottle of shampoo. In its response, the model convinces itself that the product in the image is a bottle of milk, then continues to include milk in the list of ingredients extracted from the product’s label."
+  },
+  {
+   "point": "后处理简单廉价，却能显著提升结构化输出的正确率",
+   "explain": "LinkedIn的防御性YAML解析器将正确YAML输出的比例从90%提升到99.99%，证明后处理在保证结构化输出上的高效性。",
+   "caseTitle": "LinkedIn防御性YAML解析器",
+   "importance": 2,
+   "core": "Post-processing is simple and cheap but can work surprisingly well.",
+   "case": "LinkedIn’s defensive YAML parser increased the percentage of correct YAML outputs from 90% to 99.99% (Bottaro and Ramgopal, 2020)."
+  },
+  {
+   "point": "结构化输出对需要特定格式的任务至关重要",
+   "explain": "GPT-4o根据系统提示将邮箱、日期等文本转换为正则表达式，展示了模型生成结构化输出的具体方式，说明结构化输出在格式要求任务中的应用。",
+   "caseTitle": "GPT-4o生成正则表达式",
+   "importance": 1,
+   "core": "Structured outputs are crucial for the following two scenarios: Tasks requiring structured outputs.",
+   "case": "This is an example of a prompt for GPT-4o to do text-to-regex. The outputs are actual outputs generated by GPT-4o:\nSystem prompt\nGiven an item, create a regex that represents all the ways the item can be written. Return only the regex.\nExample:\nUS phone number -> \\+?1?\\s?(\\()?(\\d{3})(?(1)\\))[-.\\s]?(\\d{3})[-.\\s]?(\\d{4})\nUser prompt\nEmail address ->\nGPT-4o\n[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\nUser prompt\nDates ->\nGTP-4o\n(?:\\d{1,2}[\\/\\-\\.])(?:\\d{1,2}[\\/\\-\\.])?\\d{2,4}"
   }
  ],
  "3. Evaluation Methodology": [
   {
-   "point": "AI 裁判和人一样有偏差，解读分数前要先了解这些偏差",
    "core": "Human evaluators have biases, and so do AI judges. Different AI judges have different biases.",
-   "caseTitle": "裁判偏爱长答案",
    "case": "Some AI judges have verbosity bias, favoring lengthier answers, regardless of their quality. Wu and Aji (2023) found that both GPT-4 and Claude-1 prefer longer responses (~100 words) with factual errors over shorter, correct responses (~50 words).",
-   "explain": "GPT-4 和 Claude-1 都偏爱约100词但含事实错误的答案，胜过约50词的正确短答，说明裁判存在长度偏差，分数不能直接当质量看。"
+   "point": "AI 裁判和人一样有偏差，解读分数前要先了解这些偏差",
+   "explain": "GPT-4 和 Claude-1 偏好约100词但含事实错误的答案，胜过约50词的正确短答，证明裁判存在冗长偏差，分数需谨慎解读。",
+   "caseTitle": "裁判偏爱长答案",
+   "importance": 3
+  },
+  {
+   "point": "AI 裁判与人类判断高度一致，但仍需精确评估或人工补充",
+   "explain": "MT-Bench 上 GPT-4 与人类一致率达85%，甚至高于人类间81%，说明AI裁判可用，但原文强调仍需精确或人工评估补充。",
+   "caseTitle": "GPT-4与人类评分一致性",
+   "importance": 3,
+   "core": "Studies have shown that certain AI judges are strongly correlated to human evaluators.",
+   "case": "In 2023, Zheng et al. found that on their evaluation benchmark, MT-Bench, the agreement between GPT-4 and humans reached 85%, which is even higher than the agreement among humans (81%)."
+  },
+  {
+   "point": "功能正确性评估：看系统是否实现预期功能",
+   "explain": "HumanEval 和 MBPP 用代码能否跑通作为指标，具体展示了功能正确性评估在代码生成任务中的应用。",
+   "caseTitle": "HumanEval代码生成测试",
+   "importance": 3,
+   "core": "Functional correctness evaluation means evaluating a system based on whether it performs the intended functionality.",
+   "case": "Popular benchmarks for evaluating AI’s code generation capabilities, such as OpenAI’s HumanEval and Google’s MBPP (Mostly Basic Python Problems Dataset) use functional correctness as their metrics."
+  },
+  {
+   "point": "基于参考的相似度评估可能因参考集不全而误判",
+   "explain": "Fuyu 输出正确却得分低，只因参考答案缺失类似回答，说明相似度分数低不一定代表模型输出错误。",
+   "caseTitle": "Fuyu图像描述评分偏差",
+   "importance": 2,
+   "core": "A good response can get a low similarity score if the reference set doesn’t contain any response that looks like it.",
+   "case": "On some benchmark examples, Adept found that its model Fuyu performed poorly not because the model’s outputs were wrong, but because some correct answers were missing in the reference data."
+  },
+  {
+   "point": "AI 裁判存在标准模糊，分数范围可能任意",
+   "explain": "BLEURT 分数约在-2.5到1.0之间，范围不直观且任意，体现AI裁判标准模糊、分数难以解释的问题。",
+   "caseTitle": "BLEURT分数范围混乱",
+   "importance": 2,
+   "core": "Human evaluators have biases, and so do AI judges. Different AI judges have different biases.",
+   "case": "The BLEURT score range is confusing. It’s approximately between -2.5 and 1.0. This highlights the challenge of criteria ambiguity with AI judges: the score range can be arbitrary."
+  },
+  {
+   "point": "缺乏质量控制时，AI 输出可能带来实际风险",
+   "explain": "Air Canada 聊天机器人给出错误信息导致赔偿，说明没有质量控制，AI 应用的风险可能超过收益。",
+   "caseTitle": "Air Canada聊天机器人赔偿案",
+   "importance": 2,
+   "core": "Without a way to quality control AI outputs, the risk of AI might outweigh its benefits for many applications.",
+   "case": "Air Canada was ordered to pay damages when its AI chatbot gave a passenger false information."
+  },
+  {
+   "point": "困惑度可作为模型能力的代理指标",
+   "explain": "GPT-2 报告中更大模型在多个数据集上困惑度更低，说明困惑度能反映模型能力，适合指导训练。",
+   "caseTitle": "GPT-2模型困惑度对比",
+   "importance": 2,
+   "core": "perplexity is a good proxy for a model’s capabilities.",
+   "case": "OpenAI’s GPT-2 report shows that larger models, which are also more powerful models, consistently give lower perplexity on a range of datasets, as shown in Table 3-1."
+  },
+  {
+   "point": "公开基准会快速饱和，需要不断更新",
+   "explain": "GLUE 2018年推出，仅一年就饱和，迫使推出 SuperGLUE，说明基准需持续迭代。",
+   "caseTitle": "GLUE基准饱和",
+   "importance": 1,
+   "core": "A benchmark becomes saturated for a model once the model achieves the perfect score.",
+   "case": "The benchmark GLUE (General Language Understanding Evaluation) came out in 2018 and became saturated in just a year, necessitating the introduction of SuperGLUE in 2019."
   }
  ],
  "4. Evaluate AI Systems": [
   {
-   "point": "公开基准常被训练数据污染，高分不一定代表真实能力",
    "core": "The prevalence of data contamination undermines the trustworthiness of evaluation benchmarks. Just because a model can achieve high performance on bar exams doesn’t mean it’s good at giving legal advice. It could just be that this model has been trained on many bar exam questions.",
-   "caseTitle": "GPT-3 基准污染",
    "case": "OpenAI, when analyzing GPT-3’s contamination with common benchmarks, found 13 benchmarks with at least 40% in the training data (Brown et al., 2020).",
-   "explain": "GPT-3 在 13 个常用基准上至少有 40% 的训练数据重叠，说明高分可能来自“见过题”，而非真实能力，公开基准只能用来排除差模型。"
+   "point": "公开基准常被训练数据污染，高分不一定代表真实能力",
+   "explain": "OpenAI 分析发现 GPT-3 训练数据包含至少 13 个基准的 40% 以上内容，说明高分可能源于记忆而非真实能力，公开基准只能用于排除差模型。",
+   "caseTitle": "GPT-3 基准污染",
+   "importance": 3
+  },
+  {
+   "point": "部署后无法评估的 AI 应用比未部署更糟",
+   "explain": "二手车估值模型部署一年后用户看似喜欢，但团队完全不知道预测是否准确，说明缺乏评估的部署无法验证价值，风险极高。",
+   "caseTitle": "二手车估值模型",
+   "importance": 3,
+   "core": "An application that is deployed but can’t be evaluated is worse.",
+   "case": "An ML engineer at a used car dealership told me that his team built a model to predict the value of a car based on the specs given by the owner. A year after the model was deployed, their users seemed to like the feature, but he had no idea if the model’s predictions were accurate."
+  },
+  {
+   "point": "缺乏评估导致无法判断 AI 应用的实际价值",
+   "explain": "ChatGPT 热潮中许多公司匆忙部署客服聊天机器人，却仍不确定它们对用户体验是有益还是有害，印证了没有评估就无法衡量效果。",
+   "caseTitle": "客服聊天机器人",
+   "importance": 2,
+   "core": "An application that is deployed but can’t be evaluated is worse.",
+   "case": "At the beginning of the ChatGPT fever, companies rushed to deploy customer support chatbots. Many of them are still unsure if these chatbots help or hurt their user experience."
+  },
+  {
+   "point": "评估指标应映射到业务指标以指导决策",
+   "explain": "事实一致性从 80% 提升到 98% 时，可自动化的客服请求比例从 30% 升至 90%，说明指标阈值能直接对应业务自动化比例，帮助决定优化或上线。",
+   "caseTitle": "事实一致性业务映射",
+   "importance": 2,
+   "core": "Ideally, you want to map evaluation metrics to business metrics",
+   "case": "Factual consistency of 80%: we can automate 30% of customer support requests.\nFactual consistency of 90%: we can automate 50%.\nFactual consistency of 98%: we can automate 90%."
+  },
+  {
+   "point": "正确的响应不一定是好的响应",
+   "explain": "LinkedIn 职位评估 AI 中，“你非常不合适”虽正确但无帮助，好响应应解释差距及改进方法，说明评估需区分正确性与有用性。",
+   "caseTitle": "LinkedIn职位评估AI",
+   "importance": 2,
+   "core": "A correct response is not always a good response.",
+   "case": "For example, for their AI-powered Job Assessment application, the response “You are a terrible fit” might be correct but not helpful, thus making it a bad response. A good response should explain the gap between this job’s requirements and the candidate’s background, and what the candidate can do to close this gap."
+  },
+  {
+   "point": "避免辛普森悖论，需分切片评估模型",
+   "explain": "模型 A 在每个子组都优于 B，但聚合数据上却劣于 B，说明仅看聚合指标可能得出误导性结论，应进行数据切片评估。",
+   "caseTitle": "辛普森悖论示例",
+   "importance": 2,
+   "core": "Avoid falling for Simpson’s paradox, a phenomenon in which model A performs better than model B on aggregated data but worse than model B on every subset of data.",
+   "case": "Table 4-6 shows a scenario where model A outperforms model B on each subgroup but underperforms model B overall."
+  },
+  {
+   "point": "通过多次生成一致性检测幻觉",
+   "explain": "SelfCheckGPT 假设模型多次生成结果不一致则原输出可能为幻觉，通过生成 N 个新响应并测量一致性来评估事实性。",
+   "caseTitle": "SelfCheckGPT",
+   "importance": 1,
+   "core": "Self-verification",
+   "case": "SelfCheckGPT (Manakul et al., 2023) relies on an assumption that if a model generates multiple outputs that disagree with one another, the original output is likely hallucinated. Given a response R to evaluate, SelfCheckGPT generates N new responses and measures how consistent R is with respect to these N new responses."
+  },
+  {
+   "point": "领域能力评估可结合效率等精确指标",
+   "explain": "BIRD-SQL 基准不仅评估生成查询的执行准确率，还比较其与真实查询的运行时间以评估效率，说明评估可纳入精确的运行时指标。",
+   "caseTitle": "BIRD-SQL基准",
+   "importance": 1,
+   "core": "Efficiency can be exactly evaluated by measuring runtime or memory usage.",
+   "case": "BIRD-SQL (Li et al., 2023) is an example of a benchmark that takes into account not only the generated query’s execution accuracy but also its efficiency, which is measured by comparing the runtime of the generated query with the runtime of the ground truth SQL query."
   }
  ],
  "5. Prompt Engineering": [
@@ -41,59 +245,282 @@
    "core": "You can encourage the model to spend more time to, for a lack of better words, “think” about a question using chain-of-thought (CoT) and self-critique prompting.",
    "caseTitle": "思维链提示",
    "case": "CoT is among the first prompting techniques that work well across models. It was introduced in “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models” (Wei et al., 2022), almost a year before ChatGPT came out. Figure 5-6 shows how CoT improved the performance of models of different sizes (LaMDA, GPT-3, and PaLM) on different benchmarks. LinkedIn found that CoT also reduces models’ hallucinations.",
-   "explain": "只需在提示里要求一步一步思考，就能提升 LaMDA、GPT-3、PaLM 在多个数学基准上的表现，LinkedIn 还发现它能减少幻觉。不改权重、成本很低，体现了先把提示做足的思路。"
+   "explain": "只需在提示里要求一步一步思考，就能提升 LaMDA、GPT-3、PaLM 在多个数学基准上的表现，LinkedIn 还发现它能减少幻觉。不改权重、成本很低，体现了先把提示做足的思路。",
+   "importance": 2
   }
  ],
  "6. RAG and Agents": [
   {
-   "point": "外部工具能显著扩展 Agent 能力，效果可超过单纯提示",
    "core": "External tools make an agent vastly more capable.",
-   "caseTitle": "Chameleon 智能体",
    "case": "Chameleon (Lu et al., 2023) shows that a GPT-4-powered agent, augmented with a set of 13 tools, can outperform GPT-4 alone on several benchmarks. Examples of tools this agent used are knowledge retrieval, a query generator, an image captioner, a text detector, and Bing search. On ScienceQA, a science question answering benchmark, Chameleon improves the best published few-shot result by 11.37%. On TabMWP (Tabular Math Word Problems) (Lu et al., 2022), a benchmark involving tabular math questions, Chameleon improves the accuracy by 17%.",
-   "explain": "Chameleon 为 GPT-4 配备 13 种工具后，在多个基准上超过单独 GPT-4：ScienceQA 提升 11.37%，TabMWP 准确率提升 17%，说明工具扩展了模型能力。"
+   "point": "外部工具能显著扩展 Agent 能力，效果可超过单纯提示",
+   "explain": "Chameleon 为 GPT-4 配备 13 种工具（检索、查询生成、图像描述、Bing 搜索等），在 ScienceQA 上比最佳少样本结果提升 11.37%，在 TabMWP 上准确率提升 17%，证明工具增强可超越纯提示。",
+   "caseTitle": "Chameleon 智能体",
+   "importance": 3
+  },
+  {
+   "point": "RAG 通过检索外部信息增强生成，提升回答准确性",
+   "explain": "当用户询问“Acme fancy-printer-A300 能否打印 100pps？”时，模型获得该打印机规格信息后能更好回答，说明检索相关外部信息可增强生成质量。",
+   "caseTitle": "Acme打印机规格查询",
+   "importance": 3,
+   "core": "RAG is a technique that enhances a model’s generation by retrieving the relevant information from external memory sources.",
+   "case": "For example, given the query “Can Acme’s fancy-printer-A300 print 100pps?”, the model will be able to respond better if it’s given the specifications of fancy-printer-A300."
+  },
+  {
+   "point": "上下文检索为每个块补充上下文以提升检索效果",
+   "explain": "Anthropic 用 AI 模型为每个块生成 50-100 词的简短上下文，解释块内容及其与原文关系，使相关块更容易被检索到。",
+   "caseTitle": "Anthropic上下文增强提示",
+   "importance": 2,
+   "core": "The idea behind contextual retrieval is to augment each chunk with relevant context to make it easier to retrieve the relevant chunks.",
+   "case": "Anthropic used AI models to generate a short context, usually 50-100 tokens, that explains the chunk and its relationship to the original document."
+  },
+  {
+   "point": "表格数据 RAG 需通过 Text-to-SQL 和 SQL 执行来回答聚合查询",
+   "explain": "回答“过去 7 天 Fruity Fedora 卖了多少件？”需查询表格中所有相关订单并汇总数量，说明表格 RAG 工作流与经典 RAG 显著不同。",
+   "caseTitle": "Kitty Vogue表格RAG",
+   "importance": 2,
+   "core": "The workflow for augmenting a context using tabular data is significantly different from the classic RAG workflow.",
+   "case": "To generate a response to the question “How many units of Fruity Fedora were sold in the last 7 days?”, your system needs to query this table for all orders involving Fruity Fedora and sum the number of units across all orders."
+  },
+  {
+   "point": "Agent 可交替进行推理与行动，逐步完成任务",
+   "explain": "ReAct 框架让智能体每一步先解释思考（规划），再采取行动，然后分析观察结果（反思），循环直至任务完成，成为常见智能体模式。",
+   "caseTitle": "ReAct推理与行动交替",
+   "importance": 2,
+   "core": "At each step, the agent is asked to explain its thinking (planning), take actions, then analyze observations (reflection), until the task is considered finished by the agent.",
+   "case": "First proposed by ReAct (Yao et al., 2022), interleaving reasoning and action has become a common pattern for agents."
+  },
+  {
+   "point": "反思机制让 Agent 从失败中学习并改进计划",
+   "explain": "Reflexion 将反思分为评估器和自我反思模块：评估器判断结果，自我反思模块分析出错原因，从而让智能体改进后续计划。",
+   "caseTitle": "Reflexion自我反思框架",
+   "importance": 2,
+   "core": "If the agent’s response failed to accomplish the task, you can prompt the agent to reflect on why it failed and how to improve.",
+   "case": "This is the approach that Reflexion (Shinn et al., 2023) took. In this framework, reflection is separated into two modules: an evaluator that evaluates the outcome and a self-reflection module that analyzes what went wrong."
+  },
+  {
+   "point": "Agent 可能偏离目标或违反约束，导致规划失败",
+   "explain": "要求规划从旧金山到河内两周预算 5000 美元的旅行，智能体可能规划到胡志明市，或规划超预算的行程，说明目标失败是常见规划失败模式。",
+   "caseTitle": "旅行计划目标失败",
+   "importance": 2,
+   "core": "Another mode of planning failure is goal failure: the agent fails to achieve the goal.",
+   "case": "imagine you ask the model to plan a two-week trip from San Francisco to Hanoi with a budget of $5,000. The agent might plan a trip from San Francisco to Ho Chi Minh City, or plan a two-week trip from San Francisco to Hanoi that will be way over the budget."
+  },
+  {
+   "point": "时间约束是 Agent 评估中常被忽视的关键因素",
+   "explain": "让智能体准备拨款提案，若在截止日期后才完成，则毫无帮助，说明评估智能体时需考虑时间约束。",
+   "caseTitle": "拨款提案超时",
+   "importance": 2,
+   "core": "A common constraint that is often overlooked by agent evaluation is time.",
+   "case": "if you ask an agent to prepare a grant proposal and the agent finishes it after the grant deadline, the agent isn’t very helpful."
   }
  ],
  "7. Finetuning": [
   {
-   "point": "针对特定任务微调的小模型，可胜过大得多的通用模型",
-   "core": "A small model, finetuned on a specific task, might outperform a much larger out-of-the-box model on that task.",
-   "caseTitle": "Grammarly 微调 Flan-T5",
-   "case": "For example, Grammarly found that their finetuned Flan-T5 models (Chung et al., 2022) outperformed a GPT-3 variant specialized in text editing across a wide range of writing assistant tasks despite being 60 times smaller. The finetuning process used only 82,000 (instruction, output) pairs, which is smaller than the data typically needed to train a text-editing model from scratch.",
-   "explain": "Grammarly 用 8.2 万条指令数据微调 Flan-T5，在写作辅助任务上超越专门做文本编辑的 GPT-3 变体，而模型体积小 60 倍，说明微调能让小模型在特定任务上反超大模型。"
+   "core": "In short, finetuning is for form, and RAG is for facts.",
+   "case": "The paper “Fine-Tuning or Retrieval?” by Ovadia et al. (2024) demonstrated that for tasks that require up-to-date information, such as questions about current events, RAG outperformed finetuned models. Not only that, RAG with the base model outperformed RAG with finetuned models, as shown in Table 7-2. This finding indicates that while finetuning can enhance a model’s performance on a specific task, it may also lead to a decline in performance in other areas.",
+   "point": "微调管形式，RAG 管事实；缺信息优先用 RAG",
+   "explain": "Ovadia 等（2024）发现，对需最新信息的任务，RAG 优于微调模型；且基座模型加 RAG 也优于微调模型加 RAG，说明微调可能损害其他领域性能，故缺信息应优先 RAG。",
+   "caseTitle": "RAG与微调对比实验",
+   "importance": 3
   },
   {
-   "point": "微调管形式，RAG 管事实；缺信息优先用 RAG",
-   "explain": "Ovadia 等人发现，在时效性问答上 RAG 优于微调模型，甚至基础模型加 RAG 也胜过微调加 RAG，说明信息型失败应靠检索而非微调解决。",
-   "caseTitle": "RAG与微调对比实验",
-   "core": "In short, finetuning is for form, and RAG is for facts.",
-   "case": "The paper “Fine-Tuning or Retrieval?” by Ovadia et al. (2024) demonstrated that for tasks that require up-to-date information, such as questions about current events, RAG outperformed finetuned models. Not only that, RAG with the base model outperformed RAG with finetuned models, as shown in Table 7-2. This finding indicates that while finetuning can enhance a model’s performance on a specific task, it may also lead to a decline in performance in other areas."
+   "core": "A small model, finetuned on a specific task, might outperform a much larger out-of-the-box model on that task.",
+   "case": "For example, Grammarly found that their finetuned Flan-T5 models (Chung et al., 2022) outperformed a GPT-3 variant specialized in text editing across a wide range of writing assistant tasks despite being 60 times smaller. The finetuning process used only 82,000 (instruction, output) pairs, which is smaller than the data typically needed to train a text-editing model from scratch.",
+   "point": "针对特定任务微调的小模型，可胜过大得多的通用模型",
+   "explain": "Grammarly 微调的 Flan-T5 在多项写作辅助任务上超越专用 GPT-3 变体，尽管模型小 60 倍，且仅用 82,000 对数据，证明小模型微调可高效超越大模型。",
+   "caseTitle": "Grammarly 微调 Flan-T5",
+   "importance": 3
+  },
+  {
+   "point": "LoRA 以极少可训练参数达到接近全微调的性能",
+   "explain": "LoRA 在 GPT-3 上仅用约 470 万可训练参数（全微调的 0.0027%）即达到或超过全微调性能，证明 PEFT 能大幅降低微调资源需求。",
+   "caseTitle": "LoRA在GPT-3上的参数效率",
+   "importance": 2,
+   "core": "PEFT enables finetuning on more affordable hardware, making it accessible to many more developers.",
+   "case": "The LoRA paper showed that, for GPT-3, LoRA achieves comparable or better performance with full finetuning on several tasks while using only ~4.7M trainable parameters, 0.0027% of full finetuning."
+  },
+  {
+   "point": "量化能大幅降低微调内存需求，使大模型单卡可训",
+   "explain": "QLoRA 用 4 位 NF4 量化权重并在计算时反量化，配合分页优化器，使 650 亿参数模型可在单张 48GB GPU 上微调，证明量化有效降低内存瓶颈。",
+   "caseTitle": "QLoRA微调65B模型",
+   "importance": 2,
+   "core": "Quantization is a straightforward and efficient way to reduce a model’s memory footprint.",
+   "case": "QLoRA stores the model’s weights in 4 bits but dequantizes (converts) them back into BF16 when computing the forward and backward pass. The 4-bit format that QLoRA uses is NF4 (NormalFloat-4), which quantizes values based on the insight that pre-trained weights usually follow a normal distribution with a median of zero. On top of 4-bit quantization, QLoRA also uses paged optimizers to automatically transfer data between the CPU and GPU when the GPU runs out of memory, especially with long sequence lengths. These techniques allow a 65B-parameter model to be finetuned on a single 48 GB GPU."
+  },
+  {
+   "point": "层堆叠可将多个微调模型合并为一个新模型",
+   "explain": "Goliath-120B 从两个微调的 Llama 2-70B 模型（Xwin 和 Euryale）各取 80 层中的 72 层堆叠合并而成，具体展示了层堆叠合并的操作与效果。",
+   "caseTitle": "Goliath-120B层堆叠",
+   "importance": 2,
+   "core": "In this approach, you take different layers from one or more models and stack them on top of each other.",
+   "case": "One early success of frankenmerging is Goliath-120B (alpindale, 2023), which was merged from two finetuned Llama 2-70B models, Xwin and Euryale. It took 72 out of 80 layers from each model and merged them together."
+  },
+  {
+   "point": "可通过微调扩展模型的上下文长度",
+   "explain": "Code Llama 通过长上下文微调将最大上下文长度从 4,096 令牌扩展到 16,384 令牌，以容纳更长的代码文件，证明微调可扩展上下文长度。",
+   "caseTitle": "Code Llama长上下文微调",
+   "importance": 1,
+   "core": "It’s possible to finetune a model to extend its context length.",
+   "case": "Figure 7-1 shows the making of different Code Llama models (Rozière et al., 2024), from the base model Llama 2, using different finetuning techniques. Using long-context finetuning, they were able to increase the model’s maximum context length from 4,096 tokens to 16,384 tokens to accommodate longer code files."
+  },
+  {
+   "point": "深度缩放可通过层合并与堆叠扩展模型深度",
+   "explain": "SOLAR 10.7B 将 32 层模型复制后，合并 16 对层并堆叠其余层，最终得到 48 层模型，具体说明了深度缩放的层数计算与操作。",
+   "caseTitle": "SOLAR 10.7B深度缩放",
+   "importance": 1,
+   "core": "One approach to layer upscaling is depthwise scaling.",
+   "case": "Kim et al. (2023) used this technique to create SOLAR 10.7B from one 7B-parameter model with 32 layers. The procedure works as follows: Make a copy of the original pre-trained model. Merge these two copies by summing certain layers (summing two layers and turning them into one layer) and stacking the rest. The layers to be summed are carefully selected to match the target model size. For SOLAR 10.7B, 16 layers are summed, leaving the final model with 32 × 2 - 16 = 48 layers."
   }
  ],
  "8. Dataset Engineering": [
   {
-   "point": "数据质量和多样性是模型提升的主要来源，少而精胜过多而杂",
    "core": "Llama 3’s performance gains are “primarily driven by improvements in data quality and diversity as well as by increased training scale.”",
-   "caseTitle": "LIMA：少即是多",
    "case": "Similarly, “LIMA: Less Is More for Alignment” (Zhou et al., 2023) shows that a 65B-parameter Llama model, finetuned with 1,000 carefully curated prompts and responses, can produce answers that are either equivalent or strictly preferred to GPT-4 in 43% of cases, as judged by human annotators.",
-   "explain": "LIMA用仅1000条精心筛选的指令数据微调65B模型，43%的回答被人类评为与GPT-4相当或更优，证明少量高质量数据可胜过大量噪声数据。"
+   "point": "数据质量和多样性是模型提升的主要来源，少而精胜过多而杂",
+   "explain": "65B Llama仅用1000条精心筛选的提示与回答微调，在43%案例中达到或优于GPT-4，证明少量高质量数据可胜过大量噪声数据。",
+   "caseTitle": "LIMA：少即是多",
+   "importance": 3
+  },
+  {
+   "point": "高质量与多样性结合，效果优于仅有其一",
+   "explain": "同规模2000样本下，高质量且多样的数据训练出的7B模型，生成质量优于仅高质量或仅多样的数据集，说明两者缺一不可。",
+   "caseTitle": "数据多样性实验",
+   "importance": 3,
+   "core": "A 7B-parameter model, finetuned on a dataset that is both high-quality and diverse, outperforms that same model finetuned on a dataset that is either diverse or high-quality.",
+   "case": "Zhou et al. (2023) carried out an interesting experiment where they trained a 7B-parameter language model on three datasets of the same size—2,000 examples—but with different characteristics. The first is high-quality but not diverse. The second is diverse but low-quality. The third is both diverse and high-quality. Figure 8-1 shows the generation quality of the three resulting models."
+  },
+  {
+   "point": "可用少量种子数据借助AI合成大规模指令数据",
+   "explain": "斯坦福团队从175条种子示例出发，用GPT-3生成5.2万条指令-回答对训练Alpaca，展示合成数据扩量的典型做法。",
+   "caseTitle": "Alpaca数据合成",
+   "importance": 2,
+   "core": "AI can be used to synthesize the instructions, the responses, or both.",
+   "case": "to train Alpaca (Taori et al., 2023), Stanford researchers began with 175 (instruction, response) examples from the Self-Instruct seed dataset (Wang et al., 2022). These examples were originally written to cover a diverse and interesting range of uses. Alpaca authors then used a GPT-3 model, text-davinci-003, to generate 52,000 (instruction, response) pairs that mirrored these seed examples"
+  },
+  {
+   "point": "递归使用AI生成数据会导致模型崩溃、性能退化",
+   "explain": "Shumailov等人在变分自编码器、高斯混合模型和LLM中演示了模型崩溃，说明合成数据必须验证、警惕循环训练。",
+   "caseTitle": "模型崩溃研究",
+   "importance": 2,
+   "core": "Some studies have shown that recursively using AI-generated data in training causes irreversible defects in the resulting models, degrading their performance over time.",
+   "case": "In “The Curse of Recursion: Training on Generated Data Makes Models Forget”, Shumailov et al. (2023) named this phenomenon model collapse and demonstrated its occurrences in models including Variational Autoencoders, Gaussian mixture models, and LLMs."
+  },
+  {
+   "point": "标注者若使用模型不具备的知识，会教模型产生幻觉",
+   "explain": "人类标注者用自身知识回答模型不知道的问题，等于教模型编造答案，说明标注准则与数据质量把控至关重要。",
+   "caseTitle": "人类标注导致幻觉",
+   "importance": 2,
+   "core": "Llama 3’s performance gains are “primarily driven by improvements in data quality and diversity as well as by increased training scale.”",
+   "case": "The same issue can happen with human annotations. If the human labeler uses the knowledge they have but the model doesn’t to answer a question, they are effectively teaching the model to hallucinate."
+  },
+  {
+   "point": "代码数据可功能验证，因而最常被合成",
+   "explain": "Dubey等人用流水线为Llama 3.1监督微调生成超270万条合成代码示例，体现可验证任务适合大规模合成。",
+   "caseTitle": "Llama 3代码数据合成",
+   "importance": 1,
+   "core": "Coding is one of the most popular foundation model use cases because it can be functionally evaluated, and for the same reason, coding-related examples are among the most commonly synthesized data.",
+   "case": "Using this pipeline, Dubey et al. were able to generate over 2.7 million synthetic coding-related examples for the supervised finetuning of Llama 3.1."
   }
  ],
  "9. Inference Optimization": [
   {
-   "point": "推理优化技术要按负载选择，长上下文场景重点在KV缓存",
    "core": "The choice of optimization techniques depends on your workloads. For example, KV caching is significantly more important for workloads with long contexts than those with short contexts.",
-   "caseTitle": "Character.AI长对话",
    "case": "Character.AI, an AI chatbot application, shares that their average conversation has a dialogue history of 180 messages (2024). Given the typically long sequences, the primary bottleneck for inference throughput is the KV cache size. Three attention mechanism designs—multi-query attention, interleaving local attention and global attention, and cross-layer attention—help them reduce KV cache by over 20 times. More importantly, this significant KV cache reduction means that memory is no longer a bottleneck for them for serving large batch sizes.",
-   "explain": "Character.AI平均对话历史达180条消息，长序列下KV缓存大小成为吞吐瓶颈；通过多查询注意力等设计将KV缓存缩减20多倍，内存不再是限制，可支撑大batch服务。"
+   "point": "推理优化技术要按负载选择，长上下文场景重点在KV缓存",
+   "explain": "Character.AI平均对话历史达180条消息，长序列使KV缓存成为吞吐瓶颈；通过三种注意力设计将KV缓存减少20倍以上，内存不再限制大batch服务，证明长上下文负载需优先优化KV缓存。",
+   "caseTitle": "Character.AI长对话",
+   "importance": 3
+  },
+  {
+   "point": "推测解码用小模型加速大模型解码且不损质量",
+   "explain": "DeepMind为Chinchilla-70B训练4B草稿模型，草稿模型生成token快8倍（1.8ms vs 14.1ms），整体响应延迟减半以上且质量不降，证明推测解码能有效加速解码。",
+   "caseTitle": "Chinchilla-70B推测解码",
+   "importance": 2,
+   "core": "The choice of optimization techniques depends on your workloads. For example, KV caching is significantly more important for workloads with long contexts than those with short contexts.",
+   "case": "For example, to speed up the decoding process of Chinchilla-70B, DeepMind trained a 4B-parameter draft model of the same architecture (Chen et al., 2023). The draft model can generate a token eight times faster than the target model (1.8 ms/token compared to 14.1 ms/token). This reduces the overall response latency by more than half without compromising response quality."
+  },
+  {
+   "point": "提示缓存可显著降低长提示场景的延迟与成本",
+   "explain": "Anthropic提示缓存承诺最高节省90%成本（缓存上下文越长节省越多）和降低75%延迟，用具体数据证明提示缓存对长系统提示应用的降本增效作用。",
+   "caseTitle": "Anthropic提示缓存效果",
+   "importance": 2,
+   "core": "For applications with long system prompts, prompt caching can significantly reduce both latency and cost.",
+   "case": "Anthropic offers prompt caching that promises up to 90% cost savings (the longer the cached context, the higher the savings) and up to 75% latency reduction. The impact of prompt caching on the cost and latency of different scenarios is shown in Table 9-3."
+  },
+  {
+   "point": "KV缓存管理优化能缓解内存瓶颈并支持更大批处理",
+   "explain": "vLLM的PagedAttention将KV缓存分成非连续块，减少碎片并支持灵活内存共享，从而提升LLM服务效率，证明KV缓存管理对缓解内存瓶颈、支持大batch的关键作用。",
+   "caseTitle": "vLLM的PagedAttention",
+   "importance": 2,
+   "core": "The way the KV cache is managed is critical in mitigating the memory bottleneck during inference and enabling a larger batch size, especially for applications with long context.",
+   "case": "One of the fastest growing inference frameworks, vLLM, gained popularity for introducing PagedAttention, which optimizes memory management by dividing the KV cache into non-contiguous blocks, reducing fragmentation, and enabling flexible memory sharing to improve LLM serving efficiency (Kwon et al., 2023)."
+  },
+  {
+   "point": "并行解码通过多解码头同时预测未来token实现加速",
+   "explain": "Medusa在冻结原模型上添加多个解码头，每个头预测特定未来位置的token，NVIDIA称在HGX H200上使Llama 3.1 token生成最高加速1.9倍，展示并行解码的加速机制与效果。",
+   "caseTitle": "Medusa并行解码加速",
+   "importance": 1,
+   "core": "The choice of optimization techniques depends on your workloads. For example, KV caching is significantly more important for workloads with long contexts than those with short contexts.",
+   "case": "In Medusa, the original model is extended with multiple decoding heads, and each head is a small neural network layer that is then trained to predict a future token at a specific position. If the original model is trained to predict the next token xt + 1, the kth head will predict the token xt + k + 1. These heads are trained together with the original model, but the original model is frozen. NVIDIA claimed Medusa helped boost Llama 3.1 token generation by up to 1.9× on their HGX H200 GPUs (Eassa et al., 2024)."
   }
  ],
  "10. AI Engineering Architecture and User Feedback": [
   {
-   "point": "用用户反馈改模型可能形成退化循环，放大最初的偏差",
    "core": "A degenerate feedback loop can happen when the predictions themselves influence the feedback, which, in turn, influences the next iteration of the model, amplifying initial biases.",
-   "caseTitle": "猫咪照片循环",
    "case": "Imagine that initially, a small number of users give feedback that they like cat photos. The system picks up on this and starts generating more photos with cats. This attracts cat lovers, who give more feedback that cat photos are good, encouraging the system to generate even more cats. Before long, your application becomes a cat haven.",
-   "explain": "少数用户点赞猫咪照片，系统据此多生成猫图，吸引猫爱好者给出更多正向反馈，系统再强化，最终应用变成猫咪天堂，偏差被循环放大。"
+   "point": "用户反馈可能形成退化循环，放大初始偏差",
+   "explain": "系统根据少量用户偏好猫照片的反馈生成更多猫图，吸引猫爱好者给出更多正面反馈，循环强化，最终应用变成猫的天堂，偏差被放大。",
+   "caseTitle": "猫咪照片循环",
+   "importance": 3
+  },
+  {
+   "point": "路由器通过意图分类将请求分给合适方案",
+   "explain": "客服场景中，重置密码请求路由到FAQ页，账单错误转人工，技术问题转专用聊天机器人，体现按意图分流。",
+   "caseTitle": "客服意图路由示例",
+   "importance": 3,
+   "core": "A router typically consists of an intent classifier that predicts what the user is trying to do.",
+   "case": "If the user wants to reset the password, route them to the FAQ page about recovering the password.\nIf the request is to correct a billing mistake, route it to a human operator.\nIf the request is about troubleshooting a technical issue, route it to a chatbot specialized in troubleshooting."
+  },
+  {
+   "point": "缓存处理不当可能导致跨用户数据泄露",
+   "explain": "电商网站将含用户X会员信息的退货政策回答误判为通用问题缓存，用户Y询问时返回了X的信息，造成泄露。",
+   "caseTitle": "电商缓存数据泄露",
+   "importance": 3,
+   "core": "Caching, when not properly handled, can cause data leaks.",
+   "case": "Imagine you work for an ecommerce site, and user X asks a seemingly generic question such as: “What is the return policy for electronics products?” Because your return policy depends on the user’s membership, the system first retrieves user X’s information and then generates a response containing X’s information. Mistaking this query for a generic question, the system caches the answer. Later, when user Y asks the same question, the cached result is returned, revealing X’s information to Y."
+  },
+  {
+   "point": "使用外部模型API需防范私有信息泄露",
+   "explain": "三星员工将公司专有信息输入ChatGPT，意外泄露公司机密，说明输入护栏的必要性。",
+   "caseTitle": "三星员工泄露机密",
+   "importance": 2,
+   "core": "Leaking private information to external APIs is a risk specific to using external model APIs when you need to send your data outside your organization.",
+   "case": "An example is when a Samsung employee put Samsung’s proprietary information into ChatGPT, accidentally leaking the company’s secrets."
+  },
+  {
+   "point": "输入护栏可脱敏敏感信息并在输出时还原",
+   "explain": "用占位符掩码用户电话号码，若生成响应含占位符，则通过PII反掩码字典映射回原始信息，实现脱敏与还原。",
+   "caseTitle": "PII掩码与反掩码",
+   "importance": 2,
+   "core": "If a query is found to contain sensitive information, you have two options: block the entire query or remove the sensitive information from it.",
+   "case": "For instance, you can mask a user’s phone number with the placeholder [PHONE NUMBER]. If the generated response contains this placeholder, use a PII reverse dictionary that maps this placeholder to the original information so that you can unmask it, as shown in Figure 10-3."
+  },
+  {
+   "point": "底层模型更新可能导致性能漂移，需监控",
+   "explain": "Voiceflow从GPT-3.5-turbo-0301切换到1106版本后性能下降10%，说明API不变但模型更新会引发漂移。",
+   "caseTitle": "GPT版本性能下降",
+   "importance": 2,
+   "core": "When using a model through an API, it’s possible that the API remains unchanged while the underlying model is updated.",
+   "case": "Likewise, Voiceflow reported a 10% performance drop when switching from the older GPT-3.5-turbo-0301 to the newer GPT-3.5-turbo-1106."
+  },
+  {
+   "point": "反馈设计歧义会产生噪声数据",
+   "explain": "Luma用表情符号代表数字评分，但愤怒表情（对应一星）被放在五星位置，导致收集的反馈数据错位。",
+   "caseTitle": "Luma表情评分错位",
+   "importance": 2,
+   "core": "Ambiguous instructions can lead to noisy feedback.",
+   "case": "When I dug deeper, I realized that Luma used emojis to represent numbers in their feedback collection form, but the angry emoji, corresponding to a one-star rating, was put where the five-star rating should be, as shown in Figure 10-21."
   }
  ]
 }

@@ -1,110 +1,498 @@
 {
  "1. An Introduction to Large Language Models": [
   {
-   "point": "预训练极其昂贵，微调让多数团队能在基础模型上低成本适配",
    "core": "It saves massive amounts of resources because the pretraining phase is quite costly and generally requires data and computing resources that are out of the reach of most people and organizations.",
-   "caseTitle": "Llama 2 的训练账单",
    "case": "To create the Llama 2 family of models, for example, Meta used A100-80 GB GPUs. Assuming renting such a GPU would cost $1.50/hr, the total costs of creating these models would exceed $5,000,000!",
-   "explain": "Meta训练Llama 2需A100-80GB GPU，按1.50美元/小时租金估算总成本超500万美元，说明预训练门槛极高；多数团队只能在此基础上微调适配。"
+   "point": "预训练极其昂贵，微调让多数团队能在基础模型上低成本适配",
+   "explain": "Llama 2 训练需大量 A100 GPU，成本超 500 万美元，说明预训练门槛极高；多数团队只能通过微调基础模型来适配任务。",
+   "caseTitle": "Llama 2 的训练账单",
+   "importance": 3
+  },
+  {
+   "point": "ChatGPT 的爆发标志着生成式 AI 走向大众",
+   "explain": "ChatGPT 五天内达百万用户、两月内破亿，直观展示了大语言模型对交互方式的革命性影响。",
+   "caseTitle": "ChatGPT用户增长",
+   "importance": 3,
+   "core": "2022 marked the release of ChatGPT, which demonstrated how profoundly this technology was poised to revolutionize how we interact with technology and information.",
+   "case": "2022 marked the release of ChatGPT, which demonstrated how profoundly this technology was poised to revolutionize how we interact with technology and information. Reaching one million active users in five days and then one hundred million active users in two months, the new breed of AI models started out as human-like chatbots but quickly evolved into a monumental shift in our approach to common tasks, like translation, text generation, summarization, and more."
+  },
+  {
+   "point": "注意力机制让模型聚焦输入中相关的部分",
+   "explain": "在英荷翻译中，“lama’s”与“llamas”注意力高，与“I”注意力低，说明模型能根据相关性分配注意力。",
+   "caseTitle": "注意力翻译示例",
+   "importance": 2,
+   "core": "Attention allows a model to focus on parts of the input sequence that are relevant to one another (“attend” to each other) and amplify their signal, as shown in Figure 1-14.",
+   "case": "For instance, the output word “lama’s” is Dutch for “llamas,” which is why the attention between both is high. Similarly, the words “lama’s” and “I” have lower attention since they aren’t as related."
+  },
+  {
+   "point": "参数规模增长通常提升模型能力",
+   "explain": "GPT-1 仅有 1.17 亿参数，作为早期模型代表，其规模远小于后续模型，印证参数增加与能力提升的关联。",
+   "caseTitle": "GPT参数规模增长",
+   "importance": 2,
+   "core": "If everything remains the same, we expect more parameters to greatly influence the capabilities and performance of language models.",
+   "case": "GPT-1 was trained on a corpus of 7,000 books and Common Crawl, a large dataset of web pages. The resulting model consisted of 117 million parameters. Each parameter is a numerical value that represents the model’s understanding of language."
   }
  ],
  "2. Tokens and Embeddings": [
   {
-   "point": "分词器设计取决于训练目标，代码模型需要专门的分词器",
    "core": "This comparison will show us that newer tokenizers have changed their behavior to improve model performance, and we’ll also see how specialized models (like code generation models, for example) often need specialized tokenizers.",
-   "caseTitle": "GPT-4 分词器",
    "case": "The GPT-4 tokenizer represents the four spaces as a single token. In fact, it has a specific token for every sequence of whitespaces up to a list of 83 whitespaces. The Python keyword elif has its own token in GPT-4. Both this and the previous point stem from the model’s focus on code in addition to natural language.",
-   "explain": "GPT-4 分词器把四个空格、最多83个连续空白各设为一个 token，并给 Python 关键字 elif 单独 token，说明面向代码的模型会定制分词规则以提升性能。"
+   "point": "分词器设计取决于训练目标，代码模型需要专门的分词器",
+   "explain": "GPT-4 分词器将四个空格视为单个 token，并为最多83个连续空格设置专用 token，且 Python 关键字 elif 有独立 token，这源于模型对代码的侧重，证明专用分词器能提升代码处理性能。",
+   "caseTitle": "GPT-4 分词器",
+   "importance": 3
+  },
+  {
+   "point": "子词分词用##表示接续，未知词用[UNK]处理",
+   "explain": "BERT 分词结果中“capitalization”被拆为“capital”和“##ization”，##表示该 token 是前一个 token 的部分；未知词用[UNK]表示，具体展示了 WordPiece 子词分词及未知词处理方式。",
+   "caseTitle": "BERT 分词对比",
+   "importance": 3,
+   "core": "The ## characters are used to indicate this token is a partial token connected to the token that precedes it.",
+   "case": "[CLS] english and capital ##ization [UNK] [UNK] show _ token ##s false none eli ##f = = > = else : two tab ##s : \" \" three tab ##s : \" \" 12 . 0 * 50 = 600 [SEP]"
+  },
+  {
+   "point": "面向代码的模型为每个数字分配独立 token",
+   "explain": "StarCoder2 分词器将“12.0*50=600”切分为“1 2 . 0 * 5 0 = 6 0 0”，每个数字单独成 token，说明代码模型的分词策略针对数字处理进行了专门设计。",
+   "caseTitle": "StarCoder2 数字分词",
+   "importance": 2,
+   "core": "each digit is assigned its own token (so 600 becomes 6 0 0)",
+   "case": "1 2 . 0 * 5 0 = 6 0 0"
+  },
+  {
+   "point": "语言模型输出上下文相关的 token 向量",
+   "explain": "DeBERTa 模型对“Hello world”分词后输出每个 token 的上下文向量，演示了语言模型生成上下文嵌入的过程，证明其比静态词向量更具表达力。",
+   "caseTitle": "DeBERTa 上下文嵌入",
+   "importance": 2,
+   "core": "language models create contextualized word embeddings",
+   "case": "tokens = tokenizer('Hello world', return_tensors='pt')\n# Process the tokens\noutput = model(**tokens)[0]"
+  },
+  {
+   "point": "word2vec 对比训练思想可迁移到推荐系统",
+   "explain": "将歌单视为句子、歌曲视为词，用 Word2Vec 训练歌曲向量，展示了 word2vec 思想在推荐系统中的迁移应用，证明其泛化能力。",
+   "caseTitle": "歌曲推荐嵌入",
+   "importance": 2,
+   "core": "Imagine if we treated each song as we would a word or token, and we treated each playlist like a sentence.",
+   "case": "model = Word2Vec(\nplaylists, vector_size=32, window=20, negative=50, min_count=1, workers=4\n)"
+  },
+  {
+   "point": "模型输入是分词后的 token ID 而非原始文本",
+   "explain": "Phi-3 示例中，提示文本先被分词器转换为 input_ids 再输入模型生成，直观展示了模型实际接收的是 token ID 序列。",
+   "caseTitle": "Phi-3 分词与生成",
+   "importance": 1,
+   "core": "A text prompt sent to the model is first broken down into tokens",
+   "case": "prompt = \"Write an email apologizing to Sarah for the tragic gardening mishap. Explain how it happened.<|assistant|>\"\n# Tokenize the input prompt\ninput_ids = tokenizer(prompt, return_tensors=\"pt\").input_ids.to(\"cuda\")\n# Generate the text\ngeneration_output = model.generate(\ninput_ids=input_ids,\nmax_new_tokens=20\n)"
   }
  ],
  "3. Looking Inside Large Language Models": [
   {
-   "point": "KV 缓存避免重复计算，是生成提速的关键",
    "core": "If we give the model the ability to cache the results of the previous calculation (especially some of the specific vectors in the attention mechanism), we no longer need to repeat the calculations of the previous streams.",
-   "caseTitle": "关掉缓存慢近5倍",
    "case": "This comes out to 21.8 seconds. A dramatic difference. In fact, from a user experience standpoint, even the four-second generation time tends to be a long time to wait for a user that’s staring at a screen and waiting for an output from the model.",
-   "explain": "同一提示下，开启缓存生成100个token仅4.5秒，关闭则需21.8秒，近5倍差距直观证明缓存省去重复计算、大幅提速。"
+   "point": "KV 缓存避免重复计算，是生成提速的关键",
+   "explain": "案例对比显示，启用 KV 缓存后生成时间从 21.8 秒降至约 4 秒，证明缓存能大幅减少重复计算，显著加速生成。",
+   "caseTitle": "关掉缓存慢近5倍",
+   "importance": 3
+  },
+  {
+   "point": "Transformer LLM 一次只生成一个 token",
+   "explain": "用道歉邮件提示词演示模型逐 token 生成文本，直观体现自回归生成方式：每次前向计算只产出一个 token 并拼回输入。",
+   "caseTitle": "生成道歉邮件示例",
+   "importance": 3,
+   "core": "A Transformer LLM generates one token at a time.",
+   "case": "prompt = \"Write an email apologizing to Sarah for the tragic gardening mishap. Explain how it happened.\"\noutput = generator(prompt)\nprint(output[0]['generated_text'])"
+  },
+  {
+   "point": "KV 缓存显著加速生成过程",
+   "explain": "通过计时对比 use_cache=True 与关闭缓存的生成耗时（4.5 秒 vs 21.8 秒），量化证明 KV 缓存对生成速度的提升。",
+   "caseTitle": "KV缓存加速对比",
+   "importance": 2,
+   "core": "This is an optimization technique called the keys and values (kv) cache and it provides a significant speedup of the generation process.",
+   "case": "%%timeit -n 1\n# Generate the text\ngeneration_output = model.generate(\ninput_ids=input_ids,\nmax_new_tokens=100,\nuse_cache=True\n)"
+  },
+  {
+   "point": "注意力机制帮助模型引入上下文",
+   "explain": "在“狗追松鼠因为它”一句中，模型需借助注意力判断“它”指代谁，说明注意力机制能整合上下文信息来消解指代。",
+   "caseTitle": "狗追松鼠指代消解",
+   "importance": 2,
+   "core": "Attention is a mechanism that helps the model incorporate context as it’s processing a specific token.",
+   "case": "“The dog chased the squirrel because it”\nFor the model to predict what comes after “it,” it needs to know what “it” refers to. Does it refer to the dog or the squirrel?"
+  },
+  {
+   "point": "语言建模头是一个简单的神经网络层",
+   "explain": "代码展示输入经模型主体和 LM head 得到下一个 token 的概率分布，具体说明 LM head 将隐藏状态映射为词表概率。",
+   "caseTitle": "预测法国首都为Paris",
+   "importance": 2,
+   "core": "The LM head is a simple neural network layer itself.",
+   "case": "prompt = \"The capital of France is\"\n# Tokenize the input prompt\ninput_ids = tokenizer(prompt, return_tensors=\"pt\").input_ids\n# Tokenize the input prompt\ninput_ids = input_ids.to(\"cuda\")\n# Get the output of the model before the lm_head\nmodel_output = model.model(input_ids)\n# Get the output of the lm_head\nlm_head_output = model.lm_head(model_output[0])"
+  },
+  {
+   "point": "前馈神经网络是模型记忆与插值的来源",
+   "explain": "以“The Shawshank”预期生成“Redemption”为例，说明前馈网络存储并调用知识，是模型记忆信息的来源。",
+   "caseTitle": "肖申克的救赎记忆",
+   "importance": 1,
+   "core": "The feedforward neural network (collectively in all the model layers) is the source of this information",
+   "case": "A simple example giving the intuition of the feedforward neural network would be if we pass the simple input “The Shawshank” to a language model, with the expectation that it will generate “Redemption” as the most probable next word (in reference to the film from 1994)."
   }
  ],
  "4. Text Classification": [
   {
-   "point": "把标签写成描述句再做向量，没有标注也能零样本分类",
    "core": "We can describe our labels based on what they should represent. For example, a negative label for movie reviews can be described as “This is a negative movie review.”",
-   "caseTitle": "零标注拿到 F1 0.78",
    "case": "An F1 score of 0.78 is quite impressive considering we did not use any labeled data at all! This just shows how versatile and useful embeddings are, especially if you are a bit creative with how they are used.",
-   "explain": "把负面标签描述为“This is a negative movie review.”并转成向量，与文本向量比相似度，完全不用标注数据就取得 F1 0.78，证明标签描述向量化可行。"
+   "point": "把标签写成描述句再做向量，没有标注也能零样本分类",
+   "explain": "将标签描述为“This is a negative movie review.”等句子并编码为向量，与文本向量比较相似度，无需任何标注数据即达到F1 0.78，证明嵌入的零样本分类能力。",
+   "caseTitle": "零标注拿到 F1 0.78",
+   "importance": 3
+  },
+  {
+   "point": "用嵌入模型提取特征，再训练轻量分类器",
+   "explain": "冻结嵌入模型生成文本向量，仅用这些特征和标签训练逻辑回归分类器，形成两阶段方法，说明轻量分类器可高效利用嵌入特征。",
+   "caseTitle": "嵌入+逻辑回归分类",
+   "importance": 3,
+   "core": "Instead of directly using the representation model for classification, we will use an embedding model for generating features. Those features can then be fed into a classifier, thereby creating a two-step approach as shown in Figure 4-10.",
+   "case": "We will keep this step straightforward and use a logistic regression as the classifier. To train it, we only need to use the generated embeddings together with our labels:"
+  },
+  {
+   "point": "任务专用表示模型可直接用于分类，并具跨域泛化能力",
+   "explain": "选用在推文上微调的Twitter-RoBERTa-base情感模型，虽未针对影评训练，仍可用于电影评论分类，展示任务专用模型的直接应用与泛化。",
+   "caseTitle": "Twitter-RoBERTa情感分类",
+   "importance": 2,
+   "core": "A task-specific model is a representation model, such as BERT, trained for a specific task, like sentiment analysis.",
+   "case": "For the task-specific model, we are choosing the Twitter-RoBERTa-base for Sentiment Analysis model. This is a RoBERTa model fine-tuned on tweets for sentiment analysis. Although this was not trained specifically for movie reviews, it is interesting to explore how this model generalizes."
+  },
+  {
+   "point": "生成式模型需通过提示指令完成分类",
+   "explain": "对Flan-T5每个文档前缀提示“Is the following sentence positive or negative?”，引导编码器-解码器模型输出情感标签，说明生成模型分类依赖指令。",
+   "caseTitle": "Flan-T5提示分类",
+   "importance": 2,
+   "core": "Instead, we will have to instruct the model to do so.",
+   "case": "Thus, we prefix each document with the prompt “Is the following sentence positive or negative?”:"
+  },
+  {
+   "point": "闭源生成模型可通过API与提示模板分类",
+   "explain": "通过OpenAI API调用ChatGPT，使用提示模板要求返回1或0，展示不加载本地模型即可用API完成文本分类。",
+   "caseTitle": "ChatGPT API分类",
+   "importance": 2,
+   "core": "Instead of loading the model, we can access the model through OpenAI’s API.",
+   "case": "prompt = \"\"\"Predict whether the following document is a positive or negative movie review:\n[DOCUMENT]\nIf it is positive return 1 and if it is negative return 0. Do not give any other answers.\n\"\"\""
+  },
+  {
+   "point": "本章以Rotten Tomatoes数据集进行二分类情感分析",
+   "explain": "使用包含5,331条正面和5,331条负面影评的rotten_tomatoes数据集，统一训练和评估各模型，为本章提供基准数据。",
+   "caseTitle": "Rotten Tomatoes数据集",
+   "importance": 1,
+   "core": "This means that we will focus on binary sentiment classification.",
+   "case": "We will use the well-known “rotten_tomatoes” dataset to train and evaluate our models.1 It contains 5,331 positive and 5,331 negative movie reviews from Rotten Tomatoes."
   }
  ],
  "5. Text Clustering and Topic Modeling": [
   {
-   "point": "BERTopic 先聚类再从簇中提取关键词，给每簇一个可读主题",
    "core": "BERTopic is a topic modeling technique that leverages clusters of semantically similar texts to extract various types of topic representations.",
-   "caseTitle": "主题0：语音识别",
    "case": "For example, topic 0 contains the keywords “speech,” “asr,” and “recognition.” Based on these keywords, it seems that the topic is about automatic speech recognition (ASR).",
-   "explain": "该案例展示 topic 0 的关键词为 speech、asr、recognition，据此可读出主题是自动语音识别，正说明从簇中提取关键词能生成可读主题。"
+   "point": "BERTopic 先聚类再从簇中提取关键词，给每簇一个可读主题",
+   "explain": "案例展示主题0的关键词为 speech、asr、recognition，据此可判断该主题关于自动语音识别，证明从簇中提取关键词能生成可读主题。",
+   "caseTitle": "主题0：语音识别",
+   "importance": 3
+  },
+  {
+   "point": "密度聚类可自动发现大量语义簇",
+   "explain": "HDBSCAN 在降维后的嵌入上运行，实际产出 156 个簇，说明聚类模型能自动将文档分组，无需预设类别数。",
+   "caseTitle": "HDBSCAN 生成 156 个簇",
+   "importance": 2,
+   "core": "Find groups of semantically similar documents with a cluster model.",
+   "case": "hdbscan_model = HDBSCAN(\nmin_cluster_size=50, metric=\"euclidean\", cluster_selection_method=\"eom\"\n).fit(reduced_embeddings)\nclusters = hdbscan_model.labels_\n# How many clusters did we generate?\nlen(set(clusters))\n156"
+  },
+  {
+   "point": "人工检查簇内容可理解聚类结果",
+   "explain": "检查簇0发现文档大多关于手语翻译，表明聚类结果具有可解释性，人工检查能确认簇的语义一致性。",
+   "caseTitle": "簇 0 的手语翻译论文",
+   "importance": 2,
+   "core": "Text clustering is a powerful tool for finding structure among large collections of documents.",
+   "case": "From these documents, it seems that this cluster contains documents mostly about translation from and to sign language, interesting!"
+  },
+  {
+   "point": "聚类流水线第一步：用嵌入模型将文本转为向量",
+   "explain": "使用 gte-small 模型对摘要编码生成嵌入，展示文本转向量的具体实现，是后续降维和聚类的基础。",
+   "caseTitle": "gte-small 生成 384 维嵌入",
+   "importance": 1,
+   "core": "Convert the input documents to embeddings with an embedding model.",
+   "case": "embedding_model = SentenceTransformer(\"thenlper/gte-small\")\nembeddings = embedding_model.encode(abstracts, show_progress_bar=True)"
+  },
+  {
+   "point": "降维步骤用 UMAP 压缩嵌入维度",
+   "explain": "UMAP 将嵌入降至 5 维并设置余弦距离等参数，说明降维是聚类前处理高维向量的关键步骤。",
+   "caseTitle": "UMAP 降至 5 维",
+   "importance": 1,
+   "core": "Reduce the dimensionality of embeddings with a dimensionality reduction model.",
+   "case": "umap_model = UMAP(\nn_components=5, min_dist=0.0, metric='cosine', random_state=42\n)\nreduced_embeddings = umap_model.fit_transform(embeddings)"
   }
  ],
  "6. Prompt Engineering": [
   {
-   "point": "思维链让模型先推理再作答，提升复杂问题表现",
    "core": "Chain-of-thought aims to have the generative model “think” first rather than answering the question directly without any reasoning.",
-   "caseTitle": "食堂苹果题",
    "case": "The cafeteria started with 23 apples. They used 20 apples, so they had 23 - 20 = 3 apples left. Then they bought 6 more apples, so they now have 3 + 6 = 9 apples. The answer is 9. Note how the model doesn’t generate only the answer but provides an explanation before doing so.",
-   "explain": "案例中模型没有直接给出答案，而是先写出23-20=3、3+6=9的推理步骤，再得出答案9，正体现“先思考后作答”的思维链。"
+   "point": "思维链让模型先推理再作答，提升复杂问题表现",
+   "explain": "案例中模型先列出计算步骤（23-20=3，3+6=9）再给出答案，展示了思维链如何通过显式推理过程提升复杂问题的表现。",
+   "caseTitle": "食堂苹果题",
+   "importance": 3
+  },
+  {
+   "point": "温度参数控制输出随机性",
+   "explain": "设置temperature=1后每次运行输出不同，说明温度参数通过随机选择token引入随机性，影响生成文本的多样性。",
+   "caseTitle": "温度参数控制输出随机性",
+   "importance": 2,
+   "core": "The temperature controls the randomness or creativity of the text generated.",
+   "case": "# Using a high temperature\noutput = pipe(messages, do_sample=True, temperature=1)\nprint(output[0][\"generated_text\"])\nWhy don't chickens like to go on a rollercoaster? Because they're afraid they might suddenly become chicken-soup!\nNote that every time you rerun this piece of code, the output will change! temperature introduces stochastic behavior since the model now randomly selects tokens."
   }
  ],
  "7. Advanced Text Generation Techniques and Tools": [
   {
-   "point": "窗口记忆只保留最近几轮，控制了长度但会遗忘早期信息",
    "core": "Although this method reduces the size of the chat history, it can only retain the last few conversations, which is not ideal for lengthy conversations.",
-   "caseTitle": "忘掉年龄的聊天机器人",
    "case": "Now that we have added another conversation we are up to three conversations. Considering the memory only retains the last two conversations, our very first question is not remembered. Since we provided an age in our first interaction, we check whether the LLM indeed does not know the age anymore:",
-   "explain": "案例中记忆仅保留最近两轮对话，于是第一轮提供的年龄信息不再被记住，直接印证窗口缓冲以遗忘早期内容换取上下文长度控制。"
+   "point": "窗口记忆只保留最近几轮，控制了长度但会遗忘早期信息",
+   "explain": "案例中模型只保留最近两轮对话，因此第一轮提供的年龄信息被遗忘，无法再回答相关问题。",
+   "caseTitle": "忘掉年龄的聊天机器人",
+   "importance": 3
+  },
+  {
+   "point": "完整对话缓冲记忆让模型记住全部历史信息",
+   "explain": "通过追加完整对话历史，模型能根据之前提供的姓名正确回答“What is my name?”。",
+   "caseTitle": "对话缓冲记忆",
+   "importance": 3,
+   "core": "By extending the chain with memory, the LLM was able to use the chat history to find the name we gave it previously.",
+   "case": "llm_chain.invoke({\"input_prompt\": \"What is my name?\"})\n{'input_prompt': 'What is my name?',\n'chat_history': \"Human: Hi! My name is Maarten. What is 1 + 1?\\nAI: Hello Maarten! The answer to 1 + 1 is 2. Hope you're having a great day!\",\n'text': ' Your name is Maarten.'}"
+  },
+  {
+   "point": "ReAct代理交替推理与行动，调用工具完成多步任务",
+   "explain": "代理先搜索MacBook Pro价格，再用计算器按汇率换算成欧元，体现推理与行动相互影响。",
+   "caseTitle": "ReAct 代理查价换算",
+   "importance": 3,
+   "core": "ReAct merges these two concepts and allows reasoning to affect acting and actions to affect reasoning.",
+   "case": "agent_executor.invoke(\n{\n\"input\": \"What is the current price of a MacBook Pro in USD? How much would it cost in EUR if the exchange rate is 0.85 EUR for 1 USD.\"\n}\n)"
+  },
+  {
+   "point": "摘要记忆用LLM压缩历史，以摘要替代完整对话",
+   "explain": "ConversationSummaryMemory 调用另一个 LLM 将整个对话历史提炼成要点，减少上下文长度。",
+   "caseTitle": "对话摘要记忆",
+   "importance": 2,
+   "core": "As the name implies, this technique summarizes an entire conversation history to distill it into the main points.",
+   "case": "memory = ConversationSummaryMemory(\nllm=llm,\nmemory_key=\"chat_history\",\nprompt=summary_prompt\n)"
+  },
+  {
+   "point": "顺序链将复杂任务拆成多个子任务依次生成",
+   "explain": "链只需用户输入一次，便依次生成标题、角色和故事三个组件，而非一次性生成全部内容。",
+   "caseTitle": "顺序链生成故事",
+   "importance": 2,
+   "core": "Instead of generating everything in one go, we create a chain that only requires a single input by the user and then sequentially generates the three components.",
+   "case": "llm_chain = title | character | story"
+  },
+  {
+   "point": "用提示模板链避免重复复制提示模板",
+   "explain": "通过 PromptTemplate 定义一次模板，链即可复用，无需每次调用 LLM 时手动复制粘贴。",
+   "caseTitle": "Phi-3 提示模板链",
+   "importance": 1,
+   "core": "Instead of having to copy-paste the prompt template each time we use the LLM, we would only need to define the user and system prompts.",
+   "case": "template = \"\"\"<s><|user|>\n{input_prompt}<|end|>\n<|assistant|>\"\"\"\nprompt = PromptTemplate(\ntemplate=template,\ninput_variables=[\"input_prompt\"]\n)"
   }
  ],
  "8. Semantic Search and Retrieval-Augmented Generation": [
   {
-   "point": "语义检索按含义匹配，能找到不含查询关键词的答案",
    "core": "Notice that this wouldn’t have been possible if we were only doing keyword search because the top result did not include the same keywords in the query.",
-   "caseTitle": "星际穿越科学性",
    "case": "Note that the first result does not really answer the question despite it sharing the word “science” with the query.",
-   "explain": "关键词检索虽命中“science”一词，首条结果却只是影片简介，并未回答“科学有多精确”；语义检索按含义召回，才能找到真正相关的答案。"
+   "point": "语义检索按含义匹配，能找到不含查询关键词的答案",
+   "explain": "稠密检索返回的星际穿越结果不含查询关键词，却因语义相近被召回，证明检索可超越关键词匹配。",
+   "caseTitle": "星际穿越科学性",
+   "importance": 3
+  },
+  {
+   "point": "纯关键词检索会因词语重合返回不相关结果",
+   "explain": "BM25 检索将仅含“science”一词的影片简介排第一，未回答科学精确性问题，说明关键词匹配的局限。",
+   "caseTitle": "BM25关键词检索对比",
+   "importance": 3,
+   "core": "Note that the first result does not really answer the question despite it sharing the word “science” with the query.",
+   "case": "keyword_search(query = \"how precise was the science\")\nResults:\nInput question: how precise was the science\nTop-3 lexical search (BM25) hits\n1.789 Interstellar is a 2014 epic science fiction film co-written, directed, and produced by Christopher Nolan\n1.373 Caltech theoretical physicist and 2017 Nobel laureate in Physics[4] Kip Thorne was an executive producer, acted as a scientific consultant, and wrote a tie-in book, The Science of Interstellar\n0.000 It stars Matthew McConaughey, Anne Hathaway, Jessica Chastain, Bill Irwin, Ellen Burstyn, Matt Damon, and Michael Caine"
+  },
+  {
+   "point": "RAG 将检索结果作为上下文交给 LLM 生成有依据的答案",
+   "explain": "Cohere 示例先检索相关文档，再让 LLM 基于文档回答收入问题，输出具体票房数字，体现接地生成。",
+   "caseTitle": "Cohere接地生成RAG",
+   "importance": 3,
+   "core": "We present the question and the top retrieved documents to the LLM, and ask it to answer the question given the context provided by the search results.",
+   "case": "query = \"income generated\"\n# 1- Retrieval\n# We'll use embedding search. But ideally we'd do hybrid\nresults = search(query)\n# 2- Grounded Generation\ndocs_dict = [{'text': text} for text in results['texts']]\nresponse = co.chat(\nmessage = query,\ndocuments=docs_dict\n)\nprint(response.text)\nResult:\nThe film generated a worldwide gross of over $677 million, or $773 million with subsequent re-releases."
+  },
+  {
+   "point": "接地生成让 LLM 在检索信息限定的领域内作答",
+   "explain": "本地模型 RAG 调用后，答案包含检索到的票房细节并注明再发行收入，证明生成被检索上下文约束。",
+   "caseTitle": "本地模型RAG示例",
+   "importance": 2,
+   "core": "This generation step is called grounded generation because the retrieved relevant information we provide the LLM establishes a certain context that grounds the LLM in the domain we’re interested in.",
+   "case": "rag.invoke('Income generated')\nResult:\nThe Income generated by the film in 2014 was over $677 million worldwide. This made it the tenth-highest grossing film of that year. It should be noted, however, this figure includes both initial ticket sales as well as any subsequent re-releases. With these additional releases, total earnings surged to approximately $773 million."
   }
  ],
  "9. Multimodal Large Language Models": [
   {
-   "point": "BLIP-2 只训练桥接模块，复用预训练视觉编码器与 LLM",
-   "explain": "Q-Former 连接冻结的预训练图像编码器和 LLM，无需从头训练两端，只需训练这座桥即可实现看图说话。",
-   "caseTitle": "BLIP-2的Q-Former桥接",
    "core": "By leveraging pretrained models, BLIP-2 only needs to train the bridge without needing to train the image encoder and LLM from scratch.",
-   "case": "Instead of building the architecture from scratch, BLIP-2 bridges the vision-language gap by building a bridge, named the Querying Transformer (Q-Former), that connects a pretrained image encoder and a pretrained LLM."
+   "case": "Instead of building the architecture from scratch, BLIP-2 bridges the vision-language gap by building a bridge, named the Querying Transformer (Q-Former), that connects a pretrained image encoder and a pretrained LLM.",
+   "point": "BLIP-2 只训练桥接模块，复用预训练视觉编码器与 LLM",
+   "explain": "案例说明 BLIP-2 不从头构建架构，而是用 Q-Former 桥接预训练图像编码器和预训练 LLM，只需训练桥接部分，证明其高效复用预训练模型。",
+   "caseTitle": "BLIP-2的Q-Former桥接",
+   "importance": 3
+  },
+  {
+   "point": "BLIP-2 能根据图像生成自然语言描述",
+   "explain": "代码调用 model.generate 生成图像 token 并解码为文本，输出对超跑图像的描述，具体展示看图说话能力。",
+   "caseTitle": "BLIP-2生成超跑描述",
+   "importance": 2,
+   "core": "By leveraging pretrained models, BLIP-2 only needs to train the bridge without needing to train the image encoder and LLM from scratch.",
+   "case": "# Generate image ids to be passed to the decoder (LLM)\ngenerated_ids = model.generate(**inputs, max_new_tokens=20)\n# Generate text from the image ids\ngenerated_text = blip_processor.batch_decode(\ngenerated_ids, skip_special_tokens=True\n)\ngenerated_text = generated_text[0].strip()\ngenerated_text"
+  },
+  {
+   "point": "BLIP-2 支持基于图像的多轮视觉问答对话",
+   "explain": "提示中先描述图像内容，再追问“开那辆车要花多少钱”，模型给出回答，体现图文对话能力。",
+   "caseTitle": "BLIP-2视觉问答对话",
+   "importance": 2,
+   "core": "By leveraging pretrained models, BLIP-2 only needs to train the bridge without needing to train the image encoder and LLM from scratch.",
+   "case": "prompt = \"Question: Write down what you see in this picture. Answer: A sports car driving on the road at sunset. Question: What would it cost me to drive that car? Answer:\""
+  },
+  {
+   "point": "CLIP 用对比学习对齐图像与文本嵌入",
+   "explain": "加载小狗雪地图片并配文字说明，演示 OpenCLIP 生成图像和文本嵌入的流程，为图文对齐提供具体示例。",
+   "caseTitle": "OpenCLIP小狗图像嵌入",
+   "importance": 1,
+   "core": "By leveraging pretrained models, BLIP-2 only needs to train the bridge without needing to train the image encoder and LLM from scratch.",
+   "case": "# Load an AI-generated image of a puppy playing in the snow\npuppy_path = \"https://raw.githubusercontent.com/HandsOnLLM/Hands-On-Large-Language-Models/main/chapter09/images/puppy.png\"\nimage = Image.open(urlopen(puppy_path)).convert(\"RGB\")\ncaption = \"a puppy playing in the snow\""
   }
  ],
  "10. Creating Text Embedding Models": [
   {
-   "point": "损失函数的选择会显著影响 embedding 模型的效果",
    "core": "A Pearson cosine score of 0.72 is a big improvement compared to the softmax loss example, which scored 0.59. This demonstrates the impact the loss function can have on performance.",
-   "caseTitle": "MNR 损失达到 0.80",
    "case": "Compared to our previously trained model with softmax loss (0.72), our model with MNR loss (0.80) seems to be much more accurate!",
-   "explain": "同一训练流程下，softmax 损失得 0.72，换成 MNR 损失后升到 0.80，说明损失函数直接决定模型精度。"
+   "point": "损失函数的选择会显著影响 embedding 模型的效果",
+   "explain": "MNR 损失模型得分 0.80，比 softmax 损失的 0.72 更准确，直接证明损失函数对性能的影响。",
+   "caseTitle": "MNR 损失达到 0.80",
+   "importance": 3
+  },
+  {
+   "point": "硬负例是提升对比学习效果的关键",
+   "explain": "以阿姆斯特丹人口问题为例，构造相关但非答案的硬负例，说明如何让模型学会区分细微差别。",
+   "caseTitle": "阿姆斯特丹硬负例",
+   "importance": 2,
+   "core": "A Pearson cosine score of 0.72 is a big improvement compared to the softmax loss example, which scored 0.59. This demonstrates the impact the loss function can have on performance.",
+   "case": "A good example of a hard negative is the following. Let’s assume we have the following question: “How many people live in Amsterdam?” A related answer to this question would be: “Almost a million people live in Amsterdam.” To generate a good hard negative, we ideally want the answer to contain something about Amsterdam and the number of people living in this city. For example: “More than a million people live in Utrecht, which is more than Amsterdam.” This answer relates to the question but is not the actual answer, so this would be a good hard negative."
+  },
+  {
+   "point": "数据增强可用少量标注数据达到接近全量效果",
+   "explain": "仅用 20% 数据通过 Augmented SBERT 得到 0.71 分，接近全量数据的 0.72，证明增强可减少标注需求。",
+   "caseTitle": "Augmented SBERT 0.71",
+   "importance": 2,
+   "core": "This method allows us to increase the size of datasets that you already have available without the need to manually label hundreds of thousands of sentence pairs.",
+   "case": "The original cosine similarity loss example had a score of 0.72 with the full dataset. Using only 20% of that data, we managed to get a score of 0.71!"
+  },
+  {
+   "point": "NLI 数据集可用于构造对比学习的正负样本",
+   "explain": "展示一个蕴含句对，说明如何从 NLI 数据生成正例（蕴含）和负例（矛盾）用于对比学习。",
+   "caseTitle": "MNLI蕴含示例",
+   "importance": 1,
+   "core": "we can use NLI datasets to generate negative examples (contradictions) and positive examples (entailments) for contrastive learning.",
+   "case": "{'premise': 'One of our number will carry out your instructions minutely.',\n'hypothesis': 'A member of my team will execute your orders with immense precision.',\n'label': 0}\nThis shows an example of an entailment between the premise and the hypothesis as they are positively related and have near identical meanings."
   }
  ],
  "11. Fine-Tuning Representation Models for Classification": [
   {
-   "point": "SetFit 用极少标注就能接近全量数据的效果",
    "core": "Thus, this pipeline demonstrates the potential of taking the time to label just a few instances.",
-   "caseTitle": "32 条标注得 F1 0.85",
    "case": "With only 32 labeled documents, we get an F1 score of 0.85. Considering that the model was trained on a tiny subset of the original data, this is very impressive!",
-   "explain": "仅用 32 条标注文档训练，SetFit 就取得 F1 0.85，接近用约 8500 条数据全量微调的水平，证明少样本方法能大幅降低标注成本。"
+   "point": "SetFit 用极少标注就能接近全量数据的效果",
+   "explain": "仅用32条标注文档，SetFit 就取得 F1 0.85，说明少样本方法可媲美大数据全量微调。",
+   "caseTitle": "32 条标注得 F1 0.85",
+   "importance": 3
+  },
+  {
+   "point": "数据充足时全量微调 BERT 效果最好",
+   "explain": "Rotten Tomatoes 数据全量微调 BERT 得 F1 0.85，高于第4章任务专用模型的 0.80，且只需几分钟训练。",
+   "caseTitle": "全量微调BERT分类",
+   "importance": 3,
+   "core": "If we have sufficient data, fine-tuning tends to lead to some of the best-performing models possible.",
+   "case": "We get an F1 score of 0.85, which is quite a bit higher than the task-specific model we used in Chapter 4, which resulted in an F1 score of 0.80. It shows that fine-tuning a model yourself can be more advantageous than using a pretrained model. It only costs us a couple of minutes to train."
+  },
+  {
+   "point": "算力有限时可冻结部分层以折中",
+   "explain": "冻结前10个编码器块后 F1 达 0.8，远高于全冻结的 0.63，说明少训练部分层性能损失不大。",
+   "caseTitle": "冻结前10层编码器",
+   "importance": 2,
+   "core": "Thus, this pipeline demonstrates the potential of taking the time to label just a few instances.",
+   "case": "We got an F1 score of 0.8, which is much higher than our previous score of 0.63 when freezing all layers. It demonstrates that although we generally want to train as many layers as possible, you can get away with training less if you do not have the necessary computing power."
+  },
+  {
+   "point": "冻结全部层只训分类头会显著降性能",
+   "explain": "冻结 BERT 全部层仅训练分类头，F1 只有 0.63，远低于全量微调的 0.85，说明冻结过多层代价大。",
+   "caseTitle": "仅训练分类头",
+   "importance": 2,
+   "core": "Generally, we want frozen layers to be followed by trainable layers.",
+   "case": "When we evaluate the model, we only get an F1 score of 0.63, which is quite a bit lower compared to our original 0.85 score."
+  },
+  {
+   "point": "领域语料继续 MLM 预训练可让模型熟悉领域词汇",
+   "explain": "用电影评论继续 MLM 预训练后，掩码预测明显偏向电影领域词，说明继续预训练能使模型适配领域数据。",
+   "caseTitle": "MLM继续预训练",
+   "importance": 2,
+   "core": "Continuing pretraining on a pretrained BERT model has been shown to improve the performance of models in classification tasks and is a worthwhile addition to the fine-tuning pipeline.",
+   "case": "A horrible movie, film, mess, etc. clearly shows us that the model is more biased toward the data that we fed it compared to the pretrained model."
+  },
+  {
+   "point": "NER 是 token 级分类，需处理子词对齐",
+   "explain": "微调后的 token 分类模型正确将 Maarten 及其子词识别为人物实体，展示 NER 在子词级分类上的效果。",
+   "caseTitle": "NER识别Maarten为人名",
+   "importance": 1,
+   "core": "Thus, this pipeline demonstrates the potential of taking the time to label just a few instances.",
+   "case": "In the sentence \"My name is Maarten\", the word \"Maarten\" and its subtokens were correctly identified as a person!"
   }
  ],
  "12. Fine-Tuning Generation Models": [
   {
-   "point": "LLM 权重矩阵内在维度低，LoRA 用低秩矩阵即可大幅减少可训练参数",
    "core": "This means that we can find small ranks that approximate even the massive matrices of an LLM.",
-   "caseTitle": "GPT-3 权重矩阵",
    "case": "A 175B model like GPT-3, for example, would have a weight matrix of 12,288 × 12,288 inside each of its 96 Transformer blocks. That’s 150 million parameters. If we can successfully adapt that matrix into rank 8, that would only require two 12,288 × 2 matrices resulting in 197K parameters per block.",
-   "explain": "GPT-3 每块 12288×12288 权重约 1.5 亿参数，用秩 8 近似后每块仅约 19.7 万参数，直观证明低秩近似能极大压缩可训练参数。"
+   "point": "LLM 权重矩阵内在维度低，LoRA 用低秩矩阵即可大幅减少可训练参数",
+   "explain": "GPT-3 每块权重矩阵 1.5 亿参数，用秩 8 分解后每块仅 19.7 万参数，直观展示低秩适配的压缩效果。",
+   "caseTitle": "GPT-3 权重矩阵",
+   "importance": 3
+  },
+  {
+   "point": "QLoRA 通过量化大幅降低模型加载的显存需求",
+   "explain": "4 比特量化后加载模型仅需约 1 GB 显存，而未量化需约 4 GB，具体数字证明量化对显存的显著降低。",
+   "caseTitle": "4比特量化显存对比",
+   "importance": 3,
+   "core": "This is where we apply the Q in QLoRA, namely quantization.",
+   "case": "This quantization procedure allows us to decrease the size of the original model while retaining most of the original weights’ precision. Loading the model now only uses ~1 GB VRAM compared to the ~4 GB of VRAM it would need without quantization."
+  },
+  {
+   "point": "人类评估是 LLM 评估的黄金标准",
+   "explain": "Chatbot Arena 收集 80 多万人类投票计算胜率排名，体现人类评估在实际中作为黄金标准的应用规模。",
+   "caseTitle": "Chatbot Arena人类投票",
+   "importance": 3,
+   "core": "Although benchmarks are important, the gold standard of evaluation is generally considered to be human evaluation.",
+   "case": "At the time of writing, this method has generated over 800,000+ human votes that were used to compute a leaderboard. These votes are used to calculate the relative skill level of LLMs based on their win rates."
+  },
+  {
+   "point": "适配器微调只需极少参数即可接近全量微调效果",
+   "explain": "BERT 仅微调 3.6% 参数，在 GLUE 上达到全量微调 0.4% 以内的性能，证明参数高效微调的有效性。",
+   "caseTitle": "适配器微调BERT",
+   "importance": 2,
+   "core": "Adapters are a core component of many PEFT-based techniques.",
+   "case": "Adapters are described in the paper “Parameter-efficient transfer learning for NLP”, which showed that fine-tuning 3.6% of the parameters of BERT for a task can yield comparable performance to fine-tuning all the model’s weights.1 On the GLUE benchmark, the authors show they reach within 0.4% of the performance of full fine-tuning."
+  },
+  {
+   "point": "QLoRA 可实际用于指令微调开源小模型",
+   "explain": "用 QLoRA 对 TinyLlama 进行指令微调，展示本章方法在真实小模型上的完整实操流程。",
+   "caseTitle": "TinyLlama的QLoRA指令微调",
+   "importance": 2,
+   "core": "Now that we have explored how QLoRA works, let us put that knowledge into practice!",
+   "case": "In this section, we will fine-tune a completely open source and smaller version of Llama, TinyLlama, to follow instructions using the QLoRA procedure."
+  },
+  {
+   "point": "指令微调需按聊天模板准备指令数据",
+   "explain": "选取 3000 条文档按聊天模板格式化，说明指令数据准备的具体规模与模板化步骤。",
+   "caseTitle": "UltraChat对话模板示例",
+   "importance": 1,
+   "core": "To have the LLM follow instructions, we will need to prepare instruction data that follows a chat template.",
+   "case": "We select a subset of 3,000 documents to reduce the training time, but you can increase this value to get more accurate results."
   }
  ]
 }

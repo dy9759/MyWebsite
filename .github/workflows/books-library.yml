@@ -1,0 +1,48 @@
+name: Deploy private books library (Cloudflare Worker)
+
+# Deploys workers/books-library (the owner's private, Access-protected book
+# library). Secrets: CLOUDFLARE_API_TOKEN (with Workers R2 Storage: Edit),
+# CLOUDFLARE_ACCOUNT_ID. The books themselves live only in the R2 bucket.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "workers/books-library/**"
+      - ".github/workflows/books-library.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: books-library
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/books-library
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: workers/books-library/package-lock.json
+
+      - name: Check Cloudflare credentials
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets first."
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx wrangler deploy

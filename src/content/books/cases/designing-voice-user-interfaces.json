@@ -1,81 +1,362 @@
 {
  "1. Introduction": [
   {
-   "point": "是否加语音入口取决于用户场景是否受益，而非技术时髦",
    "core": "Think carefully about your users and their use cases. “The main question to ask yourself is: Will your users benefit from a VUI?”",
-   "caseTitle": "开放式办公室",
    "case": "Many of us now work in open-plan office spaces. Imagine asking your computer to do tasks: “Computer, find me all my Word docs from this week.” Now imagine everyone in your office doing this! It would be chaos. In addition, when you speak, which computer is listening?",
-   "explain": "开放式办公室里若人人对电脑说话，会互相干扰，且机器难以分辨谁在说话。这说明语音并非处处适用，必须先判断场景是否真正受益。"
+   "point": "是否加语音入口取决于用户场景是否受益，而非技术时髦",
+   "explain": "开放式办公室中，若人人用语音操作电脑会混乱，且无法确定哪台电脑在听，说明语音并非在所有场景都适用，需评估用户场景。",
+   "caseTitle": "开放式办公室",
+   "importance": 3
+  },
+  {
+   "point": "语音输入速度优于打字",
+   "explain": "斯坦福研究表明，即使对熟练打字者，口述短信也比打字快，证明语音在速度上有优势。",
+   "caseTitle": "斯坦福听写速度研究",
+   "importance": 2,
+   "core": "Voice has some important advantages: Speed",
+   "case": "A recent Stanford study showed speaking (dictating) text messages was faster than typing, even for expert texters.[4]"
+  },
+  {
+   "point": "纯文本聊天机器人不一定比图形界面高效",
+   "explain": "Dan Grover对比用披萨聊天机器人点餐需73次点击，而用应用仅16次，说明图形界面在效率上可能更优。",
+   "caseTitle": "Dan Grover披萨机器人对比",
+   "importance": 2,
+   "core": "Text-only chatbots are not always more efficient than a GUI.",
+   "case": "In Dan Grover’s essay “Bots won’t replace apps. Better apps will replace apps,” (http://bit.ly/2glEQwb) he compares ordering a pizza using a pizza chatbot (Figure 1-1) versus ordering pizza versus the Pizza Hut WeChat integration. It took 73 taps to tell the bot what he wanted, but only 16 taps via the app (Figure 1-2), because the app makes heavy use of the GUI."
+  },
+  {
+   "point": "IVR系统能提升用户查询意愿",
+   "explain": "Charles Schwab语音交易服务的早期用户乐于反复调用自动系统获取报价，而此前为避免打扰人工客服会限制查询次数。",
+   "caseTitle": "Charles Schwab语音交易服务",
+   "importance": 2,
+   "core": "IVR systems were also a boon.",
+   "case": "Early users of Charles Schwab’s speech recognition trading service (which was developed by Nuance Communications in 1997) were happy to call in and get quotes over and over using the automated system whereas prior to IVR systems they limited their requests so as not to appear bothersome to the operators fielding their calls."
+  },
+  {
+   "point": "IVR系统提供的简化流程深受用户依赖",
+   "explain": "货运公司IVR系统维护时，用户因需通过人工提供订单细节而愤怒，表明IVR的简化流程已被用户习惯和依赖。",
+   "caseTitle": "货运公司IVR维护投诉",
+   "importance": 2,
+   "core": "IVR systems were also a boon.",
+   "case": "In the early 2000s, a freighting company received many angry calls after its IVR system was taken down for maintenance because callers had to give order details via agents, rather than the streamlined process the IVR system had provided."
+  },
+  {
+   "point": "IVR系统可提供全天候自助服务",
+   "explain": "旧金山511 IVR系统在智能手机普及前就让司机随时查询交通、通勤时间和公交延误，体现24/7自助服务价值。",
+   "caseTitle": "旧金山511交通IVR",
+   "importance": 2,
+   "core": "The 24/7 nature of IVR systems let callers do tasks at any time, when agents were not always available.",
+   "case": "The San Francisco Bay Area 511 IVR system let drivers check traffic, get commute times, and ask about bus delays, well before smartphones were available for such tasks."
   }
  ],
  "2. Basic Voice User Interface Design Principles": [
   {
-   "point": "确认方式要看出错代价和可用反馈通道，动作本身也能当确认",
    "core": "It’s especially important to explicitly confirm information if the cost of a misrecognition (i.e., the system got it wrong) is high.",
-   "caseTitle": "打开圣诞树灯",
    "case": "Another type of confirmation relies on completing an action that does not require a spoken response. For example, imagine that you are creating an app to turn the lights on and off in your home. The user says, “Turn on the Christmas tree lights.” Is it really necessary to say, “OK, turning on the Christmas lights,” when the lights just turned on?",
-   "explain": "用户说“打开圣诞树灯”，灯亮这一动作本身就是最直接的反馈，无需再语音复述确认；说明低出错代价且有动作反馈通道时，隐式确认即可。"
+   "point": "确认方式要看出错代价和可用反馈通道，动作本身也能当确认",
+   "explain": "开灯指令执行后灯已亮，动作本身就是反馈，再口头复述“OK，正在开灯”纯属多余；说明确认策略应随出错代价与反馈通道变化。",
+   "caseTitle": "打开圣诞树灯",
+   "importance": 3
+  },
+  {
+   "point": "按置信度分级确认：高置信隐式、中置信显式、低置信重问",
+   "explain": "同一“买纸巾”请求在>80%时隐式确认、45–79%时显式复述、<45%时直接重问，具体演示三档置信度如何对应不同确认策略。",
+   "caseTitle": "三层置信度订购纸巾",
+   "importance": 3,
+   "core": "In this case, the system will explicitly confirm information between a certain threshold (e.g., 45–80), reject anything with a lower confidence, and implicitly confirm anything above the 80 percent threshold.",
+   "case": "USER\nPlease buy more paper towels.\nVUI\n[>80 percent confidence, implicit confirmation] OK, ordering more paper towels...\n[45–79 percent confidence, explicit confirmation] I thought you said you’d like to order more paper towels. Is that correct?\n[<45 percent confidence] I’m sorry, I didn’t get that. What would you like to buy?"
+  },
+  {
+   "point": "成功执行时无需多余确认语，隐式确认即可",
+   "explain": "Alexa设置计时器后只回“Setting a timer for 10 minutes”，若真失败才需提醒；说明成功路径上的口头复述是多余措辞。",
+   "caseTitle": "Alexa设置计时器",
+   "importance": 2,
+   "core": "It’s unnecessary verbiage. If in fact the time did at some point fail to be set, it would be good to alert the user—but that’s the exception.",
+   "case": "USER\nAlexa, set a timer for 10 minutes.\nALEXA\nSetting a timer for 10 minutes."
+  },
+  {
+   "point": "识别正确但语义理解错误会让对话脱轨",
+   "explain": "用户说“I have a cold”指感冒，系统却按温度理解追问“感觉冷多久”，说明错误处理之外语义消歧同样关键。",
+   "caseTitle": "医疗助手误解cold",
+   "importance": 2,
+   "core": "In this example, the system decided that the keyword “cold” meant temperature, and now the conversation has been derailed.",
+   "case": "MEDICAL VIRTUAL ASSISTANT\nHow are you feeling?\nUSER\nI have a cold.\nMEDICAL VIRTUAL ASSISTANT\nHow long have you been feeling cold?"
+  },
+  {
+   "point": "多轮对话需做共指消解，理解“one”指代前文",
+   "explain": "Cortana把“Where can I get one”当全新查询，Google则正确理解“one”指最贵的狗并给出相关结果，对比证明共指是沟通必需。",
+   "caseTitle": "Cortana与Google指代对比",
+   "importance": 2,
+   "core": "The use of two different terms to refer to the same thing is called coreference, and is an essential part of communication.",
+   "case": "USER\nWhat’s the most expensive dog?\nCORTANA\nUSER\nWhere can I get one?\nCORTANA\nAs you can see, Cortana did not assign a meaning to “one” and treated the query as brand new. To contrast this, look at what Google does:\nUSER\nWhat’s the most expensive dog?\nGOOGLE\nAccording to PopSugar, the most expensive dog in the global world today is the Tibetan Mastiff.\nUSER\nWhere can I get one?\nGOOGLE\nHere, Google successfully understood the word “one” in the second query, and gave some relevant search results."
+  },
+  {
+   "point": "系统须延续上下文，不能把重复请求当新对话",
+   "explain": "用户请求重复上一条日程，Google毫无回应，如同前半段对话从未发生，说明丢失上下文会直接让对话失败。",
+   "caseTitle": "Google未回应重复请求",
+   "importance": 1,
+   "core": "Google has let down its end of the conversation. It’s like the first part never happened.",
+   "case": "USER\nOk Google. When’s my next appointment?\nGOOGLE\nYou have a calendar entry tomorrow. The title is “Chinatown field trip.”\nUSER\nOk Google. Can you please repeat that?\nGOOGLE"
   }
  ],
  "3. Personas, Avatars, Actors, and Video Games": [
   {
-   "point": "语音情绪基调须匹配用户状态，否则用户会察觉违和",
    "core": "If your VUI is tone-deaf, the user will notice.",
-   "caseTitle": "情绪与声音匹配实验",
    "case": "Another Nass experiment had subjects “drive” a car simulator and used two different voices: one that was upbeat, and one that was morose. Sad drivers hearing the happy voice had approximately twice as many accidents as those who heard the sad voice. Happy drivers had fewer accidents and paid more attention to the road when they heard the happy voice.",
-   "explain": "悲伤司机听欢快语音时事故数约为听悲伤语音的两倍，情绪匹配时事故更少、更专注也更享受，说明声音情绪与用户状态不合拍会被察觉并影响行为。"
+   "point": "语音情绪基调须匹配用户状态，否则用户会察觉违和",
+   "explain": "Nass实验让悲伤司机听欢快语音，事故数约翻倍；情绪匹配时驾驶更专注、更喜欢语音。证明语音情绪与用户状态错位会被察觉并影响行为。",
+   "caseTitle": "情绪与声音匹配实验",
+   "importance": 3
+  },
+  {
+   "point": "人设应在设计中主动定义，而非听任用户自行推断",
+   "explain": "Cortana团队撰写详细人设，用机智、自信、忠诚等词定义其语音、文本和动画角色，并编写脚本由配音演员录制数千条可变回应，使Cortana像有真实个性而非机械应答。",
+   "caseTitle": "Cortana人设写作",
+   "importance": 3,
+   "core": "The best strategy is to decide on the personality yourself, while designing, rather than leave it up to chance.",
+   "case": "Our approach on personality includes defining a voice with an actual personality. This included writing a detailed personality and laying out how we wanted Cortana to be perceived. We used words like witty, confident, and loyal to describe how Cortana responds through voice, text, and animated character. We wrote an actual script based on this definition that is spoken by a trained voice actress with thousands of responses to questions that will have variability to make Cortana feel like it has an actual personality and isn’t just programmed with robotic responses."
+  },
+  {
+   "point": "人设必须预设如何回应辱骂并设定边界",
+   "explain": "Cortana对“我恨你”用幽默回应，对无聊评价用“胡扯！”等词加动物图片，但遇到辱骂性内容则停止玩笑并明确表示不参与，展示人设如何一致地处理负面语言。",
+   "caseTitle": "Cortana应对辱骂",
+   "importance": 2,
+   "core": "Deciding how to approach abusive language is essential for any team undertaking this journey. Every digital assistant will face it.",
+   "case": "For example, if you say, “I hate you,” Cortana might say, “Oh good, because I’m in opposite world right now!” Or she might say, “The feeling is not mutual.” If you say, “You are boring,” we’ll give you any of several one-word answers like “Hooey!” or “Balderdash!” along with a picture of an animal that looks in some way affronted or surprised. So, she doesn’t take offense just because you say something negative. But if you start saying things that have connotations of abuse, she stops playing and instead just states clearly that that’s not a place where she’ll engage."
+  },
+  {
+   "point": "虚拟形象若无视语境与历史会招致反感",
+   "explain": "Clippy每次用户输入“Dear...”都提议帮忙写信，无论被拒绝多少次，也从不记住用户名字或偏好；若视其为人，这种无视语境的行为自然引发厌恶和鄙视。",
+   "caseTitle": "Clippy无视语境",
+   "importance": 2,
+   "core": "If your VUI is tone-deaf, the user will notice.",
+   "case": "Clippy’s problem was that he was utterly oblivious to the appropriate ways to treat people. Every time a user typed “Dear...” Clippy would dutifully propose, “I see you are writing a letter. Would you like some help?”—no matter how many times the user had rejected this offer in the past. Clippy never learned anyone’s names or preferences. If you think of Clippy as a person, of course he would evoke hatred and scorn."
   }
  ],
  "4. Speech Recognition Technology": [
   {
-   "point": "热词打断只对关键词停下，避免噪声和旁人说话打断播报",
    "core": "It’s a very neat trick because it does not stop the system from performing/speaking unless a particular keyword or phrase has been recognized.",
-   "caseTitle": "511 路况播报",
    "case": "I wanted to allow users the flexibility of skipping ahead to the next incident, but worried about background noise in the car or other input interrupting the system and stopping it. Imagine that you’re listening to a list of 10 traffic incidents, and you sneeze and the system stops and says, “I’m sorry, I didn’t get that.” You would need to start all over! Instead, using the hotword technique, only a few key phrases are recognized during this readback, such as “next” and “previous.”",
-   "explain": "511路况播报中，若任何声音都能打断，用户打个喷嚏系统就停下并说没听清，只能从头再听。采用热词技术后，播报期间只识别“next”“previous”等关键词，背景噪声不会误触发。"
+   "point": "热词打断只对关键词停下，避免噪声和旁人说话打断播报",
+   "explain": "511路况播报中，用户打喷嚏不会中断系统，只有说“next”“previous”等关键词才触发打断，防止误打断导致重听。",
+   "caseTitle": "511 路况播报",
+   "importance": 3
+  },
+  {
+   "point": "允许打断时，提示语中的停顿和问题位置需格外小心",
+   "explain": "系统提示语中1秒停顿后继续说话，用户刚开口就被系统抢话，随后系统又因用户打断而停止，造成对话断裂。",
+   "caseTitle": "系统暂停导致对话断裂",
+   "importance": 3,
+   "core": "When you allow barge-in, you must be extra careful with pauses in the prompt as well as placement of questions.",
+   "case": "VUI SYSTEM\nWhat would you like to do? [1-second silence] You...\nUSER\nI would...\nVUI SYSTEM\n[system continues] can. [then stops because user has barged in]\nUSER\n[stops]"
+  },
+  {
+   "point": "无语音超时后应提供信息位置和替代路径，而非重复问题",
+   "explain": "ISP账单场景中，用户沉默后系统告知账号在账单顶部，并允许说“我不知道”，进而用电话和地址查询，提供继续路径。",
+   "caseTitle": "ISP账单账号超时",
+   "importance": 3,
+   "core": "First, it lets the user know where they can find their account number, if they have their statement. Second, it lets the user continue another way, if they don’t know or can’t find their account number.",
+   "case": "ISP VUI\nWhat’s your account number?\nUSER\n[silence]\nISP VUI\nSorry, I didn’t get that. Your account number can be found at the top of your statement. Please say or type it in, or say, “I don’t know it.”\nUSER\nI don’t know it.\nISP VUI\nNo problem. We can look it up with your phone number and address instead..."
+  },
+  {
+   "point": "利用N-best列表，首选不匹配时继续查找下一候选",
+   "explain": "识别动物时首选结果无匹配，继续查看N-best列表下一项找到“cat”，成功匹配，避免直接失败。",
+   "caseTitle": "N-best列表识别动物",
+   "importance": 2,
+   "core": "Instead, what if we take advantage of our N-best list? When the first one results in no match, move on to the next—and there we find “cat.” Success!",
+   "case": "WELL I THINK AT THE MOMENT MY FAVORITES GOT TO BE FIT AND FAT\nWELL I THINK AT THE MOMENT BY FAVORITES GOTTA BE KITTY CATS\nWELL I HAVE AT THE MOMENT MY FAN IS OF THE KITTY\nWELL I HAVE AT THE MOMENT MY FAN IS OF THE KITTY BAT\nWELL THAT THE MOMENT MY FAVORITE IS GOT TO BE KIT AND CAT"
+  },
+  {
+   "point": "IVR系统通常开启打断，用户可随时中断播报",
+   "explain": "银行IVR播报菜单时，用户直接打断说“查账户余额”，系统随即响应，体现打断功能在IVR中的默认启用。",
+   "caseTitle": "银行IVR打断示例",
+   "importance": 2,
+   "core": "Barge-in is generally turned on for interactive voice response (IVR) systems, so the user can interrupt the system at any time.",
+   "case": "BANKING IVR\nYou can transfer money, check your account balance, pay a...\nUSER\n[interrupting] Check my account balance."
+  },
+  {
+   "point": "打断功能在长时间操作或大量信息播报时非常有用",
+   "explain": "Amazon Echo播放音乐时，用户可随时说“Alexa, stop”停止播放，没有打断就无法用语音命令停止音乐。",
+   "caseTitle": "Alexa播放音乐时打断",
+   "importance": 1,
+   "core": "Barge-in is also very useful when the system is performing an action that can take a long time or reciting a lot of information.",
+   "case": "For example, when the Amazon Echo is playing a song, you can barge in at any time and say, “Alexa, stop.” Without barge-in, there would be no way to stop playing music by using a voice command."
   }
  ],
  "5. Advanced Voice User Interface Design": [
   {
-   "point": "识别准确不等于听懂，语音交互的难点正转向自然语言理解",
    "core": "These examples show that VUI is not a solved problem. In all of these cases, the speech recognition was flawless. It recognized my question exactly. But that’s not enough—in addition, the VUI must understand the subtleties of language.",
-   "caseTitle": "Hound 与世界大赛",
    "case": "When I ask Hound, “Who was president during the last World Series?” it backs off to search results. The first one? A page on Woodrow Wilson.",
-   "explain": "Hound 逐字识别了问题，却未理解“上届世界大赛期间”的语义，只能退回搜索并给出无关结果，证明识别无误仍可能听不懂。"
+   "point": "识别准确不等于听懂，语音交互的难点正转向自然语言理解",
+   "explain": "Hound 准确识别了问题，却无法理解“上届世界大赛期间”的语义，只能退回搜索结果，证明识别无误仍可能听不懂。",
+   "caseTitle": "Hound 与世界大赛",
+   "importance": 3
   },
   {
-   "point": "忽略否定词会让系统把用户明确排除的选项当成想要",
-   "explain": "用户输入“蘑菇但不要辣肠”，披萨机器人确认成“蘑菇与辣肠披萨”，逐字识别正确却误解否定，说明 NLU 必须处理否定。",
-   "caseTitle": "披萨机器人忽略否定词",
    "core": "This illustrates the importance of looking out for negative responses, such as “not,” “no,” and “neither.”",
-   "case": "Recently I tried out a pizza chatbot. It asked me for toppings, and I typed “Mushrooms, but no pepperoni!” The confirmation (see Figure 5-4) displayed, “OK, I have one Large Mushrooms & Pepperoni pizza for delivery. Is that correct?”"
+   "case": "Recently I tried out a pizza chatbot. It asked me for toppings, and I typed “Mushrooms, but no pepperoni!” The confirmation (see Figure 5-4) displayed, “OK, I have one Large Mushrooms & Pepperoni pizza for delivery. Is that correct?”",
+   "point": "忽略否定词会让系统把用户明确排除的选项当成想要",
+   "explain": "用户输入“蘑菇但不要辣肠”，披萨机器人确认时却显示“蘑菇和辣肠”，说明系统未处理否定词，导致严重错误。",
+   "caseTitle": "披萨机器人忽略否定词",
+   "importance": 3
+  },
+  {
+   "point": "信息不足时应主动澄清而非擅自猜测",
+   "explain": "用户问“Springfield 天气”，七个助手都未追问哪个州，直接替用户选择，说明消歧缺失会让用户困惑。",
+   "caseTitle": "七个助手处理Springfield歧义",
+   "importance": 2,
+   "core": "If I am in the United States and I say, “What’s the weather in Springfield?”, the system should ask me which state.",
+   "case": "I was rather surprised to discover that none of them disambiguated. All seven that I tried just chose the city for me, without any follow-up!"
+  },
+  {
+   "point": "对话管理应适应用户提供信息的顺序",
+   "explain": "披萨应用在用户只说了大小和配料后，自动推断还需地址和电话，并继续补问，证明槽位填充能跟随用户节奏。",
+   "caseTitle": "披萨应用槽位填充",
+   "importance": 2,
+   "core": "Follow your user’s lead, and be prepared to handle information in a variety of ways.",
+   "case": "PIZZA APP\nHi there, welcome to Pearl’s Pizza, home of the famous gingerbread pizza crust. What kind of pizza can I get you?\nUSER\nUm, I’d like a large pepperoni, please.\n[At this point, we have filled in the number of pizzas (1), and the toppings (pepperoni). Now, we know all that remains is the address and phone number.]"
+  },
+  {
+   "point": "正确处理否定/例外能提升语音交互准确性",
+   "explain": "Hound 能理解“附近亚洲餐厅但除了日料”，并正确排除日料，说明系统支持否定条件可避免误判。",
+   "caseTitle": "Hound处理排除条件",
+   "importance": 1,
+   "core": "These examples show that VUI is not a solved problem. In all of these cases, the speech recognition was flawless. It recognized my question exactly. But that’s not enough—in addition, the VUI must understand the subtleties of language.",
+   "case": "Hound has a good example of handling this well: when I say, “Show me nearby Asian restaurants except for Japanese,” it manages to do just that (Figure 5-5)."
   }
  ],
  "6. User Testing for Voice User Interfaces": [
   {
-   "point": "无需完整原型，绿野仙踪式低保真测试就能尽早获得真实反馈",
    "core": "Although one advantage of WOz is the ability to test an early prototype, the other advantage is that it’s much cheaper to make design changes before you’ve written most of the code than later on in the development cycle.",
-   "caseTitle": "福特 SYNC 泡沫按钮",
    "case": "While sitting in the parking lot, the Wizard sat in the backseat with a laptop, playing prompts that would, in the future, come from the car! Subjects were quickly caught up in the experience, allowing the team to do useful initial testing to discover things such as how people would ask for information about traffic.",
-   "explain": "福特团队在停车场用幕后“巫师”播放提示，模拟未来车载语音系统，用户迅速沉浸其中，团队据此发现人们会如何询问交通信息，证明未写代码前即可低成本测试并调整设计。"
+   "point": "无需完整原型，绿野仙踪式低保真测试就能尽早获得真实反馈",
+   "explain": "福特SYNC在停车场用真人幕后播放提示模拟车载系统，用户迅速沉浸，团队得以在写代码前低成本发现人们如何询问交通信息等问题。",
+   "caseTitle": "福特 SYNC 泡沫按钮",
+   "importance": 3
+  },
+  {
+   "point": "WOz测试可在系统未建成前低成本模拟真实交互",
+   "explain": "Nuance用网页工具列出各步骤可用提示，幕后“巫师”点击后通过电话线播放，在IVR系统建成前就完成了低成本测试。",
+   "caseTitle": "Nuance的WOz测试IVR",
+   "importance": 3,
+   "core": "Wizard of Oz (WOz) testing occurs when the thing being tested does not yet actually exist, and a human is “behind the curtain” to give the illusion of a fully working system.",
+   "case": "When I was at Nuance Communications, WOz testing was a common and low-cost way to test IVR systems before they were built. Because users were interacting over the phone, it was easy to simulate a real IVR system. We created a web-based tool that had a list of currently available prompts (including error prompts) in each step of the conversation, and the “wizard” would click on the appropriate prompt, which would then play out over the phone line."
+  },
+  {
+   "point": "任务顺序会影响用户行为，需轮换任务顺序",
+   "explain": "研究中先让受试者要求转人工，后续任务中他们更可能再次要求转人工；未先做该任务时则不会，说明顺序效应真实存在。",
+   "caseTitle": "Balogh任务顺序效应",
+   "importance": 2,
+   "core": "Order effects can happen.",
+   "case": "I experienced this in one study in which the task was to have the subject ask for an agent. After the subject did this, on subsequent tasks, the subjects were more likely to ask for an agent. This command wouldn’t have occurred to them otherwise (when the agent task was not before other tasks, the subjects did not ask for an agent). The solution (although time consuming) is to rotate the tasks across subjects."
+  },
+  {
+   "point": "真实用户测试能发现设计者自身盲区",
+   "explain": "Sensely早期版本中许多用户不知道列表可以下滑，设计者因太熟悉应用而从未想到，测试后迅速修改了设计。",
+   "caseTitle": "Sensely滚动列表问题",
+   "importance": 2,
+   "core": "Having other people test will open your eyes to things that might never have occurred to you otherwise.",
+   "case": "As an example, when showing an early version of our mobile app from Sensely, I discovered that many people had no idea that they could scroll down to see more items in a list. We were so used to using the app ourselves, it didn’t occur to us, but we quickly realized we had to modify the design."
+  },
+  {
+   "point": "早期用户研究能改变产品方向与功能集",
+   "explain": "帕金森病应用原计划服务患者，访谈照护者后发现帮助照护者同样重要，从而调整了产品方向与功能。",
+   "caseTitle": "帕金森病应用访谈照护者",
+   "importance": 2,
+   "core": "Always interview people who are in the space you’re trying to serve.",
+   "case": "As an example, a company I was consulting for had decided to create a VUI app about Parkinson’s disease. The original idea was an app to help people with Parkinson’s, providing more information about the disease, helping with medication management, and other self-care tasks. When conducting user research, I also wanted to speak to those closest to Parkinson’s patients: their caregivers. When I did so, I realized that an equally important problem was helping the caregivers themselves! It modified the direction and feature set we had planned for building the app."
+  },
+  {
+   "point": "访谈目标领域真实从业者可指导VUI设计",
+   "explain": "微软访谈真人助理，发现他们不懂时会求助，于是让Cortana在需要时也主动求助，使交互更自然。",
+   "caseTitle": "Cortana访谈真人助理",
+   "importance": 1,
+   "core": "Always interview people who are in the space you’re trying to serve.",
+   "case": "Cortana, for example, is a virtual assistant. For inspiration, Microsoft interviewed real-life personal assistants. Designers found that human assistants often needed to ask for help when they did not understand an assigned task. Therefore, Microsoft made sure to have Cortana ask for help if she needs it, just like her human counterparts.[34]"
+  },
+  {
+   "point": "远程测试中录制用户表情可获取额外洞察",
+   "explain": "Volio在iPad画中画功能中持续录制用户音视频，即使非发言时段也保留，从而捕捉面部表情等额外信息。",
+   "caseTitle": "Volio录制用户表情",
+   "importance": 1,
+   "core": "This methodology proved to be remarkably effective.",
+   "case": "When I was at Volio, we were already recording users’ audio and video with our picture-in-picture feature on the iPad (users could see themselves in the corner, as they do in FaceTime), as shown in Figure 6-2. For remote testing, we simply left the recording on even when it was not the user’s turn to speak, to capture any facial expressions and other audio."
   }
  ],
  "7. Your Voice User Interface Is Finished! Now What?": [
   {
-   "point": "任务完成要合理切分定义，否则指标会把正常行为当成流失",
    "core": "Determining when a task is complete sounds easy, but there are subtleties to keep in mind.",
-   "caseTitle": "信用卡查余额与付款",
    "case": "At first, they were left scratching their heads as to why this was. Recognition performance was fine. Eventually they realized that many people quit after the initial part of the task: hearing their current balance and due date. After this discovery, the designers created two separate tasks—getting a balance and paying a bill—and the “pay bill” task did not start until the user went past the balance prompt and began the bill pay workflow.",
-   "explain": "信用卡应用把“查余额”和“付款”混为一个任务，用户查完余额就退出被记为流失；拆成两个任务后，“付款”任务从用户越过余额提示才开始，指标才反映真实行为。"
+   "point": "任务完成要合理切分定义，否则指标会把正常行为当成流失",
+   "explain": "信用卡应用把“查余额”和“付款”混为一个任务，用户听完余额就退出被误判流失；拆成两个任务后指标才反映真实情况。",
+   "caseTitle": "信用卡查余额与付款",
+   "importance": 3
+  },
+  {
+   "point": "语音失败时也必须记录语音和音频，否则丢失改进线索",
+   "explain": "旅行助手把“Pasco”误识为“Pass co airport”，多模态状态无错误提示，若不记录失败语音就无从发现并修复此类问题。",
+   "caseTitle": "旅行助手误识Pasco",
+   "importance": 3,
+   "core": "It is important to log utterances and audio even when speech failed, including if the user says more than one thing in a given state.",
+   "case": "User says, “Pasco, Washington.” Although Pasco is a valid airport, user was misrecognized as “Pass co airport.” Nothing happens (because this is a multimodal state, there is no “I’m sorry” error prompt)."
+  },
+  {
+   "point": "整通对话回放能发现单点分析看不到的问题",
+   "explain": "Nuance设计师通勤时听完整通话录音，从整体流程中发现逐点指标遗漏的问题，说明回放是必要的诊断手段。",
+   "caseTitle": "Nuance通勤听录音",
+   "importance": 2,
+   "core": "Listening to the whole call can reveal issues that you might not see when looking at one point in time.",
+   "case": "one of the designers spent all his commute to and from work listening to recordings of calls to deployed systems: “As the traffic problems in Silicon Valley increased, our performance improved.”"
+  },
+  {
+   "point": "上线前测试能发现常见误识，提前加入预期短语",
+   "explain": "医疗应用常把“vial”误识为“vile”“file”，提前把这些变体加入预期短语，让更多用户一开始就成功。",
+   "caseTitle": "医疗应用误识vial",
+   "importance": 2,
+   "core": "It can also tease out common misrecognitions that you might need to add to your set of expected phrases.",
+   "case": "For example, a medical app I was designing commonly misrecognized “vial” as “vile” or even “file.” Adding those up front meant more users would have success right out of the gate."
+  },
+  {
+   "point": "任务可在对话结束前完成，后续选项应分开追踪",
+   "explain": "健康应用给出结果后还提供邮件发送选项，若把发邮件算进任务完成，会混淆核心任务与附加步骤的指标。",
+   "caseTitle": "健康应用任务定义",
+   "importance": 2,
+   "core": "As with the previous example, tasks can be considered complete before the end of the conversation.",
+   "case": "Another example of this is a healthcare app in which users can answer questions about their symptoms to determine if they should see a doctor. After an outcome is given, the user is offered the option to have information emailed to them."
   }
  ],
  "8. Voice-Enabled Devices and Cars": [
   {
-   "point": "车内只做核心任务，用预设捷径把操作压缩成一句简单命令",
    "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
-   "caseTitle": "福特 SYNC 回家路况",
    "case": "For example, Ford SYNC later introduced a traffic feature that made it possible for drivers to get the traffic report for their drive home. Teaching the user which voice commands would be needed to set this up is a difficult task, not to mention the difficulty of recognition for address entry. Instead, users log in to their Ford SYNC account online and set up their destinations. That way, in the car, the user can use a simple command such as “traffic to home” and get just what is needed.",
-   "explain": "福特SYNC让用户在线预设回家目的地，车内只需说“traffic to home”即可获取路况，避免记忆复杂命令和地址输入，正说明聚焦核心任务、用捷径降低负担。"
+   "point": "车内只做核心任务，用预设捷径把操作压缩成一句简单命令",
+   "explain": "福特SYNC让用户在线预设目的地，车内只需说“traffic to home”即可获取回家路况，避免记忆复杂命令和地址输入，证明聚焦核心任务并用捷径降低负担。",
+   "caseTitle": "福特 SYNC 回家路况",
+   "importance": 3
+  },
+  {
+   "point": "车内语音命令过多、提示冗长会导致用户难以成功",
+   "explain": "用户说“USB”后，系统用长串提示列出专辑、艺术家、播放控制等众多命令，用户尝试“Bruce Springsteen”仍被识别失败，证明命令过多和提示冗长增加认知负荷。",
+   "caseTitle": "Ford SYNC 音乐命令",
+   "importance": 3,
+   "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
+   "case": "USER\n[presses Voice button on steering wheel]\nSYNC\nSYNC. Please say a command.\nUSER\nUSB.\nSYNC\nUSB. Please say a command.\nUSER\nUh, Bruce Springsteen?\nSYNC\n[harsh “boop boop” sound to indicate it did not understand] You can request to play an album, artist, genre, track, or playlist. To control media, say ‘play,’ ‘pause,’ ‘previous track,’ ‘next track,’ ‘previous folder,’ or ‘next folder.’"
+  },
+  {
+   "point": "车内交互应简短分步、靠声音反馈，无需看屏幕",
+   "explain": "Cortana读短信时先暂停音乐，用简短问句分步确认“读、回复、发送”，全程语音反馈，用户无需看屏幕即可完成操作，符合车载低认知负荷要求。",
+   "caseTitle": "Cortana 车内读短信",
+   "importance": 2,
+   "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
+   "case": "CORTANA\n[pauses music] You got a text from Cathy. Wanna read it, or ignore it?\nUSER\nRead it.\nCORTANA\nThe message is: “I’m running late. Home by seven.” Reply, call back, or are you done?\nUSER\nReply.\nCORTANA\nOK. What would you like to say?\nUSER\n“That’s fine, see you then.”\nCORTANA\nOK. Texting Cathy, “That’s fine. See you then.” Send it, add more, or try again?\nUSER\nSend it.\nCORTANA\nI sent your message. [resumes music]"
+  },
+  {
+   "point": "车内语音识别是用户最大痛点，凸显简化交互的必要性",
+   "explain": "J.D. Power 2015调查显示，车内报告最多的问题是语音识别系统，超过蓝牙配对等，证明当前车载语音体验差，亟需减少命令和降低记忆负担。",
+   "caseTitle": "J.D. Power 语音投诉",
+   "importance": 2,
+   "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
+   "case": "In the J.D. Power 2015 Initial Quality Study of top reported problems in the car (with #10 being cup holders, #2 being Bluetooth pairing and connectivity), the number one problem was voice-recognition systems."
   }
  ]
 }

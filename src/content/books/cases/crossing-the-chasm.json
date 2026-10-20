@@ -1,83 +1,396 @@
 {
  "1 - High-Tech Marketing Illusion": [
   {
-   "point": "产品在早期市场叫好，却可能长期卡在鸿沟里进不了主流。",
    "core": "So the products languish, continuing to feed off the early adopter segment of the market, but unable to really take off and break through to the high-volume opportunities.",
-   "caseTitle": "Segway 败给楼梯",
    "case": "The hope was these devices would become a universal transport mechanism. Why didn’t that happen? In a word: stairs. Stairs are pesky little devils that crop up everywhere, and Segways do not handle them well at all. That’s what we call a showstopper. So while Steve Wozniak can still field a brace of Segways for a rousing match of polo, no one has yet come up with a breakthrough application for the rest of us. Hence its fate for any foreseeable future is to dwell in the chasm forever.",
-   "explain": "Segway 技术出色、被寄望成为通用交通工具，却因无法上楼梯这一关键场景缺陷，始终停留在早期采用者手中，未能打开大众市场，正说明叫好不等于跨越鸿沟。"
+   "point": "产品在早期市场叫好，却可能长期卡在鸿沟里进不了主流。",
+   "explain": "Segway 因无法应对楼梯这一关键场景，始终停留在早期采用者市场，无法突破到高销量机会，证明鸿沟的存在与致命性。",
+   "caseTitle": "Segway 败给楼梯",
+   "importance": 3
+  },
+  {
+   "point": "掉入鸿沟会造成巨额损失，是鸿沟风险的极端体现。",
+   "explain": "摩托罗拉铱星项目损失约60亿美元，说明未能跨越鸿沟的颠覆性产品可能带来灾难性财务后果。",
+   "caseTitle": "铱星卫星电话",
+   "importance": 2,
+   "core": "So the products languish, continuing to feed off the early adopter segment of the market, but unable to really take off and break through to the high-volume opportunities.",
+   "case": "As expensive a lesson as the Segway was for its investors, it pales by comparison with the reputed $6 billion bath Motorola took on its satellite mobile phone venture Iridium."
+  },
+  {
+   "point": "不连续性创新要求消费者改变行为，采用障碍更高。",
+   "explain": "三星3-D电视需要用户戴特殊眼镜观看，改变了正常看电视行为，属于不连续性创新，因此更难被主流接受。",
+   "caseTitle": "三星3-D电视",
+   "importance": 2,
+   "core": "So the products languish, continuing to feed off the early adopter segment of the market, but unable to really take off and break through to the high-volume opportunities.",
+   "case": "On the other hand, if the Samsung were a 3-D TV, it would be incompatible with normal viewing, requiring you to don special glasses to get the special effects. This would be a discontinuous innovation because you would have to change your normal TV-viewing behavior."
+  },
+  {
+   "point": "成功的高科技产品能逐段跨越采用生命周期。",
+   "explain": "iPad 从 Mac 爱好者起步，首日售出30万台，展示了从左到右逐段推进高科技营销模型的完整成功路径。",
+   "caseTitle": "iPad全周期采用",
+   "importance": 2,
+   "core": "So the products languish, continuing to feed off the early adopter segment of the market, but unable to really take off and break through to the high-volume opportunities.",
+   "case": "The Apple iPad is a prime example of leveraging the High-Tech Marketing Model end to end. Launched in 2009 after being demoed at MacWorld by Steve Jobs, its touch-interface dynamics and gorgeous display of images made it an instant hit with Mac enthusiasts, selling three hundred thousand units its first day."
   }
  ],
  "2 - High-Tech Marketing Enlightenment": [
   {
-   "point": "市场的边界取决于客户之间会不会互相参考。",
    "core": "If two people buy the same product for the same reason but have no way they could reference each other, they are not part of the same market.",
-   "caseTitle": "示波器卖给谁",
    "case": "That is, if I sell an oscilloscope for monitoring heartbeats to a doctor in Boston and the identical product for the same purpose to a doctor in Zaire, and these two doctors have no reasonable basis for communicating with each other, then I am dealing in two different markets. Similarly, if I sell an oscilloscope to a doctor in Boston and then go next door and sell the same product to an engineer working on a sonar device, I am also dealing in two different markets.",
-   "explain": "波士顿医生与扎伊尔医生买同一台示波器却无从交流，分属两个市场；同城医生与声呐工程师亦然。购买相同不等于同一市场，能否互相参考才是分界。"
+   "point": "市场的边界取决于客户之间会不会互相参考。",
+   "explain": "同一款示波器卖给波士顿医生和扎伊尔医生，两人无法互相交流，就是两个市场；卖给波士顿医生和隔壁声呐工程师，也是两个市场。证明互相参考是划分市场的关键条件。",
+   "caseTitle": "示波器卖给谁",
+   "importance": 3
+  },
+  {
+   "point": "远见者追求根本性突破，而非渐进改进。",
+   "explain": "Salesforce.com尚无其他大企业客户时，美林的McMahon就承诺让一万人使用其云端系统，冒大险押注未经验证的技术，正是远见者为突破而非改进买单。",
+   "caseTitle": "Salesforce.com大单",
+   "importance": 3,
+   "core": "Visionaries are not looking for an improvement; they are looking for a fundamental breakthrough.",
+   "case": "To give additional examples specific to high tech, when Harry McMahon at Merrill Lynch committed to put ten thousand people on Salesforce.com’s cloud-based sales force automation system at a time when that vendor had no other large enterprise customer, he was acting as a visionary."
+  },
+  {
+   "point": "实用主义者认可后会形成标准，带来销售与研发杠杆。",
+   "explain": "Salesforce.com从行业颠覆者变成事实标准后，销售成本大幅下降，支持客户的增量研发杠杆大幅上升，说明赢得实用主义者能带来规模效益。",
+   "caseTitle": "Salesforce.com成标准",
+   "importance": 2,
+   "core": "Pragmatists tend to be “vertically” oriented, meaning that they communicate more with others like themselves within their own industry than do technology enthusiasts and early adopters, who are more likely to communicate “horizontally” across industry boundaries in search of kindred spirits.",
+   "case": "At one time Salesforce.com was the disrupter in the sales force automation industry. Now it has become the de facto standard. When this happens, the cost of sales goes way down, and the leverage on incremental R&D to support any given customer goes way up. That’s one of the reasons pragmatists make such a great market."
+  },
+  {
+   "point": "技术爱好者是启动早期市场的引火物。",
+   "explain": "3M发明Post-it的人把便签放在秘书桌上，部分秘书试用后成为拥趸，成为让产品创意存活下来的早期关键力量，印证爱好者帮助点火。",
+   "caseTitle": "Post-it便签推广",
+   "importance": 2,
+   "core": "Enthusiasts are like kindling: They help start the fire. They need to be cherished for that.",
+   "case": "To give a prosaic example, in In Search of Excellence Tom Peters and Robert Waterman tell the story of the fellow at 3M who invented Post-it notes. He just put them on the desk of secretaries, and some of those secretaries just tried them to see if or how they would work. Those secretaries became Post-it note enthusiasts and were an early key in the campaign to keep the product idea alive."
+  },
+  {
+   "point": "向主流市场卖愿景而交付不足，会毁掉口碑。",
+   "explain": "Brickstream首代系统销售很成功，但实施困难、成本高、性能不达标，大量客户变成无法提供参考的账户，说明交付失败会切断口碑链。",
+   "caseTitle": "Brickstream转型",
+   "importance": 2,
+   "core": "If two people buy the same product for the same reason but have no way they could reference each other, they are not part of the same market.",
+   "case": "A company in the Mohr Davidow portfolio that did this brilliantly is Brickstream. Founded with artificial intelligence technology to extract information from video, it promised to give brick-and-mortar retailers the same kind of visibility into in-store traffic that e-tailers were getting from their clickstreams on the Web. Its first-generation systems were sold with great success, but implementation proved to be a bear, costs remained stubbornly and unacceptably high, and performance fell embarrassingly short. All those great sales turned into unreferenceable accounts, and it was dark days indeed."
+  },
+  {
+   "point": "把服务转化为良好用户体验可同时吸引多类客户。",
+   "explain": "iPad既让技术爱好者和远见者觉得酷，又让实用主义者看到零培训成本、保守者看到无需培训，一个产品同时打动多个采用群体。",
+   "caseTitle": "iPad跨群体吸引力",
+   "importance": 1,
+   "core": "By contrast, when vendors address the second goal of making the service yield an improved user experience, then there are smiles all around.",
+   "case": "The Apple iPad is a wonderful example here, for it appeals not only to technology enthusiasts and visionaries (“It is just so cool!”), but equally so to pragmatists (“No training costs!”) and to conservatives (“No training, period!”). When you watch a toddler playing with one, you realize just how far we have come from control-alt-delete."
+  },
+  {
+   "point": "主流市场后期靠整合维持稳定，创新发生转移。",
+   "explain": "Oracle在收购PeopleSoft后开启企业IT整合阶段，此类整合意在守成而非创新，创新并未停止而是转移了位置。",
+   "caseTitle": "Oracle并购整合",
+   "importance": 1,
+   "core": "Such consolidations are designed to conserve rather than to innovate. It is not that innovation has ceased but rather that it has relocated.",
+   "case": "This is the game that Oracle has played masterfully in the first decade of the twenty-first century. After several decades of relying primarily on organic R&D to build out its portfolio of enterprise IT software, it changed the game when it made an unsolicited (and undesired) bid for PeopleSoft. When that acquisition finally closed, it inaugurated a new phase in enterprise IT, one of consolidation very much along the lines seen in earlier times for railroads, airlines, accounting firms, and more recently, banks."
   }
  ],
  "3 - The D-Day Analogy": [
   {
-   "point": "把压倒性资源集中到一个狭小细分市场，才能赢得实用主义者。",
    "core": "The key to the Normandy advantage, what allows the fledgling enterprise to win over pragmatist customers in advance of broader market acceptance, is focusing an overabundance of support into a confined market niche.",
-   "caseTitle": "Documentum 聚焦药企",
    "case": "In a year Documentum had demonstrated that it could solve this problem, and some thirty of the top forty pharmaceutical companies had committed to its solution. That is what drove its sales to $8 million and then to $25 million. But the revenue subsequent to that came from the bowling-pin effect of niche marketing.",
-   "explain": "Documentum 聚焦药企法规事务这一窄小滩头，一年内拿下前40大药企中的约30家，营收从200万冲到800万、2500万美元，证明集中资源于细分市场能赢得实用主义者并产生保龄球效应。"
+   "point": "把压倒性资源集中到一个狭小细分市场，才能赢得实用主义者。",
+   "explain": "Documentum 聚焦药企法规事务部门，一年内前40大药企中约30家采用，营收从200万冲到800万、2500万美元，证明集中资源于窄小滩头能赢得实用主义者并跨越鸿沟。",
+   "caseTitle": "Documentum 聚焦药企",
+   "importance": 3
+  },
+  {
+   "point": "不聚焦细分市场、试图直接跨越鸿沟是致命错误。",
+   "explain": "Webvan、Solyndra、Better Place 烧掉数亿美元风投却彻底失败，反证不采用细分市场策略跨越鸿沟如同没有引火物却想生火，代价极其昂贵。",
+   "caseTitle": "Webvan等烧钱失败",
+   "importance": 2,
+   "core": "Trying to cross the chasm without taking a niche market approach is like trying to light a fire without kindling.",
+   "case": "When companies like Webvan, Solyndra, and Better Place burned their way through hundreds of millions of dollars in venture capital to absolutely no avail, this represented a very expensive lesson in scouting."
   }
  ],
  "4 - Target the Point of Attack": [
   {
-   "point": "目标客户场景要写清用户卡在哪里，以及给买单人带来的经济后果。",
    "core": "The idea here is to describe a situation in which the user is stuck, with significant consequences for the economic buyer.",
-   "caseTitle": "室内设计师找灯具",
    "case": "David’s client is not happy, which means David is not happy. It looks like they are going to end up having to settle for something that is okay but not “perfect,” thereby undermining David’s fundamental brand promise and the client’s confidence in his ability to deliver on it. Moreover, the wholesaler who gets the business does not achieve the kind of customer loyalty he wants from David because he too is part of this chain of compromise as well.",
-   "explain": "设计师David因客户不满而受损，品牌承诺与客户信任双双动摇，连分销商也难获忠诚——具体呈现了用户困境如何传导为经济后果。"
+   "point": "目标客户场景要写清用户卡在哪里，以及给买单人带来的经济后果。",
+   "explain": "室内设计师David的案例中，客户不满意导致David品牌承诺受损，且批发商无法获得客户忠诚，具体展示了用户困境如何转化为经济后果。",
+   "caseTitle": "室内设计师找灯具",
+   "importance": 3
+  },
+  {
+   "point": "选择攻击点时要避免与已占据市场的竞争对手正面冲突。",
+   "explain": "HP的Dick Hackborn用“Never attack a fortified hill”强调，若对手已跨越鸿沟并占据目标市场，就不应正面进攻，这直接对应否决项“是否已有对手抢先占领”。",
+   "caseTitle": "HP激光打印机战略",
+   "importance": 2,
+   "core": "Has this problem already been addressed by another company such that they have crossed the chasm ahead of us and occupied the space we would be targeting?",
+   "case": "Dick Hackborn, the HP executive who led the move into laser printers, had a favorite saying: “Never attack a fortified hill.”"
+  },
+  {
+   "point": "细分市场规模要适中：大到足以重要，小到足以领先。",
+   "explain": "案例用1000万美元收入目标中500万来自目标细分市场，说明细分市场必须足够大以支撑收入，又足够小使你能取得领先地位。",
+   "caseTitle": "收入目标与细分市场规模",
+   "importance": 2,
+   "core": "Big enough to matter, small enough to lead, good fit with your crown jewels.",
+   "case": "Suppose you can get half of next year’s orders from the target segment—no mean feat considering that, prior to a couple of days ago, you hadn’t focused on it at all. Say your revenue target is $10 million over all. That means $5 million from the target segment."
+  },
+  {
+   "point": "用九个因素系统评估目标市场，包括目标客户、购买理由、整体产品等。",
+   "explain": "该清单列出了目标客户、 compelling reason to buy、whole product等九个评估项，为“四个否决项+五个加分项”的打分表提供了具体框架。",
+   "caseTitle": "市场开发策略清单",
+   "importance": 2,
+   "core": "The idea here is to describe a situation in which the user is stuck, with significant consequences for the economic buyer.",
+   "case": "This list consists of a set of issues around which go-to-market plans are built, each of which incorporates a chasm-crossing factor, as follows: • Target customer • Compelling reason to buy • Whole product • Partners and allies • Distribution • Pricing • Competition • Positioning • Next target customer"
   }
  ],
  "5 - Assemble the Invasion Force": [
   {
-   "point": "实用主义者评估和购买的是完整产品，而不只是核心产品。",
    "core": "To net this out: Pragmatists evaluate and buy whole products.",
-   "caseTitle": "Infusionsoft 免掉上手费",
    "case": "In conjunction with these forays it also tried an experiment that failed. Instead of charging customers what had been a hefty up-front fee to get them up and running, it waived the fee entirely, thereby vastly increasing the number of prospects willing to sign up. Unfortunately, a large number of those same customers churned out after a short period. Painful as that was, it taught an important lesson about the whole product: Onboarding, both for technical and for business process reengineering reasons, had to be carefully supervised.",
-   "explain": "Infusionsoft免掉上手费后注册量激增，但客户很快流失；这说明缺少上手服务这一完整产品要素，客户无法真正用好产品，实用主义者要的是完整可用的方案。"
+   "point": "实用主义者评估和购买的是完整产品，而不只是核心产品。",
+   "explain": "Infusionsoft免掉上手费后注册量激增，但大量客户短期流失，说明缺少上手服务这一完整产品要素，客户无法真正用起来。",
+   "caseTitle": "Infusionsoft 免掉上手费",
+   "importance": 3
+  },
+  {
+   "point": "一个目标客户场景会牵出一整串完整产品承诺。",
+   "explain": "3D打印案例中，从扫描图纸、转CAD文件到行业标准格式，每个环节都是隐含承诺，产品经理须逐项落实，少一项客户就受阻。",
+   "caseTitle": "3D打印机的完整产品",
+   "importance": 3,
+   "core": "To net this out: Pragmatists evaluate and buy whole products.",
+   "case": "• The wholesaler works with a freelance designer who is able to scan David’s drawing and convert it into a CAD file. The implication is that there is an industry-standard file format for such designs, perhaps one coming from AutoCAD, sufficiently ubiquitous that its presence can be taken for granted."
+  },
+  {
+   "point": "用完整产品包围颠覆性核心，端到端解决目标客户问题。",
+   "explain": "Aruba以校园BYOD场景为目标，不只卖接入点，而是提供随处可用的网络服务，用完整产品赢得细分市场。",
+   "caseTitle": "Aruba对抗思科",
+   "importance": 2,
+   "core": "Surround your disruptive core product, the thing that got you to the dance, with a whole product that solves for the target customer’s problem end to end.",
+   "case": "For Aruba, applying this rule led them to the U.S. college and university market. At the time more and more students were coming to college with laptops. Arguably this was the first BYOD (bring-your-own-device) market segment, and as such it wanted networking services available everywhere, not just through a cable into a dorm room."
+  },
+  {
+   "point": "在新市场通过扩展核心产品构建完整产品，满足主流客户。",
+   "explain": "Lithium在问答网站核心外扩展评分与声望机制，同时服务企业客户和终端消费者，形成完整产品。",
+   "caseTitle": "Lithium客户支持社区",
+   "importance": 2,
+   "core": "By extending their core product to create a whole product, Lithium was meeting the needs both of their immediate target customers—consumer tech companies—and their customers’ customers, the consumers themselves needing help and the technology enthusiasts looking to share their expertise.",
+   "case": "The core product here is a branded website that lets customers both ask and answer questions, lets them rate the quality of the answers, which over time allows the best answerers to emerge, garnering these providers the highest status awards."
+  },
+  {
+   "point": "围绕特定目标市场的完整产品联盟，比泛泛结盟更可持续。",
+   "explain": "Infusionsoft建立认证顾问培训计划，两百多名顾问不在 payroll 上，却带来过半新客户，联盟因完整产品而稳固。",
+   "caseTitle": "Infusionsoft认证顾问",
+   "importance": 2,
+   "core": "While strategic partnerships often struggle mightily to sustain their engagement and maintain their relevance, whole product partnerships built around whole products for specific target markets with compelling reasons to buy do not.",
+   "case": "This led the company to create a training and certification program that in the past two years has graduated more than two hundred Infusionsoft Certified Consultants, not one of whom is on the company’s payroll. Moreover, because each hand washes the other, these same consultants are a strong source of referrals, driving more than half of the company’s new customer enrollments in the most recent fiscal year."
+  },
+  {
+   "point": "专业化产品通过干净接口接入现有系统，形成完整产品生态。",
+   "explain": "Rocket Fuel为广告交易平台和代理机构构建清晰接口，让各方系统互通，借他人之力补全自身产品。",
+   "caseTitle": "Rocket Fuel的沉默伙伴",
+   "importance": 1,
+   "core": "If you want to go fast, go alone; if you want to go far, go with others.",
+   "case": "The key tactic here is to build very clean interfaces for accessing other systems and letting them access you—whether they be computer systems like digital ad exchanges, where publishers can put their inventory and advertisers can bid on it in real time, or whether they be industry participants like ad agencies and media buyers, who have big budgets they need to put to work effectively and efficiently."
+  },
+  {
+   "point": "需要行业级协调时，可自上而下组建联盟构建完整产品。",
+   "explain": "Mozilla锁定下一个二十亿用户，拉拢Telefonica和Deutsche Telekom两大运营商出资，以联盟补齐低成本平台所需资源。",
+   "caseTitle": "Mozilla移动浏览器联盟",
+   "importance": 1,
+   "core": "To net this out: Pragmatists evaluate and buy whole products.",
+   "case": "1. Targeted the “next two billion” Web users, embracing the constraint that they would not be able to afford anything more than free open-source software, but who would be willing to accept a product optimized for price/performance as opposed to the latest features, and who would require a hyper-low-cost platform, which they had the technology to deliver. 2. Recruited two key mobile operators—Telefonica and Deutsche Telekom—to anchor this effort because, as their CEO at the time, Gary Kovacs, put it, “They write the checks.”"
   }
  ],
  "6 - Define the Battle": [
   {
-   "point": "实用主义者要能比较才肯买，所以要主动创造竞争。",
    "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
-   "caseTitle": "Box 夹在两者之间",
    "case": "The challenge Box faced was that enterprises already had a widely proliferated solution for end-user file sharing called SharePoint from Microsoft. At the same time Dropbox was a better-known brand with an established consumer appeal. How could Box win here? Actually, it turns out this is the perfect positioning situation. SharePoint represented the viable market alternative while Dropbox represented the viable product alternative. All Box had to do was position itself at the intersection—Dropbox’s ease of use meets SharePoint’s enterprise standards. Best of both worlds.",
-   "explain": "Box 把 SharePoint 当作市场替代者（对应企业文件共享预算），把 Dropbox 当作产品替代者（对应易用性差异化），定位在两者交叉点，让企业客户有参照可比，从而愿意购买。"
+   "point": "实用主义者要能比较才肯买，所以要主动创造竞争。",
+   "explain": "Box 以 SharePoint 为市场替代者、Dropbox 为产品替代者，定位在两者交叉点，让客户能比较并做出购买决定。",
+   "caseTitle": "Box 夹在两者之间",
+   "importance": 3
+  },
+  {
+   "point": "创造竞争是进入主流市场最重要的营销沟通决策。",
+   "explain": "Box 通过明确市场替代者（SharePoint）和产品替代者（Dropbox），在两者交叉点定位，创建了可比较的竞争格局。",
+   "caseTitle": "Box定位",
+   "importance": 3,
+   "core": "Creating the competition is the single most important marketing communication decision made in the battle to enter the mainstream.",
+   "case": "All Box had to do was position itself at the intersection—Dropbox’s ease of use meets SharePoint’s enterprise standards. Best of both worlds."
+  },
+  {
+   "point": "用市场替代者说明预算来源，用产品替代者说明技术差异。",
+   "explain": "WorkDay 以 PeopleSoft 为市场替代者争夺预算，以 Salesforce 为产品替代者突出 SaaS 差异化，清晰传达价值主张。",
+   "caseTitle": "WorkDay定位",
+   "importance": 2,
+   "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+   "case": "Well, the market already knew them as the founders of PeopleSoft, so they just used that very product as their market alternative. And for their product alternative, they picked the hottest SaaS company on the planet, Marc Benioff’s Salesforce.com."
+  },
+  {
+   "point": "缺乏竞争参照会让新技术在跨越鸿沟时孤立无援。",
+   "explain": "Segway 没有市场替代者和产品替代者，客户无法比较，难以跨越鸿沟。",
+   "caseTitle": "Segway失败",
+   "importance": 2,
+   "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+   "case": "Segway was all by itself, and that is not a good place to be when you are trying to cross the chasm."
+  },
+  {
+   "point": "没有可重新分配预算的市场替代者，定位难以成立。",
+   "explain": "Better Place 只有类比而没有真正的市场替代者，找不到可争夺的预算，导致失败。",
+   "caseTitle": "Better Place失败",
+   "importance": 2,
+   "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+   "case": "But it had no market alternative. Public transportation, Zipcars, cell phones—they were all analogies. There was no budget to repurpose anywhere."
+  },
+  {
+   "point": "定位主张要通过电梯测试，聚焦目标客户与差异化。",
+   "explain": "Verinata 用固定句式明确面向高龄孕妇、提供无创产前检测，并强调市场最准确，通过电梯测试。",
+   "caseTitle": "Verinata电梯测试",
+   "importance": 2,
+   "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+   "case": "• For older pregnant mothers and others\n• Who want an alternative to amniocentesis to screen for Down syndrome\n• Verinata provides a genetic analysis of fetal DNA\n• That does not involve inserting a needle into the womb.\n• Unlike other genetic tests for fetal abnormalities,\n• The Verinata test is the most accurate on the market."
+  },
+  {
+   "point": "定位要明确与市场领导者的差异，并突出完整产品要素。",
+   "explain": "HANA 电梯测试明确面向在线零售商，与 Oracle 不同，无需维护两套环境，突出差异化与完整产品优势。",
+   "caseTitle": "HANA电梯测试",
+   "importance": 2,
+   "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+   "case": "• For online retailers and others\n• Who want to better assist their customer agents to upsell and cross-sell consumers during their purchasing transactions,\n• HANA is a database for online transaction processing\n• That supports applying analytics in real time to determine the very best offer to make.\n• Unlike database solutions from Oracle, the market leader,\n• HANA does not require melding and maintaining two separate environments for transaction processing and analytics."
   }
  ],
  "7 - Launch the Invasion": [
   {
-   "point": "价格点决定长期分销渠道与销售方式的选择。",
    "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
-   "caseTitle": "一千万收入要几笔单",
    "case": "Suppose the target were $10 million, which if it came from a single beachhead segment is a reasonable revenue stream to suggest you have successfully crossed the chasm. In an OEM model fulfilled through two-tier distribution, that could be the result of just one or two big design wins. In a direct sales model, it is probably more like twenty to forty transactions, with half of it coming from perhaps the top five. In a Sales 2.0 model, you would probably multiply that by ten—say, 200 to 400 transactions.",
-   "explain": "同样1000万美元收入，OEM两级分销只需一两笔大单，直销需二三十笔，Sales 2.0则需数百笔，说明价格与渠道必须匹配。"
+   "point": "价格点决定长期分销渠道与销售方式的选择。",
+   "explain": "案例用1000万美元收入目标说明：OEM模式只需1-2个大单，直销需20-40笔交易，Sales 2.0则需200-400笔，证明价格点直接决定渠道类型与交易规模。",
+   "caseTitle": "一千万收入要几笔单",
+   "importance": 3
+  },
+  {
+   "point": "跨越鸿沟的首要目标是获得主流客户认可的渠道。",
+   "explain": "Salesforce、VMware、WorkDay通过直销渠道成功跨越鸿沟并实现高速增长，证明直销是务实主义主流客户能接受的渠道，能帮助企业跨越鸿沟。",
+   "caseTitle": "Salesforce等直销跨越鸿沟",
+   "importance": 3,
+   "core": "The number-one corporate objective, when crossing the chasm, is to secure a distribution channel into the mainstream market, one with which the pragmatist customer will be comfortable.",
+   "case": "Companies that have leveraged the direct sales approach to cross the chasm and achieve meteoric growth beyond it include Salesforce.com, VMware, and WorkDay."
+  },
+  {
+   "point": "个人用户市场适合基于Web的自助服务模式。",
+   "explain": "Skype、Yammer、Prezi成功运用四个齿轮（数字消费模式），说明面向终端用户的Web自助服务模式能有效覆盖个人用户市场。",
+   "caseTitle": "Skype等数字消费四齿轮",
+   "importance": 2,
+   "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
+   "case": "Companies who have managed these four gears to a successful outcome include the Internet communications company Skype, the enterprise collaboration company Yammer, and next-generation presentation company Prezi."
+  },
+  {
+   "point": "部门负责人市场适合Sales 2.0数字直销模式。",
+   "explain": "Intacct、IntApp、Rackspace、Box成功采用Sales 2.0模式，证明该轻量级销售与线上结合的方式能有效服务部门经理买家。",
+   "caseTitle": "Intacct等Sales 2.0公司",
+   "importance": 2,
+   "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
+   "case": "Companies that have succeeded with this model include the accounting software vendor Intacct, the legal software application vendor IntApp, the cloud computing vendor Rackspace, and the collaboration software vendor Box."
+  },
+  {
+   "point": "工程师市场首选传统两级分销渠道。",
+   "explain": "Intel、Broadcom、NVIDIA通过Avnet、Arrow、Tech Data等分销商销售芯片，证明设计工程师客户依赖传统两级分销体系。",
+   "caseTitle": "Intel等两级分销",
+   "importance": 2,
+   "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
+   "case": "Anchored by distributors like Avnet, Arrow Electronics, and Tech Data, it is the channel of choice for companies like Intel, Broadcom, and NVIDIA, all three of whom make silicon components for smart devices."
+  },
+  {
+   "point": "小企业主市场依赖增值经销商（VAR）模式。",
+   "explain": "Infusionsoft、Bill.com、Intuit成功运用VAR模式，其中后两家以注册会计师为主要VAR资源，证明小企业主客户依赖增值经销商。",
+   "caseTitle": "Intuit等VAR模式",
+   "importance": 2,
+   "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
+   "case": "Companies that have had success with this model include small-business-CRM SaaS-provider Infusionsoft, online bill payer Bill.com, and Intuit, the latter two companies leveraging CPAs as their primary VAR resource."
   }
  ],
  "Conclusion: Leaving the Chasm Behind": [
   {
-   "point": "鸿沟之前许下的承诺，会束缚鸿沟之后的企业。",
    "core": "The fundamental lesson of this chapter is a simple one: The post-chasm enterprise is bound by the commitments made by the pre-chasm enterprise.",
-   "caseTitle": "押注曲棍球棒曲线",
    "case": "The staircase model is perfectly viable—unless you have mortgaged your stake in the company on making the hockey stick scenario come true. That, unfortunately, is precisely what most high-tech funding plans commit to. And when the hockey stick scenario does not come true, and the mortgage comes due, the founder’s equity gets radically diluted, things fall apart, and the company dies in the chasm.",
-   "explain": "企业以曲棍球棒式增长预测融资，鸿沟期收入未兑现时抵押到期，创始人股权被稀释，公司死在鸿沟里，正说明前期承诺反噬后期企业。"
+   "point": "鸿沟之前许下的承诺，会束缚鸿沟之后的企业。",
+   "explain": "融资时押注曲棍球棒曲线，一旦增长未兑现，创始人股权被稀释，公司死在鸿沟里。",
+   "caseTitle": "押注曲棍球棒曲线",
+   "importance": 3
+  },
+  {
+   "point": "真实的收入增长是台阶式的，而非曲棍球棒式。",
+   "explain": "阶梯模型显示早期快速增长后有一段鸿沟停滞期，再迎来主流市场增长，与曲棍球棒预测截然不同。",
+   "caseTitle": "阶梯式收入曲线",
+   "importance": 3,
+   "core": "The fundamental lesson of this chapter is a simple one: The post-chasm enterprise is bound by the commitments made by the pre-chasm enterprise.",
+   "case": "But in fact, the revenue development that actually occurs looks more like a staircase than a hockey stick. That is, there is an initial period of rapid revenue growth, representing the development of the early market, followed by a period of slow to no growth (the chasm period), followed by a second phase of rapid growth, representing return on one’s initial mainstream market development."
+  },
+  {
+   "point": "创业者用曲棍球棒图融资，承诺了无法兑现的增长。",
+   "explain": "商业计划刻意推迟收入出现，随后描绘急剧拐点和奇迹般增长，这种承诺在鸿沟期变成负担。",
+   "caseTitle": "曲棍球杆预测",
+   "importance": 2,
+   "core": "The post-chasm enterprise is bound by the commitments made by the pre-chasm enterprise.",
+   "case": "And so entrepreneurs raise capital using “hockey stick” graphs of revenue attainment. That is, they bring forward a business plan that shows no revenue development for some period of time—as long as they possibly can defer—after which there is a sharp inflection in the curve, and rapid, continuous, and what any sane person would call miraculous revenue growth from there on."
+  },
+  {
+   "point": "整体产品生命周期依然长久，值得持续投入。",
+   "explain": "Photoshop和Mac的产品寿命证明，关注完整产品而非短命创新能带来持久回报。",
+   "caseTitle": "Adobe与苹果产品寿命",
+   "importance": 2,
+   "core": "The fundamental lesson of this chapter is a simple one: The post-chasm enterprise is bound by the commitments made by the pre-chasm enterprise.",
+   "case": "Product life cycles truly are getting shorter—but whole product life cycles are as long as they ever were. Ask Adobe about Photoshop or Apple about the Mac."
   }
  ],
  "Appendix 2: The Four Gears Model for Digital Consumer Adoption": [
   {
-   "point": "变现会拖慢其他齿轮，消费互联网往往先普及、后赚钱。",
    "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
-   "caseTitle": "先被收购再变现",
    "case": "Most of the great consumer Internet successes in the first decade of this century followed this approach, introducing the monetization gear very late in the game, in some cases not until after they had sold themselves to a monetization engine (YouTube to Google, Instagram to Facebook, Tumblr to Yahoo!).",
-   "explain": "YouTube、Instagram、Tumblr 都在用户规模做大后才引入变现，有的直到被收购才接入变现引擎，印证变现齿轮应放在后期。"
+   "point": "变现会拖慢其他齿轮，消费互联网往往先普及、后赚钱。",
+   "explain": "YouTube、Instagram等先做大用户规模，很晚才引入变现，甚至通过被收购接入变现引擎，证明推迟变现有利于其他齿轮运转。",
+   "caseTitle": "先被收购再变现",
+   "importance": 3
+  },
+  {
+   "point": "招募忠实用户的核心是让用户认同你的信念。",
+   "explain": "西蒙·斯涅克在TED演讲中指出，创新公司的目标不是服务需要产品的顾客，而是服务相信你所相信的顾客，这解释了如何发动忠实用户齿轮。",
+   "caseTitle": "西蒙·斯涅克的TED演讲",
+   "importance": 2,
+   "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+   "case": "This is why Simon Sinek says in his much-viewed TED talk on innovation that the goal of an innovative company is not to do business with customers who need what you have (which is indeed the goal of most established enterprises, and should be) but rather to do business with customers who believe what you believe"
+  },
+  {
+   "point": "最高程度的招募表现为用户主动推荐。",
+   "explain": "NPS评分9或10对应“我一定会推荐给朋友”，具体量化了传道行为，说明忠实用户会主动传播。",
+   "caseTitle": "NPS评分与推荐意愿",
+   "importance": 2,
+   "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+   "case": "Think of this as the equivalent to an NPS (Net Promoter Score) of 9 or 10 (“I would definitely recommend this to a friend”)."
+  },
+  {
+   "point": "招募度极低会导致反宣传，损害消费营销。",
+   "explain": "纪录片《超级汉堡王》引发对麦当劳的负面传播，说明当用户招募度处于最低端时，会产生反宣传，对品牌极为不利。",
+   "caseTitle": "《超级汉堡王》纪录片",
+   "importance": 1,
+   "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+   "case": "Indeed, at the bottom of the range, it likely indicates counterevangelism, which is about as bad as it gets in consumer marketing, as in the 2004 film about McDonald’s, Super Size Me."
+  },
+  {
+   "point": "较低程度的招募能确保留存，但不驱动病毒传播。",
+   "explain": "喜力与贝克无醇啤酒的例子说明，品牌偏好能让用户持续购买，但用户不会主动宣传，因此无法放大口碑。",
+   "caseTitle": "喜力与贝克无醇啤酒",
+   "importance": 1,
+   "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+   "case": "This is equivalent to an entrenched brand preference—when I buy beer it is Heineken or Beck’s Non-Alcoholic. I don’t evangelize either brand, but they always get my business."
+  },
+  {
+   "point": "即使过了临界点，仍可能因重大失误而失败。",
+   "explain": "Myspace和Groupon的投资者遭遇失败，说明跨越鸿沟后并非一劳永逸，重大失误仍可导致失败。",
+   "caseTitle": "Myspace与Groupon的失误",
+   "importance": 1,
+   "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+   "case": "You can still screw this up (just ask the investors at Myspace or Groupon), but it takes some real effort to do so."
   }
  ]
 }

@@ -1,169 +1,476 @@
 {
  "Read This First": [
   {
-   "point": "文档不等于共享理解，书面指令常被不同人做出不同解读",
-   "explain": "顾客写下“So long, Alicia”并加星星，蛋糕师却按字面做出完全偏离意图的成品，说明文字交接天然失真，写得再清楚也不代表对方理解一致。",
-   "caseTitle": "蛋糕装饰误解",
    "core": "Shared documents aren’t shared understanding.",
-   "case": "Customer: Hello, I’d like to order a cake.\nEmployee: Sure, what would you like written on it?\nCustomer: Could you write “So long, Alicia” in purple?\nEmployee: Sure.\nCustomer: And put stars around it?\nEmployee: No problem. I’ve written this up, and will hand it to my cake decorator right away. We’ll have it for you in the morning.\nThis is the result:"
+   "case": "Customer: Hello, I’d like to order a cake.\nEmployee: Sure, what would you like written on it?\nCustomer: Could you write “So long, Alicia” in purple?\nEmployee: Sure.\nCustomer: And put stars around it?\nEmployee: No problem. I’ve written this up, and will hand it to my cake decorator right away. We’ll have it for you in the morning.\nThis is the result:",
+   "point": "文档不等于共享理解，书面指令常被不同人做出不同解读",
+   "explain": "顾客要求紫色字、加星星，店员逐条记下交给装饰师，结果却完全走样——书面记录被不同人按各自理解执行。",
+   "caseTitle": "蛋糕装饰误解",
+   "importance": 3
+  },
+  {
+   "point": "文档再多也不等于共享理解，缺乏共识会酿成大错",
+   "explain": "NASA 项目堆满需求文档，却因公制与英制未达成共识，1.25亿美元探测器坠毁，证明文档无法替代对齐。",
+   "caseTitle": "火星气候探测器坠毁",
+   "importance": 3,
+   "core": "Shared documents aren’t shared understanding.",
+   "case": "You’ve probably heard the story about the 1999 crash of a $125 million NASA Mars Climate Orbiter.[1] OK, maybe you haven’t. But here’s the punch line. If any project is sunk up to its eyeballs in requirements and written documentation, it’s a NASA project. However, despite all the filing cabinets full of requirements and documentation, the orbiter crashed because while NASA used the metric system for its measurements, members of the Lockheed Martin engineering team used the old imperial measurement system to develop navigation commands for the vehicle’s thrusters."
   }
  ],
  "1. The Big Picture": [
   {
-   "point": "把故事按顺序铺成地图，能暴露思路里的漏洞",
    "core": "Mapping your story helps you find holes in your thinking.",
-   "caseTitle": "Mad Mimi 白做的软件",
    "case": "The sad part of this story is that I asked Gary, “You’ve been building a lot of software so far, but how much of the software you’ve built is on this map we’ve created?” “Nearly none of it,” Gary replied, “because when I built a list and prioritized things, I sort of assumed we needed to start somewhere else. I was thinking about the whole big vision of this thing, the vision that would have taken me years to reach, and now that we’ve had this discussion I wouldn’t have started there at all.”",
-   "explain": "Gary 用扁平列表排优先级，结果已建软件几乎都不在故事地图上；铺开地图后他才发现起点选错，避免了继续沿错误方向投入。"
+   "point": "把故事按顺序铺成地图，能暴露思路里的漏洞",
+   "explain": "Gary 按扁平列表开发，故事地图铺开后发现几乎没做对地方，暴露了优先级和方向上的思维漏洞。",
+   "caseTitle": "Mad Mimi 白做的软件",
+   "importance": 3
+  },
+  {
+   "point": "扁平待办列表逐项开发会失去全局视角，浪费资源",
+   "explain": "Gary 按列表逐项开发，软件慢慢成形却与愿景差距大，现金耗尽，说明扁平列表导致全局缺失。",
+   "caseTitle": "Gary与扁平待办列表",
+   "importance": 3,
+   "core": "A common way to use stories is to build a list of them, prioritize them, and begin talking about them and then turning them into software one at a time. That sounds pretty reasonable when you hear about it. But it can create some big problems.",
+   "case": "Gary created his backlog and the development team started building things a bit at a time. In the meantime, Gary was hemorrhaging cash as he continued to pay for each piece of software that was built. The software was slowly taking shape, but Gary could tell it was going to take a lot longer for it to match his vision and he was going to run out of cash long before then."
+  },
+  {
+   "point": "故事地图通过对话和卡片可视化构建全局视角",
+   "explain": "作者与 Gary 用卡片在地板上铺开地图，边对话边组织，直观呈现整体故事结构。",
+   "caseTitle": "Gary的故事地图工作坊",
+   "importance": 2,
+   "core": "Story mapping is all about having a good old-fashioned conversation and then organizing it in the form of a map.",
+   "case": "We started by placing cards on a tabletop, but quickly ran out of space. Gary was moving offices the day I visited with him, and much of the furniture in the New York City loft where he was located was off the floor. So we moved our growing map of cards onto the floor."
+  },
+  {
+   "point": "故事地图帮助团队获得业务流程的全局理解",
+   "explain": "TLC 团队看到故事地图骨干后，首次清晰理解自身业务流程及各步骤如何交互。",
+   "caseTitle": "TLC的Phoenix项目",
+   "importance": 2,
+   "core": "Story maps are for breaking down big stories as you tell them.",
+   "case": "Up until I showed them this picture (the backbone of the story map), the team members each had an idea of what they did, but, as Alice the sponsor said, it was probably the first time they all had a clear picture of their own business process and how all the steps interacted."
   }
  ],
  "2. Plan to Build Less": [
   {
-   "point": "先想清楚系统之外希望发生什么，再决定系统之内做什么",
    "core": "Focus on what you hope will happen outside the system to make decisions about what’s inside the system.",
-   "caseTitle": "Globo.com 巴西大选",
    "case": "This wasn’t their first time facing down an impossible delivery date. They thought about it for a bit, and realized that they definitely needed to go live with the news website, and potentially some other things that supported it because that’s where visitors and others would go to monitor Brazilian elections. Focusing on the news website meant paying attention to innovative ways to show real-time election data and breaking news stories faster. And, of course, there was a newer, up-to-date visual design overlaying everything.",
-   "explain": "Globo.com 面对巴西大选截止日，先明确用户需要实时查看选举数据和突发新闻，再据此决定新闻网站及支持功能优先上线，而非盲目堆功能。"
+   "point": "先想清楚系统之外希望发生什么，再决定系统之内做什么",
+   "explain": "Globo.com 面对巴西大选截止日，先明确新闻网站是用户查看选举数据的关键，再据此决定实时数据展示、突发新闻和视觉设计等系统内工作。",
+   "caseTitle": "Globo.com 巴西大选",
+   "importance": 3
   },
   {
-   "point": "按目标成果切片发布，切出最小可行发布",
-   "explain": "团队用蓝色胶带在故事地图上横向切片，明确第一切片必须完成的事项，确保发布聚焦用户所需成果，而非全部功能。",
-   "caseTitle": "巴西大选切片发布",
    "core": "Focus on outcomes—what users need to do and see when the system comes out—and slice out releases that will get you those outcomes.",
-   "case": "The teams grabbed a roll of blue painter’s tape and stretched lines across the map left to right to make horizontal slices. They then went to work moving cards up and down, above and below the blue lines to designate which things needed to be done in the first slice, and which could be done later."
+   "case": "The teams grabbed a roll of blue painter’s tape and stretched lines across the map left to right to make horizontal slices. They then went to work moving cards up and down, above and below the blue lines to designate which things needed to be done in the first slice, and which could be done later.",
+   "point": "按目标成果切片发布，切出最小可行发布",
+   "explain": "团队用蓝色胶带在地图上划出水平切片，把卡片分到第一切片和后续，按用户所需成果切出增量发布。",
+   "caseTitle": "巴西大选切片发布",
+   "importance": 3
+  },
+  {
+   "point": "故事地图帮助多团队可视化依赖、形成共享理解",
+   "explain": "八个团队各自待办重组为一张墙上的故事地图，依赖关系一目了然，才能规划共同发布。",
+   "caseTitle": "Globo.com八团队共建地图",
+   "importance": 3,
+   "core": "Mapping Helps Big Groups Build Shared Understanding",
+   "case": "I sat down with them and reminded them of something they already knew: “I understand that you’re different teams because you’re focusing on different areas, but it’s a major revision of one content management system. You’ll have to release together. You can’t plan a release until you can see it all together. You’ve got to visualize all these dependencies.” They agreed and quickly went to work reorganizing their individual backlogs into a map. Within a few hours they built a map on the wall using sticky notes that told the story of their content management system."
   }
  ],
  "3. Plan to Learn Faster": [
   {
-   "point": "以学习为目标时，只构建验证假设所需的最少东西",
    "core": "If we recognize that our goal is to learn, then we can minimize what we build and focus on building only what we need to learn. If you’re doing this well, it means that what you build early may not be production ready.",
-   "caseTitle": "用内存数据库做实验",
    "case": "The riskiest part for me was making sure my product was right. So we built early versions of software using simple, in-memory databases. Of course, they wouldn’t scale, and we could never release our early versions to a large general audience. But our early minimum viable product experiments (we didn’t call them that then) allowed us to test ideas with a small subset of customers and still use real data.",
-   "explain": "团队用简单的内存数据库做早期版本，明知无法扩展、不能面向大众发布，却足以让小批客户用真实数据测试想法，正说明为学习而最小化构建、不必生产就绪。"
+   "point": "以学习为目标时，只构建验证假设所需的最少东西",
+   "explain": "用内存数据库做早期版本，明知无法扩展、不能面向大众发布，却能用真实数据在小批客户中验证想法，证明为学习而最小化构建。",
+   "caseTitle": "用内存数据库做实验",
+   "importance": 3
+  },
+  {
+   "point": "每次发布都当作实验，先构建低于最小的版本",
+   "explain": "Eric 团队首个目标不是最小可行产品，而是比最小更少、仅够用户做点有用的事，哪怕不惊艳甚至被讨厌，以此换取学习。",
+   "caseTitle": "Eric先构建低于最小可行产品",
+   "importance": 3,
+   "core": "Treat every release as an experiment and be mindful of what you want to learn.",
+   "case": "But their first goal isn't to build a minimum viable product. Actually, it's to build something less than minimal—just enough that potential users could do something useful with it. This is a product that wouldn't impress too many people, and they might even hate it."
+  },
+  {
+   "point": "用户口头说喜欢只是猜测，要用指标看真实使用",
+   "explain": "团队内置简单指标，测量人们是否真的在用软件、具体做了什么，用真实行为而非礼貌性反馈判断产品是否成立。",
+   "caseTitle": "Eric用指标验证真实使用",
+   "importance": 2,
+   "core": "The \"using it\" is the real outcome he wants, and polite isn't helping him.",
+   "case": "His team also built in some simple metrics so they could measure whether people were really using the software, and what they did in the software specifically."
   }
  ],
  "4. Plan to Finish on Time": [
   {
-   "point": "开发策略应尽早攻克可能打爆预算的高风险部分",
    "core": "When slicing out a development strategy, they’ll look to tackle the things that may blow their budget as early as possible. Those are the risky things. And it’s conversations with the whole team that help spot them.",
-   "caseTitle": "Workiva 行走骨架",
    "case": "The first slice cuts all the way through the functionality. Once they build all those pieces, they can see the functionality working from end to end. It wouldn’t work in all the situations it needs to, and if they shipped to users this way, those users would howl. But Mike and his team will be able to see the software running end to end. They’ll be able to put real data in it to see how well it performs, and they could apply some automated testing tools to it to see how well it scales. They can learn a lot about the technical risks that might cause them trouble later on.",
-   "explain": "Workiva 先构建贯穿全功能的行走骨架，端到端跑通并灌入真实数据，提前暴露性能与扩展等技术风险，避免后期才发现集成问题。"
+   "point": "开发策略应尽早攻克可能打爆预算的高风险部分",
+   "explain": "Workiva 先切出贯穿功能的行走骨架，端到端跑通并放入真实数据，从而尽早暴露性能、扩展等技术风险。",
+   "caseTitle": "Workiva 行走骨架",
+   "importance": 3
+  },
+  {
+   "point": "首发版本先做端到端的功能性行走骨架",
+   "explain": "第一切片贯穿全部功能，虽不完善却能让团队看到软件端到端运行，尽早发现集成与技术风险。",
+   "caseTitle": "Workiva三切片开发计划",
+   "importance": 3,
+   "core": "I call this first slice a functional walking skeleton—a term I borrowed from Alistair Cockburn.",
+   "case": "The first slice cuts all the way through the functionality. Once they build all those pieces, they can see the functionality working from end to end. It wouldn’t work in all the situations it needs to, and if they shipped to users this way, those users would howl. But Mike and his team will be able to see the software running end to end."
+  },
+  {
+   "point": "把估算当预算，按小片测量支出主动管理进度",
+   "explain": "团队每完成一小片就测量耗时并视作预算支出，发现已花一半时间却只完成三分之一时能及时调整。",
+   "caseTitle": "Mike的预算式估算管理",
+   "importance": 3,
+   "core": "He treats these early estimates as his delivery budget.",
+   "case": "With every small piece the team builds, they can measure how long that piece took to build. They treat what they’ve built as spending against their budget. They may find that they’re halfway through their budgeted time, but only a third of the way through building the feature. Certainly they didn’t expect that, but now they’re aware and they can do something about it."
   }
  ],
  "5. You Already Know How": [
   {
-   "point": "按一个具体结果横切地图，就能找出必需的任务",
    "core": "Use slices to identify all the tasks and details relevant to a specific outcome.",
-   "caseTitle": "快迟到的早晨",
    "case": "You’ll likely be left with just a few tasks in the top slice. Now go back through the flow and fill in tasks that are missing and that you would do if you were late. For example, you might normally take a shower, but when you’re late you instead add in tasks like “Splash water on face” or “Use a washcloth to wash the particularly stinky parts of my body.”",
-   "explain": "迟到时砍掉洗澡等非必需任务，换成“泼水洗脸”等替代任务，说明切片能筛出达成特定结果所必需的任务。"
+   "point": "按一个具体结果横切地图，就能找出必需的任务",
+   "explain": "以“快迟到了，几分钟内出门”为目标横切地图，筛出淋浴等非必需任务，并补充“往脸上泼水”等替代任务，证明切片能找出特定结果所需的任务。",
+   "caseTitle": "快迟到的早晨",
+   "importance": 3
+  },
+  {
+   "point": "用户任务是故事地图的基本构建块",
+   "explain": "作者以自己早晨醒来第一件事“按掉闹钟”为例，把日常步骤写成任务便签，说明故事地图由一个个用户任务作为基本单元构成。",
+   "caseTitle": "晨间故事地图练习",
+   "importance": 3,
+   "core": "User tasks are the basic building blocks of a story map.",
+   "case": "Close your eyes, and think back to the moment you woke up this morning. You did wake up this morning, right? What’s the first thing you recall doing? Now, open your eyes, and write it down on a sticky note. I’ll write along with you. My first sticky note says, “Hit snooze.” Unfortunately, it usually does. On bad mornings I may have to hit it two or three times."
   }
  ],
  "6. The Real Story About Stories": [
   {
-   "point": "故事的价值在面对面讨论，而非写文档",
-   "explain": "3C 把卡片、对话、确认串起来，强调只有聚在一起充分讨论、当场约定验收标准，才算真正在用故事，而非只写卡片。",
-   "caseTitle": "Ron Jeffries的3Cs",
    "core": "If you’re not getting together to have rich discussions about your stories, then you’re not really using stories.",
-   "case": "Card\nWrite what you’d like to see in the software on a bunch of index cards.\nConversation\nGet together and have a rich conversation about what software to build.\nConfirmation\nTogether agree on how you’ll confirm that the software is done."
+   "case": "Card\nWrite what you’d like to see in the software on a bunch of index cards.\nConversation\nGet together and have a rich conversation about what software to build.\nConfirmation\nTogether agree on how you’ll confirm that the software is done.",
+   "point": "故事的价值在面对面讨论，而非写文档",
+   "explain": "3C 把故事拆成卡片、对话、确认三步，其中“聚在一起充分对话”是核心；只写卡片不讨论，就没有真正用故事。",
+   "caseTitle": "Ron Jeffries的3Cs",
+   "importance": 3
   }
  ],
  "7. Telling Better Stories": [
   {
-   "point": "故事模板只是开启对话的引子，不能当规格说明",
    "core": "You can see that the very short template isn’t nearly enough to be the specification. But when we start a conversation using that template, we end up in a much richer conversation than if we’d just talked about a file uploader.",
-   "caseTitle": "乐队经理的照片在哪",
    "case": "“That makes sense. Where do people like band managers keep those photos?” “Well, they’re all over the place, really. They may be on their local hard drives, in Flickr accounts, or in other places on the Web.” “Hmm…that’s different than I was originally thinking. I assumed they’d just be on their hard drives.” “No, lots of the people we’ve talked to have them spread all over the place. It’s kind of a problem.”",
-   "explain": "团队用模板追问照片存放位置，才发现照片散落各处而非只在硬盘，暴露出模板之外的真实细节，说明模板只是对话起点，远不足以充当规格说明。"
+   "point": "故事模板只是开启对话的引子，不能当规格说明",
+   "explain": "团队用模板追问照片存放位置，发现照片散落各处而非只在本地硬盘，对话由此揭示真实需求，远超简短模板本身。",
+   "caseTitle": "乐队经理的照片在哪",
+   "importance": 3
+  },
+  {
+   "point": "模板不能取代思考，否则沦为模板僵尸",
+   "explain": "定义指出团队让工作被模板驱动、而非被交付产品所需的思考过程驱动，正是把填模板当成交付的典型失败。",
+   "caseTitle": "模板僵尸定义",
+   "importance": 3,
+   "core": "It doesn’t need to be written in a template to be considered a story.",
+   "case": "Template Zombie:\nThe project team allows its work to be driven by templates instead of by the thought process necessary to deliver products."
+  },
+  {
+   "point": "模板的作用是启动更丰富的对话",
+   "explain": "乐队经理上传图片这句模板本身信息有限，但它引出了关于谁、为什么的追问，从而开启真正有价值的对话。",
+   "caseTitle": "乐队经理上传图片对话",
+   "importance": 2,
+   "core": "But remember—it’s just a conversation starter.",
+   "case": "“As a band manager, I want to upload an image so that I can customize my promo flyer.”"
   }
  ],
  "8. It’s Not All on the Card": [
   {
-   "point": "工具要用对地方：跟踪工具不擅长建立共享理解",
    "core": "The trick is using the right tool for the right job. Don’t try to use a really great tracking tool to build shared understanding. And don’t struggle to do complex analysis on a whiteboard.",
-   "caseTitle": "Atlassian 的墙和 Wiki",
    "case": "When I walk around the Atlassian office in Sydney, I see the walls covered with sticky notes, whiteboard drawings, and screen wireframes. If you look closely, you’ll see that the sticky notes reference ticket numbers in those tools the team relies on. They nimbly move back and forth from tools to physical space. When Sherif shows me what they keep in Confluence, I’m amazed at the combination of photographs, short videos, and back-and-forth discussions.",
-   "explain": "Atlassian墙上贴满便签和线框图，便签标注工具中的工单号，团队在物理空间与工具间灵活切换，说明跟踪与理解各用其器。"
+   "point": "工具要用对地方：跟踪工具不擅长建立共享理解",
+   "explain": "Atlassian办公室墙面贴满便签并引用电子工单号，团队在物理空间与工具间灵活切换，证明跟踪与理解需不同工具。",
+   "caseTitle": "Atlassian 的墙和 Wiki",
+   "importance": 3
   }
  ],
  "9. The Card Is Just the Beginning": [
   {
-   "point": "敏捷中学习就是目的，要预期每张卡都会被修正",
    "core": "In a traditional process, learning gets referred to as scope creep or bad requirements. In an Agile process, learning is the purpose.",
-   "caseTitle": "Cockburn 的三张卡",
    "case": "Alistair replied, “Well, if you have to write something on them, then write what you want on the first card, and on the second card write ‘Fix the first card.’ Then on the third card, write ‘Fix the second one.’ If you aren’t going around this cycle three times for each story, you’re not learning.”",
-   "explain": "Cockburn 让三张卡依次写“修正上一张”，说明每个故事都要反复迭代三轮，学习本身就是目的，卡片必然被不断修正。"
+   "point": "敏捷中学习就是目的，要预期每张卡都会被修正",
+   "explain": "Cockburn 建议三张卡依次写“修正上一张”，说明故事需经三轮循环修正，学习本身就是目的而非范围蔓延。",
+   "caseTitle": "Cockburn 的三张卡",
+   "importance": 3
+  },
+  {
+   "point": "做完要坐到用户身边观察实际使用",
+   "explain": "团队把软件带到用户那里，不是演示，而是看用户用它完成真实目标，从而验证需求是否真正被满足。",
+   "caseTitle": "观察真实用户使用软件",
+   "importance": 3,
+   "core": "In a traditional process, learning gets referred to as scope creep or bad requirements. In an Agile process, learning is the purpose.",
+   "case": "If we’re on this team together and we’re smart, we’ll take the software out to users and test it with them. This isn’t show and tell, either. We’ll test by watching them use the software to reach a real goal they’ll normally need to accomplish using the software."
   }
  ],
  "11. Rock Breaking": [
   {
-   "point": "故事的合适大小取决于你正在进行哪种对话",
    "core": "I could say there’s no “right size” for stories, but that’s not true. The right size is the size that’s relevant to the conversation you’re having.",
-   "caseTitle": "Epic 被当成武器",
    "case": "It’s OK to have a term for a large story, but watch out. The term epic sometimes gets used as a weapon. I’ve often seen a development team member tell someone who is a businessperson, a product manager, a user, or someone who’s asking for something, that his story is an epic, not a story. This is usually said in a tone that indicates the storywriter has done something wrong, causing her to seriously consider sucker-punching the development team member.",
-   "explain": "开发人员把业务方的需求斥为“epic 而非故事”，说明同一块石头在业务、产品、研发各自对话里尺度不同；先确认对话尺度，才能避免各说各话。"
+   "point": "故事的合适大小取决于你正在进行哪种对话",
+   "explain": "用“epic被当武器”的案例说明：开发人员用“epic”指责需求提出者，破坏了协作对话，证明故事大小应视对话场景而定，而非固定标准。",
+   "caseTitle": "Epic 被当成武器",
+   "importance": 3
+  },
+  {
+   "point": "大故事可以逐层拆分成更小的故事",
+   "explain": "用砸石头比喻：大石头碎成30块仍叫石头，再砸碎还是石头，说明故事可以不断拆分，每一层都是故事。",
+   "caseTitle": "大石头砸成30块",
+   "importance": 3,
+   "core": "Big stories break down into smaller stories, and those smaller stories can be broken down to even smaller stories.",
+   "case": "If I were to take a really big rock and put it in the middle of the floor and hit it with a mallet where it broke into 30 pieces, we’d call those 30 pieces rocks. If you took one of those smaller rocks and hit it with a mallet, it would break into smaller pieces. We’d call those pieces rocks, too."
+  },
+  {
+   "point": "从开发团队视角，合适的故事是几天能构建和测试的",
+   "explain": "用Sydnie的蛋糕类比：蛋糕可切小块，但软件大小无法用物理单位衡量，说明故事需拆分到几天能完成的粒度。",
+   "caseTitle": "Sydnie的蛋糕",
+   "importance": 2,
+   "core": "A right-sized story from a development team’s perspective is one that takes just a few days to build and test.",
+   "case": "I ended the last chapter by talking about Sydnie’s cake and the idea of breaking big cakes into little cakes. But software is a lot less tangible, and size can’t be measured in inches, centimeters, ounces, or grams like it can with a cake."
+  },
+  {
+   "point": "主题用于归组相关故事，不必纠结术语",
+   "explain": "用袋子比喻主题：可收集相关故事，但同一故事可属多个主题而石头不能，说明主题是灵活归组工具。",
+   "caseTitle": "主题像装故事的袋子",
+   "importance": 2,
+   "core": "Use the term theme to describe a group of stories that it’s useful to group together.",
+   "case": "I think of a theme as a sack I can use to collect a pile of stories that are related. I could use a theme to collect a bunch of stories that are needed for a next release, part of the same feature, relevant to a particular type of user, or related in some other way. But my metaphor is slightly broken since the same story can be in two different themes, but the same rock can’t be in two different sacks."
+  },
+  {
+   "point": "故事工作坊用于讨论细节、拆分故事并达成共识",
+   "explain": "用机器比喻故事工作坊：输入大而粗糙的石头，输出适合开发的小石头，说明工作坊将大故事加工成可交付的小故事。",
+   "caseTitle": "故事工作坊机器",
+   "importance": 2,
+   "core": "Use deep-dive story workshops to discuss the details, break down stories, and really agree on specifically what we’ll build.",
+   "case": "I picture a cool rock-breaking machine: on one side I load these big, rough rocks that contain all those precious metals, and then the other side spits out small, just-right-sized rocks ready to go into the next development cycle. I’m going to label this machine the story workshop machine, and its name describes exactly what we’ll do."
+  },
+  {
+   "point": "通过用有意义的软件块与用户测试来学习",
+   "explain": "用天平比喻：累积到“足够”量才与用户测试学习，而非零散展示，说明应交付有意义的完整块以获取反馈。",
+   "caseTitle": "天平上的Enough",
+   "importance": 2,
+   "core": "Learn by testing meaningful chunks of working software with customers and users.",
+   "case": "In my mental model I picture each of those pieces piling up on a scale. It’s one of those old-style scales with a counterweight on the other side. On my counterweight is the word Enough; that is, enough to test with users and customers and for them and us to learn something."
   }
  ],
  "12. Rock Breakers": [
   {
-   "point": "甲方乙方模式下，问题与方案的讨论被需求谈判取代",
    "core": "But, in the client-vendor anti-pattern, conversations about problems and solutions are replaced by discussions and agreements about requirements. No one wins.",
-   "caseTitle": "病人给医生开处方",
    "case": "One kind of relationship many of us have that does break this anti-pattern when it goes well is the one we have with our doctor. Try showing up at your doctor’s office and giving her your “requirements.” Tell her the prescriptions you’d like written and the operations you’d like scheduled. If she’s nice, she’ll smile and say, “That’s interesting; tell me where it hurts.”",
-   "explain": "病人直接向医生开处方、点手术，就像客户直接提需求清单；医生若配合谈判方案而非先诊断问题，双方都无法真正解决问题。"
+   "point": "甲方乙方模式下，问题与方案的讨论被需求谈判取代",
+   "explain": "病人直接给医生开处方会被医生引导回“哪里疼”，类比说明客户提需求会取代对问题的探讨，导致双输。",
+   "caseTitle": "病人给医生开处方",
+   "importance": 3
+  },
+  {
+   "point": "跨职能核心小组（三剑客）共同主导发现与细化",
+   "explain": "Atlassian将产品、设计、技术三人座位紧邻，周围是团队其他成员，体现跨职能小组紧密协作、快速发现问题和验证方案。",
+   "caseTitle": "Atlassian的三驾马车座位",
+   "importance": 3,
+   "core": "A cohesive discovery team is a powerful, fast-moving group of experts who can find problems and validate solutions quickly.",
+   "case": "On my recent visit to Sydney-based Atlassian, Sherif, whom you met in Chapter 8, pointed to three seats close together. He explained, “This is where the triad sits.” The area around the triad was filled with desks and computers where the rest of the team sat."
+  },
+  {
+   "point": "为他人想法担任产品负责人时应像制片人助其成功",
+   "explain": "David Hussman用音乐制作人与乐队的关系比喻业务分析师应帮助干系人成功，而非被动接单。",
+   "caseTitle": "David Hussman与音乐制作人",
+   "importance": 2,
+   "core": "When acting as product owner for other stakeholders’ ideas, take on the role of a producer who helps them succeed.",
+   "case": "In casual conversation, my friend David Hussman gave me a better metaphor for the relationship the BA should have with his business stakeholders—the same relationship that a music producer has with a band."
+  },
+  {
+   "point": "故事工作坊需要开发、测试、设计三方战术协作",
+   "explain": "用电影《三个火枪手》典故引出故事工作坊中开发者、测试者、设计者组成的战术三剑客。",
+   "caseTitle": "三个火枪手电影命名由来",
+   "importance": 2,
+   "core": "There’s a more tactical triad of collaborators that’s valuable during story workshops.",
+   "case": "¡Three Amigos! is the name of a mediocre 1986 western comedy starring Steve Martin, Chevy Chase, and Martin Short. What does this film have to do with Agile software development and stories?"
   }
  ],
  "13. Start with Opportunities": [
   {
-   "point": "用端到端旅程地图定位跨产品机会",
-   "explain": "Atlassian 有十余款产品，团队绘制用户发现、评估、购买、使用到求助的完整旅程，发现设置与帮助等环节并非孤立于线性旅程，从而在整体语境中定位机会。",
-   "caseTitle": "Atlassian旅程映射",
    "core": "We gained a lot of insight by being able to trace an end-to-end story rather than just a feature-based experience.",
-   "case": "Ben Crothers, Atlassian\nGiven that we offer over 10 different products, we have to make sure that we design, build, and improve upon those products in ways that match how our customers use them together, not one by one. As part of a project to discover how the products could work together in a better way, we formed a multidisciplinary team to map the entire end-to-end customer experience in finding, evaluating, purchasing, and using them, as well as getting help and adding more products and services."
+   "case": "Ben Crothers, Atlassian\nGiven that we offer over 10 different products, we have to make sure that we design, build, and improve upon those products in ways that match how our customers use them together, not one by one. As part of a project to discover how the products could work together in a better way, we formed a multidisciplinary team to map the entire end-to-end customer experience in finding, evaluating, purchasing, and using them, as well as getting help and adding more products and services.",
+   "point": "用端到端旅程地图定位跨产品机会",
+   "explain": "Atlassian 有十余款产品，团队用多学科小组绘制从发现、评估、购买到使用与求助的完整旅程，从产品协同处发现机会。",
+   "caseTitle": "Atlassian旅程映射",
+   "importance": 3
+  },
+  {
+   "point": "在现有旅程地图上标注机会热点",
+   "explain": "把每个机会贴进地图并用不同颜色标出，密集出现处即用户痛点热点，据此优先处理高频关键活动。",
+   "caseTitle": "旅程地图标机会热点",
+   "importance": 3,
+   "core": "Opportunities that affect high-frequency activities engaged in by critical users are likely opportunities you should be focusing on—sooner rather than later.",
+   "case": "To do this, add each opportunity into the body of the map. Use a different color of sticky note or index card to clearly call them out. What you might see are opportunity “hot spots”—places in your users’ flow where there’s a higher density of ideas and likely pain from your users."
+  },
+  {
+   "point": "机会画布把机会要点放在一个视图",
+   "explain": "画布从问题或方案出发，把用户、替代方案、价值与指标集中呈现，便于团队用便利贴共同迭代。",
+   "caseTitle": "机会画布九宫格",
+   "importance": 2,
+   "core": "You can see the important concerns of an opportunity in a single view.",
+   "case": "1. Problems or Solutions\nIdeally, we should start with a clear problem we’re trying to solve. However, the world is rarely ideal. We’re often given a feature or enhancement idea and then need to work backward to understand the problem. Start with what you have."
+  },
+  {
+   "point": "充分讨论机会以做出去留决定",
+   "explain": "围绕为谁做、解决什么问题、设想、收益与规模逐项讨论，让机会真正可被否决而非默认要做。",
+   "caseTitle": "机会讨论的五个话题",
+   "importance": 2,
+   "core": "Have enough discussions to make a go/no-go decision.",
+   "case": "For each one of these opportunities, we can discuss:\nWho they’re for\nAt this level, it’s often different groups of users, customers, or a target market.\nWhat problems we’re solving\nFor each type of user, we can talk about what problems we’re solving for them."
+  },
+  {
+   "point": "用角色排练快速挑战假设",
+   "explain": "团队分配角色并只给目标不给步骤，让成员以用户身份走查，快速暴露漏洞并建立共享理解。",
+   "caseTitle": "排练重映射挑战假设",
+   "importance": 2,
+   "core": "We needed a quick way to challenge our assumptions, find holes, and build shared understanding among everyone who would be a part of the project.",
+   "case": "We gathered the team, assigned personas (there were multiple), and described the desired outcomes that would naturally guide those personas to use the part of the product that would test our assumptions. We did not write step-by-step instructions. Our direction: “Simply, as this person, you would like to accomplish this goal.” Rehearsal!"
   }
  ],
  "14. Using Discovery to Build Shared Understanding": [
   {
-   "point": "把界面可视化，才能对方案形成真正的共享理解",
-   "core": "Visualize your user interface to build shared understanding of the solution.",
-   "caseTitle": "eBay 还是 Craigslist",
-   "case": "Have you ever been in a situation where you describe a product idea to a developer, and are pleasantly surprised when he says, “Oh, that’s simple. It shouldn’t take long to build.” But, then when you really get going on it and start building it, you realize the developer was imagining something far simpler than you were. For example, you might have described a site to sell your stuff online. You might have been imagining something like eBay or Amazon Marketplace. But the developer was imagining something more like Craigslist, and that’s why you were pleased with the estimate.",
-   "explain": "开发者和产品经理对“卖东西的网站”想象不同：一个想的是eBay，一个想的是Craigslist，估算因此失真。画出界面草图才能暴露差异、对齐理解。"
+   "core": "Specific business outcomes drive focus on specific users, their goals, and the activities they’ll engage in with your product.",
+   "case": "Gary still had high hopes of creating the “music industry marketing interface” that gave Mimi her name. But he decided to focus first on the band manager promoting his band using direct email marketing to his fans. After he did that, the specific functionality he needed to focus on became clear.",
+   "point": "先排业务目标、客户和用户，最后才排功能",
+   "explain": "Gary 先聚焦乐队经理这一具体用户及其邮件营销目标，所需功能便自然清晰，证明优先级应从业务目标和用户出发。",
+   "caseTitle": "Mad Mimi 聚焦乐队经理",
+   "importance": 3
   },
   {
-   "point": "先排业务目标、客户和用户，最后才排功能",
-   "explain": "Mad Mimi没有先列功能，而是先聚焦乐队经理用邮件营销推广乐队这一具体业务目标，所需功能随之清晰，避免了先排功能的优先级错误。",
-   "caseTitle": "Mad Mimi 聚焦乐队经理",
-   "core": "Specific business outcomes drive focus on specific users, their goals, and the activities they’ll engage in with your product.",
-   "case": "Gary still had high hopes of creating the “music industry marketing interface” that gave Mimi her name. But he decided to focus first on the band manager promoting his band using direct email marketing to his fans. After he did that, the specific functionality he needed to focus on became clear."
+   "point": "发现阶段砍掉的想法应比保留的多",
+   "explain": "Globo.com 面对紧迫期限，先确定成功结果，再切片待办列表，砍掉所有非必要故事，得到最小可行方案。",
+   "caseTitle": "Globo.com 切片发布",
+   "importance": 3,
+   "core": "If you’re not cutting away more ideas than you keep, you’re probably not doing discovery work right.",
+   "case": "In Chapter 3, you read about Globo.com’s approach to using a map to confront a tough deadline. The company focused on that deadline, embraced it, and identified an outcome that would let it be successful. Then it sliced up its backlog; that is, it cut away all the stories that weren’t necessary for it to reach that outcome. This was its minimal viable solution hypothesis."
+  },
+  {
+   "core": "Visualize your user interface to build shared understanding of the solution.",
+   "case": "Have you ever been in a situation where you describe a product idea to a developer, and are pleasantly surprised when he says, “Oh, that’s simple. It shouldn’t take long to build.” But, then when you really get going on it and start building it, you realize the developer was imagining something far simpler than you were. For example, you might have described a site to sell your stuff online. You might have been imagining something like eBay or Amazon Marketplace. But the developer was imagining something more like Craigslist, and that’s why you were pleased with the estimate.",
+   "point": "把界面可视化，才能对方案形成真正的共享理解",
+   "explain": "描述卖东西的网站时，开发者想象成简单的 Craigslist，而产品经理想象的是 eBay，可视化界面才能暴露这种理解偏差。",
+   "caseTitle": "eBay 还是 Craigslist",
+   "importance": 2
+  },
+  {
+   "point": "团队共同构建轻量人物画像以建立共享理解与共情",
+   "explain": "与 Mano a Mano 团队一起构建互联网捐赠者 Chuck 的简单画像，帮助团队对这类用户形成共同理解和同理心。",
+   "caseTitle": "Mano a Mano 人物画像",
+   "importance": 2,
+   "core": "Build lightweight personas together to build shared understanding and empathy within the team.",
+   "case": "I built this simple persona with a group at Mano a Mano, a nonprofit group that helps people in Bolivia by doing everything from building roads to supporting education and healthcare. Our discussion this day was about small, Internet-savvy donors—the sort of people who may not have a huge amount of money, but want what they do have to give to be used wisely. We’d expect people like Chuck to find Mano a Mano on the Web or hear about it via Twitter or Facebook."
+  },
+  {
+   "point": "绘制用户当前工作方式的旅程地图以真正理解问题",
+   "explain": "Caplin 集团的叙事旅程地图描述人们今天如何达成目标（包括缺陷），而非描述解决方案，帮助团队理解要解决的问题。",
+   "caseTitle": "Caplin 叙事旅程地图",
+   "importance": 2,
+   "core": "Doing this for the way your users work today will help your discovery team really understand the problems they’re solving.",
+   "case": "These photos from Duncan Brown of the Caplin Group show something they call a narrative journey map. It’s a map that tells a story about the “now” side of the “now-and-later” model I started this book with. It doesn’t describe our great solution; it describes the way people reach their goals today—faults and all."
+  },
+  {
+   "point": "用故事地图组织大量用户故事以建立共享愿景",
+   "explain": "教育创业公司墙上按功能模块堆满数千故事，难以形成系统图景；故事地图能帮助设计和开发团队从共享愿景出发工作。",
+   "caseTitle": "教育创业公司故事地图",
+   "importance": 2,
+   "core": "we realized we could use a story map to help organize the thousands of user stories in a way that would help the design and development teams operate from a shared vision.",
+   "case": "Every wall in the light-filled loft offices was covered with brown butcher paper, and each one of those sheets was in turn covered with index cards and Post-it notes: requirements, in the form of user stories. Thousands of them. As Robert walked me past the walls of stories, I noticed that all the stories were organized by functional module: a text editor wall, a grading application. And curriculum modules: a wall of science, a wall of English. I struggled to build a picture of the system in my mind."
   }
  ],
  "15. Using Discovery for Validated Learning": [
   {
-   "point": "精益方式下，构建就是做最小的实验来学习",
    "core": "In a Lean Startup approach, build means build the smallest possible experiment you can.",
-   "caseTitle": "JSTOR 的设计漫画测试",
    "case": "After the JSTOR folks ran their tests, they learned that some students didn’t have the problems they thought they did. Normally this would be disappointing news, because we all hate being wrong. But, in a Lean Startup approach, this is excellent news. It’s excellent because they found they were wrong after a couple of days of thinking and working, as opposed to finding out after weeks of a team building software.",
-   "explain": "JSTOR 用设计漫画而非软件原型做小实验，几天内就发现学生对问题的假设有误，避免了数周的软件构建浪费，正说明构建即最小实验。"
+   "point": "精益方式下，构建就是做最小的实验来学习",
+   "explain": "JSTOR 用设计漫画而非完整软件做最小实验，几天内就发现学生对问题的假设有误，而非等团队数周开发后才得知。",
+   "caseTitle": "JSTOR 的设计漫画测试",
+   "importance": 3
+  },
+  {
+   "point": "我们多数时候是错的",
+   "explain": "Eric Ries 作为 CTO 帮公司做出自认为成功的产品，目标用户却反应平淡甚至冷漠，证明团队对成功的判断常出错。",
+   "caseTitle": "Eric Ries创业失败",
+   "importance": 3,
+   "core": "We’re Wrong Most of the Time",
+   "case": "As the CTO of a startup, he helped his company build what they believed to be a successful product. Only their target customers and users didn’t see it that way. In fact, they mostly responded with a mixture of pleasant feedback, bad feedback, and outright apathy. Definitely not the outcome and impact they were looking for."
+  },
+  {
+   "point": "我们多数时候是错的",
+   "explain": "Standish 报告显示 64% 至 75% 的功能很少或从未被使用，用数据说明大量构建的功能并未真正满足需求。",
+   "caseTitle": "Standish功能使用数据",
+   "importance": 2,
+   "core": "We’re Wrong Most of the Time",
+   "case": "Research from the Standish Group published in historic “Chaos” reports explains that between 64 and 75 percent of features are rarely or never used."
+  },
+  {
+   "point": "与真实用户一起测量假设",
+   "explain": "JSTOR 先花 30 至 60 分钟访谈学生，了解其现状以确认问题假设，再用设计漫画获取用户对方案的反馈。",
+   "caseTitle": "JSTOR学生访谈",
+   "importance": 2,
+   "core": "Measure by Running Your Test with Customers and Users",
+   "case": "JSTOR recruited students and grad students and spent 30–60 minutes talking with them first to interview and learn how they did things today so the team could confirm their assumptions about the problems they were solving. Then they stepped students through the design comic to get their response to the solution idea."
   }
  ],
  "16. Refine, Define, and Build": [
   {
-   "point": "用故事工作坊细化理解，定下开发要做的具体内容",
    "core": "Use a story workshop to refine understanding and define specifically what the development team will build.",
-   "caseTitle": "RAC 保险的需求会",
    "case": "Nicola went beyond simply applying the actions; she fully embraced the intent. The next story elaboration session was a seismic shift from what had preceded. The team no longer sat bored and disengaged as they plowed through screen-projected story narratives. They were now huddled around visual models and artifacts, engrossed in real story conversations involving the product owner, business subject matter experts, and the delivery team.",
-   "explain": "RAC 保险团队不再对着投影的冗长故事叙述，而是围在可视化模型前，由产品负责人、业务专家和交付团队展开真实的故事对话，说明小规模工作坊能带来共享理解并明确要构建的内容。"
+   "point": "用故事工作坊细化理解，定下开发要做的具体内容",
+   "explain": "RAC保险团队从枯燥的屏幕演示转向围绕可视化模型的热烈讨论，产品负责人、业务专家和交付团队共同参与，证明工作坊能有效细化需求并明确构建目标。",
+   "caseTitle": "RAC 保险的需求会",
+   "importance": 3
+  },
+  {
+   "point": "用鱼缸模式保持讨论小规模，同时允许他人参与",
+   "explain": "鱼缸模式中3-5人在白板前讨论，旁观者想发言就跳入、同时有人跳出，既保持高效又让更多人贡献想法。",
+   "caseTitle": "鱼缸协作模式",
+   "importance": 2,
+   "core": "Allow team members to opt in to these conversations.",
+   "case": "The process works like this: three to five people work together in front of whiteboard or flipchart paper—they’re the fish in the bowl.\nOthers in the room may observe but not speak. They’re outside the bowl.\nIf someone from outside the bowl wants to participate, she can “jump in.” But, when one outsider jumps in, one insider must simultaneously jump out."
+  },
+  {
+   "point": "通过好-更好-最佳游戏协作拆分大故事",
+   "explain": "团队用便签讨论故事的不同质量级别，将大故事拆成更小、可独立交付的故事，实现故事的削薄与细化。",
+   "caseTitle": "好-更好-最佳拆分故事",
+   "importance": 2,
+   "core": "Work together as a group to split up big stories, or “thin” out stories by removing unnecessary extras.",
+   "case": "One of my favorite simple techniques for splitting stories more finally is the Good-Better-Best game. We played this game using a big story and sticky notes and ended up with this:\nGood Enough for Now\nGiven a story, start by having a discussion about what’s just good enough—barely sufficient, really, and probably not good enough that users or customers would love it. Write down characteristics that would make it good enough and treat them as separate, smaller stories."
   }
  ],
  "18. Learn from Everything You Build": [
   {
-   "point": "临近发布时用地图给每个用户活动打分，评估是否就绪",
    "core": "As you draw near the date you promised to deliver—and there’s always a promised delivery date—for each major user activity ask, “If we had to ship right now, what grade would we give ourselves?”",
-   "caseTitle": "产品成绩单",
    "case": "For example, if you looked at a product or feature with five major activities a few weeks before its promised release date, and saw a report card of A, A–, B+, D, B+, you might want to take the remaining weeks and focus on the part in the user’s workflow that’s currently graded a D. If in the end you release with A s and B s, that’s pretty good. Of course, straight A s would be better, but getting it out on time may be more important.",
-   "explain": "案例展示发布前几周按用户活动打分（A、A–、B+、D、B+），并聚焦得D的薄弱环节，直观体现用地图评估发布就绪度。"
+   "point": "临近发布时用地图给每个用户活动打分，评估是否就绪",
+   "explain": "案例展示发布前几周给五个主要活动打分（A、A–、B+、D、B+），据此集中改进得D的环节，说明用成绩单评估就绪度并指导剩余时间分配。",
+   "caseTitle": "产品成绩单",
+   "importance": 3
+  },
+  {
+   "point": "团队主观评分能引发对质量的深入讨论",
+   "explain": "案例指出团队主观打分将驱动大量有益讨论，证明评分不仅是评估手段，更是团队学习与发现质量问题的过程。",
+   "caseTitle": "产品评分1-5分",
+   "importance": 2,
+   "core": "As you draw near the date you promised to deliver—and there’s always a promised delivery date—for each major user activity ask, “If we had to ship right now, what grade would we give ourselves?”",
+   "case": "Grade your quality subjectively as a team. Grading will drive out lots of good discussion."
+  },
+  {
+   "point": "让用户实际试用而非仅演示，才能验证假设",
+   "explain": "案例用展厅看车比喻“展示与讲述”的局限，说明仅演示让用户想象使用无法获得真实反馈，需实际试用才能学习。",
+   "caseTitle": "试驾而非展示",
+   "importance": 2,
+   "core": "As you draw near the date you promised to deliver—and there’s always a promised delivery date—for each major user activity ask, “If we had to ship right now, what grade would we give ourselves?”",
+   "case": "We don’t learn much from users by playing “show and tell”—that is, by demonstrating it to them and asking them to imagine using it and decide if they’d like it. It’s a little like looking at a new car on a showroom floor and trying to decide if you’d enjoy driving it."
   }
  ]
 }

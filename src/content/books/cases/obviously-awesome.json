@@ -1,144 +1,464 @@
 {
  "Introduction": [
   {
-   "point": "定位弱会拖累所有营销与销售，选择越多越致命",
    "core": "Weak positioning diminishes the results of everything we do in marketing and sales. It’s a wind in our face, constantly slowing us down, making the effort required to meet our business targets just that much more difficult.",
-   "caseTitle": "两百万个应用的货架",
    "case": "Today, opening the App Store on my smartphone gives me over 2 million choices. One of those apps, Amazon, gives me a marketplace of just under 580 million products to choose from. Not only that, your customers are now exposed to more ads and branding than your Walkman-listening self could have ever imagined. Clear positioning was important in 1981; we are doomed without it today.",
-   "explain": "作者用手机应用商店超200万应用、亚马逊近5.8亿商品说明顾客面临的选择与噪音空前巨大，定位不清就会被淹没，营销投入再多也难见效。"
+   "point": "定位弱会拖累所有营销与销售，选择越多越致命",
+   "explain": "作者用App Store超200万应用、亚马逊近5.8亿商品说明顾客面临的选择爆炸，结论是1981年定位重要，今天没有清晰定位则注定失败。",
+   "caseTitle": "两百万个应用的货架",
+   "importance": 3
+  },
+  {
+   "point": "定位需要刻意定义，但作者曾靠试错摸索",
+   "explain": "作者作为高管重新定位全部十六款产品，却是在不断犯错中学习，证明定位虽可定义但缺乏现成方法，需要系统流程。",
+   "caseTitle": "作者重定位十六款产品",
+   "importance": 2,
+   "core": "Positioning is the act of deliberately defining how you are the best at something that a defined market cares a lot about.",
+   "case": "I repositioned every product I worked on as an executive, all sixteen of them, but I was learning the hard way and making every mistake possible."
+  },
+  {
+   "point": "定位方法通过一对一辅导创业公司打磨成型",
+   "explain": "作者在创业加速器担任驻场企业家，与创业公司一对一进行定位辅导，说明可复用流程来自反复实践而非纯理论。",
+   "caseTitle": "创业加速器一对一辅导",
+   "importance": 2,
+   "core": "Weak positioning diminishes the results of everything we do in marketing and sales. It’s a wind in our face, constantly slowing us down, making the effort required to meet our business targets just that much more difficult.",
+   "case": "In my spare time, I served as an entrepreneur in residence (EIR) at a local startup accelerator and started doing positioning sessions one on one with startups."
+  },
+  {
+   "point": "定位方法可跨规模、跨行业复用",
+   "explain": "作者在大学加速器开设定位大师课，并向不同行业的初创公司和大企业提供私下辅导，证明该方法具有普适性。",
+   "caseTitle": "大学加速器大师课",
+   "importance": 2,
+   "core": "Weak positioning diminishes the results of everything we do in marketing and sales. It’s a wind in our face, constantly slowing us down, making the effort required to meet our business targets just that much more difficult.",
+   "case": "I began teaching a regular masterclass on positioning with a university accelerator, and started offering private sessions to both startups and larger companies across industries."
+  },
+  {
+   "point": "定位技术经质疑者挑战而不断精炼",
+   "explain": "持怀疑态度的科技创始人以及资深营销和产品高管多年来挑战并完善作者的方法，说明流程在实战反馈中持续改进。",
+   "caseTitle": "质疑者打磨定位技术",
+   "importance": 2,
+   "core": "Weak positioning diminishes the results of everything we do in marketing and sales. It’s a wind in our face, constantly slowing us down, making the effort required to meet our business targets just that much more difficult.",
+   "case": "Skeptical tech startup founders and grizzled “been there, done that” marketing and product executives have challenged and refined my technique over the years."
+  },
+  {
+   "point": "定位思想通过大学客座讲授得到传播与检验",
+   "explain": "作者在三所不同大学做客座讲座，讲解定位理念，表明其方法经过教学场景的初步检验。",
+   "caseTitle": "三所大学客座讲授定位",
+   "importance": 1,
+   "core": "Weak positioning diminishes the results of everything we do in marketing and sales. It’s a wind in our face, constantly slowing us down, making the effort required to meet our business targets just that much more difficult.",
+   "case": "I did a set of guest lectures at three different universities, talking through my ideas on positioning."
   }
  ],
  "Positioning as Context": [
   {
-   "point": "产品只有放在合适的参照系里才显得出色，换个语境就可能扭转局面",
+   "point": "顶级产品在错误语境下也会被忽视，定位决定价值感知。",
+   "explain": "世界级小提琴家在地铁口演奏，路人匆匆而过，无人识货。产品本身没变，但语境变了，价值就被埋没。",
+   "caseTitle": "华盛顿邮报地铁实验",
+   "importance": 3,
+   "core": "Even a world-class product, poorly positioned, can fail.",
+   "case": "The experiment involved Joshua Bell, an internationally acclaimed violinist, who at the time was considered the best classical musician in America."
+  },
+  {
+   "point": "具体数据证明语境对价值感知的巨大影响。",
+   "explain": "贝尔演奏45分钟，1070人经过，仅27人给钱，7人驻足，总收入32.17美元。数据直观展示语境如何压低价值。",
+   "caseTitle": "贝尔地铁演奏数据",
+   "importance": 3,
    "core": "Most products are exceptional only when we understand them within their best frame of reference.",
-   "caseTitle": "从数据库到数据仓库",
+   "case": "Bell performed for forty-five minutes. In that time, 1,070 people passed by, and of those, 27 gave him money, and only 7 paused to listen. His total earnings for the concert: $32.17."
+  },
+  {
+   "core": "Most products are exceptional only when we understand them within their best frame of reference.",
    "case": "After repositioning our product as a data warehouse, we immediately saw the difference in our first meetings with prospects. Instead of instantly telling us “no, thanks,” they now stopped to listen. They stopped comparing us with the database they had already purchased. They intuitively understood the specific problem we could solve and the value to their business.",
-   "explain": "同一产品被重新定位为数据仓库后，潜在客户不再拿它和已购数据库比较，而是停下来倾听，说明参照系改变直接改变了价值感知。"
+   "point": "产品只有放在合适的参照系里才显得出色，换个语境就可能扭转局面。",
+   "explain": "重新定位为数据仓库后，潜在客户不再秒拒，而是停下来听，不再拿已有数据库比较，直观理解价值。",
+   "caseTitle": "从数据库到数据仓库",
+   "importance": 3
+  },
+  {
+   "point": "不赶时间的人同样未识别价值，排除时间借口。",
+   "explain": "买彩票的人记得号码却只模糊记得音乐家是“讨生活的”，擦鞋摊主嫌吵甚至想报警。说明语境 sabotage 与时间无关。",
+   "caseTitle": "擦鞋摊与彩票顾客",
+   "importance": 2,
+   "core": "Joshua Bell was sabotaged by his context.",
+   "case": "One man buying a lottery ticket that morning later remembered every number he chose but only vaguely recalled the musician as “just a guy trying to make a buck.” The owner of the shoe-shine stand complained that the music was too loud and admitted that she had thought about calling the police to make him stop."
+  },
+  {
+   "point": "陷阱一：执着于最初想做的东西，没发现产品已变成别的。",
+   "explain": "本想做更好的巧克力蛋糕，实际做出了顶级巧克力松饼。若仍按蛋糕定位，就会错失松饼的真正价值。",
+   "caseTitle": "蛋糕变松饼",
+   "importance": 2,
+   "core": "Trap 1: You are stuck on the idea of what you intended to build, and you don’t realize that your product has become something else.",
+   "case": "You realize that you’ve actually made supreme chocolate muffins instead of better chocolate cake."
+  },
+  {
+   "point": "陷阱二：市场变了，原有定位失效。",
+   "explain": "松饼不再定位为“减肥松饼”，甚至不叫松饼，而叫“无麸质原始人零食”。市场变化后，旧定位不再有效。",
+   "caseTitle": "饮食松饼变古法零食",
+   "importance": 2,
+   "core": "Trap 2: You carefully designed your product for a market, but that market has changed.",
+   "case": "But this muffin isn’t positioned as a “diet muffin.” In fact, they don’t even call it a muffin. It’s a “gluten-free paleo snack.”"
+  },
+  {
+   "point": "主动改变定位能打破僵局，改变客户反应与公司方向。",
+   "explain": "将产品重新定位为数据仓库后，首次客户会议反应截然不同：客户不再说“不，谢谢”，而是停下来倾听。",
+   "caseTitle": "数据库重定位为数据仓库",
+   "importance": 2,
+   "core": "We broke out of this mess by changing our positioning.",
+   "case": "After repositioning our product as a data warehouse, we immediately saw the difference in our first meetings with prospects. Instead of instantly telling us “no, thanks,” they now stopped to listen."
   }
  ],
  "The Five (plus One) Components of Effective Positioning": [
   {
-   "point": "选定品类会触发客户的一整套预设，选错品类会让优势变缺点",
    "core": "Declaring that your product exists in a market category triggers a set of powerful assumptions.",
-   "caseTitle": "律师邮件其实不是邮件",
    "case": "The product was positioned as “email” but didn’t have features we assume any email solution would have. Also, the key unique feature of the product was not expected or even particularly valued in their market (“email”). Repositioning the product as “team collaboration software” made it easier for customers to intuitively understand what was valuable about it, and avoided customers looking for functionality it didn’t have.",
-   "explain": "产品被定位为“邮件”，客户便预设它应有日历等功能，其真正的安全文件共享优势反被忽视；改称“团队协作软件”后，客户能直观理解其价值，也不再寻找它没有的功能。"
+   "point": "选定品类会触发客户的一整套预设，选错品类会让优势变缺点",
+   "explain": "律师邮件产品因被定位为“邮件”而缺少日历等预设功能，独特的安全文件共享不被重视；重新定位为“团队协作软件”后，客户能直观理解其价值，避免寻找它没有的功能。",
+   "caseTitle": "律师邮件其实不是邮件",
+   "importance": 3
+  },
+  {
+   "point": "传统定位声明模板只是把现有假设填进空格，强化现状，填完也没人用",
+   "explain": "作者以DB2为例，说明定位声明练习最糟糕的是它假设你知道答案，只是机械填写空格，无法产生有效定位。",
+   "caseTitle": "IBM数据库定位声明",
+   "importance": 3,
+   "core": "The worst part of a positioning statement exercise is that it assumes you know the answers.",
+   "case": "I was marketing a database called DB2. DB2 was best known as the leading database platform on a mainframe (that’s what we used to call giant, powerful computers back in the olden days). My product was the version of the database that ran on regular computers, and our main differentiator from other databases was that we were IBM—if you were already buying some stuff from us, we could sell you a non-mainframe database while we were at it."
+  },
+  {
+   "point": "选择恰当的市场品类能让独特价值对目标客户更明显",
+   "explain": "律师邮件产品被误定位为“邮件”导致客户困惑，重新定位为“团队协作软件”后，其安全文件共享价值变得直观易懂。",
+   "caseTitle": "律师邮件产品重新定位",
+   "importance": 2,
+   "core": "A well-chosen market category will help make your unique value more obvious to your target customers.",
+   "case": "I once received a call from a startup with a product that customers loved but prospects couldn’t figure out. The founders were ex-lawyers who had set out to build “better email for lawyers,” and they walked me through a demo. I asked them to show me the calendar and they explained it didn’t have one. I was surprised, since calendaring is assumed functionality for any email solution. Interestingly, their happy customers didn’t mind. They chose the product for its ability to do secure, context-aware file sharing. Again, I was surprised. File sharing is a problem normally solved with team collaboration software, not email."
   }
  ],
  "Step 1. Understand the Customers Who Love Your Product": [
   {
-   "point": "只研究最满意的客户，才能看清产品真正是什么",
    "core": "Taken as a whole, the customer base often seemed very heterogenous and it was hard to see a pattern in why they chose a product, who they viewed as competitors and what their favorite features were. However, if we sorted out just the best-fit customers, we could clearly see patterns.",
-   "caseTitle": "只调研狂热粉",
    "case": "In one case, we tried to survey all of our customers to see why they loved us, and the results were muddy. There didn’t seem to be any patterns in why people picked us. I wondered if the results would look different if I only surveyed the ecstatic fans and left the moderately happy customers out of it. Suddenly a clear pattern emerged: all of our customers could look like these very happy ones if we focused our marketing and sales efforts on companies with characteristics similar to the ecstatic fans.",
-   "explain": "调研全部客户时结果混乱、看不出模式；只调查狂热粉丝后，立刻浮现清晰模式，说明最满意客户揭示了产品本质与定位方向。"
+   "point": "只研究最满意的客户，才能看清产品真正是什么",
+   "explain": "调研全部客户时结果混乱、看不出选择原因；只调查狂热粉丝后，立刻浮现清晰模式，并据此锁定相似特征的公司作为营销销售对象。",
+   "caseTitle": "只调研狂热粉",
+   "importance": 3
+  },
+  {
+   "point": "定位可先放宽，从实际客户中看清产品方向",
+   "explain": "Wave以免费云会计软件面向小企业主，客户喜爱使其到2013年拥有超50万家企业使用，说明先撒宽网、再依据真实客户反馈收敛定位。",
+   "caseTitle": "Wave转型金融软件",
+   "importance": 2,
+   "core": "Taken as a whole, the customer base often seemed very heterogenous and it was hard to see a pattern in why they chose a product, who they viewed as competitors and what their favorite features were. However, if we sorted out just the best-fit customers, we could clearly see patterns.",
+   "case": "Near the end of 2010, Kirk Simpson and James Lochrie launched Wave Accounting, cloud-based accounting software targeted at small business owners who were using spreadsheets, documents and shoeboxes to manage their finances. “We wanted to deliver accounting that was incredibly easy to use and get started with,” Kirk explains. “To get these owners off the sidelines, we decided to offer Wave for free, and we could then make money through advertising and offers.” Customers loved it, and by 2013, they had over 500,000 businesses using their solution."
   }
  ],
  "Step 2. Form a Positioning Team": [
   {
-   "point": "定位是业务战略，不能由市场部单独拥有，需要跨部门共同完成",
-   "core": "But marketing can’t “own” positioning, in the same way marketing can’t “own” the overall business strategy. It’s simply too broad and too important to live in one silo of the overall company.",
-   "caseTitle": "外部主持的定位工作坊",
-   "case": "In the positioning workshops I run, I consistently hear that discussions about bigger strategic issues are difficult without someone from the outside making sure everyone’s voice is heard. I also hear how helpful it is for the facilitator to gently challenge long-held assumptions that seem cast in stone and untouchable.",
-   "explain": "外部主持的定位工作坊中，参与者表示没有外部引导者确保每个人发声，战略讨论难以进行；引导者还能温和挑战根深蒂固的假设，证明跨职能协作需要中立主持。"
+   "core": "A positioning exercise that is not a team effort driven by the business leader will fail.",
+   "case": "The person responsible for the business of that particular product must be in the room and be seen as driving the positioning effort. Positioning is a business strategy exercise—the person who owns the business strategy needs to fully support the positioning, or it’s unlikely to be adopted.",
+   "point": "定位必须由业务负责人主导，否则难以被采纳",
+   "explain": "案例指出产品业务负责人必须在场并被视为推动定位工作的人，因为定位是业务战略练习，业务战略所有者需全力支持，否则定位不太可能被采纳。",
+   "caseTitle": "业务负责人必须主导",
+   "importance": 3
   },
   {
-   "point": "定位必须由业务负责人主导，否则难以被采纳",
-   "explain": "案例指出负责该产品业务的人必须在场并被视为推动定位的人，因为定位是业务战略练习，业务负责人需全力支持，否则定位不太可能被采纳。",
-   "caseTitle": "业务负责人必须主导",
+   "core": "But marketing can’t “own” positioning, in the same way marketing can’t “own” the overall business strategy. It’s simply too broad and too important to live in one silo of the overall company.",
+   "case": "In the positioning workshops I run, I consistently hear that discussions about bigger strategic issues are difficult without someone from the outside making sure everyone’s voice is heard. I also hear how helpful it is for the facilitator to gently challenge long-held assumptions that seem cast in stone and untouchable.",
+   "point": "定位是业务战略，不能由市场部单独拥有，需要跨部门共同完成",
+   "explain": "案例说明营销无法像拥有整体业务战略那样拥有定位，因为定位太宽泛、太重要，不能只存在于公司的一个筒仓中。",
+   "caseTitle": "外部主持的定位工作坊",
+   "importance": 3
+  },
+  {
+   "point": "定位需要跨职能团队协作，各职能带来独特视角",
+   "explain": "案例指出从销售、市场到客户成功，每个团队都能就客户如何感知和体验产品带来独特观点，因此定位过程最好是跨职能团队协作。",
+   "caseTitle": "跨职能定位团队",
+   "importance": 2,
    "core": "A positioning exercise that is not a team effort driven by the business leader will fail.",
-   "case": "The person responsible for the business of that particular product must be in the room and be seen as driving the positioning effort. Positioning is a business strategy exercise—the person who owns the business strategy needs to fully support the positioning, or it’s unlikely to be adopted."
+   "case": "A positioning process works best when it’s a team effort, ideally from across different functions within the company. Each team, from sales to marketing to customer success, can bring a unique point of view relative to how customers perceive and experience the product."
+  },
+  {
+   "point": "组建团队能暴露各部门对产品属性的不同假设，需在首次会议中对齐",
+   "explain": "案例说明组建团队常暴露不同群体对产品属性、价值和目标市场的假设，首次会议需摊开所有想法并通过定位练习对齐团队。",
+   "caseTitle": "首次会议暴露假设",
+   "importance": 2,
+   "core": "But marketing can’t “own” positioning, in the same way marketing can’t “own” the overall business strategy. It’s simply too broad and too important to live in one silo of the overall company.",
+   "case": "Assembling a team often exposes how different groups in your company hold certain assumptions about your attributes, value and target markets. In your first meeting, you need to expose all of those ideas and work through a positioning exercise that aligns the whole team with the desired results."
   }
  ],
  "Step 3. Align Your Positioning Vocabulary and Let Go of Your Positioning Baggage": [
   {
-   "point": "产品诞生时的初衷会变成包袱，放下旧语境才能找到更好的市场",
    "core": "The most important part of this step is to get agreement from the team that, although the product was created with a certain market and audience in mind, it may no longer be best positioned that way.",
-   "caseTitle": "小苏打变冰箱除味剂",
    "case": "But Arm & Hammer decided to let go of the past and focus on markets where they could be successful in the future. They started advertising their current product as a deodorizer for refrigerators and later launched packaging specifically designed for use in a fridge. Converted consumers were now buying a new box every thirty days. The repositioning drove product sales from $16 million in 1969 to over $318 million by 1987.",
-   "explain": "Arm & Hammer 放下“烘焙原料”的旧定位，把同一产品重新定位为冰箱除味剂，并推出专用包装，让顾客每30天复购一次，销售额从1600万美元增至3.18亿美元。"
+   "point": "产品诞生时的初衷会变成包袱，放下旧语境才能找到更好的市场",
+   "explain": "Arm & Hammer 不再把小苏打只当烘焙原料，转而宣传为冰箱除味剂并推出专用包装，消费者每30天复购一盒，销售额从1969年1600万美元增至1987年逾3.18亿美元，证明放下旧定位能打开新市场。",
+   "caseTitle": "小苏打变冰箱除味剂",
+   "importance": 3
   }
  ],
  "Step 4. List Your True Competitive Alternatives": [
   {
-   "point": "问客户没有你会用什么，比问他们要解决什么问题更能揭示归类",
    "core": "Understanding the customer’s problem wasn’t enough—to really understand how they perceived our strengths and weaknesses, we needed to understand the alternatives to which they compared us.",
-   "caseTitle": "管理员说的替代方案",
    "case": "From those answers, I could assume they viewed our database as one that can quickly execute queries. But when we asked them what they would use if our database didn’t exist, none of them named another database; instead, they suggested business intelligence tools or data warehouses.",
-   "explain": "数据库管理员被问要解决什么问题，只答“跑快查询”；被问没有该产品会用什么，却答BI工具或数据仓库，而非另一数据库，说明替代方案暴露了真实归类。"
+   "point": "问客户没有你会用什么，比问他们要解决什么问题更能揭示归类",
+   "explain": "数据库管理员被问要解决什么问题时只给出技术性回答，但被问“没有我们你会用什么”时，却提到商业智能工具或数据仓库，而非其他数据库，证明替代方案揭示了客户如何归类产品。",
+   "caseTitle": "管理员说的替代方案",
+   "importance": 3
+  },
+  {
+   "point": "真实竞争替代方案常可自然聚类，便于后续定位",
+   "explain": "案例展示将替代方案分为“手工处理”（如雇实习生、用Excel）和“小企业会计软件”（如QuickBooks）等组，说明聚类有助于理解竞争格局。",
+   "caseTitle": "替代方案分组示例",
+   "importance": 2,
+   "core": "The competitive alternatives often naturally cluster, and if so, it’s helpful to group them.",
+   "case": "For example, there might be a group called “do it manually” that includes “hire an intern” and “do it myself with Excel” and another group called “use a small-business accounting solution” that includes QuickBooks, FreshBooks, etcetera."
+  },
+  {
+   "point": "创新产品的真实替代可能是“什么都不做”",
+   "explain": "一些创新产品客户甚至不认为有问题，若产品不存在他们会“什么都不做”，说明真实替代方案不一定是竞品，需纳入考虑。",
+   "caseTitle": "创新产品客户无问题认知",
+   "importance": 2,
+   "core": "Understanding the customer’s problem wasn’t enough—to really understand how they perceived our strengths and weaknesses, we needed to understand the alternatives to which they compared us.",
+   "case": "Some of the startups I work with have ideas so innovative that customers don’t even understand that they have a problem—if the product didn’t exist, they would simply “do nothing.”"
+  },
+  {
+   "point": "真实替代方案常是非产品化的手工方式",
+   "explain": "许多新产品的替代答案是“用笔和纸”或“雇实习生来做”，说明手工方式应被视为真实竞争替代，而非只关注同类产品。",
+   "caseTitle": "笔纸与实习生替代",
+   "importance": 2,
+   "core": "Understanding the customer’s problem wasn’t enough—to really understand how they perceived our strengths and weaknesses, we needed to understand the alternatives to which they compared us.",
+   "case": "For many new products, the answer is “use a pen and paper” or “hire an intern to do it.”"
+  },
+  {
+   "point": "客户极少的小竞品不应列为真实竞争替代",
+   "explain": "若竞品客户很少，则潜在客户对其无心智份额，客户不会在你不存在时使用它，因此不应列入真实替代方案。",
+   "caseTitle": "小客户竞品无心智份额",
+   "importance": 2,
+   "core": "Understanding the customer’s problem wasn’t enough—to really understand how they perceived our strengths and weaknesses, we needed to understand the alternatives to which they compared us.",
+   "case": "If a competitor has a small number of customers, they are likely to have zero mindshare with prospects and should not be listed as a real competitive alternative. Would a customer really use them if you didn’t exist? Probably not, since few of them are doing so today."
   }
  ],
  "Step 5. Isolate Your Unique Attributes or Features": [
   {
-   "point": "列出所有独特属性，哪怕有人视其为缺点",
    "core": "List every attribute you can think of, even if it seems like it could be a negative to certain customers and even if you’re uncertain what its value might be.",
-   "caseTitle": "必须上门安装的软件",
    "case": "A software company in one of my workshops talked about how they were the only company on the market that required a professional services team to come onsite to install the software. The head of sales felt that was a negative, because it took longer for a company to get up and running with the software. The head of customer service saw it as a uniquely positive attribute, because certain customers wanted that type of customization and high-touch service.",
-   "explain": "销售负责人视上门安装为劣势，客服负责人却看到部分客户正需要这种定制化高接触服务，同一属性从不同视角看价值不同，因此不应提前过滤。"
+   "point": "列出所有独特属性，哪怕有人视其为缺点",
+   "explain": "软件公司要求上门安装，销售视为负面，客服视为独特优势，说明看似缺点的属性也可能吸引特定客户，应如实列出。",
+   "caseTitle": "必须上门安装的软件",
+   "importance": 3
+  },
+  {
+   "point": "独特属性必须有可证明的事实或第三方背书",
+   "explain": "“服务好”“易用”是常见主观宣称，必须基于客观事实且可证明，否则只是空话。",
+   "caseTitle": "客户服务与易用性举证",
+   "importance": 3,
+   "core": "Your opinion of your own strengths is irrelevant without proof.",
+   "case": "“We provide outstanding customer service” is probably the most common of these, followed by “very easy to use.” Focus on the characteristics of your product or company that drives a potential benefit—ideally those features are based on objective facts and are provable."
+  },
+  {
+   "point": "第三方验证可作为属性优势的证明",
+   "explain": "独立评审或客户证言能证明产品更易用或服务更好，将主观宣称转化为可验证事实。",
+   "caseTitle": "第三方验证作为证据",
+   "importance": 2,
+   "core": "Third-party validation that your product’s feature is better than the alternative counts as proof.",
+   "case": "Third-party validation that your product’s feature is better than the alternative counts as proof. If an independent reviewer or analyst stated that your product is easier to use, that’s a fact. If a customer says in an approved quote that your customer service is much better than another company’s, that’s proof."
+  },
+  {
+   "point": "本步骤应聚焦具体功能能力而非客户价值",
+   "explain": "功能是产品拥有或做到的事，如高像素摄像头、一键安装，应列出这些属性而非其带来的价值。",
+   "caseTitle": "功能属性示例清单",
+   "importance": 2,
+   "core": "In this step you need to stay focused on features and capabilities (also called attributes), rather than the value that those features drive for customers",
+   "case": "I define features as something your product or company has or does. Some examples of features: “a 15-megapixel camera,” “integrates with QuickBooks,” “one-click installation” and “metal construction.”"
+  },
+  {
+   "point": "列出属性时应广泛且有创意",
+   "explain": "独特材料来源等非技术特征也可成为独特属性，拓宽思路能发现更多差异化优势。",
+   "caseTitle": "独特材料来源示例",
+   "importance": 1,
+   "core": "Be broad and creative with the attributes you list.",
+   "case": "You might be the only hat maker that sources materials from Canada or the only makeup that is made from herbs grown in your own organic garden."
   }
  ],
  "Step 6. Map the Attributes to Value “Themes”": [
   {
-   "point": "功能要翻译成客户目标上的价值，不能指望客户自己完成翻译",
    "core": "Articulating value takes the benefits one step further: putting benefits into the context of a goal the customer is trying to achieve.",
-   "caseTitle": "手机相机的像素",
    "case": "For example, phone makers have often represented the quality of their cameras by talking about the number of megapixels. Consumers have been trained to translate megapixels to photo quality and therefore believe that cameras with more megapixels take better photos. Digging a bit deeper, the value of “better photos” for most consumers means sharper, more detailed images when printed or zoomed in.",
-   "explain": "手机厂商用像素数代表相机质量，但消费者真正要的是打印或放大时依然清晰的照片。像素只是功能，清晰照片才是客户目标上的价值，厂商必须主动完成这层翻译。"
+   "point": "功能要翻译成客户目标上的价值，不能指望客户自己完成翻译",
+   "explain": "手机厂商用像素数代表相机质量，消费者被训练自行把像素换算成照片质量；但“更好照片”对多数人真正意味着打印或放大时更清晰细腻，价值需落到这一目标上。",
+   "caseTitle": "手机相机的像素",
+   "importance": 3
+  },
+  {
+   "point": "只讲技术功能而不讲价值，客户会问“那又怎样”",
+   "explain": "“专利模糊逻辑算法”只是功能，听者会反问So what；继续追问到“更快响应时间”，再到客户能在通话中实时响应而无需回拨，才落到价值。",
+   "caseTitle": "模糊逻辑算法案例",
+   "importance": 3,
+   "core": "Articulating value takes the benefits one step further: putting benefits into the context of a goal the customer is trying to achieve.",
+   "case": "If I tell someone I have a “patented fuzzy logic algorithm” for my product, I would expect their response to be, So what? I explained the feature without being explicit about why it matters. In this example, the benefit might be “faster response times.” Taking the question further, What does that mean for customers? What can they do with a faster response time that they couldn’t with a slower response? The answer might be that they can use the system to respond to their own customers while a customer is on the phone, rather than having to call them back, thereby decreasing support response times and increasing their customers’ satisfaction."
+  },
+  {
+   "point": "从客户视角把提供相近价值的属性归并为价值主题",
+   "explain": "“支持任何移动设备”和“无网络也能用”都服务于偏远或网络不稳定场景的现场人员，可归并为“支持远程环境”这一价值主题。",
+   "caseTitle": "远程环境价值聚类",
+   "importance": 2,
+   "core": "Group attributes that provide similar value so you can get down to a more reasonable number.",
+   "case": "For example, if you have attributes like “works on any mobile device” or “works without an internet connection,” those might both provide value to customers who would like to use the solution with field workers in remote locations or locations with intermittent Wi-Fi or cell access. You could clump those attributes in a group called “supports remote environments.”"
+  },
+  {
+   "point": "属性可逐层翻译为可量化的客户价值",
+   "explain": "全金属结构先译为更坚固抗损的框架，再译为框架寿命延长五倍、每年节省5万美元更换费用，价值以金额形式具体呈现。",
+   "caseTitle": "全金属结构映射价值",
+   "importance": 2,
+   "core": "Features enable benefits, which can be translated into value in unique customer terms.",
+   "case": "All-metal construction\nA stronger frame that resists damage\nThe frame lasts five times longer, allowing savings of $50,000 per year on frame replacements."
+  },
+  {
+   "point": "功能属性应映射到组织决策等客户目标",
+   "explain": "一键报表先译为快速简便的报表生成，再落到组织各部分能基于准确、最新的指标做出更好决策，体现客户追求的目标。",
+   "caseTitle": "一键报表映射价值",
+   "importance": 2,
+   "core": "Features enable benefits, which can be translated into value in unique customer terms.",
+   "case": "One-click reports\nFast, easy report generation\nEvery part of the organization can make better decisions based on accurate, up-to-date metrics."
   }
  ],
  "Step 7. Determine Who Cares a Lot": [
   {
-   "point": "同一价值对不同客户分量不同，要找出最在乎的那群人",
    "core": "It’s important to remember that although you have unique attributes that deliver value to customers, not all customers care about that value in exactly the same way.",
-   "caseTitle": "对接 QuickBooks 的开票",
    "case": "You might have a solution for invoicing that supports integration with an accounting package like QuickBooks. This feature provides the value of saving time and reducing errors from manually entering data. For customers who don’t use QuickBooks, the value is irrelevant. Among those who do, customers who send a large number of invoices will feel the pain of data entry more than customers who send only one or two invoices a day.",
-   "explain": "QuickBooks 集成对不用它的客户毫无价值；即使用，开票量大的客户比每天只开一两张的更能感受手工录入之痛，说明价值相关性因客户而异。"
+   "point": "同一价值对不同客户分量不同，要找出最在乎的那群人",
+   "explain": "QuickBooks集成对不用者无价值；即使用户，开票量大的客户才深感省时纠错之痛，证明需按可识别特征细分。",
+   "caseTitle": "对接 QuickBooks 的开票",
+   "importance": 3
+  },
+  {
+   "point": "细分范围以能完成近期销售目标为准，越窄越好",
+   "explain": "将会计软件聚焦到自由职业者或律师，说明先窄化目标买家，满足规模与未满足需求两标准，以后再扩。",
+   "caseTitle": "会计软件细分",
+   "importance": 3,
+   "core": "Target as narrowly as you can to meet your near-term sales objectives. You can broaden the targets later.",
+   "case": "A segment can be defined by narrowing the set of buyers you are targeting. For example, you might focus the category of “accounting software” to “accounting software for freelancers or lawyers.” You might narrow down “sporting goods” to “sporting goods for babies” or “for dogs” or “for octogenarians.” In general, the segment needs to meet at least two criteria to be worthy of focus: (1) it needs to be big enough that it’s possible to meet the goals of your business, and (2) it needs to have important, specific, unmet needs that are common to the segment."
+  },
+  {
+   "point": "值得聚焦的细分需规模够大且有共同未满足需求",
+   "explain": "网球拍商先确认老年网球手数量足够，且其球拍需求未被满足，具体展示细分评估的两项标准。",
+   "caseTitle": "网球拍老年人市场",
+   "importance": 2,
+   "core": "In general, the segment needs to meet at least two criteria to be worthy of focus: (1) it needs to be big enough that it’s possible to meet the goals of your business, and (2) it needs to have important, specific, unmet needs that are common to the segment.",
+   "case": "If you’re a tennis racquet maker and decide to market a racquet for seniors, you need to figure out first if there are enough tennis-playing seniors who might need a racquet, and second if you could fulfil an unmet need that seniors have in their racquets."
   }
  ],
  "Step 8. Find a Market Frame of Reference That Puts Your Strengths at the Center and Determine How to Position in It": [
   {
-   "point": "小池大鱼：切出领导者没满足的细分，让优势成为规则",
    "core": "The goal of the Big Fish, Small Pond style of positioning is to carve off a piece of the market where the rules are a little bit different—just enough to give your product an edge over the category leader.",
-   "caseTitle": "Janna 聚焦投资银行",
    "case": "That changed when we managed to get a sales meeting with the head of investment banking at a very large New York investment bank. Unlike many of our other prospects, he got really excited when we showed him our special feature. We quickly closed a deal with the bank. In working with them, we began to understand that our little feature solved a serious problem for investment bankers charged with driving business.",
-   "explain": "Janna 聚焦投资银行这一细分，用行业语言和演示数据，把“便宜版巨头”变成该细分首选，证明切出规则略不同的子市场能让优势居中。"
+   "point": "小池大鱼：切出领导者没满足的细分，让优势成为规则",
+   "explain": "Janna 聚焦投资银行，其特殊功能恰好解决投行驱动业务的核心问题，使优势成为该细分市场的规则，从而快速成交并实现转型。",
+   "caseTitle": "Janna 聚焦投资银行",
+   "importance": 3
+  },
+  {
+   "point": "选择让优势居中的市场参照系，避开强大对手",
+   "explain": "将数据库重新定位为数据仓库，避开与 Oracle 正面竞争，同时数据仓库市场有需求但无明确领导者，使分析优势得以凸显。",
+   "caseTitle": "数据库重定位为数据仓库",
+   "importance": 3,
+   "core": "This shift in positioning immediately got us away from trying to compete with Oracle, and it aligned with our strengths.",
+   "case": "Later, we focused on our real competitive differentiator, which was our patented way of doing analysis on a large amount of data. Thinking about our ability to do analytics led us to reposition ourselves as a data warehouse—a completely different market from databases. The data warehousing market at the time was established and most larger companies understood what a warehouse was. Few of them bought warehouses, however; many companies were still developing them in-house because few commercial warehouses existed. For us, this was good news: the demand and market existed but a clear leader did not."
+  },
+  {
+   "point": "子细分定位虽有风险，但能让优势居中并带来转型增长",
+   "explain": "Janna 从企业 CRM 转向投资银行 CRM，团队担心市场太小，但结果证明该细分让关系建模功能成为核心优势，实现快速增长。",
+   "caseTitle": "Janna Systems聚焦投资银行",
+   "importance": 2,
+   "core": "The result was transformational.",
+   "case": "We began to have a conversation internally about repositioning ourselves away from “enterprise CRM” to positioning ourselves as “CRM for investment banks.” At first this shift in positioning seemed risky. Some people on the team felt that moving from focusing on a very large market to a very small one would stifle our growth. Our investors worried that the target market was simply too small for us and we would never grow to be the large company they needed us to be."
   }
  ],
  "Step 9. Layer On a Trend (but Be Careful)": [
   {
-   "point": "趋势要叠在产品优势与客户关切的交汇处，而非替代品类",
    "core": "Think of your product’s strengths, your market context and a trend that is relevant to your customer base as three overlapping circles. You are aiming for the center, where all three intersect.",
-   "caseTitle": "Redgate 的数据库 DevOps",
    "case": "The result was a dramatic increase in customers buying multiple Redgate products at a time and a whopping 100% increase in inbound leads (companies contacting Redgate wanting to buy their products)—a clear indicator that Redgate’s products had become a higher-priority purchase.",
-   "explain": "Redgate 把数据库工具与 DevOps 趋势绑定，多产品购买和主动询盘大增，说明趋势落在优势与客户关切的交汇处才有效。"
+   "point": "趋势要叠在产品优势与客户关切的交汇处，而非替代品类",
+   "explain": "Redgate 将数据库工具与 DevOps 趋势绑定，正落在产品优势、市场语境与客户关切三圆交集，结果多产品购买大增、主动询盘翻倍，证明叠加趋势能提升购买优先级。",
+   "caseTitle": "Redgate 的数据库 DevOps",
+   "importance": 3
   }
  ],
  "Step 10. Capture Your Positioning so It Can Be Shared": [
   {
-   "point": "定位要写成各部门都能用的文档，才会真正产生价值",
    "core": "Once you have worked through your positioning, you need to share it across the organization. Positioning needs to have company buy-in so it can be used to inform branding, marketing campaigns, sales strategy, product decisions and customer-success strategy.",
-   "caseTitle": "详版文档加一页纸",
    "case": "I recommend capturing your positioning in a document with enough detail that it can be used by marketing, sales and product creation. This document should break down each individual component of the position, give enough detail for each to be understood and show how they interact with one another. I’m a fan of having a shorter, concise version of the positioning that can be captured on a single page and easily shared across the company.",
-   "explain": "详版文档拆解各组件并说明相互关系，供营销、销售、产品使用；一页纸简版便于全公司共享，使定位真正落地。"
+   "point": "定位要写成各部门都能用的文档，才会真正产生价值",
+   "explain": "详细文档拆解各组件并说明相互关系，供营销、销售、产品使用；一页纸简版便于全公司共享。",
+   "caseTitle": "详版文档加一页纸",
+   "importance": 3
+  },
+  {
+   "point": "用定位画布结构化记录各要素及其关系",
+   "explain": "画布包含产品名称、一句话描述、市场品类、替代方案、属性、价值和客户细分，并展示它们之间的关系。",
+   "caseTitle": "定位画布",
+   "importance": 2,
+   "core": "I recommend capturing your positioning in a document with enough detail that it can be used by marketing, sales and product creation.",
+   "case": "Here’s the positioning canvas I use. It includes the product name and a one-line description as well as the market category (and subcategory if needed). It then lets you line up competitive alternatives, attributes, value and customer segments in a way that shows the relationship between them."
+  },
+  {
+   "point": "简洁单页版本便于全公司共享并获得认同",
+   "explain": "单页定位文档易于在公司内部分发，帮助各部门快速理解并采用统一定位。",
+   "caseTitle": "单页定位文档",
+   "importance": 2,
+   "core": "Positioning needs to have company buy-in so it can be used to inform branding, marketing campaigns, sales strategy, product decisions and customer-success strategy.",
+   "case": "I’m a fan of having a shorter, concise version of the positioning that can be captured on a single page and easily shared across the company."
   }
  ],
  "After Positioning: What Happens Next?": [
   {
-   "point": "定位改变不只影响营销，还会牵动产品路线图和定价",
    "core": "Changing the way the company thinks about itself will usually have an impact on how product features get prioritized in the future.",
-   "caseTitle": "投行CRM提价",
    "case": "There are price expectations in each market category, so getting your pricing in line with those will help reinforce that your product belongs there. For example, we raised the pricing for our “CRM for investment banks” because our investment banking customers didn’t expect us to be the same price as a general-purpose CRM.",
-   "explain": "投行专用CRM因定位不同于通用CRM，客户预期价格更高，公司据此提价，说明定位直接决定定价策略，而非仅停留在传播层面。"
+   "point": "定位改变不只影响营销，还会牵动产品路线图和定价",
+   "explain": "投行CRM提价案例表明，定价需与品类预期一致，强化定位，说明定位直接影响定价策略。",
+   "caseTitle": "投行CRM提价",
+   "importance": 3
+  },
+  {
+   "point": "技术变化可能迅速改变购买标准，需重新定位",
+   "explain": "3G到4G使视频流成为可能，用户数据使用激增，视频营销功能从次要变为关键差异化点，说明技术变化要求重审定位。",
+   "caseTitle": "3G到4G视频流",
+   "importance": 2,
+   "core": "New technology can suddenly change what is possible in a market. Once customers understand it, purchase criteria can shift very quickly.",
+   "case": "For example, here in North America, the move from 3G to 4G and LTE cell networks suddenly allowed consumers to stream video and movies on a mobile device. Users shifting to LTE devices in North America relied less on Wi-Fi connectivity, and mobile data usage skyrocketed. Now suppose you sell a marketing automation solution and you already support video marketing. That feature, which may have been less important in the past, could become a critical point of differentiation between you and your competitors, should you choose to emphasize it in your positioning."
+  },
+  {
+   "point": "客户偏好变化可能要求回到定位步骤重做",
+   "explain": "银行CIO对紫色服务器灯的偏好引发行业设计风潮，表明客户态度转变可重塑市场，需调整定位。",
+   "caseTitle": "紫色服务器灯案例",
+   "importance": 2,
+   "core": "The attitudes and preferences of customers can shift over time.",
+   "case": "On a business trip to New York, I was invited to tour a large bank’s data center, and the CIO walked right past millions of dollars of racks of non-descript server hardware from IBM to point out a little appliance that he had just purchased from a scrappy startup. “Look at the cool purple lights!” he exclaimed. “I never get to show anyone anything that actually looks cool, but I love this thing!” Within a year, everyone selling bundled hardware and software were packaging their product in jazzy-looking server boxes and talking about “design” in a way they had never done previously in the data center business."
   }
  ],
  "Conclusion": [
   {
-   "point": "好定位很少是默认得来的，需要刻意尝试、试错、再试",
    "core": "Great positioning rarely comes by default. If you want to succeed, you have to determine the best way to position your product. Deliberate, try, fail, test and try again.",
-   "caseTitle": "作者从碰运气到掌握方法",
    "case": "For the first few years of my career, it felt like positioning products was akin to influencing fate. A hidden power appeared to control the destiny of those products—one part buyer impulses, one part market chaos and one part dumb luck. Gradually, I learned that I could influence positioning a little, and as I got smarter at it, I could influence it a lot.",
-   "explain": "作者早年觉得定位像碰运气，后来通过不断实践和观察模式，逐渐能主动影响定位，证明定位能力来自反复试错而非天赋。"
+   "point": "好定位很少是默认得来的，需要刻意尝试、试错、再试",
+   "explain": "作者早年觉得定位像碰运气，后来学会逐步影响定位，说明定位能力来自主动试错而非默认。",
+   "caseTitle": "作者从碰运气到掌握方法",
+   "importance": 3
+  },
+  {
+   "point": "定位能力通过不断实践和总结模式而提升",
+   "explain": "作者通过与其他高管交流、观察成败模式，逐步提升定位技能，印证试错与总结的价值。",
+   "caseTitle": "作者经验积累过程",
+   "importance": 2,
+   "core": "Deliberate, try, fail, test and try again.",
+   "case": "Gradually, I learned that I could influence positioning a little, and as I got smarter at it, I could influence it a lot. The more I talked with other executives working on launching new products into a market, the more I could see the patterns of what worked and what didn’t, and my own skill at positioning improved."
+  },
+  {
+   "point": "趋势应服务于定位，而非盲目跟风",
+   "explain": "作者告诫不要为赶潮流而叠加趋势，宁可成功而平淡，也不要时髦却令人困惑。",
+   "caseTitle": "趋势使用的告诫",
+   "importance": 2,
+   "core": "Great positioning rarely comes by default. If you want to succeed, you have to determine the best way to position your product. Deliberate, try, fail, test and try again.",
+   "case": "Use trends to make your product more interesting to customers right now, but be very cautious. Don’t layer on a trend just for the sake of being trendy—it’s better to be successful and boring, rather than fashionable and bewildering."
   }
  ]
 }

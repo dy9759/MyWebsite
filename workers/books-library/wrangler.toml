@@ -1,0 +1,23 @@
+# Private book library for the site owner (see README.md). Cloudflare Access
+# guards books.myoii.com (only the owner's email may sign in); this Worker
+# also verifies the Access token itself. The books live in a private R2
+# bucket and never enter this repository or the static site.
+name = "books-library"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+# No workers.dev URL: the only way in is the Access-protected hostname.
+workers_dev = false
+routes = [
+  { pattern = "books.myoii.com", custom_domain = true }
+]
+
+[vars]
+TEAM_DOMAIN = "gentle-bush-4578.cloudflareaccess.com"
+ACCESS_AUD = "c54b864f0fc05c111eb4f4a03c3f3c5a7d605483eb8ff1d465b5b1e7bff0f880"
+ALLOWED_ORIGINS = "https://chauncey.myoii.com,http://localhost:3000"
+# Where /login sends the owner back to after signing in.
+HOME_URL = "https://chauncey.myoii.com/books/#shelf"
+
+[[r2_buckets]]
+binding = "BOOKS"
+bucket_name = "books-private"

@@ -1,92 +1,422 @@
 {
  "Introduction": [
   {
-   "point": "同样的团队，身处有无力量的业务，结局天差地别",
    "core": "For Intel, microprocessors had Power and memories did not, and this made all the difference. Intel’s enduring triple-digit billion market cap reflects this Power applied across a large revenue stream.",
-   "caseTitle": "Intel 存储器与微处理器",
    "case": "Their initial thrust was into computer memories, and indeed they styled themselves “The Memory Company.” The invention of microprocessors came about only as an offshoot of a development job for Busicom, a Japanese calculator company. Their motivation in taking this on was simply to generate much needed cash for their memories business. After a long gestation period, though, microprocessors gained traction, and the paths of their two businesses diverged, leading to wildly different value outcomes: $0 for memories and $150B for microprocessors.",
-   "explain": "英特尔以存储器起家，微处理器只是副业，但两者价值结局悬殊：存储器归零，微处理器达1500亿美元，证明业务本身有无力量决定成败。"
+   "point": "同样的团队，身处有无力量的业务，结局天差地别",
+   "explain": "Intel 最初以存储器为主业，微处理器只是副产物；但两项业务最终价值分别为 0 和 1500 亿美元，证明业务本身是否具备力量（Power）比团队能力更关键。",
+   "caseTitle": "Intel 存储器与微处理器",
+   "importance": 3
+  },
+  {
+   "point": "力量是相对概念，壁垒能阻挡竞争套利",
+   "explain": "IBM、AMD、ARM 等众多巨头投入数十亿美元竞争，英特尔仍能维持回报，说明力量来自相对竞争对手的壁垒，而非绝对实力。",
+   "caseTitle": "英特尔微处理器竞争",
+   "importance": 2,
+   "core": "Power, unlike strength, is an explicitly relative concept: it is about your strength in relation to that of a specific competitor.",
+   "case": "IBM, Motorola, AMD, Zilog, National Semiconductor, ARM, NEC, TI and countless others have poured billions into this business."
+  },
+  {
+   "point": "缺乏力量的业务会拖累优秀管理者",
+   "explain": "巴菲特认为好管理者与差业务结合，受损的是管理者声誉而非业务，说明没有力量（Power）的业务终将侵蚀管理才能的价值。",
+   "caseTitle": "巴菲特论管理者",
+   "importance": 2,
+   "core": "For Intel, microprocessors had Power and memories did not, and this made all the difference. Intel’s enduring triple-digit billion market cap reflects this Power applied across a large revenue stream.",
+   "case": "Warren Buffett’s view that if you combine a poor business with a good manager, it is not the business that loses its reputation."
+  },
+  {
+   "point": "领导力需用于选择有力量的业务路径",
+   "explain": "诺伊斯、摩尔、格罗夫若固守存储器，其管理才能的评价将截然不同，说明战略选择（走向力量）比单纯管理能力更重要。",
+   "caseTitle": "诺伊斯摩尔格罗夫",
+   "importance": 2,
+   "core": "For Intel, microprocessors had Power and memories did not, and this made all the difference. Intel’s enduring triple-digit billion market cap reflects this Power applied across a large revenue stream.",
+   "case": "I have little doubt that the managerial acuity of Bob Noyce, Gordon Moore and Andy Grove would be remembered quite differently had they stuck with memories."
+  },
+  {
+   "point": "持久性是企业价值的关键特征",
+   "explain": "以 10% 增长的公司为例，未来三年仅贡献约 15% 的价值，说明大部分价值来自远期，持久性至关重要。",
+   "caseTitle": "10%增长估值示例",
+   "importance": 1,
+   "core": "Thus persistence proves a key feature in this value focus",
+   "case": "if a company were growing at 10% per year, the next three years would account for only about 15% of its value."
+  },
+  {
+   "point": "战略定义需收窄，避免泛化",
+   "explain": "谷歌学术搜索“战略”有 515 万条结果，说明概念泛滥，需用“重要市场中通往持续力量的路线”来收窄定义。",
+   "caseTitle": "谷歌学术战略检索",
+   "importance": 1,
+   "core": "strategy: a route to continuing Power in significant markets",
+   "case": "Searching Google Scholar for articles about “strategy” yields a mind-numbing 5,150,000 hits."
   }
  ],
  "Chapter 1: Scale Economies": [
   {
-   "point": "内容成为固定成本后，订户规模越大，单位成本越低",
    "core": "Exclusive rights and originals made content, a major component of Netflix’s cost structure, a fixed-cost item. Any potential streamer would now have to ante up the same number of dollars, regardless of how many subscribers they had.",
-   "caseTitle": "Netflix 的纸牌屋",
    "case": "If, say, Netflix paid $100M for House of Cards and their streaming business had 30M customers, then the cost per customer was three dollars and change. In this scenario, a competitor with only one million subscribers would have to ante up $100 per subscriber.",
-   "explain": "《纸牌屋》1亿美元成本，Netflix 3000万订户人均约3美元；仅100万订户的对手人均要100美元，规模直接决定成本差距。"
+   "point": "内容成为固定成本后，订户规模越大，单位成本越低",
+   "explain": "Netflix花1亿美元买《纸牌屋》，3000万订户分摊每人约3美元；仅100万订户的对手每人要摊100美元，成本差距巨大。",
+   "caseTitle": "Netflix 的纸牌屋",
+   "importance": 3
+  },
+  {
+   "point": "规模经济本身构成壁垒，使挑战者难以通过降价夺份额",
+   "explain": "英特尔凭借规模经济带来的成本优势，长期抵御AMD的挑战，AMD每次进攻都陷入被动，证明规模经济是有效壁垒。",
+   "caseTitle": "英特尔与AMD竞争",
+   "importance": 3,
+   "core": "This unattractive cost/benefit is itself the Barrier for Scale Economies.",
+   "case": "Intel developed Scale Economies in the microprocessor business. Over a very long period, they were doggedly challenged by Advanced Micro Devices in this space. The outcome: a continuingly great business for Intel and persistent pain for AMD—at every turn Intel could fight off AMD relying on the economics rooted in its Scale Economies."
+  },
+  {
+   "point": "采购规模经济：更大买家能获得更优价格",
+   "explain": "沃尔玛作为大规模买家，凭借采购量获得更优进货价格，降低单位成本，说明采购议价是规模经济来源之一。",
+   "caseTitle": "沃尔玛采购经济",
+   "importance": 2,
+   "core": "Exclusive rights and originals made content, a major component of Netflix’s cost structure, a fixed-cost item. Any potential streamer would now have to ante up the same number of dollars, regardless of how many subscribers they had.",
+   "case": "Purchasing economies. A larger scale buyer can often elicit better pricing for inputs. For example, this has helped Wal-Mart."
   }
  ],
  "Chapter 2: Network Economies": [
   {
-   "point": "网络效应行业赢家通吃，领先者拉开差距后几乎无法追赶",
    "core": "Winner take all. Businesses with strong Network Economies are frequently characterized by a tipping point: once a single firm achieves a certain degree of leadership, then the other firms just throw in the towel.",
-   "caseTitle": "BranchOut 追赶领英",
    "case": "Catch-up is usually impossible if there are Network Economies and LinkedIn already had 70M members. But Marini was betting that the game was not yet over. His idea was to build on Facebook’s base, which was almost 10x that of LinkedIn, enabling this with tools so that a user could seamlessly download all their information from LinkedIn.",
-   "explain": "领英已有7000万用户，BranchOut想借Facebook的10倍用户基础追赶，但网络效应下追赶几乎不可能，说明领先者优势难以撼动。"
+   "point": "网络效应行业赢家通吃，领先者拉开差距后几乎无法追赶",
+   "explain": "领英已有7000万用户，BranchOut想借Facebook的10倍用户基础追赶，但网络效应下追赶通常不可能，证明领先者优势难以撼动。",
+   "caseTitle": "BranchOut 追赶领英",
+   "importance": 3
+  },
+  {
+   "point": "网络效应形成赢家通吃，即使巨头也难以颠覆领导者",
+   "explain": "谷歌实力雄厚且资源丰富，但Google+仍无法撼动Facebook，说明网络效应带来的领先地位极其稳固。",
+   "caseTitle": "Google+挑战Facebook",
+   "importance": 2,
+   "core": "Businesses with strong Network Economies are frequently characterized by a tipping point: once a single firm achieves a certain degree of leadership, then the other firms just throw in the towel.",
+   "case": "For example, even a company as competent and with as deep pockets as Google could not unseat Facebook with Google+."
+  },
+  {
+   "point": "早期相对规模扩张至关重要，产品正确性决定谁扩张最快",
+   "explain": "Facebook超越MySpace，说明在网络效应临界点动态下，早期把产品做得最正确的一方往往能最快扩张并获胜。",
+   "caseTitle": "Facebook超越MySpace",
+   "importance": 2,
+   "core": "Due to tipping point dynamics, early relative scaling is critical in developing Power. Who scales the fastest is often determined by who gets the product most right early on.",
+   "case": "Facebook’s trumping of MySpace is a good example."
+  },
+  {
+   "point": "互补品排他性形成间接网络效应，构成进入壁垒",
+   "explain": "新智能手机操作系统因缺乏应用而缺乏吸引力，开发者不愿投入，说明互补品排他性使领导者吸引更多互补品，新进入者难破局。",
+   "caseTitle": "智能手机操作系统",
+   "importance": 2,
+   "core": "If a business has important complements and these complements are somehow exclusive to each offering, then a leader will attract more and/or better complements.",
+   "case": "An example of this would be smartphone apps. Another smartphone OS would be hard to offer at this point because it would start out with a dearth of apps. This would make it very unattractive. Developers of apps would of course not be incented to spend their scarce resources since the market would be small."
   }
  ],
  "Chapter 3: Counter-Positioning": [
   {
-   "point": "在位者不跟进新模式，往往是理性计算后的选择",
    "core": "The incumbent’s failure to respond, more often than not, results from thoughtful calculation. They observe the upstart’s new model, and ask, “Am I better off staying the course, or adopting the new model?”",
-   "caseTitle": "Fidelity 不做指数基金",
    "case": "However, the impact of entry into passive funds on their remaining base business of active funds would have been subtractive. Active funds carry radically higher expense charges and many even had upfront sales commissions (loads). For the assets they would have cannibalized, the revenue decline would have been dramatic.",
-   "explain": "富达完全有能力做被动基金，但主动基金收费高、有申购佣金，转做被动会蚕食自身高收入业务，收入下滑明显，因此理性选择不跟进。"
+   "point": "在位者不跟进新模式，往往是理性计算后的选择",
+   "explain": "富达具备能力却拒绝模仿先锋的被动基金，因为主动基金收费更高，迁移会大幅减少收入，理性计算后选择不跟进。",
+   "caseTitle": "Fidelity 不做指数基金",
+   "importance": 3
+  },
+  {
+   "point": "新进入者采用更优商业模式，在位者因附带损害不模仿",
+   "explain": "先锋推出低成本指数基金，直接威胁主动管理巨头的收入，因此在位者预见损害而不模仿，构成反定位。",
+   "caseTitle": "先锋集团指数基金",
+   "importance": 3,
+   "core": "A newcomer adopts a new, superior business model which the incumbent does not mimic due to anticipated damage to their existing business.",
+   "case": "On May 1, 1975, John C. Bogle carried the day by persuading the reluctant Wellington Management board to back Vanguard. Vanguard’s charter was radical: the new investment management company would initiate an equity mutual fund that simply tracked the market, dispensing with any pretensions of active management. Not only that, but it would also operate “at cost”—owned by the funds it administered, paying all returns back to shareholders. The following year, the third innovation was put in place: Vanguard became a no-load fund—one with no sales commissions."
+  },
+  {
+   "point": "在位者因担心蚕食现有收入而拒绝模仿",
+   "explain": "富达拥有开发被动基金的能力，但担心主动基金客户迁移导致收入下降，理性选择不模仿先锋。",
+   "caseTitle": "富达投资被动基金",
+   "importance": 2,
+   "core": "In the Vanguard case, Fidelity looked at their highly attractive active management franchise and concluded that the new passive funds’ more modest returns would likely fail to offset the damage done by a migration from their flagship products.",
+   "case": "This was the situation faced by Ned Johnson, the CEO of Fidelity, when passive mutual funds started to appear. Unlike the Kodak case, Fidelity possessed all the capabilities to develop and distribute passive funds. They were a mutual fund powerhouse, and one could even reasonably argue that their capabilities in this space were superior to those of challenger Vanguard."
+  },
+  {
+   "point": "并非所有在位者不跟进都是反定位",
+   "explain": "柯达不跟进数码摄影，是因为独立数码业务无法带来力量，而非附带损害，说明反定位需区分。",
+   "caseTitle": "柯达与数码摄影",
+   "importance": 2,
+   "core": "Kodak’s failure to respond had nothing to do with collateral damage within their film business; rather it indicated only that digital photography as a stand-alone business failed to offer even the faintest promise of Power for Kodak.",
+   "case": "Kodak’s business model was legendary, built on the customer’s continuing need to purchase film, a product in which Kodak was wildly profitable due to both Scale Economies and a proprietary edge (this Power type is Cornered Resources, to be covered in Chapter 6). Kodak offered the first of its path-breaking Brownie cameras in 1900. By 1930 it was one of the firms in the Dow Jones Industrial index, and it stayed in that group for more than 40 years—one of the great business empires."
+  },
+  {
+   "point": "反定位挑战对在位者是艰难的管理挑战",
+   "explain": "诺基亚在智能手机市场被反定位，CEO的“燃烧平台”备忘录体现了在位者面对反定位时的巨大挫败感。",
+   "caseTitle": "诺基亚智能手机",
+   "importance": 1,
+   "core": "A Counter-Positioning challenge is one of the toughest management challenges.",
+   "case": "When I started teaching at Stanford in 2008, Nokia was the leader in smartphones. By 2014 they had disappeared from this market. Their CEO Stephen Elop’s “Burning Platform” memo in 2011 captures well the immense frustration of a Counter-Positoned incumbent:"
+  },
+  {
+   "point": "反定位力量仅针对在位者，不适用于其他新进入者",
+   "explain": "In-N-Out对麦当劳有反定位力量，但面对Five Guys等同类新进入者时并无优势，说明反定位的局限性。",
+   "caseTitle": "In-N-Out与麦当劳",
+   "importance": 1,
+   "core": "For example, In-N-Out has Counter-Positioning Power over McDonald’s, but this helps them not at all in facing like competitors such as Five Guys Burgers and Fries.",
+   "case": "In-N-Out vs. McDonald’s. This is CP, but not DT (no new technology involved)."
   }
  ],
  "Chapter 4: Switching Costs": [
   {
-   "point": "转换成本让对手须先补偿客户损失才能抢单",
    "core": "The firm that has previously roped in the customer, then, can set or adjust prices in a way that puts their potential rival at a cost disadvantage, rendering such a challenge distinctly unattractive.",
-   "caseTitle": "HP 的 SAP 迁移事故",
    "case": "HP was not the only company selling servers—customers could easily turn to Dell or IBM. So, as backlog piled up, HP started to lose business. In her conference call with analysts HP CEO Carly Fiorina later stated that this snafu resulted in a $160M financial hit. The HP experience perfectly exemplifies not only the high Switching Costs (considerably more than the software itself) an ERP migrator can expect, but also the intimidating uncertainty which surrounds the planning for such a migration.",
-   "explain": "HP迁移SAP时订单中断、损失1.6亿美元，说明客户更换供应商的代价远超软件本身，对手要抢单必须先补偿这笔损失，因而难以发起挑战。"
+   "point": "转换成本让对手须先补偿客户损失才能抢单",
+   "explain": "HP迁移SAP时订单中断造成1.6亿美元损失，说明客户转换供应商的预期损失巨大，对手必须补偿这笔损失才能吸引客户，从而让现有供应商获得定价优势。",
+   "caseTitle": "HP 的 SAP 迁移事故",
+   "importance": 3
+  },
+  {
+   "point": "高转换成本锁定客户，即使不满也续费",
+   "explain": "调查显示43%的SAP客户不满响应速度，但89%仍计划续付年费，证明转换成本使客户被锁定，支撑高留存和供应商定价能力。",
+   "caseTitle": "SAP用户高留存低满意",
+   "importance": 3,
+   "core": "SAP’s paradoxical combination of high retention and low satisfaction reflects the economic reality of a software product of great value to a corporation but one that also comes with high Switching Costs.",
+   "case": "A recent Compuware study33 of 588 SAP customers in Europe and the US found that 43% were unhappy with SAP response times across all components. Nearly all felt that SAP performance problems would result in financial risks, and 50% felt unable to predict SAP performance. Yet another survey34 of more than 1,000 customers found that 89% expected to continue paying the annual maintenance fees for SAP in the near future."
+  },
+  {
+   "point": "财务型转换成本：放弃已购资产锁定客户",
+   "explain": "iTunes采用专有格式，客户转换程序会丧失已购内容，这种财务损失使客户不愿转换，说明财务型转换成本的锁定效应。",
+   "caseTitle": "苹果iTunes专有格式锁定",
+   "importance": 2,
+   "core": "The firm that has previously roped in the customer, then, can set or adjust prices in a way that puts their potential rival at a cost disadvantage, rendering such a challenge distinctly unattractive.",
+   "case": "A simple example is Apple’s hold on its iTunes customers. Apple downloads come in a proprietary format, so in switching to another program, Apple customers forfeit their prior purchases. This is an unattractive prospect, which accounts for why so many customers stay locked in."
+  },
+  {
+   "point": "转换成本收益需靠后续追加销售兑现",
+   "explain": "SAP不断开发附加产品，确保客户持续追加购买，从而让转换成本带来的定价优势转化为实际收益，说明收益只在后续销售中兑现。",
+   "caseTitle": "SAP产品清单扩展附加品",
+   "importance": 2,
+   "core": "The firm that has previously roped in the customer, then, can set or adjust prices in a way that puts their potential rival at a cost disadvantage, rendering such a challenge distinctly unattractive.",
+   "case": "Switching Costs offer no Benefit if no additional related sales are made to the customer. To assure that such additional sales take place, one tactic might be to develop more and more add-on products. This has been SAP’s tack, as seen from this Wikipedia list of the company’s offerings."
+  },
+  {
+   "point": "并购扩展产品组合可强化三类转换成本",
+   "explain": "SAP通过大规模并购扩展产品线，增加客户嵌入程度和迁移复杂性，从而同时提升财务、程序和关系三类转换成本。",
+   "caseTitle": "SAP并购扩展产品线",
+   "importance": 2,
+   "core": "The building of such product portfolios can serve to boost all three categories of Switching Costs.",
+   "case": "Acquisitions significantly accelerate product line extensions, too, serving as a sort of outsourced development. This too has been part of SAP’s playbook, as proven by their ambitious acquisition program."
+  },
+  {
+   "point": "程序性转换成本难以准确预估",
+   "explain": "HP资深高管精心预算迁移时间和库存仍不足，说明ERP迁移的程序性成本（如学习、流程调整）具有高度不确定性，难以准确预估。",
+   "caseTitle": "惠普迁移预算与准备",
+   "importance": 1,
+   "core": "Even her careful preparation was insufficient, however.",
+   "case": "Christina Hanger was Hewlett-Packard (HP)’s Senior Vice President of American Operations in May 2004.35 She was already an old hand at SAP migrations, having already overseen five of them at HP following their acquisition of Compaq, and this experience guided her budgeting: three weeks to accommodate changeover of the legacy order-entry system to the SAP system, plus three weeks of extra server inventory."
   }
  ],
  "Chapter 5: Branding": [
   {
-   "point": "品牌让客观相同的商品卖出更高价格，壁垒是漫长积累",
    "core": "Barrier. A strong brand can only be created over a lengthy period of reinforcing actions (hysteresis), which itself serves as the key Barrier.",
-   "caseTitle": "Tiffany 与 Costco 钻戒",
    "case": "In 2005, Good Morning America purchased a diamond ring at Tiffany & Co. for $16,600 and one of similar size and cut at Costco for $6,600. They then asked Martin Fuller, a reputable gemologist and appraiser, to assess the rings’ values. Fuller assessed the Costco ring at $8,000 plus setting costs, more than $2,000 above the selling price.",
-   "explain": "同款钻戒蒂芙尼售价16600美元，Costco仅6600美元，估价师对蒂芙尼戒指估值10500美元、Costco戒指8000美元，价差主要来自品牌而非产品本身。"
+   "point": "品牌让客观相同的商品卖出更高价格，壁垒是漫长积累",
+   "explain": "同款钻戒蒂芙尼售16600美元、Costco售6600美元，估价却分别约10500与8000美元，溢价来自品牌而非产品本身，且这种溢价只能靠长期一致行为积累。",
+   "caseTitle": "Tiffany 与 Costco 钻戒",
+   "importance": 3
+  },
+  {
+   "point": "品牌溢价的重要来源之一是降低购买不确定性",
+   "explain": "拜耳阿司匹林每片价格比Kirkland高117%，仍有顾客选择拜耳，因为其长期一致性让人确信拿到的是预期产品，从而获得安心。",
+   "caseTitle": "拜耳与柯克兰阿司匹林",
+   "importance": 3,
+   "core": "Uncertainty reduction. A customer attains “peace of mind” knowing that the branded product will be as just as expected.",
+   "case": "Search for aspirin on Amazon.com and you will see a 200 count of Bayer 325 mg. aspirin for $9.47 side-by-side with a 500 count of Kirkland 325 mg. aspirin for $10.93. So Bayer has a price per tablet premium of 117%. Some customers still would prefer the Bayer because of diminished uncertainty: Bayer’s long history of consistency makes customers more confident that they are getting exactly what they want."
+  },
+  {
+   "point": "品牌向下延伸会稀释价值，损害难以逆转",
+   "explain": "Halston接受J.C. Penney十亿美元做大众平价线，Bergdorf Goodman为保护自身品牌撤柜，平价线失败，Halston再未恢复昔日品牌地位。",
+   "caseTitle": "Halston下探大众市场失败",
+   "importance": 2,
+   "core": "Seeking higher “down market” volumes can reduce affective valence by damaging the aura of exclusivity, weakening positive associations with the product.",
+   "case": "Halston rose to fame in the 1970s as a high-end design standard for women’s clothing. However, when Halston accepted $1 billion from lower-end retailer J.C. Penney to expand into affordable fashion lines for the mass consumer, Bergdorf Goodman dropped the label in order to protect their brand. The J.C. Penney line was a failure, and the Halston name never recaptured its previously enviable Branding."
+  },
+  {
+   "point": "仿冒者会搭便车，品牌方须主动防御",
+   "explain": "蒂芙尼2013年起诉Costco暗示售卖蒂芙尼珠宝，此前还起诉eBay纵容假货，并声明绝不在折扣仓储渠道销售，以阻止仿冒侵蚀品牌。",
+   "caseTitle": "蒂芙尼起诉Costco与eBay",
+   "importance": 2,
+   "core": "Since it is the label, not the product, that bestows Branding Power, counterfeiters may try to free-ride by falsely associating a powerful brand with their product.",
+   "case": "For instance, in 2013 Tiffany sued Costco for intimating to shoppers that they sold Tiffany jewelery; the company had previously sued eBay for facilitating the sale of counterfeits. A press release to investors after the filing of the 2013 suit explicitly noted that, “Tiffany has never sold nor would it ever sell its fine jewelry through an off-price warehouse retailer like Costco.”53"
+  },
+  {
+   "point": "消费者偏好变化会削弱既有品牌的价值",
+   "explain": "任天堂以家庭友好游戏建立品牌，但玩家群体从儿童转向成人、需求转向成熟游戏时，其品牌未能延伸至该群体，受到负面影响。",
+   "caseTitle": "任天堂品牌与成人玩家",
+   "importance": 2,
+   "core": "Changing consumer preferences. Over time, customer preferences may vary in a way that undermines the value of Branding.",
+   "case": "Nintendo developed a brand for family-friendly video games. However, as the gaming demographic evolved from predominantly children to adults, there was a shift in demand for more mature games. Nintendo’s Branding did not extend to this segment with the attendant negative impact."
+  },
+  {
+   "point": "品牌资产可独立于产品本身具有市场价值",
+   "explain": "蒂芙尼蓝盒随购买免费赠送，却在市场上具有独立的货币价值，说明品牌符号本身已承载可交易的价值。",
+   "caseTitle": "蒂芙尼蓝盒的独立价值",
+   "importance": 1,
+   "core": "Barrier. A strong brand can only be created over a lengthy period of reinforcing actions (hysteresis), which itself serves as the key Barrier.",
+   "case": "Tiffany’s success is evidenced by the fact that, although the Blue Box comes free with a purchase, it carries a standalone monetary value."
   }
  ],
  "Chapter 6: Cornered Resource": [
   {
-   "point": "独占资源的壁垒可以是专利、产权，也可以是个人选择",
    "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
-   "caseTitle": "Lasseter 拒绝回迪士尼",
    "case": "To illustrate: in 1988, long before Disney began its association with Pixar, Lasseter won an Academy Award for his Pixar short Tin Toy, prompting Disney CEO Michael Eisner and Disney Chairman Jeffrey Katzenberg to try to recruit their former employee back into the Disney fold. Lasseter demurred: “I can go to Disney and be a director, or I can stay here and make history.”",
-   "explain": "拉塞特拒绝迪士尼的招募，选择留在皮克斯创造历史。这说明关键人物的个人选择本身就能构成壁垒，让对手无法获得这一稀缺资源。"
+   "point": "独占资源的壁垒可以是专利、产权，也可以是个人选择",
+   "explain": "Lasseter 拒绝迪士尼招募，选择留在皮克斯，说明关键人物的个人选择本身就能构成壁垒，阻止资源流向竞争对手。",
+   "caseTitle": "Lasseter 拒绝回迪士尼",
+   "importance": 3
+  },
+  {
+   "point": "优秀管理者不满足充分性测试，不能单独构成独占资源",
+   "explain": "George Fisher 在摩托罗拉表现出色，但到柯达后未能扭转颓势，说明个人能力不足以独立带来持续差异化回报，不满足充分性。",
+   "caseTitle": "费舍尔与柯达",
+   "importance": 3,
+   "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
+   "case": "I am a fan of the abilities of George Fisher. He did a fine job leading Motorola. When he took the helm at Kodak, there were high hopes that his presence would lead to a revival of the company—i.e. that he was a Cornered Resource. The rough patch that followed was, in my view, not his fault; it was merely an indication of the hopeless cul-de-sac created by the company’s focus on chemical film in a solid-state age."
+  },
+  {
+   "point": "独占资源具有特异性，简单替换新人无法复制成功",
+   "explain": "多位导演在《玩具总动员2》《料理鼠王》《勇敢传说》中被替换，说明皮克斯创作团队的成功难以通过引入新人复制，资源具有特异性。",
+   "caseTitle": "新人导演失败案例",
+   "importance": 2,
+   "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
+   "case": "Such directors frequently fail, as evidenced by the replacement of Ash and Colin Brady on Toy Story 2, Jan Pinkava on Ratatouille and Brenda Chapman on Brave."
+  },
+  {
+   "point": "独占资源可转移，并能为他方创造价值",
+   "explain": "迪士尼CEO Iger 意识到收购皮克斯是获得其人才的唯一途径，收购后迪士尼动画复兴，证明该资源可转移且能独立提升价值。",
+   "caseTitle": "伊格收购皮克斯",
+   "importance": 2,
+   "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
+   "case": "Disney’s later CEO, Bob Iger, would decide to acquire Pixar only after realizing such an acquisition would be the sole means of bringing Pixar’s talent to Disney’s flagging animation group. The subsequent revival of Disney Animation affirmed his wisdom."
+  },
+  {
+   "point": "独占资源带来持续卓越的产出，证明其稀缺价值",
+   "explain": "皮克斯前10部电影平均烂番茄94%，八部获奥斯卡最佳动画，持续高水准产出印证了其创作团队作为独占资源的独立价值。",
+   "caseTitle": "皮克斯前十部电影数据",
+   "importance": 2,
+   "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
+   "case": "Their first 10 films had an average Rotten Tomatoes score of 94%, with only Cars coming in below 90%. Eight Pixar films have been awarded an Academy Award for Best Animated Feature, and two of their films have been nominated for Best Picture, an impressive achievement for an animated film."
   }
  ],
  "Chapter 7: Process Power": [
   {
-   "point": "流程力量的壁垒是迟滞，对手看得见也学不会",
    "core": "Barrier. The Barrier in Process Power is hysteresis: these process advances are difficult to replicate, and can only be achieved over a long time period of sustained evolutionary advance.",
-   "caseTitle": "通用汽车学不会NUMMI",
    "case": "The joint venture got off to a fast start, and the low defect rates of NUMMI cars quickly approached those of Toyota in their Japanese facilities. GM had high hopes that the lessons learned from this endeavor would be readily transferable to their numerous other plants around the world. But it was not to be. Although Toyota offered full transparency regarding NUMMI practices, GM just couldn’t replicate the NUMMI results in its own facilities.",
-   "explain": "丰田对通用完全透明开放NUMMI实践，通用仍无法在自家工厂复制其低缺陷率成果，证明流程优势嵌于组织、需长期演进，无法短期照搬。"
+   "point": "流程力量的壁垒是迟滞，对手看得见也学不会",
+   "explain": "丰田对通用完全透明开放NUMMI实践，通用仍无法在自家工厂复制低缺陷率，证明流程改进嵌在组织中，只能靠长时间演进积累，无法快速转移。",
+   "caseTitle": "通用汽车学不会NUMMI",
+   "importance": 3
+  },
+  {
+   "point": "流程力量是自下而上、数十年试错演化的结果",
+   "explain": "连丰田自己都没有对TPS的完整自上而下的理解，花了整整15年才把TPS转移给供应商，说明流程知识隐性且需长期演进。",
+   "caseTitle": "TPS转移供应商耗时",
+   "importance": 2,
+   "core": "The system was fashioned from the bottom up, over decades of trial and error.",
+   "case": "It would not be an exaggeration to say that even Toyota did not have a full, top-down understanding of what they had created—it took fully fifteen years, for instance, before they were able to transfer TPS to their suppliers."
+  },
+  {
+   "point": "流程力量带来长期持续的市场优势",
+   "explain": "丰田凭借流程力量用数十年时间在美国市场份额从无到有逼近通用和福特，而通用份额从一半跌至不足20%，显示流程优势的持久性和巨大影响。",
+   "caseTitle": "丰田市场份额增长",
+   "importance": 2,
+   "core": "The persistence of these shifts, over decades, is as notable as their magnitude.",
+   "case": "From out of nowhere, by 2014 Toyota managed to pull nearly even with GM and Ford in the U.S. market. Over the same period, GM collapsed: its U.S. share plummeting from half the U.S. market to less than 20%. Worldwide, Toyota’s market share trends were even more impressive."
   }
  ],
  "Chapter 8: The Path to Power": [
   {
-   "point": "所有力量都始于发明，跟风模仿建立不了力量",
    "core": "We are covering a lot of ground here, but you will notice a common thread: the first cause of every Power type is invention, be it the invention of a product, process, business model or brand.",
-   "caseTitle": "Netflix 豪赌原创剧",
    "case": "Netflix plunked down $100 million, beating out HBO, CBS and Showtime to lock up twenty-six episodes, two full seasons of the political thriller. It was a big bet, and despite modest assurance from their user stats, a large risk.",
-   "explain": "Netflix 以1亿美元抢下《纸牌屋》两季26集，押注独家原创内容。这一发明性豪赌让它摆脱授权内容的同质竞争，建立起对手难以复制的优势，印证力量源于发明而非模仿。"
+   "point": "所有力量都始于发明，跟风模仿建立不了力量",
+   "explain": "Netflix 以1亿美元锁定两季《纸牌屋》，击败HBO等对手，这一豪赌原创剧的发明行为，正是其建立流媒体时代力量的起点，证明力量源于发明而非模仿。",
+   "caseTitle": "Netflix 豪赌原创剧",
+   "importance": 3
+  },
+  {
+   "point": "力量始于发明，Netflix通过流媒体和原创内容建立力量",
+   "explain": "Netflix从DVD租赁起步，发明流媒体和原创内容，最终击败Blockbuster使其破产，展示了发明如何创造并巩固力量。",
+   "caseTitle": "Netflix流媒体转型",
+   "importance": 3,
+   "core": "all Power starts with invention.",
+   "case": "When I became an investor in Netflix in 2003, my investment hypothesis had two legs: Netflix’s DVD-rental business had Power: Counter-Positioning to the brick-and-mortar incumbent, Blockbuster; Process Power, as well as modest spatial distribution Scale Economies relative to other DVD-by-mail wannabes. This Power was not properly recognized by the investment community. My hypothesis proved correct, as Netflix handily beat back other like competitors, while also winning a bruising battle against Blockbuster, with a finale as definitive as any strategist could hope for: on September 23, 2010, Blockbuster declared Chapter 11 bankruptcy."
+  },
+  {
+   "point": "能力驱动创造 compelling value：将现有能力转化为产品",
+   "explain": "Adobe利用软件与图形交叉领域的能力，历时两年开发Acrobat，实现跨平台文档共享，体现了基于能力的发明如何创造 compelling value。",
+   "caseTitle": "Adobe Acrobat",
+   "importance": 2,
+   "core": "Capabilities-led compelling value: when a company tries to translate some capability into a product with compelling value.",
+   "case": "Consider Adobe’s creation of Acrobat. Here the key capability brought to bear was Adobe’s existing fluency at the intersection of software and graphics. John Warnock, Adobe’s co-founder, wanted to utilize this expertise to create a software that enabled the sharing of documents transparently across diverse computer platforms while exactly maintaining visual integrity. After two intense years of fits and starts, Adobe launched Acrobat 1.0 on June 15, 1993."
+  },
+  {
+   "point": "客户驱动创造 compelling value：解决客户迫切需求",
+   "explain": "康宁为满足通信流量增长需求，攻克光纤透明度的技术难题，展示了客户需求导向的发明如何创造 compelling value。",
+   "caseTitle": "康宁光纤",
+   "importance": 2,
+   "core": "We are covering a lot of ground here, but you will notice a common thread: the first cause of every Power type is invention, be it the invention of a product, process, business model or brand.",
+   "case": "Here Corning’s fiber optics provide a good example. By the early 1970s optical fibers—also known as waveguides—had come to be seen as the holy grail of communications, holding the potential to handle vastly increased traffic density. Their creation seemed to carry an assurance of compelling value for any company that could crack the problem. Unfortunately, the transparency demanded of the optical fiber glass was nearly unthinkable: if the ocean matched the clarity required, you could stand over the Marianas Trench and see all the way to the bottom, 35,798 feet below."
+  },
+  {
+   "point": "竞争者驱动创造 compelling value：以突破性性能超越对手",
+   "explain": "索尼作为游戏市场新进入者，凭借实时3D图形技术的突破，打造出“非买不可”的PlayStation，成功从任天堂和世嘉手中夺取市场。",
+   "caseTitle": "索尼PlayStation",
+   "importance": 2,
+   "core": "We are covering a lot of ground here, but you will notice a common thread: the first cause of every Power type is invention, be it the invention of a product, process, business model or brand.",
+   "case": "Sony’s PlayStation exhibited competitor-led compelling value. In the early 1990s, Sony was an imposing presence in consumer electronics, but a newcomer to video games, facing the formidable established presences of Nintendo and Sega. Once again, an advancing technology frontier created an opening for a pioneering challenger. An evolutionary product would not have offered much chance of stealing the march on their well-entrenched rivals but Sony’s Ken Kutaragi, a brilliant and feisty engineer and the point man for Sony’s thrust into video games, was convinced that the breakthrough of real-time 3D graphics would lead to “gotta have.”"
   }
  ],
  "Chapter 9: The Power Progression": [
   {
-   "point": "规模、网络和转换成本只能在起飞期建立，窗口过了就没了",
    "core": "Intel’s experience imparts a crucial “When?” lesson: the takeoff period represents a singular time. Only then can you initiate three important types of Power: Scale Economies, Network Economies and Switching Costs.",
-   "caseTitle": "IBM PC 选中 8088",
    "case": "With a herculean effort Estridge and his team met their one-year deadline, developing the revolutionary IBM PC, which included the Intel 8088, a dumbed-down version of the 8086. No one could have anticipated the market explosion that followed. The IBM PC rolled out on August 12, 1981.",
-   "explain": "IBM PC 采用 8088 后市场爆炸，Intel 借此在起飞期迅速铺开装机量，奠定规模经济与生态网络；这一窗口一旦关闭便难以复制。"
+   "point": "规模、网络和转换成本只能在起飞期建立，窗口过了就没了",
+   "explain": "IBM PC 选用 Intel 8088 引发市场爆炸，Intel 借此在起飞期建立规模经济、网络经济和转换成本，奠定力量基础。",
+   "caseTitle": "IBM PC 选中 8088",
+   "importance": 3
+  },
+  {
+   "point": "起飞期的卓越执行具有战略意义，能决定力量建立",
+   "explain": "Operation Crush 以激进销售攻势设定 2000 个设计中标目标，在起飞期赢得市场，证明运营卓越在起飞阶段是战略性的。",
+   "caseTitle": "Operation Crush销售攻势",
+   "importance": 3,
+   "core": "For Intel, Operation Crush made a crucial difference to Power. In a mature business, it would have simply been part of the to-and-fro of arbitrage.",
+   "case": "Intel responded with the aggressiveness forged into the company by Andy Grove, launching Operation Crush, an audacious frontal assault in sales and marketing. Intel leadership set a wildly aggressive target of 2000 design wins within the year, and the company set to work executing this corporate-wide crusade."
+  },
+  {
+   "point": "起飞期运营卓越至关重要，缺失会导致错失力量窗口",
+   "explain": "Apple III 因电路板技术不成熟、短路频发且定价过高，在 IBM PC 低价冲击下失败，反证起飞期运营卓越的缺失导致错失建立力量的机会。",
+   "caseTitle": "苹果Apple III失败",
+   "importance": 2,
+   "core": "Operational excellence was crucial, and its lack caused Apple to fumble.",
+   "case": "The Apple III had been manufactured utilizing an immature circuit board technology, so short circuits plagued the product from the start. At one point, Apple even released a technical bulletin instructing customers to drop their computers from a height of three inches to try to reseat dislodged chips. To make matters worse, it was a pricey box, starting at over $4000 and going up to almost $8000 fully loaded. Only a year later, the IBM PC was offered at $1600."
+  },
+  {
+   "point": "独占资源在起源期建立，是起飞前成功的关键步骤",
+   "explain": "Intel 从 Busicom 购回微处理器权利，在起飞前三年完成，为后续成功奠定独占资源基础。",
+   "caseTitle": "英特尔微处理器起源",
+   "importance": 2,
+   "core": "Cornered Resource. The crucial step in Intel’s microprocessor victory came when they reacquired the rights to their invention from Busicom, which they accomplished three years prior to takeoff.",
+   "case": "Intel had originally designed its seminal microprocessor for the Japanese company Busicom, so first they had to buy back the rights to that invention. They succeeded at this, and before long, Intel offered up its earliest commercial microprocessor, the 4004."
+  },
+  {
+   "point": "关键人才作为独占资源在起源期建立，是成功基石",
+   "explain": "Intel 在起飞前拥有 Noyce、Moore、Grove 三巨头，Arthur Rock 的投资印证了关键人才作为独占资源在起源期的重要性。",
+   "caseTitle": "英特尔三巨头",
+   "importance": 2,
+   "core": "Thus Counter-Positioning and Cornered Resource are most likely to be established in the origination stage.",
+   "case": "A good case can also be made for another pre-takeoff Cornered Resource at Intel: the potent triumvirate of Bob Noyce, Gordon Moore and Andy Grove. Arthur Rock once said that Intel needed Noyce, Moore and Grove in that order, and Rock eagerly put his money where his mouth was."
+  },
+  {
+   "point": "品牌壁垒需在稳定期长期培育才能建立",
+   "explain": "Hermès 数十年精心培育品质与 exclusivity，形成新进入者难以逾越的陡坡，说明品牌力量只能在稳定期建立。",
+   "caseTitle": "Hermès品牌壁垒",
+   "importance": 2,
+   "core": "Because this long path serves as a defining characteristic, the opportunity for Branding must be squarely placed in the stability stage.",
+   "case": "Think of the steep slope a new entrant would face against Hermès, with their many decades of carefully cultivated quality and exclusivity."
   }
  ]
 }

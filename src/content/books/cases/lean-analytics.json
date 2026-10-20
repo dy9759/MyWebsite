@@ -1,153 +1,506 @@
 {
  "1. We’re All Liars": [
   {
-   "point": "直觉只是假设，用最小可行产品快速验证再决定是否投入",
-   "explain": "创始人凭直觉认为专业摄影能带来更多订单，但没有直接铺开，而是先做人工MVP小范围测试，把直觉变成可检验的实验，验证成功后才规模化。",
-   "caseTitle": "Airbnb专业摄影实验",
    "core": "Instincts are experiments. Data is proof.",
-   "case": "It started with a hypothesis: “Hosts with professional photography will get more business. And hosts will sign up for professional photography as a service.” This is where the founders’ gut instincts came in: they had a sense that professional photography would help their business. But rather than implementing it outright, they built a Concierge Minimum Viable Product (MVP) to quickly test their hypothesis."
+   "case": "It started with a hypothesis: “Hosts with professional photography will get more business. And hosts will sign up for professional photography as a service.” This is where the founders’ gut instincts came in: they had a sense that professional photography would help their business. But rather than implementing it outright, they built a Concierge Minimum Viable Product (MVP) to quickly test their hypothesis.",
+   "point": "直觉只是假设，用最小可行产品快速验证再决定是否投入",
+   "explain": "Airbnb创始人凭直觉认为专业摄影能促进业务，但没有直接实施，而是构建Concierge MVP快速测试假设，体现了将直觉当作实验、用数据验证的原则。",
+   "caseTitle": "Airbnb专业摄影实验",
+   "importance": 3
+  },
+  {
+   "point": "数据是证明，验证假设后才能规模化",
+   "explain": "Airbnb的MVP测试显示专业摄影房源预订量是市场平均的2-3倍，验证了假设，房东也热情响应，说明数据能证实直觉并指导后续行动。",
+   "caseTitle": "Airbnb摄影MVP结果",
+   "importance": 3,
+   "core": "Instincts are experiments. Data is proof.",
+   "case": "Initial tests of Airbnb’s MVP showed that professionally photographed listings got two to three times more bookings than the market average. This validated the founders’ first hypothesis. And it turned out that hosts were wildly enthusiastic about receiving an offer from Airbnb to take those photographs for them."
+  },
+  {
+   "point": "精益创业框架用诚实对抗自我欺骗",
+   "explain": "精益创业提供严谨框架，遵循它就更难对自己撒谎，直接呼应本章‘我们都在骗自己’的主题，说明框架如何制衡自我欺骗。",
+   "caseTitle": "精益创业框架",
+   "importance": 2,
+   "core": "Instincts are experiments. Data is proof.",
+   "case": "Lean Startup provides a framework by which you can more rigorously go about the business of creating something new. Lean Startup delivers a heavy dose of intellectual honesty. Follow the Lean model, and it becomes increasingly hard to lie, especially to yourself."
+  },
+  {
+   "point": "可测量性是精益管理与数据分析的基础",
+   "explain": "德鲁克的名言强调无法测量就无法管理，点明了数据制衡自我欺骗的前提——关键指标必须可测量。",
+   "caseTitle": "德鲁克管理名言",
+   "importance": 2,
+   "core": "Instincts are experiments. Data is proof.",
+   "case": "Management guru and author Peter Drucker famously observed, “If you can’t measure it, you can’t manage it.”"
   }
  ],
  "2. How to Keep Score": [
   {
-   "point": "分析行为模式、找出高价值用户的共同点，才能找到对的市场",
-   "explain": "Circle of Moms 发现妈妈用户消息长50%、发图率高115%、深度对话率高110%，且其邀请的朋友成为活跃用户的比例高50%，据此锁定该细分市场并成功转型。",
-   "caseTitle": "Circle of Moms 转型",
    "core": "The key to Mike’s success with Circle of Moms was his ability to dig into the data and look for meaningful patterns and opportunities.",
-   "case": "Their messages to one another were on average 50% longer. They were 115% more likely to attach a picture to a post they wrote. They were 110% more likely to engage in a threaded (i.e., deep) conversation. They had friends who, once invited, were 50% more likely to become engaged users themselves. They were 75% more likely to click on Facebook notifications. They were 180% more likely to click on Facebook news feed items. They were 60% more likely to accept invitations to the app."
+   "case": "Their messages to one another were on average 50% longer. They were 115% more likely to attach a picture to a post they wrote. They were 110% more likely to engage in a threaded (i.e., deep) conversation. They had friends who, once invited, were 50% more likely to become engaged users themselves. They were 75% more likely to click on Facebook notifications. They were 180% more likely to click on Facebook news feed items. They were 60% more likely to accept invitations to the app.",
+   "point": "分析行为模式、找出高价值用户的共同点，才能找到对的市场",
+   "explain": "Circle of Moms 通过挖掘数据发现高参与度用户的共同行为特征（如消息更长、更爱附图、更易邀请好友），据此转型成功。",
+   "caseTitle": "Circle of Moms 转型",
+   "importance": 3
+  },
+  {
+   "point": "同期群分析能揭示被总体平均值掩盖的真实增长趋势",
+   "explain": "在线零售商整体指标看似停滞，但按注册月份分群后发现新用户首月支出大幅增长、流失改善，公司实际在好转。",
+   "caseTitle": "在线零售商队列分析",
+   "importance": 3,
+   "core": "This kind of reporting allows you to see patterns clearly against the lifecycle of a customer, rather than slicing across all customers blindly without accounting for the natural cycle a customer undergoes.",
+   "case": "A cohort analysis presents a much clearer perspective. In this example, poor monetization in early months was diluting the overall health of the metrics. The January cohort—the first row—spent $5 in its first month, then tapered off to only $0.50 in its fifth month. But first-month spending is growing dramatically, and the drop-off seems better, too: April’s cohort spent $8 in its first month and $7 in its second month. A company that seemed stalled is in fact flourishing."
+  },
+  {
+   "point": "指标必须与期望的行为改变挂钩，否则会诱导错误行为",
+   "explain": "销售主管将奖金与管道中的交易数量而非成交或利润挂钩，结果销售员塞入大量垃圾线索，耗费两个季度清理。",
+   "caseTitle": "销售主管挂钩管道数量",
+   "importance": 3,
+   "core": "if you want to change behavior, your metric must be tied to the behavioral change you want.",
+   "case": "At one company, Alistair saw a sales executive tie quarterly compensation to the number of deals in the pipeline, rather than to the number of deals closed, or to margin on those sales. Salespeople are coin-operated, so they did what they always do: they followed the money. In this case, that meant a glut of junk leads that took two quarters to clean out of the pipeline—time that would have been far better spent closing qualified prospects."
+  },
+  {
+   "point": "好指标会改变行为；虚假指标只被用来刷分",
+   "explain": "汽车销售员在交车时直接索要5分好评，说明该评分指标并未促使经销商改善服务体验，只是被操纵。",
+   "caseTitle": "汽车销售员索要好评",
+   "importance": 2,
+   "core": "A good metric changes the way you behave.",
+   "case": "While finalizing the paperwork for his new car, the dealer said to Ben, “You’ll get a call in the next week or so. They’ll want to know about your experience at the dealership. It’s a quick thing, won’t take you more than a minute or two. It’s on a scale from 1 to 5. You’ll give us a 5, right? Nothing in the experience would warrant less, right? If so, I’m very, very sorry, but a 5 would be great.”"
+  },
+  {
+   "point": "A/B测试应聚焦关键步骤和假设，能带来可行动的显著效果",
+   "explain": "Picatic仅将行动号召从“Get started free”改为“Try it out free”，10天内点击率提升376%，证明测试关键文案的价值。",
+   "caseTitle": "Picatic 行动号召测试",
+   "importance": 2,
+   "core": "You can test everything about your product, but it’s best to focus on the critical steps and assumptions.",
+   "case": "Jay Parmar, co-founder of crowdfunded ticketing site Picatic, told us that simply changing the company’s call to action from “Get started free” to “Try it out free” increased the number of people who clicked on an offer—known as the click-through rate—by 376% for a 10-day period."
+  },
+  {
+   "point": "早期应设定可量化的成功门槛，再根据反馈调整指标",
+   "explain": "HighScore House 为MVP设定家长和孩子每周各使用4次才算“活跃用户”的高标准，以此作为早期成功假设。",
+   "caseTitle": "HighScore House 定义活跃",
+   "importance": 2,
+   "core": "make early assumptions and set targets for what you think success looks like, but don’t experiment yourself into oblivion.",
+   "case": "The founders drew a line in the sand: in order for the MVP to be considered successful, parents and kids would have to each use the application four times per week. These families would be considered “active.” It was a high, but good, bar."
   }
  ],
  "4. Data-Driven Versus Data-Informed": [
   {
-   "point": "机器负责验证和优化，灵感和大局判断要靠人",
    "core": "Humans do inspiration; machines do validation.",
-   "caseTitle": "Omniture 的点击率陷阱",
    "case": "Left to its own devices, the software quickly learned that scantily clad women generated a far higher click-through rate on web pages than other forms of content. But that click-through rate was a short-term gain, offset by damage to the brand of the company that relied on it. So Omniture’s software works alongside curators who understand the bigger picture and provide suitable imagery for the machine to test.",
-   "explain": "Omniture 的软件若放任自流，会为追求点击率而选用暴露图片，短期指标上升却损害品牌；只有懂大局的人工策展人介入，才能给机器设定合适方向。"
+   "point": "机器负责验证和优化，灵感和大局判断要靠人",
+   "explain": "Omniture软件为点击率推荐暴露内容，短期提升却损害品牌，需人工策展把关，证明机器优化需人类判断。",
+   "caseTitle": "Omniture 的点击率陷阱",
+   "importance": 3
+  },
+  {
+   "point": "数据驱动优化只能在给定约束内找到局部最优，无法突破框架",
+   "explain": "用三个轮子优化出最稳三轮车，但无法想到四轮车，说明约束优化只能局部最优，大方向需人类突破。",
+   "caseTitle": "三轮车优化实验",
+   "importance": 3,
+   "core": "Math is good at optimizing a known system; humans are good at finding a new one.",
+   "case": "To understand the problem with constrained optimization, imagine that you’re given three wheels and asked to evolve the best, most stable vehicle. After many iterations of pitting different wheel layouts against one another, you come up with a tricycle-like configuration. It’s the optimal three-wheeled configuration."
+  },
+  {
+   "point": "数据能验证直觉发现机会，但需人类判断避免盲目优化",
+   "explain": "Orbitz凭直觉发现Mac用户偏好高价酒店，再用数据确认，说明数据用于验证人类直觉，而非替代判断。",
+   "caseTitle": "Orbitz发现Mac用户偏好",
+   "importance": 2,
+   "core": "Data-driven machine optimization, when not moderated by human judgment, can cause problems.",
+   "case": "Consider travel agency Orbitz and its discovery that Mac users were willing to reserve a more expensive hotel room. CTO Roger Liew told the Wall Street Journal, “We had the intuition [that Mac users are 40% more likely to book a four- or five-star hotel than PC users and to stay in more expensive rooms], and we were able to confirm it based on the data.”[14]"
+  },
+  {
+   "point": "机器优化类似进化，难以回溯突破局部最优",
+   "explain": "进化能造出眼睛却无法回头改进，因为中间步骤视力差，类比机器优化受限于局部最优，难突破。",
+   "caseTitle": "Dawkins河流进化类比",
+   "importance": 2,
+   "core": "Machine-only optimization suffers from similar limitations as evolution.",
+   "case": "In his book River Out Of Eden (Basic Books), Richard Dawkins uses the analogy of a flowing river to describe evolution. Evolution, he explains, can create the eye. In fact, it can create dozens of versions of it, for wasps, octopods, humans, eagles, and whales. What it can’t do well is go backward: once you have an eye that’s useful, slight mutations don’t usually yield improvements. A human won’t evolve an eagle’s eye, because the intermediate steps all result in bad eyesight."
   }
  ],
  "5. Analytics Frameworks": [
   {
-   "point": "增长引擎要依次启动，产品有黏性和传播力前开付费引擎为时过早",
    "core": "It’s usually premature to turn this engine on before you know that your product is sticky and viral.",
-   "caseTitle": "Hawken 的三步走",
    "case": "Meteor Entertainment’s Hawken is a multiplayer game that’s free to play, but it makes money from in-game upgrades. Meteor is focusing on usage within a beta group first (stickiness), then working on virality (inviting your friends to play), and finally payment (players buying upgrades to become competitive or enhance the in-game experience).",
-   "explain": "Hawken先在小范围测试中打磨使用（黏性），再做邀请好友（病毒性），最后才让玩家购买升级（付费），正说明付费引擎应放在黏性与传播力验证之后。"
+   "point": "增长引擎要依次启动，产品有黏性和传播力前开付费引擎为时过早",
+   "explain": "Hawken先让测试用户持续使用（黏性），再邀请好友（病毒），最后才卖升级（付费），证明付费引擎应最后启动。",
+   "caseTitle": "Hawken的三步走",
+   "importance": 3
+  },
+  {
+   "point": "长期黏性常来自用户在产品里自己积累的价值",
+   "explain": "Gmail和Evernote里存着用户自己的邮件和笔记，离开成本高，所以长期留存强，证明用户自建价值带来黏性。",
+   "caseTitle": "Gmail与Evernote留存",
+   "importance": 3,
+   "core": "Long-term stickiness often comes from the value users create for themselves as they use the service.",
+   "case": "It’s hard for people to leave Gmail or Evernote, because, well, that’s where they store all their stuff."
+  },
+  {
+   "point": "黏性引擎的核心是留存，高粘性预示成功",
+   "explain": "Facebook早期用户数不大，但能在几个月内让几乎全校学生反复使用，留存极高，说明粘性引擎看留存。",
+   "caseTitle": "Facebook早期粘性",
+   "importance": 2,
+   "core": "Engagement is one of the best predictors of success",
+   "case": "Facebook’s early user counts weren’t huge, but the company could get nearly all students in a university to use the product, and to keep coming back, within a few months of launch. Facebook’s stickiness was off the charts."
   }
  ],
  "6. The Discipline of One Metric That Matters": [
   {
-   "point": "任何时刻都应有一个高于其他一切的指标",
-   "explain": "Moz 把净增付费数（新付费减取消）作为唯一统领指标，全公司围绕它行动，正体现单一核心指标让团队聚焦当前最大风险。",
-   "caseTitle": "Moz聚焦净增订阅数",
    "core": "It relies on one metric above all others: Net Adds.",
-   "case": "Joanna says that one metric stands above the rest: Net Adds. This metric is the total of new paid subscribers (either conversions from free trials or direct paid signups) minus the total who cancelled."
+   "case": "Joanna says that one metric stands above the rest: Net Adds. This metric is the total of new paid subscribers (either conversions from free trials or direct paid signups) minus the total who cancelled.",
+   "point": "任何时刻都应有一个高于其他一切的指标",
+   "explain": "Moz将净增付费数作为唯一核心指标，即新付费订阅减去取消数，全公司据此对齐方向。",
+   "caseTitle": "Moz聚焦净增订阅数",
+   "importance": 3
+  },
+  {
+   "point": "团队能否清晰说出并跟踪当前阶段的单一指标，是判断其是否靠谱的标准",
+   "explain": "Year One Labs把能否脱口而出当前阶段的OMTM作为试金石，说不清、指标错、有多个或不知当前值都视为有问题。",
+   "caseTitle": "Year One Labs的试金石",
+   "importance": 3,
+   "core": "At Year One Labs, one of the litmus tests for us as advisors and investors was the clarity with which a team understood, and tracked, their OMTM.",
+   "case": "If it was on the tip of their tongues, and aligned with their current stage, that was a good thing. If they didn’t know what it was, if it was the wrong metric for their stage, if they had several metrics, or if they didn’t know what the current value was, we knew something was wrong."
   }
  ],
  "7. What Business Are You In?": [
   {
-   "point": "不要只数用户数，要把真正有价值的用户和路过者区分开",
    "core": "You need to segment real, valuable users from drive-by, curious, or detrimental ones.",
-   "caseTitle": "Fitbit 的用户层级",
    "case": "Fitbit users can simply record their steps with a device in their pocket, they can use it to sync data to the company’s hosted application, they can visit the portal to see their statistics and share them with friends, they can manually enter sleep and food data to augment what’s collected passively, and they can buy the premium Fitbit offering to help them reach their health goals.",
-   "explain": "Fitbit 用户从只记录步数，到同步数据、查看分享统计、手动补充数据、购买高级服务，参与层级逐级加深。按这些层级分群统计，才能识别高价值用户，而非笼统数用户。"
+   "point": "不要只数用户数，要把真正有价值的用户和路过者区分开",
+   "explain": "Fitbit 用户从仅记录步数到购买高级服务分为五层，每层代表不同参与深度和价值，证明应按价值分群而非简单计数。",
+   "caseTitle": "Fitbit 的用户层级",
+   "importance": 3
+  },
+  {
+   "point": "曝光带来的访客未必是真实用户，需用分析区分并优化",
+   "explain": "Yipit 发布后大量访客未注册、未回访、未邀请好友，说明热闹的发布不等于获得真实用户，必须通过分析识别有价值用户。",
+   "caseTitle": "Yipit发布后的困惑",
+   "importance": 3,
+   "core": "The key here is analytics. You need to segment real, valuable users from drive-by, curious, or detrimental ones.",
+   "case": "As Vinicus Vacanti, co-founder and CEO of Yipit, recalls in a blog post inspired by his company's 2010 launch:[23]\nWas that our big launch? Why didn't more people sign up? Why didn't people complete the sign-up flow? Why weren't people coming back? Now that people covered our startup, how are we supposed to get more press? Why aren't our users pushing their actions to Facebook and Twitter? We got some users to invite their friends but why aren't their friends accepting the invite?"
   }
  ],
  "9. Model Two: Software as a Service (SaaS)": [
   {
-   "point": "找出业务中风险最大的环节，改善代表该风险的指标",
    "core": "You need to know which aspects of your business are too risky and then work to improve the metric that represents that risk.",
-   "caseTitle": "Backupify 的获客成本",
    "case": "At the time, the company was focused on consumers and realized that, while revenue was going up, the customer acquisition cost (CAC) was too high. “In early 2010 we were paying $243 to acquire a customer, who only paid us $39 per year,” explained Robert. “Those are horrible economics. Most consumer apps get around the high acquisition costs with some sort of virality, but backup isn’t viral. So we had to pivot [from consumer sales] to go after businesses.”",
-   "explain": "Backupify 发现获客成本 243 美元而客户年付费仅 39 美元，经济模型极差，于是从消费者转向企业市场，正是针对最危险环节改进指标。"
+   "point": "找出业务中风险最大的环节，改善代表该风险的指标",
+   "explain": "Backupify 发现获客成本 243 美元而客户年付费仅 39 美元，经济模型极差，于是从消费者转向企业市场，直接针对最危险的获客成本环节改进。",
+   "caseTitle": "Backupify 的获客成本",
+   "importance": 3
+  },
+  {
+   "point": "衡量参与度的终极指标是每日使用",
+   "explain": "Evernote 转化率仅 1%，但拥有 4000 万用户，公司仍优先聚焦参与度，通过收购和增加功能提升日活，证明日活比短期转化更能反映健康度。",
+   "caseTitle": "Evernote日活与转化",
+   "importance": 3,
+   "core": "The ultimate metric for engagement is daily use.",
+   "case": "Evernote has reported that only 1% of users convert into paid customers,[30] but for CEO Phil Libin that’s OK—after all, the company has over 40 million users, and this year it’s focused further on engagement, which is why it’s acquiring companies like Skitch and adding image upload features."
   }
  ],
  "14. What Stage Are You At?": [
   {
-   "point": "不能一开始就什么都测，要按阶段顺序检验假设",
    "core": "You can’t just start measuring everything at once. You have to measure your assumptions in the right order. To do that, you need to know what stage you’re at.",
-   "caseTitle": "一家餐厅的五阶段",
    "case": "Empathy: Before opening, the owner first learns about the diners in the area, their desires, what foods aren’t available, and trends in eating. Stickiness: Then he develops a menu and tests it out with consumers, making frequent adjustments until tables are full and patrons return regularly. He’s giving things away, testing things, and asking diners what they think. Costs are high because of variance and uncertain inventory. Virality: He starts loyalty programs to bring frequent diners back, or to encourage people to share with their friends. He engages on Yelp and Foursquare.",
-   "explain": "餐厅老板先调研食客需求（共情），再反复调整菜单直到客满复购（黏性），最后才做忠诚计划和社交推广（病毒）。每一步只测当前阶段的假设，证明后才推进，正说明按顺序检验的必要。"
+   "point": "不能一开始就什么都测，要按阶段顺序检验假设",
+   "explain": "餐厅案例依次展示共情、黏性、病毒阶段的不同重点，证明必须按顺序检验假设，不能同时测量所有指标。",
+   "caseTitle": "一家餐厅的五阶段",
+   "importance": 3
+  },
+  {
+   "point": "未证明黏性就急于扩张的公司下场普遍不好",
+   "explain": "Color在未证明产品黏性时就试图规模化，结果失败，说明跳过阶段闸门的风险。",
+   "caseTitle": "Color过早扩张",
+   "importance": 3,
+   "core": "There’s no point in promoting something awful if your visitors will bounce right off it in disgust.",
+   "case": "Companies like Color that attempted to scale prematurely, without having proven stickiness, haven’t fared well."
+  },
+  {
+   "point": "创始人常高估自己所处阶段，判断阶段很困难",
+   "explain": "创始人倾向于相信自己比实际进展更靠前，这解释了为什么准确判断阶段并不容易。",
+   "caseTitle": "创始人自欺阶段",
+   "importance": 2,
+   "core": "Deciding what business you’re in is usually quite easy. Deciding on the stage you’re at is complicated.",
+   "case": "This is where founders tend to lie to themselves. They believe they’re further along than they really are."
+  },
+  {
+   "point": "阶段判断需细化并可能重叠，应通读各阶段后再决定",
+   "explain": "建议读者先写下当前阶段，读完五阶段后再修正，并细化到具体方面，说明阶段判断需要反复校准。",
+   "caseTitle": "写下你的阶段",
+   "importance": 2,
+   "core": "We care a lot about company stage because the metrics you focus on will be significantly impacted by the stage of your business.",
+   "case": "What stage do you think you’re at? Write it down. After reading the following chapters on the five Lean Analytics stages, see if your answer changes. It will likely require more detail as well—zeroing in on a specific aspect of a stage that you’re focused on (for example, problem validation or solution validation in the Empathy stage). You may be overlapping between stages, too, so read them all before deciding."
   }
  ],
  "15. Stage One: Empathy": [
   {
-   "point": "定性数据不可替代，但技术能大幅提升收集效率",
-   "explain": "Nick用Mechanical Turk发布任务，付费请符合条件的单身女性来电访谈，每场10-15分钟，快速规模化获取真实定性反馈，证明技术可加速共情阶段的数据收集。",
-   "caseTitle": "LikeBright用Mechanica",
+   "point": "访谈中连续追问“为什么”，才能挖出真实动机",
+   "explain": "连续三次追问“为什么”，并停顿三秒等对方说完，迫使受访者解释理由，避免被表面回答误导，从而判断问题是否真实且足够痛。",
+   "caseTitle": "三问为什么挖掘动机",
+   "importance": 3,
+   "core": "By asking “why?” several times, you force a respondent to explain the reasoning behind a statement.",
+   "case": "A great trick for customer development interviews is to ask “why?” three times. It might make you sound like a two-year-old, but it works. Ask a question; wait for the person to finish. Pause for three seconds (which signals to her that you’re listening, and also makes sure she was really done). Then ask why."
+  },
+  {
+   "point": "用具体承诺替代口头意愿，才能验证真实需求",
+   "explain": "与其问“你会用吗”得到无意义的“会”，不如要求100美元预购；对方多半拒绝，而拒绝恰恰是深入挖掘真实需求的起点。",
+   "caseTitle": "100美元预购测试",
+   "importance": 3,
+   "core": "The more concrete you can make the question, the more real the answer.",
+   "case": "Next time you’re interviewing someone, instead of asking “Would you use this product?” (and getting a meaningless, but well-intentioned, “yes”), ask for a $100 pre-order payment. You’ll likely get a resounding “no.” And that’s where the interesting stuff starts."
+  },
+  {
+   "point": "方案验证可先于开发，用代理实验降低风险",
+   "explain": "Localmind未写代码，先追踪时代广场的地理推文并私信提问，用人工方式测试需求，验证意愿后再决定是否开发。",
+   "caseTitle": "Localmind用推文验证需求",
+   "importance": 2,
+   "core": "Your job isn’t to build a product; it’s to de-risk a business model.",
+   "case": "Tracking geolocated tweets (primarily in Times Square, because there were lots of them there over several days), they sent @ messages to people who had just tweeted. The messages would be questions about the area: how busy is it, is the subway running on time, is something open, etc."
+  },
+  {
    "core": "While there’s no substitute for qualitative data, you can use technology to dramatically improve the efficiency of collecting that data.",
-   "case": "The idea was to use Mechanical Turk to survey 100 single women, putting out a task (or what Mechanical Turk calls a HIT) asking women (who fit a particular profile) to call Nick. In exchange he paid them $2. The interviews typically lasted 10–15 minutes."
+   "case": "The idea was to use Mechanical Turk to survey 100 single women, putting out a task (or what Mechanical Turk calls a HIT) asking women (who fit a particular profile) to call Nick. In exchange he paid them $2. The interviews typically lasted 10–15 minutes.",
+   "point": "定性数据不可替代，但技术能大幅提升收集效率",
+   "explain": "LikeBright用Mechanical Turk发布任务，花2美元请100位符合画像的单身女性各聊10–15分钟，把定性访谈规模化。",
+   "caseTitle": "LikeBright用Mechanica",
+   "importance": 2
   }
  ],
  "16. Stage Two: Stickiness": [
   {
-   "point": "MVP 应给用户通往“惊喜时刻”的最短、最少阻力路径",
-   "explain": "qidiq 把流程从“先注册再投票”改为“先投票”，注册摩擦消失，问卷回复率从 10–25% 升至 70–90%，证明减少阻力能直接提升参与。",
-   "caseTitle": "qidiq 投票优先改版",
    "core": "The MVP should include the simplest, least-friction path between your user and the “aha!” moment you’re trying to deliver.",
-   "case": "The qidiq team quickly changed their application, as illustrated in Figure 16-1, and sent out more surveys to personal groups they’d created. These initial surveys were sent via email alone. The results were striking: response rates went from 10–25% with the enroll-first model to 70–90% with the vote-first model."
+   "case": "The qidiq team quickly changed their application, as illustrated in Figure 16-1, and sent out more surveys to personal groups they’d created. These initial surveys were sent via email alone. The results were striking: response rates went from 10–25% with the enroll-first model to 70–90% with the vote-first model.",
+   "point": "MVP 应给用户通往“惊喜时刻”的最短、最少阻力路径",
+   "explain": "qidiq 将注册优先改为投票优先，减少摩擦后邮件调研回复率从 10–25% 升至 70–90%，证明最短路径能显著提升参与度。",
+   "caseTitle": "qidiq 投票优先改版",
+   "importance": 3
+  },
+  {
+   "point": "功能开关与灰度发布降低风险并支持持续测量",
+   "explain": "Rally 为多数功能设置开关，逐步向更大用户群发布，既收集早期反馈又避免问题暴露给大量客户，支撑留存与参与度优化。",
+   "caseTitle": "Rally功能开关灰度",
+   "importance": 2,
+   "core": "It takes extra engineering effort to be able to turn on and off individual features, and to measure the resulting change in user behavior, but that investment pays off in reduced cycle time and better learning.",
+   "case": "Rally doesn’t release software, but instead “turns features on for users and customers.” Most features have a toggle that allows Rally to turn them on or off for specific customers. This allows the company to roll out code to progressively larger groups of users, generating feedback from early adopters while mitigating the risk of exposing problems to a lot of customers."
+  },
+  {
+   "point": "用纪律化的实验代替猜测来优化产品",
+   "explain": "Rally 在三个月内针对关键界面运行 20 多次实验，系统性地发现用户满意点，体现迭代验证而非主观猜测。",
+   "caseTitle": "Rally三个月20次实验",
+   "importance": 2,
+   "core": "Everything is an experiment, even when you have an established product and a loyal set of customers.",
+   "case": "In a three-month period, over 20 experiments were run to learn exactly what would satisfy users in a critical part of the user interface. Rather than guessing, this was a disciplined process of discovery."
   }
  ],
  "17. Stage Three: Virality": [
   {
-   "point": "病毒系数太宏观，要盯产品内驱动传播的具体行为",
    "core": "Focusing on a metric like viral coefficient may be too high level; instead, look for the actions within your product that drive virality and make sure you’re measuring those properly and have lines in the sand that you’re targeting.",
-   "caseTitle": "Timehop 盯分享比例",
    "case": "“All of our focus right now is on sharing,” says Jonathan. “The metric we’re watching is percent of daily active users that share something. We don’t focus on the viral coefficient right now—we know it’s below 1—and we want to track numbers that are closer to what people are doing in our app.”",
-   "explain": "Timehop 明知病毒系数低于1，却不盯这个宏观数字，而是追踪“每日活跃用户中分享者的比例”这一具体行为，并据此设定目标，正说明应关注并测量产品内驱动传播的具体动作。"
+   "point": "病毒系数太宏观，要盯产品内驱动传播的具体行为",
+   "explain": "Timehop不盯病毒系数（已知低于1），而是盯每日活跃用户中分享的比例，因为分享行为更接近用户实际动作，可操作、可设定目标。",
+   "caseTitle": "Timehop 盯分享比例",
+   "importance": 3
+  },
+  {
+   "point": "产品内在的病毒性：把分享机制嵌入产品本身",
+   "explain": "Hotmail在每封邮件底部加入邀请链接，收件人可直接注册，使每次通信都成为传播入口，无需额外激励。",
+   "caseTitle": "Hotmail病毒式增长",
+   "importance": 3,
+   "core": "Virality is simply users sharing your product or service with others.",
+   "case": "In 1997, venture capital firm Draper Fisher Jurvetson first used the term viral marketing to describe network-assisted word of mouth.[61] The firm had seen the power of virality firsthand with Hotmail, which included a vector for infection in every email—the now-famous link at the bottom of a message that invited recipients to get their own Hotmail account."
+  },
+  {
+   "point": "人为激励的病毒性：用奖励促使老用户拉新",
+   "explain": "Dropbox在文件分享的内在传播之外，用额外存储空间奖励用户发推或邀请好友，推动现有用户说服朋友注册。",
+   "caseTitle": "Dropbox奖励式病毒传播",
+   "importance": 3,
+   "core": "Artificial virality comes from incentivizing existing users to tell their friends.",
+   "case": "Parts of Dropbox are inherently viral—users share files with colleagues and friends—but the company isn’t afraid to compensate its users. It offers additional storage for tweeting or liking the product, and rewards users for helping it to acquire new customers. The rapid growth of the service happened because of existing users trying to convince friends to sign up so they can grow their free online storage capacity."
+  },
+  {
+   "point": "病毒系数＝邀请率×接受率，需具体计算",
+   "explain": "以2000用户发出5000邀请、500被接受为例，演示先算邀请率再算接受率，得出病毒系数，判断是否大于1。",
+   "caseTitle": "病毒系数计算示例",
+   "importance": 2,
+   "core": "First calculate the invitation rate, which is the number of invites sent divided by the number of users you have.",
+   "case": "Table 17-1 shows sample math for a company with 2,000 customers who send 5,000 invitations, 500 of which are accepted."
+  },
+  {
+   "point": "数据洞察可指导从黏性阶段转向病毒传播",
+   "explain": "Timehop通过邮件像素追踪发现50%邮件在iOS设备打开，据此转向移动应用，因为移动端更利于分享增长。",
+   "caseTitle": "Timehop转向病毒传播",
+   "importance": 2,
+   "core": "Understanding how people use your product can provide key insight into what direction to go and how to move from one stage to the next—for example, from stickiness to virality.",
+   "case": "“We saw through pixel tracking in emails that 50% of emails were being opened on iOS devices,” says Jonathan. “That led us to focus on a mobile app, which is also a better tool for encouraging growth through sharing.”"
   }
  ],
  "18. Stage Four: Revenue": [
   {
-   "point": "用户增长和参与度再好，变不成收入也撑不起公司",
    "core": "Even if you have healthy growth in an important dimension (like user count or engagement), it’s not worth much if you can’t convert it to money and pay the bills.",
-   "caseTitle": "Parse.ly 放弃阅读器",
    "case": "“We had thousands of users and the product was growing rapidly. We were written up in top technology press like TechCrunch, ReadWriteWeb, and ZDNet. The product worked and we had a million ideas for how to improve it even further. However, it was lacking one critical metric for any growing business—revenue. We ran tests and surveys, and learned that though our users loved Parse.ly Reader, they didn’t love it so much that they’d be willing to pay for it.”",
-   "explain": "Parse.ly Reader 用户数以千计、增长快、获媒体好评，但测试和调研发现用户虽喜欢却不愿付费，缺少收入这一关键指标，最终放弃该产品转向可持续商业模式。"
+   "point": "用户增长和参与度再好，变不成收入也撑不起公司",
+   "explain": "Parse.ly Reader 有数千用户、快速增长且被媒体报道，但用户喜爱却不愿付费，缺乏收入这一关键指标，最终放弃该产品。",
+   "caseTitle": "Parse.ly 放弃阅读器",
+   "importance": 3
+  },
+  {
+   "point": "公司应像一台稳定产出多于投入的机器",
+   "explain": "用投币机比喻收入阶段：投入与产出的比率决定商业模式是否成立，强调可预测的盈利性。",
+   "caseTitle": "一分钱变五分钱机器",
+   "importance": 3,
+   "core": "Think of your company as a machine that predictably generates more money than you put into it.",
+   "case": "An entrepreneur walks into a maple-paneled boardroom just off the 280, glances around the table at the well-groomed investors gathered there, and reaches into a large leather bag. She pulls out a strange machine, roughly two feet high by one foot wide, sets it carefully on the table, and plugs it in."
+  },
+  {
+   "point": "CLV 要大于 CAC，并关注回本时间",
+   "explain": "案例中客户11个月花费27美元，获客成本14美元，具体演示了CLV与CAC及客户回本周期的计算。",
+   "caseTitle": "客户回本时间表",
+   "importance": 3,
+   "core": "A key measurement of successful revenue growth is whether the customer lifetime value exceeds the customer acquisition cost.",
+   "case": "Imagine a company where customers spend $27 during their 11 months of activity, and it costs $14 to acquire them, as shown in Table 18-1."
+  },
+  {
+   "point": "用季度ARR增量除以销售营销支出衡量收入健康",
+   "explain": "给出可量化的收入健康指标：若结果低于0.75则有问题，帮助判断投入产出效率。",
+   "caseTitle": "SaaS魔法数字公式",
+   "importance": 2,
+   "core": "If the result is below 0.75, you have a problem.",
+   "case": "To measure the health of the machine, divide how much you changed the annual recurring revenue in the past quarter by what it cost you to do so."
   }
  ],
  "19. Stage Five: Scale": [
   {
-   "point": "规模化前先确认流失可控，再放心投入获客",
    "core": "Scaling is good if it brings in incremental revenue, but you have to watch for a decrease in engagement, a gradual saturation of the initial market, or a rising cost of customer acquisition.",
-   "caseTitle": "Buffer 先查流失再扩张",
    "case": "“Then we checked our churn, because we know that it’s vital before focusing on acquisition.” Joel’s target was below 5%, and in fact Buffer’s churn hovers around 2%, so, the team doesn’t invest a lot of time trying to improve it, which gives them the comfort to focus on acquisition.",
-   "explain": "Buffer 扩张前先查流失，目标低于5%，实际约2%，团队无需再花大量时间改善留存，才有余力把重心转向获客。"
+   "point": "规模化前先确认流失可控，再放心投入获客",
+   "explain": "Buffer 在转向获客前检查流失率，目标低于5%，实际约2%，因此无需花大量时间优化流失，可安心聚焦获客。",
+   "caseTitle": "Buffer 先查流失再扩张",
+   "importance": 3
   },
   {
-   "point": "进入新渠道要警惕支持成本上升与客户流失",
-   "explain": "直销产品转渠道销售时，渠道未必具备销售与支持能力，导致自身支持成本上升、渠道客户退货或弃用增加，说明规模化扩渠道须按渠道验证留存与付费。",
-   "caseTitle": "渠道销售产品困境",
+   "point": "先证明产品粘性和盈利，再转向规模化获客",
+   "explain": "Buffer 在关键指标稳定且实现盈利后，Joel 才决定将重心转向获客，说明规模化需以粘性和盈利为前提。",
+   "caseTitle": "Buffer转向获客增长",
+   "importance": 3,
+   "core": "When it proved its product was sticky, it moved its focus to acquisition and how to acquire more users at a low cost.",
+   "case": "Once these numbers became clear and consistent, and revenue got to the point where Buffer was profitable, Joel felt it was time to make the switch and focus on acquisition."
+  },
+  {
    "core": "Scaling is good if it brings in incremental revenue, but you have to watch for a decrease in engagement, a gradual saturation of the initial market, or a rising cost of customer acquisition.",
-   "case": "Consider, for example, a product sold through direct sales. If you try to introduce the product to channels, those channels may not be equipped to sell and support the product. Your own support costs go up; returns or abandonment from channel-sold customers climbs."
+   "case": "Consider, for example, a product sold through direct sales. If you try to introduce the product to channels, those channels may not be equipped to sell and support the product. Your own support costs go up; returns or abandonment from channel-sold customers climbs.",
+   "point": "进入新渠道要警惕支持成本上升与客户流失",
+   "explain": "直销产品引入渠道时，渠道可能无力销售和支持，导致自身支持成本上升，渠道客户退货或弃用增加。",
+   "caseTitle": "渠道销售产品困境",
+   "importance": 2
+  },
+  {
+   "point": "用队列分析追踪免费到付费转化，指导规模化决策",
+   "explain": "Buffer 对2012年2月注册用户做队列分析，首月1.3%升级，六个月后1.9%付费，展示转化随时间变化。",
+   "caseTitle": "Buffer队列转化分析",
+   "importance": 2,
+   "core": "Buffer runs ongoing cohort analysis to assess changes it’s making in its product as well as in its marketing initiatives.",
+   "case": "“For example, for the cohort of users who signed up in February 2012, 1.3% upgraded in their first month using the product,” says Joel. “After six months, 1.9% of the same cohort is paying customers.”"
+  },
+  {
+   "point": "规模化阶段用获客、激活、留存等指标衡量健康度",
+   "explain": "Buffer 数据：20%访客注册，64%注册者激活，60%首月回访，20%六个月后仍活跃，全面反映粘性与增长健康。",
+   "caseTitle": "Buffer关键指标数据",
+   "importance": 2,
+   "core": "In the Scale stage, you want to compare higher-order metrics like Backupify’s OMTM—customer acquisition payback—across channels, regions, and marketing campaigns.",
+   "case": "20% of visitors create an account (acquisition). 64% of people who sign up become “active” (which the founders define as posting one status update using Buffer). 60% of people who sign up come back in the first month (engagement/stickiness). 20% of people who sign up come back (are still active) after six months (engagement/stickiness)."
   }
  ],
  "21. Am I Good Enough?": [
   {
-   "point": "有了基准就知道某个指标是否已经够好，可以转向下一个问题",
    "core": "If, on the other hand, you’re already as good as you’re going to get—move on. You’ve already optimized a key metric, and you’ll get diminishing returns trying to improve it further.",
-   "caseTitle": "WP Engine 的 2% 流失",
    "case": "On the surface, that looks like a huge number. “When I first saw our churn, which was around 2%, I was very concerned,” Jason says. “But when I found out that 2% is pretty much the lowest churn you’ll get in the hosting business, it changed my perspective a great deal.” Had Jason not known that this is simply a fact of life in the hosting industry, WP Engine might have invested time and money trying to move a metric that wouldn’t budge—money that would have been far better spent elsewhere.",
-   "explain": "Jason 发现 2% 已是主机行业最低流失率，便不再投入时间金钱去压这个动不了的指标，把资源留给更值得优化的地方。"
+   "point": "有了基准就知道某个指标是否已经够好，可以转向下一个问题",
+   "explain": "Jason 发现托管行业每月 2% 取消率已是最佳水平，便不再投入时间金钱去优化这个无法改善的指标，把资源转向别处。",
+   "caseTitle": "WP Engine 的 2% 流失",
+   "importance": 3
+  },
+  {
+   "point": "周增长率有明确基准线，达标与否可判断是否找到方向",
+   "explain": "YC 给出每周 5–7% 为良好、10% 为极佳、仅 1% 说明还没摸清方向，用具体数字划出增长参考线。",
+   "caseTitle": "Y Combinator周增长率",
+   "importance": 2,
+   "core": "your line in the sand should be 5% growth for active users each week",
+   "case": "“A good growth rate during YC is 5–7% a week,” he says. “If you can hit 10% a week you’re doing exceptionally well. If you can only manage 1%, it’s a sign you haven’t yet figured out what you’re doing.”"
+  },
+  {
+   "point": "用户参与度可用月活、日活比例等具体基准来衡量",
+   "explain": "Fred Wilson 提出 30% 注册用户每月使用、10% 每日使用、并发为日活 10%，为参与度提供可对照的参考线。",
+   "caseTitle": "Fred Wilson 30/10/10",
+   "importance": 2,
+   "core": "Aim for 30% of your registered users to visit once a month, and 10% of them to come daily.",
+   "case": "30% of registered users will use a web-based service at least once a month. For mobile applications, 30% of the people who download the app use it each month. 10% of registered users will use the service or mobile app every day. The maximum number of concurrent users will be 10% of the number of daily users."
+  },
+  {
+   "point": "页面加载速度有临界阈值，超过就会显著流失用户",
+   "explain": "Chartbeat 发现 15–18 秒后用户不再等待、流量骤降，说明可用性指标存在可量化的基准线。",
+   "caseTitle": "Chartbeat页面加载阈值",
+   "importance": 2,
+   "core": "Get your pages to load for a first-time visitor in less than 5 seconds; after 10, and you’ll start to suffer.",
+   "case": "“There seems to be a hard threshold at about 15–18 seconds, where after that users simply won’t wait, and traffic falls off dramatically,” says Joshua."
   }
  ],
  "23. SaaS: Lines in the Sand": [
   {
-   "point": "试用时是否先要信用卡，会大幅改变SaaS的多项指标",
    "core": "But there’s one factor that produces a huge difference across many metrics: asking for payment up front during a trial.",
-   "caseTitle": "Totango 的绑卡数据",
    "case": "It has found that asking for a credit card during signup means 0.5% to 2% of visitors sign up for a trial, while not asking for a credit card means 5% to 10% of visitors will enroll. Enrollment isn’t the only goal, of course. You want users who enroll in a trial to become paying customers. Roughly 15% of trial users who did not provide a credit card will sign up for a paid subscription. On the other hand, 40–50% of trial users who did provide one will convert to a paid subscription.",
-   "explain": "Totango跨100多家SaaS公司的数据显示：要求绑卡时仅0.5%–2%访客注册试用，但其中40%–50%转为付费；不要求绑卡时5%–10%访客注册，仅约15%转为付费。"
+   "point": "试用时是否先要信用卡，会大幅改变SaaS的多项指标",
+   "explain": "Totango跨100多家SaaS公司的数据显示：要求绑卡时注册率仅0.5%-2%，不要求则5%-10%；但绑卡试用用户付费转化率40%-50%，远高于不绑卡的15%。",
+   "caseTitle": "Totango 的绑卡数据",
+   "importance": 3
+  },
+  {
+   "point": "月流失率是SaaS健康度的核心指标，需压到较低水平",
+   "explain": "OfficeDrop将付费流失定义为付费用户降级或取消的比例，目标月流失低于4%，认为超过5%就无法实现毛利正增长。",
+   "caseTitle": "OfficeDrop付费流失指标",
+   "importance": 3,
+   "core": "The company aims for a monthly churn rate below 4%. “Three percent is good,” Healy says. “Anything over 5% and we really don’t have a business that will generate gross margin positive growth.”",
+   "case": "“Our most important number is paid churn,” says Healy. OfficeDrop defines paid churn as the number of paying users who downgrade to free or cancel divided by the total number of paying users available to churn at the beginning of the month."
+  },
+  {
+   "point": "免费增值模式有风险，转向付费模式可能挽救公司",
+   "explain": "Chargify在2010年濒临失败，转向付费模式后于2012年7月实现盈利，拥有900名付费客户，说明免费策略不可持续时付费转型有效。",
+   "caseTitle": "Chargify转向付费模式",
+   "importance": 2,
+   "core": "Detractors of freemium models observe that for every success like Dropbox or LinkedIn, there’s a deadpool of others who went out of business giving things away.",
+   "case": "In one example cited by the Wall Street Journal, billing-management software firm Chargify was on the brink of failure in 2010—but then it switched to a paid model, and in July 2012, became profitable with 900 paying customers."
+  },
+  {
+   "point": "免费增值模式下用户可能需要很长时间才开始付费",
+   "explain": "Evernote数据显示首月后升级付费的用户不足1%，但两年后增长到12%，证明免费用户转化为付费用户需要长期积累。",
+   "caseTitle": "Evernote微笑曲线升级率",
+   "importance": 2,
+   "core": "Even when freemium works, users sometimes take a long time to start paying.",
+   "case": "Phil estimates that while less than 1% of users upgrade to a paid model after their first month, the number grows to 12% after two years."
   }
  ],
  "29. Selling into Enterprise Markets": [
   {
-   "point": "咨询式合作能发现企业需求，但只有普遍存在的需求才能撑起业务",
    "core": "Consulting is a good way to discover customer needs, and it helps pay the bills. It also gives you a way to test out your early ideas, because while every customer has needs, the only needs you can build a business on are those that are consistent across a reasonably large, addressable market.",
-   "caseTitle": "Coradiant 跟着客户做产品",
    "case": "Some of Coradiant’s MSP customers became TrueSight users, quickly building a stable of reference-worthy household names. The initial version of TrueSight contained only basic features—most reporting, for example, was done by exporting information into Excel. But Coradiant had an extremely hands-on pre- and post-sales engineering team that worked closely with early customers. Once the company saw what kinds of reports customers made, and how they used the appliance, it incorporated those into later versions.",
-   "explain": "Coradiant 早期靠工程团队与客户深度合作，从客户实际用法中提炼报表等功能并标准化进后续版本，说明咨询式合作能发现需求，但只有可复用的共性需求才能规模化。"
+   "point": "咨询式合作能发现企业需求，但只有普遍存在的需求才能撑起业务",
+   "explain": "Coradiant早期靠工程团队与客户紧密合作，从客户实际报表用法中提炼功能并标准化进后续版本，说明咨询式合作既能发现需求，也需将共性需求产品化。",
+   "caseTitle": "Coradiant 跟着客户做产品",
+   "importance": 3
+  },
+  {
+   "point": "领域知识是企业市场发现机会的关键来源",
+   "explain": "Taleo创始人来自ERP巨头BAAN，凭借对集成、部署难题及招聘数据化趋势的深刻理解，才识别出人才管理工具的企业机会。",
+   "caseTitle": "Taleo创始人来自BAAN",
+   "importance": 2,
+   "core": "That’s because domain knowledge is essential.",
+   "case": "Take the founders of Taleo. They left enterprise requirements planning (ERP) heavyweight BAAN to bring talent management tools to the enterprise. They had seen that the big challenges of ERP were integration and deployment, and they’d realized that the Web was how many organizations connect with candidates. They also saw that talent management, both before and after hires were made, was increasingly data-driven."
+  },
+  {
+   "point": "简单易用是企业产品的入场券",
+   "explain": "DJ Patil提出零开销原则：任何功能都不应增加用户培训成本，说明企业产品必须像消费级产品一样简单，才能降低支持成本、顺利规模化。",
+   "caseTitle": "DJ Patil零开销原则",
+   "importance": 2,
+   "core": "Simplicity isn’t just an attribute of enterprise disruption—it’s the price of entry.",
+   "case": "DJ Patil, data scientist in residence at Greylock and former head of product at LinkedIn, calls this the Zero Overhead Principle: A central theme to this new wave of innovation is the application of core product tenets from the consumer space to the enterprise. In particular, a universal lesson that I keep sharing with all entrepreneurs building for the enterprise is the Zero Overhead Principle: no feature may add training costs to the user."
   }
  ]
 }

@@ -1,146 +1,514 @@
 {
  "CHAPTER 6: The Root Causes of Failed Product Efforts": [
   {
-   "point": "瀑布式流程最大的问题是风险都堆在最后，用户验证太晚",
    "core": "The biggest flaw of the old waterfall process has always been, and remains, that all the risk is at the end, which means that customer validation happens way too late.",
-   "caseTitle": "点子失败的三种原因",
    "case": "There are many reasons for an idea to not work out. The most common is that customers just aren't as excited about this idea as we are. So, they choose not to use it. Sometimes they want to use it and they try it out, but the product is so complicated that it's simply more trouble than it's worth, so users again choose not to use it. Sometimes the issue is that customers would love it, but it turns out to be much more involved to build than we thought, and we decide we simply can't afford the time and money required to deliver it.",
-   "explain": "点子失败常因客户不感兴趣、产品太复杂或开发成本超预期，这些风险本应尽早验证，却因流程拖到最后才暴露，代价巨大。"
+   "point": "瀑布式流程最大的问题是风险都堆在最后，用户验证太晚",
+   "explain": "案例列举点子失败的三种常见原因：客户不感兴趣、产品太复杂、开发成本过高。这些风险本应尽早验证，但瀑布流程把它们全留到最后，导致用户验证严重滞后。",
+   "caseTitle": "点子失败的三种原因",
+   "importance": 3
+  },
+  {
+   "point": "至少一半的产品想法最终不会成功",
+   "explain": "原文直言“至少一半的想法不会奏效”，说明产品失败是常态而非例外，因此必须默认想法有一半概率不成立，优先用最便宜的方式验证。",
+   "caseTitle": "一半想法不会成功",
+   "importance": 3,
+   "core": "The biggest flaw of the old waterfall process has always been, and remains, that all the risk is at the end, which means that customer validation happens way too late.",
+   "case": "The first truth is that at least half of our ideas are just not going to work."
+  },
+  {
+   "point": "早期商业论证无法预知收益与成本，只能玩论证游戏",
+   "explain": "商业论证要求回答能赚多少、要花多少，但案例指出在这个阶段我们对两者都毫无头绪，根本无法知道，所谓论证只是数字游戏。",
+   "caseTitle": "商业论证的未知数",
+   "importance": 2,
+   "core": "The biggest flaw of the old waterfall process has always been, and remains, that all the risk is at the end, which means that customer validation happens way too late.",
+   "case": "Remember those two key inputs to every business case? How much money you'll make, and how much it will cost? Well, the cold, hard truth is that, at this stage, we have no clue about either of these. In fact, we can't know."
   }
  ],
  "CHAPTER 8: Key Concepts": [
   {
-   "point": "MVP 应是原型而非产品，否则学习成本过高",
    "core": "The MVP should be a prototype, not a product.",
-   "caseTitle": "花了几个月的 MVP",
    "case": "The vast majority of times I meet a team that has been working hard to create an MVP I am able to convince them that they could have achieved the same learning in a fraction of the time and effort. They have spent literally months building an MVP when they could have had this same learning in days or, sometimes, even in hours.",
-   "explain": "团队花数月建 MVP，本可用原型在数天甚至数小时内获得同样认知，说明把 MVP 当产品会浪费大量时间与精力。"
+   "point": "MVP 应是原型而非产品，否则学习成本过高",
+   "explain": "团队花数月建 MVP，本可数天甚至数小时获得同样认知，说明把 MVP 当产品会浪费大量时间精力。",
+   "caseTitle": "花了几个月的 MVP",
+   "importance": 3
+  },
+  {
+   "point": "产品是整体概念，包含功能之外的一切体验",
+   "explain": "电商产品除商品本身外，还包括履约和退货等线下体验，证明产品不只是实现功能。",
+   "caseTitle": "电商产品定义",
+   "importance": 3,
+   "core": "The point is to have a very inclusive and holistic definition of product. You are not just concerned with implementing features.",
+   "case": "If, for example, your product is an e‐commerce site, then this would include the merchandise‐fulfillment experience and the merchandise‐return experience. In general, for e‐commerce businesses, product includes everything except the actual merchandise being sold."
+  },
+  {
+   "point": "产品是整体概念，包含功能之外的一切体验",
+   "explain": "媒体公司的产品是除内容之外的一切，进一步说明产品定义应包容整体体验。",
+   "caseTitle": "媒体产品定义",
+   "importance": 1,
+   "core": "The point is to have a very inclusive and holistic definition of product. You are not just concerned with implementing features.",
+   "case": "Similarly, for a media company, we refer to the product as everything except the content."
   }
  ],
  "CHAPTER 9: Principles of Strong Product Teams": [
   {
-   "point": "产品团队要对产品的全部工作负完整责任",
    "core": "One dimension of this is the type of work to be done, and it's important that a product team has responsibility for all the work—all the projects, features, bug fixes, performance work, optimizations, and content changes—everything and anything for their product.",
-   "caseTitle": "eBay 的团队分工",
    "case": "For example, you might be working on a team at eBay that's responsible for technology to detect and prevent fraud or tools and services for high‐volume sellers. Or, at Facebook, your team might be responsible for newsfeeds, an iOS native mobile app, or the capabilities required for a specific vertical market.",
-   "explain": "eBay 反欺诈团队、Facebook 新闻流团队各自负责一块完整产品，涵盖功能、缺陷、性能与内容，而非只做单个项目，正体现“所有工作都归它”。"
+   "point": "产品团队要对产品的全部工作负完整责任",
+   "explain": "eBay反欺诈团队、Facebook新闻流团队各自负责一块完整产品，涵盖功能、缺陷、性能、内容等全部工作，而非只做单个项目。",
+   "caseTitle": "eBay 的团队分工",
+   "importance": 3
   }
  ],
  "CHAPTER 10: The Product Manager": [
   {
-   "point": "理解用户数据是产品经理不能外包的本职",
    "core": "You might have a data analyst to help you with this, but the analysis of the data and understanding you get of your customer is not something you can delegate.",
-   "caseTitle": "每天早上半小时看数据",
    "case": "A big part of knowing your customer is understanding what they're doing with your product. Most product managers start their day with half an hour or so in the analytics tools, understanding what's been happening in the past 24 hours. They're looking at sales analytics and usage analytics. They're looking at the results of A/B tests.",
-   "explain": "产品经理每天花半小时亲自看销售、使用和A/B测试数据，这种对客户的理解无法交给数据分析师代劳。"
+   "point": "理解用户数据是产品经理不能外包的本职",
+   "explain": "案例展示产品经理每天亲自花半小时分析销售、使用数据和A/B测试结果，说明数据分析与理解客户无法委托他人。",
+   "caseTitle": "每天早上半小时看数据",
+   "importance": 3
+  },
+  {
+   "point": "产品经理必须深入理解市场与行业趋势",
+   "explain": "以机器学习技术趋势为例，说明行业不断变化，产品经理需为明天的市场而非昨天的市场创造产品。",
+   "caseTitle": "机器学习技术趋势",
+   "importance": 2,
+   "core": "Further, your industry is constantly moving, and we must create products for where the market will be tomorrow, not where it was yesterday.",
+   "case": "As an example, as of this writing, there is a major enabling technology trend sweeping through our industry, which is based on machine learning and other forms of artificial intelligence. I feel comfortable predicting that this will be a major technology trend for at least the next decade, and this is why you need to love technology‐powered products."
   }
  ],
  "CHAPTER 23: The Alternative to Roadmaps": [
   {
-   "point": "给团队业务目标和衡量方式，让团队自己找解法",
    "core": "The idea behind business objectives is simple enough: tell the team what you need them to accomplish and how the results will be measured, and let the team figure out the best way to solve the problems.",
-   "caseTitle": "开通时间从 30 天到 3 小时",
    "case": "Consider this example of a business objective and a measurable, key result. Suppose your product currently requires 30 days for a new customer to onboard. But in order to scale effectively, management believes this needs to be reduced to three hours or less. That's a good example of a business objective for one or more product teams: “Dramatically reduce the time it takes for a new customer to go live.” And one of the measurable key results would be “Average new customer onboarding time less than three hours.”",
-   "explain": "案例把“新客户上线”从30天降到3小时定为业务目标，并配可衡量关键结果，团队据此自寻解法，正体现目标加衡量而非功能清单。"
+   "point": "给团队业务目标和衡量方式，让团队自己找解法",
+   "explain": "案例展示如何将“新客户上线需30天”这一业务问题转化为业务目标“大幅缩短上线时间”，并配以可量化关键结果“平均上线时间少于3小时”，证明目标应聚焦结果而非功能。",
+   "caseTitle": "开通时间从30天到3小时",
+   "importance": 3
+  },
+  {
+   "point": "路线图应写成要解决业务问题，而非功能",
+   "explain": "案例说明有些团队已将路线图条目改为业务问题而非功能，称为成果导向路线图，这直接对应替代方案的核心：用问题与指标取代功能清单。",
+   "caseTitle": "成果导向路线图",
+   "importance": 3,
+   "core": "Outcome‐based roadmaps are essentially equivalent to using a business objective–based system such as the OKR system.",
+   "case": "There are a few product teams out there that have modified their product roadmaps so that each item is stated as a business problem to solve rather than the feature or project that may or may not solve it. These are called outcome‐based roadmaps."
+  },
+  {
+   "point": "承诺问题的根源是过早承诺，应先探索再承诺",
+   "explain": "案例指出承诺引发困扰是因为在还不知道能否交付、能否解决客户问题时就过早做出，说明高诚信承诺需在充分发现后做出。",
+   "caseTitle": "高诚信承诺的时机",
+   "importance": 3,
+   "core": "Once we have come up with a solution that works for our business, we now can make an informed and high‐integrity commitment about when we can deliver and what business results we can expect.",
+   "case": "The key is to understand that the root cause of all this grief about commitments is when these commitments are made. They are made too early. They are made before we know whether we can deliver on this obligation, and even more important, whether what we deliver will solve the problem for the customer."
+  },
+  {
+   "point": "用少量发现时间换取后续可承诺的日期",
+   "explain": "案例给出折中方案：产品团队先争取时间做产品发现，之后愿意承诺日期和交付物，既满足管理层对日期的需求，又避免盲目承诺。",
+   "caseTitle": "探索换取承诺的折中",
+   "importance": 2,
+   "core": "The idea behind business objectives is simple enough: tell the team what you need them to accomplish and how the results will be measured, and let the team figure out the best way to solve the problems.",
+   "case": "So, the compromise is straightforward. The product team asks for a little time to do product discovery before commitments are made, and then after discovery, we are willing to commit to dates and deliverables so our colleagues can effectively do their jobs as well."
   }
  ],
  "CHAPTER 24: Product Vision and Product Strategy": [
   {
-   "point": "产品策略最好围绕一连串产品与市场匹配来排序",
    "core": "For most types of businesses, I encourage teams to construct product strategy around a series of product/market fits.",
-   "caseTitle": "教育产品按人群推进",
    "case": "For consumer‐focused companies, we often structure each product/market fit around a different customer or user persona. For example, an education‐related service might have a strategy that targets high school students first, college students next, and then those already working but who want to learn new skills.",
-   "explain": "教育服务先做高中生、再大学生、最后在职学习者，每个阶段对应一个用户画像的产品/市场匹配，按顺序推进而非同时铺开。"
+   "point": "产品策略最好围绕一连串产品与市场匹配来排序",
+   "explain": "教育服务先瞄准高中生，再大学生，最后在职学习者，按用户画像分阶段实现产品/市场匹配，体现了策略的序列性。",
+   "caseTitle": "教育产品按人群推进",
+   "importance": 3
+  },
+  {
+   "point": "策略的最大好处是一次只专注一个目标市场",
+   "explain": "团队明确当前只攻克制造业市场，其他市场点子暂存，确保资源聚焦于让制造业客户成功的最小可行产品。",
+   "caseTitle": "制造市场聚焦策略",
+   "importance": 3,
+   "core": "I tell teams that the most important benefit is just that you decided to focus your product work on a single target market at a time.",
+   "case": "So, all teams know we're tackling the manufacturing market now, and that's the type of customers we are obsessing on. Our goal is to come up with the smallest actual deliverable product that makes these manufacturing customers successful. Ideas that come up that pertain to other types of customers or markets are saved for future consideration."
+  },
+  {
+   "point": "产品策略也可基于关键里程碑的逻辑顺序",
+   "explain": "电商案例先交付评分评论功能，再利用数据构建情感数据库，最后实现高级推荐，展示了按里程碑顺序推进的策略。",
+   "caseTitle": "电商功能里程碑策略",
+   "importance": 2,
+   "core": "And, sometimes, the product strategy is based on achieving a set of key milestones in some sort of logical and important order.",
+   "case": "For example, “First deliver critical rating and reviews functionality to developers building e‐commerce applications; next, leverage the data generated from this use to create a database of consumer product sentiment; and then leverage these data for advanced product recommendations.”"
   }
  ],
  "CHAPTER 33: Principles of Product Discovery": [
   {
-   "point": "发现阶段迭代成本极低，团队每周可测试一二十个点子",
    "core": "To set your expectations, teams competent in modern discovery techniques can generally test on the order of 10–20 iterations per week.",
-   "caseTitle": "止步于三人小组的迭代",
    "case": "Also, realize that many iterations never make it beyond just you, your designer, and your tech lead. The very act of creating a prototype often exposes problems that cause you to change your mind. As a rule of thumb, an iteration in discovery should be at least an order of magnitude less time and effort than an iteration in delivery.",
-   "explain": "当前条目指出发现阶段一次迭代的时间与投入比交付阶段低一个数量级，且多数迭代止步于产品经理、设计师和技术负责人三人，正说明快速、廉价试错可行。"
+   "point": "发现阶段迭代成本极低，团队每周可测试一二十个点子",
+   "explain": "案例指出熟练团队每周可测试10-20次迭代，且许多迭代仅限三人小组，原型制作本身就能暴露问题，证明发现迭代成本远低于交付迭代。",
+   "caseTitle": "止步于三人小组的迭代",
+   "importance": 3
+  },
+  {
+   "point": "默认多数点子行不通，行得通的也需多次迭代",
+   "explain": "Marc Andreessen 强调无法预知哪个想法会成功，因此产品发现必须预设多数想法失败，并通过迭代验证。",
+   "caseTitle": "Marc Andreessen 的不可知",
+   "importance": 3,
+   "core": "We expect that many of our ideas won't work out, and the ones that do will require several iterations.",
+   "case": "To quote Marc Andreessen, “The most important thing is to know what you can't know,” and we can't know in advance which of our ideas will work with customers and which won't."
+  },
+  {
+   "point": "可行性必须在发现阶段验证，而非开发启动后",
+   "explain": "如果开发者直到冲刺计划才第一次看到想法，说明可行性验证滞后；应在决定构建前就确认可行性。",
+   "caseTitle": "开发者在冲刺计划才见想法",
+   "importance": 3,
+   "core": "We need to validate the feasibility of our ideas during discovery, not after.",
+   "case": "If the first time your developers see an idea is at sprint planning, you have failed. We need to ensure the feasibility before we decide to build, not after."
+  },
+  {
+   "point": "业务可行性需在发现阶段验证，而非产品建成后",
+   "explain": "产品建成后才发现产品经理不懂业务关键方面，会严重打击士气；因此业务可行性必须在投入开发前验证。",
+   "caseTitle": "产品建成后才懂业务",
+   "importance": 3,
+   "core": "We need to validate the business viability of our ideas during discovery, not after.",
+   "case": "Few things destroy morale or confidence in the product manager more than finding out after a product has been built that the product manager did not understand some essential aspect of the business."
+  },
+  {
+   "point": "产品团队还应考虑解决方案的伦理影响",
+   "explain": "即使方案达成业务目标（如参与度、增长、变现），也可能对用户或环境造成伤害，因此伦理影响需在发现阶段评估。",
+   "caseTitle": "伦理风险与替代方案",
+   "importance": 2,
+   "core": "I encourage product teams to consider the ethical implications of their solutions, too.",
+   "case": "More commonly, the issue is that our technology and design skills are such that we might come up with a solution that meets our business objectives (for example, around engagement, growth, or monetization) but can end up with a side effect of causing harm to users or the environment."
   }
  ],
  "CHAPTER 35: Opportunity Assessment Technique": [
   {
-   "point": "开工前就要想清楚怎样才算成功",
    "core": "We want to know at the outset what the measure of success is.",
-   "caseTitle": "流失率改善 1%",
    "case": "For example, if we're trying to reduce churn, would a 1 percent improvement be considered excellent or would be it be considered a waste of time?",
-   "explain": "以降低流失率为例，1%的改进算优秀还是浪费时间，必须在开始前就明确，否则团队无法判断工作是否成功。"
+   "point": "开工前就要想清楚怎样才算成功",
+   "explain": "案例用流失率改进1%是否算优秀，说明必须事先明确成功衡量标准，否则无法判断工作价值。",
+   "caseTitle": "流失率改善 1%",
+   "importance": 3
+  },
+  {
+   "point": "目标客户要明确主要受益者，不能取悦所有人",
+   "explain": "案例指出产品工作因试图取悦所有人而失败，证明必须明确主要受益者，聚焦目标客户。",
+   "caseTitle": "取悦所有人导致失败",
+   "importance": 3,
+   "core": "This question is intended to make it very clear to the product team who the primary intended beneficiary of this work is.",
+   "case": "So much product work fails because it tries to please everyone and ends up pleasing no one."
+  },
+  {
+   "point": "客户问题要始终聚焦终端客户利益",
+   "explain": "案例说明即使服务内部用户，也要关联终端客户利益，证明客户问题应聚焦客户。",
+   "caseTitle": "内部用户与终端客户",
+   "importance": 2,
+   "core": "We want to keep the focus on our customers.",
+   "case": "We occasionally do something to help internal users, so if that's the case we can call that out here. But even then, we try to tie it back to the benefits to our end customers."
+  },
+  {
+   "point": "战略性特殊任务也要尽量提供上下文",
+   "explain": "案例说明高层战略性工作不必纠结，但应给团队尽可能多的背景，四问仍可能适用。",
+   "caseTitle": "CEO的战略性产品工作",
+   "importance": 2,
+   "core": "If that's the case, don't stress over it. Just give the team as much context as you can—these four questions may still be relevant.",
+   "case": "Sometimes the CEO or another senior leader will explain that there's something beyond normal product work that needs to be done. Realize that there are sometimes strategic reasons for doing specific product work, such as support a partnership."
   }
  ],
  "CHAPTER 39: Customer Discovery Program Technique": [
   {
-   "point": "在特定目标市场拿到六个参考客户，通常即可宣告产品/市场契合",
    "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
-   "caseTitle": "按行业和地域攒参考客户",
    "case": "In the earlier chapters on product vision and strategy, we talked about the product strategy of pursuing a product vision by tackling one vertical market after another. For example, first develop six references for the financial services industry, then six for the manufacturing industry, and so on. Or you can expand geographically in this same manner (for example, first develop six references for the United States, six for Germany, and then six for Brazil, and so on).",
-   "explain": "案例给出按行业或地域逐个市场推进的具体路径：先在金融服务业攒够六个参考客户，再到制造业，或先美国、再德国、巴西，说明“六个参考客户”是可操作的市场契合判定标准。"
+   "point": "在特定目标市场拿到六个参考客户，通常即可宣告产品/市场契合",
+   "explain": "案例给出可操作标准：按行业或地域逐个攻克，每个细分市场先攒够六个参考客户，再宣布该市场达到产品/市场契合。",
+   "caseTitle": "按行业和地域攒参考客户",
+   "importance": 3
+  },
+  {
+   "point": "参考客户计划需预留冗余，招募六到八家以最终留下六家",
+   "explain": "案例说明招募时要多找一两家，以防个别客户不匹配或无法继续参与，保证最终仍有六家参考客户。",
+   "caseTitle": "招募六到八家客户",
+   "importance": 2,
+   "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
+   "case": "We want to end with six reference customers, so we'll typically recruit between six and eight in case one or two turn out to be not a match or unavailable."
+  },
+  {
+   "point": "筛选参考客户时应排除只为技术而来的技术爱好者",
+   "explain": "案例指出技术爱好者关注的是技术本身而非业务价值，只有真正痛恨问题、渴求业务价值的客户才能成为有效参考客户。",
+   "caseTitle": "筛选掉技术爱好者",
+   "importance": 2,
+   "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
+   "case": "However, it's also important we screen out technologists. These people are mainly interested because of the technology, not because they desperately need the business value."
+  },
+  {
+   "point": "与参考客户应建立共建产品的合作伙伴关系，而非定制项目关系",
+   "explain": "案例说明作者不喜欢让客户预先付费参与，因为收费会改变关系性质，目标是把客户当作共同打磨产品的伙伴。",
+   "caseTitle": "不预先收费",
+   "importance": 2,
+   "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
+   "case": "Not everyone agrees with me on this, but I don't personally like the customer to pay in advance to participate in this program. That makes this a different type of relationship. You want a partner in coming up with the product."
+  },
+  {
+   "point": "消费者产品同样适用参考客户思路，但需调整数量",
+   "explain": "案例指出消费者产品无法像企业客户那样一次覆盖多个用户，因此改为聚焦10到50名消费者，把他们带到喜爱产品的程度。",
+   "caseTitle": "消费者产品10-50人",
+   "importance": 2,
+   "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
+   "case": "For consumer products, the same general concept applies. But, rather than focusing on six businesses to work closely with (where we have access to many different users at each customer), we instead focus on a somewhat larger number of consumers (on the order of 10–50) that we engage with to get them to the point that they are loving our product."
   }
  ],
  "CHAPTER 45: Principles of Prototypes": [
   {
-   "point": "做原型会逼人把问题想得更深，提早暴露问题",
    "core": "Realize that one of the key benefits of any form of prototype is to force you to think through a problem at a substantially deeper level than if we just talk about it or write something down.",
-   "caseTitle": "原型即规格",
    "case": "The primary purpose of a prototype is to tackle one or more product risks (value, usability, feasibility, or viability) in discovery; however, in many cases, the prototype goes on to provide a second benefit, which is to communicate to the engineers and the broader organization what needs to be built. This is often referred to as prototype as spec.",
-   "explain": "原型迫使团队把模糊想法具体化，比口头讨论或写文档更能暴露隐藏问题；它还能充当规格说明，向工程师传达要建什么，说明原型确实深化了思考。"
+   "point": "做原型会逼人把问题想得更深，提早暴露问题",
+   "explain": "案例指出制作原型的过程本身能迫使团队深入思考，从而提前暴露口头讨论或书面记录难以发现的重要问题。",
+   "caseTitle": "原型即规格",
+   "importance": 3
+  },
+  {
+   "point": "原型的根本目的是以远低于真产品的成本学习",
+   "explain": "案例强调原型的总目的是以远低于实际产品的时间和精力成本进行学习，且成本应至少低一个数量级。",
+   "caseTitle": "原型成本低一个数量级",
+   "importance": 3,
+   "core": "The overarching purpose of any form of prototype is to learn something at a much lower cost in terms of time and effort than building out a product.",
+   "case": "The overarching purpose of any form of prototype is to learn something at a much lower cost in terms of time and effort than building out a product. All forms of prototype should require at least an order of magnitude less time and effort as the eventual product."
+  },
+  {
+   "point": "原型是协作工具，帮助团队形成共同理解",
+   "explain": "案例说明产品团队和业务伙伴可以共同体验原型，从而建立共享理解，证明原型能促进协作。",
+   "caseTitle": "原型促进团队协作",
+   "importance": 2,
+   "core": "Realize that one of the key benefits of any form of prototype is to force you to think through a problem at a substantially deeper level than if we just talk about it or write something down.",
+   "case": "Similarly, a prototype is also a powerful tool for team collaboration. Members of the product team and business partners can all experience the prototype to develop shared understanding."
+  },
+  {
+   "point": "保真度按目的来定，低保真更快更便宜",
+   "explain": "案例指出保真度没有统一标准，应按预期目的选择合适保真度，且低保真更快更省，只在需要时才做高保真。",
+   "caseTitle": "按目的选择保真度",
+   "importance": 2,
+   "core": "The principle is that we create the right level of fidelity for its intended purpose, and we acknowledge that lower fidelity is faster and cheaper than higher fidelity, so we only do higher fidelity when we need to.",
+   "case": "There are many different possible levels of fidelity for a prototype. The fidelity primarily refers to how realistic the prototype looks. There is no such thing as one appropriate level of fidelity. Sometimes we don't need the prototype to look realistic at all, and other times it needs to be very realistic. The principle is that we create the right level of fidelity for its intended purpose, and we acknowledge that lower fidelity is faster and cheaper than higher fidelity, so we only do higher fidelity when we need to."
   }
  ],
  "CHAPTER 51: Testing Value": [
   {
-   "point": "客户必须觉得产品明显更好，才愿意承受迁移的痛苦",
    "core": "The customer must perceive your product to be substantially better to motivate them to buy your product and then wade through the pain and obstacles of migrating from their old solution.",
-   "caseTitle": "功能对齐却卖不动",
    "case": "So many companies and product teams think all they need to do is match the features (referred to as feature parity), and then they don't understand why their product doesn't sell, even at a lower price.",
-   "explain": "许多团队以为做到功能对齐就能卖动，结果即使降价也卖不出去。这说明仅与旧方案持平不足以让用户放弃现有做法、承担迁移成本，产品必须明显更优。"
+   "point": "客户必须觉得产品明显更好，才愿意承受迁移的痛苦",
+   "explain": "许多团队以为做到功能对齐就能卖动，结果即便降价也卖不出去——因为功能持平不足以抵消用户从旧方案迁移的代价，只有明显更好才值得换。",
+   "caseTitle": "功能对齐却卖不动",
+   "importance": 3
   }
  ],
  "CHAPTER 52: Demand Testing Techniques": [
   {
-   "point": "需求测试能同时拿到需求证据和一批愿意深聊的用户",
    "core": "Hopefully, you can see that this is very easy to do, and you can quickly collect two very useful things: (1) some good evidence on demand and (2) a list of users who are very ready and willing to talk with you about this specific new capability.",
-   "caseTitle": "假门测试",
    "case": "The demand‐testing technique is called a fake door demand test. The idea is that we put the button or menu item into the user experience exactly where we believe it should be. But, when the user clicks that button, rather than taking the user to the new feature, it instead takes the user to a special page that explains that you are studying the possibility of adding this new feature, and you are seeking customers to talk to about this. The page also provides a way for the user to volunteer (by providing their e‐mail or phone number, for example).",
-   "explain": "假门测试在真实界面放置入口，点击后不进入功能而是说明正在研究并邀请沟通、留下联系方式，既验证了点击需求，也收集到愿意深聊的用户名单。"
+   "point": "需求测试能同时拿到需求证据和一批愿意深聊的用户",
+   "explain": "假门测试在真实位置放按钮，点击后引导至说明页并邀请用户留联系方式，既验证需求又收集可访谈用户名单。",
+   "caseTitle": "假门测试",
+   "importance": 3
+  },
+  {
+   "point": "落地页测试可验证整个新产品的需求",
+   "explain": "落地页按真实上线描述新服务，点击行动按钮后转向说明页并邀请沟通，从而低成本测试整体需求。",
+   "caseTitle": "落地页需求测试",
+   "importance": 2,
+   "core": "This is called a landing page demand test.",
+   "case": "Rather than a button on a page, we set up the landing page for the new offering's product funnel. This is called a landing page demand test. We describe that new offering exactly as we would if we were really launching the service. The difference is that if the user clicks the call to action, rather than signing up for the trial (or whatever the action might be), the user sees a page that explains that you are studying the possibility of adding this new offering, and you'd like to talk with them about that new offering if they're willing."
+  },
+  {
+   "point": "功能需求常来自客户、竞品或高管，需先验证再投入",
+   "explain": "当大客户要求、竞品已有或CEO偏爱某功能时，工程师指出实现成本高，因此需先验证避免浪费。",
+   "caseTitle": "大客户或竞品驱动功能",
+   "importance": 2,
+   "core": "Hopefully, you can see that this is very easy to do, and you can quickly collect two very useful things: (1) some good evidence on demand and (2) a list of users who are very ready and willing to talk with you about this specific new capability.",
+   "case": "Suppose you were contemplating a new feature, perhaps because a large customer is asking for it or maybe because you saw that a competitor has the feature or maybe it's your CEO's pet feature. You talk about the feature with your team, and your engineers point out to you that the implementation cost is substantial. Not impossible but not easy either—enough that you don't want to take the time to build this only to find out later it wasn't used."
   }
  ],
  "CHAPTER 53: Qualitative Value Testing Techniques": [
   {
-   "point": "用当场掏信用卡的意愿检验用户是否真心认可价值",
-   "explain": "用户嘴上说喜欢可能只是礼貌；愿意当场掏卡购买，才说明他真正认可产品价值，而非敷衍。",
-   "caseTitle": "信用卡支付意愿测试",
    "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
-   "case": "One technique I like for gauging value is to see if the user would be willing to pay for it, even if you have no intention of charging them for it. We're looking for the user to pull out his or her credit card right then and there and ask to buy the product (but we don't really want the card information)."
+   "case": "One technique I like for gauging value is to see if the user would be willing to pay for it, even if you have no intention of charging them for it. We're looking for the user to pull out his or her credit card right then and there and ask to buy the product (but we don't really want the card information).",
+   "point": "用当场掏信用卡的意愿检验用户是否真心认可价值",
+   "explain": "用户若愿意立刻拿出信用卡购买，说明其认可产品价值，而非出于礼貌说好话。",
+   "caseTitle": "信用卡支付意愿测试",
+   "importance": 3
+  },
+  {
+   "point": "高价产品用签署意向书检验用户严肃程度",
+   "explain": "对于超出信用卡额度的高价产品，用户愿意签署非约束性意向书表明其购买意愿严肃。",
+   "caseTitle": "意向书测试",
+   "importance": 2,
+   "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
+   "case": "If it's an expensive product for businesses—beyond what someone would put on a credit card—you can ask people if they will sign a “non‐binding letter of intent to buy” which is a good indicator that people are serious."
+  },
+  {
+   "point": "用声誉推荐意愿检验用户对产品价值的认可",
+   "explain": "用户愿意向朋友、同事或老板推荐产品，甚至提供联系方式，说明其愿意用个人声誉背书。",
+   "caseTitle": "声誉支付测试",
+   "importance": 2,
+   "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
+   "case": "You can see if they would be willing to pay with their reputation. You can ask them how likely they'd be to recommend the product to their friends or co‐workers or boss (typically on a scale of 0–10). You can ask them to share on social media. You can ask them to enter the e‐mail of their boss or their friends for a recommendation (even though we don't save the e‐mails, it's very meaningful if people are willing to provide them)."
+  },
+  {
+   "point": "用投入大量时间的意愿检验用户对价值的认可",
+   "explain": "用户愿意安排大量时间与你一起推进产品，表明其愿意付出时间成本来换取价值。",
+   "caseTitle": "时间投入测试",
+   "importance": 2,
+   "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
+   "case": "Especially with businesses, you can also ask the person if they'd be willing to schedule some significant time with you to work on this (even if we don't need it). This is another way people pay for value."
+  },
+  {
+   "point": "用提供现有产品登录凭证的意愿检验转换意愿",
+   "explain": "用户愿意提供现有产品的登录凭证，说明其有强烈意愿立即切换到你的产品。",
+   "caseTitle": "访问权限测试",
+   "importance": 2,
+   "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
+   "case": "You can also ask people to provide the login credentials for whatever product they would be switching from (because you tell them there's a migration utility or something). Again, we don't really want their login and password—we just want to know if they value our product highly enough that they're truly willing to switch right then and there."
   }
  ],
  "CHAPTER 54: Quantitative Value Testing Techniques": [
   {
-   "point": "数据只能揭示发生了什么，无法解释为什么",
    "core": "However, as powerful as the role of data is for us, the most important thing to keep in mind about analytics is that the data will shine a light on what is happening, but it won't explain why.",
-   "caseTitle": "邀请制测试遇冷",
    "case": "I can't tell you how often we think we have something they'll love, and then we make it available to a limited group like this and we find that they are just not feeling it. Unfortunately, with a quantitative test like this all we know for sure is that they're not using it—we can't know why. That's when we'll follow up with a qualitative test to try and quickly learn why they're not as into it as we had hoped.",
-   "explain": "邀请制定量测试发现用户不用新功能，却无法得知原因，只能再补定性测试去快速弄清用户为何不感兴趣，正说明数据只呈现现象、不解释动机。"
+   "point": "数据只能揭示发生了什么，无法解释为什么",
+   "explain": "邀请制测试中用户不用产品，定量数据只显示“没人用”，无法知道原因，需接定性测试。",
+   "caseTitle": "邀请制测试遇冷",
+   "importance": 3
+  },
+  {
+   "point": "发现型A/B测试通常只给小比例用户看新版本",
+   "explain": "发现阶段A/B测试中，99%用户看当前产品，仅1%或更少看新版本，并密切监控。",
+   "caseTitle": "发现阶段A/B测试",
+   "importance": 3,
+   "core": "The gold standard for this type of testing is an A/B test.",
+   "case": "In discovery A/B testing, we usually have the current product showing to 99 percent of our users, and the live‐data prototype showing to only 1 percent of our users or less. We monitor the A/B test more closely."
+  },
+  {
+   "point": "流量不足或风险高时可用邀请制测试收集证据",
+   "explain": "邀请用户试用实验版本，用户主动选择加入，从而在有限流量下收集定量证据。",
+   "caseTitle": "仅邀请测试",
+   "importance": 2,
+   "core": "However, as powerful as the role of data is for us, the most important thing to keep in mind about analytics is that the data will shine a light on what is happening, but it won't explain why.",
+   "case": "This is where you identify a set of users or customers that you contact and invite to try the new version. You tell them that it is an experimental version, so they are effectively opting in if they choose to run it."
+  },
+  {
+   "point": "可利用客户发现计划的客户持续收集数据",
+   "explain": "这些公司已选择测试新版本，且关系紧密，便于跟进收集使用数据。",
+   "caseTitle": "客户发现计划",
+   "importance": 2,
+   "core": "However, as powerful as the role of data is for us, the most important thing to keep in mind about analytics is that the data will shine a light on what is happening, but it won't explain why.",
+   "case": "These companies have already opted in to testing new versions, and you already have a close relationship with them so you can follow up with them easily."
+  },
+  {
+   "point": "数据能揭示未意识到的假设并带来真正进步",
+   "explain": "数据与团队无意识假设不符时带来惊喜，这些惊喜推动真正进步。",
+   "caseTitle": "数据带来意外洞察",
+   "importance": 2,
+   "core": "However, as powerful as the role of data is for us, the most important thing to keep in mind about analytics is that the data will shine a light on what is happening, but it won't explain why.",
+   "case": "We have a set of assumptions about how the product is used—most of which we are not even conscious of—and when we see the data, we're surprised that it doesn't track with those assumptions. It's these surprises that lead to real progress."
   }
  ],
  "CHAPTER 56: Testing Business Viability": [
   {
-   "point": "产品设计必须适配销售渠道的成本与能力",
    "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
-   "caseTitle": "直销渠道的门槛",
    "case": "For example, a direct sales channel is very expensive, and this requires a high‐value product and price point. Or, you may have built up a sales channel with a certain set of skills, and if your new product requires a very different set of skills and knowledge, your sales force may completely reject the product.",
-   "explain": "直销渠道成本高，要求产品高价值、高定价；若新产品需要销售团队不具备的技能，渠道会拒绝产品。这说明渠道约束直接决定产品能否卖得动。"
+   "point": "产品设计必须适配销售渠道的成本与能力",
+   "explain": "直销渠道成本高，要求产品有高价值和相应定价；若新产品需要销售团队不具备的技能，渠道可能完全拒绝该产品。",
+   "caseTitle": "直销渠道的门槛",
+   "importance": 3
+  },
+  {
+   "point": "发现阶段就应与法务沟通合规约束",
+   "explain": "尽早与法律团队讨论方案、预判问题，可节省大量时间和麻烦，避免做完才发现违规无法发布。",
+   "caseTitle": "法律团队早期介入",
+   "importance": 3,
+   "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
+   "case": "You can save yourself a whole lot of time and grief by sitting down early with someone from your legal team and discussing with them what you are proposing and whether they anticipate any issues or areas you should be aware of."
+  },
+  {
+   "point": "成本问题需与财务共同建模验证可行性",
+   "explain": "涉及成本时，与财务一起建模是向领导层证明方案可行的关键，避免上线前才发现成本不可行。",
+   "caseTitle": "财务成本建模",
+   "importance": 2,
+   "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
+   "case": "If there are cost issues involved, sitting down with someone in finance and modeling the costs will be critical to demonstrating to leadership that you have worked out a viable approach."
+  },
+  {
+   "point": "影响品牌承诺的产品需提前与营销沟通",
+   "explain": "若方案可能影响销售渠道、营销计划或超出品牌承诺，应在动工前与营销讨论并展示原型。",
+   "caseTitle": "营销品牌承诺风险",
+   "importance": 2,
+   "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
+   "case": "If what you are proposing to build could impact the sales channel, the major marketing programs, or is potentially outside of the brand promise (the range of things your customers expect from your company), then you'll want to discuss this with marketing and show them prototypes of what you are proposing before you consider building anything."
+  },
+  {
+   "point": "涉及安全的产品应尽早与安全团队沟通",
+   "explain": "只要与安全相关，就应带上技术负责人尽早与安全领导讨论想法并解决其顾虑，而非上线前补救。",
+   "caseTitle": "安全团队早期沟通",
+   "importance": 2,
+   "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
+   "case": "If you are proposing anything at all remotely related to security, you will probably want to bring your tech lead and sit down with the security leadership early to discuss the ideas and how you will address their concerns."
   }
  ],
  "CHAPTER 64: Good Product Team/Bad Product Team": [
   {
-   "point": "好团队与坏团队的差别不在细节，而在整套工作方式",
    "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
-   "caseTitle": "工程师何时看到原型",
    "case": "Good teams ensure that their engineers have time to try out the prototypes in discovery every day so that they can contribute their thoughts on how to make the product better. Bad teams show the prototypes to the engineers during sprint planning so they can estimate.",
-   "explain": "工程师每天在探索阶段试用原型并贡献想法，坏团队直到冲刺计划才给工程师看原型只为估算，这一细节折射出两者整套协作与发现方式的根本差异。"
+   "point": "好团队与坏团队的差别不在细节，而在整套工作方式",
+   "explain": "工程师每天在探索阶段试用原型并贡献想法，坏团队直到冲刺计划才给工程师看原型只为估算，这一细节折射出整套协作方式的根本差异。",
+   "caseTitle": "工程师何时看到原型",
+   "importance": 3
+  },
+  {
+   "point": "好团队从愿景、目标、用户挣扎和数据中找灵感",
+   "explain": "好团队从愿景目标、观察客户挣扎、分析使用数据、应用新技术中获取灵感，坏团队只从销售和客户处收集需求，灵感来源截然不同。",
+   "caseTitle": "灵感来源对比",
+   "importance": 3,
+   "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
+   "case": "Good teams get their inspiration and product ideas from their vision and objectives, from observing customers' struggle, from analyzing the data customers generate from using their product, and from constantly seeking to apply new technology to solve real problems. Bad teams gather requirements from sales and customers."
+  },
+  {
+   "point": "好团队快速试验多个点子，坏团队开会排路线图",
+   "explain": "好团队擅长用多种方法快速验证产品点子以判断是否值得做，坏团队则靠开会生成排好优先级的路线图，验证方式形成对照。",
+   "caseTitle": "快速试错与路线图",
+   "importance": 3,
+   "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
+   "case": "Good teams are skilled in the many techniques to rapidly try out product ideas to determine which ones are truly worth building. Bad teams hold meetings to generate prioritized roadmaps."
+  },
+  {
+   "point": "好团队为参考客户着迷，坏团队盯着竞争对手",
+   "explain": "好团队痴迷于自己的参考客户，坏团队痴迷于竞争对手，关注对象的差异直接决定了团队努力的方向。",
+   "caseTitle": "关注对象对比",
+   "importance": 3,
+   "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
+   "case": "Good teams obsess over their reference customers. Bad teams obsess over their competitors."
+  },
+  {
+   "point": "好团队有使命感，坏团队只为利益",
+   "explain": "用传教士与雇佣兵的比喻，说明好团队带着使命感追求有说服力的产品愿景，坏团队只是逐利的雇佣兵。",
+   "caseTitle": "好团队与坏团队对比",
+   "importance": 2,
+   "core": "Good teams have a compelling product vision that they pursue with a missionary‐like passion. Bad teams are mercenaries.",
+   "case": "Good teams have a compelling product vision that they pursue with a missionary‐like passion. Bad teams are mercenaries."
+  },
+  {
+   "point": "好团队跨职能并肩协作，坏团队各自为政",
+   "explain": "好团队让产品、设计、工程并肩而坐，拥抱功能、体验与技术间的取舍；坏团队困在各自筒仓，靠文档和会议提需求。",
+   "caseTitle": "跨职能协作方式",
+   "importance": 2,
+   "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
+   "case": "Good teams have product, design, and engineering sit side by side, and they embrace the give and take between the functionality, the user experience, and the enabling technology. Bad teams sit in their respective silos, and ask that others make requests for their services in the form of documents and scheduling meetings."
+  },
+  {
+   "point": "好团队持续集成小步发布，坏团队一次性大发布",
+   "explain": "好团队持续集成与发布，相信小步频繁发布对客户更稳定；坏团队在痛苦的集成阶段末尾手动测试再一次性发布。",
+   "caseTitle": "持续集成与发布",
+   "importance": 2,
+   "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
+   "case": "Good teams integrate and release continuously, knowing that a constant stream of smaller releases provides a much more stable solution for their customers. Bad teams test manually at the end of a painful integration phase and then release everything at once."
   }
  ]
 }

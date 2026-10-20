@@ -1,160 +1,474 @@
 {
  "2. Cheap Changes Everything": [
   {
-   "point": "预测变便宜后，会被用到原本不属于预测的问题上",
    "core": "More significantly, because it is becoming cheaper it is being used for problems that were not traditionally prediction problems.",
-   "caseTitle": "自动驾驶改写为预测",
    "case": "Autonomous vehicles could not function outside a highly predictable, controlled environment—until engineers reframed navigation as a prediction problem. Instead of telling the machine what to do in each circumstance, engineers recognized they could instead focus on a single prediction problem: “What would a human do?”",
-   "explain": "自动驾驶原本依赖工程师逐条编写规则，难以应对复杂路况；把导航重写为“人会怎么做”的预测问题后，预测成本下降使这一新领域变得可行。"
+   "point": "预测变便宜后，会被用到原本不属于预测的问题上",
+   "explain": "自动驾驶原本依赖工程师逐一告诉机器每种情况怎么做，后来被重新定义为“人类会怎么做”的预测问题，从而突破受控环境限制。",
+   "caseTitle": "自动驾驶改写为预测",
+   "importance": 3
+  },
+  {
+   "point": "预测足够好时，改变的不只是效率，而是商业模式",
+   "explain": "亚马逊预测精度跨过阈值后，从“先购物后发货”变为“先发货后购物”，并促使企业自建退货物流，说明预测变便宜会重构商业模式。",
+   "caseTitle": "亚马逊预测式发货",
+   "importance": 3,
+   "core": "In this example, it shifts Amazon’s business model from shopping-then-shipping to shipping-then-shopping, generates the incentive to vertically integrate into operating a service for product returns (including a fleet of trucks), and accelerates the timing of investment.",
+   "case": "At some point, as it turns the knob, the AI’s prediction accuracy crosses a threshold, changing Amazon’s business model. The prediction becomes sufficiently accurate that it becomes more profitable for Amazon to ship you the goods that it predicts you will want rather than wait for you to order them."
+  },
+  {
+   "point": "预测变便宜会提升互补品的价值",
+   "explain": "英特尔高价收购Mobileye，主要看中其数据采集技术，因为预测变便宜后，让车辆“看见”对象和标线的互补能力变得更值钱。",
+   "caseTitle": "英特尔收购Mobileye",
+   "importance": 2,
+   "core": "Critically, when an input such as prediction becomes cheap, this can enhance the value of other things. Economists call these “complements.”",
+   "case": "For example, in 2017, Intel paid more than $15 billion for the Israeli startup Mobileye, primarily for its data-collection technology that allows vehicles to effectively see objects (stop signs, people, etc.) and markings (lanes, roads)."
+  },
+  {
+   "point": "技术变革让曾经昂贵的东西变便宜",
+   "explain": "19世纪初获得同样多光照的成本是现在的400倍，照明成本的历史性下降说明基础投入品变便宜会深刻改变世界。",
+   "caseTitle": "人工照明成本下降",
+   "importance": 2,
+   "core": "Technological change makes things cheap that were once expensive.",
+   "case": "But, as the economist William Nordhaus meticulously explored, in the early 1800s it would have cost you four hundred times what you are paying now for the same amount of light."
   }
  ],
  "3. Prediction Machine Magic": [
   {
-   "point": "预测就是用已有信息补全缺失信息，也可以针对当下",
    "core": "Business applications are well aligned with our definition of prediction as the process of filling in missing information.",
-   "caseTitle": "主动换卡的信用卡公司",
    "case": "Instead, he received a proactive call that his card had been compromised and that a new card was already in the mail. The credit card provider had accurately inferred, based on Avi’s spending habits and a myriad of other available data, that the transaction was fraudulent.",
-   "explain": "信用卡公司依据消费习惯等数据，推断出当前交易是盗刷，在用户尚未察觉时就补全了“卡已被盗”这一缺失信息，说明预测不只面向未来。"
+   "point": "预测就是用已有信息补全缺失信息，也可以针对当下",
+   "explain": "信用卡公司依据消费习惯等数据推断出交易是欺诈，在用户尚未察觉时主动换卡，说明预测可补全当下隐藏信息。",
+   "caseTitle": "主动换卡的信用卡公司",
+   "importance": 3
+  },
+  {
+   "point": "预测不仅关乎未来，也可以是对当下隐藏信息的推断",
+   "explain": "克罗伊斯派人询问神谕自己此刻在做什么，德尔斐神谕准确说出，证明预测可针对当下而非仅未来。",
+   "caseTitle": "克罗伊斯测试神谕",
+   "importance": 2,
+   "core": "As in Croesus’s case, predictions can be about the present.",
+   "case": "For example, King Croesus of Lydia was considering a risky assault on the Persian Empire. The king did not trust any particular oracle, so he decided to test each before asking for advice about attacking Persia. He sent messengers to each oracle. On the hundredth day, the messengers were to ask the various oracles what Croesus was doing at that moment. The oracle at Delphi predicted most accurately, so the king asked for and trusted its prophecy."
+  },
+  {
+   "point": "深度学习把翻译重构为预测问题，带来质变",
+   "explain": "同一段日文，前一天译文生硬，次日变得通顺准确，展示预测式翻译在短期内跨越可用门槛。",
+   "caseTitle": "谷歌翻译一夜突变",
+   "importance": 2,
+   "core": "The recent advances in AI, however, have enabled us to recast translation as a prediction problem.",
+   "case": "One day in November 2016, in translating a Japanese version of Hemingway’s classic short story into English via Google, Professor Jun Rekimoto, a computer scientist at the University of Tokyo, read:\nKilimanjaro is 19,710 feet of the mountain covered with snow, and it is said that the highest mountain in Africa.\nThe next day, the Google translation read:\nKilimanjaro is a mountain of 19,710 feet covered with snow and is said to be the highest mountain in Africa."
   }
  ],
  "6. Data Is the New Oil": [
   {
-   "point": "数据采集有成本，需权衡收益与成本",
    "core": "But data can be costly to acquire. Thus, the investment involves a trade-off between the benefit of more data and the cost of acquiring it.",
-   "caseTitle": "Cardiogram 心率数据",
    "case": "Collecting this data was a costly investment. Patients had to wear a device at all times, so it intruded on their regular routines (particularly for those without an Apple Watch). Because it involved health data, there were privacy concerns, so Cardiogram developed its system in a way that improved privacy but at the expense of increased development costs and reduced ability of the machine to improve predictions from feedback.",
-   "explain": "Cardiogram 采集心率数据需患者持续佩戴设备，侵入日常生活，且涉及隐私，导致开发成本增加、反馈预测能力受限，体现了数据采集的成本与权衡。"
+   "point": "数据采集有成本，需权衡收益与成本",
+   "explain": "Cardiogram 案例显示，采集心率数据需患者持续佩戴设备，侵入日常生活并引发隐私担忧，导致开发成本增加且反馈数据质量受限，说明数据投资需权衡成本与收益。",
+   "caseTitle": "Cardiogram 心率数据",
+   "importance": 3
+  },
+  {
+   "point": "统计上数据边际收益递减",
+   "explain": "去机场的例子说明，第一次去机场获得大量有用信息，之后新增数据的信息价值递减，直观体现了统计上数据的边际收益递减规律。",
+   "caseTitle": "去机场时间递减回报",
+   "importance": 2,
+   "core": "From a purely statistical point of view, data has decreasing returns to scale.",
+   "case": "Consider the time at which you need to leave when you are going to the airport. If you have never been to the airport, the first time you go provides a lot of useful information."
+  },
+  {
+   "point": "经济上数据可能带来递增回报",
+   "explain": "搜索引擎对比显示，谷歌仅因搜索结果多指向在线课程这一微小优势，就可能显著扩大市场份额和收入，说明数据在经济上可能产生递增回报。",
+   "caseTitle": "搜索引擎罕见搜索对比",
+   "importance": 2,
+   "core": "Being even a little better in search can lead to a big difference in market share and revenue.",
+   "case": "Try typing “general adversarial networks” into Google, Bing, and DuckDuckGo. At the time of this writing, all three pointed to the Wikipedia entry and IBM’s explanation of the topic. But Google’s also pointed to online courses on the topic."
   }
  ],
  "7. The New Division of Labor": [
   {
-   "point": "人机结合预测优于任何一方单独预测",
    "core": "Sometimes, the combination of humans and machines generates the best predictions, each complementing the other’s weaknesses.",
-   "caseTitle": "乳腺癌病理切片",
    "case": "The team’s winning deep-learning algorithm made the correct prediction 92.5 percent of the time compared with a human pathologist whose performance was at 96.6 percent. While this seemed like a victory for humanity, the researchers went further and combined the predictions of their algorithm and a pathologist’s. The result was an accuracy of 99.5 percent.",
-   "explain": "算法单独准确率92.5%，病理学家96.6%，二者结合达99.5%，说明人机错误类型不同、可互补短板。"
+   "point": "人机结合预测优于任何一方单独预测",
+   "explain": "乳腺癌病理切片案例中，算法准确率92.5%，人类病理学家96.6%，但两者结合后准确率高达99.5%，证明人机互补能显著提升预测效果。",
+   "caseTitle": "乳腺癌病理切片",
+   "importance": 3
   }
  ],
  "8. Unpacking Decisions": [
   {
-   "point": "判断是确定各种结果的回报，同样的预测配不同判断会得出不同决策",
    "core": "Judgment is the process of determining the reward to a particular action in a particular environment. It is about working out the objective you’re actually pursuing.",
-   "caseTitle": "要不要带伞",
    "case": "If you really hate toting an umbrella (a 6 out of 10), your judgment about preferences can also be accommodated. In this case, the average payoff from leaving an umbrella at home is unchanged (at 7.5), while the payoff from taking one is now 6. So, such umbrella haters will leave the umbrella at home.",
-   "explain": "同样的降雨预测下，讨厌带伞的人把带伞的回报评为6、不带伞为7.5，于是选择不带伞；说明判断即给各结果定回报，判断不同则决策不同。"
+   "point": "判断是确定各种结果的回报，同样的预测配不同判断会得出不同决策",
+   "explain": "带伞案例中，讨厌带伞的人对带伞的回报评分为6，不带伞平均回报为7.5，因此选择不带伞；同样的预测因判断不同导致不同决策。",
+   "caseTitle": "要不要带伞",
+   "importance": 3
+  },
+  {
+   "point": "机器预测变得廉价后，人类预测技能贬值，出租车司机处境变差",
+   "explain": "伦敦出租车司机通过“知识”测试掌握复杂路线预测，但导航软件能廉价提供高质量预测，使这种人类预测技能不再稀缺，司机收入受损。",
+   "caseTitle": "伦敦出租车司机知识测试",
+   "importance": 3,
+   "core": "When high-quality machine prediction became cheap, human prediction declined in value, so the cabbies were worse off.",
+   "case": "“The Knowledge” is the subject matter of a test that London cabbies take to drive the city’s celebrated black taxis. The test involves knowing the location of thousands of points and streets around the city and—this is the harder part—predicting the shortest or fastest route between any two points at any time of day."
+  },
+  {
+   "point": "拆解决策有助于看清哪些人类活动价值下降、哪些上升",
+   "explain": "腿痛就医案例将决策拆分为输入数据、预测、判断、行动和结果等要素，说明通过分解决策可以清晰分析机器预测增强后各环节价值的变化。",
+   "caseTitle": "腿痛就医决策",
+   "importance": 2,
+   "core": "By breaking up a decision into elements, we can think clearly about which parts of human activities will diminish in value and which will increase as a result of enhanced machine prediction.",
+   "case": "Imagine you have a pain in your leg and go to the doctor. The doctor sees you, takes an X-ray and a blood test, and asks you a few questions, resulting in input data."
   }
  ],
  "9. The Value of Judgment": [
   {
-   "point": "回报很少一目了然，弄清回报要花时间甚至靠实验试出来",
    "core": "Payoffs are rarely obvious, and the process of understanding those payoffs can be time-consuming and costly.",
-   "caseTitle": "ZipRecruiter 定价",
    "case": "It was relatively easy to measure the short-run consequences of a price increase. The experts found that increasing prices for some types of new customers would increase profits on a day-to-day basis by over 50 percent. However, ZipRecruiter didn’t act right away. It recognized the longer-term risk and waited to see if the higher-paying customers would leave. After four months, it found that the price increase was still highly profitable.",
-   "explain": "ZipRecruiter 先测出涨价短期可增利50%，但不急于行动，等四个月确认高价客户未流失、长期仍盈利，说明回报需时间与实验验证。"
+   "point": "回报很少一目了然，弄清回报要花时间甚至靠实验试出来",
+   "explain": "ZipRecruiter 通过随机定价实验测量不同客户对价格的短期反应，发现提价可使日利润增超50%，但为评估长期客户流失风险，又等待四个月验证，说明判断回报需耗时试错。",
+   "caseTitle": "ZipRecruiter 定价",
+   "importance": 3
+  },
+  {
+   "point": "预测进步后，可把可编码的判断提前交给机器，困难问题留给人",
+   "explain": "Ada Support 用 AI 预测分流客服问题，简单问题由机器自动回答，困难问题转交人工，体现了将可预先规定的判断自动化、长尾难题留给人判断的分工。",
+   "caseTitle": "Ada Support分流客服问题",
+   "importance": 3,
+   "core": "As machine prediction improves, it will be increasingly worthwhile to prespecify judgment in many situations.",
+   "case": "Ada Support, a startup, is using AI prediction to siphon off the easy from the difficult technical support questions. The AI answers the easy questions and sends the difficult ones to a human."
   }
  ],
  "11. Taming Complexity": [
   {
-   "point": "许多现有方案只是缺乏预测时的将就，好的预测会削弱它们",
    "core": "Mail robots and airport lounges have something in common: they are both imperfect solutions to uncertainty, and they both will be undermined by better prediction.",
-   "caseTitle": "沿化学轨迹送信的机器人",
    "case": "To guide the Mailmobile, a technician would lay out a chemical trail that gave off ultraviolet light from the mail room along the carpeted floors to various offices. The robot used a sensor to slowly follow the trail (at less than one mile per hour) until the chemical markings signaled it to stop.",
-   "explain": "邮件机器人靠化学轨迹缓慢送信，是预测不足下的将就方案；预测能力提升后，这类方案的价值会下降。"
+   "point": "许多现有方案只是缺乏预测时的将就，好的预测会削弱它们",
+   "explain": "Mailmobile 沿化学轨迹缓慢送信，是应对环境不确定性的不完美方案；预测能力提升后，这类方案会被更好的方案取代。",
+   "caseTitle": "沿化学轨迹送信的机器人",
+   "importance": 3
   },
   {
-   "point": "机场休息室是为应对预测不佳而生的妥协方案",
-   "explain": "休息室存在的前提是乘客很可能早到；若预测足够好、到机场时间精准，这种等待空间便不再必要。",
-   "caseTitle": "机场休息室",
    "core": "Mail robots and airport lounges have something in common: they are both imperfect solutions to uncertainty, and they both will be undermined by better prediction.",
-   "case": "Thus was born the airport lounge. Airlines invented it to provide passengers (or at least wealthy or frequent-flying ones) a convenient and quiet space to wait for their flights. The lounge exists because you are likely to arrive early for your flight."
+   "case": "Thus was born the airport lounge. Airlines invented it to provide passengers (or at least wealthy or frequent-flying ones) a convenient and quiet space to wait for their flights. The lounge exists because you are likely to arrive early for your flight.",
+   "point": "机场休息室是为应对预测不佳而生的妥协方案",
+   "explain": "休息室因乘客很可能早到机场而存在，本质是对航班预测不足的妥协；预测更准时后，其价值会下降。",
+   "caseTitle": "机场休息室",
+   "importance": 3
+  },
+  {
+   "point": "更好的预测能减少为保险而做的侵入性检查",
+   "explain": "活检是为避免漏诊而付出的保险成本；若影像诊断足够可靠，患者可免去这一侵入性步骤，说明预测改善会削弱妥协方案。",
+   "caseTitle": "放射科与活检",
+   "importance": 2,
+   "core": "With a reliable diagnosis from an image, patients can forgo the invasive biopsy.",
+   "case": "One job of a radiologist is to provide a reason not to conduct an invasive procedure. The ideal is to perform a procedure only to confirm a serious diagnosis. The biopsy offers insurance against the risk of not treating a deadly disease, but it comes at a cost."
+  },
+  {
+   "point": "能识别更多“如果”的机器可适应更多环境",
+   "explain": "Roomba 凭借传感器和记忆自由清扫房间，能区分更多情况，因此比只能沿固定轨迹运行的 Mailmobile 适用于更多场所。",
+   "caseTitle": "Roomba扫地机器人",
+   "importance": 2,
+   "core": "If it could distinguish between more situations—more “ifs”—and even if it didn’t change what it did, essentially stop or go at any point, it could have been used in many more places.",
+   "case": "A modern-day Roomba—the automated vacuum cleaning robot from iRobot—is able to do this and roam freely around rooms with sensors to prevent it from falling down stairs or getting stuck in corners, along with a memory to ensure it covers the floor in a timely fashion."
   }
  ],
  "12. Fully Automated Decision-Making": [
   {
-   "point": "对快速反应回报高、判断又能写定时，最适合完全自动化",
    "core": "In each, there are high returns for quick action responses to predictions and judgment is either codifiable or predictable.",
-   "caseTitle": "特斯拉提前刹车",
    "case": "If I was driving manually, it is unlikely that I would have been able to stop in time, since I could not see the car that had stopped. The car reacted well before the car ahead of me reacted and that made the difference between a crash and a hard stop. Strong work Tesla, thanks for saving me.",
-   "explain": "特斯拉在驾驶员尚未看见前车时已自动刹车，把事故化为急停，说明速度回报高且判断可编码时，机器接管行动更优。"
+   "point": "对快速反应回报高、判断又能写定时，最适合完全自动化",
+   "explain": "特斯拉在驾驶员未能及时反应时自动刹车，避免碰撞，证明当快速反应价值高且判断可编码时，完全自动化能带来显著安全收益。",
+   "caseTitle": "特斯拉提前刹车",
+   "importance": 3
+  },
+  {
+   "point": "当其他环节已自动化，仅剩预测时，全自动化回报高",
+   "explain": "力拓矿山已移除人类活动，引入73辆自动驾驶卡车后节省15%运营成本，实现24小时不间断运行，证明除预测外环节已自动化时全自动化的巨大收益。",
+   "caseTitle": "力拓自动驾驶卡车",
+   "importance": 3,
+   "core": "Mining is the perfect opportunity for full automation precisely because it has already removed humans from so many activities.",
+   "case": "But in 2016, it went a step further, with seventy-three self-driving trucks that could operate autonomously.5 This automation has already saved Rio Tinto 15 percent in operating costs. The mine runs its trucks twenty-four hours a day, with no bathroom breaks and no air-conditioning for the cabs as the temperatures soar above fifty degrees Celsius during the day. Finally, without drivers, the trucks do not need a front and back, meaning they do not need to turn around, further saving in terms of safety, space, maintenance, and speed."
+  },
+  {
+   "point": "通信成本高时，机器自主预测和行动更优",
+   "explain": "月球与地球通信延迟至少两秒，地面操控机器人无法及时应对悬崖等突发情况，预测机器自主决策可解决延迟问题，说明高通信成本推动全自动化。",
+   "caseTitle": "月球采矿机器人",
+   "importance": 2,
+   "core": "Automation can also arise when the costs of communication are high.",
+   "case": "It takes at least two seconds for a radio signal to get to the moon and back, so an earth-based human operating a moon-based robot is a slow and painful process. Such a robot cannot react quickly to new situations. If a robot moving along the surface of the moon suddenly encounters a cliff, any communication delay means that earth-based instructions may arrive too late. Prediction machines provide a solution."
+  },
+  {
+   "point": "法律或伦理要求人类保留决策权，限制全自动化",
+   "explain": "自主武器难以精确区分平民与战斗人员，且对手可能欺骗预测机器，因此美国国防部要求人类保留攻击决策权，说明外部性带来监管，责任划分成为关键。",
+   "caseTitle": "自主武器与人类否决",
+   "importance": 2,
+   "core": "In each, there are high returns for quick action responses to predictions and judgment is either codifiable or predictable.",
+   "case": "For instance, imagine a drone weapon that could operate completely autonomously—identifying, targeting, and killing enemies by itself. Even if an army general could find a prediction machine that could distinguish civilians from combatants, how long would it take combatants to figure out how to confuse the prediction machine? The required level of precision may not be available any time soon. So, in 2012, the US Department of Defense put forward a directive that many interpreted as a requirement to keep a human in the loop on the decision whether to attack or not."
   }
  ],
  "13. What’s at Stake?": [
   {
-   "point": "错误代价不对称的高赌注场景，AI再准也需人工把关",
    "core": "The issue wasn’t that AI was doing a bad job; in fact, it was surprisingly good, but that wasn’t enough because these transactions were very high stakes.",
-   "caseTitle": "Facebook 内容审核",
    "case": "To Facebook, the consequences of a false positive were much higher than that of a false negative. In the latter case, some piece of content was blocked, which may have led to a disgruntled user. In the former case, content that was allowed may have led to many unhappy users. That imbalance meant that it could not just rely on AI to make a final recommendation.",
-   "explain": "Facebook内容审核中，误报（误拦内容）只惹恼个别用户，漏报（放过有害内容）却让大量用户不满；代价不对称使AI不能做最终决定，须人工介入。"
+   "point": "错误代价不对称的高赌注场景，AI再准也需人工把关",
+   "explain": "Facebook内容审核中，误报（屏蔽内容）代价低，漏报（放行有害内容）代价高，这种不对称使AI无法做最终推荐，必须人工介入。",
+   "caseTitle": "Facebook 内容审核",
+   "importance": 3
+  },
+  {
+   "point": "低赌注决策中，预测错误代价低，可自动化",
+   "explain": "亚马逊推荐狗碗失误，用户仍继续购物，说明低代价错误不会造成严重后果，适合自动化。",
+   "caseTitle": "亚马逊狗碗推荐失误",
+   "importance": 2,
+   "core": "The consequences of an error were low. The customer was more satisfied than not and kept shopping for over a decade at this point.",
+   "case": "If you search for “dog bowls,” and Amazon recommends the “PEGGY11 No Spill Non-Skid Stainless Steel Dog Bowl” with its five-star rating from 10,505 reviews for $18.89 (discounted from $18.99), that may well hit the mark.2 But then you realize the bowl is very large and may not suit your small shih tzu, so you search for “dog bowls small” instead. That leads you to the “Bone Dry Paw Patch & Stripes Ceramic Pet Bowl & Canister Collection, Small Bowl Set,” which gives you two bowls for just $13.05 (discounted from $14.99), and you are done.3"
+  },
+  {
+   "point": "高赌注场景需大量人工补充AI预测的不足",
+   "explain": "Facebook雇佣1.5万名内容审核员，因AI误报率难以降到足够低，人工不可或缺。",
+   "caseTitle": "Facebook人工审核员",
+   "importance": 2,
+   "core": "On Facebook, the AI enables the content moderators but does not replace them.",
+   "case": "Facebook employs 15,000 people as content moderators to do that job.9 This is a significant fraction of Facebook’s 60,000 total employees.10 And by all accounts, it is neither a well-paid nor pleasant job, as those people get to see all of the content Facebook doesn’t want its users to see.11 Because the thresholds for AI performance are so high, and because others are continually working to sidestep that AI, the false-positive rate may never get low enough to eliminate that particular job.12"
+  },
+  {
+   "point": "人工缩小候选范围可降低AI预测错误的代价",
+   "explain": "Spotify编辑先选出700首可能适合的车载歌曲，AI再排序，即使个性化不完美，错误代价也较低。",
+   "caseTitle": "Spotify编辑与AI结合",
+   "importance": 2,
+   "core": "This set of potential songs to include reduced the stakes.",
+   "case": "Thus, Spotify engaged editors who understood context well. Those editors could identify the seven hundred songs most likely to be “sung in the car.” But rather than choosing fifty as a radio editor might, the AI prediction engine ranked those seven hundred songs according to the user’s personal tastes. This set of potential songs to include reduced the stakes. Even if the personalization wasn’t perfect, a mistake would still mean a song that fit the moment."
   }
  ],
  "14. Deconstructing Workflows": [
   {
-   "point": "AI是通用技术，只塞进原有流程拿不到大收益，必须重新设计工作流",
    "core": "Hence, no manager is going to achieve large gains in productivity by just “throwing some AI” at a problem or into an existing process. Instead, AI is the type of technology that requires rethinking processes in the same way that Hammer and Champy did.",
-   "caseTitle": "iPhone 软键盘",
    "case": "Ahead of virtually anyone else, Apple engineers used 2006-era machine learning to build predictive algorithms so that key size changed depending on what a person was typing. Technology with the same heritage powers the autocorrect predictive text you see today. But fundamentally, the reason this worked was QWERTY.",
-   "explain": "苹果没有把预测算法硬塞进旧键盘，而是先理解打字这一工作流，再让按键区域随上下文动态扩大，重排了输入流程本身，才让软键盘可用。"
+   "point": "AI是通用技术，只塞进原有流程拿不到大收益，必须重新设计工作流",
+   "explain": "iPhone软键盘案例表明，苹果利用机器学习预测算法动态调整键区大小，但成功的关键在于重新设计了基于QWERTY的输入工作流，而非简单将AI塞入原有流程。",
+   "caseTitle": "iPhone 软键盘",
+   "importance": 3
   },
   {
-   "point": "AI插入单个任务会引发工作流中任务的增删与重排",
-   "explain": "AI能自动给申请者排名，但若只做这一步，收益有限；要拿全部收益，学校还得取消人工排名、扩大宣传、调整奖学金甚至即时录取，即重排整个招生工作流。",
-   "caseTitle": "MBA招生流程AI",
    "core": "This sort of AI is hypothetical, but the example illustrates how placing AI tools within tasks in a workflow can cause tasks to be removed (e.g., manual ranking of applications) as well as added (e.g., wider-reach advertising).",
-   "case": "Suppose that the MBA program developed an AI that could take applications and other information—perhaps the video interviews people often submit, along with publicly available information posted on social media—and, being trained on past data indicating how such applications and information translated into later scores of best, provide a clear ranking of all applicants. This AI tool will make the task of choosing which applicants should receive offers faster, cheaper, and more accurate. The key question is: How will such a magical prediction technology have an impact on the rest of the MBA workflow?"
+   "case": "Suppose that the MBA program developed an AI that could take applications and other information—perhaps the video interviews people often submit, along with publicly available information posted on social media—and, being trained on past data indicating how such applications and information translated into later scores of best, provide a clear ranking of all applicants. This AI tool will make the task of choosing which applicants should receive offers faster, cheaper, and more accurate. The key question is: How will such a magical prediction technology have an impact on the rest of the MBA workflow?",
+   "point": "AI插入单个任务会引发工作流中任务的增删与重排",
+   "explain": "MBA招生AI案例中，预测排名工具虽能加速筛选，但为获全益，学校需取消人工排名、增加招生宣传、调整奖学金等，导致任务增删与重排。",
+   "caseTitle": "MBA招生流程AI",
+   "importance": 3
+  },
+  {
+   "point": "仅靠技术投入不够，必须重新审视整个工作流才能大幅提效",
+   "explain": "福特应付账款部门原有500人，计划通过计算机减少20%人力，但竞争对手马自达仅5人，说明不重新设计流程就无法实现大幅效率提升。",
+   "caseTitle": "福特应付账款流程再造",
+   "importance": 2,
+   "core": "AI is the type of technology that requires rethinking processes in the same way that Hammer and Champy did.",
+   "case": "In North America, its accounts payable department employed five hundred people, and Ford hoped that by spending big on computers, it could reduce that number by 20 percent. The goal of having four hundred people in the department was not unrealistic; after all, its competitor Mazda had just five people in accounts payable."
+  },
+  {
+   "point": "流程拆解能揭示隐性低效，再造可显著提升服务速度与质量",
+   "explain": "互助人寿保险申请流程涉及19人5部门30步骤，实际处理需5-25天，主要耗时在传递，说明拆解流程能发现隐性低效，再造可大幅提速。",
+   "caseTitle": "互助人寿保险申请流程",
+   "importance": 2,
+   "core": "More broadly, reengineering could improve the quality of services.",
+   "case": "Mutual Benefit Life, a large life insurance company, found that in processing applications, nineteen people in five departments took thirty distinct steps. If you walked a typical application through this maze, you could actually finish it in a day. But, instead, an application was taking from five to twenty-five days. Why? Time in transit."
+  },
+  {
+   "point": "AI工具多为针对特定工作流中具体任务的点状解决方案",
+   "explain": "CDL的150家AI公司每家都专注于特定工作流中的具体任务，如预测文档重点段落或制造缺陷，表明AI工具是点状解决方案。",
+   "caseTitle": "CDL的150家AI公司",
+   "importance": 2,
+   "core": "AI tools are point solutions. Each generates a specific prediction, and most are designed to perform a specific task.",
+   "case": "We have now seen more than 150 AI companies in the CDL, our laboratory that helps science-based companies grow. Each one is focused on the development of an AI tool that addresses a specific task in a specific workflow. One startup predicts the most important passages of a document and highlights them. Another predicts manufacturing defects and flags them."
   }
  ],
  "15. Decomposing Decisions": [
   {
-   "point": "把任务拆到决策层，才能看清预测插在哪里、各要素由谁提供",
    "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
-   "caseTitle": "Atomwise 药物筛选",
    "case": "Atomwise’s value proposition lies in delivering an AI tool that supports a prediction task in its customers’ drug discovery workflow. It removes the prediction task from human hands. To provide that value, it amassed a unique data set to predict binding affinity. The prediction’s value is in reducing the cost and increasing the likelihood of success for drug development.",
-   "explain": "Atomwise把药物发现流程中的“预测分子结合亲和力”这一环节从人手中剥离，专门积累数据做预测，从而降低研发成本、提高成功率——正是拆解决策层后定位预测插入点的体现。"
+   "point": "把任务拆到决策层，才能看清预测插在哪里、各要素由谁提供",
+   "explain": "Atomwise将药物发现流程中的预测任务剥离出来，用独特数据预测结合亲和力，降低研发成本并提高成功率，证明拆解决策层能估算预测收益与成本。",
+   "caseTitle": "Atomwise 药物筛选",
+   "importance": 3
+  },
+  {
+   "point": "AI Canvas 的中心是核心预测，需明确预测什么",
+   "explain": "Atomwise CEO 将药物作用归结为“粘住该粘的、不粘不该粘的”，把任务转化为预测分子结合亲和力的问题，说明画布中心是预测。",
+   "caseTitle": "Atomwise药物分子筛选",
+   "importance": 3,
+   "core": "At the center of the AI canvas is prediction.",
+   "case": "Atomwise CEO Abraham Heifets, giving us a quick explanation of the science, said, “For a drug to work, it has to bind the disease target, and it has to fail to bind proteins in your liver, your kidneys, your heart, your brain, and other things that are going to cause toxic side effects. It comes down to ‘stick to the things you want to stick to, fail to stick to the things you don’t.’”"
+  },
+  {
+   "point": "AI Canvas 逐项填写，强制说清每个要素",
+   "explain": "Atomwise 的画布中行动一栏明确为测试分子以帮助治愈或预防疾病，展示如何逐项拆解真实任务。",
+   "caseTitle": "Atomwise画布七要素",
+   "importance": 2,
+   "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
+   "case": "ACTION: What are you trying to do? For Atomwise, it is to test molecules to help cure or prevent disease."
+  },
+  {
+   "point": "画布适用于大型组织中的决策拆解",
+   "explain": "以MBA招生录取决策为中心构建AI画布，说明画布可应用于组织内复杂决策的拆解。",
+   "caseTitle": "MBA招生画布",
+   "importance": 2,
+   "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
+   "case": "Here, we consider an AI canvas centered on the decision of which MBA applicants to accept into a program."
+  },
+  {
+   "point": "预测目标必须由战略具体化，而非模糊使命",
+   "explain": "商学院战略是“对全球商业产生最大影响”，画布据此将模糊使命转化为可操作的预测目标。",
+   "caseTitle": "商学院战略定义",
+   "importance": 2,
+   "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
+   "case": "In figure 15-3, we imagine that our school’s strategy is to have the greatest impact on business globally."
+  },
+  {
+   "point": "判断环节是对不同结果与错误的估值",
+   "explain": "招生场景中追问录取弱学生与拒绝强学生的错误成本，说明判断需权衡不同错误带来的代价。",
+   "caseTitle": "错误成本判断",
+   "importance": 2,
+   "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
+   "case": "How costly is it to accept a weak student who we wrongly predicted would be among the elite alumni? How costly is it to reject a strong student who we wrongly predicted would be weak?"
   }
  ],
  "17. AI in the C-Suite": [
   {
-   "point": "预测足以消除战略困境背后的不确定性，AI 就会改变战略",
    "core": "Third, companies require a prediction machine that can reduce uncertainty enough to change the balance in the strategic dilemma.",
-   "caseTitle": "Otto 需求预测",
    "case": "Otto, with a database of 3 billion past transactions and hundreds of other variables (including search terms and demographics), was able to create a prediction machine to handle the forecast. It can now predict with 90 percent accuracy what products it will sell within a month. Relying on those forecasts, it revamped its logistics. Its inventory declined by 20 percent, and annual returns dropped by 2 million items.",
-   "explain": "Otto 用 30 亿笔交易等数据建预测机器，一个月内销量预测准确率达 90%；据此重构物流，库存降 20%、年退货减 200 万件，不确定性下降后战略权衡被翻转。"
+   "point": "预测足以消除战略困境背后的不确定性，AI 就会改变战略",
+   "explain": "Otto 用30亿交易记录构建预测机器，以90%准确率预测月内销量，据此重构物流，库存降20%、年退货减200万件，证明预测降低不确定性可改变战略权衡。",
+   "caseTitle": "Otto 需求预测",
+   "importance": 3
+  },
+  {
+   "point": "AI 降低不确定性可使商业模式从先购物后发货转向先发货后购物",
+   "explain": "亚马逊设想从购物后发货转向先发货后购物，提前把商品发给顾客。这依赖预测降低需求不确定性，从而颠覆核心权衡，说明 AI 改变战略需存在核心权衡且受不确定性影响。",
+   "caseTitle": "亚马逊先发货后购物",
+   "importance": 3,
+   "core": "AI can lead to strategic change if three factors are present: (1) there is a core trade-off in the business model (e.g., shop-then-ship versus ship-then-shop); (2) the trade-off is influenced by uncertainty",
+   "case": "They would move from a shopping-then-shipping model to shipping-then-shopping, sending items to customers in anticipation of their wants."
+  },
+  {
+   "point": "更好的预测提升判断价值，并改变组织层级",
+   "explain": "棒球队因预测能力提升，创设“赛伯计量分析师”这一新高层职位，专门评估签下不同球员的回报。案例表明预测变强后判断更值钱，组织架构随之调整。",
+   "caseTitle": "棒球统计分析师",
+   "importance": 2,
+   "core": "Better prediction created a new high-level position on the org chart.",
+   "case": "The team also created a new job function, called a “sabermetric analyst.” A sabermetric analyst develops measures for the rewards that the team would receive from signing different players. Sabermetric analysts are baseball’s reward function engineers."
+  },
+  {
+   "point": "AI 竞争跨越传统业务边界，企业需重新思考边界与行动环节",
+   "explain": "百度牵头阿波罗自动驾驶联盟，联合戴姆勒、福特等数十家伙伴，显示 AI 价值捕获不尊重传统行业边界，企业不能只把 AI 交给 IT，而需跨边界布局。",
+   "caseTitle": "百度阿波罗联盟",
+   "importance": 2,
+   "core": "the race for value capture does not respect traditional business boundaries.",
+   "case": "Baidu, operator of China’s largest search engine, is leading a large and diversified open autonomous driving initiative, Project Apollo, with several dozen partners, including Daimler and Ford."
   }
  ],
  "18. When AI Transforms Your Business": [
   {
-   "point": "不确定性决定企业边界，预测降低不确定性就会移动这条边界",
    "core": "Uncertainty has an impact on a business’s boundaries.",
-   "caseTitle": "航空公司与天气",
    "case": "Forbes and Lederman identified a driving factor—the weather—or, more specifically, uncertainty about the weather. When a weather event is out of the ordinary, it delays flights, which, in the tightly networked and capacity-managed airline industry, can have ripple effects throughout the entire system. When the weather goes sour, major airlines do not want to be hamstrung by partners checking their contracts when they have to make fast changes with uncertain costs. So, for routes where weather-related delays are likely, the majors retain control and operation.",
-   "explain": "天气不确定性高时，大航空公司宁可保留航线控制与运营，也不愿被合作伙伴的合同束缚；不确定性影响自制或外包的选择。"
+   "point": "不确定性决定企业边界，预测降低不确定性就会移动这条边界",
+   "explain": "航空公司因天气不确定性高，选择保留对易受天气影响航线的控制与运营，避免合同束缚，证明不确定性影响边界。",
+   "caseTitle": "航空公司与天气",
+   "importance": 3
+  },
+  {
+   "point": "是否自持数据取决于预测对公司的战略重要性",
+   "explain": "谷歌、Meta、微软等自建或收购广告网络以拥有数据，因预测对其核心业务至关重要，故愿承担获取成本。",
+   "caseTitle": "广告网络自建与购买数据",
+   "importance": 3,
+   "core": "Whether you collect your own data and make predictions or buy them from others depends on the importance of prediction machines to your company.",
+   "case": "Many AI leaders, including Google, Meta, and Microsoft, have built or purchased their own advertising networks so that they can own this valuable data. They decided that owning this data is worth the cost of acquiring it."
+  },
+  {
+   "point": "AI初创必须掌控数据以持续学习改进产品",
+   "explain": "Ada Support放弃与大聊天提供商集成，直到确保拥有数据，说明数据所有权对AI产品迭代的关键作用。",
+   "caseTitle": "Ada Support坚持拥有数据",
+   "importance": 2,
+   "core": "Ada was emboldened to reconsider this approach and did not integrate until it could ensure that it owned the resulting data.",
+   "case": "Machine learning startup Ada Support helps other companies interact with their customers. Ada had the opportunity to integrate its product into the system of a large established chat provider. If this worked, it would be much easier to get traction and establish a large user base."
+  },
+  {
+   "point": "企业边界应止于预测而非诊断，以规避监管审批",
+   "explain": "Joshua建议医疗AI公司只做预测而非诊断，避免昂贵试验审批，体现预测降低不确定性后边界移动。",
+   "caseTitle": "医疗AI预测而非诊断",
+   "importance": 2,
+   "core": "Joshua suggested that the company focus on prediction rather than diagnosis. The boundary of its business would end with prediction.",
+   "case": "Joshua (one of the authors) recently asked an early-stage machine learning company, “Why are you providing doctors with diagnoses?” The venture was building an AI tool that could tell a doctor whether a particular medical condition was present or not. A simple binary output. A diagnosis. The problem was, to be able to do that, the company had to obtain regulatory approval, which requires costly trials."
   }
  ],
  "19. Your Learning Strategy": [
   {
-   "point": "越早上线学得越快，但不成熟的模型会伤害品牌甚至用户",
    "core": "Machines learn faster with more data, and when machines are deployed in the wild, they generate more data. However, bad things can happen in the real world and damage the company brand.",
-   "caseTitle": "特斯拉自动驾驶测试",
    "case": "Cars can exit freeways without notice or press the brakes when mistaking an underpass for an obstruction. Nervous drivers may opt not to use the autonomous features and, in the process, hinder Tesla’s ability to learn. Even if the company can persuade some people to become beta testers, are those the people it wants?",
-   "explain": "特斯拉把自动驾驶推给真实用户，车辆会误判下匝道或误刹车；用户因紧张而弃用，反而减少数据，说明早发布换数据与真实世界风险并存。"
+   "point": "越早上线学得越快，但不成熟的模型会伤害品牌甚至用户",
+   "explain": "特斯拉自动驾驶在真实道路上收集数据加速学习，但车辆可能突然刹车或误判出口，引发安全担忧和品牌风险，说明上线时机需权衡学习速度与错误代价。",
+   "caseTitle": "特斯拉自动驾驶测试",
+   "importance": 3
+  },
+  {
+   "point": "AI优先意味着以牺牲短期体验和收入换取数据与学习",
+   "explain": "谷歌宣布从移动优先转向AI优先，将资源投入数据收集和机器学习，牺牲短期客户体验、收入和用户数，证明AI优先是真实取舍而非口号。",
+   "caseTitle": "谷歌宣布AI优先",
+   "importance": 3,
+   "core": "AI-first means devoting resources to data collection and learning (a longer-term objective) at the expense of important short-term considerations such as immediate customer experience, revenue, and user numbers.",
+   "case": "In March 2017, in a keynote speech at its annual I/O event, Google CEO Sundar Pichai announced that the company was shifting from a “mobile-first world to an AI-first world.”"
+  },
+  {
+   "point": "错误容忍度高的产品适合尽早部署以加速学习",
+   "explain": "Gmail智能回复失败率高达70%，但用户仍乐于使用，因为错误代价低，可尽早收集反馈数据加速模型学习。",
+   "caseTitle": "Gmail智能回复高容错",
+   "importance": 2,
+   "core": "Machines learn faster with more data, and when machines are deployed in the wild, they generate more data. However, bad things can happen in the real world and damage the company brand.",
+   "case": "Google’s Gmail app reads our email, uses AI to predict how we may want to respond, and generates three short responses to choose from. Many users report enjoying using the app even though it has a 70 percent failure rate"
+  },
+  {
+   "point": "真实世界部署能收集数据加速学习，但伴随风险",
+   "explain": "特斯拉通过传感器收集环境和驾驶数据上传服务器，加速机器学习，但真实道路测试可能引发事故和品牌损害。",
+   "caseTitle": "特斯拉自动驾驶数据收集",
+   "importance": 2,
+   "core": "Machines learn faster with more data, and when machines are deployed in the wild, they generate more data. However, bad things can happen in the real world and damage the company brand.",
+   "case": "Tesla rolled out autonomous vehicle capabilities to all of its recent models. These capabilities included a set of sensors that collect environmental data as well as driving data, which is uploaded to Tesla’s machine learning servers."
   }
  ],
  "20. Managing AI Risk": [
   {
-   "point": "AI依赖相关性而非因果实验，会被数据表象误导",
    "core": "This story’s point is to demonstrate that AI—which does not rely on causal experimentation but on correlation—can easily fall into the same traps as anyone using data and simple statistics can.",
-   "caseTitle": "eBay 关停搜索广告",
    "case": "The ads had a measured ROI using traditional statistics of more than 4,000 percent. If the measured ROI was correct, doing a month-long experiment would cost eBay a fortune. However, what they found justified their approach. The search ads eBay placed had practically no impact on sales. Their ROI was negative.",
-   "explain": "eBay搜索广告传统统计测得ROI超4000%，但实验显示广告对销售几乎无影响、ROI为负，说明只看相关性会误判因果。"
+   "point": "AI依赖相关性而非因果实验，会被数据表象误导",
+   "explain": "eBay搜索广告按传统统计测得ROI超4000%，但一个月实验发现广告对销售几乎无影响、ROI为负，证明相关性数据会误导决策。",
+   "caseTitle": "eBay 关停搜索广告",
+   "importance": 3
+  },
+  {
+   "point": "AI画像会放大社会偏见，产生歧视性结果",
+   "explain": "搜索黑人常见名字比搜索白人常见名字，更易出现暗示逮捕记录的广告，高出25%，说明算法会复制并放大偏见。",
+   "caseTitle": "谷歌广告种族偏见",
+   "importance": 2,
+   "core": "Such profiling exemplifies a risk of implementing AI.",
+   "case": "Sweeney then tested this more systematically and found that if you Googled a black-associated name like Lakisha or Trevon, you were 25 percent more likely to get an ad suggesting an arrest record than if you searched for a name like Jill or Jack."
   }
  ],
  "21. Beyond Business": [
   {
-   "point": "AI 带来的社会选择都是权衡，没有两全的政策",
    "core": "The rise of AI presents society with many choices. Each represents a trade-off.",
-   "caseTitle": "比尔盖茨的机器人税",
    "case": "For example, Bill Gates’s suggestion to tax robots will reduce inequality but will make buying robots less profitable. So companies will invest less in robots, productivity will slow, and we will be poorer overall. The policy trade-off is clear: we have policies that can reduce inequality but likely at the cost of lower income overall.",
-   "explain": "盖茨提议对机器人征税：能缓解不平等，但降低企业买机器人的利润，投资减少、生产率放缓，整体收入下降，清楚展示公平与效率的取舍。"
+   "point": "AI 带来的社会选择都是权衡，没有两全的政策",
+   "explain": "比尔·盖茨提议对机器人征税，虽能减少不平等，但会降低机器人投资回报，导致企业减少投资、生产率放缓、整体收入下降，清晰展示了政策权衡。",
+   "caseTitle": "比尔盖茨的机器人税",
+   "importance": 3
+  },
+  {
+   "point": "AI 可能加剧失业，波及中产阶级",
+   "explain": "霍金指出工厂自动化已摧毁传统制造业岗位，AI 可能将岗位破坏延伸至中产阶级，仅剩最具关怀、创造或监督性的角色，说明技术性失业的深远影响。",
+   "caseTitle": "霍金警告AI摧毁就业",
+   "importance": 2,
+   "core": "But is this time different? Hawking’s concern, shared by many, is that this time might be unusual because AI may squeeze out the last remaining advantages humans have over machines.",
+   "case": "Thus, people unsurprisingly took notice when, in December 2016, he wrote: “The automation of factories has already decimated jobs in traditional manufacturing, and the rise of artificial intelligence is likely to extend this job destruction deep into the middle classes, with only the most caring, creative or supervisory roles remaining.”"
   }
  ]
 }

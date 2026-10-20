@@ -6,6 +6,7 @@ import { useSiteCopy } from "@/components/language-provider";
 import { Button } from "@/components/ui/button";
 import { ACCEPTED_EXTENSIONS } from "@/lib/books/formats";
 import { importBookFile } from "@/lib/books/import-book";
+import { LIBRARIES, fetchLibraryBook, listLibrary, type LibraryBook, type LibrarySource } from "@/lib/books/local-library";
 import { deleteBook, listBooks, listProgress, type BookMeta } from "@/lib/books/store";
 
 const formatSize = (bytes: number) =>
@@ -17,6 +18,9 @@ export default function LocalShelf() {
   const [books, setBooks] = useState<BookMeta[] | null>(null);
   const [progress, setProgress] = useState<Record<string, number>>({});
   const [error, setError] = useState("");
+  // The owner's libraries that answer here (cloud after sign-in, local server).
+  const [libraries, setLibraries] = useState<{ src: LibrarySource; books: LibraryBook[] }[]>([]);
+  const [importing, setImporting] = useState("");
 
   const refresh = async () => {
     const [list, prog] = await Promise.all([listBooks(), listProgress()]);
@@ -33,6 +37,9 @@ export default function LocalShelf() {
         setProgress(Object.fromEntries(prog.map((p) => [p.id, p.fraction])));
       })
       .catch(() => alive && setBooks([]));
+    Promise.all(LIBRARIES.map(async (src) => ({ src, books: await listLibrary(src) }))).then(
+      (found) => alive && setLibraries(found.filter((l): l is { src: LibrarySource; books: LibraryBook[] } => l.books !== null)),
+    );
     return () => {
       alive = false;
     };
@@ -45,6 +52,22 @@ export default function LocalShelf() {
       if (!res.ok) setError(`${res.reason === "unsupported" ? copy.unsupported : copy.duplicate}: ${file.name}`);
     }
     if (inputRef.current) inputRef.current.value = "";
+    await refresh();
+  };
+
+  const onShelf = new Set((books ?? []).map((b) => b.name));
+
+  const importLibrary = async (src: LibrarySource, pending: LibraryBook[]) => {
+    setError("");
+    for (const [i, b] of pending.entries()) {
+      setImporting(`${i + 1}/${pending.length} ${b.name}`);
+      try {
+        await importBookFile(await fetchLibraryBook(src, b.name));
+      } catch {
+        setError(`导入失败：${b.name}`);
+      }
+    }
+    setImporting("");
     await refresh();
   };
 
@@ -64,6 +87,23 @@ export default function LocalShelf() {
           onChange={(e) => onFiles(e.target.files)}
         />
       </div>
+      {libraries.map(({ src, books: lib }) => {
+        const pending = lib.filter((b) => !onShelf.has(b.name));
+        return (
+          <div key={src.id} className="mt-3 rounded-md bg-muted/40 px-3 py-2 text-sm">
+            {src.label}：{lib.length} 本{pending.length > 0 ? `，${pending.length} 本未导入` : "，已全部导入"}
+            {pending.length > 0 && !importing && (
+              <Button size="sm" variant="outline" className="ml-3" onClick={() => importLibrary(src, pending)}>
+                全部导入
+              </Button>
+            )}
+            {importing && <span className="ml-3 text-xs text-muted-foreground">正在导入 {importing}</span>}
+            <p className="mt-1 text-xs text-muted-foreground">
+              {src.id === "cloud" ? "只有你登录后可见；导入后书存在这个浏览器里。" : "书只在这台电脑和这个浏览器里，不会上传到网站。"}
+            </p>
+          </div>
+        );
+      })}
       {error && <p className="mt-2 text-sm text-destructive">{error}</p>}
 
       {books && books.length === 0 && (

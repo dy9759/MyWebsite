@@ -1,153 +1,450 @@
 {
  "Do You Sell or Do You Help Customers Buy?": [
   {
-   "point": "买家怕选错，什么都不做往往是最省事的决定",
    "core": "Not making a purchase at all is an incredibly attractive option for a buyer who is worried about making a poor choice. A buyer won’t get in trouble for simply suggesting the company keep doing what they are doing.",
-   "caseTitle": "作者买马桶",
    "case": "And then I got a genius idea: Maybe I didn’t have to buy a new toilet. Maybe I could just stick with the old one. Sure, it wasn’t new, but it seemed to be working just fine, and, hey, if it started to give me problems down the road, I could deal with it then, when I wasn’t in the middle of a bathroom construction project. I had invested three weeks of my time visiting toilet showrooms and researching toilet features, and how many toilets had I purchased? Zero.",
-   "explain": "作者研究马桶三周却一台没买，最后决定继续用旧的：选项太多、怕选错时，维持现状成了最安全的选择。"
+   "point": "买家怕选错，什么都不做往往是最省事的决定",
+   "explain": "作者研究马桶三周却一件没买，最后决定继续用旧马桶——怕选错时，维持现状成了最省事的选择。",
+   "caseTitle": "作者买马桶",
+   "importance": 3
   },
   {
-   "point": "销售最大的竞争对手是“不做决定”",
-   "explain": "研究显示40%—60%的采购流程以无决策告终，且多因买家没信心选对，而非现状更好，印证维持现状才是真正对手。",
-   "caseTitle": "40-60%采购无决策",
    "core": "The easiest, safest purchase decision is often no decision.",
-   "case": "In their 2022 book, The JOLT Effect: How High Performers Overcome Customer Indecision, Matthew Dixon and Ted McKenna reveal that between 40 and 60 percent of purchase processes end in no decision. Interestingly, most of the time, this doesn’t mean that the buyer has decided their current solution is better than the alternatives. Instead, the buyer doesn’t feel confident they have the information needed to make an informed choice."
+   "case": "In their 2022 book, The JOLT Effect: How High Performers Overcome Customer Indecision, Matthew Dixon and Ted McKenna reveal that between 40 and 60 percent of purchase processes end in no decision. Interestingly, most of the time, this doesn’t mean that the buyer has decided their current solution is better than the alternatives. Instead, the buyer doesn’t feel confident they have the information needed to make an informed choice.",
+   "point": "销售最大的竞争对手是“不做决定”",
+   "explain": "研究显示40-60%采购流程以无决策告终，且多因买家没信心选对，而非现状更好，故“不做决定”才是真正对手。",
+   "caseTitle": "40-60%采购无决策",
+   "importance": 3
+  },
+  {
+   "point": "买家做慎重决策的难度被严重低估",
+   "explain": "面对上千款马桶和陌生术语，作者突然意识到自己根本不会买马桶，说明缺乏引导时购买决策远比想象中难。",
+   "caseTitle": "April买马桶",
+   "importance": 2,
+   "core": "We dramatically underestimate how difficult it is to make a considered purchase decision.",
+   "case": "I went to the back, and I saw what seemed like thousands of toilets. Every toilet looked the same and yet they were not the same. Some cost hundreds of dollars, a few cost thousands. They each had a bewildering number of technical features, like gravity assist, siphon flush, and a variety of trapways and tank fittings. There is something called a flapper—some have it, some don’t, and I have no idea what a flapper is. I came to the sudden realization that I didn’t know how to buy a toilet."
+  },
+  {
+   "point": "销售应做引导者，帮客户建立购买框架",
+   "explain": "销售员只讲质量、美观、空间三点并说明取舍逻辑，让作者有信心下单，证明给框架比堆参数更能促成购买。",
+   "caseTitle": "销售员教买马桶",
+   "importance": 2,
+   "core": "He was acting like a knowledgeable guide, and in doing so, he taught me how to confidently make a purchase.",
+   "case": "“There are only three things you need to worry about with toilets,” my guide explained. “Quality, aesthetics, and space. Most of the technical features you’ve been seeing in toilets are all about improving the number of flushes a toilet can handle before it breaks. The more expensive ones last longer than the lower-quality, cheaper ones. You might think you should always go for higher quality, but that’s not always the case. If it isn’t your primary toilet—for example, if it’s going to be in the basement or for a seasonal property—you’re fine to go with one of the cheaper toilets because it’s rarely going to get flushed.”"
+  },
+  {
+   "point": "买家信息过剩却缺乏市场洞察",
+   "explain": "买家能获取海量信息却难以理清，说明信息存在不等于决策容易，卖家应提供洞察而非更多信息。",
+   "caseTitle": "信息过载与洞察匮乏",
+   "importance": 2,
+   "core": "Buyers are drowning in information but starved for market insight.",
+   "case": "Now more than ever, buyers have access to mountains of information—from vendors, review sites, and analysts—but they struggle to make sense of it. It is a mistake to assume that because such information exists, buyers no longer need any help to make a purchase decision. The effort to make sense of that information is massive. Buyers are drowning in information but starved for market insight."
   }
  ],
  "What Do Customers Want from Vendors?": [
   {
-   "point": "买家希望销售教会他们各种路线的取舍，而不只是介绍产品",
    "core": "Research tells us that in a sales call, buyers expect sellers to help them understand their options. Buyers would like vendors to help them understand the trade-offs between different approaches to solving their problem.",
-   "caseTitle": "Help Scout 讲替代方案",
    "case": "Rep: Many of our customers will then look at traditional help desk software. Those solutions have advanced features, but they do have some drawbacks. They’re difficult to use compared to a shared inbox, but more importantly, the products were designed to reduce support costs by driving customers to low-cost channels and reducing the number of support tickets. They do this at the expense of delivering a great customer experience.",
-   "explain": "案例中销售主动对比传统帮助台软件，指出其功能虽多但难用且牺牲客户体验，帮助买家理解不同方案的取舍，而非只展示自家功能。"
+   "point": "买家希望销售教会他们各种路线的取舍，而不只是介绍产品",
+   "explain": "Help Scout 销售代表主动对比传统帮助台软件与共享收件箱的优缺点，帮助客户理解不同方案的取舍，而非只推销自身产品。",
+   "caseTitle": "Help Scout 讲替代方案",
+   "importance": 3
+  },
+  {
+   "point": "买家最看重销售的“教学能力”，即帮助客户做出明智购买决策",
+   "explain": "Challenger Sale 研究揭示，世界级销售体验的关键特征都关联到销售代表帮助客户弄清如何明智购买的能力。",
+   "caseTitle": "Challenger Sale 研究",
+   "importance": 3,
+   "core": "Research tells us that in a sales call, buyers expect sellers to help them understand their options. Buyers would like vendors to help them understand the trade-offs between different approaches to solving their problem.",
+   "case": "In the groundbreaking 2011 book The Challenger Sale, authors Matthew Dixon and Brent Adamson reveal that buyers placed the most value on a sales rep’s teaching skills. They found that the key characteristics of a world-class sales experience all related to the sales rep’s ability to help customers figure out how to make an informed purchase."
   }
  ],
  "Sales Pitch Principles": [
   {
-   "point": "首次演示要主动展示最好的能力，哪怕客户没提要求",
    "core": "No matter what format you choose for your product demonstration, a first call should show customers the best of what you can do, whether or not they requested to see what you would consider your best capabilities.",
-   "caseTitle": "投行CRM杀手功能",
    "case": "For example, I worked at a company that sold a customer relationship management (CRM) solution for investment banks, and we had a unique killer feature that delivered value that investment bankers loved. Did any of our prospects ask to see that capability in a qualification call? Never. They didn’t know it was even possible. Did we show it to every customer anyway? You bet we did, and it was the main reason we won business.",
-   "explain": "投行CRM的杀手功能从未被客户主动要求看，因为客户不知道它存在；公司仍每次演示，成为赢单主因，证明主动展示最佳能力能建立差异化。"
+   "point": "首次演示要主动展示最好的能力，哪怕客户没提要求",
+   "explain": "投行CRM的杀手功能客户从未主动要求看，因为不知道其存在；公司仍每次展示，成为赢单主因。证明首次演示应主动亮出最佳能力。",
+   "caseTitle": "投行CRM杀手功能",
+   "importance": 3
+  },
+  {
+   "point": "价值是对功能追问“那又怎样？”的答案",
+   "explain": "数据库支持查询运行指标，追问“那又怎样”得出：支持人员能更好协助客户。说明功能需转化为客户业务价值。",
+   "caseTitle": "数据库查询指标的价值",
+   "importance": 3,
+   "core": "Value is the answer to the question, “So what?”",
+   "case": "Your database supports advanced usage metrics, including query runs. So what? So support personnel can better assist customers."
+  },
+  {
+   "point": "价值是对功能追问“那又怎样？”的答案",
+   "explain": "CRM自动发送状态更新，追问“那又怎样”得出：销售代表少花时间做报告、多花时间销售。展示功能到业务结果的推导。",
+   "caseTitle": "CRM自动状态更新",
+   "importance": 2,
+   "core": "Value is the answer to the question, “So what?”",
+   "case": "Your CRM automatically sends status updates to managers. So what? So your sales reps can spend less time building reports and more time selling."
+  },
+  {
+   "point": "价值是对功能追问“那又怎样？”的答案",
+   "explain": "会计系统支持库存过期日期，追问“那又怎样”得出：避免售出过期品、及时对临期品打折。具体说明功能如何落地为业务价值。",
+   "caseTitle": "会计系统库存过期日期",
+   "importance": 2,
+   "core": "Value is the answer to the question, “So what?”",
+   "case": "Your accounting system supports adding an expiration date on inventory items. So what? So you can ensure you never sell an expired item and can easily know when to apply discounts to items that expire soon."
   }
  ],
  "Four Common Approaches to Storytelling in a Sales Pitch": [
   {
-   "point": "常见叙事回答不了为什么选你而不选替代方案",
    "core": "To confidently choose you, buyers need to understand why the alternatives can’t meet their needs better.",
-   "caseTitle": "人人都说的会计问题",
    "case": "Your competitors define the problem the same way you do. You have identified that folks looking for accounting software need a fast, easy way to do accounting. That’s obvious, and all your competitors also solve that problem.",
-   "explain": "竞品对问题的定义与你完全相同，都在解决同一个显而易见的需求，因此问题/解决方案式叙事无法说明替代方案为何不如你，最终仍滑向功能巡游。"
+   "point": "常见叙事回答不了为什么选你而不选替代方案",
+   "explain": "案例指出竞争对手对问题的定义与你完全相同，因此问题/解决方案式叙事无法让买家理解替代方案为何不如你，最终滑向功能巡游。",
+   "caseTitle": "人人都说的会计问题",
+   "importance": 3
+  },
+  {
+   "point": "产品巡游聚焦功能而非价值，难以回答为何选你",
+   "explain": "案例描述销售会议常采用产品巡游，点击菜单或演示任务，只讲功能，没有讨论市场或发现提问的空间，因此无法突出差异化价值。",
+   "caseTitle": "产品演示式销售",
+   "importance": 2,
+   "core": "It is focused on features, not value.",
+   "case": "I have spent most of my career running marketing teams at technology start-ups. In almost every case, the structure the sales team used in a first sales meeting was essentially a product walkthrough. Some walkthroughs simply click through each menu item and explain what it does. Others describe how a user would accomplish certain tasks. Some do a more customized walkthrough based on what they know about the prospect."
+  },
+  {
+   "point": "问题/解决方案式叙事因问题定义雷同而难差异化",
+   "explain": "案例说明该叙事先描述客户问题再定位产品为解决方案，但竞争对手也定义同样的问题，最终仍会滑向功能巡游，无法回答为何选你。",
+   "caseTitle": "问题/解决方案式销售",
+   "importance": 2,
+   "core": "Your competitors define the problem the same way you do.",
+   "case": "The problem/solution pitch is generally very similar to the product walkthrough pitch with bit of setup before you jump into the demo. In these pitches, you describe “the problem” the customer has and then position your product as “the solution” to that problem, before following up with a demo that shows how you deliver the solution."
+  },
+  {
+   "point": "愿景叙事适合融资，用于销售会延迟决策",
+   "explain": "案例描述愿景叙事描绘未来新方式，但忽略现状之外的竞争对手，给客户“明年再说”的理由，无法推动今天的选择。",
+   "caseTitle": "愿景叙事式销售",
+   "importance": 2,
+   "core": "It ignores competitors beyond the status quo.",
+   "case": "In technology companies that are raising money, the CEO will have a narrative that is used to pitch the company to investors. This narrative structure is often formed around describing the current approach to a particular problem (the tired and crappy “old way”), and then painting a picture of an alternative approach (the amazing and shiny “new way”) that, if current trends continue, will be a much better way to do things in the future."
+  },
+  {
+   "point": "英雄之旅式叙事缺少帮助买家在相似选项中做选择的框架",
+   "explain": "案例介绍英雄之旅的经典结构（如《星球大战》），但该结构聚焦英雄成长与胜利，没有提供在相似替代方案间做选择的框架。",
+   "caseTitle": "英雄之旅式销售",
+   "importance": 2,
+   "core": "The concept of alternatives is missing.",
+   "case": "The most famous narrative structure for storytelling in general is known as the “hero’s journey.” The hero’s journey starts with a hero who goes on an adventure or quest, learns a lesson, uses that knowledge to achieve victory, and then returns home transformed. This story structure is widely used in entertainment, so much so that the most common example of this structure is the plot for the movie Star Wars."
+  },
+  {
+   "point": "StoryBrand结构中的计划侧重执行而非选择",
+   "explain": "案例说明StoryBrand七步结构中的“计划”是给英雄的行动步骤，侧重执行，而非帮助客户决定选择哪家供应商。",
+   "caseTitle": "StoryBrand七步结构",
+   "importance": 2,
+   "core": "“The plan” is focused on execution, not on how to decide what action to take.",
+   "case": "Many marketers have been introduced to a version of this storytelling structure through the work of Donald Miller and his book Building a StoryBrand, which teaches marketers how to use elements of the hero’s journey to build marketing messaging. The StoryBrand structure moves through seven steps: The hero (the customer) has a problem and meets a guide (you!), who gives the hero a plan and calls them to action. This action ends in success and helps the hero avoid failure."
+  },
+  {
+   "point": "英雄之旅的计划回答如何开始，而非为何选你",
+   "explain": "案例列出Miller的示例计划三步（下载软件、集成数据库、革新客户互动），说明它回答“如何开始”，而非帮助客户理解为何选择你。",
+   "caseTitle": "Miller的示例计划",
+   "importance": 2,
+   "core": "Prospects need help understanding their options and how to make a confident decision.",
+   "case": "One of the sample plans provided includes these three steps: 1) download the software, 2) integrate your database into the system, and 3) revolutionize your customer interaction. This is the answer to “How do I get started?,” not a plan to help a customer understand why to choose you."
   }
  ],
  "The Road to a Better Sales Pitch Structure": [
   {
-   "point": "从公司对市场的观点开场，而不是先介绍公司和产品",
    "core": "Instead, it always started with a discussion about IBM’s point of view on the market. Reps would talk about what IBM perceived to be important considerations for companies looking at any solution in the market.",
-   "caseTitle": "借来的IBM演示结构",
    "case": "I hauled out the binder I had conveniently “borrowed” from IBM and highlighted the set of things in the structure that I thought might work for us. In particular, I wanted to see if we could develop a “setup” phase to our pitch that would help our sales reps position our product in a way that mirrored how we were positioning it in marketing. We also restructured the demo to focus on our differentiated value as opposed to what it was: a contextless product walkthrough. We rolled the new pitch out to the sales team, and in a few months, we were on a path to doubling revenue for the year.",
-   "explain": "作者借用IBM活页夹中的结构，为演示加入“铺垫”阶段，先讲市场观点再定位产品，并重构demo聚焦差异化价值，几个月后收入走向翻倍。"
+   "point": "从公司对市场的观点开场，而不是先介绍公司和产品",
+   "explain": "作者借用IBM活页夹中的结构，将开场改为阐述市场观点，并据此重构演示，几个月后收入翻倍。",
+   "caseTitle": "借来的IBM演示结构",
+   "importance": 3
+  },
+  {
+   "point": "会议从公司对市场的观点开始，而非公司或产品介绍",
+   "explain": "IBM的销售对话从不以公司或产品开场，而是先谈IBM对市场的看法，这启发了新的演示结构。",
+   "caseTitle": "IBM四英寸厚活页夹",
+   "importance": 3,
+   "core": "The conversation never began with a discussion about the company or the product. Instead, it always started with a discussion about IBM’s point of view on the market.",
+   "case": "IBM had a very long, detailed process for creating this material, which my boss delivered to my desk in the form of a four-inch-thick binder."
   }
  ],
  "A Great Sales Pitch Starts with Solid Positioning": [
   {
-   "point": "演示建立在定位之上，差异化价值要一路追问那又怎样",
    "core": "In marketing, positioning defines your differentiated value and the target buyer for your message. Your sales story should reflect that same narrative, so it makes sense that you should start with your positioning when constructing a sales pitch.",
-   "caseTitle": "LevelJump 的价值推导",
    "case": "3 Differentiated Value: LevelJump is built on Salesforce. So what? So LevelJump can take advantage of sales data. So what? So we can measure the impact of sales enablement programs with sales metrics such as time to first deal and time to make quota.",
-   "explain": "LevelJump 从“基于 Salesforce”出发，连续追问“那又怎样”，把技术能力逐层推导为可衡量销售赋能效果、提升营收的客户价值，说明演示的价值主题来自定位推导。"
+   "point": "演示建立在定位之上，差异化价值要一路追问那又怎样",
+   "explain": "LevelJump 从“基于 Salesforce”连续追问“那又怎样”，推导出可衡量销售赋能效果、提升营收的客户价值，证明演示故事应扎根于定位中的差异化价值。",
+   "caseTitle": "LevelJump 的价值推导",
+   "importance": 3
+  },
+  {
+   "point": "好演示是扎根于定位的故事，定位需按五步推导",
+   "explain": "LevelJump 完整演示从竞争替代品到市场类别的定位流程，说明销售演示应作为定位故事的延伸，而非孤立的话术。",
+   "caseTitle": "LevelJump定位五步法",
+   "importance": 3,
+   "core": "A great sales pitch will be a story rooted in your positioning.",
+   "case": "LevelJump Software (recently acquired by Salesforce) provides a sales enablement solution: it helps salespeople learn what they need to know to effectively sell the products they need to sell. To determine the company’s positioning, let’s work our way through the steps of the positioning process, starting with competitive alternatives and working through to market category."
+  },
+  {
+   "point": "定位第一步是识别客户不买你时的竞争替代方案",
+   "explain": "LevelJump 的客户可能用共享盘、CMS 或 LMS 替代，说明竞争替代品不限于同类产品，而是客户当前解决该需求的实际方式。",
+   "caseTitle": "LevelJump竞争替代品",
+   "importance": 2,
+   "core": "In marketing, positioning defines your differentiated value and the target buyer for your message. Your sales story should reflect that same narrative, so it makes sense that you should start with your positioning when constructing a sales pitch.",
+   "case": "Competitive Alternatives: Companies that buy LevelJump often start by putting sales material on a shared drive. As the sales teams grow, some of the companies will choose to use a content management system (or CMS) to manage materials and ensure that the folks on the sales team always have access to correct and current content. Some companies will decide to use a full-blown learning management system (or LMS) that allows them to create courses and curriculum and track which reps have taken which training."
+  },
+  {
+   "point": "独特能力是替代方案不具备的产品或公司能力",
+   "explain": "LevelJump 是唯一在 Salesforce 内构建的销售赋能方案，能利用 Salesforce 数据，这一能力是共享盘、CMS、LMS 等替代品无法提供的。",
+   "caseTitle": "LevelJump独特能力",
+   "importance": 2,
+   "core": "In marketing, positioning defines your differentiated value and the target buyer for your message. Your sales story should reflect that same narrative, so it makes sense that you should start with your positioning when constructing a sales pitch.",
+   "case": "Unique Capabilities: LevelJump is the only sales enablement solution built within Salesforce and can take full advantage of Salesforce data. (There is a longer list of other differentiated capabilities but, for the sake of keeping this example simple, I’m not going to list them all here.)"
+  },
+  {
+   "point": "最佳客户是最在意差异化价值的目标客户特征",
+   "explain": "大量招聘新销售代表、高流动率的公司最在意缩短销售上手时间，说明最佳客户由差异化价值反向定义。",
+   "caseTitle": "LevelJump最佳客户",
+   "importance": 2,
+   "core": "In marketing, positioning defines your differentiated value and the target buyer for your message. Your sales story should reflect that same narrative, so it makes sense that you should start with your positioning when constructing a sales pitch.",
+   "case": "Best-Fit Customers: Companies hiring a lot of new sales reps (such as rapidly growing companies, companies that have recently taken on investment, and companies that have a high turnover in their sales teams) would care a great deal about this improvement in the time it takes to ramp up a new sales rep."
+  },
+  {
+   "point": "市场类别回答“它是什么”，为定位提供语境",
+   "explain": "LevelJump 明确属于销售赋能领域，并可提炼为“驱动结果的销售赋能”，说明市场类别帮助客户快速理解产品定位。",
+   "caseTitle": "LevelJump市场类别",
+   "importance": 2,
+   "core": "In marketing, positioning defines your differentiated value and the target buyer for your message. Your sales story should reflect that same narrative, so it makes sense that you should start with your positioning when constructing a sales pitch.",
+   "case": "Market Category: In this case, LevelJump is clearly in the sales enablement space. If we wanted to get more specific or turn that category into more of a tagline, we could say: “sales enablement that drives results.”"
   }
  ],
  "Step 1: Insight": [
   {
-   "point": "洞察是“问题里面的问题”，把对话引向只有你能回答的方向",
-   "explain": "LevelJump 不把销售赋能停留在培训完成率，而是指出更深层问题：培训是否改善首次通话时间、首次成交时间等销售指标。这一洞察直接指向其差异化价值。",
-   "caseTitle": "LevelJump独特市场洞察",
    "core": "One way to think about insight is to view it as “the problem inside the problem.”",
-   "case": "For prospects to understand LevelJump’s unique value, they need to understand that sales enablement is about more than just getting the reps trained and tracking the training. We should be able to measure the success of our sales enablement programs with an improvement of specific sales metrics—for example, the time to first call, time to first deal, and time to reach quota."
+   "case": "For prospects to understand LevelJump’s unique value, they need to understand that sales enablement is about more than just getting the reps trained and tracking the training. We should be able to measure the success of our sales enablement programs with an improvement of specific sales metrics—for example, the time to first call, time to first deal, and time to reach quota.",
+   "point": "洞察是“问题里面的问题”，把对话引向只有你能回答的方向",
+   "explain": "LevelJump的洞察指出销售赋能不止是培训和跟踪，而应衡量首通电话时间、首单时间等销售指标，这直接指向其基于Salesforce整合的独特价值，让客户意识到需要更深层的解决方案。",
+   "caseTitle": "LevelJump独特市场洞察",
+   "importance": 3
+  },
+  {
+   "point": "洞察是客户理解差异化价值的关键要素",
+   "explain": "LevelJump的洞察强调销售赋能需结合销售绩效数据，这只有其基于Salesforce的深度整合才能实现，从而让客户明白独特价值的重要性。",
+   "caseTitle": "LevelJump销售赋能洞察",
+   "importance": 3,
+   "core": "Your insight is the key element a prospect needs to get to understand the importance of your differentiated value.",
+   "case": "LevelJump is the only sales enablement solution that is built on top of Salesforce. That deeper level of integration allows sales enablement professionals to combine their sales training data with sales performance data."
+  },
+  {
+   "point": "以洞察开场，而非直接演示产品",
+   "explain": "销售代表开场先聊对销售赋能的看法，指出其能影响销售绩效和收入，而非直接进入演示，示范了如何用洞察引导对话。",
+   "caseTitle": "LevelJump首通电话话术",
+   "importance": 2,
+   "core": "One way to think about insight is to view it as “the problem inside the problem.”",
+   "case": "Rep: Hey, thanks for taking the time today. Before we jump into the demo, I wanted to chat a little about how we think about sales enablement. In the companies we have worked with, we’ve seen that they are investing in sales enablement because it can really make an impact on sales performance and revenue."
+  },
+  {
+   "point": "洞察引导客户暴露真实痛点并转向差异化价值",
+   "explain": "客户回应称之前只用共享盘或LMS跟踪培训，从未想过引入销售指标，说明洞察成功引导客户认识到更深层问题。",
+   "caseTitle": "销售赋能负责人回应",
+   "importance": 2,
+   "core": "One way to think about insight is to view it as “the problem inside the problem.”",
+   "case": "Head of sales enablement: At the beginning, we were just using a shared drive, and that made it hard to track anything. More recently, we’ve been looking at using an LMS [learning management system] so we could start tracking which reps have done which training. We’ve never really thought about how to bring sales metrics into it."
+  },
+  {
+   "point": "用洞察重新框定客户对现有方案的认知",
+   "explain": "销售代表指出LMS适合合规培训，但无法跟踪销售培训对首单时间等指标的影响，从而重新定义问题，为替代方案讨论定方向。",
+   "caseTitle": "LMS与销售培训对比",
+   "importance": 2,
+   "core": "One way to think about insight is to view it as “the problem inside the problem.”",
+   "case": "Rep: Many of the companies we’ve worked with have an LMS—it’s the perfect tool for corporate training that you need to ensure gets done, like safety or compliance training. For sales training, however, an LMS doesn’t give you an easy way to track if your sales enablement programs are improving time to first deal or time to make quota."
+  },
+  {
+   "point": "从最佳客户视角提问来确定独特市场洞察",
+   "explain": "通过问“最佳潜在客户需要知道什么才能理解你的独特价值为何重要”，提供了一种可操作的方法来找到洞察。",
+   "caseTitle": "最佳客户视角提问",
+   "importance": 2,
+   "core": "One way to think about insight is to view it as “the problem inside the problem.”",
+   "case": "One way of thinking about your unique market insight is to ask this question: “What do your best-fit prospects need to know to understand why your unique value is important to them?”"
   }
  ],
  "Step 2: Alternatives": [
   {
-   "point": "维持现状永远是一条替代路线，要把它当成竞争对手",
    "core": "You need to view the customer’s option to stick with the status quo as a competitive alternative, even if you don’t view the solution they are using as direct competition.",
-   "caseTitle": "无处不在的 Excel",
    "case": "For example, Excel is the most common alternative for tech companies selling to businesses. I’ve seen Excel used as a CRM, an invoice tracker, a customer support solution, a financial modeler, and a business intelligence tool. Doing things manually is also a perfectly viable option for many tasks.",
-   "explain": "Excel被企业当作CRM、发票跟踪、客服、财务建模和BI工具，说明客户不采购时往往继续用现有工具或人工处理，这就是销售必须面对的现状竞争者。"
+   "point": "维持现状永远是一条替代路线，要把它当成竞争对手",
+   "explain": "Excel被用作CRM、发票跟踪、客服、财务建模和BI工具，说明客户不采购时仍可用现状方案解决问题，必须视为竞争性替代。",
+   "caseTitle": "无处不在的 Excel",
+   "importance": 3
+  },
+  {
+   "point": "竞争不是公司或产品，而是解决问题的不同思路",
+   "explain": "项目管理工具市场被分为手动方案、易用通用工具、企业级工具三类，示范按解决路径分组而非逐个公司比较。",
+   "caseTitle": "项目管理工具市场分组示例",
+   "importance": 3,
+   "core": "We don't compete with companies or products. We compete with approaches.",
+   "case": "Your competitive alternatives might be broken up into \"manual solutions\" such as spreadsheets and Word documents or other ways of manually tracking who is working on what; \"easy to use, all-purpose project management tools\" like Trello or Basecamp; and \"enterprise project management tools\" such as Jira or Atlassian."
+  },
+  {
+   "point": "分组后需针对不同客户类型列出各类替代方案的优缺点",
+   "explain": "表格列出三类方案在成本、易用性、多项目资源规划等方面的优劣，帮助客户根据自身需求权衡选择。",
+   "caseTitle": "项目管理工具优缺点表",
+   "importance": 2,
+   "core": "Once you have categorized the alternative approaches, you need to outline the pros and cons of each alternative for different types of customers.",
+   "case": "APPROACH\nPROS\nCONS\nManual solutions\nFree and easy to get started\nVery difficult to manage resources across projects\nEasy to use, allpurpose project management tools\nLow cost, easy to use\nLack multi-project resource planning tools, difficult to track across a large number of projects\nEnterprise project management tools\nVery full featured, track resources across multiple projects\nExpensive, difficult to deploy and use"
+  },
+  {
+   "point": "替代方案环节是发现式对话，不是单向讲座",
+   "explain": "销售代表先概述三类方案，再询问客户手动跟踪效果，客户回应Excel模板随增长变复杂，体现双向交流。",
+   "caseTitle": "销售代表与客户发现对话",
+   "importance": 2,
+   "core": "This Is a Discovery Conversation, Not a Lecture",
+   "case": "Rep: We work with customer software development shops like yours that are looking for a new way to manage projects and resources across projects. Often, we see companies like yours picking one of these three categories of solutions. I understand you folks have been tracking your projects manually. How's that working out for you?\nProspect: We designed a set of templates in Excel and have been tracking projects like that since we started the business. Lately, we have seen some growth and it's become a bit more complex to get a handle on who is working on what."
+  },
+  {
+   "point": "可以按对手不认同但客观真实的方式定位竞品",
+   "explain": "销售代表指出Trello缺乏跨项目资源规划视图，客户承认这是缺口，说明客观指出竞品局限不损害信任。",
+   "caseTitle": "Trello资源规划能力缺口",
+   "importance": 2,
+   "core": "It's Okay to Position a Competitor in a Way They Would Disagree with as Long as You Believe That It's Objectively True",
+   "case": "Rep: Trello is a great product and certainly easy to use. Have you looked at the resource planning capabilities of Trello? We have found that most tools like Trello weren't designed with agencies in mind. They typically don't support views and analysis that cross multiple projects, something that is critical to the agency customers that we work with.\nProspect: We haven't seen much in their tool that would help us with that, so, yes, that does appear to be a gap."
   }
  ],
  "Step 3: The Perfect World": [
   {
-   "point": "用前两步推出理想方案的标准，并让客户点头认同",
    "core": "The goal of this step is to ensure the prospect understands and agrees with your point of view on what is and isn’t important for a buyer like them.",
-   "caseTitle": "代理商的理想项目工具",
    "case": "Rep: We know that effective resource planning is incredibly important for agencies. In a perfect world, you would have a project management tool that • is as easy to use as a low-end, all-purpose tool like Trello, • but is designed to help you manage a growing team across a growing number of projects, • all without the cost or complexity of traditional enterprise project management tools. Right?",
-   "explain": "销售代表先点出代理商重视资源规划，再列出理想工具应兼具易用、可扩展、低成本低复杂度三条标准，最后用“对吧？”请客户确认，客户认同即等于接受只有我们能给的价值。"
+   "point": "用前两步推出理想方案的标准，并让客户点头认同",
+   "explain": "销售代表先确认资源规划对代理商重要，再列出理想工具的三个特征，最后用“对吧？”让客户确认，从而锁定只有自家产品能同时满足的标准。",
+   "caseTitle": "代理商的理想项目工具",
+   "importance": 3
+  },
+  {
+   "point": "理想方案应兼得各替代方案的优点、避开其缺点",
+   "explain": "Postman从替代方案分析中得出API-first方案：集成工具提升质量、便于协作、集中存储文档和测试用例，既保留各工具优点又消除孤岛弊端。",
+   "caseTitle": "Postman完美解决方案",
+   "importance": 3,
+   "core": "That perfect solution would provide prospects with the important upsides of each alternative while avoiding the major drawbacks.",
+   "case": "If we believe in the importance of APIs to our business, we need to take an “API-first” approach. That approach would: • Provide an integrated set of tools spanning the API lifecycle to improve quality. • Make it easy for teams to collaborate to efficiently solve problems and speed time to market. • Provide a repository containing APIs and the documentation, test cases, and everything else consumers need all in one place, making APIs easy to consume and use."
+  },
+  {
+   "point": "理想方案清单应映射到自己的差异化价值",
+   "explain": "Asthana表示“API-first世界”的叙事帮助客户理解Postman对API商业潜力的看法，并让公司在市场中开辟独特空间，证明理想方案清单与差异化价值一致。",
+   "caseTitle": "Asthana的反馈",
+   "importance": 2,
+   "core": "If you have done this well, the list of characteristics of the perfect solution will map to your differentiated value.",
+   "case": "About Postman, Asthana told me, “The narrative we created around ‘an API-first world’ really helped customers understand our way of looking at the business potential for APIs and let us carve out a unique space in the market.”"
+  },
+  {
+   "point": "从替代方案的缺点推导理想解决方案的特征",
+   "explain": "Postman指出当前API开发被当作事后想法、使用孤岛工具导致质量难控、设计差、文档差、消费难，这些缺点自然引出理想方案应具备的特征。",
+   "caseTitle": "Postman替代方案分析",
+   "importance": 2,
+   "core": "In this step, you imagine a “perfect solution” for the type of customer you serve, based on the conclusions you can draw from the previous discussion.",
+   "case": "Companies today are developing APIs as an afterthought instead of treating them as a driver of business value. APIs are built, managed, and distributed using a mix of siloed tools for designing, testing, documenting, and distributing them, each used by separate teams across the API lifecycle. While each tool does the job it was meant to do, working in siloes leads to a set of serious drawbacks: • It is very difficult to govern the quality of the end-to-end API development process. • APIs are often badly designed, inconsistent, and poorly documented. • APIs are ultimately difficult for consumers to use and understand."
   }
  ],
  "Step 4: The Introduction": [
   {
-   "point": "介绍环节要快速说清你是什么、与客户现有系统如何衔接",
    "core": "For single-product start-ups, this step is an introduction to the product at a high level. Often, this can be done by introducing the market category and briefly outlining what your product is designed to do.",
-   "caseTitle": "市场架构图",
    "case": "The “marketecture” diagram: For certain types of products, particularly those with technical buyers or infrastructure products (such as data, security, monitoring, and networking), it’s often important to illustrate how your solutions fit in with everything else the buyer already has.",
-   "explain": "市场架构图面向技术型或基础设施产品的买家，直观展示方案如何嵌入客户已有系统、替代哪一段，让客户迅速定位你的产品，正体现“快速说清、随即推进”。"
+   "point": "介绍环节要快速说清你是什么、与客户现有系统如何衔接",
+   "explain": "市场架构图展示方案如何嵌入买家已有系统，尤其适合技术买家或基础设施产品，直接证明介绍需讲清衔接关系。",
+   "caseTitle": "市场架构图",
+   "importance": 3
+  },
+  {
+   "point": "多产品公司用产品家族图说明产品组合及相互关系",
+   "explain": "产品家族图清晰描述家族内所有产品及其如何组合，证明多产品公司介绍时应先交代整体产品族。",
+   "caseTitle": "产品家族图",
+   "importance": 2,
+   "core": "For multi-product companies, the product family diagram is a clear and easy way to describe all the products in the family and how they fit together.",
+   "case": "The family diagram: For multi-product companies, the product family diagram is a clear and easy way to describe all the products in the family and how they fit together."
+  },
+  {
+   "point": "平台型公司用平台图简洁展示平台功能范围",
+   "explain": "平台图能简明呈现平台所包含的功能范围，证明介绍环节可用一张图快速让客户了解平台全貌。",
+   "caseTitle": "平台图",
+   "importance": 2,
+   "core": "For companies that sell a platform, a diagram can be a concise way to show prospects the range of functionality that is included as part of the platform.",
+   "case": "The platform diagram: For companies that sell a platform, a diagram can be a concise way to show prospects the range of functionality that is included as part of the platform."
   }
  ],
  "Step 5: Differentiated Value": [
   {
-   "point": "演示按价值主题组织，用功能证明差异化价值",
    "core": "You should not be highlighting every feature of the product. The goal is to reinforce your differentiated value by showing how the product delivers that. If you have three distinct value themes, the demo should be organized around them.",
-   "caseTitle": "Funnel 的价值演示",
    "case": "Funnel is a marketing hub for data designed to help marketing teams get control over their data to improve performance. The value Funnel delivers: • Brings all marketing data together from any source. The rep can demo how, in a few clicks, Funnel can connect to data from any source without code.",
-   "explain": "Funnel 先点明“汇集所有营销数据”这一价值主题，再演示几次点击即可无代码接入任意数据源，功能始终服务于价值而非功能罗列。"
+   "point": "演示按价值主题组织，用功能证明差异化价值",
+   "explain": "Funnel 演示围绕“汇集所有营销数据”这一价值主题，展示几步点击即可连接任意数据源，而非罗列功能。",
+   "caseTitle": "Funnel 的价值演示",
+   "importance": 3
   }
  ],
  "Step 6: Proof": [
   {
-   "point": "自说自话不算证明，证明要尽量贴近客户的处境",
    "core": "Buyers have learned that just because the company says it can do something does not make it so. So, if you are going to make a claim of value, you will need to back it up with some proof.",
-   "caseTitle": "银行看银行案例",
    "case": "For example, you may have a product that serves a wide variety of customers, from banks to manufacturing plants. If you use case studies as proof at this step, ideally you would show a banking case study to a bank and a manufacturing case study to a manufacturer.",
-   "explain": "银行客户看到同为银行的案例，制造业客户看到制造业案例，同类客户的证言才让买家相信产品在自己场景中可行。"
+   "point": "自说自话不算证明，证明要尽量贴近客户的处境",
+   "explain": "银行客户看银行案例，制造客户看制造案例，同行业案例才能让客户信服。",
+   "caseTitle": "银行看银行案例",
+   "importance": 3
+  },
+  {
+   "point": "难以量化的价值点可通过演示、对比数据和客户证言来证明",
+   "explain": "软件易用性可通过现场演示和用户培训时间对比数据来证明，而非自夸。",
+   "caseTitle": "软件易用性证明",
+   "importance": 2,
+   "core": "Remember that you saying something about your own product isn’t proof, but a customer saying it is.",
+   "case": "For example, suppose one of your core value points is that you make it easy for a user to get up and running on the software. You could show that directly in a demo, and that would help the buyer get a feel for how easy it might be. You might be able to get data that shows that users on your system feel fully trained in a day versus a week for your competitors."
   }
  ],
  "Step 8: The Ask": [
   {
-   "point": "作为向导要明确推荐下一步，而不是让客户自己决定",
    "core": "It isn’t unusual to see inexperienced sales folks get to the end of a sales meeting and leave it up to the prospect entirely to decide what the next step should be. Now is the time to embrace your role as a guide helping the buyer through the purchase process.",
-   "caseTitle": "推动概念验证",
    "case": "For example, if your best-fit customers usually run a proof of concept (POC) and your team wants to encourage that, suggesting how to move forward with a POC would be a good ask, using these questions as guidelines: • Who needs to be involved with a POC? • Do we need to set up an additional meeting with those folks?",
-   "explain": "案例中销售不把下一步交给客户，而是主动建议推进POC，并用“谁需参与、是否加会”等具体问题引导客户，把模糊意向变成可执行的下一步。"
+   "point": "作为向导要明确推荐下一步，而不是让客户自己决定",
+   "explain": "原文指出新手销售常把下一步交给客户决定，应主动扮演向导；POC案例示范如何用具体提问引导客户推进验证。",
+   "caseTitle": "推动概念验证",
+   "importance": 3
   }
  ],
  "Translating the Storyboard into a Sales Pitch": [
   {
-   "point": "标准化首访演示，确保每次都讲最好的定位并防止走样",
    "core": "First and foremost, a standardized first-call deck ensures that you are consistently positioning your offerings in the best way you can.",
-   "caseTitle": "定期重新认证销售",
    "case": "The mature sales organizations I have worked with will periodically “recertify” reps on the pitch by having them pitch to the sales executive to ensure that the story remains consistent. Without regular check-ins, it becomes very hard to ensure that your sales team is delivering the message in a consistent way over time.",
-   "explain": "成熟销售组织定期让销售向销售高管重新演示话术，通过定期检查确保团队长期一致地传递信息，防止话术随时间走样。"
+   "point": "标准化首访演示，确保每次都讲最好的定位并防止走样",
+   "explain": "成熟销售组织定期让销售向高管重新演示认证，确保信息长期一致；说明标准化需配套定期重认证，否则信息会逐渐走样。",
+   "caseTitle": "定期重新认证销售",
+   "importance": 3
   }
  ],
  "Testing and Launching the Sales Pitch": [
   {
-   "point": "新话术先由受尊重的销售在真实客户中受控试讲",
-   "explain": "推荐先让一位团队敬重的销售、最好参与过内容创作，在真实合格客户上试讲，验证后再全团队推广，避免直接铺开的风险。",
-   "caseTitle": "单销售员试点测试",
    "core": "I think it makes more sense to make sure you have it validated in a more controlled way by doing a limited test before you roll it out to the entire sales team.",
-   "case": "My recommendation is to start with one salesperson, preferably someone the rest of the team looks up to and respects. Ideally, that rep was involved at least partially in creating the deck, demo, and script, so they are already familiar with the content. Marketing and sales leaders should make sure this rep is trained and comfortable with the flow and timing of the pitch. Once the rep is ready, they can start testing the pitch with real, qualified prospects."
+   "case": "My recommendation is to start with one salesperson, preferably someone the rest of the team looks up to and respects. Ideally, that rep was involved at least partially in creating the deck, demo, and script, so they are already familiar with the content. Marketing and sales leaders should make sure this rep is trained and comfortable with the flow and timing of the pitch. Once the rep is ready, they can start testing the pitch with real, qualified prospects.",
+   "point": "新话术先由受尊重的销售在真实客户中受控试讲",
+   "explain": "案例建议先让一位受团队尊敬、参与创作的销售，在真实合格客户上测试话术，而非直接全面推广。",
+   "caseTitle": "单销售员试点测试",
+   "importance": 3
+  },
+  {
+   "point": "测试阶段团队应监听每次通话并讨论迭代",
+   "explain": "案例说明创作团队应旁听试讲销售每次通话，之后复盘哪些有效哪些无效，在限制内迭代。",
+   "caseTitle": "测试后讨论迭代",
+   "importance": 3,
+   "core": "Test, Discuss, Iterate (within Limits)",
+   "case": "Ideally, during the testing phase, the folks who created the sales pitch should be listening to each call the rep is doing. After every call, the team should sit down and compare notes on what they felt did and did not work in the meeting."
   }
  ],
  "Using Your Sales Pitch Story beyond Sales Calls": [
   {
-   "point": "同一套演示故事可延伸到营销内容，让市场与销售口径一致",
    "core": "Building a sales pitch in this manner ensures that the story you are telling in marketing is aligned with the story you are telling in sales.",
-   "caseTitle": "用一本书讲洞察",
    "case": "The co-founders of HubSpot, Brian Halligan and Dharmesh Shah, famously wrote Inbound Marketing to articulate how marketing was changing and how companies should be reacting to that change. You may have noticed already, but the book you are reading right now follows this same sales pitch structure.",
-   "explain": "HubSpot创始人用《Inbound Marketing》一书系统阐述市场洞察，把销售开场的故事前置为面向大众的营销内容，市场与销售讲同一个故事。"
+   "point": "同一套演示故事可延伸到营销内容，让市场与销售口径一致",
+   "explain": "HubSpot创始人写书阐述市场变化，与销售故事同源，证明营销内容可复用销售故事，确保市场与销售信息一致。",
+   "caseTitle": "用一本书讲洞察",
+   "importance": 3
   }
  ]
 }

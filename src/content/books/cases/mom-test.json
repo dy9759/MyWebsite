@@ -1,135 +1,518 @@
 {
  "Talking to customers is hard": [
   {
-   "point": "糟糕的客户对话会制造假阳性，诱使团队过度投入。",
    "core": "They give you a false positive which causes you to over-invest your cash, your time, and your team.",
-   "caseTitle": "作者的第一家公司 Habit",
    "case": "We were building social advertising tech and I was distraught. We'd spent 3 years working our hearts out. We’d nearly run out of investor money and it didn’t look like we’d be getting more. We’d relocated internationally to be closer to our market and had survived a co-founder being deported. I’d been talking to customers full-time for months. And then, after innumerable days of slog and an exhausted team, I learned I’d been doing it wrong. I may as well not have bothered.",
-   "explain": "作者全职与客户交谈数月，却因方法错误得到虚假的正面信号，三年努力几乎白费，印证错误对话会让人误判方向、押上现金、时间和团队。"
+   "point": "糟糕的客户对话会制造假阳性，诱使团队过度投入。",
+   "explain": "作者在Habit全职访谈客户数月，最终发现方法全错，三年努力、投资人的钱和团队精力几乎白费，正是假阳性导致过度投入的实例。",
+   "caseTitle": "作者的第一家公司 Habit",
+   "importance": 3
+  },
+  {
+   "point": "客户常给出虚假正反馈，让人误以为方向正确。",
+   "explain": "原文指出糟糕对话不仅无用，还会让创业者相信自己在正轨上，甚至没犯错时客户也像在“撒谎”，说明假阳性来自客户反馈本身。",
+   "caseTitle": "虚假正反馈陷阱",
+   "importance": 2,
+   "core": "They give you a false positive which causes you to over-invest your cash, your time, and your team.",
+   "case": "Bad customer conversations aren't just useless. Worse, they convince you that you're on the right path. They give you a false positive which causes you to over-invest your cash, your time, and your team. Even when you're not actively screwing something up, those pesky customers seem hellbent on lying to you."
   }
  ],
  "Failing the mom test": [
   {
-   "point": "有用的早期对话，要带回客户生活中的具体事实。",
    "core": "The measure of usefulness of an early customer conversation is whether it gives us concrete facts about our customers' lives and world views.",
-   "caseTitle": "架子上没拆封的菜谱",
    "case": "Mom: “They’re one of those things you just end up getting at Christmas. I think Marcy gave me that one. Haven’t even opened it. As if I need another lasagna recipe at my age!” Aha! This answer is gold dust for 3 reasons: 1. Old people don’t need another generic set of recipes. 2. The gift market may be strong . 3. Younger cooks may be a better customer segment since they don’t yet know the basics.",
-   "explain": "妈妈一句“没拆封的菜谱”透露了真实需求、送礼市场和年轻用户细分，这些具体事实远比一句“听起来很棒”有价值。"
+   "point": "有用的早期对话，要带回客户生活中的具体事实。",
+   "explain": "妈妈随口说出菜谱是圣诞礼物、没拆封、不需要更多千层面食谱，这些具体事实直接揭示了送礼市场和年轻厨师细分，证明对话价值在于带回生活事实而非点子评价。",
+   "caseTitle": "架子上没拆封的菜谱",
+   "importance": 3
+  },
+  {
+   "point": "谈对方生活、问过去具体事、少说多听。",
+   "explain": "三条规则把“带回具体事实”落成可操作提问法：不聊点子、不问未来意见、控制说话量，正是避免妈妈式礼貌谎言、挖出真实生活细节的方法。",
+   "caseTitle": "妈妈测试三规则",
+   "importance": 2,
+   "core": "It’s called The Mom Test because it leads to questions that even your mom can’t lie to you about.",
+   "case": "The Mom Test:\nTalk about their life instead of your idea\nAsk about specifics in the past instead of generics or opinions about the future\nTalk less and listen more"
   }
  ],
  "\"Do you think it's a good idea?\"": [
   {
-   "point": "追问后果，才能分清值得付钱解决的问题和凑合能过的问题。",
    "core": "Some problems have big, costly implications. Others exist but don’t actually matter.",
-   "caseTitle": "喊着灾难的工作流",
    "case": "I once had someone keep describing the workflow we were fixing with emotionally loaded terms like “DISASTER”, accompanied by much yelling and arm waving. But when I asked him what the implications were, he sort of shrugged and said “Oh, we just ended up throwing a bunch of interns at the problem—it’s actually working pretty well.”",
-   "explain": "客户嘴上喊“灾难”，但追问影响时只耸耸肩：扔几个实习生就解决了。情绪化措辞掩盖了问题其实无关紧要，追问后果才暴露真相。"
+   "point": "追问后果，才能分清值得付钱解决的问题和凑合能过的问题。",
+   "explain": "案例中对方大喊“灾难”，但被问及影响时却耸肩说“扔几个实习生就解决了，其实还行”，说明不追问后果会把伪痛点当真需求。",
+   "caseTitle": "喊着灾难的工作流",
+   "importance": 3
+  },
+  {
+   "point": "追问“为什么费这个劲”，能挖出表面需求背后的真实动机。",
+   "explain": "财务人员要更好的消息工具，追问“为什么费劲”才发现真实需求是确保大家用最新版本，最终方案更像Dropbox而非消息工具。",
+   "caseTitle": "财务人员要消息工具",
+   "importance": 3,
+   "core": "It gives you the why.",
+   "case": "some founders I knew were talking to finance guys spending hours each day sending emails about their spreadsheets. The finance guys were asking for better messaging tools so they could save time. The “why do you bother” question led to “so we can be certain that we’re all working off the latest version.” Aha. The solution ended up being less like the requested messaging tool and more like Dropbox."
+  },
+  {
+   "point": "好问题应问现状、替代方案和预算，而非问想法好不好。",
+   "explain": "案例展示应让客户演示现在怎么做、试过哪些工具、是否在找替代、钱花在哪，这些现状问题才能验证市场。",
+   "caseTitle": "建筑公司供应商管理应用",
+   "importance": 2,
+   "core": "only the market can tell if your idea is good.",
+   "case": "Say you’re building an app to help construction companies manage their suppliers. You might ask them to show you how they currently do it. Talk about which parts they love and hate. Ask which other tools and processes they tried before settling on this one. Are they actively searching for a replacement? If so, what’s the sticking point? If not, why not? Where are they losing money with their current tools? Is there a budget for better ones?"
+  },
+  {
+   "point": "引导式提问会制造虚假痛点，真实在意的人早已自行解决。",
+   "explain": "问“鞋带松了是不是很烦”会得到附和，但真在意的人早打双结；说明坏问题诱导出的是虚假需求。",
+   "caseTitle": "鞋带松了的假问题",
+   "importance": 2,
+   "core": "People will lie to you if they think it’s what you want to hear.",
+   "case": "It’s easy to get someone emotional about a problem if you lead them there. “Don’t you hate when your shoelaces come untied while you’re carrying groceries?” “Yeah, that’s the worst!” And then I go off and design my special never-come-untied laces without realising that if you actually cared, you would already be using a double-knot."
+  },
+  {
+   "point": "观察行为比询问意见更能发现真实问题和低效之处。",
+   "explain": "汉堡店案例说明直接观察顾客买什么比问卷问偏好更可靠，但若想理解原因仍需交谈。",
+   "caseTitle": "汉堡店观察而非问卷",
+   "importance": 1,
+   "core": "Watching someone do a task will show you where the problems and inefficiencies really are, not where the customer thinks they are.",
+   "case": "If you ran a burger joint, it would be stupid to survey your customers about whether they prefer cheeseburgers or hamburgers. Just watch what they buy (but if you’re trying to understand why they prefer one over the other, you’ll have to talk to them)."
   }
  ],
  "Avoiding bad data": [
   {
-   "point": "听到功能请求要追问背后的动机，而不是照单全收。",
    "core": "When you hear a request, it’s your job to understand the motivations which led to it.",
-   "caseTitle": "MTV 要的品牌报表",
    "case": "So, I finally—and inadvertently—did the smart thing when I asked, “Why do you want this feature? What do branded reports get you that unbranded ones don’t? It’s the same data, right?” She replied, “Oh yeah, of course. I mean, nobody even reads these. Our clients just like to get something emailed to them at the end of every week and we think they’d be happier if it was a bit fancier, you know?” I knew exactly.",
-   "explain": "MTV 要品牌报表，追问后发现客户根本不看数据，只是想让客户收到更精美的邮件。真正动机是取悦客户，而非数据分析，照做功能就错了。"
+   "point": "听到功能请求要追问背后的动机，而不是照单全收。",
+   "explain": "MTV 要品牌报表，追问后发现客户只是想要每周收到邮件，并不读数据，避免了盲目开发。",
+   "caseTitle": "MTV 要的品牌报表",
+   "importance": 3
+  },
+  {
+   "point": "直接接受功能请求而不挖掘动机会导致浪费。",
+   "explain": "作者接受 MTV 的分析报表请求，做出精美仪表盘，但 90% 的功能都不相关，浪费了开发资源。",
+   "caseTitle": "Habitat分析仪表盘",
+   "importance": 3,
+   "core": "Ideas and feature requests should be understood, but not obeyed.",
+   "case": "At my first company Habit, we were adapting our product to sell to enterprise companies. MTV told me they needed analytics and reports for their campaigns. I made a big mistake by accepting the feature request and face value and beginning the next meeting with a demo of our shiny new analytics dashboard (custom-built to solve their request, of course). They “ooh’ed” and “ahh’ed” appropriately and I left thinking we’d nailed it. It offered a zillion options and could carve up your data every which way. It was technically and aesthetically lovely. Unfortunately, 90% of what we had built was irrelevant. We just didn’t know that yet."
+  },
+  {
+   "point": "“我肯定会买”是最致命的空话，不能当作承诺。",
+   "explain": "初创公司误信客户未来的购买承诺和夸奖，投入过多，损失约一千万美元。",
+   "caseTitle": "初创公司损失",
+   "importance": 3,
+   "core": "The world’s most deadly fluff is: “I would definitely buy that.”",
+   "case": "The first startup I worked at fell for the “I would definitely buy that” trap and subsequently lost about 10 million bucks. They mistook fluffy future promises and excited compliments for commitment, wrongly believed they had proven themselves right, and wildly over-invested."
+  },
+  {
+   "point": "未理解动机就盲目添加功能，会浪费时间和精力。",
+   "explain": "MTV 每周要 CSV，作者就加导出功能；又要 PDF，又照做，耗时更长，却没搞清真实需求。",
+   "caseTitle": "MTV CSV请求",
+   "importance": 2,
+   "core": "When you hear a request, it’s your job to understand the motivations which led to it.",
+   "case": "They started calling every Friday asking me to email over a CSV (data file) of the week’s stats, so we added CSV export to the dashboard. Later, they asked for the report as a PDF instead of an CSV, so we obediently built PDF export. That took longer."
   }
  ],
  "Asking important questions": [
   {
-   "point": "每次对话都要问一个可能推翻整个生意的问题。",
    "core": "Every time you talk to someone, you should be asking a question which has the potential to completely destroy your currently imagined business.",
-   "caseTitle": "没去见的律师",
    "case": "One of my companies had some legal ambiguities around content ownership. It was okay in theory, but lacked strong precedents. I was always a bit nervous we would get “found out.” Their execs were excited, their creatives were thrilled. We had even brought the stubborn tech team around to our side. But in all my early customer conversations, I never asked to talk to their lawyers. For whatever reason, that was an important question which I shrunk from, and not asking it cost us at least half a million bucks.",
-   "explain": "作者因回避与客户律师谈内容所有权这一关键问题，最终损失至少五十万美元，证明不敢问致命问题会让隐患变成真实代价。"
+   "point": "每次对话都要问一个可能推翻整个生意的问题。",
+   "explain": "作者因回避与律师对话，未问关键法律问题，导致公司损失至少五十万美元，证明不问致命问题代价巨大。",
+   "caseTitle": "没去见的律师",
+   "importance": 3
+  },
+  {
+   "point": "产品风险重的项目，光靠访谈证明不了，需更早动手做。",
+   "explain": "创始人只问农民是否愿意换更便宜有效的追踪器，得到肯定回答，但自己根本造不出来，浪费三个月，说明产品风险无法靠访谈验证。",
+   "caseTitle": "农场动物生育追踪器",
+   "importance": 3,
+   "core": "Product risk — Can I build it? Can I grow it? Will they keep using it?",
+   "case": "I met a founder who had wasted 3 months on worthless customer conversations. He wanted to start a company building gadgets to track the fertility of farm animals, ultimately boosting birthrates and thus revenue. When he talked to farmers, he asked questions like, “Would you switch trackers if something cheaper and more effective was available?” That’s the same as asking someone whether they would like more money. The answer is always “Yes.” The farmers responded along the lines of, “If you can build what you say you can build, I’ll equip my whole herd.” The problem is, he couldn’t build it. The risk was in the product."
+  },
+  {
+   "point": "要盯住房间里的大象，比如穷学校有没有预算。",
+   "explain": "团队确认教师超负荷并设计理想工具，却忽略最穷学校可能没有预算付费，只关注一个失败点而忽略关键条件会致命。",
+   "caseTitle": "教师工具忽略预算大象",
+   "importance": 3,
+   "core": "Every time you talk to someone, you should be asking a question which has the potential to completely destroy your currently imagined business.",
+   "case": "Let’s say we suspect that teachers from the poorest schools are completely overloaded, and that our tools would save them time so they could better educate their students. We go talk to them and confirm that yes, they are completely overloaded. We then spend weeks with them, figuring out exactly what their dream tool would do. Unfortunately, we've missed the elephant, which is that the poorest schools may not have the budgets available to pay us what we need."
+  },
+  {
+   "point": "不要过早放大：先确认问题重要性，再深挖细节。",
+   "explain": "直接问健身最大问题，在未确认健身是否真问题时就聚焦，得到的回答会危险地误导。",
+   "caseTitle": "健身App的过早聚焦对话",
+   "importance": 2,
+   "core": "Rule of thumb: Start broad and don't zoom in until you’ve found a strong signal, both with your whole business and with every conversation.",
+   "case": "You: “What would you say your biggest problem with going to the gym is?” This is where the conversation goes horribly wrong. Instead of figuring out whether staying fit is actually a real problem, we’re prematurely zooming in on it. Any response we get is going to be dangerously misleading."
+  },
+  {
+   "point": "要区分产品风险和市场风险，别把产品风险误当市场验证。",
+   "explain": "酒吧老板确认需要更多顾客并愿意付费，创始人视为强验证，但大部分风险在产品而非市场。",
+   "caseTitle": "酒吧实时优惠App",
+   "importance": 2,
+   "core": "Every time you talk to someone, you should be asking a question which has the potential to completely destroy your currently imagined business.",
+   "case": "I’ve also seen this strike several of the recent companies who want to use mobile/realtime deals to drive foot traffic to bars and clubs. They run customer conversations with bar owners who confirm that: yes, they would like more customers on the slow nights; and yes, they would pay you if you could send customers on demand. The founders take this as strong validation (“They have the problem and committed to pay!”) without recognising that the vast majority of the risk is in the product, not the market."
+  },
+  {
+   "point": "对非核心用户过早聚焦会得到看似合理实则无用的回答。",
+   "explain": "作者不把博客当生意，若被问博客营销最大问题，就是过早聚焦一个非问题，回答无意义。",
+   "caseTitle": "博客营销的过早聚焦",
+   "importance": 1,
+   "core": "Every time you talk to someone, you should be asking a question which has the potential to completely destroy your currently imagined business.",
+   "case": "For example, I have a blog which I quite like (but which I don’t take seriously as a business). If you’re talking to me and you ask, “Hey Rob, what are your top problems with marketing your blog?” Then you’ve just prematurely zoomed on a non-problem."
   }
  ],
  "Prepare your list of 3": [
   {
-   "point": "提前定好三个大问题，才能抓住偶遇客户的机会。",
    "core": "Pre-planning your big questions makes it a lot easier to ask questions which pass The Mom Test and aren’t biasing.",
-   "caseTitle": "偶遇理想客户",
    "case": "Knowing your list allows you to take better advantage of serendipitous encounters. Instead of running into that dream customer and asking to exchange business cards so you can “grab a coffee” (exactly like everyone else), you can just pop off your most important question.",
-   "explain": "偶遇理想客户时，与其像所有人一样换名片约咖啡，不如直接抛出预先想好的最重要问题，让偶然相遇变成有效信息收集。"
+   "point": "提前定好三个大问题，才能抓住偶遇客户的机会。",
+   "explain": "偶遇理想客户时，多数人只会交换名片约咖啡；预先备好问题的人能当场问出最关键的问题，不浪费机会。",
+   "caseTitle": "偶遇理想客户",
+   "importance": 3
   }
  ],
  "Keeping it casual": [
   {
-   "point": "了解客户和问题，随意聊天比正式会议更有效。",
    "core": "Rule of thumb: Learning about a customer and their problems works better as a quick and casual chat than a long, formal meeting.",
-   "caseTitle": "行业活动上的办公室经理",
    "case": "I was considering a product idea to make office managers more efficient. I played with the possibilities on Friday, figured out the big questions over the weekend, and then went to an industry event on Monday. A handful of office managers were there and without any of them realising we’d “had a meeting”, I'd learned that the big problem was really about debt collection rather than efficiency.",
-   "explain": "作者在行业活动上不约正式会议，与办公室经理们自然闲聊，对方甚至没意识到“开了会”，就发现真正的大问题是债务催收而非效率。"
+   "point": "了解客户和问题，随意聊天比正式会议更有效。",
+   "explain": "作者在行业活动上随意与办公室经理聊天，对方未察觉在“开会”，却发现了真正问题是债务催收而非效率。",
+   "caseTitle": "行业活动上的办公室经理",
+   "importance": 3
+  },
+  {
+   "point": "在活动现场直接问出最重要的问题，不必约正式会议。",
+   "explain": "作者在会议上遇到演讲者，不约会议，而是立即问“你是怎么得到这个演讲机会的？”，直接切入关键问题。",
+   "caseTitle": "会议上的闲聊提问",
+   "importance": 3,
+   "core": "Learning about a customer and their problems works better as a quick and casual chat than a long, formal meeting.",
+   "case": "Let’s say I’m trying to build tools to help public speakers get more speaking gigs and I bump into one at a conference. I’m not going to try to set up a meeting. Instead, I’m just going to immediately transition into my most important question: “Hey, I’m curious—how did you end up getting this gig?”"
+  },
+  {
+   "point": "如果对方觉得是在帮你忙，对话就太正式了。",
+   "explain": "原文列举正式化症状：开场感谢对方同意访谈、用评分量表提问等，这些表现会让对方觉得在帮忙。",
+   "caseTitle": "正式化症状示例",
+   "importance": 2,
+   "core": "If it feels like they’re doing you a favour by talking to you, it’s probably too formal.",
+   "case": "Symptoms of formality:\n“So, first off, thanks for agreeing to this interview. I just have a few questions for you and then I’ll let you get back to your day…”\n“On a scale of 1 to 5, how much would you say you…”"
+  },
+  {
+   "point": "随意聊天中自然提问，能获得真实信息。",
+   "explain": "作者在啤酒旁以感兴趣的态度聊天，问“X很烦人，你怎么处理？”等，自然获取客户问题。",
+   "caseTitle": "啤酒旁的随意提问",
+   "importance": 2,
+   "core": "Rule of thumb: Learning about a customer and their problems works better as a quick and casual chat than a long, formal meeting.",
+   "case": "I got there by just being interested and chatting with them over a beer: “X seems really annoying, how do you deal with it?” “Is Y as bad as it seems?” “You guys did a great job with Z… Where did you get that from?”"
   }
  ],
  "Commitment and advancement": [
   {
-   "point": "承诺是货币，对方付出越多，信号越可信。",
    "core": "Commitment can be cash, but doesn’t have to be. Think of it in terms of currency—what are they giving up for you? A compliment costs them nothing, so it’s worth nothing and carries no data.",
-   "caseTitle": "全团队付费试用",
    "case": "Sometimes, strong commitments combine multiple currencies, such as someone agreeing to run a paid trial with their whole team, thus risking their time, money, and reputation.",
-   "explain": "全团队付费试用同时押上时间、金钱和声誉，付出远超一句赞美，因此是可信的强信号。"
+   "point": "承诺是货币，对方付出越多，信号越可信。",
+   "explain": "案例中客户同意全团队付费试用，同时付出时间、金钱和声誉，多重货币叠加，证明其承诺可信。",
+   "caseTitle": "全团队付费试用",
+   "importance": 3
   },
   {
-   "point": "会议必须以推进下一步的承诺收尾，否则毫无意义。",
-   "explain": "清单对比空泛赞美与“下一步是什么”“何时开始试用”等具体推进语句，说明只有后者才算成功结尾。",
-   "caseTitle": "会议结尾判断清单",
    "core": "If you don’t know what happens next after a product or sales meeting, the meeting was pointless.",
-   "case": "“That’s so cool. I love it!”\n“Looks great. Let me know when it launches.”\n“There are a couple people I can intro you to when you’re ready.”\n“What are the next steps?”\n“I would definitely buy that.”\n“When can we start the trial?”\n“Can I buy the prototype?”\n“When can you come back to talk to the rest of the team?”"
+   "case": "“That’s so cool. I love it!”\n“Looks great. Let me know when it launches.”\n“There are a couple people I can intro you to when you’re ready.”\n“What are the next steps?”\n“I would definitely buy that.”\n“When can we start the trial?”\n“Can I buy the prototype?”\n“When can you come back to talk to the rest of the team?”",
+   "point": "会议必须以推进下一步的承诺收尾，否则毫无意义。",
+   "explain": "清单对比了“做好了告诉我”等假阳性结尾与“下一步是什么”“何时开始试用”等真承诺结尾，说明只有后者才算推进。",
+   "caseTitle": "会议结尾判断清单",
+   "importance": 3
+  },
+  {
+   "point": "不推动承诺会积累僵尸线索。",
+   "explain": "案例中僵尸线索不断开会、说好话却从不掏钱，证明不推进承诺只会养出假阳性。",
+   "caseTitle": "僵尸线索",
+   "importance": 2,
+   "core": "When you fail to push for advancement, you end up with zombie leads",
+   "case": "When you fail to push for advancement, you end up with zombie leads: potential customers (or investors) who keep taking meetings with you and saying nice things, but who never seem to cut a check."
+  },
+  {
+   "point": "会议只有以推进承诺收尾才算成功。",
+   "explain": "作者指出不存在“还不错”的会议，会议要么成功要么失败，成功即结尾有推进承诺。",
+   "caseTitle": "会议没有“还不错”",
+   "importance": 2,
+   "core": "A meeting has succeeded when it ends with a commitment to advance to the next step.",
+   "case": "It took me years to learn that there’s no such thing as a meeting which just \"went well\". Every meeting either succeeds or fails."
+  },
+  {
+   "point": "零成本的赞美不构成承诺。",
+   "explain": "奉承不费分文，因此没有价值也不携带数据，说明对方付出越多，好话才越可信。",
+   "caseTitle": "奉承不是数据",
+   "importance": 2,
+   "core": "The more they’re giving up, the more seriously you can take their kind words.",
+   "case": "A compliment costs them nothing, so it’s worth nothing and carries no data."
+  },
+  {
+   "point": "时间投入是承诺的一种货币形式。",
+   "explain": "案例列出明确下次会议、反馈线框图、非短暂试用等时间承诺，说明时间付出可验证诚意。",
+   "caseTitle": "时间承诺示例",
+   "importance": 2,
+   "core": "Commitment — They are showing they’re serious by giving up something they value such as time, reputation, or money.",
+   "case": "A time commitment could include:\nClear next meeting with known goals\nSitting down to give feedback on wireframes\nUsing a trial themselves for a non-trivial period"
+  },
+  {
+   "point": "声誉承诺能同时推动销售进展。",
+   "explain": "引荐决策者、公开证言等声誉风险承诺，既表明对方认真，又直接推进销售漏斗。",
+   "caseTitle": "声誉风险承诺",
+   "importance": 2,
+   "core": "Commitment and advancement often arrive hand-in-hand.",
+   "case": "Reputation risk commitments might be:\nIntro to peers or team\nIntro to a decision maker (boss, spouse, lawyer)\nGiving a public testimonial or case study"
+  },
+  {
+   "point": "现金类承诺是验证购买意愿的直接信号。",
+   "explain": "意向书、预订、定金等财务承诺直接体现对方愿意付出金钱，是购买意愿的强信号。",
+   "caseTitle": "财务承诺示例",
+   "importance": 2,
+   "core": "Commitment can be cash, but doesn’t have to be.",
+   "case": "Financial commitments are easier to imagine and include:\nLetter of intent (non-legal but gentlemanly agreement to purchase)\nPre-order\nDeposit"
   }
  ],
  "\"Can I buy the prototype?\"": [
   {
-   "point": "对方主动要买原型，是一次会议最好的结局。",
    "core": "Great meeting. The best meeting conclusion I've seen is the rarely-heard but always appreciated, “Can I buy the prototype?”",
-   "caseTitle": "被买走的三脚架原型",
    "case": "A product designer was once showing me a brilliant smartphone tripod he was designing. He demo’d the 3D-printed prototype unit for me and I immediately asked him how much it would cost to buy the prototype. He laughed and said he’d gone through about a dozen prototypes already because people kept buying them. That’s a good sign.",
-   "explain": "设计师展示3D打印三脚架原型时，作者当场问价想买；设计师笑称已做十几个原型，都被人买走。客户主动掏钱买原型，正是最强购买信号。"
+   "point": "对方主动要买原型，是一次会议最好的结局。",
+   "explain": "产品设计师展示3D打印三脚架原型，作者当场问价购买，设计师笑称已因人们不断购买而用掉十几个原型，证明主动购买是强烈信号。",
+   "caseTitle": "被买走的三脚架原型",
+   "importance": 3
+  },
+  {
+   "point": "企业销售中，对方愿意引荐团队是强信号，拒绝则是死路。",
+   "explain": "向公司销售必须与多人交谈，若对方不肯引荐，就说明已走入死胡同，因此“何时能回来跟团队其他人聊”是重要信号。",
+   "caseTitle": "企业销售需引荐多人",
+   "importance": 3,
+   "core": "\"When can you come back to talk to the rest of the team?\"",
+   "case": "If you are selling anything to companies, you’re going to have to talk to multiple people. If they won’t introduce you, then it’s a sure bet you’re at a dead end."
+  },
+  {
+   "point": "在对方用夸奖送客时请求承诺，把模糊会议变成明确推进或拒绝。",
+   "explain": "会议看似丢失时，在客套推脱之际逼出具体承诺，能挽救会议并区分真假线索，因为没给具体拒绝机会就不算真线索。",
+   "caseTitle": "强推下一步避免模糊会议",
+   "importance": 3,
+   "core": "It’s not a real lead until you’ve given them a concrete chance to reject you.",
+   "case": "A lost meeting can often be saved by just pushing for a commitment at the end while you're being brushed off with a compliment."
+  },
+  {
+   "point": "不要盲目推销，先问学习型问题，再通过销售确认。",
+   "explain": "直接问“我们做X，想买吗？”得到“不谢谢”的拒绝没有帮助，硬推销只给二元反馈，应先学习提问再确认销售。",
+   "caseTitle": "盲目推销得到二元反馈",
+   "importance": 2,
+   "core": "Ask learning questions which pass The Mom Test. Then confirm by selling it.",
+   "case": "You: \"We do X. Want to buy it?\"\nThem: \"No thanks.\"\nThose rejections aren't helpful. Hard pitching gives binary feedback: you either nailed it or you didn't."
+  },
+  {
+   "point": "早期客户是“疯子”：有问题、知道有问题、有预算、已自己拼凑解决办法。",
+   "explain": "Steve Blank称其为早期福音传道者，企业软件中他们具备四个条件，会在合理之前就承诺，是第一批付费客户。",
+   "caseTitle": "早期福音传道者四特征",
+   "importance": 2,
+   "core": "They’re the company who will commit way before it makes rational sense to do so.",
+   "case": "Steve Blank calls them earlyvangelists (early evangelists). In the enterprise software world, they are the people who:\nHave the problem\nKnow they have the problem\nHave the budget to solve the problem\nHave already cobbled together their own makeshift solution"
+  },
+  {
+   "point": "消费领域首批客户会为粗糙原型预付并拉朋友参与。",
+   "explain": "粉丝极度希望产品成功，即使只有胶带拼凑的原型也愿意预付，还会告诉所有朋友一起出钱，体现早期客户的疯狂。",
+   "caseTitle": "早期客户是疯狂粉丝",
+   "importance": 1,
+   "core": "First customers are crazy. Crazy in a good way.",
+   "case": "In the consumer space, it’s the fan who wants your product to succeed so badly that they’ll front you the money as a pre-order when all you’ve got is a duct-tape prototype. They're the one who will tell all their friends to chip in as well."
   }
  ],
  "Going to them": [
   {
-   "point": "熟人引荐是目标，开口求助往往就能找到想见的人。",
    "core": "Warm intros are the goal. Conversations are infinitely easier when you get an intro through a mutual friend that establishes your credibility and reason for being there.",
-   "caseTitle": "站上椅子找麦肯锡",
    "case": "I was talking to a team of recent graduates who needed to reach McKinsey style consultants. They were pulling their hair out. We were in a coworking space full of other young entrepreneurs, so I just stood on a chair and yelled, “Excuse me! Does anyone here know anyone who works at McKinsey? Can we talk to you for a second? We’ll buy you a beer — you could really help us out!” They bought 3 beers, had 3 quick chats, and left with a diary full of intros.",
-   "explain": "站上椅子当众求助，用三杯啤酒换来三场简短交流和一整本引荐名单，证明主动开口就能借六度人脉拿到暖介绍。"
+   "point": "熟人引荐是目标，开口求助往往就能找到想见的人。",
+   "explain": "站上椅子喊话，用一杯啤酒换来三场简短交流，最终获得一长串引荐，证明主动求助能快速建立暖介绍。",
+   "caseTitle": "站上椅子找麦肯锡",
+   "importance": 3
+  },
+  {
+   "point": "冷对话的目标是尽快不再冷，只需少数回应就能滚起介绍雪球。",
+   "explain": "团队用LinkedIn冷消息触达高管，几乎全被忽略，但一人答应就启动了介绍链，说明拒绝率无关紧要。",
+   "caseTitle": "LinkedIn冷消息触达高管",
+   "importance": 3,
+   "core": "The goal of cold conversations is to stop having them.",
+   "case": "I know one team who successfully used cold LinkedIn messages to reach C-level execs of several major UK retailers. They were ignored by practically every exec in the country, but you only need one to say “yes” to start the intro train."
+  },
+  {
+   "point": "请求会面时用五要素：愿景、处境说明、示弱、抬高对方、请求帮助。",
+   "explain": "邮件完整包含愿景、处境、示弱、抬高对方和明确请求，示范了如何让约见请求既真诚又不浪费时间。",
+   "caseTitle": "五要素邮件约见Pete",
+   "importance": 3,
+   "core": "Vision / Framing / Weakness / Pedestal / Ask",
+   "case": "Hey Pete, I'm trying to make desk & office rental less of a pain for new businesses (vision). We're just starting out and don't have anything to sell, but want to make sure we're building something that actually helps (framing). I've only ever come at it from the tenant's side and I'm having a hard time understanding how it all works from the landlord's perspective (weakness). You've been renting out desks for a while and could really help me cut through the fog (pedestal). Do you have time in the next couple weeks to meet up for a chat? (ask)"
+  },
+  {
+   "point": "通过主办活动借势权威，把客户吸引到自己面前。",
+   "explain": "组织三校知识交流电话会并担任主持，立即吸收顶尖大学信誉，获得大量优质线索的直接电话通道。",
+   "caseTitle": "组织三校知识交流电话会",
+   "importance": 2,
+   "core": "By simply organising the call and playing host, he immediately absorbed all the credibility of the top universities and got direct phone access to a pile of great leads.",
+   "case": "His solution was to organise a semi-monthly \"knowledge exchange\" call between the department heads of 3 top universities to discuss the challenges around his topic of choice. Furthermore, it was set up as a conference call where any other universities could dial in and listen to the best practices of the big 3."
+  },
+  {
+   "point": "落地页的真正价值在于收集线索并主动发起对话，而非转化率。",
+   "explain": "Buffer落地页测试后，创始人给每位注册者发邮件问好，由此产生的对话而非指标说服他继续推进。",
+   "caseTitle": "Buffer落地页邮件对话",
+   "importance": 2,
+   "core": "they are certainly a great way to collect emails of qualified leads for you to reach out to and strike up a conversation with.",
+   "case": "Joel Gascoigne did a classic \"landing page\" test with his startup Buffer, describing the value proposition and collecting emails. But contrary to popular understanding, it wasn't the metrics or conversion rate which convinced him to move forward. Instead, it was the conversations which resulted from emailing every single person who signed up and saying hello."
   }
  ],
  "How many meetings": [
   {
-   "point": "访谈不求数量，听不到新信息就该回去做产品。",
    "core": "This isn’t about having a thousand meetings. It’s about quickly learning what you need, and then getting back to building your business.",
-   "caseTitle": "3 到 5 次与 10 次",
    "case": "In my experience, that could take as few as 3-5 conversations if you have a relatively simple industry and a focused customer segment. If you’ve run more than 10 conversations and are still getting results that are all over the map, then I’d guess that your customer segment is too fuzzy and could stand to be tightened up.",
-   "explain": "3–5次对话在简单行业和聚焦客群下即可饱和；超过10次仍结论分散，说明细分太模糊而非聊得不够。"
+   "point": "访谈不求数量，听不到新信息就该回去做产品。",
+   "explain": "作者强调不是开一千次会，而是快速学到所需信息后回去做业务，把信息饱和作为结束访谈的信号。",
+   "caseTitle": "3 到 5 次与 10 次",
+   "importance": 3
+  },
+  {
+   "point": "持续对话直到不再听到新信息为止。",
+   "explain": "UX 社区的经验法则给出判断聊天次数是否足够的直接标准：直到不再听到新信息，而非凑够固定数量。",
+   "caseTitle": "UX社区经验",
+   "importance": 2,
+   "core": "Keep having conversations until you stop hearing new stuff.",
+   "case": "The UX community (who knows their customer conversation!) says you should keep talking to people until you stop hearing new information."
+  },
+  {
+   "point": "聊了10次以上结论仍分散，说明细分太模糊。",
+   "explain": "超过10次对话结果仍四处发散，作者据此推断客户细分过于模糊，需要收紧细分范围。",
+   "caseTitle": "超过10次仍结果散乱",
+   "importance": 2,
+   "core": "This isn’t about having a thousand meetings. It’s about quickly learning what you need, and then getting back to building your business.",
+   "case": "If you’ve run more than 10 conversations and are still getting results that are all over the map, then I’d guess that your customer segment is too fuzzy and could stand to be tightened up."
   }
  ],
  "Choosing your customers": [
   {
-   "point": "反馈互相矛盾，说明客户细分还不够具体。",
    "core": "Rule of thumb: If you aren’t finding consistent problems and goals, you don’t yet have a specific enough customer segment.",
-   "caseTitle": "营养调味粉卖给谁",
    "case": "However, she was running in circles because the bodybuilders wanted one thing, the restaurants wanted another, and the moms needed a third. Making one of them happy always disappointed the others. She didn’t know how to start. Before we can serve everyone, we have to serve someone. By thinking about who would be most likely to buy, she realised it was moms with young kids who are currently shopping at health food stores.",
-   "explain": "健美者、餐厅、妈妈各要不同东西，讨好一方就失望另一方；说明细分过宽，锁定年轻妈妈后才有一致需求。"
+   "point": "反馈互相矛盾，说明客户细分还不够具体。",
+   "explain": "营养调味粉案例中，健美者、餐厅、妈妈需求各异，取悦一方就失望另一方；只有聚焦年轻妈妈才找到一致问题。",
+   "caseTitle": "营养调味粉卖给谁",
+   "importance": 3
+  },
+  {
+   "point": "客户群过宽会导致反馈混杂，无法判断产品是否成功。",
+   "explain": "作者把客户群定为“广告商”，与夫妻店、大品牌、创意机构等交谈，人人需求不同，说明市场看似无限实则无法聚焦。",
+   "caseTitle": "广告商客户群",
+   "importance": 3,
+   "core": "In reality, our customer segment was just too broad. We were trying to serve everyone simultaneously.",
+   "case": "I was once thrilled that my customer segment was “advertisers”. Everyone advertises somehow, so naturally this was very exciting. Our market was practically infinite! I talked to mom-and-pop shops, e-tailers, big brands, creative agencies, SMEs, music labels and more. Everyone I talked to had different needs, constraints, problems, and desires."
+  },
+  {
+   "point": "即使有明确人口统计约束，客户群仍可能过于宽泛。",
+   "explain": "销售组织案例中，即使限定25-250名销售员，仍面临无数不同需求和工作流，如同与20类客户各谈一次。",
+   "caseTitle": "销售组织反馈",
+   "importance": 3,
+   "core": "They weren’t having 20 conversations with their customers. They were having one conversation each with 20 different types of customers.",
+   "case": "The founders I mentioned were having the same experience, but for “sales organisations” instead of “students”. There are countless different kinds of sales organisations with fundamentally different needs and workflows and tools and goals. But from the outside, they all look like companies who do sales. Even if you narrow it down with a demographic constraint, as these guys did (sales organisations with 25-250 salespeople), you’re still facing unfathomable diversity."
+  },
+  {
+   "point": "好的客户细分是“谁-在哪里”的组合。",
+   "explain": "演讲应用案例中，把学生切到“毕业求职面试紧张的学生”，并发现类似动机的电视嘉宾、婚礼致辞者等，形成可触达群体。",
+   "caseTitle": "演讲应用学生",
+   "importance": 2,
+   "core": "Good customer segments are a who-where pair.",
+   "case": "For example, if we were thinking about building an app to help students become more confident speakers, we might decide the best-case-students are graduating students nervous about their first big job interview. They are motivated not to screw up their big day. Other folks with those motivations might be first-time TV/radio guests, someone giving a wedding speech, or new authors who are about to go on book tour."
+  },
+  {
+   "point": "要跟代表客户的人聊，而不是听起来体面的人。",
+   "explain": "作者做互动广告时只与西装人士交谈，忽略青少年用户，事后发现与目标用户对话才最重要。",
+   "caseTitle": "互动广告教训",
+   "importance": 2,
+   "core": "You want to talk to people who are representative of your customers, not ones who sound impressive on your status report.",
+   "case": "When I was building interactive advertising products, I spent lots of time talking to guys in suits and very little (well, none) talking to the teenagers we were assuming would enjoy using our products. Telling my board that I had successfully talked to ten children that week just didn’t seem like the most important thing I could be doing. In retrospect, it clearly was."
   }
  ],
  "Running the process": [
   {
-   "point": "一个人独占客户对话，会变成整个团队的学习瓶颈。",
    "core": "Therefore, owning the customer conversations creates a de-facto dictator with “The customer said so” as the ultimate trump card.",
-   "caseTitle": "CTO 的辞职",
    "case": "In my case, I bottlenecked so hard that our CTO quit while saying, “We’re never going to succeed if you keep changing what we’re doing.” In my defence, the stuff I’d learned was true (at least, I think it was). But it didn’t matter anyway since I hadn’t properly communicated it to the rest of the team.",
-   "explain": "CTO因创始人独揽客户学习、反复改变方向而辞职，说明信息不共享时，即使所学为真，团队也无法同步，学习瓶颈会破坏信任与执行。"
+   "point": "一个人独占客户对话，会变成整个团队的学习瓶颈。",
+   "explain": "作者因独自掌握客户信息成为瓶颈，CTO 因方向频繁变动而辞职，说明学习不共享会拖垮团队。",
+   "caseTitle": "CTO 的辞职",
+   "importance": 3
+  },
+  {
+   "point": "用“如果失败最可能死于什么”挖掘隐藏风险。",
+   "explain": "作者对首个产品卡通社区自问失败原因，得出无人创作或作品太差无人看，从而找到探索起点。",
+   "caseTitle": "首个产品失败假设",
+   "importance": 2,
+   "core": "If this company were to fail, why would it have happened?",
+   "case": "If we had asked that about my very first product (a user-generated cartoon community), we would have answered that either nobody wants to create cartoons or that their cartoons will be so bad that nobody wants to watch them. This gives us a good starting point to begin exploring with a combination of technical and conversational tools."
+  },
+  {
+   "point": "用“要大获成功必须满足什么”明确关键条件。",
+   "explain": "作者对卡通社区翻转问题，得出需要大量搞笑卡通和品牌广告收入，从而明确成功所需条件。",
+   "caseTitle": "卡通社区成功条件",
+   "importance": 2,
+   "core": "What would have to be true for this to be a huge success?",
+   "case": "In this case, I might have answered that we need lots of hilarious cartoons plus scaling revenue from brand advertisers."
+  },
+  {
+   "point": "学习瓶颈有典型症状，团队可自我识别。",
+   "explain": "如“你只管产品，我去学”“因为客户这么说”“我没时间聊，得写代码”，这些表现说明学习被个人垄断。",
+   "caseTitle": "学习瓶颈症状",
+   "importance": 2,
+   "core": "Symptoms of a learning bottleneck:",
+   "case": "“You just worry about the product. I’ll learn what we need to know.” “Because the customers told me so!” “I don’t have time to talk to people — I need to be coding!”"
+  },
+  {
+   "point": "会前准备骨架能让对话保持正轨并覆盖要点。",
+   "explain": "花一小时写下对客户关心点的最佳猜测，即使猜错，也能让讨论不跑偏并命中重要问题。",
+   "caseTitle": "会前骨架准备",
+   "importance": 2,
+   "core": "Therefore, owning the customer conversations creates a de-facto dictator with “The customer said so” as the ultimate trump card.",
+   "case": "Spend up to an hour writing down your best guesses about what the person you’re about to talk to cares about and wants. You’ll probably be wrong, but it’s easier to keep the discussion on track and hit important points if you’ve created a skeleton."
   }
  ],
  "How to write it down": [
   {
-   "point": "好笔记让团队共享信息，也让自己难以自欺。",
    "core": "Taking good notes is the best way to keep your team (and investors and advisors) in the loop. Plus, notes make it harder to lie to yourself.",
-   "caseTitle": "一卡一条的索引卡",
    "case": "When we review, we lay the cards out on the table and sort through them. Cards are great because of the random access and sorting. If you learn that the problem you’re solving doesn’t really matter, you can just pull out all the cards marked with a lightning bolt and find yourself a new problem that’s already been confirmed.",
-   "explain": "索引卡一张记一条，可摊开排序、按符号检索；发现原问题不重要时，抽出闪电标记的卡片就能换到已验证的新问题，团队同步且无法自欺。"
+   "point": "好笔记让团队共享信息，也让自己难以自欺。",
+   "explain": "索引卡可随机存取和排序，发现方向错误时能快速抽出所有闪电标记卡，找到已验证的新问题，避免自欺。",
+   "caseTitle": "一卡一条的索引卡",
+   "importance": 3
+  },
+  {
+   "point": "笔记必须可排序、可检索，否则无用。",
+   "explain": "作者用主笔记本记笔记，几个月后内容庞杂无法检索，最终不会再看，说明笔记需便于查找。",
+   "caseTitle": "笔记本记笔记的失败",
+   "importance": 3,
+   "core": "Taking good notes is the best way to keep your team (and investors and advisors) in the loop. Plus, notes make it harder to lie to yourself.",
+   "case": "In practice, I’ve found that taking notes in my primary notebook is practically useless. Over the course of several months’ sprawl, you set an insurmountable search and retrieval task for yourself. If you won’t look at your notes, they aren’t much good."
+  },
+  {
+   "point": "记录情绪符号，同一句话因情绪不同含义迥异。",
+   "explain": "说“那是个问题”时，中立与愤怒含义完全不同，记录强烈情绪并深挖，能捕捉关键信号。",
+   "caseTitle": "用符号记录情绪",
+   "importance": 2,
+   "core": "Taking good notes is the best way to keep your team (and investors and advisors) in the loop. Plus, notes make it harder to lie to yourself.",
+   "case": "Someone saying \"that's a problem\" should be interpreted totally differently depending on whether they are neutral or outraged. Any strong emotion is worth writing down. For example, depending on your industry, you might also choose to make symbols for lust or laughter. Capture the big emotions and remember to dig into them when they come up."
+  },
+  {
+   "point": "记录障碍与变通办法，揭示客户受阻原因。",
+   "explain": "企业员工因IT政策无法用云服务，变通为用个人手机或在家工作，记录这些信号有助产品决策。",
+   "caseTitle": "IT政策作为障碍",
+   "importance": 2,
+   "core": "Taking good notes is the best way to keep your team (and investors and advisors) in the loop. Plus, notes make it harder to lie to yourself.",
+   "case": "For example, a lot of corporate folks would love to use cloud services and hate their current options, but can't use anything else because their company's IT policy is an obstacle. Their workaround might be to use their personal phone as a secondary computer or by doing certain work at home. Also worth noting."
+  },
+  {
+   "point": "随手记录，宁可记在奇怪地方也别靠记忆。",
+   "explain": "作者把笔记写在披萨纸盘、杯垫、报纸上，回办公室再转移，强调捕捉要点比载体重要。",
+   "caseTitle": "披萨纸盘上的笔记",
+   "importance": 2,
+   "core": "Taking good notes is the best way to keep your team (and investors and advisors) in the loop. Plus, notes make it harder to lie to yourself.",
+   "case": "If you embrace Keeping it Casual, you'll find customer conversations appearing out of nowhere and catching you by surprise. Just go with it. I've got notes written on paper plates from a pizza party, on beer mats from the pub, and on newspapers from the cafe. You'll want to transfer them over to your main storage system once you get back to the office, but it's better to capture what's said on something weird than to try to remember all the important bits."
   }
  ]
 }

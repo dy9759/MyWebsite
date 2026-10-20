@@ -1,149 +1,454 @@
 {
  "Chapter 1: How Innovators Leave Billions on the Table": [
   {
-   "point": "新品失败的根源，是没把客户付费意愿放在产品设计的核心。",
    "core": "But the root of all innovation evil—what billionaire entrepreneur Elon Musk would call the set of “first principles”—is the failure to put the customer's willingness to pay for a new product at the very core of product design.",
-   "caseTitle": "道奇 Dart 的失败",
    "case": "Then a price was slapped on, and Dodge took it to customers to try to sell it. Market performance was a disaster. In 2012, the year it launched, the Dart sold about 25,000 units5—a quarter of the total predicted by market analysts and a number that caused Dow Jones's MarketWatch to call the Dart the year's second biggest new product flop.",
-   "explain": "道奇Dart先造车、后贴价格再找客户，结果销量仅为预期的四分之一，被评为年度第二大失败新品，正说明变现被放到最后的代价。"
+   "point": "新品失败的根源，是没把客户付费意愿放在产品设计的核心。",
+   "explain": "道奇Dart先设计制造再定价，上市首年销量仅约2.5万辆，为分析师预测的四分之一，被MarketWatch评为年度第二大失败新品，证明忽视付费意愿导致失败。",
+   "caseTitle": "道奇 Dart 的失败",
+   "importance": 3
   },
   {
-   "point": "成功的新品围绕客户愿付的价格来设计产品。",
-   "explain": "保时捷在SUV研发全面铺开前就想清变现，按客户最看重的价值与功能围绕合理价格设计卡宴，与Dart形成正反对照。",
-   "caseTitle": "保时捷卡宴定价先行",
    "core": "Porsche succeeded by designing the product around the price. This is what smart companies do.",
-   "case": "Porsche's masterstroke was thinking about monetization long before product development for the SUV was in full speed, then designing a car with the value and features customers wanted the most, around a price that made sense."
+   "case": "Porsche's masterstroke was thinking about monetization long before product development for the SUV was in full speed, then designing a car with the value and features customers wanted the most, around a price that made sense.",
+   "point": "成功的新品围绕客户愿付的价格来设计产品。",
+   "explain": "保时捷在SUV开发前就思考变现，围绕合理价格设计客户最看重的价值与功能，使卡宴成为利润支柱，证明按价设计产品能成功。",
+   "caseTitle": "保时捷卡宴定价先行",
+   "importance": 3
+  },
+  {
+   "point": "按价设计带来巨大商业回报。",
+   "explain": "卡宴上市十年后年销约10万辆，是首年的近五倍，如今贡献公司约一半利润，用销量和利润数据证明按价设计的回报。",
+   "caseTitle": "卡宴商业成果",
+   "importance": 2,
+   "core": "But the root of all innovation evil—what billionaire entrepreneur Elon Musk would call the set of “first principles”—is the failure to put the customer's willingness to pay for a new product at the very core of product design.",
+   "case": "Ten years after it hit the market in 2003, Porsche was selling about 100,000 Cayennes annually, almost five times as many as it did in the launch year. Today, the Cayenne accounts for about half the company's total profit, with the venerable 911 generating a third."
+  },
+  {
+   "point": "多数商业案例缺乏客户支付意愿依据，收入预测只是猜测。",
+   "explain": "仅约5%的商业案例包含客户愿付价格的信息，说明企业普遍未把付费意愿纳入分析，收入估计只能靠猜。",
+   "caseTitle": "商业案例缺支付意愿",
+   "importance": 2,
+   "core": "But the root of all innovation evil—what billionaire entrepreneur Elon Musk would call the set of “first principles”—is the failure to put the customer's willingness to pay for a new product at the very core of product design.",
+   "case": "But in only about 5 percent of those business cases can you find information on how much customers will pay for the product. This means their revenue estimates are, at best, a guess."
   }
  ],
  "Chapter 2: Feature Shocks, Minivations, Hidden Gems, and Undeads": [
   {
-   "point": "小创新的问题不是卖不动，而是价格和市场潜力没有吃满。",
+   "point": "功能堆砌：塞太多功能导致混乱、昂贵、卖不动。",
+   "explain": "Fire Phone 堆叠多项功能，定价199美元（合约）或649美元，上市后销量停滞，四个月后合约价降至99美分，印证功能冲击造成价值不清、定价过高。",
+   "caseTitle": "亚马逊Fire Phone",
+   "importance": 3,
+   "core": "Feature shocks happen when you try to cram too many features into one product, creating a confusing and often expensive mess.",
+   "case": "Amazon launched the phone in July 2014 at $199 with a two-year AT&T phone service contract, or $649 without a contract. Initial sales lacked momentum. And when sales stalled out four months later, Amazon cut the phone's price to 99 cents—that's not a misprint—with the two-year contract, or $449 without a contract."
+  },
+  {
    "core": "Minivations are products that tap neither a product concept's full market potential nor its full price potential.",
-   "caseTitle": "奥迪Q7定价偏低",
    "case": "Audi's Q7 luxury SUV launched at €55,000 in the first quarter of 2006. Demand turned out to be 80,000 units per year worldwide, but Audi's production capacity was 70,000 units. That data points to an optimal price of €58,000 (to clear 70K units), which would have meant an extra €210,000,000 a year for Audi on those same 70,000 units.",
-   "explain": "奥迪Q7需求达8万辆/年，产能仅7万辆；按清空产能算最优价应为5.8万欧元，实际定价5.5万欧元，每年少赚约2.1亿欧元，正是定价潜力未吃满。"
+   "point": "小创新的问题不是卖不动，而是价格和市场潜力没有吃满。",
+   "explain": "奥迪Q7定价5.5万欧元，需求8万辆却只有7万产能，若定价5.8万欧元可多赚2.1亿欧元，说明定价未吃满市场潜力。",
+   "caseTitle": "奥迪Q7定价偏低",
+   "importance": 3
+  },
+  {
+   "point": "被埋没的好点子：公司未识别并量化革命性创意的价值。",
+   "explain": "柯达工程师1974年发明数字相机技术，但公司因担心冲击胶卷核心业务而未重视，正是隐藏宝石被埋没的典型。",
+   "caseTitle": "柯达数字相机",
+   "importance": 3,
+   "core": "With a hidden gem product, a company has a brilliant, even revolutionary idea but fails to both recognize it and quantify the product's value to customers.",
+   "case": "In 1974, a young Kodak engineer in the company's applied research lab, Steven Sasson, had invented a hidden gem: the technology behind digital cameras."
+  },
+  {
+   "point": "活死人产品：仍在市场，但面向的消费者几乎无需求。",
+   "explain": "谷歌眼镜2012年发布，功能新奇却回答不了大众消费者的问题，需求几乎不存在，成为典型的僵尸产品。",
+   "caseTitle": "谷歌眼镜",
+   "importance": 2,
+   "core": "For the broad consumer segment, however, Google Glass answered a question no one was asking.",
+   "case": "In 2012, the company unveiled Google Glass, a pair of glasses with a small camera that, upon verbal command, could take pictures or record videos."
+  },
+  {
+   "point": "成本加成定价会低估突破性产品的价值，造成小创新。",
+   "explain": "硅谷元件商对无同类的新元件仅按成本加成定价85美分，比上代贵25美分，未挖掘其突破性价值，属于迷你化。",
+   "caseTitle": "硅谷元件商定价85美分",
+   "importance": 2,
+   "core": "Minivations are products that tap neither a product concept's full market potential nor its full price potential.",
+   "case": "This new generation component had no peer. The company priced the component at 85 cents—25 cents more than the previous generation component—using its traditional cost-plus pricing method."
+  },
+  {
+   "point": "低估顾客支付意愿，会让产品在二手市场溢价，损失利润。",
+   "explain": "Playmobil诺亚方舟套装两个月售罄，eBay转售价高出原价33%，说明公司严重低估支付意愿，属小创新式定价失误。",
+   "caseTitle": "Playmobil诺亚方舟",
+   "importance": 2,
+   "core": "Minivations are products that tap neither a product concept's full market potential nor its full price potential.",
+   "case": "After Playmobil's 2003 launch of its Noah's Ark play set, the set sold out in two months and started selling on eBay for 33 percent higher than the original price tag. In other words, customers were hawking it for a higher price than Playmobil offered it at! Playmobil had seriously underestimated its customers' willingness to pay for this toy."
   }
  ],
  "Chapter 3: Why Good People Get It Wrong": [
   {
-   "point": "好产品自然有人买单是迷思，逆袭故事只是例外。",
    "core": "We all love these stories. But we love them, in part, because they are exceptions to the rule. No one talks about the 95 percent of cases where the exact opposite happened.",
-   "caseTitle": "星球大战与哈利波特",
    "case": "Many critics made fun of the movie Star Wars when it came out, as did director George Lucas's friends and fellow directors (with the singular exception of Steven Spielberg). Nonetheless, it became one of the biggest movie and merchandising blockbusters of all time. The first Harry Potter book was rejected 12 times before one publisher saw hope in J.K. Rowling's manuscript.",
-   "explain": "《星球大战》被影评人和同行嘲笑，《哈利·波特》被拒12次，最终却大获成功。这类故事被反复传颂，恰恰因为它们是少数例外，而非普遍规律。"
+   "point": "好产品自然有人买单是迷思，逆袭故事只是例外。",
+   "explain": "《星球大战》被影评人和同行嘲笑却成票房巨头，《哈利·波特》被拒12次后成功，这些广为人知的故事恰因罕见才被传颂，不能作为默认规律。",
+   "caseTitle": "星球大战与哈利波特",
+   "importance": 3
+  },
+  {
+   "point": "畅销书被拒多次后成功，是幸存者偏差的例外。",
+   "explain": "《第二十二条军规》和《飘》被数十家出版社拒绝后才成为畅销书，这类故事被反复传颂，恰恰因为它们是少数例外，而非普遍规律。",
+   "caseTitle": "《第二十二条军规》被拒",
+   "importance": 2,
+   "core": "We all love these stories. But we love them, in part, because they are exceptions to the rule.",
+   "case": "The books Catch-22 and Gone with the Wind were rejected by dozens of publishers before achieving best-seller success."
+  },
+  {
+   "point": "伟大作品未必生前获得回报，反驳好产品自然有人买。",
+   "explain": "梵高生前贫困潦倒，画作如今却拍出数千万美元，说明作品价值与市场回报之间没有必然联系，好产品未必自动有人买单。",
+   "caseTitle": "梵高生前贫困",
+   "importance": 2,
+   "core": "We all love these stories. But we love them, in part, because they are exceptions to the rule.",
+   "case": "Vincent Van Gogh died in poverty, but his paintings now sell for tens of millions of dollars."
+  },
+  {
+   "point": "主流心态认为财务人员介入定价会扼杀创意。",
+   "explain": "2012年Dodge Dart广告高喊“把财务人员踢出去”，生动展现了产品开发者将定价与付费意愿思考视为对创造力的侵犯这一普遍心态。",
+   "caseTitle": "Dodge Dart广告",
+   "importance": 2,
+   "core": "asking product developers to think about pricing and willingness to pay infringes on their creativity",
+   "case": "In coming up with the initial advertising concept in 2012 for its new Dodge Dart, the Fiat Chrysler TV ad mentioned in Chapter 1 played to this widely and deeply held mindset. “Kick out the finance guys!” the commercial proudly proclaimed."
   }
  ],
  "Chapter 4: Have the “Willingness-to-Pay” Talk Early": [
   {
-   "point": "动手开发前先谈付费意愿，才知道哪些功能值得做。",
-   "explain": "吉列在设计 Guard 前花数千小时访谈印度消费者，先定出 15 卢比的目标价，再据此取舍必备与可有可无的功能，正说明先谈付费意愿才能决定功能取舍。",
-   "caseTitle": "吉列印度Guard剃须刀",
    "core": "To build a product around a price, you must engage in deep discussions with potential customers before you design and develop it.",
-   "case": "So before sketching out its new product design, the Guard, Gillette spent thousands of hours interviewing people in India and other emerging markets. It observed them in their homes and on shopping trips to understand what features were must-haves and what features were nice-to-haves. From this analysis, the company determined a price that Indian consumers were willing to pay. The target price: 15 rupees for the razor, with 5 rupees for the replacement blades."
+   "case": "So before sketching out its new product design, the Guard, Gillette spent thousands of hours interviewing people in India and other emerging markets. It observed them in their homes and on shopping trips to understand what features were must-haves and what features were nice-to-haves. From this analysis, the company determined a price that Indian consumers were willing to pay. The target price: 15 rupees for the razor, with 5 rupees for the replacement blades.",
+   "point": "动手开发前先谈付费意愿，才知道哪些功能值得做。",
+   "explain": "吉列在印度设计Guard前，花数千小时访谈观察，确定目标价15卢比，再据此精简功能，证明先定价再设计。",
+   "caseTitle": "吉列印度Guard剃须刀",
+   "importance": 3
+  },
+  {
+   "point": "付费意愿调研能帮功能排优先级，砍掉低价值功能。",
+   "explain": "互联网产品25个功能中，客户只愿为10个付费，Facebook功能仅排第七，说明调研能识别必需与锦上添花。",
+   "caseTitle": "Facebook功能排名第七",
+   "importance": 3,
+   "core": "It will help you prioritize features and design the product with the right set of features.",
+   "case": "When the company actually validated this with customers, it turned out customers were only willing to pay for 10 of the 25 features. (These are shown in Figure 4.2.) Of those 10, the Facebook feature ranked seventh in WTP. For customers, the Facebook feature was a nice-to-have, not a must. Customers had become so used to relying on third-party reviews (common at other Internet sites), that they didn't really care much if the reviews came from their Facebook buddies."
+  },
+  {
+   "point": "早谈付费意愿可避免功能过载导致定价过高。",
+   "explain": "域名托管公司27个功能让客户不买账，砍到8个并提价后，转化率和收入提升超25%，证明精简功能有效。",
+   "caseTitle": "域名托管公司27功能",
+   "importance": 2,
+   "core": "Early WTP talks help you avoid feature shocks by restraining you from overloading your product with unnecessary features that in turn force you to price it too high.",
+   "case": "We investigated and diagnosed the product as a feature shock: It had 27 features, many that small businesses did not care about. We told them to whittle the product down to eight features and then increase the price. It worked beyond the firm's wildest dreams, boosting the sales conversion rate and revenue more than 25 percent."
+  },
+  {
+   "point": "多数公司定价太晚，凸显早期谈付费意愿的必要性。",
+   "explain": "2014年调查1600家公司，80%等到产品上市前才定价，多数根本不谈付费意愿，说明普遍误区。",
+   "caseTitle": "1600家公司定价调查",
+   "importance": 2,
+   "core": "Of all the chapters in this book, this one might surprise you the most. In it, we will explain why you absolutely must discuss pricing at the beginning of a new product development initiative, not at the end.",
+   "case": "Our 2014 survey of 1,600 companies in more than 40 countries (encompassing a range of business-to-business and business-to-consumer industries) found 80 percent wait until just before their product is introduced to the marketplace to determine its price.6 Of those 80 percent, the majority do not have the WTP conversations at all. For those that do, the conversation happens after the product is built, but by then it's too late."
+  },
+  {
+   "point": "早期付费意愿调研能验证概念并确定可接受价格区间。",
+   "explain": "创新团队招募数百潜在客户，解释概念后询问付费意愿，发现客户愿每月付10-20美元，验证了概念价值。",
+   "caseTitle": "互联网市场25功能产品",
+   "importance": 2,
+   "core": "It will help you prioritize features and design the product with the right set of features.",
+   "case": "The innovation team recruited several hundred potential customers to validate how much they were willing to pay. First, they explained the product concept and the functionality they were planning to build. Then they tried to understand if the customers saw any value in the concept. Most important, they asked customers whether they would be willing to pay for such a product. They found customers truly valued the concept and were willing to pay anywhere from $10 to $20 for a monthly subscription fee, as shown in Figure 4.1."
   }
  ],
  "Chapter 5: Don't Default to a One-Size-Fits-All Solution": [
   {
-   "point": "做产品时，只该按需求、价值和付费意愿来细分客户。",
    "core": "But when it comes to innovation, there is only one right way to segment: by customers' needs, value, and their willingness to pay for a product or service that delivers that value.",
-   "caseTitle": "梅特勒托利多的秤",
    "case": "Consider the case of Mettler Toledo, a $2.5 billion global manufacturer of weighing instruments. The company's industrial customers need scales that can withstand high impact, large temperature fluctuations, and hazardous environments. Laboratories must have scales that are 100 percent accurate. Retailers need scales that are low-cost, capable of printing, and user-friendly. The underlying technology for weighing things is the same. But Mettler Toledo created different scales based on customer segment needs and WTP. Had it manufactured only one scale, it would have built a one-size-fits-none failure.",
-   "explain": "梅特勒托利多底层称重技术相同，却按工业、实验室、零售客户的不同需求与支付意愿做出不同秤；若只造一种秤，就会谁都不满意。"
+   "point": "做产品时，只该按需求、价值和付费意愿来细分客户。",
+   "explain": "梅特勒托利多底层称重技术相同，却按工业、实验室、零售客户的不同需求与付费意愿造出不同秤；若只造一种秤，就会一败涂地。",
+   "caseTitle": "梅特勒托利多的秤",
+   "importance": 3
+  },
+  {
+   "point": "仅凭人口属性无法判断客户真实需求。",
+   "explain": "查尔斯与奥兹的例子说明，同一组人口特征（67岁、富有、住城堡）可对应需求迥异的两个人，按可观察特征分层会误判。",
+   "caseTitle": "查尔斯与奥兹猜谜",
+   "importance": 2,
+   "core": "But when it comes to innovation, there is only one right way to segment: by customers' needs, value, and their willingness to pay for a product or service that delivers that value.",
+   "case": "Guess the identity of this person: famous Englishman, wealthy, 67 years old, married, two children, and lives in a castle. Of course, you know who we're talking about. Or do you? We'll bet 90 percent of you guessed Prince Charles. While that is absolutely correct, the description also fits Ozzy Osbourne."
   }
  ],
  "Chapter 6: When Designing Products, Configuration and Bundling is More Science Than Art": [
   {
-   "point": "产品配置要为每个细分只放客户愿意付费的功能。",
    "core": "Doing product configuration right means you design a product with the right features for a segment—that is, just the features customers are willing to pay for.",
-   "caseTitle": "银行 30 款账户砍到 3 款",
    "case": "So what happened after the bank shrank its thirty products to three? You might think sales plummeted because customers had far fewer choices. On the contrary, sales skyrocketed. Why? The bank had finally made each product distinct; its sales staff could articulate each product's value; and customers could easily determine which one best fit their needs. Total annual profit increased by 30 percent in the institution's personal banking services unit.",
-   "explain": "银行把30款账户砍到3款，每款定位清晰，销售能讲清价值、客户能选对，个人银行利润反增30%，证明精简到客户愿付费的功能才有效。"
+   "point": "产品配置要为每个细分只放客户愿意付费的功能。",
+   "explain": "银行将30款账户精简为3款，每款功能清晰对应细分需求，销售能讲清价值，客户易选，年利润增30%。",
+   "caseTitle": "银行 30 款账户砍到 3 款",
+   "importance": 3
+  },
+  {
+   "point": "混合捆绑（既单卖又打包）往往能拿到最高收入。",
+   "explain": "披萨和面包棒既单卖各9元又打包13元，B、C买套餐，A、D单买，总收入4400元，比单卖高33%。",
+   "caseTitle": "披萨面包棒混合捆绑",
+   "importance": 3,
+   "core": "This is called mixed bundling, where you sell the products both as stand-alones and in a bundle. You generated 33 percent more revenue than selling them as stand-alones (which yields $3,300).",
+   "case": "In this scenario, you would sell the pizza and breadstick bundle at $13; segments B and C would buy it. You would also sell the pizza and the breadsticks each at a stand-alone price of $9; segment A would buy the pizza and segment D would buy the breadsticks. Your total revenue would be ($13 * 2 * 100) + ($9 * 1 * 100) + ($9 * 1*100) = $4,400."
+  },
+  {
+   "point": "捆绑可巩固忠诚、扩大份额并贡献巨额收入利润。",
+   "explain": "微软将Word、邮件、表格、演示打包为Office，以折扣价和统一体验吸引用户，2013年贡献约1/3收入和超40%利润。",
+   "caseTitle": "微软Office套件捆绑",
+   "importance": 2,
+   "core": "By 2013, the Office business division was Microsoft's biggest, accounting for about a third of the company's total revenue and more than 40 percent of operating profit.",
+   "case": "When it released its Office suite of software in the 1990s, its customer base was used to paying for word processing, e-mail, spreadsheet, and presentation software applications separately. Microsoft pitched a discounted price for the bundle (as opposed to individual application prices), and it touted how convenient it was to have all the applications in the suite have a similar look and feel."
+  },
+  {
+   "point": "有时拆解捆绑能降低基础票价并大幅提升盈利。",
+   "explain": "瑞安航空将行李、餐食等拆分收费，统一基础票价，乘客更关注低价基础票而非附加费，策略大获成功。",
+   "caseTitle": "瑞安航空拆解捆绑",
+   "importance": 2,
+   "core": "The overwhelming reason Ryanair's unbundling strategy was successful is because customers paid far more attention to the base fare than to surcharges.",
+   "case": "It decided to unbundle the airline offering. It charged one price for any seat on every one of its planes—no special business class. However, it sold everything else—baggage services, food, and so on—à la carte."
+  },
+  {
+   "point": "按各细分需求与支付意愿配置功能可形成清晰价值主张。",
+   "explain": "造纸商推出Core、Product Plus、Logistics Plus三档，按细分需求增减功能，如Logistics Plus保证次日达，价值主张清晰。",
+   "caseTitle": "造纸商按细分设计产品",
+   "importance": 2,
+   "core": "Doing product configuration right means you design a product with the right features for a segment—that is, just the features customers are willing to pay for.",
+   "case": "The Core offering became the firm's basic product, which included the core product at a very affordable price. This offering had the standard level for technology, application support, and logistics services, and no extra features. In contrast, the Product Plus and Logistics Plus offerings had additional features—according to each segment's needs, value, and WTP. For instance, the Logistics Plus offering guaranteed next-day delivery of stock products and seven-day delivery of customized products."
   }
  ],
  "Chapter 7: Go beyond the Price Point": [
   {
-   "point": "怎么收费比收多少更重要，错的收费模式比错的价格更伤。",
    "core": "The TV set distributor learned a harsh lesson: Monetarily, a bad monetization model can be worse than a bad price.",
-   "caseTitle": "按台收费的电视物流",
    "case": "A European trucking company found this out soon after signing a three-year contract to distribute a TV manufacturer's goods. The distributor charged the TV set maker a fixed price per TV delivered. Over time the size of the TVs increased exponentially, which meant the distributor couldn't fit as many TVs into each truck as it used to, and thus had to make more truck runs. Costs increased massively, but revenue did not because of the fixed price. Hence, the TV distributor ultimately lost money on the deal.",
-   "explain": "电视配送商按每台固定价收费，电视变大后每车装得更少、运输趟数大增，成本暴涨而收入不变，最终亏损。收费单位与成本脱节，比定价高低更致命。"
+   "point": "怎么收费比收多少更重要，错的收费模式比错的价格更伤。",
+   "explain": "欧洲卡车分销商按每台电视固定收费，电视尺寸变大导致每车装载量减少、运输次数增加，成本暴涨但收入不变，最终亏损。证明收费模式错误会直接侵蚀利润。",
+   "caseTitle": "按台收费的电视物流",
+   "importance": 3
   },
   {
-   "point": "改变收费方式能创造与产品创新同等甚至更大的价值。",
-   "explain": "米其林不按轮胎条数收费，而按车队行驶里程收费，让轮胎更耐用直接转化为收入，而非减少购买次数，印证“怎么收费胜过收多少”。",
-   "caseTitle": "米其林按里程收费",
    "core": "How you charge trumps what you charge.",
-   "case": "The new monetization model that Michelin's Fleet Solutions came up with in 2001 turned out to be as big a breakthrough as its longer-lasting tires: charging trucking fleets by the mileage they drove their Michelin tires, not by the number of tires they bought."
+   "case": "The new monetization model that Michelin's Fleet Solutions came up with in 2001 turned out to be as big a breakthrough as its longer-lasting tires: charging trucking fleets by the mileage they drove their Michelin tires, not by the number of tires they bought.",
+   "point": "改变收费方式能创造与产品创新同等甚至更大的价值。",
+   "explain": "米其林2001年推出按行驶里程收费，而非按轮胎数量收费，使耐用轮胎的技术突破转化为持续收入，成为与产品创新同等重要的突破。",
+   "caseTitle": "米其林按里程收费",
+   "importance": 3
+  },
+  {
+   "point": "按使用量或替代指标收费，使收入与客户获得的价值对齐。",
+   "explain": "GE不卖CAT扫描仪或喷气发动机，而是按医疗实践的使用小时数或航空公司的飞行英里数收费，将收费与客户实际获得的价值直接挂钩。",
+   "caseTitle": "GE按使用时长收费",
+   "importance": 2,
+   "core": "The TV set distributor learned a harsh lesson: Monetarily, a bad monetization model can be worse than a bad price.",
+   "case": "Instead of selling or leasing a CAT scan machine or a jet engine, GE charges customers by the hours of usage for a medical practice or the miles flown for an airline."
   }
  ],
  "Chapter 8: Price Low for Market Share or High for Premium Branding?": [
   {
-   "point": "定价前先定清首要目标，因为利润、收入和份额不可兼得。",
    "core": "A clear, overriding goal is a prerequisite because different goals can lead to contradictory strategies and actions.",
-   "caseTitle": "10 美元还是 15 美元",
    "case": "Here's an example: Assume you could sell your product at either $10 or $15. Further assume when you sell your product at $10, you get 100 customers, and when you sell it at $15, you get 80 customers. So how should you price your product? Will you take 20 percent fewer customers in return for a 20 percent increase in revenue? Now let's say the cost to make your product is $7. If you sell it at $10, you have a 30 percent margin. If you sell it at $15, you have a greater than 50 percent margin. So which goal do you want now? Is your answer different?",
-   "explain": "同一产品定价10美元或15美元，销量、收入、利润率指向不同答案；目标一变，最优价格就变，说明必须先对齐首要目标再做取舍。"
+   "point": "定价前先定清首要目标，因为利润、收入和份额不可兼得。",
+   "explain": "案例通过10美元与15美元两种定价下的销量、收入与利润率对比，说明不同目标会导致相反选择，必须先明确首要目标。",
+   "caseTitle": "10 美元还是 15 美元",
+   "importance": 3
   }
  ],
  "Chapter 9: From Hoping to Knowing": [
   {
-   "point": "商业论证要把价格、价值、销量和成本联动起来建模。",
-   "explain": "Jayaswal 的定价建议同时纳入风险、客户价值、支付意愿和价格弹性，把四要素放在同一模型中权衡，而非孤立定价。",
-   "caseTitle": "DealShield 定价策略",
+   "point": "商业论证应基于客户支付意愿，而非内部假设。",
+   "explain": "Manheim 在推出 DealShield 前，先让定价负责人调研客户是否看重该服务及在不同条件下的支付意愿，使商业论证建立在真实客户数据上。",
+   "caseTitle": "Manheim的DealShield商业",
+   "importance": 3,
+   "core": "A business case should be a living document that keeps you grounded on the true monetization potential of your innovation.",
+   "case": "Vishaal Jayaswal, Manheim's head of pricing and value management, was asked to help figure out whether customers would value the service in the first place and, if so, how much they would be willing to pay for it under various conditions."
+  },
+  {
    "core": "Your business case must model the linkages among the four elements of price, value, volume, and cost.",
-   "case": "Ultimately, Jayaswal's pricing strategy recommendations were based on several elements: a) the business risks Manheim was assuming; b) the value to customers of different guarantee services; c) customers' WTP for them; and d) how much demand changed at different price points (the price elasticity curve, explained in Chapter 8)."
+   "case": "Ultimately, Jayaswal's pricing strategy recommendations were based on several elements: a) the business risks Manheim was assuming; b) the value to customers of different guarantee services; c) customers' WTP for them; and d) how much demand changed at different price points (the price elasticity curve, explained in Chapter 8).",
+   "point": "商业论证要把价格、价值、销量和成本联动起来建模。",
+   "explain": "Jayaswal 的定价建议综合了 Manheim 承担的业务风险、服务对客户的价值、客户支付意愿以及不同价格点的需求变化（价格弹性曲线），体现了四要素联动。",
+   "caseTitle": "DealShield 定价策略",
+   "importance": 3
   }
  ],
  "Chapter 10: The Innovation Won't Speak for Itself": [
   {
    "point": "功能不等于收益，要用客户听得懂的话讲出好处。",
-   "core": "When communicating the benefit statements, it's easy to fall into the trap of thinking your features are the same thing as the benefits to your customers. They aren't.",
-   "caseTitle": "Carbonite 的无限存储",
-   "case": "The offer of 20 gigabytes was most likely much more than what a majority of consumers would ever need. But the words “20 gigabytes” certainly did not identify a problem or a solution. Carbonite changed its description to “unlimited storage,” and the message truly resonated. Consumers could say, “With this service, I don't have to worry about running out of online storage space.”",
-   "explain": "“20GB”是产品功能，顾客无法感知其意义；改成“无限存储”后，顾客能直接说出“不必担心空间用完”，功能由此转化为客户利益。"
+   "explain": "SmugMug 曾大谈功能而非收益，价值信息无法触达普通客户；后将套餐信息改为收益陈述，从100多条精简到不足10条，转化明显改善。",
+   "caseTitle": "SmugMug简化价值信息",
+   "importance": 3,
+   "core": "Communicate benefits, not features.",
+   "case": "So the SmugMug founders revisited how they positioned their products. After scrutinizing their marketing messages, they realized they were spending a lot of time talking features and not benefits. SmugMug was trying too hard, and the value message was not reaching the average customer. The firm then revamped the messages for its packages (i.e. product configurations), using benefits—not features. They also moved the feature comparison to an optional section for those who still wanted to compare. They managed to condense the benefit statements from more than 100 to fewer than 10."
   },
   {
-   "point": "价值信息要按客群分层定制，而非一套话术通吃。",
-   "explain": "Adobe对个人用户强调“获取全部创意应用、搜索海量素材”，对企业客户则讲定制部署与企业级支持，同一产品针对不同客群给出不同收益陈述。",
-   "caseTitle": "Adobe分群价值信息",
+   "core": "When communicating the benefit statements, it's easy to fall into the trap of thinking your features are the same thing as the benefits to your customers. They aren't.",
+   "case": "The offer of 20 gigabytes was most likely much more than what a majority of consumers would ever need. But the words “20 gigabytes” certainly did not identify a problem or a solution. Carbonite changed its description to “unlimited storage,” and the message truly resonated. Consumers could say, “With this service, I don't have to worry about running out of online storage space.”",
+   "point": "功能不等于收益，要用客户听得懂的话讲出好处。",
+   "explain": "Carbonite 将“20GB存储”改为“无限存储”，让消费者直接说出“不用担心在线存储空间用完”，信息真正引起共鸣。",
+   "caseTitle": "Carbonite 的无限存储",
+   "importance": 3
+  },
+  {
    "core": "You should tailor your value messages to the needs of each segment.",
-   "case": "For Adobe's Individuals segment, the messaging includes “getting all the creative apps” and “being able to search 45 million stock images and videos.” For the Enterprise segment, Adobe's messaging is “customized provisioning deployment,” “enterprise level support,” and “streamlined license management and deployment.”"
+   "case": "For Adobe's Individuals segment, the messaging includes “getting all the creative apps” and “being able to search 45 million stock images and videos.” For the Enterprise segment, Adobe's messaging is “customized provisioning deployment,” “enterprise level support,” and “streamlined license management and deployment.”",
+   "point": "价值信息要按客群分层定制，而非一套话术通吃。",
+   "explain": "Adobe 对个人用户强调获取全部创意应用和搜索海量素材，对企业用户则强调定制部署、企业级支持和许可证管理，信息因群而异。",
+   "caseTitle": "Adobe分群价值信息",
+   "importance": 2
+  },
+  {
+   "point": "价值信息必须极度简洁，直击客户痛点。",
+   "explain": "LinkedIn 发现客户愿为接触被动求职者付费，于是用极简信息“寻找并接触最优秀的被动人才”直击招聘痛点，大获成功。",
+   "caseTitle": "LinkedIn被动人才信息",
+   "importance": 2,
+   "core": "You should also communicate those benefits with extreme brevity.",
+   "case": "Take the example of LinkedIn. In reformulating its Talent Solutions offering, the company found customers were clearly willing to pay for the opportunity to recruit “passive” job candidates—people not actually looking for jobs because they already were employed. LinkedIn's communications centered on recruiters' newfound ability to approach millions of these passive job candidates. The company led its messages with the very simple but very successful value message: “Find and engage the best passive talent.”"
   }
  ],
  "Chapter 11: Use Behavioral Pricing Tactics to Persuade and Sell": [
   {
-   "point": "客户并不总是理性，付费意愿受价格呈现方式影响。",
    "core": "Behavioral economics springs from this recognition that buyers are not always rational actors. Their willingness to pay (WTP) for your product is not solely based on the value they get from it.",
-   "caseTitle": "经济学人的诱饵选项",
    "case": "The experiment divided people into two groups, A and B. The A group was given two choices: $59 for an online-only subscription and $125 for a print-and-online combination. The B group was offered three choices: $59 for online only, $125 for print only, and $125 for the print/online bundle. The $125 print-only option was an anchor. It made The Economist's print/online bundle for group B look like a great deal; the online edition seemed like a freebie, a throw-in. Some 84 percent chose the print/online bundle in group B versus only 32 percent who chose that bundle in group A.",
-   "explain": "同一份《经济学人》订阅，加入125美元纯印刷版作锚点后，选印刷+网络套餐的人从32%升至84%，说明价格呈现改变了付费意愿。"
+   "point": "客户并不总是理性，付费意愿受价格呈现方式影响。",
+   "explain": "经济学人实验通过加入纯印刷版锚点，使套餐选择率从32%升至84%，证明价格呈现方式显著改变付费意愿。",
+   "caseTitle": "经济学人的诱饵选项",
+   "importance": 3
+  },
+  {
+   "point": "识别心理价格阈值并重构产品线可提升收入。",
+   "explain": "互联网初创公司发现客户心理阈值$49/$99/$199，将标准版和高级版提价至阈值并增强吸引力，从而提升每用户平均收入。",
+   "caseTitle": "互联网创业公司产品线重构",
+   "importance": 3,
+   "core": "The findings pointed to two recommendations that could raise average revenue per subscriber: increase prices of the Standard and Advanced offering to customers' psychological price thresholds, and make those offerings more attractive.",
+   "case": "The firm's customers had key psychological price thresholds—limits to what most of them would spend, depending on the product configuration. Those price thresholds were $49, $99, and $199. Our client had three offerings priced at $49 (Basic), $79 (Standard), and $149 (Advanced)."
+  },
+  {
+   "point": "价格本身能传递品质信号，影响产品感知。",
+   "explain": "安慰剂止痛药实验中，告知价格$2.50时85%的人感到疼痛减轻，而告知10美分时仅61%，证明高价强化质量感知。",
+   "caseTitle": "安慰剂止痛药价格实验",
+   "importance": 2,
+   "core": "A product's price sends a powerful signal about its quality.",
+   "case": "In a 2008 study, Ariely and his colleagues gave two sets of participants the same pill, telling them it was a painkiller. Informed that the price was $2.50 a pill, 85% of the participants in the first group said the pill reduced their pain. Told the painkiller's price was discounted to 10 cents, only 61% of the second group believed the pill reduced their pain."
+  },
+  {
+   "point": "低前期成本比总拥有成本更具心理吸引力。",
+   "explain": "咖啡机方案B（低机器价、高咖啡价）虽总成本相同，但低前期成本的心理影响更大，企业更受益。",
+   "caseTitle": "咖啡机与咖啡定价方案",
+   "importance": 2,
+   "core": "The customer's upfront cost has a much bigger psychological impact than the total cost of ownership.",
+   "case": "You are considering two pricing schemes: Option A, which prices the machine at $480 and the coffee at $10 per pound per month, or Option B, which prices the machine at $120 and the coffee at $40 per pound per month. Even though a rational person would be indifferent to these options—over a 12-month period, the price for the machine and the coffee is the same—we have consistently found across industries that companies are better off with a scheme like Option B."
   }
  ],
  "Chapter 12: Maintain Your Price Integrity": [
   {
-   "point": "新品卖得不好就下意识降价，等于告诉市场它不值这个价。",
    "core": "But reducing your price so soon sends an unintended message: that your new offering has less value than you initially communicated.",
-   "caseTitle": "宝马7系不降价改目标",
    "case": "BMW did this in 2001. The company traced the reason behind the slow sales of its new 7 Series sedans. It found that European customers thought it was ugly. (Americans did not.) BMW decided to keep the car's price high. If people do not like the car, they will not buy it, even if it is 10 percent cheaper. Instead, BMW reduced its sales targets—not its price—and started working to design a face-lift right away.",
-   "explain": "宝马7系在欧销量不佳，查明原因是外观不受欢迎而非价格过高。宝马坚持不降价，转而下调销售目标并着手改款，避免传递贬损价值的信号。"
+   "point": "新品卖得不好就下意识降价，等于告诉市场它不值这个价。",
+   "explain": "宝马7系欧洲销量不佳，查明原因是外观不受欢迎而非价格过高；宝马坚持不降价，只下调销售目标并着手改款，证明非价格问题降价无效。",
+   "caseTitle": "宝马7系不降价改目标",
+   "importance": 3
+  },
+  {
+   "point": "缺乏预案时，销售不及预期会引发恐慌性降价，一天瓦解定价策略。",
+   "explain": "欧洲公司新品销量低于预期，荷兰对手抢客，销售负责人惊慌，CEO授权全球随意降价，整套定价策略一天内瓦解，说明上线前须备好应对预案。",
+   "caseTitle": "欧洲公司一天瓦解定价策略",
+   "importance": 3,
+   "core": "The firm's pricing strategy had wilted away in a single day—mainly because it was unprepared.",
+   "case": "One European company was not prepared for lower-than-expected sales of a new product. After its product hit the market, a competitor launched an aggressive effort to win back business in the Netherlands. Its sales manager for Holland (where the firm had a 70 percent market share) let his European head of sales know about that. The head of sales panicked, asking the CEO for his support to start discounting across Europe to keep sales high. The CEO, now worried about similar scenarios in markets around the world, told the global head of sales that he was free to make any pricing cuts he felt were necessary until the end of the year."
+  },
+  {
+   "point": "销量不佳未必是定价问题，应先冷静诊断真实原因。",
+   "explain": "工业品厂商新品滞销，全面排查后发现是对手提前以大幅临时折扣加高起订量抢占客户，客户已囤货，并非自身定价有误，说明降价前须先查因。",
+   "caseTitle": "工业品厂商被对手抢先降价",
+   "importance": 3,
+   "core": "If you've done your pricing strategy work properly, you probably don't have a pricing problem.",
+   "case": "What if a competitor undercuts your price? This recently happened to an industrial products manufacturer. The firm asked us to determine the causes of disappointing sales of a new product. We examined everything. The culprit turned out to be a competitor's preemptive price cut. Anticipating our client's new product, the competitor offered huge temporary discounts that required high minimum purchase orders—all before our client had shipped one new product. By the time the product hit the market, customers had already stocked up on the competitor's discounted product and had no room for the new one, even though it had better quality."
+  },
+  {
+   "point": "用制度强制先想三个非价格方案，才能管住冲动降价。",
+   "explain": "拉美电信公司规定降价前必须提出三个非价格替代方案，董事称这条简单规则影响最大、树立了所需纪律，说明价格耐心可以制度化。",
+   "caseTitle": "拉美电信三非价格方案规则",
+   "importance": 2,
+   "core": "Before getting approval for a pricing reduction, make your team come up with three nonpricing alternatives.",
+   "case": "A telecommunications firm in Latin America instituted the rule of forcing managers to come up with three nonprice actions before making price cuts. A board member of the company stated afterward: “This simple rule had the highest impact we have ever seen and instilled the right discipline we were seeking. It was simple and everybody understood it.”"
+  },
+  {
+   "point": "顶住新品遇冷的压力坚持定价，可避免膝跳式降价。",
+   "explain": "苹果2015年推出Apple Watch，仅官网销售、起价349美元且高配达1.7万美元，面对市场反应仍不降价，避免了新品遇冷时的典型降价反应。",
+   "caseTitle": "苹果手表顶住降价压力",
+   "importance": 2,
+   "core": "By being resolute on prices, Apple avoided the typical response when new products meet mixed market reactions.",
+   "case": "Here's a great example of a company that didn't flinch in the face of bad market news and resisted pressure to cut prices: Apple's April 2015 introduction of the much-hyped Apple Watch. At first, it was available only through Apple's website, and the cheapest version was priced at $349—not very cheap. With options including stainless steel and gold finishes, it could cost as much as $17,000—a true luxury purchase."
   }
  ],
  "Chapter 13: Learning from the Best": [
   {
-   "point": "研发前期就严格调研客户真正看重什么、愿付多少钱",
-   "explain": "保时捷在卡宴和帕拉梅拉开发之初，就要求团队逐项确认客户真正看重的功能与支付意愿，产品因此大获成功，说明从真实客户声音出发而非内部想象。",
-   "caseTitle": "保时捷卡宴与帕拉梅拉",
    "core": "Porsche's approach to product development fully embodies the principles of this book.",
-   "case": "Porsche planted the seeds for the stunning success of its Cayenne—and later the Panamera, a family-minded, four-door luxury sedan launched in 2009—in its upfront product development. The mandate that Porsche's top executives handed down to the developers of both products was to rigorously determine what features, improvements, and other aspects of the cars customers truly valued, and how much they'd pay for them."
+   "case": "Porsche planted the seeds for the stunning success of its Cayenne—and later the Panamera, a family-minded, four-door luxury sedan launched in 2009—in its upfront product development. The mandate that Porsche's top executives handed down to the developers of both products was to rigorously determine what features, improvements, and other aspects of the cars customers truly valued, and how much they'd pay for them.",
+   "point": "研发前期就严格调研客户真正看重什么、愿付多少钱",
+   "explain": "保时捷在开发卡宴和帕拉梅拉时，高层要求团队严格确定客户真正看重的功能以及愿意支付的价格，体现了早期客户调研对产品成功的关键作用。",
+   "caseTitle": "保时捷卡宴与帕拉梅拉",
+   "importance": 3
+  },
+  {
+   "point": "早期调研可确定支付意愿并支撑溢价定价",
+   "explain": "保时捷通过调研得知卡宴可以比其他SUV收取显著溢价，直接证明了早期客户调研如何指导定价决策。",
+   "caseTitle": "保时捷卡宴定价",
+   "importance": 2,
+   "core": "The mandate that Porsche's top executives handed down to the developers of both products was to rigorously determine what features, improvements, and other aspects of the cars customers truly valued, and how much they'd pay for them.",
+   "case": "For the Cayenne, the survey told Porsche it could charge a significant premium over other SUVs."
+  },
+  {
+   "point": "确认客户价值与支付意愿后再定价入市",
+   "explain": "LinkedIn先向客户确认他们重视InMail功能并愿意付费，然后才以每封10美元推向市场，体现了基于价值确认的变现流程。",
+   "caseTitle": "LinkedIn InMail定价",
+   "importance": 2,
+   "core": "From the start, the team was highly focused on the members-first philosophy, adding value to members and monetizing that value.",
+   "case": "The price, first set at $10 per InMail, seemed expensive. However, LinkedIn strongly believed that messaging someone you didn't know was a privilege. After confirming with customers that they valued the feature (and were willing to pay for it), LinkedIn was ready to go to market with the InMail product."
+  },
+  {
+   "point": "计费指标应与客户获得的价值同步增长",
+   "explain": "Optimizely选择按每月独立访客数（MUV）计费，因为客户使用产品越多、获得的收益越大，价格随价值增长而增长。",
+   "caseTitle": "Optimizely MUV定价",
+   "importance": 2,
+   "core": "The more a customer uses the product, the more benefits the customer derives.",
+   "case": "After weighing these factors, the monetization team decided to charge according to the number of monthly unique visitors (MUVs) bucketed into an experiment."
+  },
+  {
+   "point": "动态定价可平衡供需两侧并推动规模增长",
+   "explain": "Uber在需求高峰时提高价格，用价格调节供给和需求，兼顾乘客与司机两侧，实现供需平衡和规模增长。",
+   "caseTitle": "优步动态定价",
+   "importance": 2,
+   "core": "You want supply to always be full, and you use price to basically either bring more supply on or get more supply off, or get more demand in the system or get some demand out.",
+   "case": "Today, in times of peak demand, the company charges customers more for a ride than during non-peak times."
   }
  ],
  "Chapter 14: Implementing the “Designing the Product around the Price” Innovation Process": [
   {
-   "point": "变现流程能否落地，取决于高管是否亲自投入。",
    "core": "When C-level leadership is not committed in body and soul, if monetizing innovation is not one of your top two organizational priorities, and if that is not reflected in C-level involvement, we would advise you not to embark on the journey.",
-   "caseTitle": "高管牵头利润高三成",
    "case": "In the Simon-Kucher & Partners Global Pricing Study we mentioned in Chapter 1, we found that companies in which senior executives led the change to extract full value from new products averaged 33 percent more profit than companies where executives delegated that responsibility.",
-   "explain": "全球定价研究显示，高管亲自领导从新产品中获取全部价值的变革，其公司平均利润比高管下放该职责的公司高出33%，证明高管亲力亲为直接带来可量化的回报。"
+   "point": "变现流程能否落地，取决于高管是否亲自投入。",
+   "explain": "全球定价研究发现，高管亲自领导从新产品中提取全部价值的变革的公司，平均利润比高管将责任下放的公司高33%。这证明高管亲力亲为是流程落地的关键。",
+   "caseTitle": "高管牵头利润高三成",
+   "importance": 3
+  },
+  {
+   "point": "试点团队中必须指定专职的“变现负责人”。",
+   "explain": "Optimizely货币化成功的关键因素是在团队中任命一位“货币化英雄”并让其负责，说明试点阶段指定专职负责人对结果负责至关重要。",
+   "caseTitle": "Optimizely任命货币化英雄",
+   "importance": 3,
+   "core": "Choose a person to fill the crucial role of monetization hero.",
+   "case": "Remember the Optimizely case study in the last chapter? A key factor in the company's monetization success was appointing a monetization hero to the team and putting that person in charge."
+  },
+  {
+   "point": "设立跨产品货币化团队并与产品团队紧密协作。",
+   "explain": "Dräger和Swarovski的成功得益于其货币化团队每天、始终与产品团队紧密合作，说明跨职能团队持续协作是流程扩展的重要支撑。",
+   "caseTitle": "Dräger与Swarovski的货币化",
+   "importance": 2,
+   "core": "Dedicate a monetization team that will work across products.",
+   "case": "This structure has been instrumental to Dräger's and Swarovski's success. Their monetization teams work closely with the product teams every day, all the time."
   }
  ]
 }
