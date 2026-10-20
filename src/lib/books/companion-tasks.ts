@@ -129,16 +129,48 @@ Use only the record; do not add claims from outside it or invent personal experi
 
 const STATUS_LABEL: Record<ReadingStatus, string> = { todo: "待读", reading: "在读", done: "已读" };
 
-// Book advisor: the whole catalog in one compact line per entry (~10k
-// chars), plus the reader's goal; the model answers with [R###] ids that
-// the page turns into links.
+const PEOPLE_CATEGORIES = ["07", "08", "09", "10", "11"];
+
+// Only the entries relevant to the goal go to the model (a shorter prompt
+// answers faster): keyword hits on English words and Chinese bigrams of the
+// goal, plus every P0 item and a few top people / industry reads so the
+// model can still suggest a parallel long read. Catalog order is kept.
+export function pickRelevant(goal: string, catalog: CatalogEntry[], limit = 30): CatalogEntry[] {
+  const g = goal.toLowerCase();
+  const words = g.match(/[a-z0-9]{3,}/g) ?? [];
+  const cjk = (g.match(/[\u4e00-\u9fff]+/g) ?? []).flatMap((run) =>
+    run.length < 2 ? [] : Array.from({ length: run.length - 1 }, (_, i) => run.slice(i, i + 2)),
+  );
+  const terms = [...new Set([...words, ...cjk])];
+  const score = (e: CatalogEntry) => {
+    const title = e.title.toLowerCase();
+    const rest = [e.category, e.kind, e.reason, e.output].join(" ").toLowerCase();
+    return terms.reduce((n, t) => n + (title.includes(t) ? 2 : 0) + (rest.includes(t) ? 1 : 0), 0);
+  };
+  const ranked = catalog
+    .map((e) => ({ e, s: score(e) }))
+    .filter((x) => x.s > 0)
+    .sort((a, b) => b.s - a.s || b.e.score - a.e.score)
+    .slice(0, limit)
+    .map((x) => x.e);
+  const people = catalog
+    .filter((e) => PEOPLE_CATEGORIES.includes(e.category.slice(0, 2)))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4);
+  const keep = new Set([...ranked, ...catalog.filter((e) => e.priority === "P0"), ...people]);
+  return catalog.filter((e) => keep.has(e));
+}
+
+// Book advisor: the goal-relevant part of the catalog, one compact line per
+// entry, plus the reader's goal; the model answers with [R###] ids that the
+// page turns into links.
 export function buildAdvisorMessages(
   goal: string,
   catalog: CatalogEntry[],
   statusOf: (id: string) => ReadingStatus,
   lang: Lang,
 ): ChatMessage[] {
-  const lines = catalog
+  const lines = pickRelevant(goal, catalog)
     .map((e) => `${e.id}|${e.priority}|${e.importance}|${e.score}|${STATUS_LABEL[statusOf(e.id)]}|${e.title}|${e.category.replace(/^\d+\s*/, "")}|${e.reason}`)
     .join("\n");
   const ask =

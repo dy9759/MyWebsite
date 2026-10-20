@@ -3,6 +3,7 @@ import { CATALOG, CATALOG_BY_ID } from "@/lib/books/catalog";
 import { buildChatMessages, systemFor } from "@/lib/books/companion";
 import {
   buildAdvisorMessages,
+  pickRelevant,
   buildNoteMessages,
   buildOutputMessages,
   buildQuizMessages,
@@ -59,9 +60,22 @@ describe("advisor", () => {
   it("sends the whole catalog with statuses and asks for ids only from it", () => {
     const msgs = buildAdvisorMessages("定价", CATALOG, (id) => (id === "R046" ? "done" : "todo"), "zh");
     const user = msgs[1].content;
-    expect(user.split("\n").filter((l) => /^R\d{3}\|/.test(l))).toHaveLength(CATALOG.length);
+    const rows = user.split("\n").filter((l) => /^R\d{3}\|/.test(l));
+    expect(rows.length).toBeLessThan(CATALOG.length);
     expect(user).toContain("R046|P0|S|5|已读|The Mom Test");
     expect(user).toContain("已读的不要再推荐");
+  });
+});
+
+describe("pickRelevant", () => {
+  it("keeps goal matches, every P0 item and a few people reads", () => {
+    const picked = pickRelevant("给语音 API 定价，找到付费客户", CATALOG);
+    const ids = new Set(picked.map((e) => e.id));
+    expect(ids.has("R055")).toBe(true); // Monetizing Innovation
+    expect(CATALOG.filter((e) => e.priority === "P0").every((e) => ids.has(e.id))).toBe(true);
+    expect(picked.some((e) => ["07", "08", "09", "10", "11"].includes(e.category.slice(0, 2)))).toBe(true);
+    expect(picked.length).toBeLessThanOrEqual(30 + 12 + 4);
+    expect(picked.length).toBeLessThan(CATALOG.length);
   });
 });
 
