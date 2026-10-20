@@ -17,7 +17,10 @@ describe("note cases", () => {
         expect(items.length).toBeGreaterThanOrEqual(1);
         expect(items.length).toBeLessThanOrEqual(2);
         for (const c of items) {
-          for (const k of ["point", "core", "caseTitle", "case", "explain"] as const) expect(c[k].trim()).not.toBe("");
+          for (const k of ["point", "core", "caseTitle", "explain"] as const) expect(c[k].trim()).not.toBe("");
+          // An AI-written outside case carries a story instead of book text.
+          if (c.external) expect(c.story?.trim()).toBeTruthy();
+          else expect(c.case.trim()).not.toBe("");
           expect(c.core.length).toBeLessThanOrEqual(isCjk(c.core) ? 130 : 320);
           expect(c.case.length).toBeLessThanOrEqual(isCjk(c.case) ? 260 : 650);
           total += c.core.length + c.case.length;

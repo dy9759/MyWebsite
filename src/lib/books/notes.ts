@@ -126,7 +126,7 @@ export const quotesIn = (markdown: string) => [...new Set([...markdown.matchAll(
 // Per chapter (keyed by marker label): the chapter's core sentence and one
 // concrete case from the book, both short verbatim passages, with Chinese
 // commentary on how the case shows the idea.
-export type NoteCase = { point: string; core: string; caseTitle: string; case: string; explain: string };
+export type NoteCase = { point: string; core: string; caseTitle: string; case: string; explain: string; external?: boolean; story?: string };
 const CASES_DIR = join(process.cwd(), "src", "content", "books", "cases");
 
 export function getCases(slug: string): Record<string, NoteCase[]> {

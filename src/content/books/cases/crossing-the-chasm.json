@@ -1,0 +1,125 @@
+{
+  "1 - High-Tech Marketing Illusion": [
+    {
+      "point": "产品在早期市场叫好，却可能长期卡在鸿沟里进不了主流。",
+      "core": "So the products languish, continuing to feed off the early adopter segment of the market, but unable to really take off and break through to the high-volume opportunities.",
+      "caseTitle": "Segway 败给楼梯",
+      "case": "The hope was these devices would become a universal transport mechanism. Why didn’t that happen? In a word: stairs. Stairs are pesky little devils that crop up everywhere, and Segways do not handle them well at all. That’s what we call a showstopper. So while Steve Wozniak can still field a brace of Segways for a rousing match of polo, no one has yet come up with a breakthrough application for the rest of us. Hence its fate for any foreseeable future is to dwell in the chasm forever.",
+      "explain": "Segway 的陀螺平衡技术很出色，早期爱好者也追捧，但它上不了楼梯，这个致命缺陷让它找不到面向普通人的突破性应用。于是它只能靠早期用户维持，始终跨不过鸿沟进入大众市场。"
+    }
+  ],
+  "2 - High-Tech Marketing Enlightenment": [
+    {
+      "point": "市场的边界取决于客户之间会不会互相参考。",
+      "core": "If two people buy the same product for the same reason but have no way they could reference each other, they are not part of the same market.",
+      "caseTitle": "示波器卖给谁",
+      "case": "That is, if I sell an oscilloscope for monitoring heartbeats to a doctor in Boston and the identical product for the same purpose to a doctor in Zaire, and these two doctors have no reasonable basis for communicating with each other, then I am dealing in two different markets. Similarly, if I sell an oscilloscope to a doctor in Boston and then go next door and sell the same product to an engineer working on a sonar device, I am also dealing in two different markets.",
+      "explain": "同一台示波器，卖给波士顿和扎伊尔的医生，两人无从交流，就是两个市场；卖给波士顿医生和隔壁做声呐的工程师，用途不同也互不参考，同样是两个市场。口碑只在互相参考的人群中流动。"
+    },
+    {
+      "point": "远见者追求跨越式突破，愿意押注未经验证的技术。",
+      "core": "Visionaries are not looking for an improvement; they are looking for a fundamental breakthrough.",
+      "caseTitle": "美林押注 Salesforce",
+      "case": "To give additional examples specific to high tech, when Harry McMahon at Merrill Lynch committed to put ten thousand people on Salesforce.com’s cloud-based sales force automation system at a time when that vendor had no other large enterprise customer, he was acting as a visionary. When Linda Dillman at Wal-Mart committed to install Symbol RFID systems to create real-time visibility into all the inventory in every Wal-Mart store, she was acting as a visionary.",
+      "explain": "美林的 Harry McMahon 在 Salesforce 还没有其他大企业客户时，就决定让一万人用它的云端销售系统；沃尔玛的 Linda Dillman 要在每家门店部署 RFID。他们承担巨大风险，图的是跨越式的提升，而不是小幅改进。"
+    }
+  ],
+  "3 - The D-Day Analogy": [
+    {
+      "point": "把压倒性资源集中到一个狭小细分市场，才能赢得实用主义者。",
+      "core": "The key to the Normandy advantage, what allows the fledgling enterprise to win over pragmatist customers in advance of broader market acceptance, is focusing an overabundance of support into a confined market niche.",
+      "caseTitle": "Documentum 聚焦药企",
+      "case": "In a year Documentum had demonstrated that it could solve this problem, and some thirty of the top forty pharmaceutical companies had committed to its solution. That is what drove its sales to $8 million and then to $25 million. But the revenue subsequent to that came from the bowling-pin effect of niche marketing.",
+      "explain": "Documentum 把目标收窄到药企的注册申报部门，全球只有约四十家，但申报每拖一天就损失约一百万美元。一年内前四十家药企中约三十家采用，收入涨到两千五百万美元，之后再靠保龄球效应向相邻市场扩散。"
+    },
+    {
+      "point": "滩头市场要大到值得做、小到打得赢、契合自己的核心优势。",
+      "core": "A key lesson to learn here is that you want to target a beachhead segment that is: • Big enough to matter • Small enough to win, and a • Good fit with your crown jewels.",
+      "caseTitle": "Salesforce 只打销售部门",
+      "case": "That’s what Salesforce did. By confining itself to the activities and the budgets of a single department, it was able to win more territory faster than if it had gone after a suite of applications crossing sales, service, and marketing. That would have required many more approvals and given the incumbents lots of chances to derail or at least slow down their growth.",
+      "explain": "Salesforce 只服务美国中型、懂技术行业的销售人员和销售经理，不碰客服和营销。局限在一个部门的预算里，审批少、对手难阻拦，反而比一次推销售、服务、营销整套应用扩张得更快。"
+    }
+  ],
+  "4 - Target the Point of Attack": [
+    {
+      "point": "目标客户场景要写清用户卡在哪里，以及给买单人带来的经济后果。",
+      "core": "The idea here is to describe a situation in which the user is stuck, with significant consequences for the economic buyer.",
+      "caseTitle": "室内设计师找灯具",
+      "case": "David’s client is not happy, which means David is not happy. It looks like they are going to end up having to settle for something that is okay but not “perfect,” thereby undermining David’s fundamental brand promise and the client’s confidence in his ability to deliver on it. Moreover, the wholesaler who gets the business does not achieve the kind of customer loyalty he wants from David because he too is part of this chain of compromise as well.",
+      "explain": "设计师 David 想为挑剔的客户找到完美灯具，但成品灯具只能挑不能改。结果客户只能将就，David 的品牌承诺受损，批发商也得不到忠诚度。把卡住的场景和各方损失写具体，才能判断这个痛点是否有人买单。"
+    },
+    {
+      "point": "滩头市场的规模，要让你能拿下过半新订单、成为事实标准。",
+      "core": "To become that de facto standard, you need to win at least half, and preferably a lot more, of the new orders in the segment over the next year.",
+      "caseTitle": "一千万美元的算术",
+      "case": "Say your revenue target is $10 million over all. That means $5 million from the target segment. It also means that same $5 million has to represent at least half of the total orders from the segment if you are to have the desired market-leader impact. In other words, if you are going to be a $10 million company next year you do not want to attack a segment larger than $10 million. At the same time, it should be large enough to generate your $5 million.",
+      "explain": "若明年总收入目标是一千万美元，一半即五百万要来自目标细分，而这五百万又得占该细分新订单的一半以上。所以细分市场不能超过一千万美元，也不能小到撑不起五百万，规模要和自己的体量匹配。"
+    }
+  ],
+  "5 - Assemble the Invasion Force": [
+    {
+      "point": "实用主义者评估和购买的是完整产品，而不只是核心产品。",
+      "core": "To net this out: Pragmatists evaluate and buy whole products.",
+      "caseTitle": "Infusionsoft 免掉上手费",
+      "case": "In conjunction with these forays it also tried an experiment that failed. Instead of charging customers what had been a hefty up-front fee to get them up and running, it waived the fee entirely, thereby vastly increasing the number of prospects willing to sign up. Unfortunately, a large number of those same customers churned out after a short period. Painful as that was, it taught an important lesson about the whole product: Onboarding, both for technical and for business process reengineering reasons, had to be carefully supervised.",
+      "explain": "Infusionsoft 为扩大签约取消了高额的上手服务费，签约数大涨，许多客户却很快流失。这说明对小企业来说，有人指导上手本身就是完整产品的一部分。后来加回低价版上手服务，流失才降下来。"
+    },
+    {
+      "point": "同类产品出现后，补齐外围的完整产品比继续堆核心研发更值钱。",
+      "core": "But once there are more than one or two comparable products in the marketplace, then investing in additional R&D at the generic level has a decreasing return, whereas there is an increasing return from marketing investments at the levels of the expected, the augmented, or the potential product.",
+      "caseTitle": "Aruba 进校园",
+      "case": "The campuses still had wireline networks as well, even though they were not building them out as aggressively as they originally had planned. As a result, the network management system had to work both with the new and the old equipment. This led Aruba to partner with, and eventually acquire, AirWave, a network management system that grew up managing Cisco routers and switches.",
+      "explain": "Aruba 选高校无线网络做滩头，核心产品是接入点和控制器。但校园还保留有线网络，管理系统必须新旧设备兼管，于是 Aruba 与管理思科设备起家的 AirWave 合作并最终收购它。这类外围补齐让大对手不值得跟进。"
+    }
+  ],
+  "6 - Define the Battle": [
+    {
+      "point": "实用主义者要能比较才肯买，所以要主动创造竞争。",
+      "core": "In sum, the pragmatists are loath to buy until they can compare. Competition, therefore, becomes a fundamental condition for purchase.",
+      "caseTitle": "Box 夹在两者之间",
+      "case": "The challenge Box faced was that enterprises already had a widely proliferated solution for end-user file sharing called SharePoint from Microsoft. At the same time Dropbox was a better-known brand with an established consumer appeal. How could Box win here? Actually, it turns out this is the perfect positioning situation. SharePoint represented the viable market alternative while Dropbox represented the viable product alternative. All Box had to do was position itself at the intersection—Dropbox’s ease of use meets SharePoint’s enterprise standards. Best of both worlds.",
+      "explain": "Box 用微软 SharePoint 作市场替代，表明自己争的是企业文件共享这笔预算；用 Dropbox 作产品替代，表明自己代表新的易用技术。定位在两者交叉处，客户一下就知道它是什么、该和谁比。"
+    },
+    {
+      "point": "没有市场替代方案，就找不到可以挪用的现成预算。",
+      "core": "Creating the competition is the single most important marketing communication decision made in the battle to enter the mainstream.",
+      "caseTitle": "Better Place 换电",
+      "case": "The idea was compelling enough to raise $850 million. But it never could get off the ground. Here the company did have a clear product alternative—the other electric vehicles on the market, the most successful of which to date has been the Tesla. But it had no market alternative. Public transportation, Zipcars, cell phones—they were all analogies. There was no budget to repurpose anywhere.",
+      "explain": "Better Place 想用可更换电池和按里程付费解决电动车充电慢的问题，融资八亿五千万美元。它有特斯拉这样的产品参照，却没有市场替代方案，公共交通、Zipcar 都只是类比，没有现成预算可挪用，最终没能起步。"
+    }
+  ],
+  "7 - Launch the Invasion": [
+    {
+      "point": "产品的价格点，决定了适合的分销渠道和销售方式。",
+      "core": "The type of channel you select for long-term servicing of the market is a function of the price point of the product.",
+      "caseTitle": "一千万收入要几笔单",
+      "case": "Suppose the target were $10 million, which if it came from a single beachhead segment is a reasonable revenue stream to suggest you have successfully crossed the chasm. In an OEM model fulfilled through two-tier distribution, that could be the result of just one or two big design wins. In a direct sales model, it is probably more like twenty to forty transactions, with half of it coming from perhaps the top five. In a Sales 2.0 model, you would probably multiply that by ten—say, 200 to 400 transactions.",
+      "explain": "同样一千万美元收入，走 OEM 两级分销可能只需一两个大的设计订单，直销约二十到四十笔，Sales 2.0 模式就要两百到四百笔。单价越低交易越多，渠道越要偏交易型；单价越高，越依赖关系型直销。"
+    }
+  ],
+  "Conclusion: Leaving the Chasm Behind": [
+    {
+      "point": "鸿沟之前许下的承诺，会束缚鸿沟之后的企业。",
+      "core": "The fundamental lesson of this chapter is a simple one: The post-chasm enterprise is bound by the commitments made by the pre-chasm enterprise.",
+      "caseTitle": "押注曲棍球棒曲线",
+      "case": "The staircase model is perfectly viable—unless you have mortgaged your stake in the company on making the hockey stick scenario come true. That, unfortunately, is precisely what most high-tech funding plans commit to. And when the hockey stick scenario does not come true, and the mortgage comes due, the founder’s equity gets radically diluted, things fall apart, and the company dies in the chasm.",
+      "explain": "真实的收入曲线是台阶式的，鸿沟期会停滞。但多数融资计划押注曲棍球棒式增长，一旦增长没按时出现，创始人股权被大幅稀释，公司就死在鸿沟里。早期为融资许下的承诺，后期要付出代价。"
+    },
+    {
+      "point": "早期市场的开拓型销售，过了鸿沟可能把公司拖回去。",
+      "core": "These same people, however, also become a liability once you have crossed the chasm. Indeed, they are the ones primarily responsible for dragging companies back into the chasm.",
+      "caseTitle": "停不下来的定制单",
+      "case": "The problem is, they cannot stop making the visionary sale, a sale predicated on delivering custom implementations of the whole product. Such contracts are fulfilled by robbing from Peter—the mainstream R&D effort—to pay Paul—the custom R&D effort necessary to achieve the visionaries’ buying objective.",
+      "explain": "开拓型销售擅长卖给远见者，拿大单靠的是承诺定制方案。过了鸿沟后他们仍停不下这类交易，只能挪用主流产品的研发资源去做定制，完整产品无法标准化，公司又被拖回鸿沟。"
+    }
+  ],
+  "Appendix 2: The Four Gears Model for Digital Consumer Adoption": [
+    {
+      "point": "变现会拖慢其他齿轮，消费互联网往往先普及、后赚钱。",
+      "core": "The key idea here is that monetization, regardless of when it is introduced, will slow down the other three gears.",
+      "caseTitle": "先被收购再变现",
+      "case": "Most of the great consumer Internet successes in the first decade of this century followed this approach, introducing the monetization gear very late in the game, in some cases not until after they had sold themselves to a monetization engine (YouTube to Google, Instagram to Facebook, Tumblr to Yahoo!).",
+      "explain": "YouTube、Instagram、Tumblr 都很晚才启动变现齿轮，有的直到被谷歌、Facebook、雅虎收购后才开始赚钱。过早变现会像猛松离合一样让增长熄火，所以它们先把流量、参与和口碑做起来。"
+    }
+  ]
+}

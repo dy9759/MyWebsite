@@ -28,7 +28,8 @@ const SiteNav = () => {
   return (
     <nav
       aria-label={copy.mainNav}
-      className="sticky top-0 z-50 mb-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      // xl+: wider than the site column (up to 110rem, 2rem gutters), matching wide note pages.
+      className="sticky top-0 z-50 mb-4 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80 xl:mx-[max(calc(50%-50vw+2rem),calc(50%-55rem))]"
     >
       <div className="flex min-h-10 items-center justify-between gap-3">
         <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-1 pr-2 text-sm sm:flex-nowrap sm:gap-6 sm:overflow-x-auto">

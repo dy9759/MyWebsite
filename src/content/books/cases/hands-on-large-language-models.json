@@ -1,0 +1,138 @@
+{
+ "1. An Introduction to Large Language Models": [
+  {
+   "point": "预训练极其昂贵，微调让多数团队能在基础模型上低成本适配",
+   "core": "It saves massive amounts of resources because the pretraining phase is quite costly and generally requires data and computing resources that are out of the reach of most people and organizations.",
+   "caseTitle": "Llama 2 的训练账单",
+   "case": "To create the Llama 2 family of models, for example, Meta used A100-80 GB GPUs. Assuming renting such a GPU would cost $1.50/hr, the total costs of creating these models would exceed $5,000,000!",
+   "explain": "按每小时1.5美元租A100算，Meta训练Llama 2系列的成本超过500万美元，这是大多数团队负担不起的。所以更现实的做法是拿现成的基础模型来微调，跳过最贵的预训练阶段。"
+  }
+ ],
+ "2. Tokens and Embeddings": [
+  {
+   "point": "分词器的设计取决于训练目标，代码模型需要专门的分词器",
+   "core": "This comparison will show us that newer tokenizers have changed their behavior to improve model performance, and we’ll also see how specialized models (like code generation models, for example) often need specialized tokenizers.",
+   "caseTitle": "GPT-4 分词器",
+   "case": "The GPT-4 tokenizer represents the four spaces as a single token. In fact, it has a specific token for every sequence of whitespaces up to a list of 83 whitespaces. The Python keyword elif has its own token in GPT-4. Both this and the previous point stem from the model’s focus on code in addition to natural language.",
+   "explain": "GPT-4的分词器把四个空格编成一个token，最多83个连续空格都有专门的token，Python关键字elif也有独立token。这些设计都是为了处理代码，说明分词器要跟着模型处理的数据来设计。"
+  }
+ ],
+ "3. Looking Inside Large Language Models": [
+  {
+   "point": "KV 缓存避免重复计算，是生成提速的关键",
+   "core": "If we give the model the ability to cache the results of the previous calculation (especially some of the specific vectors in the attention mechanism), we no longer need to repeat the calculations of the previous streams.",
+   "caseTitle": "关掉缓存慢近5倍",
+   "case": "This comes out to 21.8 seconds. A dramatic difference. In fact, from a user experience standpoint, even the four-second generation time tends to be a long time to wait for a user that’s staring at a screen and waiting for an output from the model.",
+   "explain": "同一个写长邮件的提示，在T4 GPU上开着缓存要4.5秒，关掉缓存要21.8秒。缓存省掉了前面token的重复计算，差距接近5倍。作者还指出4秒对用户来说已经很长，这也是API要流式输出的原因。"
+  }
+ ],
+ "4. Text Classification": [
+  {
+   "point": "把标签写成描述句再做向量，没有标注也能零样本分类",
+   "core": "We can describe our labels based on what they should represent. For example, a negative label for movie reviews can be described as “This is a negative movie review.”",
+   "caseTitle": "零标注拿到 F1 0.78",
+   "case": "An F1 score of 0.78 is quite impressive considering we did not use any labeled data at all! This just shows how versatile and useful embeddings are, especially if you are a bit creative with how they are used.",
+   "explain": "在烂番茄影评数据上，把正负标签写成一句描述，再和影评向量比相似度，没用一条标注数据就拿到F1 0.78。对比用标注数据训练分类器得到的0.85，差距不大，说明这个技巧足够用来先验证任务可不可行。"
+  }
+ ],
+ "5. Text Clustering and Topic Modeling": [
+  {
+   "point": "BERTopic 先聚类再从簇中提取关键词，给每簇一个可读主题",
+   "core": "BERTopic is a topic modeling technique that leverages clusters of semantically similar texts to extract various types of topic representations.",
+   "caseTitle": "主题0：语音识别",
+   "case": "For example, topic 0 contains the keywords “speech,” “asr,” and “recognition.” Based on these keywords, it seems that the topic is about automatic speech recognition (ASR).",
+   "explain": "在4万多篇arXiv NLP论文摘要上，BERTopic先把相近的摘要聚成簇，再用c-TF-IDF提取关键词。主题0的关键词是speech、asr、recognition，一看就知道讲的是语音识别。"
+  }
+ ],
+ "6. Prompt Engineering": [
+  {
+   "point": "思维链让模型先推理再作答，提升复杂问题的表现",
+   "core": "Chain-of-thought aims to have the generative model “think” first rather than answering the question directly without any reasoning.",
+   "caseTitle": "食堂苹果题",
+   "case": "The cafeteria started with 23 apples. They used 20 apples, so they had 23 - 20 = 3 apples left. Then they bought 6 more apples, so they now have 3 + 6 = 9 apples. The answer is 9. Note how the model doesn’t generate only the answer but provides an explanation before doing so.",
+   "explain": "提示里先给了一个网球题的推理示范，模型回答苹果题时也照着先算23减20得3，再加6得9，最后才给出答案。中间写出来的步骤成了它后面计算可以参考的上下文，这就是先想再答的效果。"
+  }
+ ],
+ "7. Advanced Text Generation Techniques and Tools": [
+  {
+   "point": "窗口记忆只保留最近几轮，控制了长度但会遗忘早期信息",
+   "core": "Although this method reduces the size of the chat history, it can only retain the last few conversations, which is not ideal for lengthy conversations.",
+   "caseTitle": "忘掉年龄的聊天机器人",
+   "case": "Now that we have added another conversation we are up to three conversations. Considering the memory only retains the last two conversations, our very first question is not remembered. Since we provided an age in our first interaction, we check whether the LLM indeed does not know the age anymore:",
+   "explain": "窗口设为k=2，第一轮里用户报了名字和33岁。到第三轮之后，第一轮已经被挤出窗口，再问年龄时模型答不上来。窗口记忆省了token，代价就是早期信息会丢。"
+  }
+ ],
+ "8. Semantic Search and Retrieval-Augmented Generation": [
+  {
+   "point": "语义检索按含义匹配，能找到不含查询关键词的答案",
+   "core": "Notice that this wouldn’t have been possible if we were only doing keyword search because the top result did not include the same keywords in the query.",
+   "caseTitle": "星际穿越科学性",
+   "case": "Note that the first result does not really answer the question despite it sharing the word “science” with the query.",
+   "explain": "查询是科学有多严谨。稠密检索排第一的句子讲天文学家称赞影片的科学准确性，和查询没有共同的词，却正好回答了问题。BM25排第一的只是因为含有science一词，内容并不相关。"
+  },
+  {
+   "point": "库里没有答案时，稠密检索仍会返回最近的结果",
+   "core": "What happens, for example, if the texts don’t contain the answer? We still get results and their distances.",
+   "caseTitle": "问月球质量",
+   "case": "The film had a worldwide gross over $677 million (and $773 million with subsequent re-releases), making it the tenth-highest grossing film of 2014",
+   "explain": "在星际穿越的维基文本里问月球质量是多少，排第一的却是一句票房数据。语料里根本没有答案，检索照样给出最近邻，所以需要设置距离阈值，或者让系统能回答库里没有。"
+  }
+ ],
+ "9. Multimodal Large Language Models": [
+  {
+   "point": "BLIP-2 只训练一座桥，就让现成的 LLM 能看图",
+   "core": "By leveraging pretrained models, BLIP-2 only needs to train the bridge without needing to train the image encoder and LLM from scratch.",
+   "caseTitle": "超跑图像描述",
+   "case": "generated_text contains the caption: an orange supercar driving on the road at sunset This seems like a perfect description for this image!",
+   "explain": "图像编码器和语言模型都是现成的，BLIP-2只训练中间的Q-Former。输入一张AI生成的超跑图片，它就生成了日落时分行驶在路上的橙色超跑这样准确的描述，看图说话的能力来自这座桥。"
+  }
+ ],
+ "10. Creating Text Embedding Models": [
+  {
+   "point": "损失函数的选择会显著影响 embedding 模型的效果",
+   "core": "A Pearson cosine score of 0.72 is a big improvement compared to the softmax loss example, which scored 0.59. This demonstrates the impact the loss function can have on performance.",
+   "caseTitle": "MNR 损失达到 0.80",
+   "case": "Compared to our previously trained model with softmax loss (0.72), our model with MNR loss (0.80) seems to be much more accurate!",
+   "explain": "都从同一份5万条MNLI子集出发，softmax损失得0.59，余弦相似度损失得0.72，多负例排序损失得0.80。模型没变，只换了损失函数，分数就一路上升。"
+  },
+  {
+   "point": "难负例与问题相关但答案错误，能逼模型学到更细的区分",
+   "core": "Instead, we would like to have negatives that are very related to the question but not the right answer. These negatives are called hard negatives.",
+   "caseTitle": "阿姆斯特丹人口",
+   "case": "Let’s assume we have the following question: “How many people live in Amsterdam?” A related answer to this question would be: “Almost a million people live in Amsterdam.” To generate a good hard negative, we ideally want the answer to contain something about Amsterdam and the number of people living in this city.",
+   "explain": "问阿姆斯特丹有多少人，正确答案是将近一百万。好的难负例也要谈阿姆斯特丹和人口，比如说乌得勒支人口比阿姆斯特丹多。这种看起来相关的错误答案，模型必须理解细节才能分开。"
+  }
+ ],
+ "11. Fine-Tuning Representation Models for Classification": [
+  {
+   "point": "SetFit 用极少标注就能接近全量数据的效果",
+   "core": "Thus, this pipeline demonstrates the potential of taking the time to label just a few instances.",
+   "caseTitle": "32 条标注得 F1 0.85",
+   "case": "With only 32 labeled documents, we get an F1 score of 0.85. Considering that the model was trained on a tiny subset of the original data, this is very impressive!",
+   "explain": "原数据约有8500条影评，SetFit每类只取16条，一共32条。它先自动生成1280个句对来对比微调，再训练分类头，最后拿到F1 0.85，和用全量数据训练的结果持平。"
+  },
+  {
+   "point": "算力不够时，可只训练部分层来折中速度和效果",
+   "core": "It demonstrates that although we generally want to train as many layers as possible, you can get away with training less if you do not have the necessary computing power.",
+   "caseTitle": "冻结到第10层",
+   "case": "We got an F1 score of 0.8, which is much higher than our previous score of 0.63 when freezing all layers.",
+   "explain": "几乎冻结所有层只训练分类头时，F1只有0.63；改成冻结到第10个编码器块、放开后面几层训练后，F1回到0.80。只训练一部分层省下了算力，效果损失也不大。"
+  }
+ ],
+ "12. Fine-Tuning Generation Models": [
+  {
+   "point": "LLM 内在维度很低，LoRA 用低秩矩阵就能大幅减少可训练参数",
+   "core": "This means that we can find small ranks that approximate even the massive matrices of an LLM.",
+   "caseTitle": "GPT-3 权重矩阵",
+   "case": "A 175B model like GPT-3, for example, would have a weight matrix of 12,288 × 12,288 inside each of its 96 Transformer blocks. That’s 150 million parameters. If we can successfully adapt that matrix into rank 8, that would only require two 12,288 × 2 matrices resulting in 197K parameters per block.",
+   "explain": "GPT-3每个Transformer块里的一个权重矩阵就有1.5亿参数，用低秩分解后每块只需约19.7万个参数，少了几个数量级。这正是LoRA能大幅节省速度、存储和算力的原因。"
+  },
+  {
+   "point": "只盯一个基准优化，模型会刷高分却丢掉真正的能力",
+   "core": "In the context of LLMs, when using a specific benchmark, we tend to optimize for that benchmark regardless of the consequences.",
+   "caseTitle": "只会说一句话的模型",
+   "case": "For instance, if we focus purely on optimizing for generating grammatically correct sentences, the model could learn to only output one sentence: “This is a sentence.” It is grammatically correct but tells you nothing about its language understanding capabilities.",
+   "explain": "如果只按语法是否正确来打分，模型只要反复输出This is a sentence就能拿满分，却说明不了它懂不懂语言。这是古德哈特定律在LLM评估上的体现，所以要按自己的实际用例来评估。"
+  }
+ ]
+}

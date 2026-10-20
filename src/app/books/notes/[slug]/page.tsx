@@ -42,7 +42,14 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
 
   return (
     // Chapter-mapped notes get a third column (the original) on wide screens.
-    <article className={`mx-auto max-w-5xl px-4 ${parts.chapters.length ? "xl:max-w-[96rem]" : ""}`}>
+    <article
+      className={
+        parts.chapters.length
+          ? // Wider than the site column on large screens (up to 110rem, 2rem gutters).
+            "mx-auto max-w-5xl px-4 xl:mx-[max(calc(50%-50vw+2rem),calc(50%-55rem))] xl:max-w-none"
+          : "mx-auto max-w-5xl px-4"
+      }
+    >
       <Link href="/books/" className="text-sm text-muted-foreground hover:text-foreground">
         ← 读书
       </Link>

@@ -1,0 +1,91 @@
+{
+ "ebscohost (3)": [
+  {
+   "point": "好假设要可测试、精确、单一，写清谁、付多少、做什么",
+   "core": "A well-formed business hypothesis describes a testable, precise, and discrete thing you want to investigate.",
+   "caseTitle": "按年级定制的科学盒子",
+   "case": "We believe millennial parents with kids ages 5–9 will pay $15 a month for curated science projects that match their kids’ education level.",
+   "explain": "这条假设点明了对象是孩子 5 到 9 岁的千禧一代父母，价格是每月 15 美元，内容是匹配年级的科学项目，只讲一件事、能用数据证伪；书中对比的反例是千禧一代会在科学项目上花很多钱，模糊到无法检验。"
+  },
+  {
+   "point": "刻意写反向假设，避免只想证明自己相信的东西",
+   "core": "In order to prevent this from occurring create a few hypotheses that try to disprove your assumptions.",
+   "caseTitle": "不会订阅的反向假设",
+   "case": "“We believe that millennial parents won’t subscribe to monthly educational science projects for their kids.” You can even test these competing hypotheses at the same time. This is especially helpful when team members cannot agree on which hypothesis to test.",
+   "explain": "团队在会订阅之外，再写一条父母不会订阅的竞争假设，两条同时测。这样既抵消确认偏误，也让意见不一的成员不用争论先测哪条，交给证据裁决。"
+  }
+ ],
+ "BlandDavidJOste_2020_Experiment_TestingBusinessIdeas": [
+  {
+   "point": "证据不会自己说话，要把多个实验的证据放在一起分析",
+   "core": "Evidence does not speak on its own. Gather the evidence you have from different experiments for a specific hypothesis and analyze it.",
+   "caseTitle": "科学盒子的三类证据",
+   "case": "Month of February: “science fair ideas” had 5k–10k searches. “kindergarten science fair ideas” had 10k–15k searches. “first grade science fair ideas” had 1k–5k searches. “second grade science fair ideas” had less than 1k searches. “third grade science fair ideas” had less than 1k searches. Concierge Data EVIDENCE STRENGTH Time to Create = 2 hours for each kit Cost to Create = $10–$15 Cost to Ship = $5–$8 Parent Customer Satisfaction Score = Partially Satisfied",
+   "explain": "搜索数据显示幼儿园科学项目的搜索量最高、二三年级不到 1k；礼宾实验显示每盒要做 2 小时、成本 10 到 15 美元，满意度只是部分满意。不同实验给出不同维度的证据，需合起来才能判断假设。"
+  },
+  {
+   "point": "实验仪式占用的时间其实不多，主要由核心团队承担",
+   "core": "In reality, the commitment outside of actually running the experiments is quite modest, and appropriately shouldered by the core team.",
+   "caseTitle": "仪式的时间账",
+   "case": "Core Team 15.25 hours 9% of working time Extended Team 5 hours 3% of working time Stakeholders 1 hour 0.6% of working time",
+   "explain": "按每周 40 小时算，核心团队花在规划、站会、学习和复盘上的时间约占 9%，扩展团队 3%，干系人只要 0.6%。数字说明这套仪式成本不高，不该成为不做的借口。"
+  }
+ ],
+ "BlandDavidJOste_2020_DiscoveryExperiments_TestingBusinessIdeas": [
+  {
+   "point": "亲眼观察客户真实使用，才能弥补说与做之间的差距",
+   "core": "There is nothing more effective than observing a customer when and where they are actually experiencing the pain and problems we are trying to solve.",
+   "caseTitle": "Intuit 跟随回家",
+   "case": "In those days software was installed on a physical computer via floppy discs (sounds crazy), so Scott and our product teams asked real customers if they could watch them install the software after it was purchased. Through observation, product teams uncovered new insights, and complete surprises about how customers actually used our software in the real world.",
+   "explain": "Intuit 早期请刚买软件的客户允许员工在旁看他们安装，观察中发现了许多关于客户实际怎么用软件的意外。这些是访谈里问不出来的，必须到客户真正遇到问题的现场看。"
+  }
+ ],
+ "BlandDavidJOste_2020_EmailCampaign_TestingBusinessIdeas": [
+  {
+   "point": "粗糙的实体原型能让人一眼看到问题，快速对齐判断",
+   "core": "3D print is ideal for rapidly testing iterations of your physical solution with customers.",
+   "caseTitle": "NSA 的 CubeSat 模型",
+   "case": "The team set out to devise a way to help these stakeholders quickly and unequivocally see the need for a new solution. After a few failed attempts, the team and their coach wondered if using a 3D-printer to create a life-sized mockup of the CubeSat might help them see it. They were ready the next day! Evidence The stakeholders immediately saw the need for a new solution after seeing how the currently certified encryption product simply wouldn’t fit in the 3D printed mock-up!",
+   "explain": "内部干系人原本看不出需要新加密设备。团队隔天就 3D 打印出等比 CubeSat 模型，大家立刻看到现有认证产品根本装不进去，项目随即获得资源。实物比任何说明都更快对齐。"
+  },
+  {
+   "point": "线上难触达的客户，可以用实体宣传册当面测价值主张",
+   "core": "Physical brochures are ideal for testing your value proposition in person with customers who are difficult to find online.",
+   "caseTitle": "美国家庭保险找农场主",
+   "case": "In the past, this team had used Facebook/ Google Ads to drive traffic to a landing page, which is a great combination but it was difficult to target farmers online, and the team wasn’t getting enough qualitative insights. So they decided to go analog and face-to-face at a large farmer convention.",
+   "explain": "农场主很难通过 Facebook 和 Google 广告精准找到，定性反馈也不够。团队于是去农业展会当面发宣传册，书中记录有 15% 的目标农场主主动来电或发邮件，还发现养牛户的痛点比种玉米的更强。"
+  }
+ ],
+ "BlandDavidJOste_2020_CardSorting_TestingBusinessIdeas": [
+  {
+   "point": "礼宾式实验用人工交付价值，先验证需求再谈规模",
+   "core": "Concierge is ideal for learning firsthand about steps needed to create, capture, and deliver value to a customer.",
+   "caseTitle": "Realtor.com 手工 PDF",
+   "case": "80 signups in just a few minutes. It surpassed expectations quite quickly. Based on site statistical data, the team had estimated that it would generate 30 signups within 3 hours. It generated more than 80 signups in a few minutes, faster than they could even shut it off.",
+   "explain": "产品经理手工拼出买卖房时机的 PDF 再逐个发邮件，团队预计 3 小时 30 个注册，结果几分钟就超过 80 个。不写代码就证实需求存在，但量一大人工也会吃紧，这正是礼宾式的边界。"
+  },
+  {
+   "point": "等比原型适合小样本测试高保真方案，再决定是否规模化",
+   "core": "Life-sized prototypes are ideal for testing higher fidelity solutions with customers at a small sample size, before deciding to scale your solution.",
+   "caseTitle": "Zoku 的 25 平米公寓",
+   "case": "During the course of all the validation rounds they learned that “the experience of space” is different from the amount of square feet and can be positively influenced by clear sight lines through the furniture (the shutters in the sleeping area), large windows, and smart lighting.",
+   "explain": "Zoku 想验证差旅人士愿意在 25 平米小公寓长住，就搭了等比样板间请 150 位差旅人士体验。他们发现空间体验不等于面积，视线通透、大窗和智能照明都能改善它，这在图纸上测不出来。"
+  }
+ ],
+ "BlandDavidJOste_2020_WizardOfOz_TestingBusinessIdeas": [
+  {
+   "point": "模拟销售适合在开发前测试不同价格档位",
+   "core": "Mock sale is ideal for determining different price points for your product.",
+   "caseTitle": "Buffer 的三档定价",
+   "case": "Joel decided to test viability by adding three different payment tier options to the landing page. Free = $0/month for 1 tweet a day and 5 tweets in your buffer queue. Standard = $5/month for 10 tweets a day and 50 tweets in your buffer queue. Max = $20/month for unlimited tweets a day and unlimited tweets in your buffer queue.",
+   "explain": "Joel 在产品做出来之前，就在落地页放了 0、5、20 美元三档价格，点击后只出现邮件登记。书中结果是 5 美元档注册最多，他据此确认有人愿意付费并定下首发价格。"
+  },
+  {
+   "point": "让客户白纸黑字写下数量，才能看清口头热情的水分",
+   "core": "Letter of intent is ideal for evaluating key partners and B2B customer segments.",
+   "caseTitle": "Thrive 的意向书",
+   "case": "They also learned that the number of units people say they will purchase is much more than they are willing to put into writing. Those who said they would buy 1000 units only wrote down that they will buy 300 units. A few who said they would buy 100 only wrote down that they will buy 15–20.",
+   "explain": "园林承包商口头说要很多，可一旦写进意向书，说 1000 套的只写 300 套，说 100 套的只写 15 到 20 套。虽然不具法律约束，落笔仍让对方投入更多，证据也更可信。"
+  }
+ ]
+}

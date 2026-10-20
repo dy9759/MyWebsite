@@ -1,0 +1,153 @@
+{
+  "2. Cheap Changes Everything": [
+    {
+      "point": "预测变便宜后，会被用到原本不属于预测的问题上",
+      "core": "More significantly, because it is becoming cheaper it is being used for problems that were not traditionally prediction problems.",
+      "caseTitle": "自动驾驶改写为预测",
+      "case": "Autonomous vehicles could not function outside a highly predictable, controlled environment—until engineers reframed navigation as a prediction problem. Instead of telling the machine what to do in each circumstance, engineers recognized they could instead focus on a single prediction problem: “What would a human do?”",
+      "explain": "过去的自动驾驶靠如果怎样就怎样的规则，只能在有详细平面图的工厂和仓库里跑，城市街道上的情况多到写不完。工程师把导航改写成预测人类司机会怎么做，这个原本不算预测的问题，才因为便宜的预测变得可解。"
+    }
+  ],
+  "3. Prediction Machine Magic": [
+    {
+      "point": "预测就是用已有信息补全缺失信息，也可以针对当下",
+      "core": "Business applications are well aligned with our definition of prediction as the process of filling in missing information.",
+      "caseTitle": "主动换卡的信用卡公司",
+      "case": "Instead, he received a proactive call that his card had been compromised and that a new card was already in the mail. The credit card provider had accurately inferred, based on Avi’s spending habits and a myriad of other available data, that the transaction was fraudulent.",
+      "explain": "作者 Avi 的卡被盗刷，这次他还没发现，发卡方就打电话告知并已寄出新卡。发卡方要预测的不是未来，而是眼前这笔交易是否欺诈这一缺失信息，靠的是他的消费习惯等已有数据，看起来像魔法。"
+    }
+  ],
+  "6. Data Is the New Oil": [
+    {
+      "point": "数据采集是有成本的投资，要在更多数据的收益与获取成本间权衡",
+      "core": "But data can be costly to acquire. Thus, the investment involves a trade-off between the benefit of more data and the cost of acquiring it.",
+      "caseTitle": "Cardiogram 心率数据",
+      "case": "Collecting this data was a costly investment. Patients had to wear a device at all times, so it intruded on their regular routines (particularly for those without an Apple Watch). Because it involved health data, there were privacy concerns, so Cardiogram developed its system in a way that improved privacy but at the expense of increased development costs and reduced ability of the machine to improve predictions from feedback.",
+      "explain": "Cardiogram 用心率预测心律不齐，需要用户全天佩戴设备，打扰日常生活；健康数据又涉及隐私，它为保护隐私多付出开发成本，还削弱了靠反馈数据改进预测的能力。每多要一类数据，都要算清收益和代价。"
+    }
+  ],
+  "7. The New Division of Labor": [
+    {
+      "point": "人和机器犯的错误类型不同，结合起来能互补短板",
+      "core": "Sometimes, the combination of humans and machines generates the best predictions, each complementing the other’s weaknesses.",
+      "caseTitle": "乳腺癌病理切片",
+      "case": "The team’s winning deep-learning algorithm made the correct prediction 92.5 percent of the time compared with a human pathologist whose performance was at 96.6 percent. While this seemed like a victory for humanity, the researchers went further and combined the predictions of their algorithm and a pathologist’s. The result was an accuracy of 99.5 percent.",
+      "explain": "单看准确率，算法 92.5% 不如病理医生 96.6%。但医生说有癌时很少错，算法说没有癌时更准，两者错在不同地方。把两者的预测结合后准确率达到 99.5%，人类的错误率从 3.4% 降到 0.5%。"
+    }
+  ],
+  "8. Unpacking Decisions": [
+    {
+      "point": "判断是确定各种结果的回报，同样的预测配不同判断会得出不同决策",
+      "core": "Judgment is the process of determining the reward to a particular action in a particular environment. It is about working out the objective you’re actually pursuing.",
+      "caseTitle": "要不要带伞",
+      "case": "If you really hate toting an umbrella (a 6 out of 10), your judgment about preferences can also be accommodated. In this case, the average payoff from leaving an umbrella at home is unchanged (at 7.5), while the payoff from taking one is now 6. So, such umbrella haters will leave the umbrella at home.",
+      "explain": "预测都是四分之一概率下雨。若带伞保持干爽打 8 分，带伞的平均回报 8 高于不带伞的 7.5，应该带伞；若极讨厌带伞只打 6 分，结论就反过来。预测没变，变的是对结果的估值，这就是判断。"
+    }
+  ],
+  "9. The Value of Judgment": [
+    {
+      "point": "回报很少一目了然，弄清回报要花时间甚至靠实验试出来",
+      "core": "Payoffs are rarely obvious, and the process of understanding those payoffs can be time-consuming and costly.",
+      "caseTitle": "ZipRecruiter 定价",
+      "case": "It was relatively easy to measure the short-run consequences of a price increase. The experts found that increasing prices for some types of new customers would increase profits on a day-to-day basis by over 50 percent. However, ZipRecruiter didn’t act right away. It recognized the longer-term risk and waited to see if the higher-paying customers would leave. After four months, it found that the price increase was still highly profitable.",
+      "explain": "涨价的短期效果容易测，日利润能提高五成以上，但长期客户会不会流失才是判断的难点。ZipRecruiter 没有马上行动，而是等了四个月确认高价客户没有离开，才认定涨价划算。弄清回报付出的正是时间。"
+    }
+  ],
+  "11. Taming Complexity": [
+    {
+      "point": "许多现有方案只是缺乏预测时的将就，好的预测会削弱它们",
+      "core": "Mail robots and airport lounges have something in common: they are both imperfect solutions to uncertainty, and they both will be undermined by better prediction.",
+      "caseTitle": "沿化学轨迹送信的机器人",
+      "case": "To guide the Mailmobile, a technician would lay out a chemical trail that gave off ultraviolet light from the mail room along the carpeted floors to various offices. The robot used a sensor to slowly follow the trail (at less than one mile per hour) until the chemical markings signaled it to stop.",
+      "explain": "Mailmobile 无法预测环境，只能沿技术员铺好的化学轨迹以不到每小时一英里的速度爬行，办公室还得为它调整布局。这是缺少预测时的将就。有了预测机器，机器人能识别更多情况，不再需要预设轨道。"
+    }
+  ],
+  "12. Fully Automated Decision-Making": [
+    {
+      "point": "对快速反应回报高、判断又能写定时，最适合完全自动化",
+      "core": "In each, there are high returns for quick action responses to predictions and judgment is either codifiable or predictable.",
+      "caseTitle": "特斯拉提前刹车",
+      "case": "If I was driving manually, it is unlikely that I would have been able to stop in time, since I could not see the car that had stopped. The car reacted well before the car ahead of me reacted and that made the difference between a crash and a hard stop. Strong work Tesla, thanks for saving me.",
+      "explain": "车主前方的卡车挡住视线，特斯拉通过雷达预测到再前面的车已急停，在卡车反应之前就自动刹车。从预测到行动只有一瞬间，交给人来判断就来不及，而遇到险情要刹车这一判断可以事先写定，所以适合自动化。"
+    }
+  ],
+  "13. What’s at Stake?": [
+    {
+      "point": "同样准确的 AI，在高赌注场景仍需人工把关，因为错误代价不对称",
+      "core": "The issue wasn’t that AI was doing a bad job; in fact, it was surprisingly good, but that wasn’t enough because these transactions were very high stakes.",
+      "caseTitle": "Facebook 内容审核",
+      "case": "To Facebook, the consequences of a false positive were much higher than that of a false negative. In the latter case, some piece of content was blocked, which may have led to a disgruntled user. In the former case, content that was allowed may have led to many unhappy users. That imbalance meant that it could not just rely on AI to make a final recommendation.",
+      "explain": "Facebook 的识别准确率已经很高，但误放一条有害内容会让很多用户不满，误删一条只惹恼一个人。正因为两类错误代价严重不对称，它只让 AI 以低门槛标记可疑内容，最终由人工决定，雇了大量审核员。"
+    }
+  ],
+  "14. Deconstructing Workflows": [
+    {
+      "point": "AI 是通用技术，只把它塞进原有流程拿不到大收益，要重新理解工作流",
+      "core": "Hence, no manager is going to achieve large gains in productivity by just “throwing some AI” at a problem or into an existing process. Instead, AI is the type of technology that requires rethinking processes in the same way that Hammer and Champy did.",
+      "caseTitle": "iPhone 软键盘",
+      "case": "Ahead of virtually anyone else, Apple engineers used 2006-era machine learning to build predictive algorithms so that key size changed depending on what a person was typing. Technology with the same heritage powers the autocorrect predictive text you see today. But fundamentally, the reason this worked was QWERTY.",
+      "explain": "苹果工程师拆解了打字流程：找键、点击、移向下一个键，意识到按键不必大小固定。用预测判断用户下一个要按的键并临时放大它，而 QWERTY 本就让相邻键很少连用。理解工作流，预测才找到真正的用武之地。"
+    }
+  ],
+  "15. Decomposing Decisions": [
+    {
+      "point": "把任务拆到决策层，才能看清预测插在哪里、各要素由谁提供",
+      "core": "Tasks need to be decomposed in order to see where prediction machines can be inserted. This allows you to estimate the benefit of the enhanced prediction and the cost of generating that prediction.",
+      "caseTitle": "Atomwise 药物筛选",
+      "case": "Atomwise’s value proposition lies in delivering an AI tool that supports a prediction task in its customers’ drug discovery workflow. It removes the prediction task from human hands. To provide that value, it amassed a unique data set to predict binding affinity. The prediction’s value is in reducing the cost and increasing the likelihood of success for drug development.",
+      "explain": "把药物研发拆开后，Atomwise 只接管预测分子结合亲和力这一环，为此积累了独特数据；药企仍用自己的专业判断评估不同分子的价值，并负责后续测试。拆到决策层，才能说清预测的价值和各方分工。"
+    }
+  ],
+  "17. AI in the C-Suite": [
+    {
+      "point": "当预测足以消除战略困境背后的不确定性，AI 就会改变战略",
+      "core": "Third, companies require a prediction machine that can reduce uncertainty enough to change the balance in the strategic dilemma.",
+      "caseTitle": "Otto 需求预测",
+      "case": "Otto, with a database of 3 billion past transactions and hundreds of other variables (including search terms and demographics), was able to create a prediction machine to handle the forecast. It can now predict with 90 percent accuracy what products it will sell within a month. Relying on those forecasts, it revamped its logistics. Its inventory declined by 20 percent, and annual returns dropped by 2 million items.",
+      "explain": "Otto 的困境是想缩短配送时间又不想囤昂贵库存，根源是需求不确定。基于 30 亿条交易做出的预测能以 90% 准确率预知一个月内的销量，它据此重组物流，库存降 20%，年退货少 200 万件。"
+    }
+  ],
+  "18. When AI Transforms Your Business": [
+    {
+      "point": "不确定性决定企业边界，预测降低不确定性就会移动这条边界",
+      "core": "Uncertainty has an impact on a business’s boundaries.",
+      "caseTitle": "航空公司与天气",
+      "case": "Forbes and Lederman identified a driving factor—the weather—or, more specifically, uncertainty about the weather. When a weather event is out of the ordinary, it delays flights, which, in the tightly networked and capacity-managed airline industry, can have ripple effects throughout the entire system. When the weather goes sour, major airlines do not want to be hamstrung by partners checking their contracts when they have to make fast changes with uncertain costs. So, for routes where weather-related delays are likely, the majors retain control and operation.",
+      "explain": "支线伙伴成本更低，大航空公司却自营许多航线，原因是天气的不确定性。恶劣天气时需要快速调整，合同写不全，不能让伙伴翻合同扯皮，所以易延误航线留在内部。若 AI 能预测并处理天气影响，外包就会更可行。"
+    }
+  ],
+  "19. Your Learning Strategy": [
+    {
+      "point": "越早上线学得越快，但不成熟的模型会伤害品牌甚至用户",
+      "core": "Machines learn faster with more data, and when machines are deployed in the wild, they generate more data. However, bad things can happen in the real world and damage the company brand.",
+      "caseTitle": "特斯拉自动驾驶测试",
+      "case": "Cars can exit freeways without notice or press the brakes when mistaking an underpass for an obstruction. Nervous drivers may opt not to use the autonomous features and, in the process, hinder Tesla’s ability to learn. Even if the company can persuade some people to become beta testers, are those the people it wants?",
+      "explain": "特斯拉必须让车在真实路况中自动驾驶才能学习，但不成熟的系统会突然驶出高速或把桥洞当障碍刹车。紧张的车主干脆不用，反而让它学不到；愿意当测试者的又可能是偏爱冒险的人，训练出的模型未必像普通司机。"
+    },
+    {
+      "point": "经验是稀缺资源，全交给机器会让人失去技能",
+      "core": "In effect, experience is a scarce resource, some of which you need to allocate to humans to avoid deskilling.",
+      "caseTitle": "法航 447 航班",
+      "case": "The bottom line: the junior pilot may have had almost three thousand hours in the air, but it was not quality experience. Most of the time, he had been flying the plane on autopilot. Automation of flying has become commonplace, a reaction to evidence that showed that most airplane accidents after the 1970s were the result of human error.",
+      "explain": "法航 447 在自动驾驶断开后坠入大西洋，当值的资历较浅的飞行员虽有近三千小时飞行记录，但大多在开自动驾驶，缺乏处置险情的经验。自动化本为减少人为失误，却让飞行员积累的经验更少，这正是经验分配的代价。"
+    }
+  ],
+  "20. Managing AI Risk": [
+    {
+      "point": "AI 依赖相关性，看不到反事实时会和简单统计一样被误导",
+      "core": "This story’s point is to demonstrate that AI—which does not rely on causal experimentation but on correlation—can easily fall into the same traps as anyone using data and simple statistics can.",
+      "caseTitle": "eBay 关停搜索广告",
+      "case": "The ads had a measured ROI using traditional statistics of more than 4,000 percent. If the measured ROI was correct, doing a month-long experiment would cost eBay a fortune. However, what they found justified their approach. The search ads eBay placed had practically no impact on sales. Their ROI was negative.",
+      "explain": "按传统统计，eBay 搜索广告回报率超过 4000%。在三分之一的美国地区停投一个月后，销量几乎不受影响，回报率其实为负，因为用户不看广告也会点自然搜索结果。只学相关性的 AI 同样会掉进这个坑。"
+    }
+  ],
+  "21. Beyond Business": [
+    {
+      "point": "AI 在社会层面带来的每个选择都是权衡，没有两全的政策",
+      "core": "The rise of AI presents society with many choices. Each represents a trade-off.",
+      "caseTitle": "比尔盖茨的机器人税",
+      "case": "For example, Bill Gates’s suggestion to tax robots will reduce inequality but will make buying robots less profitable. So companies will invest less in robots, productivity will slow, and we will be poorer overall. The policy trade-off is clear: we have policies that can reduce inequality but likely at the cost of lower income overall.",
+      "explain": "对机器人征税能缓解不平等，但会让购买机器人不再划算，企业减少投资，生产率放缓，整体变穷。这正是生产率与分配之间的权衡：降低不平等的政策往往以总收入下降为代价。"
+    }
+  ]
+}
