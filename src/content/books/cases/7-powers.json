@@ -5,16 +5,16 @@
    "core": "For Intel, microprocessors had Power and memories did not, and this made all the difference. Intel’s enduring triple-digit billion market cap reflects this Power applied across a large revenue stream.",
    "caseTitle": "Intel 存储器与微处理器",
    "case": "Their initial thrust was into computer memories, and indeed they styled themselves “The Memory Company.” The invention of microprocessors came about only as an offshoot of a development job for Busicom, a Japanese calculator company. Their motivation in taking this on was simply to generate much needed cash for their memories business. After a long gestation period, though, microprocessors gained traction, and the paths of their two businesses diverged, leading to wildly different value outcomes: $0 for memories and $150B for microprocessors.",
-   "explain": "两项业务由同一个 Intel 经营，管理、技术和资金优势完全相同，结果却是存储器价值归零、微处理器价值 1500 亿美元。差别无法用运营解释，只能归因于业务本身是否具备力量。"
+   "explain": "英特尔以存储器起家，微处理器只是副业，但两者价值结局悬殊：存储器归零，微处理器达1500亿美元，证明业务本身有无力量决定成败。"
   }
  ],
  "Chapter 1: Scale Economies": [
   {
-   "point": "把内容变成固定成本后，订户规模直接压低单位成本",
+   "point": "内容成为固定成本后，订户规模越大，单位成本越低",
    "core": "Exclusive rights and originals made content, a major component of Netflix’s cost structure, a fixed-cost item. Any potential streamer would now have to ante up the same number of dollars, regardless of how many subscribers they had.",
    "caseTitle": "Netflix 的纸牌屋",
    "case": "If, say, Netflix paid $100M for House of Cards and their streaming business had 30M customers, then the cost per customer was three dollars and change. In this scenario, a competitor with only one million subscribers would have to ante up $100 per subscriber.",
-   "explain": "同一部 1 亿美元的剧，Netflix 摊到每个订户只要三美元多，百万订户的对手却要每户 100 美元。固定成本让规模领先直接转化为成本优势，追赶者算账后很难跟进，这就是规模经济的收益与壁垒。"
+   "explain": "《纸牌屋》1亿美元成本，Netflix 3000万订户人均约3美元；仅100万订户的对手人均要100美元，规模直接决定成本差距。"
   }
  ],
  "Chapter 2: Network Economies": [
@@ -23,7 +23,7 @@
    "core": "Winner take all. Businesses with strong Network Economies are frequently characterized by a tipping point: once a single firm achieves a certain degree of leadership, then the other firms just throw in the towel.",
    "caseTitle": "BranchOut 追赶领英",
    "case": "Catch-up is usually impossible if there are Network Economies and LinkedIn already had 70M members. But Marini was betting that the game was not yet over. His idea was to build on Facebook’s base, which was almost 10x that of LinkedIn, enabling this with tools so that a user could seamlessly download all their information from LinkedIn.",
-   "explain": "LinkedIn 已有 7000 万会员，BranchOut 想借 Facebook 近十倍的用户基数弯道超车，用户一度冲到 1400 万，但真正活跃的很少，最终被收购。职业网络的价值来自已在其中的招聘者和求职者，后来者难以撼动。"
+   "explain": "领英已有7000万用户，BranchOut想借Facebook的10倍用户基础追赶，但网络效应下追赶几乎不可能，说明领先者优势难以撼动。"
   }
  ],
  "Chapter 3: Counter-Positioning": [
@@ -32,16 +32,16 @@
    "core": "The incumbent’s failure to respond, more often than not, results from thoughtful calculation. They observe the upstart’s new model, and ask, “Am I better off staying the course, or adopting the new model?”",
    "caseTitle": "Fidelity 不做指数基金",
    "case": "However, the impact of entry into passive funds on their remaining base business of active funds would have been subtractive. Active funds carry radically higher expense charges and many even had upfront sales commissions (loads). For the assets they would have cannibalized, the revenue decline would have been dramatic.",
-   "explain": "Fidelity 完全有能力做被动基金，但主动基金收费高、还有申购佣金，一旦资产被蚕食，收入会大幅下滑。跟进带来的附带损害大于收益，所以它理性地选择不跟，Vanguard 由此获得反定位力量。"
+   "explain": "富达完全有能力做被动基金，但主动基金收费高、有申购佣金，转做被动会蚕食自身高收入业务，收入下滑明显，因此理性选择不跟进。"
   }
  ],
  "Chapter 4: Switching Costs": [
   {
-   "point": "客户换供应商的损失，让对手必须先补偿才能抢单",
+   "point": "转换成本让对手须先补偿客户损失才能抢单",
    "core": "The firm that has previously roped in the customer, then, can set or adjust prices in a way that puts their potential rival at a cost disadvantage, rendering such a challenge distinctly unattractive.",
    "caseTitle": "HP 的 SAP 迁移事故",
    "case": "HP was not the only company selling servers—customers could easily turn to Dell or IBM. So, as backlog piled up, HP started to lose business. In her conference call with analysts HP CEO Carly Fiorina later stated that this snafu resulted in a $160M financial hit. The HP experience perfectly exemplifies not only the high Switching Costs (considerably more than the software itself) an ERP migrator can expect, but also the intimidating uncertainty which surrounds the planning for such a migration.",
-   "explain": "经验丰富的负责人做足准备，迁移时仍有两成服务器订单卡住，损失 1.6 亿美元，远超软件本身。这类代价和不确定性让客户即使不满意也不敢换，SAP 因而能持续收取维护费和追加销售。"
+   "explain": "HP迁移SAP时订单中断、损失1.6亿美元，说明客户更换供应商的代价远超软件本身，对手要抢单必须先补偿这笔损失，因而难以发起挑战。"
   }
  ],
  "Chapter 5: Branding": [
@@ -50,7 +50,7 @@
    "core": "Barrier. A strong brand can only be created over a lengthy period of reinforcing actions (hysteresis), which itself serves as the key Barrier.",
    "caseTitle": "Tiffany 与 Costco 钻戒",
    "case": "In 2005, Good Morning America purchased a diamond ring at Tiffany & Co. for $16,600 and one of similar size and cut at Costco for $6,600. They then asked Martin Fuller, a reputable gemologist and appraiser, to assess the rings’ values. Fuller assessed the Costco ring at $8,000 plus setting costs, more than $2,000 above the selling price.",
-   "explain": "大小和切工相近的钻戒，Tiffany 卖 16600 美元，Costco 只卖 6600 美元，鉴定师还认为 Costco 那枚被低估。差价并非来自钻石本身，而是 Tiffany 一百多年经营积累的品牌，这正是对手短期复制不了的。"
+   "explain": "同款钻戒蒂芙尼售价16600美元，Costco仅6600美元，估价师对蒂芙尼戒指估值10500美元、Costco戒指8000美元，价差主要来自品牌而非产品本身。"
   }
  ],
  "Chapter 6: Cornered Resource": [
@@ -59,16 +59,16 @@
    "core": "So in Pixar’s case, the Barrier was personal choice. In the case of spin casting technology, it is patent law, and in the case of cement inputs, it is property rights.",
    "caseTitle": "Lasseter 拒绝回迪士尼",
    "case": "To illustrate: in 1988, long before Disney began its association with Pixar, Lasseter won an Academy Award for his Pixar short Tin Toy, prompting Disney CEO Michael Eisner and Disney Chairman Jeffrey Katzenberg to try to recruit their former employee back into the Disney fold. Lasseter demurred: “I can go to Disney and be a director, or I can stay here and make history.”",
-   "explain": "Lasseter 获奥斯卡后，迪士尼高层亲自挖人，他却选择留在 Pixar。核心创作团队这种超越财务计算的忠诚，让 Pixar 以有利条件独占了别人抢不走的人才，后来迪士尼只能通过收购 Pixar 才得到他们。"
+   "explain": "拉塞特拒绝迪士尼的招募，选择留在皮克斯创造历史。这说明关键人物的个人选择本身就能构成壁垒，让对手无法获得这一稀缺资源。"
   }
  ],
  "Chapter 7: Process Power": [
   {
    "point": "流程力量的壁垒是迟滞，对手看得见也学不会",
    "core": "Barrier. The Barrier in Process Power is hysteresis: these process advances are difficult to replicate, and can only be achieved over a long time period of sustained evolutionary advance.",
-   "caseTitle": "通用汽车学不会 NUMMI",
+   "caseTitle": "通用汽车学不会NUMMI",
    "case": "The joint venture got off to a fast start, and the low defect rates of NUMMI cars quickly approached those of Toyota in their Japanese facilities. GM had high hopes that the lessons learned from this endeavor would be readily transferable to their numerous other plants around the world. But it was not to be. Although Toyota offered full transparency regarding NUMMI practices, GM just couldn’t replicate the NUMMI results in its own facilities.",
-   "explain": "丰田在合资工厂 NUMMI 对通用完全透明，NUMMI 的缺陷率也很快接近日本工厂，但通用就是无法在自家工厂复制。丰田生产方式嵌在组织里、靠长期演进形成，透明并不等于可模仿。"
+   "explain": "丰田对通用完全透明开放NUMMI实践，通用仍无法在自家工厂复制其低缺陷率成果，证明流程优势嵌于组织、需长期演进，无法短期照搬。"
   }
  ],
  "Chapter 8: The Path to Power": [
@@ -77,7 +77,7 @@
    "core": "We are covering a lot of ground here, but you will notice a common thread: the first cause of every Power type is invention, be it the invention of a product, process, business model or brand.",
    "caseTitle": "Netflix 豪赌原创剧",
    "case": "Netflix plunked down $100 million, beating out HBO, CBS and Showtime to lock up twenty-six episodes, two full seasons of the political thriller. It was a big bet, and despite modest assurance from their user stats, a large risk.",
-   "explain": "单靠流媒体产品，Netflix 只有一门容易被模仿的生意。它冒险花 1 亿美元从 HBO 等对手手中抢下两季原创剧，这次商业模式上的发明把内容变成固定成本，才真正建立起规模经济力量。"
+   "explain": "Netflix 以1亿美元抢下《纸牌屋》两季26集，押注独家原创内容。这一发明性豪赌让它摆脱授权内容的同质竞争，建立起对手难以复制的优势，印证力量源于发明而非模仿。"
   }
  ],
  "Chapter 9: The Power Progression": [
@@ -86,7 +86,7 @@
    "core": "Intel’s experience imparts a crucial “When?” lesson: the takeoff period represents a singular time. Only then can you initiate three important types of Power: Scale Economies, Network Economies and Switching Costs.",
    "caseTitle": "IBM PC 选中 8088",
    "case": "With a herculean effort Estridge and his team met their one-year deadline, developing the revolutionary IBM PC, which included the Intel 8088, a dumbed-down version of the 8086. No one could have anticipated the market explosion that followed. The IBM PC rolled out on August 12, 1981.",
-   "explain": "IBM PC 一年卖出 75 万台，每台都用 Intel 8088。Intel 赶在 PC 市场爆发的起飞期赢下这个设计，随后积累起转换成本和规模经济。作者说若晚一两年或输掉合同，就不会有今天的 Intel。"
+   "explain": "IBM PC 采用 8088 后市场爆炸，Intel 借此在起飞期迅速铺开装机量，奠定规模经济与生态网络；这一窗口一旦关闭便难以复制。"
   }
  ]
 }

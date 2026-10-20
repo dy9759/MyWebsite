@@ -1,11 +1,11 @@
 {
  "Regular Expressions, Tokenization, Edit Distance": [
   {
-   "point": "正则替换是最朴素也最实用的文本处理工具，ELIZA 就靠它模拟对话",
+   "point": "正则替换是最朴素的文本处理工具，ELIZA靠它模拟对话",
    "core": "ELIZA works by having a series or cascade of regular expression substitutions each of which matches and changes some part of the input lines.",
-   "caseTitle": "ELIZA 的代词替换",
+   "caseTitle": "ELIZA的代词替换",
    "case": "After the input is uppercased, substitutions change all instances of MY to YOUR, and I’M to YOU ARE, and so on. That way when ELIZA repeats back part of the user utterance, it will seem to be referring correctly to the user.",
-   "explain": "ELIZA 不理解任何内容，只是先把 MY 换成 YOUR、I’M 换成 YOU ARE，再把用户的话复述回去，就显得在认真回应。几条正则替换就撑起了对话的假象，说明模式匹配本身的威力。"
+   "explain": "ELIZA把输入转大写后，用一系列正则替换把MY改成YOUR、I'M改成YOU ARE，再复述用户话语，从而显得在正确指代用户，证明级联正则替换足以支撑简单对话。"
   }
  ],
  "N-gram Language Models": [
@@ -14,25 +14,25 @@
    "core": "Thus the the lower the perplexity of a model on the data, the better the model.",
    "caseTitle": "WSJ 上的困惑度对比",
    "case": "For example, here we trained unigram, bigram, and trigram grammars on 38 million words from the Wall Street Journal newspaper. We then computed the perplexity of each of these models on a WSJ test set using Eq. 3.16 for unigrams, Eq. 3.17 for bigrams, and the corresponding equation for trigrams. The table below shows the perplexity of the 1.5 million word test set according to each of the language models. Unigram Bigram Trigram Perplexity 962 170 109",
-   "explain": "同样 3800 万词的华尔街日报训练数据、同一个测试集，只把上下文从 0 个词加到 2 个词，困惑度就从 962 降到 109。条件越多模型越不意外，这正是困惑度作为内在评测的含义。"
+   "explain": "在WSJ语料上训练一元、二元、三元模型，测试集困惑度分别为962、170、109，阶数越高（上下文越长）困惑度越低，直接印证观点。"
   }
  ],
  "Vector Semantics and Embeddings": [
   {
-   "point": "词义可以用上下文共现计数向量表示，余弦相似度衡量两词意思的远近",
-   "core": "The cosine value ranges from 1 for vectors pointing in the same direction, through 0 for orthogonal vectors, to -1 for vectors pointing in opposite directions.",
-   "caseTitle": "三个词的余弦计算",
-   "case": "Let’s see how the cosine computes which of the words cherry or digital is closer in meaning to information, just using raw counts from the following shortened table: pie data computer cherry 442 8 2 digital 5 1683 1670 information 5 3982 3325",
-   "explain": "cherry 主要与 pie 共现，digital 和 information 都常挨着 data、computer。书中算出前一对余弦仅 .018，后一对达 .996，仅凭共现计数就分出了语义远近。"
+   "point": "词义可用上下文共现计数向量表示，余弦相似度衡量词义远近",
+   "explain": "用原始计数向量计算余弦：information与digital相似度0.996，与cherry仅0.018，数值直接显示digital在语义上更接近information。",
+   "caseTitle": "cherry与digital余弦比较",
+   "core": "The cosine similarity metric between two vectors v and w thus can be computed as:",
+   "case": "cos(cherry,information) =\n442∗5+8∗3982+2∗3325\n√\n4422 +82 +22√\n52 +39822 +33252 = .018\ncos(digital,information) =\n5∗5+1683∗3982+1670∗3325\n√\n52 +16832 +16702√\n52 +39822 +33252 = .996"
   }
  ],
  "RNNs and LSTMs": [
   {
-   "point": "普通 RNN 的隐状态偏向近处信息，难以保留远距离依赖，LSTM 正为此而生",
+   "point": "普通RNN难以利用远距离信息，LSTM正为此而生",
    "core": "In practice, it is quite difficult to train RNNs for tasks that require a network to make use of information distant from the current point of processing.",
    "caseTitle": "航班与航空公司的主谓一致",
    "case": "The flights the airline was canceling were full. Assigning a high probability to was following airline is straightforward since airline provides a strong local context for the singular agreement. However, assigning an appropriate probability to were is quite difficult, not only because the plural flights is quite distant, but also because the singular noun airline is closer in the intervening context.",
-   "explain": "预测 were 要记住句首的复数 flights，但紧挨着的是单数 airline，近处信号会把模型带偏。可见 RNN 隐状态偏局部，需要 LSTM 这类能选择性记忆的结构保留远处信息。"
+   "explain": "例句中was紧邻airline，局部线索强，容易预测；而were需依赖更远的复数flights，中间还隔着单数airline，普通RNN难以保留这种远距离信息。"
   }
  ],
  "The Transformer": [
@@ -41,16 +41,16 @@
    "core": "Transformers can build contextual representations of word meaning, contextual embeddings, by integrating the meaning of these helpful contextual words.",
    "caseTitle": "过马路的鸡与代词 it",
    "case": "The chicken didn’t cross the road because it was too tired. (9.2) The chicken didn’t cross the road because it was too wide. In (9.1) it is the chicken (i.e., the reader knows that the chicken was tired), while in (9.2) it is the road (and the reader knows that the road was wide).",
-   "explain": "两句只差 tired 和 wide，it 却分别指鸡和路。静态词向量给 it 的永远是同一个向量，只有从 chicken、road 等上下文词汇集信息，才能得到随语境变化的含义。"
+   "explain": "同一句中的 it，在“too tired”语境下指鸡，在“too wide”语境下指路；说明词表示由上下文中有用的词整合而成，而非固定不变。"
   }
  ],
  "Large Language Models": [
   {
-   "point": "很多 NLP 任务都可以改写成预测下一个词，交给足够强的语言模型解决",
+   "point": "很多NLP任务可改写成预测下一个词，强语言模型即可高精度解决",
    "core": "The insight of large language modeling is that many practical NLP tasks can be cast as word prediction, and that a powerful-enough language model can solve them with a high degree of accuracy.",
    "caseTitle": "用续写做情感分析",
    "case": "For example, we can cast sentiment analysis as language modeling by giving a language model a context like: The sentiment of the sentence ‘‘I like Jackie Chan\" is:",
-   "explain": "情感分类本来要专门训练分类器，这里只需把句子包进一个提示，再比较模型接下来生成 positive 和 negative 的概率哪个更高。一个任务被改写成了下一个词预测，无需改动模型。"
+   "explain": "把情感分析写成“The sentiment of the sentence ‘I like Jackie Chan’ is:”的续写任务，模型只需预测下一个词即可输出情感标签，直观展示任务统一为词预测。"
   }
  ],
  "Masked Language Models": [
@@ -59,7 +59,7 @@
    "core": "That is, given an input sequence with one or more elements missing, the learning task is to predict the missing elements.",
    "caseTitle": "BERT 的掩码规则",
    "case": "In MLM training, the model is presented with a series of sentences from the training corpus in which a percentage of tokens (15% in the BERT model) have been randomly chosen to be manipulated by the masking procedure. Given an input sentence lunch was delicious and assume we randomly chose the 3rd token delicious to be manipulated, • 80% of the time: The token is replaced with the special vocabulary token named [MASK], e.g. lunch was delicious →lunch was [MASK].",
-   "explain": "BERT 随机挑出 15% 的词加工，例如把 delicious 换成 [MASK]，模型须结合两侧上下文猜回原词。这就是填空式训练，也是双向表示的来源。"
+   "explain": "BERT 随机遮住15%的词，如把“lunch was delicious”中的 delicious 换成 [MASK]，让模型依据左右文猜回原词，正是“补缺”而非“续写”。"
   }
  ],
  "Model Alignment, Prompting, and In-Context Learning": [
@@ -68,7 +68,7 @@
    "core": "One reason LLMs are too harmful and insufficiently helpful is that their pretraining objective (success at predicting words in text) is misaligned with the human need for models to be helpful and non-harmful.",
    "caseTitle": "早期 GPT 不听指令",
    "case": "To see this, consider the following failed examples of following instructions from early work with GPT (Ouyang et al., 2022). Prompt: Explain the moon landing to a six year old in a few sentences. Output: Explain the theory of gravity to a 6 year old. Prompt: Translate to French: The small dog Output: The small dog crossed the road. Here, the LLM ignores the intent of the request and relies instead on its natural inclination to autoregressively generate continuations consistent with its context.",
-   "explain": "让它翻译 The small dog，它却续写成一句英文；让它解释登月，它又编出类似的请求。模型只是顺着文本往下写，可见单靠预测下一个词学不会听指令，需要对齐训练。"
+   "explain": "早期GPT面对“给六岁孩子解释登月”的指令，却输出“解释重力理论”；面对翻译指令，只把原句续写成完整句子。模型忽略请求意图，只按上下文做自回归续写，说明预训练目标与人类需求错位，必须通过对齐训练修正。"
   }
  ],
  "Machine Translation": [
@@ -77,14 +77,7 @@
    "core": "For any translation, the appropriate word can vary depending on the context.",
    "caseTitle": "bass 与 wall",
    "case": "The English source-language word bass, for example, can appear in Spanish as the fish lubina or the musical instrument bajo. German uses two distinct words for what in English would be called a wall: Wand for walls inside a building, and Mauer for walls outside a building. Where English uses the word brother for any male sibling, Chinese and many other languages have distinct words for older brother and younger brother (Mandarin gege and didi, respectively).",
-   "explain": "英语的 bass 在西班牙语里要分鱼和乐器，wall 在德语里分室内 Wand 和室外 Mauer，brother 在汉语里分哥哥和弟弟。译者必须先判断语境中的具体含义。"
-  },
-  {
-   "point": "平行语料稀缺时，可用回译把目标语言的单语数据变成合成平行语料",
-   "core": "In backtranslation, our goal is to improve source-to-target MT, given a small parallel text (a bitext) in the source/target languages, and some monolingual data in the target language.",
-   "caseTitle": "纳瓦霍语到英语",
-   "case": "For example suppose we want to translate from Navajo to English but only have a small Navajo-English bitext, although of course we can find lots of monolingual English data. We use the small bitext to build an MT engine going the other way (from English to Navajo). Once we translate the monolingual English text to Navajo, we can add this synthetic Navajo/English bitext to our training data.",
-   "explain": "纳瓦霍语平行语料很少，英语单语文本却很多。先用小语料训练英译纳的反向模型，把大量英语译成纳瓦霍语，就得到合成平行语料，再用来训练纳译英。低资源翻译借此利用了单语数据。"
+   "explain": "bass 在西班牙语中按语境分为鱼 lubina 与乐器 bajo；英语 wall 在德语中按室内外分为 Wand 与 Mauer；brother 在汉语中分为 gege 与 didi。这些例子说明词汇边界与语义切分因语言而异，译者必须结合"
   }
  ],
  "Question Answering, Information Retrieval, and RAG": [
@@ -93,30 +86,16 @@
    "core": "That is, when asked questions, large language models simply make up answers that sound reasonable.",
    "caseTitle": "法律问答的幻觉率",
    "case": "For example, Dahl et al. (2024) found that when asked questions about the legal domain (like about particular legal cases), large language models hallucinated from 69% to 88% of the time!",
-   "explain": "在具体法律案例这类专业事实问题上，大模型有 69% 到 88% 的回答是编造的。这个数字说明幻觉不是偶发问题，事实型问答不能只靠模型自身记忆，需要引入检索证据。"
-  },
-  {
-   "point": "RAG 把检索到的段落放进提示前缀，让模型基于这些文本作答",
-   "core": "The idea of retrieval-augmented generation is to address these problems by conditioning on the retrieved passages as part of the prefix, perhaps with some prompt text like “Based on these texts, answer this question:”.",
-   "caseTitle": "RAG 提示模板",
-   "case": "Schematic of a RAG Prompt retrieved passage 1 retrieved passage 2 ... retrieved passage n Based on these texts, answer this question: Q: Who wrote the book ‘‘The Origin of Species\"? A:",
-   "explain": "模板先列出检索到的 n 个段落，再要求基于这些文本回答谁写了物种起源。模型的回答由此有了可核对的原文依据，而不是只凭参数记忆，这正对应 RAG 缓解幻觉、提供证据的思路。"
+   "explain": "法律领域问答中，大模型幻觉率高达69%至88%，说明其参数记忆常生成看似合理却错误的答案，无法支撑事实性问答。"
   }
  ],
  "Chatbots & Dialogue Systems": [
   {
-   "point": "对话是双方的协作行为，参与者需要不断确认彼此已经理解，即建立共同基础",
+   "point": "对话是双方协作行为，参与者需不断确认彼此已理解，即建立共同基础",
    "core": "A dialogue is not just a series of independent speech acts, but rather a collective act performed by the speaker and the hearer.",
    "caseTitle": "电梯按钮亮灯",
    "case": "(People need grounding for non-linguistic actions as well; the reason an elevator button lights up when it’s pressed is to acknowledge that the elevator has indeed been called, essentially grounding your action of pushing the button (Norman, 1988).)",
-   "explain": "按下电梯按钮后灯亮，是在告诉你请求已被收到；对话中说 OK 或复述对方的话也是同样作用。对话系统同样需要这种确认，否则用户无法知道自己是否被理解。"
-  },
-  {
-   "point": "任务型对话用框架和槽位定义系统需要知道的信息，目标是把槽位填满",
-   "core": "The frame and its slots in a task-based dialogue system specify what the system needs to know to perform its task.",
-   "caseTitle": "订机票的槽位填充",
-   "case": "From a user utterance like this one: Show me morning flights from Boston to San Francisco on Tuesday a system might want to build a representation like: DOMAIN: AIR-TRAVEL INTENT: SHOW-FLIGHTS ORIGIN-CITY: Boston DEST-CITY: San Francisco ORIGIN-DATE: Tuesday ORIGIN-TIME: morning",
-   "explain": "一句查航班的话被拆成领域、意图和出发城市、到达城市、日期、时段四个槽位。系统要做的就是识别意图、填满这些槽位，再去查数据库，这就是框架-槽位架构的运作方式。"
+   "explain": "电梯按钮按下后亮灯，是对“已呼叫电梯”这一动作的确认反馈，正如对话中听者用回应确认理解，体现共同基础的建立。"
   }
  ],
  "Automatic Speech Recognition and Text-to-Speech": [
@@ -125,14 +104,7 @@
    "core": "Note that the error rate on read speech (like the LibriSpeech audiobook corpus) is around 2%; this is a solved task, although these numbers come from systems that require enormous computational resources.",
    "caseTitle": "从有声书到晚宴录音",
    "case": "By contrast, the error rate for transcribing conversations between humans is much higher; 5.8 to 11% for the Switchboard and CALLHOME corpora. The error rate is higher yet again for speakers of varieties like African American Vernacular English, and yet again for difficult conversational tasks like transcription of 4-speaker dinner party speech, which can have error rates as high as 81.3%.",
-   "explain": "同为英语识别，有声书约 2%，电话对话升到 5.8% 到 11%，非裔美国人英语更高，四人晚宴录音可达 81.3%。说话风格、口音和录音条件让难度成倍变化，所以 WER 必须按场景分开看。"
-  },
-  {
-   "point": "语音合成前要先做文本规范化，数字等非标准词的读法取决于它的含义",
-   "core": "Often the verbalization of a non-standard word depends on its meaning (what Taylor (2009) calls its semiotic class).",
-   "caseTitle": "1750 的四种读法",
-   "case": "The number 1750 can be spoken in at least four different ways, depending on the context: seventeen fifty: (in “The European economy in 1750”) one seven five zero: (in “The password is 1750”) seventeen hundred and fifty: (in “1750 dollars”) one thousand, seven hundred, and fifty: (in “1750 dollars”)",
-   "explain": "同一个 1750，作年份读 seventeen fifty，作密码逐位读，作金额又是另外的读法。TTS 不能照字面拼读，必须先判断它是年份、密码还是金额，再决定怎么念。"
+   "explain": "有声书朗读错误率约2%，而电话对话升至5.8%–11%，四人口音晚宴场景更高达81.3%，说明难度随场景剧变。"
   }
  ]
 }

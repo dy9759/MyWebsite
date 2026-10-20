@@ -1,116 +1,81 @@
 {
-  "1. Introduction": [
-    {
-      "point": "是否加语音入口取决于用户场景是否受益，而非技术时髦",
-      "core": "Think carefully about your users and their use cases. “The main question to ask yourself is: Will your users benefit from a VUI?”",
-      "caseTitle": "开放式办公室",
-      "case": "Many of us now work in open-plan office spaces. Imagine asking your computer to do tasks: “Computer, find me all my Word docs from this week.” Now imagine everyone in your office doing this! It would be chaos. In addition, when you speak, which computer is listening?",
-      "explain": "在开放式办公室里，每个人都对电脑喊话找文档会乱成一团，还分不清哪台电脑在听。同样的功能在做饭、开车时很合适，在公共场所却不合适，所以要先判断用户场景能否从语音中受益。"
-    }
-  ],
-  "2. Basic Voice User Interface Design Principles": [
-    {
-      "point": "确认方式要看出错代价和可用的反馈通道，动作本身也能当确认",
-      "core": "It’s especially important to explicitly confirm information if the cost of a misrecognition (i.e., the system got it wrong) is high.",
-      "caseTitle": "打开圣诞树灯",
-      "case": "Another type of confirmation relies on completing an action that does not require a spoken response. For example, imagine that you are creating an app to turn the lights on and off in your home. The user says, “Turn on the Christmas tree lights.” Is it really necessary to say, “OK, turning on the Christmas lights,” when the lights just turned on?",
-      "explain": "开灯出错代价低，灯亮起本身就是用户看得见的确认，再念一遍纯属多余。反过来，出错代价高的信息就该显式确认。确认策略不是一套话术到处套，而是按代价和反馈通道来选。"
-    },
-    {
-      "point": "错误提示不要归咎用户，它会影响用户对系统的评价甚至表现",
-      "core": "Error messages might seem like a small thing, but they can affect the user’s perception of the system and even their performance.",
-      "caseTitle": "驾驶模拟器实验",
-      "case": "In a study performed by Clifford Nass and Scott Brave, users performed tasks with a driving simulator, and throughout the tasks, the system voice made comments about their driving performance. Half of the participants heard messages blaming the driver (“You’re driving too fast.”) and half heard messages blaming external factors, such as “Steering is difficult on this road.”",
-      "explain": "同样是提示驾驶问题，一半人听到你开太快，一半人听到这条路不好转向。书中写到，被系统责怪的人给自己的驾驶打分更低、更不喜欢这个声音，开车时注意力也更差。措辞上的小差别会直接影响体验和表现。"
-    }
-  ],
-  "3. Personas, Avatars, Actors, and Video Games": [
-    {
-      "point": "语音的情绪基调要匹配用户状态，不合拍的人设会被察觉",
-      "core": "If your VUI is tone-deaf, the user will notice.",
-      "caseTitle": "情绪与声音匹配实验",
-      "case": "Another Nass experiment had subjects “drive” a car simulator and used two different voices: one that was upbeat, and one that was morose. Sad drivers hearing the happy voice had approximately twice as many accidents as those who heard the sad voice. Happy drivers had fewer accidents and paid more attention to the road when they heard the happy voice.",
-      "explain": "情绪低落的司机听欢快的声音，事故数约为听低沉声音的两倍；心情好的司机配欢快声音则更专注。声音性格与用户情绪不匹配不只是不好听，而是会实际干扰用户，所以人设要主动按场景设计。"
-    },
-    {
-      "point": "有形象的界面可以用注视和倾听姿态代替没听清的提示",
-      "core": "An avatar or video also injects another important element for human conversational cues: eye gaze.",
-      "caseTitle": "Volio 演员持续倾听",
-      "case": "This worked well in the Volio case to indicate when the user has not been heard or understood; the first couple of times this occurred, rather than stopping and saying, “I didn’t understand,” the actor continued to simply look and listen. With no instruction, users naturally repeated themselves and quite often continued on successfully.",
-      "explain": "Volio 的视频对话里，系统没听懂时演员不说我没听懂，而是继续看着用户、保持倾听。用户在没有任何指引的情况下自然重说一遍，多数能顺利继续。人类对话中的注视线索本身就承担了错误恢复的功能。"
-    }
-  ],
-  "4. Speech Recognition Technology": [
-    {
-      "point": "热词打断只对关键词停下，避免噪声和旁人说话打断播报",
-      "core": "It’s a very neat trick because it does not stop the system from performing/speaking unless a particular keyword or phrase has been recognized.",
-      "caseTitle": "511 路况播报",
-      "case": "I wanted to allow users the flexibility of skipping ahead to the next incident, but worried about background noise in the car or other input interrupting the system and stopping it. Imagine that you’re listening to a list of 10 traffic incidents, and you sneeze and the system stops and says, “I’m sorry, I didn’t get that.” You would need to start all over! Instead, using the hotword technique, only a few key phrases are recognized during this readback, such as “next” and “previous.”",
-      "explain": "司机在车里听十条路况，若任何声音都能打断，一个喷嚏就会让系统停下说没听清，只能从头再来。改成播报期间只识别下一条、上一条等少数热词，既保留了跳过的灵活性，又不被车内噪声误触发。"
-    },
-    {
-      "point": "判停超时应按对话状态区分，开放式回答要留更长停顿",
-      "core": "The most well-designed VUI systems are flexible enough to have different timeout values at different states.",
-      "caseTitle": "唤醒指令与问候",
-      "case": "In the first case, because the user initiated the event and not the system, it is likely that the user knows exactly what they’re going to say and will not need a long pause. In the second case, the user might stop and start a bit; for example, “I’m feeling...well, earlier I was OK, but now I...my head is hurting.” In this case, if the timeout is too short, the user will be cut off before they’ve finished, which is very rude in conversations.",
-      "explain": "用户主动唤醒助手时心里已有指令，判停可以短；回答今天感觉如何时会断断续续地说，判停太短就会在头疼说出口之前把人截断。同一个全局超时值无法兼顾两种状态，只能按状态分别设置。"
-    }
-  ],
-  "5. Advanced Voice User Interface Design": [
-    {
-      "point": "识别准确不等于听懂，语音交互的难点正转向自然语言理解",
-      "core": "These examples show that VUI is not a solved problem. In all of these cases, the speech recognition was flawless. It recognized my question exactly. But that’s not enough—in addition, the VUI must understand the subtleties of language.",
-      "caseTitle": "Hound 与世界大赛",
-      "case": "When I ask Hound, “Who was president during the last World Series?” it backs off to search results. The first one? A page on Woodrow Wilson.",
-      "explain": "Hound 一字不差地识别了上届世界大赛时的总统是谁，却只能退回搜索，第一条结果是伍德罗·威尔逊的页面。这个问题只要一个答案，但需要系统对世界有复杂得多的模型。识别再准，听不懂也没用。"
-    },
-    {
-      "point": "必须专门处理否定表达，忽略否定会让系统显得愚蠢",
-      "core": "This illustrates the importance of looking out for negative responses, such as “not,” “no,” and “neither.”",
-      "caseTitle": "不要辣肠的披萨",
-      "case": "Recently I tried out a pizza chatbot. It asked me for toppings, and I typed “Mushrooms, but no pepperoni!” The confirmation (see Figure 5-4) displayed, “OK, I have one Large Mushrooms & Pepperoni pizza for delivery. Is that correct?”",
-      "explain": "作者明确说要蘑菇、不要辣肠，聊天机器人只匹配到了两个配料名，确认成蘑菇辣肠披萨。只做关键词匹配而不处理不、没有这类否定词，就会把用户的意思完全弄反，处理否定虽费工夫，忽略它代价更高。"
-    }
-  ],
-  "6. User Testing for Voice User Interfaces": [
-    {
-      "point": "无需完整原型，绿野仙踪式低保真测试就能尽早获得真实反馈",
-      "core": "Although one advantage of WOz is the ability to test an early prototype, the other advantage is that it’s much cheaper to make design changes before you’ve written most of the code than later on in the development cycle.",
-      "caseTitle": "福特 SYNC 泡沫按钮",
-      "case": "While sitting in the parking lot, the Wizard sat in the backseat with a laptop, playing prompts that would, in the future, come from the car! Subjects were quickly caught up in the experience, allowing the team to do useful initial testing to discover things such as how people would ask for information about traffic.",
-      "explain": "福特 SYNC 当时还没有通话按钮，团队就在方向盘上粘一个泡沫按钮，让人坐在后座用笔记本播放提示音假扮车机。受试者很快入戏，团队由此早早了解人们会怎样询问路况，在写代码之前就能改设计。"
-    },
-    {
-      "point": "主观与客观指标都要收集，单看错误数会误判体验",
-      "core": "Collecting a combination of objective and subjective measurements is recommended. This combination is important because one measurement does not always give the full story.",
-      "caseTitle": "Volio 失败但不在意",
-      "case": "I noticed this during Volio usability testing: in some cases, users’ speech would not be correctly recognized, but because the error handling was relatively pain-free, users would not mark the app more negatively because of it. If I had only been marking down error counts, the results would have been different.",
-      "explain": "Volio 测试中，有些用户的话没被正确识别，但由于错误处理不痛苦，他们并没有因此给应用打低分。如果只统计错误次数，会得出体验很差的结论；结合主观评价，才知道好的兜底设计能抵消识别失败。"
-    }
-  ],
-  "7. Your Voice User Interface Is Finished! Now What?": [
-    {
-      "point": "任务完成要合理切分定义，否则指标会把正常行为当成流失",
-      "core": "Determining when a task is complete sounds easy, but there are subtleties to keep in mind.",
-      "caseTitle": "信用卡查余额与付款",
-      "case": "At first, they were left scratching their heads as to why this was. Recognition performance was fine. Eventually they realized that many people quit after the initial part of the task: hearing their current balance and due date. After this discovery, the designers created two separate tasks—getting a balance and paying a bill—and the “pay bill” task did not start until the user went past the balance prompt and began the bill pay workflow.",
-      "explain": "信用卡应用的付款任务看似大量用户中途流失，识别却没问题。原来很多人只想听余额和到期日，听完就走。把查余额和付款拆成两个任务后，指标才反映真实情况，否则团队会去修一个并不存在的问题。"
-    },
-    {
-      "point": "用中间识别结果抢答能提速，但在列表类回答中会截断用户",
-      "core": "Your VUI can match on the user input before the user has even finished speaking. This can make the app very snappy, but it has drawbacks, as well.",
-      "caseTitle": "披萨配料被截断",
-      "case": "For example, if you’re working on a pizza-ordering app and you say “What toppings would you like?” your user might reply, “Pepperoni, olives, mushrooms.” If you’re matching on interim results, you might see that “pepperoni” has matched to one of the ingredients, and finish the turn.",
-      "explain": "问要什么配料时，用户会连说辣肠、橄榄、蘑菇。若按中间结果匹配，听到辣肠就结束本轮，既打断了用户，又漏掉后两样。所以这类调优要按状态决定：是否类问题可以抢答，列表类问题不行。"
-    }
-  ],
-  "8. Voice-Enabled Devices and Cars": [
-    {
-      "point": "车内只做核心任务，并用预设捷径把操作压缩成一句简单命令",
-      "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
-      "caseTitle": "福特 SYNC 回家路况",
-      "case": "For example, Ford SYNC later introduced a traffic feature that made it possible for drivers to get the traffic report for their drive home. Teaching the user which voice commands would be needed to set this up is a difficult task, not to mention the difficulty of recognition for address entry. Instead, users log in to their Ford SYNC account online and set up their destinations. That way, in the car, the user can use a simple command such as “traffic to home” and get just what is needed.",
-      "explain": "在车里教司机用语音设置目的地既难记又难识别地址。福特 SYNC 把设置挪到线上账户提前完成，开车时只需说回家路况。复杂步骤移出驾驶场景，车内只留最核心、最好记的一句命令，降低认知负荷。"
-    }
-  ]
+ "1. Introduction": [
+  {
+   "point": "是否加语音入口取决于用户场景是否受益，而非技术时髦",
+   "core": "Think carefully about your users and their use cases. “The main question to ask yourself is: Will your users benefit from a VUI?”",
+   "caseTitle": "开放式办公室",
+   "case": "Many of us now work in open-plan office spaces. Imagine asking your computer to do tasks: “Computer, find me all my Word docs from this week.” Now imagine everyone in your office doing this! It would be chaos. In addition, when you speak, which computer is listening?",
+   "explain": "开放式办公室里若人人对电脑说话，会互相干扰，且机器难以分辨谁在说话。这说明语音并非处处适用，必须先判断场景是否真正受益。"
+  }
+ ],
+ "2. Basic Voice User Interface Design Principles": [
+  {
+   "point": "确认方式要看出错代价和可用反馈通道，动作本身也能当确认",
+   "core": "It’s especially important to explicitly confirm information if the cost of a misrecognition (i.e., the system got it wrong) is high.",
+   "caseTitle": "打开圣诞树灯",
+   "case": "Another type of confirmation relies on completing an action that does not require a spoken response. For example, imagine that you are creating an app to turn the lights on and off in your home. The user says, “Turn on the Christmas tree lights.” Is it really necessary to say, “OK, turning on the Christmas lights,” when the lights just turned on?",
+   "explain": "用户说“打开圣诞树灯”，灯亮这一动作本身就是最直接的反馈，无需再语音复述确认；说明低出错代价且有动作反馈通道时，隐式确认即可。"
+  }
+ ],
+ "3. Personas, Avatars, Actors, and Video Games": [
+  {
+   "point": "语音情绪基调须匹配用户状态，否则用户会察觉违和",
+   "core": "If your VUI is tone-deaf, the user will notice.",
+   "caseTitle": "情绪与声音匹配实验",
+   "case": "Another Nass experiment had subjects “drive” a car simulator and used two different voices: one that was upbeat, and one that was morose. Sad drivers hearing the happy voice had approximately twice as many accidents as those who heard the sad voice. Happy drivers had fewer accidents and paid more attention to the road when they heard the happy voice.",
+   "explain": "悲伤司机听欢快语音时事故数约为听悲伤语音的两倍，情绪匹配时事故更少、更专注也更享受，说明声音情绪与用户状态不合拍会被察觉并影响行为。"
+  }
+ ],
+ "4. Speech Recognition Technology": [
+  {
+   "point": "热词打断只对关键词停下，避免噪声和旁人说话打断播报",
+   "core": "It’s a very neat trick because it does not stop the system from performing/speaking unless a particular keyword or phrase has been recognized.",
+   "caseTitle": "511 路况播报",
+   "case": "I wanted to allow users the flexibility of skipping ahead to the next incident, but worried about background noise in the car or other input interrupting the system and stopping it. Imagine that you’re listening to a list of 10 traffic incidents, and you sneeze and the system stops and says, “I’m sorry, I didn’t get that.” You would need to start all over! Instead, using the hotword technique, only a few key phrases are recognized during this readback, such as “next” and “previous.”",
+   "explain": "511路况播报中，若任何声音都能打断，用户打个喷嚏系统就停下并说没听清，只能从头再听。采用热词技术后，播报期间只识别“next”“previous”等关键词，背景噪声不会误触发。"
+  }
+ ],
+ "5. Advanced Voice User Interface Design": [
+  {
+   "point": "识别准确不等于听懂，语音交互的难点正转向自然语言理解",
+   "core": "These examples show that VUI is not a solved problem. In all of these cases, the speech recognition was flawless. It recognized my question exactly. But that’s not enough—in addition, the VUI must understand the subtleties of language.",
+   "caseTitle": "Hound 与世界大赛",
+   "case": "When I ask Hound, “Who was president during the last World Series?” it backs off to search results. The first one? A page on Woodrow Wilson.",
+   "explain": "Hound 逐字识别了问题，却未理解“上届世界大赛期间”的语义，只能退回搜索并给出无关结果，证明识别无误仍可能听不懂。"
+  },
+  {
+   "point": "忽略否定词会让系统把用户明确排除的选项当成想要",
+   "explain": "用户输入“蘑菇但不要辣肠”，披萨机器人确认成“蘑菇与辣肠披萨”，逐字识别正确却误解否定，说明 NLU 必须处理否定。",
+   "caseTitle": "披萨机器人忽略否定词",
+   "core": "This illustrates the importance of looking out for negative responses, such as “not,” “no,” and “neither.”",
+   "case": "Recently I tried out a pizza chatbot. It asked me for toppings, and I typed “Mushrooms, but no pepperoni!” The confirmation (see Figure 5-4) displayed, “OK, I have one Large Mushrooms & Pepperoni pizza for delivery. Is that correct?”"
+  }
+ ],
+ "6. User Testing for Voice User Interfaces": [
+  {
+   "point": "无需完整原型，绿野仙踪式低保真测试就能尽早获得真实反馈",
+   "core": "Although one advantage of WOz is the ability to test an early prototype, the other advantage is that it’s much cheaper to make design changes before you’ve written most of the code than later on in the development cycle.",
+   "caseTitle": "福特 SYNC 泡沫按钮",
+   "case": "While sitting in the parking lot, the Wizard sat in the backseat with a laptop, playing prompts that would, in the future, come from the car! Subjects were quickly caught up in the experience, allowing the team to do useful initial testing to discover things such as how people would ask for information about traffic.",
+   "explain": "福特团队在停车场用幕后“巫师”播放提示，模拟未来车载语音系统，用户迅速沉浸其中，团队据此发现人们会如何询问交通信息，证明未写代码前即可低成本测试并调整设计。"
+  }
+ ],
+ "7. Your Voice User Interface Is Finished! Now What?": [
+  {
+   "point": "任务完成要合理切分定义，否则指标会把正常行为当成流失",
+   "core": "Determining when a task is complete sounds easy, but there are subtleties to keep in mind.",
+   "caseTitle": "信用卡查余额与付款",
+   "case": "At first, they were left scratching their heads as to why this was. Recognition performance was fine. Eventually they realized that many people quit after the initial part of the task: hearing their current balance and due date. After this discovery, the designers created two separate tasks—getting a balance and paying a bill—and the “pay bill” task did not start until the user went past the balance prompt and began the bill pay workflow.",
+   "explain": "信用卡应用把“查余额”和“付款”混为一个任务，用户查完余额就退出被记为流失；拆成两个任务后，“付款”任务从用户越过余额提示才开始，指标才反映真实行为。"
+  }
+ ],
+ "8. Voice-Enabled Devices and Cars": [
+  {
+   "point": "车内只做核心任务，用预设捷径把操作压缩成一句简单命令",
+   "core": "Rather than allow users to do everything, you should instead focus on the main things users are likely—and want—to do.",
+   "caseTitle": "福特 SYNC 回家路况",
+   "case": "For example, Ford SYNC later introduced a traffic feature that made it possible for drivers to get the traffic report for their drive home. Teaching the user which voice commands would be needed to set this up is a difficult task, not to mention the difficulty of recognition for address entry. Instead, users log in to their Ford SYNC account online and set up their destinations. That way, in the car, the user can use a simple command such as “traffic to home” and get just what is needed.",
+   "explain": "福特SYNC让用户在线预设回家目的地，车内只需说“traffic to home”即可获取路况，避免记忆复杂命令和地址输入，正说明聚焦核心任务、用捷径降低负担。"
+  }
+ ]
 }

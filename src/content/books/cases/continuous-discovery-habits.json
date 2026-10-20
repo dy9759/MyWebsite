@@ -1,135 +1,135 @@
 {
-  "Chapter One: The What and Why of Continuous Discovery": [
-    {
-      "point": "产品决策天天在做，客户输入也必须以同样的频率进入决策",
-      "core": "Product teams make decisions every day. Our goal with continuous discovery is to infuse those daily decisions with as much customer input as possible.",
-      "caseTitle": "一年一次的发现",
-      "case": "Discovery happened once a year in an annual budgeting process, where projects with fixed timelines were assigned to specific engineering teams. A project manager managed the work, budget, and schedule. Sometimes a product manager translated business needs to product requirements, but not always. There were (and still are) many challenges with this way of working. Software development is unpredictable. Projects were often delivered late and over budget. Business needs often trumped customer needs. Teams learned after the product shipped that customers weren’t excited about what they built.",
-      "explain": "传统模式下决定做什么只在年度预算时发生一次，项目定死时间表交给工程团队，结果是延期超支、业务需求压过客户需求，直到上线才发现客户并不买账。发现频率太低，一整年的决策都缺少客户输入。"
-    }
-  ],
-  "Chapter Two: A Common Framework for Continuous Discovery": [
-    {
-      "point": "追求业务结果时，要用以客户为中心的方式框定问题",
-      "core": "If product trios tasked with delivering a desired outcome want to pursue business value by creating customer value, they’ll need to work to frame the problem in a customer-centric way.",
-      "caseTitle": "富国银行虚开账户",
-      "case": "For example, in the Wells Fargo story, their leadership, whether implicitly or explicitly, had framed the problem as “grow customer accounts at all costs.” This framing opened the door to cheating. If, on the other hand, Wells Fargo had framed the problem as “create customers who want to open more accounts,” bankers would have been less likely to cheat.",
-      "explain": "富国银行的结果目标本身没错，即提高每位客户的账户数，但把问题框定为不惜代价增加账户，就给员工私开账户打开了口子。若框定为让客户愿意多开账户，就会逼团队去理解客户需求，业务价值与客户价值才能一致。"
-    }
-  ],
-  "Chapter Three: Focusing on Outcomes Over Outputs": [
-    {
-      "point": "三人组更适合负责自己可控的产品结果，而非滞后的业务结果",
-      "core": "As a general rule, product trios will make more progress on a product outcome rather than a business outcome. Remember, product outcomes measure how well the product moves the business forward.",
-      "caseTitle": "tails.com 狗粮留存",
-      "case": "First, not all tails.com customers understood the value of tailor-made dog food, and, second, some dogs simply didn’t like the food. Sonja’s team realized that they could prevent churn, and thus increase retention, if they focused on increasing the perceived value of tailor-made dog food and if they increased the number of dogs that liked the food.",
-      "explain": "90 天留存是滞后的业务结果，团队要等三个月才能看到实验效果。访谈后他们把它拆成两个可立即衡量、团队可控的产品结果：客户对定制狗粮价值的感知，以及喜欢这款粮的狗的数量，推动它们就能带动留存。"
-    }
-  ],
-  "Chapter Four: Visualizing What You Know": [
-    {
-      "point": "先各自画出体验地图再合并，避免群体思维，汇集不同视角",
-      "core": "To prevent groupthink, it’s critical that each member of the trio start by developing their own perspective before the trio works together to develop a shared perspective.",
-      "caseTitle": "申请流程的三张地图",
-      "case": "The product manager had the best grasp of the “known” challenges—the customer complaints that made their way to their call center and through support tickets. The designer missed a few steps in the process but did a great job of capturing the confusion and insecurity that the customer might be feeling in the process. Because he was new to the company, he was able to view the application process from an outsider’s perspective. The engineer’s map accurately captured the process and added detail about how one step informed another step.",
-      "explain": "三人各画一张申请流程图：产品经理掌握客服投诉里的已知问题，新来的设计师以局外人视角捕捉到客户的困惑与不安，工程师准确画出步骤间的依赖。若一开始就开会讨论，这些互补的视角很可能被最强势的声音淹没。"
-    }
-  ],
-  "Chapter Five: Continuous Interviewing": [
-    {
-      "point": "不要直接问客户怎么做，而要让他们讲述具体的最近一次经历",
-      "core": "Since we can’t ask our customers direct questions about their behavior, the best way to learn about their needs, pain points, and desires is to ask them to share specific stories about their experience.",
-      "caseTitle": "买牛仔裤看什么",
-      "case": "During a workshop, I asked a woman what factors she considered when buying a new pair of jeans. She didn’t hesitate to answer. She said, “Fit is my number-one factor.” I then asked her to tell me about the last time she bought a pair of jeans. She said, “I bought them on Amazon.” I asked, “How did you know they would fit?” She replied, “I didn’t, but they were a brand I liked, and they were on sale.”",
-      "explain": "直接问购买因素，她毫不犹豫地说合身最重要；可一讲上次在亚马逊买牛仔裤的经历，真正起作用的是喜欢的品牌和打折。直接提问得到的是她以为的自己，具体故事才暴露真实行为。"
-    },
-    {
-      "point": "客户口中的理想自我不等于真实行为，问错问题会做出失败的产品",
-      "core": "Our failure wasn’t due to a lack of research. It was because we asked our customers the wrong questions.",
-      "caseTitle": "被动候选人招聘工具",
-      "case": "Corporate recruiters said they wanted to source passive candidates. It’s what their ideal selves wanted. It’s what they aspired to. But when it came time to fill an open position, they sourced active candidates again and again. Why did this happen? Because recruiters are often measured by how fast they can fill an open role, and active candidates are the fastest way to do that.",
-      "explain": "作者团队访谈的招聘者都说想找被动候选人，于是做了相应产品，结果失败。因为招聘者的考核是填补职位的速度，实际一次次去找主动求职者。问题不在于研究不够，而在于问的是愿望而不是真实行为。"
-    }
-  ],
-  "Chapter Six: Mapping the Opportunity Space": [
-    {
-      "point": "绘制机会空间，是给结构不良的问题赋予结构的方法",
-      "core": "Mapping the opportunity space is how we give structure to the ill-structured problem of reaching our desired outcome.",
-      "caseTitle": "Seera 转做度假屋",
-      "case": "Their marketplace had little Istraha inventory, and the team needed to figure out how to entice hosts to share their properties and how to get guests to consider their platform as the place to book. Guijou’s team turned to their continuous discovery habits to guide them. They started interviewing Istraha hosts and guests. They uncovered countless opportunities on both sides of the marketplace. Rather than getting overwhelmed, they started mapping out the needs of each group on respective opportunity solution trees.",
-      "explain": "疫情让旅行业务一夜停摆，Seera 团队发现客户转向本地度假屋 Istraha。面对房东和房客两端的大量机会，他们没有被淹没，而是分别画出机会解决方案树，几周内就找到新市场并制定出产品策略。"
-    }
-  ],
-  "Chapter Seven: Prioritizing Opportunities, Not Solutions": [
-    {
-      "point": "选择目标机会是可逆的双向门决策，应快速决定而非等待完美数据",
-      "core": "When we assess and prioritize the opportunity space, even though these are some of the most strategic decisions we make as a product trio, we are still making two-way door decisions.",
-      "caseTitle": "贝索斯的两类决策",
-      "case": "He describes a Level 1 decision as one that is hard to reverse, whereas a Level 2 decision is one that is easy to reverse. Bezos argues that we should be slow and cautious when making Level 1 decisions, but that we should move fast and not wait for perfect data when making Level 2 decisions.",
-      "explain": "贝索斯在 2015 年股东信中区分难以逆转和容易逆转的决策，后者应快速行动。选目标机会只是决定接下来几天或几周做什么，发现不对还能回到树上换方向，属于后一类，不必陷入分析瘫痪。"
-    }
-  ],
-  "Chapter Eight: Supercharged Ideation": [
-    {
-      "point": "个人独立构思胜过集体头脑风暴，应先个人发散再交流",
-      "core": "So, if we stick to what the research tells us, individuals generating ideas on their own do outperform brainstorming groups.",
-      "caseTitle": "头脑风暴对照研究",
-      "case": "For decades researchers ran studies in which they compared the creative output of brainstorming groups against the creative output of the same number of individuals generating ideas alone. Study after study found that the individuals generating ideas alone outperformed the brainstorming groups. Individuals generated more ideas, more diverse ideas, and more original ideas.",
-      "explain": "研究者几十年来反复对比同等人数的头脑风暴小组和独自构思的个人，结果一再显示个人产出的想法更多、更多样、更有原创性。所以作者主张先独立构思，再分享、再独立构思，而不是一起开会想点子。"
-    }
-  ],
-  "Chapter Nine: Identifying Hidden Assumptions": [
-    {
-      "point": "团队容易爱上自己的想法而过度自信，必须主动挖掘隐藏假设",
-      "core": "We tend to seek out why our ideas will work and forget to explore why they might not work. As a result, we are often overconfident about the success of our ideas.",
-      "caseTitle": "波特兰保障房",
-      "case": "The developer built a building consisting primarily of one- and two-bedroom units. Both the city council and the developer thought this was how they could maximize impact and help the most families. Unfortunately, most of the displaced families were families of four or more. One- or two-bedroom condos wouldn’t work for them. The city spent millions of dollars building the wrong product for the outcome they wanted.",
-      "explain": "市议会和开发商都认定一两居室能帮到最多家庭，却从未验证这个假设。实际上多数被迫迁离的家庭有四口人以上，房子卖不出去，数百万美元白花。一个没被意识到的假设就足以让整个方案失败。"
-    }
-  ],
-  "Chapter Ten: Testing Assumptions, Not Ideas": [
-    {
-      "point": "测试前要定好具体的评估标准，团队才能一致解读结果",
-      "core": "To avoid this situation, we want to get specific with our evaluation criteria. Instead of saying, “Some people choose sports,” we want to say, “At least 3 out of 10 people choose sports.”",
-      "caseTitle": "一些人是多少人",
-      "case": "The problem with “some” is that your product manager might define “some” as 5 out of 10, and your designer might define “some” as 20 out of 100. If you run your simulation with 10 people, and 6 people choose sports, your product manager is going to think your assumption is now more known, and your designer is still going to be skeptical.",
-      "explain": "如果成功标准只写一些人会选体育，产品经理理解为十中五，设计师理解为百中二十。十人里六人选了体育，一个觉得假设成立，一个仍然怀疑，这次测试等于白做。事先写成十人中至少三人，结果才可行动。"
-    }
-  ],
-  "Chapter Eleven: Measuring Impact": [
-    {
-      "point": "假设测试成功不等于达成结果，必须继续衡量对期望结果的影响",
-      "core": "However, an outcome-focused product trio needs to stay focused on the end goal—driving the desired outcome. We need to remember to measure not just what we need to evaluate our assumption tests, but also what we need to measure impact on our outcome.",
-      "caseTitle": "AfterCollege 改版",
-      "case": "In our traditional “What type of job do you want?” interface, only 36% of students started a search. Two thirds of our site visitors never even started their job search. With our new “Tell us what you studied” interface, 83% of our visitors started their search.",
-      "explain": "把问想要什么工作改成问学什么专业，开始搜索的学生从 36% 升到 83%。但期望结果是让更多学生通过平台找到工作，而搜索和投递不一定预示录用，所以他们继续分流对照，直到确认新界面真的推动了这个结果。"
-    }
-  ],
-  "Chapter Twelve: Managing the Cycles": [
-    {
-      "point": "测试后决定不做也是成果，发现工作的价值常在于省下的时间",
-      "core": "The fruit of discovery work is often the time we save when we decide not to build something.",
-      "caseTitle": "Simply Business",
-      "case": "This was a big surprise for Mina’s team. Even though they had heard late payments come up as a pain point in interview after interview and they had market research reinforcing what they had heard, the results of their assumption tests were clear. Their customers did not want Simply Business to help them with this problem.",
-      "explain": "客户拖欠付款在访谈和市场研究中反复出现，看似必选机会。但三个假设测试一周内就显示，小企业主不愿让第三方介入催款，担心伤害客户关系。团队只投入一周就回到树上换机会，免去了几个月做错功能。"
-    }
-  ],
-  "Chapter Thirteen: Show Your Work": [
-    {
-      "point": "向利益相关者直接抛结论，会引发一场打不赢的意见之争",
-      "core": "When we present our conclusions, we aren’t sharing the journey we took to reach those conclusions. Instead, we are inviting our stakeholders to an opinion battle—a battle we have no chance of winning.",
-      "caseTitle": "Airship 旅程构建器",
-      "case": "However, when they shared their progress with the rest of the company, they ran into a significant roadblock. The sales team pushed back. They didn’t want to sell something new. They wanted to give their prospects what they were asking for—a journey builder just like what the competition offered.",
-      "explain": "Lisa 团队通过访谈发现竞品的旅程构建器太复杂，做出了更好的方案，但向公司展示时销售团队只想要和竞品一样的功能。结论之争难以取胜，最终靠争取一个月小范围内测，用客户真实使用说服了销售。"
-    }
-  ],
-  "Chapter Fourteen: Start Small, and Iterate": [
-    {
-      "point": "不等许可、不等组织转型，从自己能控制的小事开始接近客户",
-      "core": "Instead of asking for permission or waiting for someone to show you how, start small. Iterate from there.",
-      "caseTitle": "作者的 HighWire 起步",
-      "case": "I asked to attend their conferences. I spent time talking to the journal editors. I read the discussion forums in our product to learn more about end-users’ research. I mined our feedback channels, looking for needs and pain points. I built feedback loops directly into the product. I didn’t know how to get direct access to our end-users, so I looked for every proxy I could find.",
-      "explain": "作者 22 岁时设计稿被客户当面批评，公司习惯把设计稿隔墙扔给客户。她没有等待，而是自己参加客户会议、找期刊编辑聊、读论坛、挖反馈渠道，接触不到终端用户就找一切替代渠道，这正是从小处开始。"
-    }
-  ]
+ "Chapter One: The What and Why of Continuous Discovery": [
+  {
+   "point": "产品决策天天在做，客户输入也必须以同样的频率进入决策",
+   "core": "Product teams make decisions every day. Our goal with continuous discovery is to infuse those daily decisions with as much customer input as possible.",
+   "caseTitle": "一年一次的发现",
+   "case": "Discovery happened once a year in an annual budgeting process, where projects with fixed timelines were assigned to specific engineering teams. A project manager managed the work, budget, and schedule. Sometimes a product manager translated business needs to product requirements, but not always. There were (and still are) many challenges with this way of working. Software development is unpredictable. Projects were often delivered late and over budget. Business needs often trumped customer needs. Teams learned after the product shipped that customers weren’t excited about what they built.",
+   "explain": "年度预算制下发现一年只发生一次，团队在发布后才发现客户并不兴奋，说明低频客户输入让大量日常决策脱离客户，造成浪费。"
+  }
+ ],
+ "Chapter Two: A Common Framework for Continuous Discovery": [
+  {
+   "point": "追求业务结果时，要用以客户为中心的方式框定问题",
+   "core": "If product trios tasked with delivering a desired outcome want to pursue business value by creating customer value, they’ll need to work to frame the problem in a customer-centric way.",
+   "caseTitle": "富国银行虚开账户",
+   "case": "For example, in the Wells Fargo story, their leadership, whether implicitly or explicitly, had framed the problem as “grow customer accounts at all costs.” This framing opened the door to cheating. If, on the other hand, Wells Fargo had framed the problem as “create customers who want to open more accounts,” bankers would have been less likely to cheat.",
+   "explain": "富国银行把问题框定为“不惜代价增长账户”，导致员工私自开户；若框定为“让客户愿意多开户”，就会引导团队创造客户价值而非造假。"
+  }
+ ],
+ "Chapter Three: Focusing on Outcomes Over Outputs": [
+  {
+   "point": "三人组更适合负责自己可控的产品结果，而非滞后的业务结果",
+   "core": "As a general rule, product trios will make more progress on a product outcome rather than a business outcome. Remember, product outcomes measure how well the product moves the business forward.",
+   "caseTitle": "tails.com 狗粮留存",
+   "case": "First, not all tails.com customers understood the value of tailor-made dog food, and, second, some dogs simply didn’t like the food. Sonja’s team realized that they could prevent churn, and thus increase retention, if they focused on increasing the perceived value of tailor-made dog food and if they increased the number of dogs that liked the food.",
+   "explain": "tails.com 团队被分配提升留存这一业务结果，但留存是滞后指标，难以快速实验；他们转而聚焦提升定制狗粮的感知价值、让更多狗爱吃，即产品结果，从而推动留存。"
+  }
+ ],
+ "Chapter Four: Visualizing What You Know": [
+  {
+   "point": "先各自画体验地图再合并，避免群体思维，汇集不同视角",
+   "core": "To prevent groupthink, it’s critical that each member of the trio start by developing their own perspective before the trio works together to develop a shared perspective.",
+   "caseTitle": "申请流程的三张地图",
+   "case": "The product manager had the best grasp of the “known” challenges—the customer complaints that made their way to their call center and through support tickets. The designer missed a few steps in the process but did a great job of capturing the confusion and insecurity that the customer might be feeling in the process. Because he was new to the company, he was able to view the application process from an outsider’s perspective. The engineer’s map accurately captured the process and added detail about how one step informed another step.",
+   "explain": "产品经理、设计师、工程师各自画申请流程地图：产品经理熟悉投诉，设计师捕捉到客户的不安，新人工程师以局外人视角补全流程细节。三张图合并后，分歧点成为访谈要验证的地方。"
+  }
+ ],
+ "Chapter Five: Continuous Interviewing": [
+  {
+   "point": "不要直接问客户怎么做，而要让他们讲述具体的最近一次经历",
+   "core": "Since we can’t ask our customers direct questions about their behavior, the best way to learn about their needs, pain points, and desires is to ask them to share specific stories about their experience.",
+   "caseTitle": "买牛仔裤看什么",
+   "case": "During a workshop, I asked a woman what factors she considered when buying a new pair of jeans. She didn’t hesitate to answer. She said, “Fit is my number-one factor.” I then asked her to tell me about the last time she bought a pair of jeans. She said, “I bought them on Amazon.” I asked, “How did you know they would fit?” She replied, “I didn’t, but they were a brand I liked, and they were on sale.”",
+   "explain": "女士被问买牛仔裤看重什么时答“合身最重要”，但讲上次购买经历时却说没试就因品牌和打折在亚马逊下单——具体故事暴露了真实行为与自我描述的矛盾。"
+  }
+ ],
+ "Chapter Six: Mapping the Opportunity Space": [
+  {
+   "point": "绘制机会空间，是给结构不良的问题赋予结构的方法",
+   "core": "Mapping the opportunity space is how we give structure to the ill-structured problem of reaching our desired outcome.",
+   "caseTitle": "Seera 转做度假屋",
+   "case": "Their marketplace had little Istraha inventory, and the team needed to figure out how to entice hosts to share their properties and how to get guests to consider their platform as the place to book. Guijou’s team turned to their continuous discovery habits to guide them. They started interviewing Istraha hosts and guests. They uncovered countless opportunities on both sides of the marketplace. Rather than getting overwhelmed, they started mapping out the needs of each group on respective opportunity solution trees.",
+   "explain": "Seera 团队面对度假屋市场供需两端的模糊难题，没有陷入海量访谈发现，而是把房东与房客的需求分别画成机会解决方案树，用树结构把无从下手的问题拆成可逐层处理的分支。"
+  },
+  {
+   "point": "树结构能把大而难的问题拆成一系列更易解决的小问题",
+   "explain": "“这部剧好看吗”这类大问题难以直接下手，而“那个演员是谁”更易解决；树结构让团队看清难易机会的层级关系，从而逐步拆解、逐个攻克。",
+   "caseTitle": "评估节目好坏",
+   "core": "When we learn to think in the structure of trees, it helps us deconstruct large, intractable problems into a series of smaller, more solvable problems.",
+   "case": "“Is this show any good?” feels like a big, hard problem. How do we evaluate “good” for each individual viewer? “Who is that actor?” feels much easier. Should we always prioritize easy over hard? If so, when do we ever get to the hard problems that have the potential to differentiate us from our competitors and really drive our outcomes?"
+  }
+ ],
+ "Chapter Seven: Prioritizing Opportunities, Not Solutions": [
+  {
+   "point": "选择目标机会是可逆的双向门决策，应快速决定而非等待完美数据",
+   "core": "When we assess and prioritize the opportunity space, even though these are some of the most strategic decisions we make as a product trio, we are still making two-way door decisions.",
+   "caseTitle": "贝索斯的两类决策",
+   "case": "He describes a Level 1 decision as one that is hard to reverse, whereas a Level 2 decision is one that is easy to reverse. Bezos argues that we should be slow and cautious when making Level 1 decisions, but that we should move fast and not wait for perfect data when making Level 2 decisions.",
+   "explain": "贝索斯把决策分为难逆转的Level 1和易逆转的Level 2，主张后者应快速行动、不必等完美数据。机会优先排序正属此类可逆决策，故应快速决定。"
+  }
+ ],
+ "Chapter Eight: Supercharged Ideation": [
+  {
+   "point": "个人独立构思胜过集体头脑风暴，应先个人发散再交流",
+   "core": "So, if we stick to what the research tells us, individuals generating ideas on their own do outperform brainstorming groups.",
+   "caseTitle": "头脑风暴对照研究",
+   "case": "For decades researchers ran studies in which they compared the creative output of brainstorming groups against the creative output of the same number of individuals generating ideas alone. Study after study found that the individuals generating ideas alone outperformed the brainstorming groups. Individuals generated more ideas, more diverse ideas, and more original ideas.",
+   "explain": "数十年对照研究反复发现，同样人数下，独立构思者比头脑风暴小组产出更多、更多样、更原创的想法，直接证明集体讨论会抑制创意，应先各自发散。"
+  }
+ ],
+ "Chapter Nine: Identifying Hidden Assumptions": [
+  {
+   "point": "团队容易爱上自己的想法而过度自信，必须主动挖掘隐藏假设",
+   "core": "We tend to seek out why our ideas will work and forget to explore why they might not work. As a result, we are often overconfident about the success of our ideas.",
+   "caseTitle": "波特兰保障房",
+   "case": "The developer built a building consisting primarily of one- and two-bedroom units. Both the city council and the developer thought this was how they could maximize impact and help the most families. Unfortunately, most of the displaced families were families of four or more. One- or two-bedroom condos wouldn’t work for them. The city spent millions of dollars building the wrong product for the outcome they wanted.",
+   "explain": "市议会和开发商都以为建一居、两居室能帮到最多家庭，却没检验“受益家庭是四口以上”这一隐藏假设，结果花数百万建错产品，正说明过度自信会漏掉关键假设。"
+  }
+ ],
+ "Chapter Ten: Testing Assumptions, Not Ideas": [
+  {
+   "point": "测试前要定好具体的评估标准，团队才能一致解读结果",
+   "core": "To avoid this situation, we want to get specific with our evaluation criteria. Instead of saying, “Some people choose sports,” we want to say, “At least 3 out of 10 people choose sports.”",
+   "caseTitle": "一些人是多少人",
+   "case": "The problem with “some” is that your product manager might define “some” as 5 out of 10, and your designer might define “some” as 20 out of 100. If you run your simulation with 10 people, and 6 people choose sports, your product manager is going to think your assumption is now more known, and your designer is still going to be skeptical.",
+   "explain": "案例中“一些”被产品经理理解为5/10、设计师理解为20/100，10人测试6人选择时两人结论相反；说明模糊标准导致解读分歧，具体数字才能对齐团队。"
+  }
+ ],
+ "Chapter Eleven: Measuring Impact": [
+  {
+   "point": "假设测试成功不等于达成结果，必须继续衡量对期望结果的影响",
+   "core": "However, an outcome-focused product trio needs to stay focused on the end goal—driving the desired outcome. We need to remember to measure not just what we need to evaluate our assumption tests, but also what we need to measure impact on our outcome.",
+   "caseTitle": "AfterCollege 改版",
+   "case": "In our traditional “What type of job do you want?” interface, only 36% of students started a search. Two thirds of our site visitors never even started their job search. With our new “Tell us what you studied” interface, 83% of our visitors started their search.",
+   "explain": "新界面让搜索启动率从36%升至83%，但这只是假设测试的先行指标；团队仍需追踪它是否真正带动期望结果，而非止步于中间指标上涨。"
+  }
+ ],
+ "Chapter Twelve: Managing the Cycles": [
+  {
+   "point": "测试后决定不做也是成果，发现工作的价值常在于省下的时间",
+   "core": "The fruit of discovery work is often the time we save when we decide not to build something.",
+   "caseTitle": "Simply Business",
+   "case": "This was a big surprise for Mina’s team. Even though they had heard late payments come up as a pain point in interview after interview and they had market research reinforcing what they had heard, the results of their assumption tests were clear. Their customers did not want Simply Business to help them with this problem.",
+   "explain": "Mina团队通过假设测试发现，尽管访谈和市场调研都指向逾期付款痛点，客户却并不想要Simply Business提供这项帮助，及时放弃避免了无效开发。"
+  }
+ ],
+ "Chapter Thirteen: Show Your Work": [
+  {
+   "point": "直接抛结论会引发意见之争，应展示推导过程",
+   "core": "When we present our conclusions, we aren’t sharing the journey we took to reach those conclusions. Instead, we are inviting our stakeholders to an opinion battle—a battle we have no chance of winning.",
+   "caseTitle": "Airship 旅程构建器",
+   "case": "However, when they shared their progress with the rest of the company, they ran into a significant roadblock. The sales team pushed back. They didn’t want to sell something new. They wanted to give their prospects what they were asking for—a journey builder just like what the competition offered.",
+   "explain": "Airship团队若只抛出结论，销售团队只会争论喜不喜欢；他们改为展示发现与推导，让销售参与其中，讨论才转向为什么是这个方案。"
+  }
+ ],
+ "Chapter Fourteen: Start Small, and Iterate": [
+  {
+   "point": "不等许可，从自己能控制的小事开始接近客户",
+   "core": "Instead of asking for permission or waiting for someone to show you how, start small. Iterate from there.",
+   "caseTitle": "作者的 HighWire 起步",
+   "case": "I asked to attend their conferences. I spent time talking to the journal editors. I read the discussion forums in our product to learn more about end-users’ research. I mined our feedback channels, looking for needs and pain points. I built feedback loops directly into the product. I didn’t know how to get direct access to our end-users, so I looked for every proxy I could find.",
+   "explain": "作者没有等待组织授权或现成方法，而是主动参加客户会议、访谈编辑、读论坛与反馈渠道，用一切可及的替代渠道接近终端用户，正是从小处起步、逐步迭代的体现。"
+  }
+ ]
 }

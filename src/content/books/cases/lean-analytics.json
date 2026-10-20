@@ -1,20 +1,20 @@
 {
  "1. We’re All Liars": [
   {
-   "point": "有了直觉就用最小投入快速检验，并事先定义成功的样子",
-   "core": "When you think you’ve found a worthwhile idea, decide how to test it quickly, with minimal investment. Define what success looks like beforehand, and know what you’re going to do if your hunch is right.",
-   "caseTitle": "Airbnb 专业摄影",
-   "case": "Initial tests of Airbnb’s MVP showed that professionally photographed listings got two to three times more bookings than the market average. This validated the founders’ first hypothesis. And it turned out that hosts were wildly enthusiastic about receiving an offer from Airbnb to take those photographs for them.",
-   "explain": "创始人直觉认为专业照片能带来更多预订，但没有直接全面上线，而是先用人工的礼宾式 MVP 测试。结果有专业照片的房源预订量是市场平均的两到三倍，房东也很欢迎，假设被验证后才扩大规模。"
+   "point": "直觉只是假设，用最小可行产品快速验证再决定是否投入",
+   "explain": "创始人凭直觉认为专业摄影能带来更多订单，但没有直接铺开，而是先做人工MVP小范围测试，把直觉变成可检验的实验，验证成功后才规模化。",
+   "caseTitle": "Airbnb专业摄影实验",
+   "core": "Instincts are experiments. Data is proof.",
+   "case": "It started with a hypothesis: “Hosts with professional photography will get more business. And hosts will sign up for professional photography as a service.” This is where the founders’ gut instincts came in: they had a sense that professional photography would help their business. But rather than implementing it outright, they built a Concierge Minimum Viable Product (MVP) to quickly test their hypothesis."
   }
  ],
  "2. How to Keep Score": [
   {
    "point": "分析行为模式、找出高价值用户的共同点，才能找到对的市场",
-   "core": "By analyzing patterns of engagement and desirable behavior, then finding out what those users had in common, the company found the right market for its offering.",
-   "caseTitle": "Circle of Moms 的转向",
-   "case": "And he found a segment of users—moms, to be precise—that bucked the poor engagement trend of most users. Here’s what he found: Their messages to one another were on average 50% longer. They were 115% more likely to attach a picture to a post they wrote. They were 110% more likely to engage in a threaded (i.e., deep) conversation.",
-   "explain": "Circle of Friends 有上千万用户，但不到两成的圈子有后续活动。Mike 翻数据发现妈妈群体明显不同：消息长 50%，发图概率高 115%，深度讨论高 110%。这个分群结果让团队转向专做 Circle of Moms。"
+   "explain": "Circle of Moms 发现妈妈用户消息长50%、发图率高115%、深度对话率高110%，且其邀请的朋友成为活跃用户的比例高50%，据此锁定该细分市场并成功转型。",
+   "caseTitle": "Circle of Moms 转型",
+   "core": "The key to Mike’s success with Circle of Moms was his ability to dig into the data and look for meaningful patterns and opportunities.",
+   "case": "Their messages to one another were on average 50% longer. They were 115% more likely to attach a picture to a post they wrote. They were 110% more likely to engage in a threaded (i.e., deep) conversation. They had friends who, once invited, were 50% more likely to become engaged users themselves. They were 75% more likely to click on Facebook notifications. They were 180% more likely to click on Facebook news feed items. They were 60% more likely to accept invitations to the app."
   }
  ],
  "4. Data-Driven Versus Data-Informed": [
@@ -23,25 +23,25 @@
    "core": "Humans do inspiration; machines do validation.",
    "caseTitle": "Omniture 的点击率陷阱",
    "case": "Left to its own devices, the software quickly learned that scantily clad women generated a far higher click-through rate on web pages than other forms of content. But that click-through rate was a short-term gain, offset by damage to the brand of the company that relied on it. So Omniture’s software works alongside curators who understand the bigger picture and provide suitable imagery for the machine to test.",
-   "explain": "只看点击率的优化软件很快学会用衣着暴露的女性图片拉高点击，但这是以损害品牌为代价的短期收益。Omniture 因此让懂大局的编辑先挑选合适图片，再交给机器去测试，人定方向、机器做验证。"
+   "explain": "Omniture 的软件若放任自流，会为追求点击率而选用暴露图片，短期指标上升却损害品牌；只有懂大局的人工策展人介入，才能给机器设定合适方向。"
   }
  ],
  "5. Analytics Frameworks": [
   {
-   "point": "增长引擎要依次启动，在产品有黏性和传播力之前开付费引擎为时过早",
+   "point": "增长引擎要依次启动，产品有黏性和传播力前开付费引擎为时过早",
    "core": "It’s usually premature to turn this engine on before you know that your product is sticky and viral.",
    "caseTitle": "Hawken 的三步走",
    "case": "Meteor Entertainment’s Hawken is a multiplayer game that’s free to play, but it makes money from in-game upgrades. Meteor is focusing on usage within a beta group first (stickiness), then working on virality (inviting your friends to play), and finally payment (players buying upgrades to become competitive or enhance the in-game experience).",
-   "explain": "Hawken 免费玩、靠游戏内升级赚钱，但团队没有一开始就推付费：先在内测用户中看使用情况（黏性），再做邀请好友（病毒），最后才让玩家买升级（付费），按顺序逐个启动增长引擎。"
+   "explain": "Hawken先在小范围测试中打磨使用（黏性），再做邀请好友（病毒性），最后才让玩家购买升级（付费），正说明付费引擎应放在黏性与传播力验证之后。"
   }
  ],
  "6. The Discipline of One Metric That Matters": [
   {
-   "point": "任何时候都应有一个比其他指标都重要的指标",
-   "core": "We are, however, saying that at any given time, there’s one metric you should care about above all else.",
-   "caseTitle": "Solare 餐厅的 24",
-   "case": "One evening at the restaurant, Randy’s son Tommy—who manages the bar—yelled out, “24!” Since we’re always looking for stories about business metrics, we asked him what the number meant. “Every day, my staff tells me the ratio of staff costs to gross revenues for the previous day,” he explained. “This is a fairly well-known number in the restaurant industry. It’s useful because it combines two things you have a degree of control over—per-diner revenues and staffing costs.”",
-   "explain": "这家餐厅每天只报一个数：前一天人工成本占营业额的比例。24 这个数简单、当天可得，又同时反映人均消费和人手安排，第二天就能据此调排班或推动加购，是一个能直接指导行动的核心指标。"
+   "point": "任何时刻都应有一个高于其他一切的指标",
+   "explain": "Moz 把净增付费数（新付费减取消）作为唯一统领指标，全公司围绕它行动，正体现单一核心指标让团队聚焦当前最大风险。",
+   "caseTitle": "Moz聚焦净增订阅数",
+   "core": "It relies on one metric above all others: Net Adds.",
+   "case": "Joanna says that one metric stands above the rest: Net Adds. This metric is the total of new paid subscribers (either conversions from free trials or direct paid signups) minus the total who cancelled."
   }
  ],
  "7. What Business Are You In?": [
@@ -50,16 +50,16 @@
    "core": "You need to segment real, valuable users from drive-by, curious, or detrimental ones.",
    "caseTitle": "Fitbit 的用户层级",
    "case": "Fitbit users can simply record their steps with a device in their pocket, they can use it to sync data to the company’s hosted application, they can visit the portal to see their statistics and share them with friends, they can manually enter sleep and food data to augment what’s collected passively, and they can buy the premium Fitbit offering to help them reach their health goals.",
-   "explain": "同样是 Fitbit 用户，有人只别着设备计步，有人同步数据、上网站看统计和分享，有人手动记录睡眠饮食，有人购买高级服务。每层投入和变现潜力都不同，只数总人数会把这些差别都抹掉。"
+   "explain": "Fitbit 用户从只记录步数，到同步数据、查看分享统计、手动补充数据、购买高级服务，参与层级逐级加深。按这些层级分群统计，才能识别高价值用户，而非笼统数用户。"
   }
  ],
  "9. Model Two: Software as a Service (SaaS)": [
   {
-   "point": "找出业务里风险最大的环节，去改善代表这个风险的指标",
+   "point": "找出业务中风险最大的环节，改善代表该风险的指标",
    "core": "You need to know which aspects of your business are too risky and then work to improve the metric that represents that risk.",
    "caseTitle": "Backupify 的获客成本",
    "case": "At the time, the company was focused on consumers and realized that, while revenue was going up, the customer acquisition cost (CAC) was too high. “In early 2010 we were paying $243 to acquire a customer, who only paid us $39 per year,” explained Robert. “Those are horrible economics. Most consumer apps get around the high acquisition costs with some sort of virality, but backup isn’t viral. So we had to pivot [from consumer sales] to go after businesses.”",
-   "explain": "Backupify 收入在涨，但获取一个用户要花 243 美元，用户每年只付 39 美元，备份服务又没有病毒性可以摊薄成本。获客成本成了最大的风险，团队据此从消费者转向企业客户。"
+   "explain": "Backupify 发现获客成本 243 美元而客户年付费仅 39 美元，经济模型极差，于是从消费者转向企业市场，正是针对最危险环节改进指标。"
   }
  ],
  "14. What Stage Are You At?": [
@@ -68,25 +68,25 @@
    "core": "You can’t just start measuring everything at once. You have to measure your assumptions in the right order. To do that, you need to know what stage you’re at.",
    "caseTitle": "一家餐厅的五阶段",
    "case": "Empathy: Before opening, the owner first learns about the diners in the area, their desires, what foods aren’t available, and trends in eating. Stickiness: Then he develops a menu and tests it out with consumers, making frequent adjustments until tables are full and patrons return regularly. He’s giving things away, testing things, and asking diners what they think. Costs are high because of variance and uncertain inventory. Virality: He starts loyalty programs to bring frequent diners back, or to encourage people to share with their friends. He engages on Yelp and Foursquare.",
-   "explain": "餐厅老板先了解周边食客需求，再反复调整菜单直到满座且回头客多，之后才做会员和点评网站推广。每一步都建立在上一步被验证的基础上，没有黏性就做推广只会放大问题。"
+   "explain": "餐厅老板先调研食客需求（共情），再反复调整菜单直到客满复购（黏性），最后才做忠诚计划和社交推广（病毒）。每一步只测当前阶段的假设，证明后才推进，正说明按顺序检验的必要。"
   }
  ],
  "15. Stage One: Empathy": [
   {
-   "point": "定性数据无可替代，但可以借助技术大幅提高收集效率",
+   "point": "定性数据不可替代，但技术能大幅提升收集效率",
+   "explain": "Nick用Mechanical Turk发布任务，付费请符合条件的单身女性来电访谈，每场10-15分钟，快速规模化获取真实定性反馈，证明技术可加速共情阶段的数据收集。",
+   "caseTitle": "LikeBright用Mechanica",
    "core": "While there’s no substitute for qualitative data, you can use technology to dramatically improve the efficiency of collecting that data.",
-   "caseTitle": "LikeBright 一晚访谈百人",
-   "case": "Nick set up several Google Voice phone numbers (throwaway numbers that couldn’t be tracked or reused) and recruited a few friends to help him out. He prepared a simple interview script with open-ended questions, since he was digging into the problem validation stage of his startup. Nick says, “I was amazed at the feedback I got. We were able to speak with 100 single women that met our criteria in four hours on one evening.”",
-   "explain": "加速器要求创始人先访谈一百位单身女性。他通过 Mechanical Turk 付费招募受访者来电，配合 Google Voice 号码和朋友帮忙、用开放式问题提纲，一个晚上四小时就完成一百次访谈，效率极高。"
+   "case": "The idea was to use Mechanical Turk to survey 100 single women, putting out a task (or what Mechanical Turk calls a HIT) asking women (who fit a particular profile) to call Nick. In exchange he paid them $2. The interviews typically lasted 10–15 minutes."
   }
  ],
  "16. Stage Two: Stickiness": [
   {
-   "point": "MVP 应提供通往用户惊喜时刻的最简单、最少阻力的路径",
+   "point": "MVP 应给用户通往“惊喜时刻”的最短、最少阻力路径",
+   "explain": "qidiq 把流程从“先注册再投票”改为“先投票”，注册摩擦消失，问卷回复率从 10–25% 升至 70–90%，证明减少阻力能直接提升参与。",
+   "caseTitle": "qidiq 投票优先改版",
    "core": "The MVP should include the simplest, least-friction path between your user and the “aha!” moment you’re trying to deliver.",
-   "caseTitle": "qidiq 先投票后注册",
-   "case": "The results were striking: response rates went from 10–25% with the enroll-first model to 70–90% with the vote-first model. This made the team rethink their plans to develop a mobile application, since mobile applications couldn’t compete with the cross-platform ubiquity and immediacy of email.",
-   "explain": "qidiq 原本要求受邀者先注册再答题，响应率很低。团队改为默认对方已有账户、一键作答，响应率从 10% 到 25% 跳到 70% 到 90%。去掉注册阻力后，甚至发现邮件就够用，不必再开发移动应用。"
+   "case": "The qidiq team quickly changed their application, as illustrated in Figure 16-1, and sent out more surveys to personal groups they’d created. These initial surveys were sent via email alone. The results were striking: response rates went from 10–25% with the enroll-first model to 70–90% with the vote-first model."
   }
  ],
  "17. Stage Three: Virality": [
@@ -95,7 +95,7 @@
    "core": "Focusing on a metric like viral coefficient may be too high level; instead, look for the actions within your product that drive virality and make sure you’re measuring those properly and have lines in the sand that you’re targeting.",
    "caseTitle": "Timehop 盯分享比例",
    "case": "“All of our focus right now is on sharing,” says Jonathan. “The metric we’re watching is percent of daily active users that share something. We don’t focus on the viral coefficient right now—we know it’s below 1—and we want to track numbers that are closer to what people are doing in our app.”",
-   "explain": "Timehop 知道自己的病毒系数低于 1，但不去盯这个总数，而是追踪每日活跃用户中有多少人分享内容，并定下 20% 到 30% 的目标线，因为这个行为离用户实际操作更近、也更能改动。"
+   "explain": "Timehop 明知病毒系数低于1，却不盯这个宏观数字，而是追踪“每日活跃用户中分享者的比例”这一具体行为，并据此设定目标，正说明应关注并测量产品内驱动传播的具体动作。"
   }
  ],
  "18. Stage Four: Revenue": [
@@ -104,16 +104,23 @@
    "core": "Even if you have healthy growth in an important dimension (like user count or engagement), it’s not worth much if you can’t convert it to money and pay the bills.",
    "caseTitle": "Parse.ly 放弃阅读器",
    "case": "“We had thousands of users and the product was growing rapidly. We were written up in top technology press like TechCrunch, ReadWriteWeb, and ZDNet. The product worked and we had a million ideas for how to improve it even further. However, it was lacking one critical metric for any growing business—revenue. We ran tests and surveys, and learned that though our users loved Parse.ly Reader, they didn’t love it so much that they’d be willing to pay for it.”",
-   "explain": "Parse.ly 的阅读器有数千用户、增长快，还被科技媒体报道，各项指标都好看。但调研发现用户喜欢却不愿付钱，缺的正是收入。团队最终停掉阅读器，转做面向出版商的分析工具。"
+   "explain": "Parse.ly Reader 用户数以千计、增长快、获媒体好评，但测试和调研发现用户虽喜欢却不愿付费，缺少收入这一关键指标，最终放弃该产品转向可持续商业模式。"
   }
  ],
  "19. Stage Five: Scale": [
   {
-   "point": "规模化时要警惕参与度下降、市场饱和和获客成本上升",
+   "point": "规模化前先确认流失可控，再放心投入获客",
    "core": "Scaling is good if it brings in incremental revenue, but you have to watch for a decrease in engagement, a gradual saturation of the initial market, or a rising cost of customer acquisition.",
    "caseTitle": "Buffer 先查流失再扩张",
    "case": "“Then we checked our churn, because we know that it’s vital before focusing on acquisition.” Joel’s target was below 5%, and in fact Buffer’s churn hovers around 2%, so, the team doesn’t invest a lot of time trying to improve it, which gives them the comfort to focus on acquisition.",
-   "explain": "Buffer 已经盈利，决定主攻获客前先检查流失：目标是低于 5%，实际约 2%，说明留存足够健康。确认了这一点，团队才放心把精力转向新渠道和用户增长。"
+   "explain": "Buffer 扩张前先查流失，目标低于5%，实际约2%，团队无需再花大量时间改善留存，才有余力把重心转向获客。"
+  },
+  {
+   "point": "进入新渠道要警惕支持成本上升与客户流失",
+   "explain": "直销产品转渠道销售时，渠道未必具备销售与支持能力，导致自身支持成本上升、渠道客户退货或弃用增加，说明规模化扩渠道须按渠道验证留存与付费。",
+   "caseTitle": "渠道销售产品困境",
+   "core": "Scaling is good if it brings in incremental revenue, but you have to watch for a decrease in engagement, a gradual saturation of the initial market, or a rising cost of customer acquisition.",
+   "case": "Consider, for example, a product sold through direct sales. If you try to introduce the product to channels, those channels may not be equipped to sell and support the product. Your own support costs go up; returns or abandonment from channel-sold customers climbs."
   }
  ],
  "21. Am I Good Enough?": [
@@ -122,16 +129,16 @@
    "core": "If, on the other hand, you’re already as good as you’re going to get—move on. You’ve already optimized a key metric, and you’ll get diminishing returns trying to improve it further.",
    "caseTitle": "WP Engine 的 2% 流失",
    "case": "On the surface, that looks like a huge number. “When I first saw our churn, which was around 2%, I was very concerned,” Jason says. “But when I found out that 2% is pretty much the lowest churn you’ll get in the hosting business, it changed my perspective a great deal.” Had Jason not known that this is simply a fact of life in the hosting industry, WP Engine might have invested time and money trying to move a metric that wouldn’t budge—money that would have been far better spent elsewhere.",
-   "explain": "WP Engine 看到每月约 2% 的流失很担心，打听后发现这已是主机行业最好的水平。有了这条基准，他就不再砸钱去推一个几乎推不动的指标，而是把精力转向其他更重要的问题。"
+   "explain": "Jason 发现 2% 已是主机行业最低流失率，便不再投入时间金钱去压这个动不了的指标，把资源留给更值得优化的地方。"
   }
  ],
  "23. SaaS: Lines in the Sand": [
   {
-   "point": "试用时是否先要信用卡，会大幅改变 SaaS 的多项指标",
+   "point": "试用时是否先要信用卡，会大幅改变SaaS的多项指标",
    "core": "But there’s one factor that produces a huge difference across many metrics: asking for payment up front during a trial.",
    "caseTitle": "Totango 的绑卡数据",
    "case": "It has found that asking for a credit card during signup means 0.5% to 2% of visitors sign up for a trial, while not asking for a credit card means 5% to 10% of visitors will enroll. Enrollment isn’t the only goal, of course. You want users who enroll in a trial to become paying customers. Roughly 15% of trial users who did not provide a credit card will sign up for a paid subscription. On the other hand, 40–50% of trial users who did provide one will convert to a paid subscription.",
-   "explain": "Totango 基于一百多家 SaaS 的数据：注册时要信用卡，只有 0.5% 到 2% 的访客试用；不要则有 5% 到 10%。但绑卡试用者有 40% 到 50% 转付费，不绑卡只有约 15%，一个设计同时改变了漏斗两端。"
+   "explain": "Totango跨100多家SaaS公司的数据显示：要求绑卡时仅0.5%–2%访客注册试用，但其中40%–50%转为付费；不要求绑卡时5%–10%访客注册，仅约15%转为付费。"
   }
  ],
  "29. Selling into Enterprise Markets": [
@@ -140,7 +147,7 @@
    "core": "Consulting is a good way to discover customer needs, and it helps pay the bills. It also gives you a way to test out your early ideas, because while every customer has needs, the only needs you can build a business on are those that are consistent across a reasonably large, addressable market.",
    "caseTitle": "Coradiant 跟着客户做产品",
    "case": "Some of Coradiant’s MSP customers became TrueSight users, quickly building a stable of reference-worthy household names. The initial version of TrueSight contained only basic features—most reporting, for example, was done by exporting information into Excel. But Coradiant had an extremely hands-on pre- and post-sales engineering team that worked closely with early customers. Once the company saw what kinds of reports customers made, and how they used the appliance, it incorporated those into later versions.",
-   "explain": "Coradiant 出身咨询，初版 TrueSight 很简陋，报表靠导出 Excel。但售前售后工程师紧贴早期客户，看他们做什么报表、怎么用设备，再把这些共性需求做进后续版本，从定制服务一步步走向标准产品。"
+   "explain": "Coradiant 早期靠工程团队与客户深度合作，从客户实际用法中提炼报表等功能并标准化进后续版本，说明咨询式合作能发现需求，但只有可复用的共性需求才能规模化。"
   }
  ]
 }

@@ -5,25 +5,25 @@
    "core": "The biggest flaw of the old waterfall process has always been, and remains, that all the risk is at the end, which means that customer validation happens way too late.",
    "caseTitle": "点子失败的三种原因",
    "case": "There are many reasons for an idea to not work out. The most common is that customers just aren't as excited about this idea as we are. So, they choose not to use it. Sometimes they want to use it and they try it out, but the product is so complicated that it's simply more trouble than it's worth, so users again choose not to use it. Sometimes the issue is that customers would love it, but it turns out to be much more involved to build than we thought, and we decide we simply can't afford the time and money required to deliver it.",
-   "explain": "客户不够兴奋、产品太复杂用不起来、做起来比预想的贵，这三种失败原因在瀑布流程里都要等到开发上线后才会暴露。风险堆在末尾，前面投入的时间和钱就都白费了。"
+   "explain": "点子失败常因客户不感兴趣、产品太复杂或开发成本超预期，这些风险本应尽早验证，却因流程拖到最后才暴露，代价巨大。"
   }
  ],
  "CHAPTER 8: Key Concepts": [
   {
-   "point": "MVP 应该是原型而不是产品，否则学习成本过高",
+   "point": "MVP 应是原型而非产品，否则学习成本过高",
    "core": "The MVP should be a prototype, not a product.",
    "caseTitle": "花了几个月的 MVP",
    "case": "The vast majority of times I meet a team that has been working hard to create an MVP I am able to convince them that they could have achieved the same learning in a fraction of the time and effort. They have spent literally months building an MVP when they could have had this same learning in days or, sometimes, even in hours.",
-   "explain": "作者遇到的团队常花几个月做出产品级 MVP，而同样的学习用原型几天甚至几小时就能拿到。把 MVP 当产品来建，正是把本该便宜的实验做成了昂贵的交付。"
+   "explain": "团队花数月建 MVP，本可用原型在数天甚至数小时内获得同样认知，说明把 MVP 当产品会浪费大量时间与精力。"
   }
  ],
  "CHAPTER 9: Principles of Strong Product Teams": [
   {
-   "point": "产品团队要对自己那块产品的所有工作负完整责任",
+   "point": "产品团队要对产品的全部工作负完整责任",
    "core": "One dimension of this is the type of work to be done, and it's important that a product team has responsibility for all the work—all the projects, features, bug fixes, performance work, optimizations, and content changes—everything and anything for their product.",
    "caseTitle": "eBay 的团队分工",
    "case": "For example, you might be working on a team at eBay that's responsible for technology to detect and prevent fraud or tools and services for high‐volume sellers. Or, at Facebook, your team might be responsible for newsfeeds, an iOS native mobile app, or the capabilities required for a specific vertical market.",
-   "explain": "在 eBay，一个团队可能专管反欺诈技术或大卖家工具；在 Facebook，可能专管信息流或 iOS 应用。每个团队拥有一块清晰的产品范围，功能、缺陷、性能都归它，才能长期积累专长和责任感。"
+   "explain": "eBay 反欺诈团队、Facebook 新闻流团队各自负责一块完整产品，涵盖功能、缺陷、性能与内容，而非只做单个项目，正体现“所有工作都归它”。"
   }
  ],
  "CHAPTER 10: The Product Manager": [
@@ -32,7 +32,7 @@
    "core": "You might have a data analyst to help you with this, but the analysis of the data and understanding you get of your customer is not something you can delegate.",
    "caseTitle": "每天早上半小时看数据",
    "case": "A big part of knowing your customer is understanding what they're doing with your product. Most product managers start their day with half an hour or so in the analytics tools, understanding what's been happening in the past 24 hours. They're looking at sales analytics and usage analytics. They're looking at the results of A/B tests.",
-   "explain": "多数产品经理每天先花半小时看过去 24 小时的销售、使用数据和 A/B 测试结果。这种日常习惯说明，理解数据背后的用户行为必须亲自做，不能只等分析师交报告。"
+   "explain": "产品经理每天花半小时亲自看销售、使用和A/B测试数据，这种对客户的理解无法交给数据分析师代劳。"
   }
  ],
  "CHAPTER 23: The Alternative to Roadmaps": [
@@ -41,7 +41,7 @@
    "core": "The idea behind business objectives is simple enough: tell the team what you need them to accomplish and how the results will be measured, and let the team figure out the best way to solve the problems.",
    "caseTitle": "开通时间从 30 天到 3 小时",
    "case": "Consider this example of a business objective and a measurable, key result. Suppose your product currently requires 30 days for a new customer to onboard. But in order to scale effectively, management believes this needs to be reduced to three hours or less. That's a good example of a business objective for one or more product teams: “Dramatically reduce the time it takes for a new customer to go live.” And one of the measurable key results would be “Average new customer onboarding time less than three hours.”",
-   "explain": "管理层不指定做哪些功能，只给出大幅缩短新客户上线时间的目标，以及平均开通少于三小时的关键结果。团队怎么做由自己决定，但必须推动这个数字才算完成。"
+   "explain": "案例把“新客户上线”从30天降到3小时定为业务目标，并配可衡量关键结果，团队据此自寻解法，正体现目标加衡量而非功能清单。"
   }
  ],
  "CHAPTER 24: Product Vision and Product Strategy": [
@@ -50,16 +50,16 @@
    "core": "For most types of businesses, I encourage teams to construct product strategy around a series of product/market fits.",
    "caseTitle": "教育产品按人群推进",
    "case": "For consumer‐focused companies, we often structure each product/market fit around a different customer or user persona. For example, an education‐related service might have a strategy that targets high school students first, college students next, and then those already working but who want to learn new skills.",
-   "explain": "一个教育服务先瞄准高中生，再做大学生，最后是想学新技能的在职人士。每一步只对一个人群追求产品与市场匹配，其他人群的点子先放着，这就是按顺序推进的产品策略。"
+   "explain": "教育服务先做高中生、再大学生、最后在职学习者，每个阶段对应一个用户画像的产品/市场匹配，按顺序推进而非同时铺开。"
   }
  ],
  "CHAPTER 33: Principles of Product Discovery": [
   {
-   "point": "强团队每周能测试一二十个点子，因为发现阶段的迭代很便宜",
+   "point": "发现阶段迭代成本极低，团队每周可测试一二十个点子",
    "core": "To set your expectations, teams competent in modern discovery techniques can generally test on the order of 10–20 iterations per week.",
    "caseTitle": "止步于三人小组的迭代",
    "case": "Also, realize that many iterations never make it beyond just you, your designer, and your tech lead. The very act of creating a prototype often exposes problems that cause you to change your mind. As a rule of thumb, an iteration in discovery should be at least an order of magnitude less time and effort than an iteration in delivery.",
-   "explain": "很多点子只在产品经理、设计师和技术负责人之间就被原型暴露的问题否掉了。发现阶段一次迭代的成本比交付低一个数量级，所以每周试一二十个才可能。"
+   "explain": "当前条目指出发现阶段一次迭代的时间与投入比交付阶段低一个数量级，且多数迭代止步于产品经理、设计师和技术负责人三人，正说明快速、廉价试错可行。"
   }
  ],
  "CHAPTER 35: Opportunity Assessment Technique": [
@@ -68,16 +68,16 @@
    "core": "We want to know at the outset what the measure of success is.",
    "caseTitle": "流失率改善 1%",
    "case": "For example, if we're trying to reduce churn, would a 1 percent improvement be considered excellent or would be it be considered a waste of time?",
-   "explain": "同样是降低流失率，改善 1% 可能是优秀，也可能是浪费时间。作者用这个例子说明，若不事先约定关键结果的门槛，事后就无法判断这项发现工作是否值得。"
+   "explain": "以降低流失率为例，1%的改进算优秀还是浪费时间，必须在开始前就明确，否则团队无法判断工作是否成功。"
   }
  ],
  "CHAPTER 39: Customer Discovery Program Technique": [
   {
-   "point": "在一个目标市场拿到六个参考客户，才算达到产品与市场匹配",
+   "point": "在特定目标市场拿到六个参考客户，通常即可宣告产品/市场契合",
    "core": "If we can get to the point where we have six reference customers in a specific target market, we will typically declare product/market fit for that market.",
    "caseTitle": "按行业和地域攒参考客户",
    "case": "In the earlier chapters on product vision and strategy, we talked about the product strategy of pursuing a product vision by tackling one vertical market after another. For example, first develop six references for the financial services industry, then six for the manufacturing industry, and so on. Or you can expand geographically in this same manner (for example, first develop six references for the United States, six for Germany, and then six for Brazil, and so on).",
-   "explain": "先为金融服务业攒六个参考客户，再为制造业攒六个；或先美国、再德国、再巴西。每个市场都以六个参考客户作为匹配的标志，销售也只去卖已经验证过的市场。"
+   "explain": "案例给出按行业或地域逐个市场推进的具体路径：先在金融服务业攒够六个参考客户，再到制造业，或先美国、再德国、巴西，说明“六个参考客户”是可操作的市场契合判定标准。"
   }
  ],
  "CHAPTER 45: Principles of Prototypes": [
@@ -86,7 +86,7 @@
    "core": "Realize that one of the key benefits of any form of prototype is to force you to think through a problem at a substantially deeper level than if we just talk about it or write something down.",
    "caseTitle": "原型即规格",
    "case": "The primary purpose of a prototype is to tackle one or more product risks (value, usability, feasibility, or viability) in discovery; however, in many cases, the prototype goes on to provide a second benefit, which is to communicate to the engineers and the broader organization what needs to be built. This is often referred to as prototype as spec.",
-   "explain": "原型先用来在发现阶段应对价值、可用性、可行性和商业风险，之后还能直接作为规格交给工程师。同一个原型既暴露问题又传达要做什么，比口头或文字说明深入得多。"
+   "explain": "原型迫使团队把模糊想法具体化，比口头讨论或写文档更能暴露隐藏问题；它还能充当规格说明，向工程师传达要建什么，说明原型确实深化了思考。"
   }
  ],
  "CHAPTER 51: Testing Value": [
@@ -95,7 +95,7 @@
    "core": "The customer must perceive your product to be substantially better to motivate them to buy your product and then wade through the pain and obstacles of migrating from their old solution.",
    "caseTitle": "功能对齐却卖不动",
    "case": "So many companies and product teams think all they need to do is match the features (referred to as feature parity), and then they don't understand why their product doesn't sell, even at a lower price.",
-   "explain": "很多团队以为把竞品的功能补齐就行，结果即使价格更低也卖不动。因为客户换掉旧方案有迁移成本，功能相同不足以构成理由，只有明显更好才能打动他们。"
+   "explain": "许多团队以为做到功能对齐就能卖动，结果即使降价也卖不出去。这说明仅与旧方案持平不足以让用户放弃现有做法、承担迁移成本，产品必须明显更优。"
   }
  ],
  "CHAPTER 52: Demand Testing Techniques": [
@@ -104,34 +104,34 @@
    "core": "Hopefully, you can see that this is very easy to do, and you can quickly collect two very useful things: (1) some good evidence on demand and (2) a list of users who are very ready and willing to talk with you about this specific new capability.",
    "caseTitle": "假门测试",
    "case": "The demand‐testing technique is called a fake door demand test. The idea is that we put the button or menu item into the user experience exactly where we believe it should be. But, when the user clicks that button, rather than taking the user to the new feature, it instead takes the user to a special page that explains that you are studying the possibility of adding this new feature, and you are seeking customers to talk to about this. The page also provides a way for the user to volunteer (by providing their e‐mail or phone number, for example).",
-   "explain": "在功能该出现的位置放一个按钮，点进去只是一页说明正在考虑这个功能，并请用户留下邮箱或电话。点击率就是需求证据，留下联系方式的人就是后续访谈的对象，两样一次到手。"
+   "explain": "假门测试在真实界面放置入口，点击后不进入功能而是说明正在研究并邀请沟通、留下联系方式，既验证了点击需求，也收集到愿意深聊的用户名单。"
   }
  ],
  "CHAPTER 53: Qualitative Value Testing Techniques": [
   {
-   "point": "当面测试时人们通常出于礼貌不说真话",
-   "core": "The main challenge in testing value when you're sitting face to face with actual users and customers is that people are generally nice—and not willing to tell you what they really think.",
-   "caseTitle": "索要旧产品的登录信息",
-   "case": "You can also ask people to provide the login credentials for whatever product they would be switching from (because you tell them there's a migration utility or something). Again, we don't really want their login and password—we just want to know if they value our product highly enough that they're truly willing to switch right then and there.",
-   "explain": "假称有迁移工具，请用户当场交出旧系统的账号。团队并不真要密码，只看对方是否愿意马上切换。用这种真实付出代替口头称赞，就能绕开出于礼貌的好评。"
+   "point": "用当场掏信用卡的意愿检验用户是否真心认可价值",
+   "explain": "用户嘴上说喜欢可能只是礼貌；愿意当场掏卡购买，才说明他真正认可产品价值，而非敷衍。",
+   "caseTitle": "信用卡支付意愿测试",
+   "core": "So, all of our tests for value are designed to make sure the person is not just being nice to you.",
+   "case": "One technique I like for gauging value is to see if the user would be willing to pay for it, even if you have no intention of charging them for it. We're looking for the user to pull out his or her credit card right then and there and ask to buy the product (but we don't really want the card information)."
   }
  ],
  "CHAPTER 54: Quantitative Value Testing Techniques": [
   {
-   "point": "数据告诉你发生了什么，却解释不了为什么",
+   "point": "数据只能揭示发生了什么，无法解释为什么",
    "core": "However, as powerful as the role of data is for us, the most important thing to keep in mind about analytics is that the data will shine a light on what is happening, but it won't explain why.",
    "caseTitle": "邀请制测试遇冷",
    "case": "I can't tell you how often we think we have something they'll love, and then we make it available to a limited group like this and we find that they are just not feeling it. Unfortunately, with a quantitative test like this all we know for sure is that they're not using it—we can't know why. That's when we'll follow up with a qualitative test to try and quickly learn why they're not as into it as we had hoped.",
-   "explain": "团队以为用户会喜欢的功能，在邀请制测试中却没人用。定量数据只能确认没人用，原因要靠后续的定性测试去问。这说明定量和定性必须搭配使用。"
+   "explain": "邀请制定量测试发现用户不用新功能，却无法得知原因，只能再补定性测试去快速弄清用户为何不感兴趣，正说明数据只呈现现象、不解释动机。"
   }
  ],
  "CHAPTER 56: Testing Business Viability": [
   {
-   "point": "成功的产品要围绕销售渠道的长处和局限来设计",
+   "point": "产品设计必须适配销售渠道的成本与能力",
    "core": "Successful products typically need to be designed around the strengths and limitations of the sales channel.",
    "caseTitle": "直销渠道的门槛",
    "case": "For example, a direct sales channel is very expensive, and this requires a high‐value product and price point. Or, you may have built up a sales channel with a certain set of skills, and if your new product requires a very different set of skills and knowledge, your sales force may completely reject the product.",
-   "explain": "直销成本高，要求产品高价值、高价位；如果新产品需要销售团队完全不同的技能，他们可能整体拒绝去卖。用户再喜欢、工程再能做，渠道不匹配产品也发不出去。"
+   "explain": "直销渠道成本高，要求产品高价值、高定价；若新产品需要销售团队不具备的技能，渠道会拒绝产品。这说明渠道约束直接决定产品能否卖得动。"
   }
  ],
  "CHAPTER 64: Good Product Team/Bad Product Team": [
@@ -140,7 +140,7 @@
    "core": "What I've learned is that there is a profound difference between how the very best product companies create technology products and all the rest.",
    "caseTitle": "工程师何时看到原型",
    "case": "Good teams ensure that their engineers have time to try out the prototypes in discovery every day so that they can contribute their thoughts on how to make the product better. Bad teams show the prototypes to the engineers during sprint planning so they can estimate.",
-   "explain": "好团队让工程师每天都在发现阶段试原型、提改进；坏团队直到冲刺计划才给工程师看，只为让他们估时。同一个原型，工程师是参与设计还是只负责估算，正体现两种工作方式的差别。"
+   "explain": "工程师每天在探索阶段试用原型并贡献想法，坏团队直到冲刺计划才给工程师看原型只为估算，这一细节折射出两者整套协作与发现方式的根本差异。"
   }
  ]
 }

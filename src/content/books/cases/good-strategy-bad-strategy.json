@@ -1,11 +1,11 @@
 {
  "INTRODUCTION OVERWHELMING OBSTACLES": [
   {
-   "point": "好战略找出局面中一两个关键支点，再把行动和资源集中上去",
+   "point": "好战略找出关键支点，集中行动和资源",
    "core": "Instead, a talented leader identifies the one or two critical issues in the situation—the pivot points that can multiply the effectiveness of effort—and then focuses and concentrates action and resources on them.",
    "caseTitle": "纳尔逊与特拉法加海战",
    "case": "But British admiral Lord Nelson had a strategic insight. He broke the British fleet into two columns and drove them at the Franco-Spanish fleet, hitting their line perpendicularly. The lead British ships took a great risk, but Nelson judged that the less-trained Franco-Spanish gunners would not be able to compensate for the heavy swell that day. At the end of the Battle of Trafalgar, the French and Spanish lost twenty-two ships, two-thirds of their fleet. The British lost none.",
-   "explain": "英军舰船更少，纳尔逊没有按惯例列队对轰，而是赌对方炮手在大浪中打不准，用两路纵队垂直切断敌阵、打散其协同。认准一个支点并集中冒险，结果英方无一损失，敌方损失二十二艘。"
+   "explain": "纳尔逊判断敌方炮手训练不足且涌浪大，将舰队分为两列垂直冲击，集中力量击溃敌阵，以极小代价获胜，证明聚焦关键点能倍增效果。"
   }
  ],
  "CHAPTER 1 GOOD STRATEGY IS UNEXPECTED": [
@@ -14,7 +14,7 @@
    "core": "The power of Jobs’s strategy came from directly tackling the fundamental problem with a focused and coordinated set of actions.",
    "caseTitle": "乔布斯砍掉产品线",
    "case": "Jobs cut all of the desktop models—there were fifteen—back to one. He cut all portable and handheld models back to one laptop. He completely cut out all the printers and other peripherals. He cut development engineers. He cut software development. He cut distributors and cut out five of the company’s six national retailers. He cut out virtually all manufacturing, moving it offshore to Taiwan. With a simpler product line manufactured in Asia, he cut inventory by more than 80 percent.",
-   "explain": "苹果濒临破产时，乔布斯没有喊增长口号，而是把十五款台式机砍到一款、便携机砍到一款，砍掉打印机和多数零售商，把制造外包到台湾，库存降八成。每一刀都在服务于一条简化的业务逻辑。"
+   "explain": "乔布斯回归苹果后，将十五款台式机砍到一款、所有便携产品砍到一款，并砍掉打印机、外设、软件开发和大部分经销商，把资源集中到少数产品上，正是通过聚焦、协调的行动直接解决产品线混乱、现金流失的根本问题。"
   }
  ],
  "CHAPTER 3 BAD STRATEGY": [
@@ -23,7 +23,7 @@
    "core": "Chad Logan’s “key strategies” had little to do with strategy. They were simply performance goals.",
    "caseTitle": "20/20 计划",
    "case": "Logan explained that his overall goal was simple—he called it the “20/20” plan. Revenues were to grow at 20 percent per year and the profit margin was to be 20 percent or higher. “Our overall strategy is set,” he said. “We are going to grow, and grow profitably. My problem is getting everyone aligned for this push. What I need is some coaching for my top people. I want them to be totally up to speed on strategic thinking. I want skills they can use tomorrow in a meeting with a client.”",
-   "explain": "洛根的战略就是收入年增 20%、利润率 20% 以上，然后要求团队对齐去冲。他说不出公司凭什么能实现这种跳跃，没有杠杆点也没有应对障碍的办法，只是把想要的结果换了个说法。"
+   "explain": "Logan把“年增长20%、利润率20%”的财务目标称为“总体战略”，却没有任何克服障碍、赢得竞争的行动方案，说明目标不等于战略。"
   }
  ],
  "CHAPTER 4 WHY SO MUCH BAD STRATEGY?": [
@@ -32,7 +32,7 @@
    "core": "So they avoided the hard work of choice, set nothing aside, hurt no interest groups or individual egos, but crippled the whole.",
    "caseTitle": "DEC 的共识声明",
    "case": "DEC’s chief executive, Ken Olsen, had made the mistake of asking the group to reach a consensus. The group was unable to do that because there was no basis in logic or hierarchy to reject a subgroup’s passionately held positions. Instead, the group compromised on a statement like this: “DEC is committed to providing high-quality products and services and being a leader in data processing.”",
-   "explain": "DEC 高管分别主张做整机、做解决方案、做芯片，三方偏好循环、无法形成稳定多数。CEO 要求达成共识，最后只得到一句高质量产品与服务、做数据处理领导者的空话，等于没有做选择。"
+   "explain": "DEC 高管无法在逻辑或层级上否决任何一方的立场，最终只能妥协出一句人人可接受却空洞无力的声明，看似照顾了各方，实则没有做出任何取舍，战略因此瘫痪。"
   }
  ],
  "CHAPTER 5 THE KERNEL OF GOOD STRATEGY": [
@@ -41,7 +41,7 @@
    "core": "In business, most deep strategic changes are brought about by a change in diagnosis—a change in the definition of the company’s situation.",
    "caseTitle": "郭士纳重新诊断 IBM",
    "case": "After studying the situation, Gerstner changed the diagnosis. He believed that in an increasingly fragmented industry, IBM was the one company that had expertise in all areas. Its problem was not that it was integrated but that it was failing to use the integrated skills it possessed. IBM, he declared, needed to become more integrated—but this time around customer solutions rather than hardware platforms. The primary obstacle was the lack of internal coordination and agility.",
-   "explain": "面对行业碎片化，常见判断是 IBM 太过整合。郭士纳反过来诊断：IBM 是唯一样样都懂的公司，问题在于没有用好整合能力，障碍是内部协调不足。诊断一变，围绕客户方案重新整合的方针才随之成立。"
+   "explain": "郭士纳没有把 IBM 的问题归为“过度整合”，而是重新定义为“未能利用整合能力”，诊断一变，战略方向随之转向客户解决方案。"
   }
  ],
  "CHAPTER 6 USING LEVERAGE": [
@@ -50,7 +50,7 @@
    "core": "To achieve leverage, the strategist must have insight into a pivot point that will magnify the effects of focused energy and resources.",
    "caseTitle": "7-Eleven 日本的快速反应",
    "case": "To create leverage around this pattern, 7-Eleven Japan has developed a method of collecting information from store managers and employees about local tastes and forming quick-response merchandising teams to develop new product offerings. To further leverage this information and team skills, the company has developed relationships with a number of second- and third-tier food manufacturers and found ways to quickly bring new offerings to market under its own private-label brand, at low prices, using the food manufacturers’ excess capacity.",
-   "explain": "7-Eleven 日本判断本地顾客对口味差异和新鲜感极其敏感，就把这一点当支点：从店员处收集口味信息、组建快速商品团队，借二三线食品厂的闲置产能快速推出低价自有品牌，让一个洞察放大成持续优势。"
+   "explain": "7-Eleven日本把门店信息收集与快速响应团队作为支点，再借制造商过剩产能推自有品牌新品，小投入撬动大产出。"
   }
  ],
  "CHAPTER 7 PROXIMATE OBJECTIVES": [
@@ -59,7 +59,7 @@
    "core": "An important duty of any leader is to absorb a large part of that complexity and ambiguity, passing on to the organization a simpler problem—one that is solvable.",
    "caseTitle": "勘测者号的月面规格",
    "case": "With this specification in place, JPL engineers and subcontractors were able to stop guessing and get to work. The lunar surface Phyllis described was hard and grainy, with slopes of no more than about fifteen degrees, scattered small stones, and boulders no larger than about two feet across spaced here and there.",
-   "explain": "没人知道月面是粉尘、尖晶体还是巨石，工程师无从设计。Phyllis 直接给出一份规格：坚硬颗粒地面、坡度不超过约十五度、石块不超过两英尺。它不是真相，却把模糊局面变成了能动手解决的设计问题。"
+   "explain": "菲利斯为月面硬度、坡度、石块大小设定具体规格，工程师和承包商不再猜测，得以着手设计着陆器，正是把复杂模糊转化为可解问题的体现。"
   }
  ],
  "CHAPTER 8 CHAIN-LINK SYSTEMS": [
@@ -68,16 +68,16 @@
    "core": "If a chain must not fail, there is no point in strengthening only some of the links.",
    "caseTitle": "挑战者号的 O 形圈",
    "case": "Similarly, for Challenger, there could be no gain to making the booster engines stronger if the O-ring was weak. There was little point in improving guidance, or communications, or increasing the quality of crew training, if the O-ring was weak.",
-   "explain": "挑战者号的最弱一环是一个橡胶 O 形圈。只要它不可靠，把助推器做得更强、改进导航和通信、加强机组训练都不能提高整体安全，因为系统会在最弱处失效。"
+   "explain": "挑战者号的最弱一环是固体橡胶O形圈：即便增强助推发动机、改进制导通信、提升乘员训练，只要O形圈薄弱，整体仍会失败，正说明强化其他环节毫无意义。"
   }
  ],
  "CHAPTER 9 USING DESIGN": [
   {
-   "point": "资源和紧密协调可以互相替代，资源越少越需要精巧设计",
+   "point": "资源与紧密协调可互相替代，资源越少越需精巧设计",
    "core": "These principles mean that resources and tight coordination are partial substitutes for each other. If the organization has few resources, the challenge can be met only by clever, tight integration.",
    "caseTitle": "汉尼拔的坎尼会战",
    "case": "The ruthless genius of Hannibal’s strategy was then revealed. Not only was the Roman army surrounded, but as their superior numbers pressed into the arc of Hannibal’s bowed-in center, the Roman ranks were squeezed together. They became so tightly massed that many Roman soldiers could not move to raise their weapons. The Romans had lost coherence and mobility. Encircled and compressed together, their numerical superiority had been nullified.",
-   "explain": "汉尼拔约五万五千人对阵八万五千多罗马军，兵力不占优。他用中路佯退、两翼合围的协调设计，让罗马人越往里压挤得越紧，连武器都举不起来，人数优势被设计本身抵消。"
+   "explain": "汉尼拔以少胜多，靠的是在时间和空间上精心协调的部署，而非兵力优势；罗马军虽人数占优，却因被压缩而失去机动性，说明紧密整合的设计能替代资源。"
   }
  ],
  "CHAPTER 10 FOCUS": [
@@ -86,43 +86,43 @@
    "core": "This particular pattern—attacking a segment of the market with a business system supplying more value to that segment than the other players can—is called focus.",
    "caseTitle": "皇冠瓶盖的短批量",
    "case": "Crown and the majors are in the same industry but are playing by different rules. By concentrating on a carefully selected part of the market, Crown has not only specialized, it has increased its bargaining power with respect to its buyers. Thus, it captures a larger fraction of the value it creates.",
-   "explain": "大罐厂追求长批量，被少数大客户牢牢捆住。皇冠专做换线成本高的短批量订单，每座工厂服务许多客户，反而掌握议价权。它不是最大的罐厂，却通过选准细分市场拿走了更多价值。"
+   "explain": "皇冠与巨头同处一业却规则不同：它专注精选细分市场，靠短批量、灵活生产服务特定客户，反而增强对买方的议价能力，从而获取更大份额的价值。"
   }
  ],
  "CHAPTER 12 USING ADVANTAGE": [
   {
-   "point": "没有人在所有事情上都有优势，要在自己占优的条件下竞争",
+   "point": "优势具有特定性，要在自己占优的条件下竞争",
    "core": "No one has an advantage at everything. Teams, organizations, and even nations have advantages in certain kinds of rivalry under particular conditions. The secret to using advantage is understanding this particularity.",
    "caseTitle": "从长跑转去摔大猩猩",
    "case": "“Look,” Susan said, “it’s like this. You have won an Olympic gold medal in the 1,500-meter run. You have a good chance at winning the 10,000-meter run and I might back you at that. But you want to switch from running to wrestling gorillas. That’s not a good idea and I can’t back you at it.”",
-   "explain": "这家初创公司的强项是研发新型面料技术，团队却想自己做纺织和服装品牌。投资人用长跑冠军改去和大猩猩摔跤作比喻：研发上的优势放到完全不同的游戏里并不成立，更好的选择是授权或出售。"
+   "explain": "奥运冠军转去摔大猩猩的比喻说明：跑得快是特定领域的优势，换到完全不同的游戏中就不再占优，因此要认清优势的适用条件。"
   }
  ],
  "CHAPTER 13 USING DYNAMICS": [
   {
-   "point": "顺着变革浪潮把资源投向未来会成为高地的位置",
+   "point": "顺着变革浪潮，把资源投向未来会成为高地的位置",
    "core": "You exploit a wave of change by understanding the likely evolution of the landscape and then channeling resources and innovation toward positions that will become high ground—become valuable and defensible—as the dynamics play out.",
    "caseTitle": "思科乘上互联网浪潮",
    "case": "If three waves were not enough, Cisco literally exploded under the force of a fourth wave that hit in 1993: the rise of Internet use by the general public. Inside corporations, computer users suddenly wanted Internet access. Not just dial-up access over a modem, but a direct always-on connection to the IP backbone. As universities and corporations scrambled to make this happen, IP won the battle for internal network standards, and Cisco routers captured two-thirds of the corporate networking market.",
-   "explain": "思科早已在微处理器、企业联网和 IP 协议几股浪潮中卡好位置，1993 年公众互联网兴起时，企业纷纷要求直连 IP 骨干网，IP 赢下内部网络标准，思科路由器随即拿下三分之二的企业联网市场。"
+   "explain": "思科在1993年互联网浪潮中，预判IP将成为内部网络标准，于是把资源投向路由器，最终占据企业网络市场三分之二的份额，成为高地。"
   }
  ],
  "CHAPTER 14 INERTIA AND ENTROPY": [
   {
-   "point": "代理惯性来自守住旧利润流，对手的惯性往往就是机会",
+   "point": "代理惯性源于守住旧利润流，对手的惯性就是机会",
    "core": "Inertia by proxy disappears when the organization decides that adapting to changed circumstances is more important than hanging on to old profit streams.",
-   "caseTitle": "电话公司不推 DSL",
+   "caseTitle": "电话公司不推DSL",
    "case": "The telephone companies’ primary data offering to business had been T1 lines, priced at about four thousand dollars per month and offering 1.5 mbps. In 1998, DSL speeds were about one-third of T1 speeds, but DSL prices were one-thirtieth. That is, a customer could replicate a T1 line with three DSLs for one-tenth the cost. Rather than cannibalize their very profitable T1 business, telephone companies serving New York, Chicago, and San Francisco just punted—they didn’t offer DSL.",
-   "explain": "三条 DSL 就能以十分之一的价格替代 T1 专线，但电话公司为保住高利润的 T1 业务选择不推 DSL。这不是不会变，而是客户转换慢、旧利润还很厚，于是主动拖着不变，给了新运营商空间。"
+   "explain": "电话公司为保护高利润的T1业务，拒绝推出价格仅十分之一的DSL，结果把市场机会让给了新进入者。"
   }
  ],
  "CHAPTER 15 PUTTING IT TOGETHER": [
   {
-   "point": "大胜的背后，往往是对手无法复制其做法的故事",
+   "point": "大胜背后，往往是对手无法复制其做法的故事",
    "core": "Whenever a company succeeds greatly there is a complementary story of impeded competitive response. Sometimes the impediment is the innovator’s patent or similar protection, but more often it is an unwillingness or inability to replicate the innovator’s policies.",
    "caseTitle": "英特尔跟不上六个月周期",
    "case": "Rival Intel was unable to compete in the high-performance 3-D graphics market. One of the world’s great companies, a technological powerhouse, Intel was, nevertheless, not infinitely flexible. According to industry analyst Jon Peddie, “Intel developed the i740 with the same processes and same approach that it used to develop its CPUs. This didn’t work in the extremely competitive 3-D graphics industry. Intel’s development cycle was 18–24 months, not 6–12 months. It didn’t adapt to this quick development cycle.",
-   "explain": "英伟达靠三支团队交错开发，每六个月推出新芯片。英特尔技术再强，也沿用做 CPU 的流程，开发周期 18 到 24 个月，适应不了这种节奏。英伟达押中的正是对手难以改变自身流程。"
+   "explain": "英特尔用做CPU的流程和18—24个月周期做3D芯片，无法适应6—12个月的快节奏，技术巨头也因不灵活而落败，印证成功者常伴随对手难以复制的阻碍。"
   }
  ],
  "CHAPTER 16 THE SCIENCE OF STRATEGY": [
@@ -131,16 +131,16 @@
    "core": "An anomaly is a fact that doesn’t fit received wisdom. To a certain kind of mind, an anomaly is an annoying blemish on the perfect skin of explanation. But to others, an anomaly marks an opportunity to learn something, perhaps something very valuable.",
    "caseTitle": "舒尔茨在米兰的发现",
    "case": "In Seattle, the market for dark-roasted arabica beans was a niche, populated by a small but growing group of especially discerning buyers. But the vast majority of people in Seattle, and in America—even the well-to-do—drank cheap, bland coffee. In Milan, expensive high-quality coffee was not a niche product but the mass-market product.",
-   "explain": "在西雅图，高品质咖啡只是小众市场，多数美国人喝廉价淡咖啡；在米兰，昂贵的好咖啡却是大众消费。舒尔茨抓住这个反差，形成意式咖啡体验能在美国复制的假设，后来成为星巴克的起点。"
+   "explain": "西雅图市场视高品质咖啡为小众，而米兰却是大众日常。舒尔茨注意到这一反常差异，由此形成将意式咖啡体验引入美国的战略假设。"
   }
  ],
  "CHAPTER 17 USING YOUR HEAD": [
   {
-   "point": "列出最重要事项的真正价值，是逼人想清楚根本目的和关键问题",
+   "point": "列最重要事项的真正价值，是逼人想清根本目的与关键问题",
    "core": "Carnegie paid because Taylor’s list-making exercise forced him to reflect upon his more fundamental purposes and, in turn, to devise ways of advancing them.",
    "caseTitle": "泰勒给卡内基的建议",
    "case": "“Mr. Carnegie,” Taylor said, “I would advise you to make a list of the ten most important things you can do. And then, start doing number one.” And, the story goes, a week later Taylor received a check for ten thousand dollars.",
-   "explain": "泰勒的建议只是列出十件最重要的事，从第一件做起，卡内基却为此付了一万美元。作者认为值钱的不是清单本身，而是这个练习逼他区分什么重要、什么可行动，进而想清楚根本目标。"
+   "explain": "卡内基付给泰勒一万美元，并非买清单本身，而是因为列清单的过程迫使他反思根本目的，并据此设计推进办法。"
   }
  ]
 }

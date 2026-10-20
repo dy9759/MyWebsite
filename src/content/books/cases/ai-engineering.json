@@ -1,11 +1,11 @@
 {
  "1. Introduction to Building AI Applications with Foundation Models": [
   {
-   "point": "AI 产品最难的是最后一公里，早期演示的成功会误导排期",
+   "point": "AI产品最难的是最后一公里，早期演示成功会误导排期",
    "core": "Planning an AI product needs to account for its last mile challenge. Initial success with foundation models can be misleading.",
    "caseTitle": "LinkedIn 的 80% 到 95%",
    "case": "LinkedIn (2024) shared the same sentiment. It took them one month to achieve 80% of the experience they wanted. This initial success made them grossly underestimate how much time it’d take them to improve the product. They found it took them four more months to finally surpass 95%. A lot of time was spent working on the product kinks and dealing with hallucinations. The slow speed of achieving each subsequent 1% gain was discouraging.",
-   "explain": "LinkedIn 一个月就做到想要体验的 80%，于是严重低估了剩余工作，结果又花了四个月才超过 95%，时间耗在细节打磨和幻觉上。这正是演示易、产品难的最后一公里。"
+   "explain": "LinkedIn 一个月做到 80% 体验，却再花四个月才超过 95%，大量时间耗在细节打磨和幻觉处理上，说明演示容易、产品化极难。"
   }
  ],
  "2. Understanding Foundation Models": [
@@ -14,7 +14,7 @@
    "core": "An AI model is only as good as the data it was trained on.",
    "caseTitle": "GPT-4 做欧拉计划题",
    "case": "Similarly, when tested on six math problems on Project Euler, Yennie Jun found that GPT-4 was able to solve problems in English more than three times as often compared to Armenian or Farsi.1 GPT-4 failed in all six questions for Burmese and Amharic, as shown in Figure 2-2.",
-   "explain": "同样六道欧拉计划数学题，GPT-4 用英语解出的次数是亚美尼亚语或波斯语的三倍多，换成缅甸语和阿姆哈拉语则全部失败。这些语言在训练数据里占比极低，能力短板直接来自数据分布。"
+   "explain": "GPT-4在欧拉计划六道数学题上，英语解题成功率是亚美尼亚语、波斯语的三倍以上，缅甸语和阿姆哈拉语则全部失败，直观显示训练数据中语言占比直接划定了模型的能力边界。"
   }
  ],
  "3. Evaluation Methodology": [
@@ -23,7 +23,7 @@
    "core": "Human evaluators have biases, and so do AI judges. Different AI judges have different biases.",
    "caseTitle": "裁判偏爱长答案",
    "case": "Some AI judges have verbosity bias, favoring lengthier answers, regardless of their quality. Wu and Aji (2023) found that both GPT-4 and Claude-1 prefer longer responses (~100 words) with factual errors over shorter, correct responses (~50 words).",
-   "explain": "研究发现 GPT-4 和 Claude-1 当裁判时，宁愿选约 100 字但有事实错误的回答，也不选约 50 字的正确回答。如果不知道这种长度偏差，就会把更啰嗦当成更好，误读评估结果。"
+   "explain": "GPT-4 和 Claude-1 都偏爱约100词但含事实错误的答案，胜过约50词的正确短答，说明裁判存在长度偏差，分数不能直接当质量看。"
   }
  ],
  "4. Evaluate AI Systems": [
@@ -32,7 +32,7 @@
    "core": "The prevalence of data contamination undermines the trustworthiness of evaluation benchmarks. Just because a model can achieve high performance on bar exams doesn’t mean it’s good at giving legal advice. It could just be that this model has been trained on many bar exam questions.",
    "caseTitle": "GPT-3 基准污染",
    "case": "OpenAI, when analyzing GPT-3’s contamination with common benchmarks, found 13 benchmarks with at least 40% in the training data (Brown et al., 2020).",
-   "explain": "OpenAI 自查 GPT-3 时发现，有 13 个常用基准至少 40% 的内容出现在训练数据中。模型可能只是见过题目，基准分数因此被抬高，只能用来筛掉差模型，不能直接据此选最佳模型。"
+   "explain": "GPT-3 在 13 个常用基准上至少有 40% 的训练数据重叠，说明高分可能来自“见过题”，而非真实能力，公开基准只能用来排除差模型。"
   }
  ],
  "5. Prompt Engineering": [
@@ -46,27 +46,27 @@
  ],
  "6. RAG and Agents": [
   {
-   "point": "外部工具能显著扩展 Agent 的能力，效果可超过单纯提示",
+   "point": "外部工具能显著扩展 Agent 能力，效果可超过单纯提示",
    "core": "External tools make an agent vastly more capable.",
    "caseTitle": "Chameleon 智能体",
    "case": "Chameleon (Lu et al., 2023) shows that a GPT-4-powered agent, augmented with a set of 13 tools, can outperform GPT-4 alone on several benchmarks. Examples of tools this agent used are knowledge retrieval, a query generator, an image captioner, a text detector, and Bing search. On ScienceQA, a science question answering benchmark, Chameleon improves the best published few-shot result by 11.37%. On TabMWP (Tabular Math Word Problems) (Lu et al., 2022), a benchmark involving tabular math questions, Chameleon improves the accuracy by 17%.",
-   "explain": "Chameleon 给 GPT-4 配上检索、图像描述、Bing 搜索等 13 个工具后，在 ScienceQA 上比最佳少样本结果高 11.37%，在表格数学题上准确率提升 17%。同一个模型，工具让它的能力明显变强。"
+   "explain": "Chameleon 为 GPT-4 配备 13 种工具后，在多个基准上超过单独 GPT-4：ScienceQA 提升 11.37%，TabMWP 准确率提升 17%，说明工具扩展了模型能力。"
   }
  ],
  "7. Finetuning": [
   {
-   "point": "针对特定任务微调的小模型，可以胜过大得多的通用模型",
+   "point": "针对特定任务微调的小模型，可胜过大得多的通用模型",
    "core": "A small model, finetuned on a specific task, might outperform a much larger out-of-the-box model on that task.",
    "caseTitle": "Grammarly 微调 Flan-T5",
    "case": "For example, Grammarly found that their finetuned Flan-T5 models (Chung et al., 2022) outperformed a GPT-3 variant specialized in text editing across a wide range of writing assistant tasks despite being 60 times smaller. The finetuning process used only 82,000 (instruction, output) pairs, which is smaller than the data typically needed to train a text-editing model from scratch.",
-   "explain": "Grammarly 用 8.2 万条指令数据微调 Flan-T5，在多种写作辅助任务上超过了专门做文本编辑的 GPT-3 变体，而模型小 60 倍。说明行为和格式类需求，用少量数据微调小模型即可做好。"
+   "explain": "Grammarly 用 8.2 万条指令数据微调 Flan-T5，在写作辅助任务上超越专门做文本编辑的 GPT-3 变体，而模型体积小 60 倍，说明微调能让小模型在特定任务上反超大模型。"
   },
   {
-   "point": "缺的是时效信息时，RAG 比微调更有效",
-   "core": "The paper “Fine-Tuning or Retrieval?” by Ovadia et al. (2024) demonstrated that for tasks that require up-to-date information, such as questions about current events, RAG outperformed finetuned models.",
-   "caseTitle": "Ovadia 的对比实验",
-   "case": "Not only that, RAG with the base model outperformed RAG with finetuned models, as shown in Table 7-2.",
-   "explain": "在时事问答这类依赖新信息的任务上，RAG 胜过微调，而且基础模型加 RAG 甚至优于微调模型加 RAG。失败源于缺信息时，补上下文比改权重更对症。"
+   "point": "微调管形式，RAG 管事实；缺信息优先用 RAG",
+   "explain": "Ovadia 等人发现，在时效性问答上 RAG 优于微调模型，甚至基础模型加 RAG 也胜过微调加 RAG，说明信息型失败应靠检索而非微调解决。",
+   "caseTitle": "RAG与微调对比实验",
+   "core": "In short, finetuning is for form, and RAG is for facts.",
+   "case": "The paper “Fine-Tuning or Retrieval?” by Ovadia et al. (2024) demonstrated that for tasks that require up-to-date information, such as questions about current events, RAG outperformed finetuned models. Not only that, RAG with the base model outperformed RAG with finetuned models, as shown in Table 7-2. This finding indicates that while finetuning can enhance a model’s performance on a specific task, it may also lead to a decline in performance in other areas."
   }
  ],
  "8. Dataset Engineering": [
@@ -75,23 +75,16 @@
    "core": "Llama 3’s performance gains are “primarily driven by improvements in data quality and diversity as well as by increased training scale.”",
    "caseTitle": "LIMA：少即是多",
    "case": "Similarly, “LIMA: Less Is More for Alignment” (Zhou et al., 2023) shows that a 65B-parameter Llama model, finetuned with 1,000 carefully curated prompts and responses, can produce answers that are either equivalent or strictly preferred to GPT-4 in 43% of cases, as judged by human annotators.",
-   "explain": "LIMA 只用 1000 条精心挑选的问答微调 650 亿参数的 Llama，人工评判中有 43% 的情况与 GPT-4 相当或更好。数据量极小却效果显著，印证了质量胜过数量。"
-  },
-  {
-   "point": "合成数据无法完全取代人工数据，必须先验证再使用",
-   "core": "However, while the role of synthetic data will certainly continue to grow in importance over time, AI-generated data might never entirely replace human-generated data.",
-   "caseTitle": "Llama 3 验证合成数据",
-   "case": "The Llama 3 paper notes that while training on data generated by a more competent model can significantly improve a model’s performance, training indiscriminately on self-generated data doesn’t improve the model’s performance and can even degrade it. However, by introducing mechanisms to verify the quality of synthetic data and using only verified synthetic data, they were able to continually improve a model using its generated data.",
-   "explain": "Llama 3 论文发现，不加筛选地用模型自己生成的数据训练没有提升甚至变差；加入质量验证、只用验证过的合成数据后，才能持续改进。合成数据有用，但前提是验证。"
+   "explain": "LIMA用仅1000条精心筛选的指令数据微调65B模型，43%的回答被人类评为与GPT-4相当或更优，证明少量高质量数据可胜过大量噪声数据。"
   }
  ],
  "9. Inference Optimization": [
   {
-   "point": "推理优化技术要按负载选择，长上下文场景重点在 KV 缓存",
+   "point": "推理优化技术要按负载选择，长上下文场景重点在KV缓存",
    "core": "The choice of optimization techniques depends on your workloads. For example, KV caching is significantly more important for workloads with long contexts than those with short contexts.",
-   "caseTitle": "Character.AI 长对话",
+   "caseTitle": "Character.AI长对话",
    "case": "Character.AI, an AI chatbot application, shares that their average conversation has a dialogue history of 180 messages (2024). Given the typically long sequences, the primary bottleneck for inference throughput is the KV cache size. Three attention mechanism designs—multi-query attention, interleaving local attention and global attention, and cross-layer attention—help them reduce KV cache by over 20 times. More importantly, this significant KV cache reduction means that memory is no longer a bottleneck for them for serving large batch sizes.",
-   "explain": "Character.AI 平均对话长达 180 条消息，吞吐瓶颈是 KV 缓存。他们用三种注意力设计把 KV 缓存缩小 20 多倍，内存不再限制大批量服务。长对话负载决定了优化重点放在 KV 缓存上。"
+   "explain": "Character.AI平均对话历史达180条消息，长序列下KV缓存大小成为吞吐瓶颈；通过多查询注意力等设计将KV缓存缩减20多倍，内存不再是限制，可支撑大batch服务。"
   }
  ],
  "10. AI Engineering Architecture and User Feedback": [
@@ -100,7 +93,7 @@
    "core": "A degenerate feedback loop can happen when the predictions themselves influence the feedback, which, in turn, influences the next iteration of the model, amplifying initial biases.",
    "caseTitle": "猫咪照片循环",
    "case": "Imagine that initially, a small number of users give feedback that they like cat photos. The system picks up on this and starts generating more photos with cats. This attracts cat lovers, who give more feedback that cat photos are good, encouraging the system to generate even more cats. Before long, your application becomes a cat haven.",
-   "explain": "少数用户说喜欢猫，系统就多生成猫图，吸引来更多爱猫用户继续给好评，最后应用变成猫的天地。预测影响反馈、反馈再训练模型，一点初始偏好就被不断放大。"
+   "explain": "少数用户点赞猫咪照片，系统据此多生成猫图，吸引猫爱好者给出更多正向反馈，系统再强化，最终应用变成猫咪天堂，偏差被循环放大。"
   }
  ]
 }
