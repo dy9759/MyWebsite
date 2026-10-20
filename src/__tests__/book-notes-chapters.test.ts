@@ -15,6 +15,11 @@ describe("splitNote", () => {
     expect(parts.chapters[1].markdown).not.toContain("读完留下");
     expect(parts.outro).toMatch(/^## 读完留下/);
   });
+  it("supports a display name after |", () => {
+    const [c] = splitNote("<!-- chapter: Book_2020_Experiment | 原书第 61–120 页 -->\n### X\n- a").chapters;
+    expect([c.label, c.display]).toEqual(["Book_2020_Experiment", "原书第 61–120 页"]);
+    expect(markersToText("<!-- chapter: Book_2020_Experiment | 原书第 61–120 页 -->")).toBe("> 原书章节：原书第 61–120 页");
+  });
   it("leaves notes without markers as a single intro", () => {
     expect(splitNote("## A\ntext")).toEqual({ intro: "## A\ntext", chapters: [], outro: "" });
   });

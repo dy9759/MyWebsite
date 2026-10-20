@@ -23,7 +23,9 @@ export type BookNote = {
 // A note is "chapter-mapped" when its 章节笔记 section uses
 // `<!-- chapter: <exact TOC label> -->` markers. Each chapter can then link
 // to the same chapter in the reader's own copy of the book.
-export type NoteChapter = { label: string; heading: string; markdown: string };
+// `display` comes from `<!-- chapter: <TOC label> | <display name> -->`, for
+// books whose TOC labels are unreadable (e.g. PDF bookmarks named after files).
+export type NoteChapter = { label: string; display?: string; heading: string; markdown: string };
 export type NoteParts = { intro: string; chapters: NoteChapter[]; outro: string };
 
 const NOTES_DIR = join(process.cwd(), "src", "content", "books", "notes");
@@ -89,8 +91,10 @@ export function splitNote(markdown: string): NoteParts {
       body = body.slice(0, section.index);
     }
     const heading = /^###\s+(.+)$/m.exec(body);
+    const [label, display] = m[1].split(/\s+\|\s+/);
     chapters.push({
-      label: m[1].trim(),
+      label: label.trim(),
+      ...(display ? { display: display.trim() } : {}),
       heading: heading ? heading[1].trim() : m[1].trim(),
       markdown: (heading ? body.replace(heading[0], "") : body).trim(),
     });
@@ -100,5 +104,5 @@ export function splitNote(markdown: string): NoteParts {
 
 // For AI readers (note.md): turn markers into a visible source line.
 export const markersToText = (markdown: string) =>
-  markdown.replace(CHAPTER_MARK, (_, label: string) => `> 原书章节：${label.trim()}`);
+  markdown.replace(CHAPTER_MARK, (_, raw: string) => `> 原书章节：${(raw.split(/\s+\|\s+/)[1] ?? raw).trim()}`);
 

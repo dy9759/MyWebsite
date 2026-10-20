@@ -72,7 +72,7 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
               matchTitle={note.catalogId ? undefined : note.title}
               officialUrl={entry?.url ?? note.sourceUrl}
               introHtml={md(parts.intro)}
-              chapters={parts.chapters.map((c) => ({ label: c.label, heading: c.heading, html: md(c.markdown) }))}
+              chapters={parts.chapters.map((c) => ({ label: c.label, display: c.display, heading: c.heading, html: md(c.markdown) }))}
               outroHtml={md(parts.outro)}
             />
           </>

@@ -9,7 +9,7 @@ import { readCitation } from "@/lib/books/citations";
 import { listBooks } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
 
-export type RenderedChapter = { label: string; heading: string; html: string };
+export type RenderedChapter = { label: string; display?: string; heading: string; html: string };
 
 type Props = {
   catalogId?: string;
@@ -112,7 +112,7 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <h3 className="font-semibold">{c.heading}</h3>
-                <p className="mt-0.5 text-xs text-muted-foreground">原书章节：{c.label.replace(/\s+#\d+$/, "")}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">原书章节：{c.display ?? c.label.replace(/\s+#\d+$/, "")}</p>
               </div>
               {linkable && (
                 <button
@@ -140,7 +140,7 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
                     去官方页面了解或试读
                   </a>
                 )}
-                ，或在 <Link href="/books/#shelf" className="underline underline-offset-4">读书页</Link> 导入你自己的电子书，之后点这里会直接跳到「{c.label.replace(/\s+#\d+$/, "")}」。
+                ，或在 <Link href="/books/#shelf" className="underline underline-offset-4">读书页</Link> 导入你自己的电子书，之后点这里会直接跳到「{c.display ?? c.label.replace(/\s+#\d+$/, "")}」。
               </p>
             )}
           </section>
