@@ -4,6 +4,10 @@
 name = "books-ai-proxy"
 main = "src/index.ts"
 compatibility_date = "2026-05-01"
+workers_dev = true
+routes = [
+  { pattern = "ai.myoii.com", custom_domain = true }
+]
 
 [vars]
 UPSTREAM_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
