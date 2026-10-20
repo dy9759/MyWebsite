@@ -122,3 +122,17 @@ export function getExcerpts(slug: string): Map<string, string> {
 }
 
 export const quotesIn = (markdown: string) => [...new Set([...markdown.matchAll(/「([^「」]+)」/g)].map((m) => m[1]))];
+
+// Per chapter (keyed by marker label): the chapter's core sentence and one
+// concrete case from the book, both short verbatim passages, with Chinese
+// commentary on how the case shows the idea.
+export type NoteCase = { point: string; core: string; caseTitle: string; case: string; explain: string };
+const CASES_DIR = join(process.cwd(), "src", "content", "books", "cases");
+
+export function getCases(slug: string): Record<string, NoteCase[]> {
+  try {
+    return JSON.parse(readFileSync(join(CASES_DIR, `${slug}.json`), "utf8")) as Record<string, NoteCase[]>;
+  } catch {
+    return {};
+  }
+}

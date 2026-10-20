@@ -1,0 +1,128 @@
+{
+ "Introduction: How a Product Marketing & Product Management Guy Ended Up a Sales Leader at a Public Company": [
+  {
+   "point": "早期销售本质是布道式的产品管理与产品营销，必须由创始人亲自做",
+   "core": "At this stage, your “sales” is in large part evangelical product management and product marketing, and this is why you, as a founder, need to be involved in it.",
+   "caseTitle": "假设从领英挖销售",
+   "case": "For instance, had we embarked on this ill-advised path, we would have likely hired an Account Executive or Sales Manager from LinkedIn. Once hired, he will then call on some of his existing accounts, and secure some early pilots, or worse, maybe even bounce off the purchasing decision maker, and not be able to tell you why. He’ll tell you what the customer said, but likely not what the customer meant. You won’t be able to tell between pure sales failure and product failure.",
+   "explain": "作者设想若当初从 LinkedIn 挖来成熟销售，他只会转述客户说了什么，却说不清客户的真实意思，创始人也分不清失败是销售问题还是产品问题。这说明早期销售的核心是收集产品信息，只能由创始人自己来做。"
+  }
+ ],
+ "Chapter 1: Mindset Changes in First Time Sales Professionals": [
+  {
+   "point": "既要坚信能赢，又要对被拒绝不为所动",
+   "core": "That is, you need to have and project full confidence that you’re going to win the deal, but at the same time be unfazed when you do not.",
+   "caseTitle": "20%到30%的胜率",
+   "case": "For whatever reason there won’t be budget, the timing will be off, the prospect will be happy with their current tools, a competitor will win the deal, the prospect will just disappear, etc. It happens. Depending on your industry, and the point at which sales gets a prospect in the funnel, if yours is a new, innovative solution, a 20%–30% win rate is solid.",
+   "explain": "作者列出没预算、时机不对、满意现有工具、被竞品抢走、对方失联等常见丢单原因，并指出新产品有20%到30%的胜率就算不错。也就是说大多数机会都会输，只有不被拒绝打击、保持自信，才能维持节奏去赢下一单。"
+  }
+ ],
+ "Chapter 2: Baking Your Narrative & Product Marketing Basics": [
+  {
+   "point": "叙事第一步是尽量清晰地说出你要解决的业务痛点",
+   "core": "You need to identify the business pain you’re seeking to solve, as crisply as possible, so your audience can quickly evaluate whether what you’re talking about is relevant to them.",
+   "caseTitle": "TalentBin 的问题陈述",
+   "case": "For instance, in the case of TalentBin, “Technical recruiting is hard. It’s hard to find software engineering talent that has the relevant skills, and even if you can find them, getting in contact with them is tough. And once you’ve found and contacted talent, keeping on top of all those conversations can be a huge time suck fraught with dropped balls, all leading to slower hire times and raised cost of hire.”",
+   "explain": "TalentBin 把痛点拆成找到工程师难、联系上难、管理大量沟通费时三层，最后落到招聘周期变长、招聘成本上升。招聘人员一听就能判断这是不是自己的问题，正是清晰陈述痛点的效果。"
+  }
+ ],
+ "Chapter 3: Sales Materials Basics: What You Need to Sell & How to Build it": [
+  {
+   "point": "在演示材料里放入客户自己的信息，最能说明产品能为他做什么",
+   "core": "Nothing does that better than using specific customer information in your sales presentation (and later, your demo) to help show that prospect exactly what your solution could do for them.",
+   "caseTitle": "LifeGuides 幻灯片",
+   "case": "Their sales deck is set up such that they can drop in Google search results for “working at <prospect company name>” to demonstrate to the prospect what recruiting candidates see when Googling their company. And they have other slides set up to show what a prospect’s career site could look like with LifeGuides-style content deployed.",
+   "explain": "LifeGuides 在幻灯片里放入客户公司名的谷歌搜索结果，让客户看到求职者搜到的是什么，再展示用了 LifeGuides 后客户招聘页的样子。客户看到自己的问题和改善效果，比通用介绍更有说服力。"
+  }
+ ],
+ "Chapter 4: Early Prospecting: Finding Your First Customers": [
+  {
+   "point": "把理想客户画像提炼成一组可观察的特征，用来判断客户吸引力",
+   "core": "You want to get to the point that you can rattle off a set of metadata characteristics that describe the relative level of attractiveness of a prospect.",
+   "caseTitle": "TalentBin 的理想账户",
+   "case": "For instance, in TalentBin’s case, this would be something like “This account has five technical recruiters and twenty open technical hires, including iOS, Java, and Android roles, and uses LinkedIn Recruiter.” What are the characteristics in there? First, we have the existence of technical recruiters—without at least one recruiter or sourcer to actively use the tool, customers are unlikely to have success.",
+   "explain": "一句话包含招聘人员数、技术岗位空缺数、岗位类型、是否在用 LinkedIn Recruiter 四个特征，都能从公开信息查到，分别对应有无使用者、痛点多大、能卖几个席位。画像由此变成可筛选的特征。"
+  }
+ ],
+ "Chapter 5: Prospect Outreach & Demo Appointment Setting": [
+  {
+   "point": "多次跟进且每封都有相关性，才能在冷邮件中胜出",
+   "core": "They ignore the first outreach—but by sending a second, third, and fourth, and by making sure that those messages are relevant, you can sprint past all those other terrible sales staff.",
+   "caseTitle": "Outreach 回复率数据",
+   "case": "As a matter of fact, as seen above, the highest response rate to cold outreach emails, based on data from an Outreach study, is to the second email in your drip campaign (18% compared to 12% for first outreach). Response rates then hold steady (17%, 17%, 13%) through the fifth outreach, at which point they start to decline.",
+   "explain": "Outreach 的研究显示，第二封邮件回复率最高，达18%，第一封只有12%，之后到第五封都保持在13%到17%。只发一封就放弃会错过大部分回复，这正是持续、相关的多次跟进能胜出的原因。"
+  }
+ ],
+ "Chapter 6: Early Inbound Lead Capture & Response": [
+  {
+   "point": "入站表单只问判断资格必需、又无法自己查到的信息",
+   "core": "The biggest thing you’re trying to capture is qualification information and a means by which to get in touch with the person.",
+   "caseTitle": "TalentBin 的表单字段",
+   "case": "For instance, at TalentBin, we didn’t ask how many recruiters our inbound requesters had at their organizations, because that was trivial to find on LinkedIn—and every incremental field is a chance for leads to abandon the form. But we did ask how many software engineering roles they were looking to fill in the next six months, since we couldn’t find that on our own and that hiring demand was required for an account to get value out of TalentBin.",
+   "explain": "TalentBin 不问招聘人员数量，因为 LinkedIn 上能查到，多一个字段就多一分放弃的可能；但会问未来六个月要招多少工程师，因为这查不到，又决定客户能否获得价值。"
+  }
+ ],
+ "Chapter 7: Pitching: Preparation, Presentation, Demos & Objections": [
+  {
+   "point": "需求了解首先要确认对方是否真有你要解决的痛点",
+   "core": "The most important thing to converge on is whether the prospect has the actual business pain that your solution is seeking to solve. If she doesn’t, this is going to be a useless conversation.",
+   "caseTitle": "TalentBin 的层层追问",
+   "case": "Once the prospect had responded to that, we would then cascade further: “Do you find job postings insufficient to get the sort of software engineer applicant flow that you want? Have you had to do passive-candidate recruiting and outreach, for instance via LinkedIn?” If she answered no to this, then we knew the organization may not even have the pain we solved, and we’d have an uphill battle.",
+   "explain": "TalentBin 会追问发职位是否招不够工程师、是否做过 LinkedIn 上的被动候选人外联。对方若回答没有，就说明可能根本没有这个痛点，后面很难推进。这些问题就是用来检验痛点是否存在的。"
+  }
+ ],
+ "Chapter 8: Down Funnel Selling: Negotiation, Closing & Pipeline Management": [
+  {
+   "point": "销售阶段要有清晰且对所有人含义一致的定义",
+   "core": "The important thing is that your stages have crisp definitions, and always mean the same thing to you and to anyone else who is using them (i.e., your eventual sales reps).",
+   "caseTitle": "TalentBin 的阶段标准",
+   "case": "Each stage was associated with specific criteria. For instance, “Seeking Approval” was used when pain was validated, and the stakeholder that we were engaged with was interested in proceeding, but there was another stakeholder whose permission or involvement was needed and was being sought. “Sent Proposal” meant that the prospect had specifically requested a proposal to consider pricing options, and that the next step was an up or down decision (or negotiation).",
+   "explain": "TalentBin 给每个阶段写了进入条件：寻求审批表示痛点已验证、对接人愿意推进，但还要另一位决策人同意；已发方案表示客户主动要了报价，下一步就是拍板或谈判。定义清楚后，谁看到阶段都知道离成交多远。"
+  }
+ ],
+ "Chapter 9: Customer Success Basics: Implementation, Ongoing Success & Renewals": [
+  {
+   "point": "监测客户不成功的先行指标，在坏习惯固化前介入",
+   "core": "The important thing is to instrument leading indicators of non-success so you can jump on them before that bad or nonexistent usage becomes ingrained.",
+   "caseTitle": "零结果搜索预警",
+   "case": "On TalentBin, for example, running searches that yield zero results, or unusably large numbers, suggests a problem; we could have designed reporting to alert us to that usage issue, which was likely to block success.",
+   "explain": "在 TalentBin 上，搜索结果为零或多到无法使用，说明用户不会用产品，最终很难招到人。把这类行为做成预警报表，就能在客户流失前主动帮助，这正是先行指标的作用。"
+  }
+ ],
+ "Introduction #10": [
+  {
+   "point": "销售动作未被证明可复制前就扩招，会烧钱并伤害公司",
+   "core": "Premature scaling involves adding sales staff (or adding many more sales staff) before you have proven that the sales motion actually works.",
+   "caseTitle": "Zenefits 的过早扩张",
+   "case": "Some good recent examples of “premature scaling” can be seen in the cautionary tale of Zenefits, who sold epic amounts of deals without fully considering the costs associated with servicing the customers they brought onboard—creating a situation where as reps sold more and more deals, they had more and more negative unit-economic customers on the books bleeding the company dry of resources. Eventually this lead to massive layoffs of these inefficient reps who loaded the company with “upside down” customers.",
+   "explain": "Zenefits 签下大量订单，却没算清服务这些客户的成本，卖得越多，单位经济为负的客户就越多，最终大规模裁掉销售。这说明销售和服务模式没跑通就扩张，规模只会放大亏损。"
+  }
+ ],
+ "Chapter 11: High-Impact Sales Hiring": [
+  {
+   "point": "用模拟真实工作的小作业筛选销售，看沟通与主动性",
+   "core": "An inability to do that with cursory subjects will reveal an inability to do so with your solution.",
+   "caseTitle": "给 Airbnb 留语音推介",
+   "case": "At the end of the written screen, I tell candidates to leave me a 30-second voice mail, pitching TalentBin as if I were the head of recruiting at Airbnb. Firstly, I like the fact that it’s a composite homework assignment. It requires going to TalentBin’s website and consuming its value propositions, which tests initiative, comprehension, and retention.",
+   "explain": "作者让候选人假设他是 Airbnb 招聘负责人，留一段30秒语音推介 TalentBin。候选人要自己去官网理解卖点、研究 Airbnb 的需求，和真实外联工作一样，能看出主动性、理解力和表达能力。"
+  }
+ ],
+ "Chapter 12: High-Impact Sales Onboarding & Training": [
+  {
+   "point": "新销售要先懂客户的业务经济，才能进行顾问式对话",
+   "core": "Whatever space you’re in, the first step to being able to have a consultative conversation with a potential client is to understand the base economics of their business.",
+   "caseTitle": "The Brad Class",
+   "case": "The way that we achieved this at TalentBin was by having one of our sales team, Brad Snider—a former technical recruiter—give a rundown on all things recruiting in a live hour-long class. We called it “The Brad Class.” It was always awesome because Brad knew his stuff cold and was a great storyteller (which makes for a great sales rep too!).",
+   "explain": "TalentBin 让做过技术招聘的销售 Brad Snider 开一小时的招聘业务课，讲清客户行业怎么运转。新销售先懂了招聘客户的业务和指标，才能和客户像专家一样对话，而不只是介绍功能。"
+  }
+ ],
+ "Chapter 13: Where Do You Go From Here?": [
+  {
+   "point": "已有销售能像你一样卖出去，再请相近公司的战术型销售负责人",
+   "core": "Well, the exit criteria for knowing that you’re ready to hand the reins off to a dedicated sales leader, is that you have a set of sellers who they themselves are successfully selling your solution at least as well as you were.",
+   "caseTitle": "从同类创业公司招人",
+   "case": "If you’re a new Business Intelligence (BI) company, then hiring a sales manager or director from Looker, Mode, Domo, etc., is the better bet than hiring one from Tableau, SAP, or Oracle. If you’re a new recruiting solution, it’s the better bet to hire from Greenhouse, Lever, Workable, etc., than from say Oracle, Taleo, SAP, or SuccessFactors.",
+   "explain": "新 BI 公司应从 Looker、Mode 等创业公司招销售负责人，而非 Oracle、SAP 等巨头；招聘软件公司则找 Greenhouse、Lever 出身者。他们熟悉相似销售动作，适合接手团队。"
+  }
+ ]
+}

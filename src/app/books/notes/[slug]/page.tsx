@@ -6,7 +6,7 @@ import NoteAssistant from "@/components/books/note-assistant";
 import NoteReader, { proseClass } from "@/components/books/note-reader";
 import { CATALOG_BY_ID } from "@/lib/books/catalog";
 import { linkifyCitations } from "@/lib/books/citations";
-import { getAllNotes, getExcerpts, getNote, markersToText, quotesIn, renderNote, splitNote } from "@/lib/books/notes";
+import { getAllNotes, getCases, getExcerpts, getNote, markersToText, quotesIn, renderNote, splitNote } from "@/lib/books/notes";
 
 // Note markdown is first-party repo content; 「quotes」 become clickable
 // buttons that open the original in the visitor's own copy of the book.
@@ -32,6 +32,13 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
   if (!note) notFound();
   const parts = splitNote(note.markdown);
   const excerpts = getExcerpts(note.slug);
+  const cases = getCases(note.slug);
+  const chat = {
+    title: note.book,
+    author: note.author,
+    note: markersToText(note.markdown),
+    excerpts: [...excerpts].map(([quote, text]) => ({ quote, text })),
+  };
 
   return (
     // Chapter-mapped notes get a third column (the original) on wide screens.
@@ -84,20 +91,16 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
                   const text = excerpts.get(quote);
                   return text ? [{ quote, text }] : [];
                 }),
+                cases: cases[c.label] ?? [],
               }))}
               outroHtml={md(parts.outro)}
+              chat={chat}
             />
           </>
         );
       })()}
-      <NoteAssistant
-        context={{
-          title: note.book,
-          author: note.author,
-          note: markersToText(note.markdown),
-          excerpts: [...excerpts].map(([quote, text]) => ({ quote, text })),
-        }}
-      />
+      {/* Chapter-mapped notes host the assistant inside NoteReader. */}
+      {!parts.chapters.length && <NoteAssistant context={chat} />}
     </article>
   );
 }

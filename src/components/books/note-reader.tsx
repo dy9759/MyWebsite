@@ -4,16 +4,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, ExternalLink, Upload } from "lucide-react";
+import { FloatingNoteChat, NoteChatBody, useNoteChat } from "@/components/books/note-assistant";
+import NoteCases, { type ChapterCase } from "@/components/books/note-cases";
 import NoteExcerpts, { type ChapterExcerpt } from "@/components/books/note-excerpts";
+import NoteSidePanes, { type PaneTab } from "@/components/books/note-side-panes";
 import OriginalPane, { type PaneTarget } from "@/components/books/original-pane";
 import { titleMatches } from "@/lib/books/catalog";
 import { readCitation } from "@/lib/books/citations";
 import { ACCEPTED_EXTENSIONS } from "@/lib/books/formats";
 import { importBookFile } from "@/lib/books/import-book";
+import type { NoteContext } from "@/lib/books/note-chat";
 import { listBooks } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
 
-export type RenderedChapter = { label: string; display?: string; heading: string; html: string; excerpts: ChapterExcerpt[] };
+export type RenderedChapter = { label: string; display?: string; heading: string; html: string; excerpts: ChapterExcerpt[]; cases: ChapterCase[] };
 
 type Props = {
   catalogId?: string;
@@ -23,6 +27,7 @@ type Props = {
   introHtml: string;
   chapters: RenderedChapter[];
   outroHtml: string;
+  chat: NoteContext; // what the AI assistant may read
 };
 
 export const proseClass = cn(
@@ -35,18 +40,20 @@ export const proseClass = cn(
 const chapterName = (c: RenderedChapter) => c.display ?? c.label.replace(/\s+#\d+$/, "");
 const WIDE = "(min-width: 1280px)"; // Tailwind xl: the three-column layout
 
-type Tab = "excerpts" | "book";
+const PANE_LABELS: Record<PaneTab, string> = { excerpts: "原文片段", book: "我的电子书", ai: "AI 助手" };
 
 // Note-first reading. Wide screens: contents | note | original, where the
 // original is the site's short excerpts or, once imported, the visitor's own
-// copy of the book (never hosted here). Narrow screens: quotes expand their
-// excerpt inline and chapters open in the full reader.
-export default function NoteReader({ catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml }: Props) {
+// copy of the book (never hosted here), next to the AI assistant. Narrow
+// screens: quotes expand their excerpt inline, chapters open in the full
+// reader and the assistant floats bottom-right.
+export default function NoteReader({ catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml, chat: chatContext }: Props) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const seq = useRef(0);
   const [shelfId, setShelfId] = useState<string | null>(null);
-  const [tab, setTab] = useState<Tab>("excerpts");
+  const [reveal, setReveal] = useState<{ tab: PaneTab; seq: number } | null>(null);
+  const chat = useNoteChat(chatContext);
   const [active, setActive] = useState(0);
   const [target, setTarget] = useState<PaneTarget | null>(null);
   const [focus, setFocus] = useState<{ quote: string; seq: number } | null>(null);
@@ -65,8 +72,9 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
           : books.find((b) => titleMatches(b.title, matchTitle!) || titleMatches(b.name, matchTitle!));
         if (!alive || !hit) return;
         setShelfId(hit.id);
-        setTab("book");
-        if (chapters.length) setTarget({ label: chapters[0].label, seq: ++seq.current });
+        const n = ++seq.current;
+        setReveal({ tab: "book", seq: n });
+        if (chapters.length) setTarget({ label: chapters[0].label, seq: n });
       })
       .catch(() => {});
     return () => {
@@ -101,6 +109,7 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
     const n = ++seq.current;
     if (shelfId) setTarget({ label: chapters[i].label, quote, seq: n });
     setFocus(quote ? { quote, seq: n } : null);
+    setReveal({ tab: shelfId ? "book" : "excerpts", seq: n });
   };
 
   const onImport = async (file: File | undefined) => {
@@ -110,8 +119,9 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
     if (fileRef.current) fileRef.current.value = "";
     if (!res.ok && res.reason === "unsupported") return setImportError(`不支持的格式：${file.name}`);
     setShelfId(res.id);
-    setTab("book");
-    setTarget({ label: chapters[active].label, seq: ++seq.current });
+    const n = ++seq.current;
+    setReveal({ tab: "book", seq: n });
+    setTarget({ label: chapters[active].label, seq: n });
   };
 
   const current = chapters[active];
@@ -197,6 +207,7 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
               }}
               dangerouslySetInnerHTML={{ __html: c.html }}
             />
+            <NoteCases cases={c.cases} />
             {inline?.chapter === i && (
               <div className="mt-3 rounded-md bg-muted px-3 py-2 text-xs xl:hidden">
                 {inline.quote && c.excerpts.some((e) => e.quote === inline.quote) && (
@@ -220,50 +231,50 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
       </div>
 
       {current && (
-        <aside aria-label="原文" className="hidden xl:sticky xl:top-20 xl:flex xl:h-[calc(100vh-6rem)] xl:flex-col xl:self-start xl:overflow-hidden xl:rounded-lg xl:border">
-          <div className="flex items-center gap-1 border-b bg-muted/30 p-1.5 text-xs">
-            {(["excerpts", "book"] as const).map((t) => (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setTab(t)}
-                className={cn("rounded px-2.5 py-1", tab === t ? "bg-background font-medium shadow-sm" : "text-muted-foreground hover:text-foreground")}
-              >
-                {t === "excerpts" ? "原文片段" : "我的电子书"}
-              </button>
-            ))}
-          </div>
-          <div className={cn("min-h-0 flex-1 overflow-y-auto", tab !== "excerpts" && "hidden")}>
-            <NoteExcerpts title={chapterName(current)} excerpts={current.excerpts} focus={focus} />
-          </div>
-          {/* Kept mounted while hidden, so switching tabs does not reopen the book. */}
-          <div className={cn("min-h-0 flex-1", tab !== "book" && "hidden")}>
-            {shelfId ? (
-              <OriginalPane bookId={shelfId} target={target} />
-            ) : (
-              <div className="p-4 text-sm">
-                <p className="text-muted-foreground">
-                  导入你自己的电子书（只存在这个浏览器里，不会上传），这里就会显示完整原文，并随笔记的章节和引文跳转。
-                </p>
-                <button
-                  type="button"
-                  onClick={() => fileRef.current?.click()}
-                  className="mt-3 inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm hover:bg-accent/10"
-                >
-                  <Upload className="h-4 w-4" /> 导入电子书
-                </button>
-                <input ref={fileRef} type="file" hidden accept={ACCEPTED_EXTENSIONS.join(",")} onChange={(e) => onImport(e.target.files?.[0])} />
-                {importError && <p className="mt-2 text-xs text-destructive">{importError}</p>}
-                {officialUrl && (
-                  <a href={officialUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-1 text-xs text-muted-foreground underline-offset-4 hover:underline">
-                    没有电子书？官方页面 / 试读 <ExternalLink className="h-3 w-3" />
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
+        <aside aria-label="原文与 AI 助手" className="hidden xl:sticky xl:top-20 xl:block xl:h-[calc(100vh-6rem)] xl:self-start">
+          <NoteSidePanes
+            labels={PANE_LABELS}
+            reveal={reveal}
+            render={(t) => {
+              if (t === "ai") return <NoteChatBody chat={chat} />;
+              if (t === "excerpts") {
+                return (
+                  <div className="min-h-0 flex-1 overflow-y-auto">
+                    <NoteExcerpts title={chapterName(current)} excerpts={current.excerpts} focus={focus} />
+                  </div>
+                );
+              }
+              return shelfId ? (
+                <OriginalPane bookId={shelfId} target={target} />
+              ) : (
+                <div className="overflow-y-auto p-4 text-sm">
+                  <p className="text-muted-foreground">
+                    导入你自己的电子书（只存在这个浏览器里，不会上传），这里就会显示完整原文，并随笔记的章节和引文跳转。
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => fileRef.current?.click()}
+                    className="mt-3 inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm hover:bg-accent/10"
+                  >
+                    <Upload className="h-4 w-4" /> 导入电子书
+                  </button>
+                  <input ref={fileRef} type="file" hidden accept={ACCEPTED_EXTENSIONS.join(",")} onChange={(e) => onImport(e.target.files?.[0])} />
+                  {importError && <p className="mt-2 text-xs text-destructive">{importError}</p>}
+                  {officialUrl && (
+                    <a href={officialUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-1 text-xs text-muted-foreground underline-offset-4 hover:underline">
+                      没有电子书？官方页面 / 试读 <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
+              );
+            }}
+          />
         </aside>
       )}
+      {/* Below xl the assistant floats bottom-right (same conversation). */}
+      <div className="xl:hidden">
+        <FloatingNoteChat chat={chat} />
+      </div>
     </div>
   );
 }
