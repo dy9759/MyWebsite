@@ -27,10 +27,18 @@ export const themeOf = (e: CatalogEntry) => {
 
 export const levelOf = (e: CatalogEntry): LevelId => LEVELS.find((l) => l.priorities.includes(e.priority))?.id ?? "L3";
 
-export type LevelFilter = { notesOnly: boolean; hideDone: boolean };
+export type LevelFilter = { notesOnly: boolean; hideDone: boolean; query?: string };
+
+// Case-insensitive search over the fields a reader would remember; every
+// whitespace-separated word must match somewhere.
+export function matchesQuery(e: CatalogEntry, query: string): boolean {
+  const hay = [e.title, e.author, e.kind, e.category, e.reason, e.output].join(" ").toLowerCase();
+  return query.toLowerCase().split(/\s+/).filter(Boolean).every((w) => hay.includes(w));
+}
 
 // One level's entries grouped by theme (theme order fixed, entries by score,
-// books with notes first on ties). Empty themes are dropped.
+// books with notes first on ties). Empty themes are dropped. A search query
+// looks across all levels instead.
 export function groupLevel(
   entries: CatalogEntry[],
   level: LevelId,
@@ -38,8 +46,9 @@ export function groupLevel(
   hasNote: (id: string) => boolean,
   statusOf: (id: string) => ReadingStatus,
 ) {
+  const q = filter.query?.trim() ?? "";
   const keep = entries.filter(
-    (e) => levelOf(e) === level && (!filter.notesOnly || hasNote(e.id)) && (!filter.hideDone || statusOf(e.id) !== "done"),
+    (e) => (q ? matchesQuery(e, q) : levelOf(e) === level) && (!filter.notesOnly || hasNote(e.id)) && (!filter.hideDone || statusOf(e.id) !== "done"),
   );
   return THEMES.map((t) => ({
     theme: t,

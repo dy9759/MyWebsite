@@ -31,4 +31,12 @@ describe("books home grouping", () => {
     const groups = groupLevel(CATALOG, "L1", { notesOnly: true, hideDone: true }, (id) => withNote.has(id), (id) => (id === "R046" ? "done" : "todo"));
     expect(groups.flatMap((g) => g.entries.map((e) => e.id))).toEqual(CATALOG.find((e) => e.id === "R032")?.priority === "P0" ? ["R032"] : []);
   });
+
+  it("searches across all levels when a query is set", () => {
+    const groups = groupLevel(CATALOG, "L1", { notesOnly: false, hideDone: false, query: "mom test" }, noNote, todo);
+    expect(groups.flatMap((g) => g.entries.map((e) => e.id))).toEqual(["R046"]);
+    const l3 = CATALOG.find((e) => levelOf(e) === "L3")!;
+    const hit = groupLevel(CATALOG, "L1", { notesOnly: false, hideDone: false, query: l3.title }, noNote, todo);
+    expect(hit.flatMap((g) => g.entries.map((e) => e.id))).toContain(l3.id);
+  });
 });

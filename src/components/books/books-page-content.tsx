@@ -82,91 +82,74 @@ export default function BooksPageContent({ notes }: { notes: NoteMeta[] }) {
       <p className="mt-2 text-muted-foreground">
         AI 产品经理的分级书单：先读 L1，再按方向进阶。{notes.length} 本有按章节整理的读书笔记，可从笔记跳到原文。
       </p>
-      <div className="mt-3 flex flex-wrap gap-2 text-xs">
-        <span className="rounded-md bg-muted px-2.5 py-1">已读 {done} / {CATALOG.length}</span>
-        <span className="rounded-md bg-muted px-2.5 py-1">L1 进度 {l1Done} / {L1_TOTAL}</span>
+      {/* One compact line: progress, then the most recent reads. */}
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+        <span className="text-muted-foreground">
+          已读 {done} / {CATALOG.length} · L1 {l1Done} / {L1_TOTAL}
+        </span>
+        <span className="text-muted-foreground">最近阅读：</span>
+        {recent === null ? null : recent.length === 0 ? (
+          firstPick && noteByCatalog[firstPick.id] ? (
+            <Link href={`/books/notes/${noteByCatalog[firstPick.id].slug}/`} className="text-primary underline-offset-4 hover:underline">
+              还没有记录，从 {shortTitle(firstPick.title)} 开始 →
+            </Link>
+          ) : (
+            <span className="text-muted-foreground">还没有记录</span>
+          )
+        ) : (
+          recent.map((r) => (
+            <Link key={r.key} href={r.href} className="inline-flex max-w-full items-baseline gap-1 underline-offset-4 hover:underline">
+              {r.kind === "note" ? <FileText className="h-3.5 w-3.5 shrink-0 self-center text-primary" /> : <BookOpen className="h-3.5 w-3.5 shrink-0 self-center text-primary" />}
+              <span className="truncate">{r.title}</span>
+              <span className="truncate text-xs text-muted-foreground">{r.sub}</span>
+            </Link>
+          ))
+        )}
       </div>
 
-      <section className="mt-6" aria-labelledby="recent-heading">
-        <h2 id="recent-heading" className="text-sm font-medium text-muted-foreground">最近阅读</h2>
-        {recent === null ? (
-          <div className="mt-2 h-16" />
-        ) : recent.length === 0 ? (
-          <p className="mt-2 rounded-lg border border-dashed p-3 text-sm text-muted-foreground">
-            还没有阅读记录。
-            {firstPick && noteByCatalog[firstPick.id] && (
-              <>
-                {" "}从 L1 的第一本开始：
-                <Link href={`/books/notes/${noteByCatalog[firstPick.id].slug}/`} className="font-medium text-primary underline-offset-4 hover:underline">
-                  {shortTitle(firstPick.title)} →
-                </Link>
-              </>
-            )}
-          </p>
-        ) : (
-          <ul className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            {recent.map((r) => (
-              <li key={r.key}>
-                <Link href={r.href} className="flex h-full items-start gap-2 rounded-lg border p-3 hover:bg-accent/10">
-                  {r.kind === "note" ? <FileText className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> : <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-primary" />}
-                  <span className="min-w-0">
-                    <span className="block truncate font-medium">{r.title}</span>
-                    <span className="block truncate text-xs text-muted-foreground">{r.sub}</span>
-                  </span>
+      <section className="mt-8" aria-labelledby="goal-heading">
+        <h2 id="goal-heading" className="text-lg font-semibold">你想读什么？</h2>
+        <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+          {READING_ROUTES.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              onClick={() => setRouteId(r.id)}
+              aria-pressed={r.id === routeId}
+              className={cn(
+                "border-b-2 pb-0.5",
+                r.id === routeId ? "border-primary font-medium text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {r.title}
+              <span className="ml-1 text-xs text-muted-foreground">
+                {r.steps.filter((id) => statusOf(id) === "done").length}/{r.steps.length}
+              </span>
+            </button>
+          ))}
+        </div>
+        <ol className="mt-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-sm">
+          <li className="mr-2 text-muted-foreground">{route.goal}：</li>
+          {route.steps.map((id, i) => {
+            const e = CATALOG_BY_ID.get(id);
+            if (!e) return null;
+            return (
+              <li key={id} className="flex items-center gap-1">
+                {i > 0 && <span className="text-muted-foreground">{route.parallel ? "／" : "→"}</span>}
+                <Link
+                  href={stepHref(id)}
+                  className={cn("underline-offset-4 hover:underline", statusOf(id) === "done" && "text-muted-foreground line-through")}
+                >
+                  {shortTitle(e.title)}
+                  {noteByCatalog[id] && <span className="ml-1 text-xs text-emerald-700 dark:text-emerald-300">笔记</span>}
                 </Link>
               </li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      <section className="mt-10" aria-labelledby="goal-heading">
-        <h2 id="goal-heading" className="text-lg font-semibold">你想读什么？</h2>
-        <p className="mt-1 text-sm text-muted-foreground">选一个当前的工作目标，按顺序读这条路线；同时最多再开一本人物 / 产业史并行读。</p>
-        <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-          {READING_ROUTES.map((r) => {
-            const n = r.steps.filter((id) => statusOf(id) === "done").length;
-            return (
-              <button
-                key={r.id}
-                type="button"
-                onClick={() => setRouteId(r.id)}
-                aria-pressed={r.id === routeId}
-                className={cn("rounded-lg border p-3 text-left text-sm hover:bg-accent/10", r.id === routeId && "border-primary ring-1 ring-primary")}
-              >
-                <span className="block font-medium">{r.title}</span>
-                <span className="mt-0.5 block text-xs text-muted-foreground">
-                  {r.steps.length} 本 · 已读 {n}
-                </span>
-              </button>
             );
           })}
-        </div>
-        <div className="mt-3 rounded-lg border p-3">
-          <p className="text-sm text-muted-foreground">{route.goal}</p>
-          <ol className="mt-2 flex flex-wrap items-center gap-1 text-sm">
-            {route.steps.map((id, i) => {
-              const e = CATALOG_BY_ID.get(id);
-              if (!e) return null;
-              return (
-                <li key={id} className="flex items-center gap-1">
-                  {i > 0 && <span className="text-muted-foreground">{route.parallel ? "／" : "→"}</span>}
-                  <Link
-                    href={stepHref(id)}
-                    className={cn("rounded px-1.5 py-0.5 hover:bg-accent/10", statusOf(id) === "done" && "text-muted-foreground line-through")}
-                  >
-                    {shortTitle(e.title)}
-                    {noteByCatalog[id] && <span className="ml-1 text-xs text-emerald-700 dark:text-emerald-300">笔记</span>}
-                  </Link>
-                </li>
-              );
-            })}
-          </ol>
-          <p className="mt-2 text-xs">
-            <span className="text-muted-foreground">读完留下：</span>
-            {route.output}
-          </p>
-        </div>
+        </ol>
+        <p className="mt-1 text-xs text-muted-foreground">
+          读完留下：{route.output}。同时最多再开一本人物 / 产业史并行读。
+        </p>
       </section>
 
       <BooksLevelList noteByCatalog={noteByCatalog} statusOf={statusOf} setStatus={setStatus} />
