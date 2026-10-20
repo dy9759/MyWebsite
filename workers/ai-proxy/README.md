@@ -36,7 +36,7 @@ All in `wrangler.toml` `[vars]`; change and push (the workflow redeploys):
 | var | default | meaning |
 |---|---|---|
 | `ALLOWED_ORIGINS` | site + localhost:3000 | CORS allowlist |
-| `MODELS` | `deepseek-v4.1-flash,qwen-plus` | allowed models, first = default |
+| `MODELS` | `deepseek-v4.1-flash-1017,qwen-plus` | allowed models, first = default |
 | `MAX_TOKENS` | 2048 | output cap per request |
 | `MAX_INPUT_CHARS` | 60000 | input cap per request |
 | `DAILY_LIMIT` | 500 | requests per UTC day, whole site |

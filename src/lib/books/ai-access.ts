@@ -11,7 +11,7 @@ export type AiAccess =
   | { mode: "proxy"; url: string; model: string };
 
 export const AI_PROXY_URL = process.env.NEXT_PUBLIC_AI_PROXY_URL ?? "";
-export const PROXY_MODEL = "deepseek-v4.1-flash";
+export const PROXY_MODEL = "deepseek-v4.1-flash-1017";
 
 // Module-level, so hooks that depend on the access object stay stable.
 const PROXY: AiAccess | null = AI_PROXY_URL ? { mode: "proxy", url: AI_PROXY_URL, model: PROXY_MODEL } : null;

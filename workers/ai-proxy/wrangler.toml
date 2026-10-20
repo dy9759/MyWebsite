@@ -9,7 +9,7 @@ compatibility_date = "2026-05-01"
 UPSTREAM_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 ALLOWED_ORIGINS = "https://chauncey.myoii.com,http://localhost:3000"
 # First model is the default; callers may only pick from this list.
-MODELS = "deepseek-v4.1-flash,qwen-plus"
+MODELS = "deepseek-v4.1-flash-1017,qwen-plus"
 MAX_TOKENS = "2048"
 MAX_INPUT_CHARS = "60000"
 # Budget: requests per UTC day for the whole site / per IP, and per IP per minute.

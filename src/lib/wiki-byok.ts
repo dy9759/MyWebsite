@@ -14,7 +14,7 @@ export const BYOK_ENDPOINTS: Record<ByokRegion, string> = {
   cn: "https://dashscope.aliyuncs.com/compatible-mode/v1",
   intl: "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
 };
-export const BYOK_DEFAULT_MODEL = "deepseek-v4.1-flash";
+export const BYOK_DEFAULT_MODEL = "deepseek-v4.1-flash-1017";
 
 const STORE_KEY = "wiki-byok-v1";
 const EVENT = "wiki-byok-change";
