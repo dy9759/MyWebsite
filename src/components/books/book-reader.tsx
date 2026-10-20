@@ -18,7 +18,7 @@ import type { Citation } from "@/lib/books/citations";
 import { navigateToCitation, openNoteTarget } from "@/lib/books/cite-nav";
 import { useBilingual } from "@/lib/books/use-bilingual";
 import { useFullscreen } from "@/lib/books/use-fullscreen";
-import { useByok } from "@/lib/wiki-byok";
+import { useAiAccess } from "@/lib/books/ai-access";
 import { formatContributor, openBookFile, type FoliateView } from "@/lib/books/foliate";
 import { FONT_MAX, FONT_MIN, useReaderPrefs } from "@/lib/books/reader-prefs";
 import { attachSwipe, type SwipeDir } from "@/lib/books/swipe";
@@ -83,7 +83,7 @@ export default function BookReader() {
   const { rootRef, fullscreen, toggle: toggleFullscreen, exitCss } = useFullscreen();
   const [selection, setSelection] = useState("");
   const { language } = useLanguage();
-  const cfg = useByok();
+  const cfg = useAiAccess();
   // Bumped whenever foliate loads a section, so the bilingual view picks it up.
   const [docVersion, setDocVersion] = useState(0);
   const getDocs = useCallback(

@@ -8,7 +8,7 @@ import { streamChat } from "@/lib/books/companion";
 import { renderSafeMarkdown } from "@/lib/books/safe-markdown";
 import { getTranslations, putTranslations, translationKey } from "@/lib/books/store";
 import { buildSelectionMessages, resolveTarget, type TargetPref } from "@/lib/books/translate";
-import { useByok } from "@/lib/wiki-byok";
+import { useAiAccess } from "@/lib/books/ai-access";
 
 type Props = {
   selection: string;
@@ -20,7 +20,7 @@ type Props = {
 // the selection (plus short term notes). Results are cached per passage.
 export default function SelectionTranslate({ selection, pref, onDismiss }: Props) {
   const { language } = useLanguage();
-  const cfg = useByok();
+  const cfg = useAiAccess();
   const [result, setResult] = useState<{ source: string; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");

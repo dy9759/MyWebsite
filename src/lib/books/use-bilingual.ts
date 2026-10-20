@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/books/companion";
 import { clearTranslations, translateDoc, type Progress } from "@/lib/books/bilingual";
 import type { TargetPref } from "@/lib/books/translate";
-import type { ByokConfig } from "@/lib/wiki-byok";
+import type { AiAccess } from "@/lib/books/ai-access";
 
 type Options = {
   enabled: boolean;
   pref: TargetPref;
-  cfg: ByokConfig | null;
+  cfg: AiAccess | null;
   uiLang: Lang;
   getDocs: () => Document[]; // sections currently loaded in the reader
   docVersion: number; // bumped by the reader whenever a section loads

@@ -27,7 +27,7 @@ import {
   type NoteSource,
 } from "@/lib/books/companion-tasks";
 import { getSummary, listSummaries, putSummary } from "@/lib/books/store";
-import { useByok } from "@/lib/wiki-byok";
+import { accessModel, useAiAccess } from "@/lib/books/ai-access";
 
 const UI = {
   zh: {
@@ -43,6 +43,8 @@ const UI = {
     explain: "解释选中的文字",
     noKey: "AI 陪读需要你自己的百炼 Key。",
     privacy: "提问时，本章文字（约 {n} 字）会用你的 Key 发送给阿里云百炼，不经过本站。",
+    privacyProxy: "提问时，本章文字（约 {n} 字）会经本站代理发送给阿里云百炼；代理只转发、不保存内容。",
+    proxyNote: "正在使用本站提供的免费额度（每天有限）。也可以填入自己的百炼 Key：",
     truncated: "本章较长，只发送前面一部分。",
     scanned: "这一章几乎提取不到文字（可能是扫描版 PDF），AI 无法阅读。",
     cached: "已缓存，不会重复计费",
@@ -69,6 +71,8 @@ const UI = {
     explain: "Explain the selection",
     noKey: "The AI companion needs your own Bailian key.",
     privacy: "When you ask, this chapter's text (~{n} chars) is sent with your key to Alibaba Cloud Bailian — never to this site.",
+    privacyProxy: "When you ask, this chapter's text (~{n} chars) goes to Alibaba Cloud Bailian through this site's proxy, which forwards it without storing anything.",
+    proxyNote: "Using the site's free quota (limited per day). You can also add your own Bailian key:",
     truncated: "This chapter is long; only its first part is sent.",
     scanned: "Almost no text could be extracted (likely a scanned PDF), so the AI cannot read it.",
     cached: "Cached — not billed again",
@@ -108,7 +112,7 @@ export default function CompanionPanel(props: Props) {
   const { bookId, bookTitle, locationKey, resolveChapter, selection, onClearSelection, onClose, onCite, catalogEntry, onLinkCatalog, author } = props;
   const { language } = useLanguage();
   const t = UI[language];
-  const cfg = useByok();
+  const cfg = useAiAccess();
   const [chapter, setChapter] = useState<ChapterText | null>(null);
   const [summary, setSummary] = useState("");
   const [summaryCached, setSummaryCached] = useState(false);
@@ -194,7 +198,7 @@ export default function CompanionPanel(props: Props) {
         title: ctx.chapterTitle,
         start: chapter.start,
         text,
-        model: cfg.model,
+        model: accessModel(cfg),
         createdAt: Date.now(),
       });
     }
@@ -290,10 +294,16 @@ export default function CompanionPanel(props: Props) {
             <WikiByokPanel />
           </div>
         )}
+        {cfg?.mode === "proxy" && (
+          <div className="text-xs text-muted-foreground">
+            <p className="mb-1">{t.proxyNote}</p>
+            <WikiByokPanel />
+          </div>
+        )}
         {chapter?.scanned && <p className="text-xs text-destructive">{t.scanned}</p>}
         {chapter && !chapter.scanned && (
           <p className="text-xs text-muted-foreground">
-            {t.privacy.replace("{n}", chapter.text.length.toLocaleString())}
+            {(cfg?.mode === "proxy" ? t.privacyProxy : t.privacy).replace("{n}", chapter.text.length.toLocaleString())}
             {chapter.truncated && ` ${t.truncated}`}
           </p>
         )}

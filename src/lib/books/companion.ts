@@ -1,4 +1,5 @@
-import { BYOK_ENDPOINTS, byokErrorText, type ByokConfig } from "@/lib/wiki-byok";
+import type { AiAccess } from "@/lib/books/ai-access";
+import { BYOK_ENDPOINTS, byokErrorText } from "@/lib/wiki-byok";
 
 // AI reading companion: prompt builders plus a streaming call to Bailian with
 // the visitor's own key (same BYOK as the Wiki chat). The chapter text goes
@@ -134,9 +135,21 @@ export function buildRecapMessages(
 
 export class CompanionError extends Error {}
 
+const PROXY_ERRORS: Record<string, { zh: string; en: string }> = {
+  "429": {
+    zh: "本站提供的免费额度今天已用完（或请求太频繁）。可以稍后再试，或在设置里填入你自己的百炼 Key 继续使用。",
+    en: "The site's free quota is used up for today (or requests are too frequent). Try later, or add your own Bailian key in settings.",
+  },
+  "413": { zh: "内容太长，超出了本站代理的单次上限。", en: "Too much text for one request through the site's proxy." },
+  "403": { zh: "本站代理拒绝了这个来源的请求。", en: "The site's proxy refused this origin." },
+};
+
+const errorText = (access: AiAccess, code: string, lang: Lang) =>
+  (access.mode === "proxy" && PROXY_ERRORS[code]?.[lang]) || byokErrorText(code, lang);
+
 // Streams a chat completion; `onDelta` receives the accumulated text so far.
 export async function streamChat(
-  cfg: ByokConfig,
+  access: AiAccess,
   messages: ChatMessage[],
   onDelta: (text: string) => void,
   lang: Lang,
@@ -145,28 +158,37 @@ export async function streamChat(
   // Reading tasks want fast answers: hybrid models on Bailian (e.g.
   // deepseek-v4.1-flash) "think" by default, which roughly doubles latency.
   // A model that rejects the flag gets one retry without it.
+  // Through the site's proxy the key, model cap and thinking switch are all
+  // applied server-side, so only the messages travel.
   const send = (noThinking: boolean) =>
-    fetch(`${BYOK_ENDPOINTS[cfg.region]}/chat/completions`, {
-      method: "POST",
-      headers: { "content-type": "application/json", authorization: `Bearer ${cfg.key}` },
-      body: JSON.stringify({
-        model: cfg.model,
-        messages,
-        stream: true,
-        temperature: 0.3,
-        ...(noThinking ? { enable_thinking: false } : {}),
-      }),
-      signal,
-    });
+    access.mode === "proxy"
+      ? fetch(access.url, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ model: access.model, messages, temperature: 0.3 }),
+          signal,
+        })
+      : fetch(`${BYOK_ENDPOINTS[access.cfg.region]}/chat/completions`, {
+          method: "POST",
+          headers: { "content-type": "application/json", authorization: `Bearer ${access.cfg.key}` },
+          body: JSON.stringify({
+            model: access.cfg.model,
+            messages,
+            stream: true,
+            temperature: 0.3,
+            ...(noThinking ? { enable_thinking: false } : {}),
+          }),
+          signal,
+        });
   let res: Response;
   try {
     res = await send(true);
-    if (res.status === 400) res = await send(false);
+    if (res.status === 400 && access.mode === "byok") res = await send(false);
   } catch (e) {
     if ((e as Error).name === "AbortError") throw e;
-    throw new CompanionError(byokErrorText("", lang), { cause: e });
+    throw new CompanionError(errorText(access, "", lang), { cause: e });
   }
-  if (!res.ok || !res.body) throw new CompanionError(byokErrorText(String(res.status), lang));
+  if (!res.ok || !res.body) throw new CompanionError(errorText(access, String(res.status), lang));
 
   const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
   let buf = "";

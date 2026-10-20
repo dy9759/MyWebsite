@@ -9,7 +9,7 @@ import { CATALOG, CATALOG_BY_ID, type ReadingStatus } from "@/lib/books/catalog"
 import { streamChat } from "@/lib/books/companion";
 import { buildAdvisorMessages } from "@/lib/books/companion-tasks";
 import { renderSafeMarkdown } from "@/lib/books/safe-markdown";
-import { useByok } from "@/lib/wiki-byok";
+import { useAiAccess } from "@/lib/books/ai-access";
 
 const EXAMPLES = ["准备给语音产品定价并找到第一批付费客户", "想系统搞懂 Agent 评测和上线标准", "下个月开始带一个 AI 产品小团队"];
 
@@ -27,7 +27,7 @@ type Props = { statusOf: (id: string) => ReadingStatus; onJump: (id: string) => 
 
 export default function CatalogAdvisor({ statusOf, onJump }: Props) {
   const { language } = useLanguage();
-  const cfg = useByok();
+  const cfg = useAiAccess();
   const [goal, setGoal] = useState("");
   const [answer, setAnswer] = useState("");
   const [busy, setBusy] = useState(false);
@@ -89,7 +89,8 @@ export default function CatalogAdvisor({ statusOf, onJump }: Props) {
         )}
       </div>
       <p className="mt-2 text-[11px] text-muted-foreground">
-        会把目录（标题、优先级、推荐理由和你在本浏览器标记的阅读状态）和你的目标用你的 Key 发送给阿里云百炼，不经过本站。
+        会把目录（标题、优先级、推荐理由和你在本浏览器标记的阅读状态）和你的目标
+        {cfg?.mode === "proxy" ? "经本站代理（只转发、不保存）发送给阿里云百炼，使用本站每日有限的免费额度。" : "用你的 Key 发送给阿里云百炼，不经过本站。"}
       </p>
       {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
       {(answer || busy) && (

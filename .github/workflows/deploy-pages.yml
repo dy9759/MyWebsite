@@ -67,6 +67,10 @@ jobs:
           # replies). Set the WIKI_API_URL repository variable only if a
           # server/wiki-chat instance is publicly deployed.
           NEXT_PUBLIC_WIKI_API_URL: ${{ vars.WIKI_API_URL }}
+          # AI proxy for the reading features (workers/ai-proxy), e.g.
+          # https://books-ai-proxy.<account>.workers.dev/chat. Public URL only —
+          # the Bailian key stays in the Worker. Empty = visitors bring a key.
+          NEXT_PUBLIC_AI_PROXY_URL: ${{ vars.AI_PROXY_URL }}
 
       - name: Preserve Next.js static assets
         run: touch out/.nojekyll

@@ -1,0 +1,26 @@
+# AI proxy for chauncey.myoii.com — see README.md. The Bailian key is a
+# secret (BAILIAN_API_KEY), set by the GitHub workflow or `wrangler secret put`;
+# it never appears in this file or in the site's code.
+name = "books-ai-proxy"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+
+[vars]
+UPSTREAM_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+ALLOWED_ORIGINS = "https://chauncey.myoii.com,http://localhost:3000"
+# First model is the default; callers may only pick from this list.
+MODELS = "deepseek-v4.1-flash,qwen-plus"
+MAX_TOKENS = "2048"
+MAX_INPUT_CHARS = "60000"
+# Budget: requests per UTC day for the whole site / per IP, and per IP per minute.
+DAILY_LIMIT = "500"
+IP_DAILY_LIMIT = "120"
+IP_MINUTE_LIMIT = "15"
+
+[[durable_objects.bindings]]
+name = "LIMITER"
+class_name = "Limiter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Limiter"]

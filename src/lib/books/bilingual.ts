@@ -8,7 +8,7 @@ import {
   resolveTarget,
   type TargetPref,
 } from "@/lib/books/translate";
-import type { ByokConfig } from "@/lib/wiki-byok";
+import type { AiAccess } from "@/lib/books/ai-access";
 
 // Bilingual view: translations are appended *inside* each paragraph as a
 // block <span>, never as new siblings, so element indices — and therefore
@@ -53,7 +53,7 @@ export type Progress = { done: number; total: number };
 // batches, inserting each batch as it arrives. Stops when `signal` aborts.
 export async function translateDoc(
   doc: Document,
-  opts: { pref: TargetPref; cfg: ByokConfig; uiLang: Lang; signal: AbortSignal; onProgress: (p: Progress) => void },
+  opts: { pref: TargetPref; cfg: AiAccess; uiLang: Lang; signal: AbortSignal; onProgress: (p: Progress) => void },
 ) {
   const blocks = collectBlocks(doc);
   if (!blocks.length) return;
