@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { marked } from "marked";
+import NoteAssistant from "@/components/books/note-assistant";
 import NoteReader, { proseClass } from "@/components/books/note-reader";
 import { CATALOG_BY_ID } from "@/lib/books/catalog";
 import { linkifyCitations } from "@/lib/books/citations";
-import { getAllNotes, getExcerpts, getNote, quotesIn, renderNote, splitNote } from "@/lib/books/notes";
+import { getAllNotes, getExcerpts, getNote, markersToText, quotesIn, renderNote, splitNote } from "@/lib/books/notes";
 
 // Note markdown is first-party repo content; 「quotes」 become clickable
 // buttons that open the original in the visitor's own copy of the book.
@@ -89,6 +90,14 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
           </>
         );
       })()}
+      <NoteAssistant
+        context={{
+          title: note.book,
+          author: note.author,
+          note: markersToText(note.markdown),
+          excerpts: [...excerpts].map(([quote, text]) => ({ quote, text })),
+        }}
+      />
     </article>
   );
 }
