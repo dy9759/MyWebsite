@@ -140,3 +140,12 @@ export function matchCatalog(...titles: (string | undefined)[]): CatalogEntry | 
   }
   return best ? CATALOG_BY_ID.get(best.id)! : null;
 }
+
+// Shelf titles carry edition suffixes ("创新者的窘境（全新修订版）"), so a
+// note on a book outside the catalog finds its shelf copy by containment of
+// the normalised titles.
+export function titleMatches(shelfTitle: string, noteTitle: string): boolean {
+  const a = normalize(shelfTitle);
+  const b = normalize(noteTitle);
+  return b.length >= 4 && a.length >= 4 && (a.includes(b) || b.includes(a));
+}

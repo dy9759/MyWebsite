@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BookOpen, ExternalLink } from "lucide-react";
+import { titleMatches } from "@/lib/books/catalog";
 import { readCitation } from "@/lib/books/citations";
 import { listBooks } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,8 @@ export type RenderedChapter = { label: string; heading: string; html: string };
 
 type Props = {
   catalogId?: string;
+  // Books outside the catalog are found on the shelf by title instead.
+  matchTitle?: string;
   officialUrl?: string; // author / publisher page — where the full book lives
   introHtml: string;
   chapters: RenderedChapter[];
@@ -29,23 +32,28 @@ export const proseClass = cn(
 // chapter (or the quoted sentence) in the visitor's own copy of the book.
 // The site never hosts the book; without a local copy we point to the
 // official page instead.
-export default function NoteReader({ catalogId, officialUrl, introHtml, chapters, outroHtml }: Props) {
+export default function NoteReader({ catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml }: Props) {
   const router = useRouter();
   const [shelfId, setShelfId] = useState<string | null>(null);
   const [askFor, setAskFor] = useState<number | null>(null); // chapter showing the "no local copy" hint
 
+  const linkable = Boolean(catalogId || matchTitle);
+
   useEffect(() => {
-    if (!catalogId) return;
+    if (!catalogId && !matchTitle) return;
     let alive = true;
     listBooks()
       .then((books) => {
-        if (alive) setShelfId(books.find((b) => b.catalogId === catalogId)?.id ?? null);
+        const hit = catalogId
+          ? books.find((b) => b.catalogId === catalogId)
+          : books.find((b) => titleMatches(b.title, matchTitle!) || titleMatches(b.name, matchTitle!));
+        if (alive) setShelfId(hit?.id ?? null);
       })
       .catch(() => {});
     return () => {
       alive = false;
     };
-  }, [catalogId]);
+  }, [catalogId, matchTitle]);
 
   const open = (i: number, quote?: string) => {
     if (!shelfId) return setAskFor(i);
@@ -92,7 +100,7 @@ export default function NoteReader({ catalogId, officialUrl, introHtml, chapters
                   </a>
                 </>
               )}
-              {catalogId && " · 在「读书」页导入你自己的电子书后，这里的章节和引文就能直接跳到原文。"}
+              {linkable && " · 在「读书」页导入你自己的电子书后，这里的章节和引文就能直接跳到原文。"}
             </span>
           )}
         </div>
@@ -106,7 +114,7 @@ export default function NoteReader({ catalogId, officialUrl, introHtml, chapters
                 <h3 className="font-semibold">{c.heading}</h3>
                 <p className="mt-0.5 text-xs text-muted-foreground">原书章节：{c.label.replace(/\s+#\d+$/, "")}</p>
               </div>
-              {catalogId && (
+              {linkable && (
                 <button
                   type="button"
                   onClick={() => open(i)}

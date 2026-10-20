@@ -16,6 +16,7 @@ export type BookNote = {
   tags: string[];
   draft: boolean;
   catalogId?: string; // reading-catalog entry (links note ↔ catalog ↔ shelf copy)
+  sourceUrl?: string; // official book page, for notes on books outside the catalog
   markdown: string; // body without frontmatter
 };
 
@@ -48,6 +49,7 @@ export function parseNote(slug: string, raw: string): BookNote {
     tags: fm.tags ? fm.tags.split(",").map((t) => t.trim()).filter(Boolean) : [],
     draft: fm.draft === "true",
     catalogId: fm.catalogId || undefined,
+    sourceUrl: fm.sourceUrl || undefined,
     markdown: m[2].trim(),
   };
 }

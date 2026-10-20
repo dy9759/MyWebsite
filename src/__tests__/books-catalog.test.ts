@@ -8,6 +8,7 @@ import {
   matchCatalog,
   sortCatalog,
   titleAliases,
+  titleMatches,
 } from "@/lib/books/catalog";
 import { READING_ROUTES } from "@/content/books/reading-routes";
 
@@ -64,5 +65,13 @@ describe("matchCatalog", () => {
   it("returns null for books outside the catalog", () => {
     expect(matchCatalog("创新者的窘境（全新修订版）")).toBeNull();
     expect(matchCatalog("产品经理装备书")).toBeNull();
+  });
+});
+
+describe("titleMatches", () => {
+  it("finds a shelf copy despite edition suffixes", () => {
+    expect(titleMatches("创新者的窘境（全新修订版）", "创新者的窘境")).toBe(true);
+    expect(titleMatches("The Innovator's Dilemma", "创新者的窘境")).toBe(false);
+    expect(titleMatches("窘境", "创新者的窘境")).toBe(false);
   });
 });
