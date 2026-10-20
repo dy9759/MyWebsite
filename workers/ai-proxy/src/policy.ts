@@ -66,3 +66,8 @@ export function upstreamBody(body: { model: string; messages: ChatMessage[]; tem
 
 export const utcDay = (now: Date) => now.toISOString().slice(0, 10);
 export const utcMinute = (now: Date) => now.toISOString().slice(0, 16);
+
+// Cloudflare-to-origin errors (520-524) and plain 5xx from Bailian are often
+// transient (slow first token on long prompts); worth one more try. Client
+// errors and rate limits are not.
+export const retryableStatus = (status: number) => status >= 500 && status !== 501;

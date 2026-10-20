@@ -1,5 +1,5 @@
 import { Limiter, type Limits } from "./limiter";
-import { checkRequest, originAllowed, parseList, upstreamBody, type ProxyConfig } from "./policy";
+import { checkRequest, originAllowed, parseList, retryableStatus, upstreamBody, type ProxyConfig } from "./policy";
 
 // AI proxy for the static site: the Bailian key lives only in this Worker's
 // secrets. It forwards plain chat requests (streamed) and enforces origin,
@@ -69,8 +69,10 @@ const worker = {
         headers: { "content-type": "application/json", authorization: `Bearer ${env.BAILIAN_API_KEY}` },
         body: JSON.stringify(upstreamBody(checked.body, cfg.maxTokens, noThinking)),
       });
-    let upstream = await send(true);
-    if (upstream.status === 400) upstream = await send(false); // model rejects enable_thinking
+    let noThinking = true;
+    let upstream = await send(noThinking);
+    if (upstream.status === 400) upstream = await send((noThinking = false)); // model rejects enable_thinking
+    if (retryableStatus(upstream.status)) upstream = await send(noThinking); // one retry for transient errors
 
     if (!upstream.ok || !upstream.body) {
       // Do not echo upstream error bodies: they can mention account details.

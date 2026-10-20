@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { checkRequest, originAllowed, parseList, upstreamBody, type ProxyConfig } from "../../workers/ai-proxy/src/policy";
+import { checkRequest, originAllowed, parseList, retryableStatus, upstreamBody, type ProxyConfig } from "../../workers/ai-proxy/src/policy";
 
 const cfg: ProxyConfig = {
   allowedOrigins: ["https://chauncey.myoii.com"],
@@ -42,5 +42,10 @@ describe("AI proxy policy", () => {
 
   it("parses comma lists", () => {
     expect(parseList(" a, b ,,c ")).toEqual(["a", "b", "c"]);
+  });
+
+  it("retries only transient upstream failures", () => {
+    for (const s of [500, 502, 503, 520, 522, 524]) expect(retryableStatus(s)).toBe(true);
+    for (const s of [200, 400, 401, 413, 429, 501]) expect(retryableStatus(s)).toBe(false);
   });
 });
