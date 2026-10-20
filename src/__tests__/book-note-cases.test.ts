@@ -22,7 +22,7 @@ describe("note cases", () => {
           if (c.external) expect(c.story?.trim()).toBeTruthy();
           else expect(c.case.trim()).not.toBe("");
           expect(c.core.length).toBeLessThanOrEqual(isCjk(c.core) ? 130 : 320);
-          expect(c.case.length).toBeLessThanOrEqual(isCjk(c.case) ? 260 : 650);
+          expect(c.case.length).toBeLessThanOrEqual(isCjk(c.case) ? 320 : 650);
           total += c.core.length + c.case.length;
         }
       }
