@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CatalogPage from "@/components/books/catalog/catalog-page";
+import { getAllNotes } from "@/lib/books/notes";
 
 export const metadata: Metadata = {
   title: "AI PM 分级阅读目录",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function BooksCatalogPage() {
-  return <CatalogPage />;
+  const noteByCatalog = Object.fromEntries(
+    getAllNotes()
+      .filter((n) => n.catalogId)
+      .map((n) => [n.catalogId!, n.slug]),
+  );
+  return <CatalogPage noteByCatalog={noteByCatalog} />;
 }

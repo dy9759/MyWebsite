@@ -15,8 +15,15 @@ export type BookNote = {
   summary: string;
   tags: string[];
   draft: boolean;
+  catalogId?: string; // reading-catalog entry (links note ↔ catalog ↔ shelf copy)
   markdown: string; // body without frontmatter
 };
+
+// A note is "chapter-mapped" when its 章节笔记 section uses
+// `<!-- chapter: <exact TOC label> -->` markers. Each chapter can then link
+// to the same chapter in the reader's own copy of the book.
+export type NoteChapter = { label: string; heading: string; markdown: string };
+export type NoteParts = { intro: string; chapters: NoteChapter[]; outro: string };
 
 const NOTES_DIR = join(process.cwd(), "src", "content", "books", "notes");
 
@@ -40,6 +47,7 @@ export function parseNote(slug: string, raw: string): BookNote {
     summary: fm.summary,
     tags: fm.tags ? fm.tags.split(",").map((t) => t.trim()).filter(Boolean) : [],
     draft: fm.draft === "true",
+    catalogId: fm.catalogId || undefined,
     markdown: m[2].trim(),
   };
 }
@@ -57,3 +65,38 @@ export function getNote(slug: string): BookNote | undefined {
 
 export const renderNote = (note: BookNote) =>
   marked.parse(note.markdown, { async: false, gfm: true });
+
+const CHAPTER_MARK = /<!--\s*chapter:\s*([\s\S]*?)\s*-->/g;
+
+// Splits a note into intro / chapters / outro. Chapters run from one marker
+// to the next marker or the next "## " section; notes without markers are
+// all intro.
+export function splitNote(markdown: string): NoteParts {
+  const marks = [...markdown.matchAll(CHAPTER_MARK)];
+  if (!marks.length) return { intro: markdown, chapters: [], outro: "" };
+  const intro = markdown.slice(0, marks[0].index).trim();
+  const chapters: NoteChapter[] = [];
+  let outro = "";
+  marks.forEach((m, i) => {
+    const start = m.index + m[0].length;
+    const nextMark = i + 1 < marks.length ? marks[i + 1].index : markdown.length;
+    let body = markdown.slice(start, nextMark);
+    const section = /^##\s/m.exec(body); // a new top-level section ends the chapters
+    if (section) {
+      outro = markdown.slice(start + section.index).trim();
+      body = body.slice(0, section.index);
+    }
+    const heading = /^###\s+(.+)$/m.exec(body);
+    chapters.push({
+      label: m[1].trim(),
+      heading: heading ? heading[1].trim() : m[1].trim(),
+      markdown: (heading ? body.replace(heading[0], "") : body).trim(),
+    });
+  });
+  return { intro, chapters, outro };
+}
+
+// For AI readers (note.md): turn markers into a visible source line.
+export const markersToText = (markdown: string) =>
+  markdown.replace(CHAPTER_MARK, (_, label: string) => `> 原书章节：${label.trim()}`);
+

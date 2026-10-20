@@ -23,6 +23,7 @@ type Props = {
   status: ReadingStatus;
   onStatus: (s: ReadingStatus) => void;
   shelfBookId?: string; // a matching file on this browser's shelf
+  noteSlug?: string; // a published reading note for this entry
 };
 
 const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
@@ -39,7 +40,7 @@ const OutLink = ({ href, children }: { href: string; children: React.ReactNode }
   </a>
 );
 
-export default function CatalogItem({ entry: e, status, onStatus, shelfBookId }: Props) {
+export default function CatalogItem({ entry: e, status, onStatus, shelfBookId, noteSlug }: Props) {
   return (
     <li id={e.id} className="scroll-mt-24 rounded-lg border p-4 target:ring-2 target:ring-primary">
       <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -89,6 +90,11 @@ export default function CatalogItem({ entry: e, status, onStatus, shelfBookId }:
             </button>
           ))}
         </div>
+        {noteSlug && (
+          <Link href={`/books/notes/${noteSlug}/`} className="rounded-md border border-primary/40 bg-primary/5 px-2.5 py-1 text-xs hover:bg-primary/10">
+            读书笔记 →
+          </Link>
+        )}
         {shelfBookId && (
           <Link href={`/books/read/?id=${shelfBookId}`} className="rounded-md border px-2.5 py-1 text-xs hover:bg-accent/10">
             在书架打开 · AI 陪读

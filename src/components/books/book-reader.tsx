@@ -15,7 +15,7 @@ import TranslateControls from "@/components/books/translate-controls";
 import { BILINGUAL_CSS } from "@/lib/books/bilingual";
 import { getChapterText, type ChapterText } from "@/lib/books/chapter-text";
 import type { Citation } from "@/lib/books/citations";
-import { navigateToCitation } from "@/lib/books/cite-nav";
+import { navigateToCitation, openNoteTarget } from "@/lib/books/cite-nav";
 import { useBilingual } from "@/lib/books/use-bilingual";
 import { useFullscreen } from "@/lib/books/use-fullscreen";
 import { useByok } from "@/lib/wiki-byok";
@@ -51,7 +51,12 @@ ${BILINGUAL_CSS}`;
 
 export default function BookReader() {
   const copy = useSiteCopy().books;
-  const id = useSearchParams().get("id") ?? "";
+  const params = useSearchParams();
+  const id = params.get("id") ?? "";
+  // Deep link from a reading note: ?toc=<chapter label>&q=<quote>.
+  const deepToc = params.get("toc");
+  const deepQuote = params.get("q");
+  const [deepMiss, setDeepMiss] = useState(false);
   const { resolvedTheme } = useTheme();
   const dark = resolvedTheme === "dark";
   const hostRef = useRef<HTMLDivElement>(null);
@@ -251,6 +256,22 @@ export default function BookReader() {
     });
   }, []);
 
+  useEffect(() => {
+    const view = viewRef.current;
+    const file = fileRef.current;
+    if (status !== "ready" || !deepToc || !view || !file) return;
+    void openNoteTarget(
+      view,
+      file,
+      deepToc,
+      deepQuote,
+      (href, section) => getChapterText(view.book, file, href, section),
+      () => {
+        ignoreSelectionUntil.current = Date.now() + 1000;
+      },
+    ).then((ok) => setDeepMiss(!ok));
+  }, [status, deepToc, deepQuote]);
+
   const goTo = (href: string) => {
     void viewRef.current?.goTo(href);
     setShowToc(false);
@@ -402,6 +423,11 @@ export default function BookReader() {
             </Button>
           </div>
           {trError && <p className="mt-1 text-xs text-destructive">{trError}</p>}
+          {deepMiss && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              {language === "zh" ? "没在这本书里找到笔记对应的位置（版本可能不同），请用目录查找。" : "Could not find the note's location in this copy (edition may differ) — use the contents."}
+            </p>
+          )}
           {bilingual && !fixed && status === "ready" && !cfg && (
             <p className="mt-1 text-xs text-muted-foreground">
               {language === "zh" ? "双语对照需要你的百炼 Key：点右上角 AI 配置。" : "Bilingual view needs your Bailian key — set it in the AI panel."}

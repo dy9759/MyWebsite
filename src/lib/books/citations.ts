@@ -7,7 +7,7 @@ export type Citation = { quote?: string; page?: number };
 // One pass, so a page ref inside a quote is never wrapped twice.
 // Quotes: 「…」. Pages: (p.42) / [p. 42] / （第42页）.
 const CITE_RE =
-  /「([^「」<>\n]{4,120})」|[(（[]\s*(?:p\.?\s*(\d{1,4})|第\s*(\d{1,4})\s*页)\s*[)）\]]/gi;
+  /「([^「」<>\n]{4,200})」|[(（[]\s*(?:p\.?\s*(\d{1,4})|第\s*(\d{1,4})\s*页)\s*[)）\]]/gi;
 
 // Runs on already-sanitised HTML (see safe-markdown.ts). Quote text cannot
 // contain tags (the pattern excludes < >) and is already HTML-escaped by the

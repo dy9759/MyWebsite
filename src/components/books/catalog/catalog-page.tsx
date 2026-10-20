@@ -23,7 +23,7 @@ import { listBooks } from "@/lib/books/store";
 
 const rechecked = CATALOG.filter(isRecheckedThisRound).length;
 
-export default function CatalogPage() {
+export default function CatalogPage({ noteByCatalog }: { noteByCatalog: Record<string, string> }) {
   const { statusOf, setStatus, map } = useReadingStatus();
   const [filter, setFilter] = useState<CatalogFilter>(EMPTY_FILTER);
   const [sort, setSort] = useState<CatalogSort>("priority");
@@ -129,7 +129,7 @@ export default function CatalogPage() {
         </div>
         <ul className="mt-4 space-y-3">
           {shown.map((e) => (
-            <CatalogItem key={e.id} entry={e} status={statusOf(e.id)} onStatus={(s) => setStatus(e.id, s)} shelfBookId={shelf[e.id]} />
+            <CatalogItem key={e.id} entry={e} status={statusOf(e.id)} onStatus={(s) => setStatus(e.id, s)} shelfBookId={shelf[e.id]} noteSlug={noteByCatalog[e.id]} />
           ))}
         </ul>
       </section>

@@ -75,7 +75,7 @@ export default function LocalShelf() {
   };
 
   return (
-    <section className="mt-10">
+    <section id="shelf" className="mt-10 scroll-mt-20">
       <h2 className="text-lg font-semibold">{copy.shelfHeading}</h2>
       <p className="mt-1 text-sm text-muted-foreground">{copy.shelfHint}</p>
       <div className="mt-3 flex flex-wrap items-center gap-3">

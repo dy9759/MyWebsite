@@ -42,3 +42,46 @@ export async function navigateToCitation(
   }
   return false;
 }
+
+type TocNode = { label?: string; href?: string; subitems?: TocNode[] | null };
+
+const normLabel = (s: string) => s.toLowerCase().replace(/[\s　.:：·'’"“”—–-]+/g, "");
+
+// Finds a TOC entry by its label (as written in a reading note's chapter
+// marker): exact match first, then a normalised one.
+export function findTocHref(toc: TocNode[], label: string): string | null {
+  const flat: TocNode[] = [];
+  const walk = (items: TocNode[]) =>
+    items.forEach((t) => {
+      flat.push(t);
+      if (t.subitems?.length) walk(t.subitems);
+    });
+  walk(toc);
+  // "Introduction #2" = the second TOC entry with that label (books often
+  // repeat labels such as "Introduction" per part).
+  const m = /^(.*?)\s+#(\d+)$/.exec(label.trim());
+  const want = (m ? m[1] : label).trim();
+  const nth = m ? Number(m[2]) : 1;
+  const exact = flat.filter((t) => t.label?.trim() === want);
+  const loose = flat.filter((t) => t.label && normLabel(t.label) === normLabel(want));
+  const hit = (exact.length ? exact : loose)[nth - 1];
+  return hit?.href ?? null;
+}
+
+// Deep link from a reading note: open the chapter, then (optionally) find
+// and select the quoted sentence inside it.
+export async function openNoteTarget(
+  view: FoliateView,
+  file: File,
+  label: string,
+  quote: string | null,
+  getChapter: (href: string, section: number) => Promise<ChapterText>,
+  beforeSelect: () => void,
+): Promise<boolean> {
+  const href = findTocHref(view.book.toc ?? [], label);
+  if (!href) return false;
+  const resolved = (await view.goTo(href)) as { index?: number } | undefined;
+  if (!quote) return true;
+  const chapter = await getChapter(href, resolved?.index ?? 0);
+  return navigateToCitation(view, file, { quote }, chapter, beforeSelect);
+}
