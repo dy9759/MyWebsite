@@ -5,7 +5,7 @@ import { marked } from "marked";
 import NoteReader, { proseClass } from "@/components/books/note-reader";
 import { CATALOG_BY_ID } from "@/lib/books/catalog";
 import { linkifyCitations } from "@/lib/books/citations";
-import { getAllNotes, getNote, renderNote, splitNote } from "@/lib/books/notes";
+import { getAllNotes, getExcerpts, getNote, quotesIn, renderNote, splitNote } from "@/lib/books/notes";
 
 // Note markdown is first-party repo content; 「quotes」 become clickable
 // buttons that open the original in the visitor's own copy of the book.
@@ -29,9 +29,12 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const note = getNote(slug);
   if (!note) notFound();
+  const parts = splitNote(note.markdown);
+  const excerpts = getExcerpts(note.slug);
 
   return (
-    <article className="mx-auto max-w-5xl px-4">
+    // Chapter-mapped notes get a third column (the original) on wide screens.
+    <article className={`mx-auto max-w-5xl px-4 ${parts.chapters.length ? "xl:max-w-[96rem]" : ""}`}>
       <Link href="/books/" className="text-sm text-muted-foreground hover:text-foreground">
         ← 读书
       </Link>
@@ -55,7 +58,6 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
       )}
       {(() => {
         const entry = note.catalogId ? CATALOG_BY_ID.get(note.catalogId) : undefined;
-        const parts = splitNote(note.markdown);
         if (!parts.chapters.length) {
           return <div className={`mt-6 ${proseClass}`} dangerouslySetInnerHTML={{ __html: renderNote(note) }} />;
         }
@@ -72,7 +74,16 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
               matchTitle={note.catalogId ? undefined : note.title}
               officialUrl={entry?.url ?? note.sourceUrl}
               introHtml={md(parts.intro)}
-              chapters={parts.chapters.map((c) => ({ label: c.label, display: c.display, heading: c.heading, html: md(c.markdown) }))}
+              chapters={parts.chapters.map((c) => ({
+                label: c.label,
+                display: c.display,
+                heading: c.heading,
+                html: md(c.markdown),
+                excerpts: quotesIn(c.markdown).flatMap((quote) => {
+                  const text = excerpts.get(quote);
+                  return text ? [{ quote, text }] : [];
+                }),
+              }))}
               outroHtml={md(parts.outro)}
             />
           </>

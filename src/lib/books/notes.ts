@@ -106,3 +106,19 @@ export function splitNote(markdown: string): NoteParts {
 export const markersToText = (markdown: string) =>
   markdown.replace(CHAPTER_MARK, (_, raw: string) => `> 原书章节：${(raw.split(/\s+\|\s+/)[1] ?? raw).trim()}`);
 
+
+// Short original passages around each 「quote」 in a note (the quote's
+// sentence plus at most one neighbour each side), keyed by quote. Shown next
+// to the note as a preview; never whole chapters.
+export type Excerpt = { quote: string; text: string };
+const EXCERPTS_DIR = join(process.cwd(), "src", "content", "books", "excerpts");
+
+export function getExcerpts(slug: string): Map<string, string> {
+  try {
+    return new Map(Object.entries(JSON.parse(readFileSync(join(EXCERPTS_DIR, `${slug}.json`), "utf8")) as Record<string, string>));
+  } catch {
+    return new Map();
+  }
+}
+
+export const quotesIn = (markdown: string) => [...new Set([...markdown.matchAll(/「([^「」]+)」/g)].map((m) => m[1]))];

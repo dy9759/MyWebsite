@@ -4,17 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/components/language-provider";
 import { Button } from "@/components/ui/button";
-import { matchCatalog } from "@/lib/books/catalog";
-import { ACCEPTED_EXTENSIONS, detectFormat, titleFromFileName } from "@/lib/books/formats";
-import {
-  bookIdFor,
-  deleteBook,
-  getBook,
-  listBooks,
-  listProgress,
-  putBook,
-  type BookMeta,
-} from "@/lib/books/store";
+import { ACCEPTED_EXTENSIONS } from "@/lib/books/formats";
+import { importBookFile } from "@/lib/books/import-book";
+import { deleteBook, listBooks, listProgress, type BookMeta } from "@/lib/books/store";
 
 const formatSize = (bytes: number) =>
   bytes > 1024 * 1024 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : `${Math.ceil(bytes / 1024)} KB`;
@@ -49,26 +41,8 @@ export default function LocalShelf() {
   const onFiles = async (files: FileList | null) => {
     setError("");
     for (const file of Array.from(files ?? [])) {
-      const format = detectFormat(file.name);
-      if (!format) {
-        setError(`${copy.unsupported}: ${file.name}`);
-        continue;
-      }
-      const id = await bookIdFor(file);
-      if (await getBook(id)) {
-        setError(`${copy.duplicate}: ${file.name}`);
-        continue;
-      }
-      await putBook({
-        id,
-        name: file.name,
-        title: titleFromFileName(file.name),
-        format,
-        size: file.size,
-        addedAt: Date.now(),
-        file,
-        catalogId: matchCatalog(titleFromFileName(file.name))?.id,
-      });
+      const res = await importBookFile(file);
+      if (!res.ok) setError(`${res.reason === "unsupported" ? copy.unsupported : copy.duplicate}: ${file.name}`);
     }
     if (inputRef.current) inputRef.current.value = "";
     await refresh();

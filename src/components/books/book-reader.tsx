@@ -12,7 +12,6 @@ import CompanionPanel from "@/components/books/companion-panel";
 import PageTurnZone from "@/components/books/page-turn-zone";
 import SelectionTranslate from "@/components/books/selection-translate";
 import TranslateControls from "@/components/books/translate-controls";
-import { BILINGUAL_CSS } from "@/lib/books/bilingual";
 import { getChapterText, type ChapterText } from "@/lib/books/chapter-text";
 import type { Citation } from "@/lib/books/citations";
 import { navigateToCitation, openNoteTarget } from "@/lib/books/cite-nav";
@@ -21,6 +20,7 @@ import { useFullscreen } from "@/lib/books/use-fullscreen";
 import { useAiAccess } from "@/lib/books/ai-access";
 import { formatContributor, openBookFile, type FoliateView } from "@/lib/books/foliate";
 import { FONT_MAX, FONT_MIN, useReaderPrefs } from "@/lib/books/reader-prefs";
+import { readerCss } from "@/lib/books/reader-css";
 import { attachSwipe, type SwipeDir } from "@/lib/books/swipe";
 import { CATALOG_BY_ID, matchCatalog, type CatalogEntry } from "@/lib/books/catalog";
 import { getBook, getProgress, putBook, putProgress, type StoredBook } from "@/lib/books/store";
@@ -39,15 +39,6 @@ const isTextEntry = (t: EventTarget | null) =>
 // Swiping left drags the page left, revealing what is to its right.
 const turnBySwipe = (view: FoliateView | null, dir: SwipeDir) =>
   void (dir === "left" ? view?.goRight() : view?.goLeft());
-
-const readerCss = (dark: boolean, fontSize: number) => `
-  html { color-scheme: ${dark ? "dark" : "light"}; font-size: ${fontSize}% !important; }
-  html, body { background: transparent !important; color: ${dark ? "#e5e5e5" : "#1a1a1a"} !important; }
-  p, li, blockquote { line-height: 1.8; }
-  a:link { color: ${dark ? "#8ab4f8" : "#1a56db"}; }
-  img, svg { max-width: 100%; height: auto; }
-  pre { white-space: pre-wrap; }
-${BILINGUAL_CSS}`;
 
 export default function BookReader() {
   const copy = useSiteCopy().books;
