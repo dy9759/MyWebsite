@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Thinking about AI as a drop in the cost of prediction is transformational: Avi Goldfarb",
+   "url": "https://www.orfonline.org/expert-speak/thinking-about-ai-as-a-drop-in-the-cost-of-prediction-is-transformational-avi-goldfarb",
+   "source": "Avi Goldfarb · ORF Expert Speak",
+   "date": "2018-08",
+   "kind": "访谈",
+   "summary": "Goldfarb 概括书的主线：预测变便宜后判断、行动和数据更值钱；数据分训练、输入、反馈三类，反馈数据才构成持久优势。",
+   "case": "一家初创公司能很准地预测超市乳制品销量，但客户关系和反馈数据都握在零售商手里，商业模式因此受限；他还用机场贵宾室说明很多设施是为应对不确定性而存在。",
+   "point": "印证反馈数据与掌握行动环节决定价值归属",
+   "chapter": "6. Data Is the New Oil",
+   "verified": true
+  },
+  {
+   "title": "When prediction gets cheap",
+   "url": "https://www.strategy-business.com/article/When-Prediction-Gets-Cheap",
+   "source": "Theodore Kinni · strategy+business",
+   "date": "2018-08",
+   "kind": "文章",
+   "summary": "书评梳理本书论点：AI 本质是预测技术，预测便宜后人的判断更值钱；AI 会增删任务，当它降低不确定性足以改变取舍时就成了战略问题。",
+   "case": "亚马逊 2013 年获得预先发货专利，推荐足够准时可从先购物后发货转为先发货后购物；高盛 CFO 称 IPO 流程中 146 项任务很多可以自动化。",
+   "point": "印证预测精度跨过门槛会改写商业模式",
+   "chapter": "18. When AI Transforms Your Business",
+   "verified": true
+  },
+  {
+   "title": "A Simple Tool to Start Making Decisions with the Help of AI",
+   "url": "https://hbr.org/2018/04/a-simple-tool-to-start-making-decisions-with-the-help-of-ai",
+   "source": "Ajay Agrawal, Joshua Gans, Avi Goldfarb · HBR",
+   "date": "2018-04",
+   "kind": "文章",
+   "summary": "三位作者指出讨论 AI 远景的多、讲企业如何起步的少，于是从降低预测成本这一经济学出发，给出一个帮助企业迈出第一步的决策工具。",
+   "case": "",
+   "point": "对应书中把决策拆成要素的 AI 画布方法",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Ep313 - Avi Goldfarb & Ajay Agrawal | Prediction Machines: The Simple Economics of AI",
+   "url": "https://talksatgoogle.libsyn.com/ep313-avi-goldfarb-ajay-agrawal-prediction-machines-the-simple-economics-of-ai",
+   "source": "Talks at Google",
+   "date": "2023-01",
+   "kind": "演讲",
+   "summary": "两位作者在谷歌演讲本书：AI 的经济作用是让预测变便宜；不确定下的决策仍需人的判断，应把任务拆成预测与判断来安排人机分工。",
+   "case": "",
+   "point": "印证预测与判断互补、据此划分人机分工",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

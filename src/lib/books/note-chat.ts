@@ -9,6 +9,7 @@ export type NoteContext = {
   author: string;
   note: string; // note markdown, chapter markers already turned into text
   excerpts: { quote: string; text: string }[];
+  sources?: string[]; // outside sources, one line each
 };
 
 export const NOTE_CHIPS = [
@@ -20,7 +21,7 @@ export const NOTE_CHIPS = [
 
 const SYSTEM = `你是读书笔记页上的 AI 阅读助手，帮读者理解这份读书笔记和它对应的书。
 规则：
-- 依据下面提供的「读书笔记」和「原文片段」回答；它们没有覆盖的内容，可以用你对这本书的一般了解补充，但要明确说明“笔记里没有提到”。
+- 依据下面提供的「读书笔记」「原文片段」和「书外来源」回答；它们没有覆盖的内容，可以用你对这本书的一般了解补充，但要明确说明“笔记里没有提到”。
 - 不编造原文。只有逐字出现在原文片段或笔记引文里的句子，才能放进「」作为原文引用；其他转述不要用「」。
 - 不提供或复述整章原文；读者想看完整内容时，建议阅读正版或导入自己的电子书。
 - 默认用简体中文，简洁、有条理；读者用英文提问就用英文回答。`;
@@ -31,6 +32,7 @@ export function buildNoteChatMessages(ctx: NoteContext, history: ChatMessage[], 
     `书：《${ctx.title}》 · ${ctx.author}`,
     `## 读书笔记\n${ctx.note}`,
     excerpts && `## 原文片段（笔记引文所在的句子）\n${excerpts}`,
+    ctx.sources?.length && `## 书外来源（作者访谈、文章等的中文概述）\n${ctx.sources.map((x) => `- ${x}`).join("\n")}`,
   ]
     .filter(Boolean)
     .join("\n\n");

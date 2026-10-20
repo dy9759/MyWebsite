@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "The first secret of design is ... noticing",
+   "url": "https://www.ted.com/talks/tony_fadell_the_first_secret_of_design_is_noticing",
+   "source": "Tony Fadell · TED2015",
+   "date": "2015-03",
+   "kind": "演讲",
+   "summary": "Fadell 讲人会迅速对日常麻烦习以为常，设计师要刻意去看见它们，建议想得更广、看得更细、像年轻人一样提问。",
+   "case": "早年带电池的电子产品都要先充电才能用，乔布斯不接受；iPod 出厂前本就要长时间测试，团队顺势让电池开箱即满电，后来几乎成了行业标配。",
+   "point": "对抗习惯化，把被忽视的小麻烦变成机会",
+   "chapter": "Chapter 5.3: Design for Everyone",
+   "verified": true
+  },
+  {
+   "title": "Giving people superpowers",
+   "url": "https://rolandberger.com/en/Insights/Publications/Giving-people-superpowers.html",
+   "source": "Roland Berger · Think:Act",
+   "date": "2023-09",
+   "kind": "访谈",
+   "summary": "Fadell 谈产品要解决真实痛点，时机取决于愿景、社会准备度与技术成熟度，并主张先写新闻稿式叙事再动手做。",
+   "case": "Nest 切入家庭供暖制冷痛点，恒温器左右西方家庭约一半能源开支；而 General Magic 的类 iPhone 构想比技术与社会成熟早了约 15 年，因此失败。",
+   "point": "好点子是止痛药，且要赶上合适的时机",
+   "chapter": "Chapter 4.1: How to Spot a Great Idea",
+   "verified": true
+  },
+  {
+   "title": "The Tim Ferriss Show Transcripts: Tony Fadell of iPod, iPhone, and Nest Fame (#590)",
+   "url": "https://tim.blog/2022/04/29/tony-fadell-build-transcript/",
+   "source": "Tim Ferriss · The Tim Ferriss Show",
+   "date": "2022-04",
+   "kind": "播客",
+   "summary": "Fadell 在新书出版时谈与乔布斯共事、早年在 General Magic 的经历，以及讲故事和先写新闻稿的做法。",
+   "case": "乔布斯每天向团队和亲信反复演练 iPhone 发布故事，进度吃紧时也靠这个故事决定功能去留；Fadell 写书前也先写了一页多的新闻稿来锁定读者和目的。",
+   "point": "故事讲不通的地方，往往就是产品要改的地方",
+   "chapter": "Chapter 3.2: Why Storytelling",
+   "verified": true
+  },
+  {
+   "title": "Father of the iPod and iPhone on building taste, judgment, and creativity in the AI era",
+   "url": "https://lennysnewsletter.com/p/father-of-the-ipod-and-iphone-on",
+   "source": "Lenny Rachitsky · Lenny's Podcast",
+   "date": "2026-06",
+   "kind": "播客",
+   "summary": "Fadell 谈 iPhone 是否该有实体键盘的内部争论、V1 产品为何要靠观点决策、营销与产品同等重要，以及 AI 时代的判断力。",
+   "case": "",
+   "point": "从零做新品时数据不足，只能依靠有据的观点拍板",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

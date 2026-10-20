@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "The New User Story Backlog is a Map",
+   "url": "https://www.jpattonassociates.com/the-new-backlog/",
+   "source": "Jeff Patton · Jeff Patton & Associates",
+   "date": "2008-10",
+   "kind": "文章",
+   "summary": "作者最早系统阐述故事地图的博文：平铺的待办列表会丢掉上下文，应按用户活动从左到右排出骨架，再往下挂细分故事。",
+   "case": "给乐队用的营销软件 Mimi 团队把推广一场演出拆成设计邮件、建名单、发送、追踪回复几步来画地图；作者还用汽车骨架比喻：引擎刹车都得有，取舍发生在选几缸、带不带防抱死。",
+   "point": "用地图保留全局，骨架之下才做取舍",
+   "chapter": "1. The Big Picture",
+   "verified": true
+  },
+  {
+   "title": "Getting started with User Story Mapping – Jeff Patton on The Product Experience",
+   "url": "https://mindtheproduct.com/getting-started-with-user-story-mapping-jeff-patton",
+   "source": "Lily Smith & Randy Silver · Mind the Product",
+   "date": "2021-08",
+   "kind": "播客",
+   "summary": "作者讲故事地图的来历、先画现状再画未来、如何拆步骤、常见错误，以及用好、更好、最好的选项做延迟决策。",
+   "case": "某团队说芯片处理数据包的逻辑没法画成地图，作者让工程师边讲边贴便利贴，结果当场暴露了被忽视的缺口；课堂上则用十分钟出门的早晨流程练习拆步骤。",
+   "point": "任何系统都能按步骤讲成故事并画出来",
+   "chapter": "5. You Already Know How",
+   "verified": true
+  },
+  {
+   "title": "How to Do User Story Mapping – An Example with MadMimi",
+   "url": "https://jpattonassociates.com/user-story-mapping-example-madmimi/",
+   "source": "Jeff Patton · Jeff Patton & Associates",
+   "date": "2015-07",
+   "kind": "播客",
+   "summary": "作者在播客中谈与邮件营销公司 Mad Mimi 创始人 Gary Levitt 的合作，以及他对最小可行产品这一说法的理解。",
+   "case": "作者帮 Gary Levitt 理清团队到底要做什么，并一起为 Mad Mimi 规划出最小可行产品；他强调故事模板不重要，关键是用户走向结果的旅程。",
+   "point": "MVP 要围绕用户结果来切，而非功能清单",
+   "chapter": "2. Plan to Build Less",
+   "verified": true
+  },
+  {
+   "title": "YOW Talk: User Story Mapping",
+   "url": "https://jpattonassociates.com/yow-talk-user-story-mapping/",
+   "source": "Jeff Patton · YOW! Conference",
+   "date": "2014-12",
+   "kind": "演讲",
+   "summary": "作者在 YOW! 大会约五十分钟的演讲：讲故事地图的核心概念、如何把地图切成小而可行的发布，以及如何建立团队共识。",
+   "case": "",
+   "point": "拆小故事时仍要看见完整的产品故事",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

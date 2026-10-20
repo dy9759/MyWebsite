@@ -14,13 +14,12 @@ describe("note cases", () => {
       let total = 0;
       for (const [label, items] of Object.entries(cases)) {
         expect(labels.has(label), `unknown chapter ${label}`).toBe(true);
-        expect(items.length).toBeGreaterThanOrEqual(1);
-        expect(items.length).toBeLessThanOrEqual(2);
+        // As many as matter; ranked by importance.
+        const ranks = items.map((c) => c.importance ?? 2);
+        expect(ranks).toEqual([...ranks].sort((a, b) => b - a));
         for (const c of items) {
           for (const k of ["point", "core", "caseTitle", "explain"] as const) expect(c[k].trim()).not.toBe("");
-          // An AI-written outside case carries a story instead of book text.
-          if (c.external) expect(c.story?.trim()).toBeTruthy();
-          else expect(c.case.trim()).not.toBe("");
+          expect(c.case.trim()).not.toBe("");
           expect(c.core.length).toBeLessThanOrEqual(isCjk(c.core) ? 130 : 320);
           expect(c.case.length).toBeLessThanOrEqual(isCjk(c.case) ? 320 : 650);
           total += c.core.length + c.case.length;

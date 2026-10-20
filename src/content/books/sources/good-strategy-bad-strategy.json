@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Want to Be the Next Apple? Lose the Bafflegab",
+   "url": "https://www.vpostrel.com/articles/want-to-be-the-next-apple-lose-the-bafflegab",
+   "source": "Virginia Postrel · Bloomberg View",
+   "date": "2011-08",
+   "kind": "文章",
+   "summary": "专栏作家借 Rumelt 新书评论企业战略，指出多数所谓战略只是口号和目标，真正的战略是诊断、指导方针加连贯行动。",
+   "case": "1997 年苹果市值不到 30 亿美元，乔布斯把产品线砍到一款台式机加一款笔记本，制造外包、零售渠道收缩；另有街角杂货店专攻下班白领、放弃深夜生意的小例子。",
+   "point": "好战略往往是简单而集中的取舍，令人意外",
+   "chapter": "CHAPTER 1 GOOD STRATEGY IS UNEXPECTED",
+   "verified": true
+  },
+  {
+   "title": "Good Strategy, Bad Strategy | Richard Rumelt",
+   "url": "https://www.lennysnewsletter.com/p/good-strategy-bad-strategy-richard",
+   "source": "Richard Rumelt · Lenny's Podcast",
+   "date": "2024-01",
+   "kind": "播客",
+   "summary": "Rumelt 讲战略内核三要素，认为诊断薄弱是坏战略最常见的原因，并用攀岩中最难一步比喻要先找到问题的症结。",
+   "case": "",
+   "point": "没有扎实诊断，就无法评估指导方针",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Why a winning strategy starts with a challenge, not an opportunity",
+   "url": "https://www.wbs.ac.uk/news/why-a-winning-strategy-starts-with-a-challenge-not-an-opportunity/",
+   "source": "Christian Stadler · 华威商学院",
+   "date": "2022-05",
+   "kind": "文章",
+   "summary": "战略学教授借 Rumelt 的续作介绍如何先找出最关键且可解决的挑战，再寻找优势、避开干扰。",
+   "case": "2020 年初与英特尔五位高管演练：在 AMD 崛起、移动和 AI 落后等挑战中，制造问题被评为既关键又可着手，之后英特尔寻求美国补贴在本土造芯。",
+   "point": "战略从直面关键障碍开始，而非罗列机会",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Business expert talks strategy",
+   "url": "https://news.utoledo.edu/?p=28158",
+   "source": "托莱多大学新闻（Rumelt 讲座报道）",
+   "date": "2014-01",
+   "kind": "演讲",
+   "summary": "报道 Rumelt 在托莱多大学的讲座：只有业绩目标、缺乏诊断的战略很弱，空话、一厢情愿和内部政治都会导致坏战略。",
+   "case": "他以乔布斯在 90 年代把苹果收缩到核心业务求生为好战略的例子，又以 eHarmony 繁琐的注册流程筛选出认真找对象的用户为例。",
+   "point": "一厢情愿与政治压力妨碍诚实诊断",
+   "chapter": "CHAPTER 4 WHY SO MUCH BAD STRATEGY?",
+   "verified": true
+  }
+ ]
+}

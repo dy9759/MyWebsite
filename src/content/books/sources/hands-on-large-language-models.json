@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Hands-On Large Language Models（官方网站）",
+   "url": "https://www.llm-book.com/",
+   "source": "Jay Alammar & Maarten Grootendorst · 官网",
+   "date": "2024",
+   "kind": "官网",
+   "summary": "本书官方页面，介绍两位作者与图解式写法，链接到配套的GitHub代码仓库，并收录多位业内人士的推荐。",
+   "case": "",
+   "point": "全书以大量自绘插图配合可运行代码讲解LLM",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "The Illustrated Transformer",
+   "url": "https://jalammar.github.io/illustrated-transformer/",
+   "source": "Jay Alammar · 个人博客",
+   "date": "2018-06",
+   "kind": "文章",
+   "summary": "用逐步配图拆解Transformer：编码器与解码器堆叠、Q/K/V自注意力、多头注意力、位置编码和残差连接，书中第3章即其更新版。",
+   "case": "文章用一句关于动物过马路的英文句子，展示自注意力如何把代词it关联到animal；该文被斯坦福、哈佛、MIT等校课程列为阅读材料。",
+   "point": "注意力让每个词元结合上下文形成表示",
+   "chapter": "3. Looking Inside Large Language Models",
+   "verified": true
+  },
+  {
+   "title": "BERTopic",
+   "url": "https://maartengr.github.io/BERTopic/index.html",
+   "source": "Maarten Grootendorst · 开源项目文档",
+   "date": "",
+   "kind": "官网",
+   "summary": "作者开源的主题建模工具文档，默认流程为嵌入、UMAP降维、HDBSCAN聚类、c-TF-IDF提取主题词，每一步都可替换，还能接入LLM生成主题标签。",
+   "case": "文档示例在20 Newsgroups数据集上直接训练，得到以windows、drive、dos等词描述的主题，另有4630篇文档被归为离群类。",
+   "point": "模块化流水线：先聚类再用词频或LLM描述主题",
+   "chapter": "5. Text Clustering and Topic Modeling",
+   "verified": true
+  },
+  {
+   "title": "A Visual Guide to Quantization",
+   "url": "https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization",
+   "source": "Maarten Grootendorst · Exploring Language Models 通讯",
+   "date": "2024-07",
+   "kind": "文章",
+   "summary": "图解模型量化：常见数值类型、对称与非对称映射、离群值裁剪与校准、训练后量化与量化感知训练，以及GPTQ、GGUF和BitNet等方法。",
+   "case": "文中以700亿参数模型为例，用FP32全精度光加载权重就需约280GB显存，说明为何要压低位数才能在消费级硬件上运行。",
+   "point": "量化以少量精度换取显存，使大模型可本地运行",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

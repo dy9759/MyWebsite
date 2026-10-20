@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Clayton M. Christensen, The Thought Leader Interview",
+   "url": "https://www.strategy-business.com/article/14501",
+   "source": "Clayton Christensen · strategy+business 访谈",
+   "date": "2001-10",
+   "kind": "访谈",
+   "summary": "Christensen 讲述理论缘起：DEC 等小型机公司同时崩溃，说明问题不在管理差，而在 PC 这类破坏性技术；并评论多家公司的应对。",
+   "case": "缆索挖掘机厂商 Northwest Engineering、Bucyrus Erie 被液压技术淘汰；他还追问美国钢铁为何不采用小钢厂技术，并认为思科路由器对朗讯、北电构成破坏。",
+   "point": "优秀企业失败源于破坏性技术而非管理无能",
+   "chapter": "第3章 挖掘机行业的破坏性技术变革",
+   "verified": true
+  },
+  {
+   "title": "Disruptive Innovation Theory - Christensen Institute",
+   "url": "https://www.christenseninstitute.org/theory/disruptive-innovation/",
+   "source": "克莱顿·克里斯坦森研究所",
+   "date": "",
+   "kind": "官网",
+   "summary": "研究所对破坏性创新的官方解释：从市场底层的简单应用扎根，再向上游移动，在位者因财务模型偏向高毛利业务而忽视它。",
+   "case": "小钢厂用电弧炉熔废钢降本约两成，从毛利仅约 7% 的钢筋做起，逐步进入型钢和板材；2000 年百视达拒绝以 5000 万美元收购 Netflix，十年后破产。",
+   "point": "在位者理性地让出低端，被一步步蚕食",
+   "chapter": "第4章 回不去的低端市场",
+   "verified": true
+  },
+  {
+   "title": "What Clayton Christensen Got Wrong",
+   "url": "https://stratechery.com/2013/clayton-christensen-got-wrong/",
+   "source": "Ben Thompson · Stratechery",
+   "date": "2013-09",
+   "kind": "文章",
+   "summary": "Thompson 认可新市场破坏，但认为低端破坏主要适用于看参数和价格的企业买家，消费者看重体验，难以被性能过剩打败。",
+   "case": "Christensen 曾预言 iPod 会随市场成熟而衰落、iPhone 难以成功，并担心模块化安卓机超越 iPhone，但苹果靠设计长期维持溢价。",
+   "point": "补充：性能过剩理论在消费市场有边界",
+   "chapter": "第9章 产品性能、市场需求和生命周期",
+   "verified": true
+  },
+  {
+   "title": "The man who changed disruption—and saw his own theories get disrupted",
+   "url": "https://www.technologyreview.com/2020/01/29/276036/the-man-who-changed-how-we-think-about-disruptionand-got-disrupted-himself/",
+   "source": "Christian Sandström · MIT Technology Review",
+   "date": "2020-01",
+   "kind": "文章",
+   "summary": "Christensen 去世后的回顾：他的博士论文梳理硬盘行业每次技术变迁，理论影响巨大，但破坏一词后来被滥用稀释。",
+   "case": "数据显示，真正让老牌硬盘厂商陷入困境的是尺寸更小的硬盘，而非技术更激进的创新；英特尔 CEO 格鲁夫称此书是十年来读过最重要的书。",
+   "point": "硬盘行业证明威胁来自小而差的新产品",
+   "chapter": "第1章 大企业为什么会失败？从硬盘行业获得的启示",
+   "verified": true
+  }
+ ]
+}

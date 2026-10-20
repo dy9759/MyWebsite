@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "How to build a killer sales pitch",
+   "url": "https://www.lennysnewsletter.com/p/how-to-build-a-killer-sales-pitch",
+   "source": "April Dunford · Lenny's Newsletter",
+   "date": "2023-10",
+   "kind": "文章",
+   "summary": "作者介绍销售演示两段式结构：先铺垫市场洞察、替代方案和理想状态，再展示差异化价值，并指出最大对手常是不做决定。",
+   "case": "Help Scout 原先做功能巡览，说不清为何选它；改为先讲客服是增长引擎而非成本中心，再对比共享收件箱和传统工单系统的短板，最后演示易用性与体验功能。",
+   "point": "演示应从市场洞察切入，而不是从产品功能开场",
+   "chapter": "Step 1: Insight",
+   "verified": true
+  },
+  {
+   "title": "April Dunford: How Your Differentiated Value Should Drive Your Sales Pitch",
+   "url": "https://businessofsoftware.org/talks/your-differentiated-value/",
+   "source": "April Dunford · Business of Software",
+   "date": "2023",
+   "kind": "演讲",
+   "summary": "作者在大会演讲中强调功能赢不了单子，演示要围绕差异化价值展开，并剖析夸大其词和自说自话式演示两种失败模式。",
+   "case": "LevelJump 把培训与成交数据挂钩的最大卖点埋在演示末尾，挪到前面后整套演示重塑；DataMirror 面向公共事业和零售两类客户，首次沟通都讲快速故障恢复这一共同价值。",
+   "point": "差异化价值应成为演示的主线",
+   "chapter": "Step 5: Differentiated Value",
+   "verified": true
+  },
+  {
+   "title": "Stop Selling Your Product, Start Selling Your Point of View",
+   "url": "https://businessofsoftware.org/talks/selling-point-of-view-april-dunford-online/",
+   "source": "April Dunford · Business of Software",
+   "date": "",
+   "kind": "演讲",
+   "summary": "作者认为买家往往不懂品类，功能演示、创始人故事和宏大愿景都难奏效；应先讲观点，再比较替代方案、描绘理想方案，最后用产品证明。",
+   "case": "一家企业存储厂商面向生命科学和视频公司时，把替代方案归为三类：昂贵的企业级系统、缺乏支持的自建方案、吞吐不足的中端系统，再逐一说明取舍。",
+   "point": "把替代方案分组讲清优劣，帮买家理解市场",
+   "chapter": "Step 2: Alternatives",
+   "verified": true
+  },
+  {
+   "title": "April Dunford Shares How to Position for Growth",
+   "url": "https://breakoutgrowth.net/2023/12/20/april-dunford-shares-how-to-position-for-growth/",
+   "source": "Sean Ellis · Breakout Growth Podcast",
+   "date": "2023-12",
+   "kind": "访谈",
+   "summary": "作者谈为何营销人学的英雄之旅式叙事不适合销售，销售要回答为什么选你，以及要把现状和不做决定当作竞争对手。",
+   "case": "作者接触过约 250 家公司，只有一家能说清自己的演示结构；她还引用数据称四到六成的 B2B 采购最终不了了之。",
+   "point": "销售要帮买家做决定，对抗的是犹豫与现状",
+   "chapter": "Do You Sell or Do You Help Customers Buy?",
+   "verified": true
+  },
+  {
+   "title": "A step-by-step guide to crafting a sales pitch that wins",
+   "url": "https://www.lennysnewsletter.com/p/a-step-by-step-guide-to-crafting",
+   "source": "April Dunford · Lenny's Podcast",
+   "date": "2023-10",
+   "kind": "播客",
+   "summary": "作者在播客中逐步拆解演示的制作与测试，涵盖差异化价值、证据与异议处理、克服客户惰性、营销在演示中的角色等。",
+   "case": "",
+   "point": "演示需要像产品一样反复测试和迭代",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

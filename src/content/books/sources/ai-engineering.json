@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Agents",
+   "url": "https://huyenchip.com/2025/01/07/agents.html",
+   "source": "Chip Huyen · 个人博客",
+   "date": "2025-01",
+   "kind": "文章",
+   "summary": "作者把书中智能体一节改写成独立长文：智能体由环境与工具定义，工具分为知识增强、能力扩展和写操作三类，并主张规划与执行分离、先校验计划再执行。",
+   "case": "文中算了一笔账：每步准确率95%时，10步后整体只剩约60%，100步后仅约0.6%；还举了Chameleon用13个工具在ScienceQA上提升约11个百分点的例子。",
+   "point": "多步智能体错误会复合累积，必须分环节评估",
+   "chapter": "6. RAG and Agents",
+   "verified": true
+  },
+  {
+   "title": "Building A Generative AI Platform",
+   "url": "https://huyenchip.com/2024/07/25/genai-platform.html",
+   "source": "Chip Huyen · 个人博客",
+   "date": "2024-07",
+   "kind": "文章",
+   "summary": "从最简单的请求直连模型出发，逐步加入上下文增强、输入输出护栏、路由与网关、缓存和可观测性，拼出一套通用的生成式AI应用架构。",
+   "case": "三星员工把内部资料贴进ChatGPT导致泄密，公司于2023年5月禁用；另算出1000词元的系统提示若每天调用百万次，提示缓存可省约10亿输入词元。",
+   "point": "应用架构按需逐层加组件，护栏和缓存各有代价",
+   "chapter": "10. AI Engineering Architecture and User Feedback",
+   "verified": true
+  },
+  {
+   "title": "Musings on Building a Generative AI Product",
+   "url": "https://www.linkedin.com/blog/engineering/generative-ai/musings-on-building-a-generative-ai-product",
+   "source": "LinkedIn Engineering Blog",
+   "date": "2024-04",
+   "kind": "文章",
+   "summary": "LinkedIn团队复盘基于RAG的求职与动态助手：路由、检索、生成三步搭得很快，难在把回答质量做稳，评估和结构化输出都花了大量功夫。",
+   "case": "团队一个月做到约80%的体验，之后又花四个月才越过95%；模型生成的API参数约90%合规，自研容错解析器把错误降到约0.01%。",
+   "point": "做演示很快，做成产品要耗费数月打磨",
+   "chapter": "1. Introduction to Building AI Applications with Foundation Models",
+   "verified": true
+  },
+  {
+   "title": "Common pitfalls when building generative AI applications",
+   "url": "https://huyenchip.com/2025/01/16/ai-engineering-pitfalls.html",
+   "source": "Chip Huyen · 个人博客",
+   "date": "2025-01",
+   "kind": "文章",
+   "summary": "作者归纳六类常见误区：不该用生成式AI时硬用、把产品问题当成模型问题、一上来就过度复杂、被早期成功迷惑、放弃人工评估、无战略地征集用例。",
+   "case": "Intuit的报税聊天机器人起初反馈平平，因为用户不喜欢面对空白输入框；加上推荐问题后评价明显好转。",
+   "point": "失败常出在产品设计而非模型，要坚持人工看数据",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

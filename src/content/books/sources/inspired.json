@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "Product Discovery at Apple",
+   "url": "https://www.svpg.com/product-discovery-at-apple/",
+   "source": "Marty Cagan · SVPG",
+   "date": "2018-09",
+   "kind": "文章",
+   "summary": "Cagan 借 Ken Kocienda 的《Creative Selection》解读苹果初代 iPhone 的产品发现：提前应对风险、跨职能协作解题、看结果而非产出。",
+   "case": "初代 iPhone 团队要在纯触屏上解决文字输入，同时面对可行性、可用性与价值风险，前车之鉴是牛顿掌上电脑；方案经上百轮原型迭代打磨，图标尺寸等决策还参考了数据。",
+   "point": "产品发现要用大量快速原型尽早消除关键风险",
+   "chapter": "CHAPTER 33: Principles of Product Discovery",
+   "verified": true
+  },
+  {
+   "title": "The Product Model at Amazon",
+   "url": "https://www.svpg.com/product-model-at-amazon/",
+   "source": "Marty Cagan & Richard Russell · SVPG",
+   "date": "2024-03",
+   "kind": "文章",
+   "summary": "以 Amazon Prime 的诞生为例，说明亚马逊的成功来自把产品模式做扎实：愿景驱动、真实实验、长期主义与关注结果。",
+   "case": "2004 年起亚马逊围绕运费做多年实验：99 美元包邮、降到 25 美元、免费两日达、年费包邮；工程师 Charlie Ward 提出订阅制，商业论证虽难算清仍拍板，约三个月上线首版 Prime。",
+   "point": "可行性与商业可行性风险要靠实验而非报表来验证",
+   "chapter": "CHAPTER 56: Testing Business Viability",
+   "verified": true
+  },
+  {
+   "title": "Product vs Feature Teams",
+   "url": "https://www.svpg.com/product-vs-feature-teams/",
+   "source": "Marty Cagan · SVPG",
+   "date": "2019-08",
+   "kind": "文章",
+   "summary": "区分交付团队、功能团队与被赋能的产品团队：前两者以产出衡量，只有后者对结果负责并自己寻找解法。",
+   "case": "",
+   "point": "强团队被赋予问题与目标，而不是一份功能清单",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Product Market Fit vs. Product Vision",
+   "url": "https://www.svpg.com/product-market-fit-vs-product-vision/",
+   "source": "Marty Cagan · SVPG",
+   "date": "2011-10",
+   "kind": "文章",
+   "summary": "愿景描绘 2–5 年的方向，但要先找到一小群早期布道型客户，用最小可卖的产品实现产品市场匹配。",
+   "case": "初代 iPhone 连复制粘贴都没有，早期用户却看懂了愿景并买单；之后的版本逐步扩大目标人群，一步步接近最初设想。",
+   "point": "愿景是长期方向，策略是通往愿景的产品序列",
+   "chapter": "CHAPTER 24: Product Vision and Product Strategy",
+   "verified": true
+  },
+  {
+   "title": "Product management theater",
+   "url": "https://www.lennysnewsletter.com/p/product-management-theater-marty",
+   "source": "Lenny Rachitsky · Lenny's Podcast",
+   "date": "2024-03",
+   "kind": "播客",
+   "summary": "Cagan 谈产品经理头衔泛滥却缺乏能力的现象，强调真正的 PM 要对价值与商业可行性负责，并给出识别功能团队的方法。",
+   "case": "",
+   "point": "产品经理的核心职责是价值与可行性，而非项目管理",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

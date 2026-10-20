@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "Opportunity Solution Trees: Visualize Your Discovery to Stay Aligned and Drive Outcomes",
+   "url": "https://www.producttalk.org/opportunity-solution-trees/",
+   "source": "Teresa Torres · Product Talk",
+   "date": "2023-12",
+   "kind": "文章",
+   "summary": "作者详解机会解决方案树的四层结构：结果、机会、方案、假设测试，以及搭树的前提、如何组织机会空间和多久更新一次。",
+   "case": "用 Google Reader 和被苹果收购后关停的 Dark Sky 说明：用户再喜欢的产品，若不能带来业务价值也会被砍掉，所以树根必须是业务结果。",
+   "point": "客户价值与业务价值要同时成立",
+   "chapter": "Chapter Two: A Common Framework for Continuous Discovery",
+   "verified": true
+  },
+  {
+   "title": "Taking Continuous Discovery to the Next Level at SEEK [Case Study]",
+   "url": "https://www.producttalk.org/seek-case-study/",
+   "source": "Teresa Torres · Product Talk",
+   "date": "2019-04",
+   "kind": "文章",
+   "summary": "澳大利亚招聘平台 SEEK 一支产品团队在作者辅导下，把零散的调研改造成每周节奏的持续发现。",
+   "case": "改造前一年只访谈约 30 人，一轮约 15 次上门访谈里仅 2 人符合筛选条件；改用故事式访谈并推动自动招募后，做到接近每周访谈，方案从两三个扩展到十个以上。",
+   "point": "自动化招募与故事式访谈让每周访谈可持续",
+   "chapter": "Chapter Five: Continuous Interviewing",
+   "verified": true
+  },
+  {
+   "title": "Creating a Sustainable Continuous Discovery Practice at CarMax [Case Study]",
+   "url": "https://www.producttalk.org/2018/09/carmax-case-study/",
+   "source": "Teresa Torres · Product Talk",
+   "date": "2018-09",
+   "kind": "文章",
+   "summary": "二手车零售商 CarMax 的产品三人组借助机会树和假设测试，把原本不够有条理的发现工作变成稳定习惯。",
+   "case": "团队从一次性大实验改为拆开逐条测试假设，并事先约定成功阈值；每周接触客户从口号变成实打实的二到四位，可用性测试也成了每周固定动作。",
+   "point": "测假设而非测整个点子，才能快且多",
+   "chapter": "Chapter Ten: Testing Assumptions, Not Ideas",
+   "verified": true
+  },
+  {
+   "title": "Critical Thinking for Product Teams",
+   "url": "https://mindtheproduct.com/critical-thinking-product-teams-teresa-torres",
+   "source": "Teresa Torres · Mind the Product London",
+   "date": "2017-10",
+   "kind": "演讲",
+   "summary": "作者在 Mind the Product 大会上首次系统介绍机会解决方案树，主张比较多个选项而不是孤立判断一个点子好不好。",
+   "case": "",
+   "point": "比较与对比多个选项，避免爱上第一个点子",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Teresa Torres on how to interview customers, automating continuous discovery, the opportunity solution tree framework, making the case for user research, common interviewing mistakes, and much more",
+   "url": "https://www.lennysnewsletter.com/p/teresa-torres-on-how-to-interview",
+   "source": "Lenny Rachitsky · Lenny's Podcast",
+   "date": "2022-06",
+   "kind": "播客",
+   "summary": "作者在 Lenny 的播客里谈持续发现为何重要、如何自动安排每周客户对话、访谈常见错误，以及领导说没时间做调研时怎么办。",
+   "case": "",
+   "point": "把客户输入融入日常决策，而非阶段性调研",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

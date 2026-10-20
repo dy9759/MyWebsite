@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "Geoffrey Moore on finding your beachhead, crossing the chasm, and dominating a market",
+   "url": "https://www.lennysnewsletter.com/p/geoffrey-moore-on-finding-your-beachhead",
+   "source": "Geoffrey Moore · Lenny's Podcast",
+   "date": "2024-01",
+   "kind": "播客",
+   "summary": "作者本人谈如何挑选滩头阵地、务实派买家为何需要非买不可的理由、各阶段打法，以及争取标杆客户和跨越鸿沟时的致命错误。",
+   "case": "",
+   "point": "滩头市场要大到有意义、小到能领先、又贴合自身强项",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "The Scaleup Journey: Crossing the Chasm in Style",
+   "url": "https://chasmgroup.com/the-scaleup-journey-crossing-the-chasm-in-style/",
+   "source": "Philip Lay · The Chasm Group",
+   "date": "",
+   "kind": "文章",
+   "summary": "以移动银行创业公司 Clairmail 为例，讲一家卡在鸿沟里的公司如何靠收窄目标、聚焦务实派买家实现规模化。",
+   "case": "Clairmail 新团队只盯约 50 家美国大型零售银行，到 2011 年底签下其中 25 家，单笔合同超百万美元，营收从 2009 年不足 100 万涨到 3500 万，后以约 4 亿美元被 Monitise 收购。",
+   "point": "集中兵力拿下一个细分市场，比四面出击更快过鸿沟",
+   "chapter": "3 - The D-Day Analogy",
+   "verified": true
+  },
+  {
+   "title": "Steve Jobs: Master of the 'Whole Product'",
+   "url": "https://chasminstitute.com/Blogs/tabid/288/Post/1691/Steve-Jobs-Master-of-the-Whole-Product",
+   "source": "Mark Cavender · Chasm Institute",
+   "date": "2011-02",
+   "kind": "文章",
+   "summary": "作者借乔布斯说明完整产品概念：要让目标客户真正实现购买理由，光有硬件不够，还要补齐周边产品与服务。",
+   "case": "早期 MP3 播放器要用户自己买 CD、转格式、选音质；苹果用 iPod 加 iTunes 和唱片公司合作，让每首歌 99 美分即可下载，之后 iPhone 又靠大量开发者的应用补全产品。",
+   "point": "主流客户买的是完整产品，而不是单一技术",
+   "chapter": "5 - Assemble the Invasion Force",
+   "verified": true
+  },
+  {
+   "title": "'Crossing the Chasm', in Practice",
+   "url": "https://a16z.com/crossing-the-chasm-in-practice/",
+   "source": "Martin Casado · a16z",
+   "date": "2019-01",
+   "kind": "文章",
+   "summary": "投资人结合创业经历指出跨越鸿沟理论落地更复杂：地域扩张本身就可能是一道鸿沟，巨头也会在早期就下场竞争。",
+   "case": "作者的公司从纽约金融机构扩展到英国同行，发现技术栈和合作伙伴都不同，花了数年才适应，事后认为先在美国做行业扩张更好；文中还提到 AWS 可直接推出热门开源服务。",
+   "point": "相邻市场必须共享口碑与参照，否则又是新鸿沟",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "After the Chasm—Scaling Beyond the Beachhead",
+   "url": "https://geoffreyamoore.com/business_blogs/after-the-chasm-scaling-beyond-the-beachhead/",
+   "source": "Geoffrey Moore · 个人网站",
+   "date": "",
+   "kind": "文章",
+   "summary": "作者谈跨过鸿沟、营收达数千万后增长停滞怎么办：别急着做平台或套件，而是从相邻流程负责人扩张，并精选少数生态伙伴。",
+   "case": "",
+   "point": "过鸿沟后仍应聚焦目标细分市场，稳步扩张",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

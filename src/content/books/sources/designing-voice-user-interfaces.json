@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Cathy Pearl on designing conversational interfaces",
+   "url": "https://oreilly.com/ideas/cathy-pearl-on-designing-conversational-interfaces",
+   "source": "Cathy Pearl · O'Reilly Design Podcast",
+   "date": "2016-11",
+   "kind": "播客",
+   "summary": "作者谈什么才算对话：要多轮、能记住上下文和指代；设计要按人们真实的说法来做，先写样例对话并两人朗读，还要为识别错误设计恢复。",
+   "case": "她认为对 Echo 问时间、开灯这种一问一答不算对话；像 Siri 那样开口就问能帮你什么，会让用户不知道能说什么而失败。",
+   "point": "印证开放式提示要谨慎、必须为出错设计",
+   "chapter": "2. Basic Voice User Interface Design Principles",
+   "verified": true
+  },
+  {
+   "title": "The Voice Design Revolution and How to Join It: A Discussion with Cathy Pearl",
+   "url": "https://careerfoundry.com/en/blog/ux-design/the-voice-design-revolution-and-how-to-join-it-a-discussion-with-cathy-pearl/",
+   "source": "Ed Wood · CareerFoundry",
+   "date": "2018",
+   "kind": "访谈",
+   "summary": "作者谈语音设计的核心是对话规则而非识别本身，本地化连语气和停顿都要调，并建议新人写剧本式样例对话、用免代码工具做原型。",
+   "case": "她在 Sensely 负责的虚拟护士形象 Molly 用语音帮慢病患者管理病情；美式英语回复在英国显得过于热情，于是被调低了语气。",
+   "point": "补充人设与语气要随用户和地区调整",
+   "chapter": "3. Personas, Avatars, Actors, and Video Games",
+   "verified": true
+  },
+  {
+   "title": "Write sample dialogs",
+   "url": "https://developers.google.com/assistant/conversation-design/write-sample-dialogs",
+   "source": "Google for Developers · Conversation Design",
+   "date": "",
+   "kind": "官网",
+   "summary": "谷歌对话设计指南：写代码前先用样例对话低成本试听，选一个人设和用例，与搭档角色扮演、转写，再用语音合成朗读并修改。",
+   "case": "谷歌 I/O 助手的样例对话把选项归成几类，列表上限约六项、会议标题一次只报两条，并用 SSML 停顿把长标题拆开，因为原标题不是为听而写的。",
+   "point": "印证为听而写、控制单次信息量的原则",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Google Duplex: An AI System for Accomplishing Real-World Tasks Over the Phone",
+   "url": "https://research.google/blog/google-duplex-an-ai-system-for-accomplishing-real-world-tasks-over-the-phone/",
+   "source": "Yaniv Leviathan, Yossi Matias · Google Research",
+   "date": "2018-05",
+   "kind": "文章",
+   "summary": "谷歌介绍电话预约系统 Duplex：只在封闭领域工作，遇到处理不了的情况交给人工；重点讲如何靠延迟控制和语气词让对话更自然。",
+   "case": "对方说喂这类需要秒回的场合，系统改用更快的模型，响应可低于 100 毫秒；回应复杂句子时反而故意加点延迟，并插入嗯、呃等填充音，用户研究显示更自然。",
+   "point": "补充轮次时机与等待提示对自然度的影响",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

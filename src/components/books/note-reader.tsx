@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, ExternalLink, Upload } from "lucide-react";
 import { FloatingNoteChat, NoteChatBody, useNoteChat } from "@/components/books/note-assistant";
-import NoteCases, { type ChapterCase } from "@/components/books/note-cases";
+import NoteCases, { NoteSources, type ChapterCase, type OutsideSource } from "@/components/books/note-cases";
 import NoteExcerpts, { type ChapterExcerpt } from "@/components/books/note-excerpts";
 import NoteSidePanes, { type PaneTab } from "@/components/books/note-side-panes";
 import OriginalPane, { type PaneTarget } from "@/components/books/original-pane";
@@ -18,7 +18,7 @@ import { recordNoteVisit } from "@/lib/books/recent";
 import { listBooks } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
 
-export type RenderedChapter = { label: string; display?: string; heading: string; html: string; excerpts: ChapterExcerpt[]; cases: ChapterCase[] };
+export type RenderedChapter = { label: string; display?: string; heading: string; html: string; excerpts: ChapterExcerpt[]; cases: ChapterCase[]; outside: OutsideSource[] };
 
 type Props = {
   slug: string;
@@ -31,6 +31,7 @@ type Props = {
   chapters: RenderedChapter[];
   outroHtml: string;
   chat: NoteContext; // what the AI assistant may read
+  sources: OutsideSource[]; // outside reading for the whole book
 };
 
 export const proseClass = cn(
@@ -50,7 +51,7 @@ const PANE_LABELS: Record<PaneTab, string> = { excerpts: "原文片段", book: "
 // copy of the book (never hosted here), next to the AI assistant. Narrow
 // screens: quotes expand their excerpt inline, chapters open in the full
 // reader and the assistant floats bottom-right.
-export default function NoteReader({ slug, title, catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml, chat: chatContext }: Props) {
+export default function NoteReader({ slug, title, catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml, chat: chatContext, sources }: Props) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const seq = useRef(0);
@@ -215,7 +216,7 @@ export default function NoteReader({ slug, title, catalogId, matchTitle, officia
               }}
               dangerouslySetInnerHTML={{ __html: c.html }}
             />
-            <NoteCases cases={c.cases} />
+            <NoteCases cases={c.cases} outside={c.outside} />
             {inline?.chapter === i && (
               <div className="mt-3 rounded-md bg-muted px-3 py-2 text-xs xl:hidden">
                 {inline.quote && c.excerpts.some((e) => e.quote === inline.quote) && (
@@ -236,6 +237,7 @@ export default function NoteReader({ slug, title, catalogId, matchTitle, officia
         ))}
 
         {outroHtml && <div className={cn(proseClass, "mt-8")} dangerouslySetInnerHTML={{ __html: outroHtml }} />}
+        <NoteSources items={sources} />
       </div>
 
       {current && (

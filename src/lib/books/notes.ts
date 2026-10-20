@@ -123,10 +123,10 @@ export function getExcerpts(slug: string): Map<string, string> {
 
 export const quotesIn = (markdown: string) => [...new Set([...markdown.matchAll(/「([^「」]+)」/g)].map((m) => m[1]))];
 
-// Per chapter (keyed by marker label): the chapter's core sentence and one
-// concrete case from the book, both short verbatim passages, with Chinese
-// commentary on how the case shows the idea.
-export type NoteCase = { point: string; core: string; caseTitle: string; case: string; explain: string; external?: boolean; story?: string };
+// Per chapter (keyed by marker label): the chapter's important ideas, each
+// with a key sentence and a concrete case from the book (short verbatim
+// passages), ranked by importance, with Chinese commentary.
+export type NoteCase = { point: string; core: string; caseTitle: string; case: string; explain: string; importance?: number };
 const CASES_DIR = join(process.cwd(), "src", "content", "books", "cases");
 
 export function getCases(slug: string): Record<string, NoteCase[]> {
@@ -134,5 +134,29 @@ export function getCases(slug: string): Record<string, NoteCase[]> {
     return JSON.parse(readFileSync(join(CASES_DIR, `${slug}.json`), "utf8")) as Record<string, NoteCase[]>;
   } catch {
     return {};
+  }
+}
+
+// Outside sources (author interviews, articles, talks) checked by opening
+// each page; `chapter` ties a case to a chapter marker, or "" for the book.
+export type NoteSource = {
+  title: string;
+  url: string;
+  source: string;
+  date: string;
+  kind: string;
+  summary: string;
+  case: string;
+  point: string;
+  chapter: string;
+};
+const SOURCES_DIR = join(process.cwd(), "src", "content", "books", "sources");
+
+export function getSources(slug: string): NoteSource[] {
+  try {
+    const { items } = JSON.parse(readFileSync(join(SOURCES_DIR, `${slug}.json`), "utf8")) as { items: (NoteSource & { verified?: boolean })[] };
+    return items.map(({ verified: _verified, ...s }) => s);
+  } catch {
+    return [];
   }
 }

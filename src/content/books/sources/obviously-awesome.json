@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "A Quickstart Guide to Positioning",
+   "url": "https://www.aprildunford.com/post/a-quickstart-guide-to-positioning",
+   "source": "April Dunford · 个人博客",
+   "date": "2021-03",
+   "kind": "文章",
+   "summary": "作者把书中的定位流程压缩成快速上手版：先找竞争替代品，再列独特能力、推出价值、锁定在乎的客户，最后选市场类别。",
+   "case": "Janna Systems 原以企业级 CRM 身份和 Siebel 硬碰硬总是输；发现其关系建模对投行最有价值后，改称投行专用 CRM，约 18 个月营收从不到 200 万美元涨到近 8000 万美元，后被 Siebel 收购。",
+   "point": "换一个市场参照系，同样的产品优势会被放大",
+   "chapter": "Step 8. Find a Market Frame of Reference That Puts Your Strengths at the Center and Determine How to Position in It",
+   "verified": true
+  },
+  {
+   "title": "Positioning and Competition",
+   "url": "https://www.aprildunford.com/post/positioning-and-competition",
+   "source": "April Dunford · 个人博客",
+   "date": "2020-12",
+   "kind": "文章",
+   "summary": "作者主张用竞争替代品代替竞争对手来思考：首先要打败的是现状，比如表格和手工流程，并忽略客户从不考虑的假想敌。",
+   "case": "企业软件里通常有两到三成的单子输给了客户不做决定，相当于每四单就有一单败给现状。",
+   "point": "真正的竞争替代品包括现状，而不只是同类厂商",
+   "chapter": "Step 4. List Your True Competitive Alternatives",
+   "verified": true
+  },
+  {
+   "title": "A guide to advanced B2B positioning",
+   "url": "https://www.lennysnewsletter.com/p/a-guide-to-advanced-b2b-positioning",
+   "source": "April Dunford · Lenny's Newsletter",
+   "date": "2026-03",
+   "kind": "文章",
+   "summary": "作者总结十年、约 300 家公司的定位经验，讲团队对竞争对象有分歧、过度悲观、差异化价值说不清等卡点及对策。",
+   "case": "某数据库厂商专利查询速度快上千倍，但只跑月报的客户并不在乎；最契合的客户真正看重的是能更快回答自家客户的问题。",
+   "point": "功能要翻译成目标客户在意的价值，才算差异化",
+   "chapter": "Step 6. Map the Attributes to Value “Themes”",
+   "verified": true
+  },
+  {
+   "title": "What The Heck Is Your Product, Really?",
+   "url": "https://www.aprildunford.com/post/what-the-heck-is-your-product-really",
+   "source": "April Dunford · 个人博客",
+   "date": "2017-06",
+   "kind": "文章",
+   "summary": "作者指出同一个产品可以有多种描述框架，选哪个会连带决定目标市场、定价和路线图，因此是战略选择而非文案问题。",
+   "case": "一款放在车内仪表台上提醒测速点和闯红灯摄像头的设备，主打省罚单；若改放到驾驶安全框架里，客户、定价和功能方向都会随之改变。",
+   "point": "定位就是给产品设定语境，语境决定客户如何理解它",
+   "chapter": "Positioning as Context",
+   "verified": true
+  },
+  {
+   "title": "April Dunford on product positioning, segmentation, and optimizing your sales process",
+   "url": "https://www.lennysnewsletter.com/p/april-dunford-on-product-positioning",
+   "source": "April Dunford · Lenny's Podcast",
+   "date": "2022-06",
+   "kind": "播客",
+   "summary": "作者在播客里讲定位的定义、定位好坏的信号、五步定位法、定位与信息和品牌的区别，以及细分与用户画像的不同。",
+   "case": "",
+   "point": "定位先于信息与品牌，并直接影响销售流程",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

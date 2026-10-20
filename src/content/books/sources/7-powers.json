@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "7 Powers with Hamilton Helmer",
+   "url": "https://www.acquired.fm/episodes/7-powers-with-hamilton-helmer",
+   "source": "Hamilton Helmer · Acquired 播客",
+   "date": "2021-12",
+   "kind": "播客",
+   "summary": "Helmer 在 Acquired 节目里系统讲解七种力量，并回忆自己当年作为投资人如何从实际公司中提炼出这套框架。",
+   "case": "Netflix 不收滞纳金，而滞纳金约占百视达（Blockbuster）一半收入，对手迟迟不敢跟进；他早年投资戴尔，也是看准康柏因零售渠道利益无法转向直销。",
+   "point": "反定位的壁垒是在位者跟进会伤及自身主业",
+   "chapter": "Chapter 3: Counter-Positioning",
+   "verified": true
+  },
+  {
+   "title": "Interview: Hamilton Helmer & Chenyi Shi on How to Build an AWS-Like Second Business",
+   "url": "https://www.acquired.fm/episodes/interview-hamilton-helmer-chenyi-shi-on-how-to-build-an-aws-like-second-business",
+   "source": "Hamilton Helmer、Chenyi Shi · Acquired 访谈",
+   "date": "2023-04",
+   "kind": "访谈",
+   "summary": "两人讨论成熟公司如何开辟第二曲线，以 AWS、任天堂、英伟达 CUDA 为例，强调判断新业务能否沿用原有力量。",
+   "case": "Netflix 进入韩国等海外市场时，内容固定成本可跨国摊薄，规模经济照样成立；Uber 的优势来自本地密度，进中国与滴滴正面竞争就毫无优势。",
+   "point": "规模经济能否跨市场延伸，取决于成本结构",
+   "chapter": "Chapter 1: Scale Economies",
+   "verified": true
+  },
+  {
+   "title": "Strategic Power: A Conversation with Hamilton Helmer, author of 7 Powers, and Chenyi Shi",
+   "url": "https://thetriumgroup.substack.com/p/strategic-power-a-conversation-with",
+   "source": "Hamilton Helmer · The One of One Podcast（Trium Group）",
+   "date": "2025-05",
+   "kind": "播客",
+   "summary": "Helmer 结合自己为 Netflix 高管做培训的经历，讲多种力量如何在一家公司身上先后叠加，以及在位者为何常常错判自身优势。",
+   "case": "Netflix 从邮寄 DVD 转向流媒体，靠独家与自制内容建立规模优势；百视达受门店模式所困、有线电视商怕流失订户，都无法跟进，属于反定位。",
+   "point": "同一公司可在不同阶段依次获得多种力量",
+   "chapter": "Chapter 9: The Power Progression",
+   "verified": true
+  },
+  {
+   "title": "Business strategy with Hamilton Helmer (author of 7 Powers)",
+   "url": "https://www.lennysnewsletter.com/p/business-strategy-with-hamilton-helmer",
+   "source": "Hamilton Helmer · Lenny's Podcast",
+   "date": "2024-05",
+   "kind": "播客",
+   "summary": "Helmer 与 Lenny 讨论创业公司早期应争取哪种力量、护城河与力量的区别，以及 AI 对竞争壁垒的影响。",
+   "case": "",
+   "point": "科技创业常先靠反定位起步，再积累规模、转换成本与网络",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Synopsis – 7 Powers",
+   "url": "https://7powers.com/synopsis/",
+   "source": "Hamilton Helmer · 7 Powers 官网",
+   "date": "",
+   "kind": "官网",
+   "summary": "作者官网的内容简介，说明书中把力量定义为带来持续超额回报的条件，并按起步、腾飞、稳定三个阶段讨论何时建立力量。",
+   "case": "",
+   "point": "力量需在不同发展阶段的特定时间窗口建立",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

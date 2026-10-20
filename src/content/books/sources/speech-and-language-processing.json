@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "Speech and Language Processing (3rd ed. draft)",
+   "url": "https://web.stanford.edu/~jurafsky/slp3/",
+   "source": "Dan Jurafsky & James H. Martin · 斯坦福官网",
+   "date": "2026-08",
+   "kind": "官网",
+   "summary": "作者维护的第三版草稿主页，免费提供整本与分章PDF及配套幻灯片，并持续调整章节结构，近期按LLM、进阶主题、语言结构标注分为三卷。",
+   "case": "",
+   "point": "教材持续以草稿形式免费更新，紧跟大模型进展",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "CS 124: From Languages to Information",
+   "url": "https://web.stanford.edu/class/cs124/",
+   "source": "Stanford University · Dan Jurafsky",
+   "date": "2026",
+   "kind": "课程",
+   "summary": "Jurafsky在斯坦福主讲的本科课程，涵盖分词、分类、检索、推荐、Transformer与语音识别等，指定阅读即这本免费在线教材。",
+   "case": "",
+   "point": "书中内容可配合作者本人的课程系统学习",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "A Neural Network for Machine Translation, at Production Scale",
+   "url": "https://research.google/blog/a-neural-network-for-machine-translation-at-production-scale/",
+   "source": "Google Research Blog",
+   "date": "2016-09",
+   "kind": "文章",
+   "summary": "谷歌发布神经机器翻译系统GNMT：不再像短语系统那样分段翻译，而是把整句作为整体编码再解码，并借助TPU满足线上延迟。",
+   "case": "GNMT上线后接管了谷歌翻译全部中译英请求，约每天1800万次；人工并排评测显示多个语言对的翻译错误减少55%到85%。",
+   "point": "编码器-解码器神经翻译取代了基于短语的统计翻译",
+   "chapter": "Machine Translation",
+   "verified": true
+  },
+  {
+   "title": "Understanding searches better than ever before",
+   "url": "https://blog.google/products/search/search-language-understanding-bert/",
+   "source": "Google · The Keyword 官方博客",
+   "date": "2019-10",
+   "kind": "文章",
+   "summary": "谷歌搜索副总裁介绍把双向预训练模型BERT用于搜索排序与精选摘要，借助前后文理解查询意图，尤其是介词和否定词。",
+   "case": "对巴西旅客去美国是否需要签证的查询，旧系统忽略了to的方向，返回美国人去巴西的结果，BERT纠正了这一点；上线时约影响十分之一的美国英语搜索。",
+   "point": "双向掩码语言模型能利用左右文理解词义",
+   "chapter": "Masked Language Models",
+   "verified": true
+  }
+ ]
+}

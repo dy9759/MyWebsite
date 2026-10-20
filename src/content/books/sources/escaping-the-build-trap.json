@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "Escaping the Build Trap by Melissa Perri",
+   "url": "https://www.mindtheproduct.com/escaping-build-trap-melissa-perri/",
+   "source": "Mind the Product",
+   "date": "2017-07",
+   "kind": "演讲",
+   "summary": "Perri 在 Mind the Product 旧金山大会的演讲整理：构建陷阱源于把开发当线性流水线，应从流程、战略、文化三方面走出来。",
+   "case": "Perri 讲述自己早年先写厚重需求文档、后改用敏捷加快交付，却发现始终不知道用户是否需要、是否在用这些功能。",
+   "point": "只追求交付速度而不衡量结果，就会陷入构建陷阱",
+   "chapter": "I. The Build Trap",
+   "verified": true
+  },
+  {
+   "title": "How do you establish product metrics to evaluate success?",
+   "url": "https://askgib.substack.com/p/how-do-you-establish-product-metrics",
+   "source": "Gibson Biddle · Ask Gib",
+   "date": "2021-04",
+   "kind": "文章",
+   "summary": "前 Netflix 产品副总裁讲如何定指标：先排序增长、参与、变现，再选一个高层参与指标，并为每个假设设可快速变动的代理指标。",
+   "case": "Netflix 月流失率从 2005 年的 5% 降到 2%，进展缓慢；于是用代理指标：新用户首月看满 15 分钟流媒体的比例，2007 年从 5% 起步，一年后到 20%。",
+   "point": "留存是滞后指标，需配可快速行动的领先指标",
+   "chapter": "16. Understanding the Direction and Setting Success Metrics",
+   "verified": true
+  },
+  {
+   "title": "Gibson Biddle – Wicked Hard Decisions at Netflix",
+   "url": "https://www.mindtheproduct.com/gibson-biddle-wicked-hard-decisions-netflix/",
+   "source": "Mind the Product",
+   "date": "2017-08",
+   "kind": "演讲",
+   "summary": "Gibson Biddle 回顾 Netflix 的艰难取舍：衡量利害、长期战略耐心配短期战术紧迫、以客户价值为准、敢于止损。",
+   "case": "Netflix 筹备伦敦上线 18 个月、离发布仅一个月时放弃，团队转去做流媒体；2007 年还叫停约百人的电视硬件项目，改与 Xbox 等合作，该团队后来做出了 Roku。",
+   "point": "好战略是取舍的框架，帮助决定不做什么",
+   "chapter": "10. What Is Strategy?",
+   "verified": true
+  },
+  {
+   "title": "Prioritization Shouldn't Be Hard",
+   "url": "https://melissaperri.com/blog/2019/10/31/prioritization",
+   "source": "Melissa Perri",
+   "date": "2019-10",
+   "kind": "文章",
+   "summary": "Perri 认为优先级排序是领导层的责任，应依托数据驱动的产品战略，而不是让各方打分取平均。",
+   "case": "一位产品副总裁候选人访谈 CEO 和干系人一周，让大家按增收、降本、拓展高端三项目标给功能打 1–5 分再平均，Perri 指出这只是共识而非优先级。",
+   "point": "清晰战略让团队日常取舍无需反复打分投票",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "#206 The build trap with Melissa Perri",
+   "url": "https://uxpodcast.com/206-build-trap-melissa-perri/",
+   "source": "UX Podcast",
+   "date": "2019-03",
+   "kind": "播客",
+   "summary": "Perri 谈团队常因被指派或拥有某功能而开发，而非因为它能为用户和业务创造价值，以及如何避开这种陷阱。",
+   "case": "",
+   "point": "功能本身没有价值，解决用户问题才产生价值",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

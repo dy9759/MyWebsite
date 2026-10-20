@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "title": "The Mom Test by Rob Fitzpatrick",
+   "url": "https://www.momtestbook.com/",
+   "source": "Rob Fitzpatrick · 官方书站",
+   "date": "",
+   "kind": "官网",
+   "summary": "作者的官方书站：把本书定位成一本实操手册，教人在对方都在说客气话时，仍能从客户对话里学到真东西、判断对方会不会真的买。",
+   "case": "",
+   "point": "全书目标：避开带偏的反馈和无用会议",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "EP 231: The Mom Test with Rob Fitzpatrick",
+   "url": "https://theinnovationshow.io/episode/ep-231-the-mom-test-with-rob-fitzpatrick/",
+   "source": "Aidan McCullen · The Innovation Show",
+   "date": "2020-07",
+   "kind": "播客",
+   "summary": "作者做客播客，系统讲了问过去而非未来、别先推销、追问功能需求背后的动机、用承诺代替意见等原则。",
+   "case": "作者第一家公司 Habit 应 MTV 要求花了几个月做分析仪表盘，却没问为什么；其实客户只要一份 PDF 报告，几小时就能搞定。另有复古游戏订阅公司凭展会上的热情回应砸下约一千万美元，很快倒闭。",
+   "point": "功能请求要理解背后动机，不能照单全收",
+   "chapter": "Avoiding bad data",
+   "verified": true
+  },
+  {
+   "title": "Customer Acquisition Startup Mistakes That Kill Your Idea (Episode 206)",
+   "url": "https://saasclub.io/206",
+   "source": "Omer Khan · The SaaS Podcast",
+   "date": "",
+   "kind": "访谈",
+   "summary": "作者回顾自己在 YC 后创业失败的经历，强调先问客户过去和现在的行为，再要求具体承诺，而不是满足于客气的口头支持。",
+   "case": "一位客户谈好数量、价格和条款，说做出来一定买，做完却说不需要了；相反，有人开出两万美元支票才算真信号，另一位创始人用粗糙的 3D 打印原型已卖出约 12 台。",
+   "point": "口头答应不算数，付钱和投入才是真承诺",
+   "chapter": "Commitment and advancement",
+   "verified": true
+  },
+  {
+   "title": "A Primer on Talking to Customers From Rob Fitzpatrick's The Mom Test",
+   "url": "https://www.sachinrekhi.com/the-mom-test-rob-fitzpatrick",
+   "source": "Sachin Rekhi · 个人博客",
+   "date": "2023-11",
+   "kind": "文章",
+   "summary": "前 LinkedIn 产品负责人把本书提炼为三条做法：聊对方的生活而非你的点子，问过去的行为而非假设的未来，主动索要承诺。",
+   "case": "",
+   "point": "把妈妈测试的三条规则浓缩成可执行清单",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}
