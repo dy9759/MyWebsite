@@ -85,6 +85,8 @@ export default async function BookNotePage({ params }: { params: Promise<{ slug:
               </p>
             )}
             <NoteReader
+              slug={note.slug}
+              title={note.title}
               catalogId={note.catalogId}
               matchTitle={note.catalogId ? undefined : note.title}
               officialUrl={entry?.url ?? note.sourceUrl}

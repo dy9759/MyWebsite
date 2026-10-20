@@ -14,12 +14,15 @@ import { readCitation } from "@/lib/books/citations";
 import { ACCEPTED_EXTENSIONS } from "@/lib/books/formats";
 import { importBookFile } from "@/lib/books/import-book";
 import type { NoteContext } from "@/lib/books/note-chat";
+import { recordNoteVisit } from "@/lib/books/recent";
 import { listBooks } from "@/lib/books/store";
 import { cn } from "@/lib/utils";
 
 export type RenderedChapter = { label: string; display?: string; heading: string; html: string; excerpts: ChapterExcerpt[]; cases: ChapterCase[] };
 
 type Props = {
+  slug: string;
+  title: string;
   catalogId?: string;
   // Books outside the catalog are found on the shelf by title instead.
   matchTitle?: string;
@@ -47,7 +50,7 @@ const PANE_LABELS: Record<PaneTab, string> = { excerpts: "原文片段", book: "
 // copy of the book (never hosted here), next to the AI assistant. Narrow
 // screens: quotes expand their excerpt inline, chapters open in the full
 // reader and the assistant floats bottom-right.
-export default function NoteReader({ catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml, chat: chatContext }: Props) {
+export default function NoteReader({ slug, title, catalogId, matchTitle, officialUrl, introHtml, chapters, outroHtml, chat: chatContext }: Props) {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const seq = useRef(0);
@@ -81,6 +84,11 @@ export default function NoteReader({ catalogId, matchTitle, officialUrl, introHt
       alive = false;
     };
   }, [catalogId, matchTitle, chapters]);
+
+  // Remember where the visitor is, for "最近阅读" on /books.
+  useEffect(() => {
+    if (chapters[active]) recordNoteVisit({ slug, title, chapter: active, chapterTitle: chapters[active].heading.replace(/（.*）$/, "") });
+  }, [slug, title, chapters, active]);
 
   // The original column follows the chapter being read.
   useEffect(() => {
