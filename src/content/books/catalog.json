@@ -2098,5 +2098,25 @@
   "evidenceUrl": "https://www.gatesnotes.com/the-coming-wave",
   "reviewStatus": "沿用上一版来源；本轮未逐项重审",
   "reviewUrl": null
+ },
+ {
+  "id": "R106",
+  "category": "06 商业模式与商业化",
+  "title": "The Innovator's Dilemma（创新者的窘境）",
+  "author": "Clayton M. Christensen",
+  "kind": "战略经典",
+  "priority": "P1",
+  "importance": "S",
+  "score": 4.5,
+  "reason": "解释管理良好的在位者为何因为倾听最好的客户而错过破坏性技术，帮助我判断一项 AI 能力是延续性改进，还是会从低端或新市场切入的破坏性机会。",
+  "method": "精读前四章与价值网络部分，其余选读",
+  "output": "延续性 / 破坏性判断清单与新市场假设",
+  "caveat": "案例以硬盘、挖掘机等制造业为主，结论需结合 AI 市场的实际客户重新验证。",
+  "url": "https://www.amazon.com/Innovators-Dilemma-Technologies-Management-Innovation/dp/1633691780",
+  "access": "书籍付费；介绍/试读公开",
+  "evidence": "经典战略书；已有章节读书笔记",
+  "evidenceUrl": null,
+  "reviewStatus": "本轮新增；书籍页面已核验；非全文",
+  "reviewUrl": "https://www.amazon.com/Innovators-Dilemma-Technologies-Management-Innovation/dp/1633691780"
  }
 ]

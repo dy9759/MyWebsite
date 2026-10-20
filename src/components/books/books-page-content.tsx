@@ -7,14 +7,12 @@ import { useSiteCopy } from "@/components/language-provider";
 import PageBreadcrumb from "@/components/page-breadcrumb";
 import BooksLevelList, { shortTitle, type NoteLink } from "@/components/books/books-level-list";
 import LocalShelf from "@/components/books/local-shelf";
-import { READING_ROUTES } from "@/content/books/reading-routes";
 import type { BookNote } from "@/lib/books/notes";
 import { CATALOG, CATALOG_BY_ID } from "@/lib/books/catalog";
 import { levelOf } from "@/lib/books/home";
 import { readRecentNotes } from "@/lib/books/recent";
 import { useReadingStatus } from "@/lib/books/reading-status";
 import { listBooks, listProgress } from "@/lib/books/store";
-import { cn } from "@/lib/utils";
 
 type NoteMeta = Omit<BookNote, "markdown"> & { chapterCount: number };
 type Recent = { key: string; kind: "note" | "book"; title: string; sub: string; href: string; at: number };
@@ -55,8 +53,6 @@ export default function BooksPageContent({ notes }: { notes: NoteMeta[] }) {
   const copy = useSiteCopy().books;
   const { statusOf, setStatus, map } = useReadingStatus();
   const recent = useRecent();
-  const [routeId, setRouteId] = useState(READING_ROUTES[0].id);
-  const route = READING_ROUTES.find((r) => r.id === routeId)!;
   const shelfRef = useRef<HTMLDetailsElement>(null);
 
   // Links to /books/#shelf (e.g. from a note page) open the collapsed shelf.
@@ -73,7 +69,6 @@ export default function BooksPageContent({ notes }: { notes: NoteMeta[] }) {
   const done = Object.values(map).filter((s) => s === "done").length;
   const l1Done = CATALOG.filter((e) => levelOf(e) === "L1" && map[e.id] === "done").length;
   const firstPick = CATALOG.filter((e) => levelOf(e) === "L1" && noteByCatalog[e.id]).sort((a, b) => b.score - a.score)[0];
-  const stepHref = (id: string) => (noteByCatalog[id] ? `/books/notes/${noteByCatalog[id].slug}/` : `#${id}`);
 
   return (
     <div className="px-4">
@@ -106,51 +101,6 @@ export default function BooksPageContent({ notes }: { notes: NoteMeta[] }) {
           ))
         )}
       </div>
-
-      <section className="mt-8" aria-labelledby="goal-heading">
-        <h2 id="goal-heading" className="text-lg font-semibold">你想读什么？</h2>
-        <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-sm">
-          {READING_ROUTES.map((r) => (
-            <button
-              key={r.id}
-              type="button"
-              onClick={() => setRouteId(r.id)}
-              aria-pressed={r.id === routeId}
-              className={cn(
-                "border-b-2 pb-0.5",
-                r.id === routeId ? "border-primary font-medium text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {r.title}
-              <span className="ml-1 text-xs text-muted-foreground">
-                {r.steps.filter((id) => statusOf(id) === "done").length}/{r.steps.length}
-              </span>
-            </button>
-          ))}
-        </div>
-        <ol className="mt-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-sm">
-          <li className="mr-2 text-muted-foreground">{route.goal}：</li>
-          {route.steps.map((id, i) => {
-            const e = CATALOG_BY_ID.get(id);
-            if (!e) return null;
-            return (
-              <li key={id} className="flex items-center gap-1">
-                {i > 0 && <span className="text-muted-foreground">{route.parallel ? "／" : "→"}</span>}
-                <Link
-                  href={stepHref(id)}
-                  className={cn("underline-offset-4 hover:underline", statusOf(id) === "done" && "text-muted-foreground line-through")}
-                >
-                  {shortTitle(e.title)}
-                  {noteByCatalog[id] && <span className="ml-1 text-xs text-emerald-700 dark:text-emerald-300">笔记</span>}
-                </Link>
-              </li>
-            );
-          })}
-        </ol>
-        <p className="mt-1 text-xs text-muted-foreground">
-          读完留下：{route.output}。同时最多再开一本人物 / 产业史并行读。
-        </p>
-      </section>
 
       <BooksLevelList noteByCatalog={noteByCatalog} statusOf={statusOf} setStatus={setStatus} />
 

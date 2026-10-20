@@ -8,7 +8,7 @@ export type Priority = "P0" | "P1" | "P2" | "P3";
 export type Importance = "S" | "A" | "B" | "C";
 
 export type CatalogEntry = {
-  id: string; // R001…R105
+  id: string; // R001…R106
   category: string; // "01 AI产品判断与评测"
   title: string;
   author: string;

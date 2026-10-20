@@ -20,7 +20,7 @@ ${notes}
 
 ## 阅读目录
 
-- [AI PM 分级阅读目录](${site}/books/catalog.md): 105 项读物（评测、Agent、技术书、产品与商业方法、人物传记与产业史），含优先级、推荐理由、读法与链接
+- [AI PM 分级阅读目录](${site}/books/catalog.md): 106 项读物（评测、Agent、技术书、产品与商业方法、人物传记与产业史），含优先级、推荐理由、读法与链接
 `;
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

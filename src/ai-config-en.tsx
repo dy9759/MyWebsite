@@ -40,7 +40,7 @@ const SOURCES_EN: AIConfig['sources'] = [
         description:
             'Understanding Silicon Valley means going beyond technology into society and culture. VC + CEO personal sites / Twitter / LinkedIn + American business biographies.',
         items: renameItem(AI_CONFIG.sources[1].items, {
-            'AI PM 分级阅读目录(105 项)': {
+            'AI PM 分级阅读目录(106 项)': {
                 name: 'AI PM Reading Catalog (105 items, ranked)',
                 note: 'Ranked by priority / importance / score: evals, agents, monetization, biographies and industry history',
             },

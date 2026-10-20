@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CATALOG } from "@/lib/books/catalog";
-import { LEVELS, THEMES, groupLevel, levelOf, themeOf } from "@/lib/books/home";
+import { GOALS, LEVELS, THEMES, groupLevel, levelOf, themeOf } from "@/lib/books/home";
+import { READING_ROUTES } from "@/content/books/reading-routes";
 
 const noNote = () => false;
 const todo = () => "todo" as const;
@@ -38,5 +39,11 @@ describe("books home grouping", () => {
     const l3 = CATALOG.find((e) => levelOf(e) === "L3")!;
     const hit = groupLevel(CATALOG, "L1", { notesOnly: false, hideDone: false, query: l3.title }, noNote, todo);
     expect(hit.flatMap((g) => g.entries.map((e) => e.id))).toContain(l3.id);
+  });
+
+  it("goal tags narrow the list to their themes and match the reading routes", () => {
+    expect(GOALS.filter((g) => g.id !== "all").map((g) => g.id).sort()).toEqual(READING_ROUTES.map((r) => r.id).sort());
+    const groups = groupLevel(CATALOG, "L2", { notesOnly: false, hideDone: false, themes: ["people"] }, noNote, todo);
+    expect(groups.map((g) => g.theme.id)).toEqual(["people"]);
   });
 });

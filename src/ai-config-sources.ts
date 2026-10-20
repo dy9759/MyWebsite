@@ -41,7 +41,7 @@ export const AI_SOURCES: AIConfig['sources'] = [
                     url: 'https://hardcoresoftware.learningbyshipping.com/',
                 },
                 {
-                    name: 'AI PM 分级阅读目录(105 项)',
+                    name: 'AI PM 分级阅读目录(106 项)',
                     url: '/books/catalog/',
                     note: '按优先级 / 重要性 / 推荐指数分级的书单:评测、Agent、商业化、人物传记与产业史',
                     pinned: true,

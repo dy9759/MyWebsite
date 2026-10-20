@@ -13,9 +13,9 @@ import {
 import { READING_ROUTES } from "@/content/books/reading-routes";
 
 describe("catalog data", () => {
-  it("has 105 entries with unique ids and valid ranks", () => {
-    expect(CATALOG).toHaveLength(105);
-    expect(new Set(CATALOG.map((e) => e.id)).size).toBe(105);
+  it("has 106 entries with unique ids and valid ranks", () => {
+    expect(CATALOG).toHaveLength(106);
+    expect(new Set(CATALOG.map((e) => e.id)).size).toBe(106);
     for (const e of CATALOG) {
       expect(e.priority).toMatch(/^P[0-3]$/);
       expect(e.importance).toMatch(/^[SABC]$/);
@@ -63,8 +63,11 @@ describe("matchCatalog", () => {
     expect(matchCatalog("The Mom Test: How to talk to customers")?.id).toBe("R046");
   });
   it("returns null for books outside the catalog", () => {
-    expect(matchCatalog("创新者的窘境（全新修订版）")).toBeNull();
     expect(matchCatalog("产品经理装备书")).toBeNull();
+  });
+
+  it("matches a Chinese edition title by its catalog alias", () => {
+    expect(matchCatalog("创新者的窘境（全新修订版）")?.id).toBe("R106");
   });
 });
 

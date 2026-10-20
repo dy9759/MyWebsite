@@ -20,6 +20,17 @@ export const THEMES: { id: string; label: string; categories: string[] }[] = [
   { id: "people", label: "人物、历史与社会", categories: ["07", "08", "09", "10", "11"] },
 ];
 
+// Goal tags over the list: each narrows it to the themes that goal draws on,
+// and (except "all") shows its reading route from reading-routes.ts.
+export const GOALS: { id: string; label: string; themes: string[] | null }[] = [
+  { id: "all", label: "全部", themes: null },
+  { id: "monetize", label: "商业化", themes: ["business", "pm"] },
+  { id: "quality", label: "质量与上线", themes: ["ai-product"] },
+  { id: "engineering", label: "工程方案", themes: ["ai-tech"] },
+  { id: "agent", label: "Agent 应用", themes: ["ai-tech", "ai-product"] },
+  { id: "people", label: "人物与产业", themes: ["people"] },
+];
+
 export const themeOf = (e: CatalogEntry) => {
   const n = e.category.slice(0, 2);
   return THEMES.find((t) => t.categories.includes(n)) ?? THEMES[THEMES.length - 1];
@@ -27,7 +38,7 @@ export const themeOf = (e: CatalogEntry) => {
 
 export const levelOf = (e: CatalogEntry): LevelId => LEVELS.find((l) => l.priorities.includes(e.priority))?.id ?? "L3";
 
-export type LevelFilter = { notesOnly: boolean; hideDone: boolean; query?: string };
+export type LevelFilter = { notesOnly: boolean; hideDone: boolean; query?: string; themes?: string[] | null };
 
 // Case-insensitive search over the fields a reader would remember; every
 // whitespace-separated word must match somewhere.
@@ -48,7 +59,9 @@ export function groupLevel(
 ) {
   const q = filter.query?.trim() ?? "";
   const keep = entries.filter(
-    (e) => (q ? matchesQuery(e, q) : levelOf(e) === level) && (!filter.notesOnly || hasNote(e.id)) && (!filter.hideDone || statusOf(e.id) !== "done"),
+    (e) =>
+      (q ? matchesQuery(e, q) : levelOf(e) === level && (!filter.themes || filter.themes.includes(themeOf(e).id))) &&
+      (!filter.notesOnly || hasNote(e.id)) && (!filter.hideDone || statusOf(e.id) !== "done"),
   );
   return THEMES.map((t) => ({
     theme: t,
