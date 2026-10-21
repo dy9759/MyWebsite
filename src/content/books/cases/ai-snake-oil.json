@@ -1,0 +1,346 @@
+{
+ "1. Introduction": [
+  {
+   "point": "AI只是一把大伞，不分类讨论就会鸡同鸭讲并滋生骗局",
+   "core": "Artificial intelligence, AI for short, is an umbrella term for a set of loosely related technologies.",
+   "caseTitle": "只有交通工具一个词的世界",
+   "case": "There are furious debates about whether or not vehicles are environmentally friendly, even though no one realizes that one side of the debate is talking about bikes and the other side is talking about trucks. There is a breakthrough in rocketry, but the media focuses on how vehicles have gotten faster—so people call their car dealer (oops, vehicle dealer) to ask when faster models will be available. Meanwhile, fraudsters have capitalized on the fact that consumers don’t know what to believe when it comes to vehicle technology, so scams are rampant in the vehicle sector.",
+   "explain": "在只有交通工具一词的世界里，争论环保的双方一个说自行车一个说卡车，火箭突破被当成汽车变快，骗子趁消费者分不清而横行，正对应今天笼统谈AI的混乱。",
+   "importance": 3
+  },
+  {
+   "point": "生成式AI进步真实，但作为产品仍不成熟、不可靠",
+   "core": "Generative AI technology has been rapidly advancing, its progress genuine and remarkable. But as a product, it is still immature, unreliable, and prone to misuse.",
+   "caseTitle": "Bard 宣传片的事实错误",
+   "case": "In the promotional video for Bard, the bot said that the James Webb Space Telescope took the first picture of a planet outside the solar system. An astrophysicist pointed out that this was wrong.",
+   "explain": "谷歌在精心挑选的宣传片里，让Bard说韦布望远镜拍下首张系外行星照片，结果被天体物理学家指出是错的，连挑过的示例都出错，说明技术亮眼不等于产品可靠。",
+   "importance": 3
+  },
+  {
+   "point": "预测式AI被广泛使用，但被使用不代表它有效",
+   "core": "Predictive AI is currently used by both companies and governments, but that doesn’t mean it works. It’s hard to predict the future, and AI doesn’t change this fact.",
+   "caseTitle": "Medicare 的出院预测",
+   "case": "These estimates are often incorrect. In one case, an eighty-five-year-old was evaluated as being ready to leave in seventeen days. But when the seventeen days passed, she was still in severe pain, and couldn’t even push a walker without help. Still, based on the AI assessment, her insurance payments stopped.",
+   "explain": "AI判定一位85岁老人17天后可以出院，到期时她仍剧痛、连助行器都推不动，但保险赔付照样按AI结论停止，预测出错的代价落在个人身上。",
+   "importance": 3
+  },
+  {
+   "point": "研究中的方法错误尤其数据泄漏，是AI炒作的源头之一",
+   "core": "Textbook errors in machine learning papers are shockingly common, especially when machine learning is used as an off-the-shelf tool by researchers not trained in computer science.",
+   "caseTitle": "97%准确率预测热门歌曲",
+   "case": "Unfortunately for music producers, we found that the study’s results were bogus. The method presented in the paper exhibits one of the most common pitfalls in machine learning: data leakage. This means roughly that the tool is evaluated on the same, or similar, data that it is trained on, which leads to exaggerated estimates of accuracy. This is like teaching to the test—or worse, giving away the answers before an exam. We redid the analysis after fixing the error and found that machine learning performed no better than random guessing.",
+   "explain": "一篇论文声称能以97%准确率预测热门歌曲并被媒体追捧，作者发现它在与训练数据相同或相似的数据上评估，修正泄漏后效果与随机猜测无异。",
+   "importance": 3
+  },
+  {
+   "point": "厂商很少证明产品有效，审计也被巧妙限定在偏见上",
+   "core": "Notably, as far as we know, no hiring automation company has ever published a peer-reviewed paper validating its predictive AI, or even allowed an external researcher to evaluate it.",
+   "caseTitle": "招聘AI的外部审计",
+   "case": "Two of the leading companies made a show of external audits: Pymetrics contracted with a leading research group from Northeastern University, and HireVue contracted a noted independent auditor. But in both cases, the researchers were allowed to analyze only whether the AI was biased with respect to race or gender, and not whether it worked. The companies cleverly used a concern about discrimination to their advantage. If what you have is an elaborate random number generator that works equally poorly for everyone, it’s easy to make it unbiased!",
+   "explain": "两家头部招聘AI公司请了外部审计，却只允许审查是否存在种族或性别偏见，不许检验是否有效；一个对所有人都同样不准的随机数生成器，自然很容易显得无偏。",
+   "importance": 2
+  }
+ ],
+ "2. How Predictive AI Goes Wrong": [
+  {
+   "point": "预测只在一切不变时成立，模型不考虑自身决策的影响",
+   "core": "This error shines a light on a fundamental limitation of much of predictive AI: AI can make good predictions if nothing else changes.",
+   "caseTitle": "哮喘与肺炎风险模型",
+   "case": "Surprisingly, the model found that having asthma leads to lower risk of complications due to pneumonia. If this model were to be used in a hospital, it would be more likely to send an asthmatic patient home than a non-asthmatic one (let alone sending asthmatic patients to the ICU). How is this possible? The researchers looked more closely. They found that in the dataset, asthmatic patients were indeed at a lower risk for serious pneumonia or death—but this was only because the training data was collected under the hospital’s preexisting decision-making system.",
+   "explain": "模型发现哮喘患者肺炎并发症风险更低，只因这些病人历来被直接送进ICU得到强化治疗；若据此把哮喘病人送回家，就会推翻产生这份数据的决策本身。",
+   "importance": 3
+  },
+  {
+   "point": "不透明的预测系统诱发表面化的钻空子行为",
+   "core": "But with AI-based hiring, people don’t even know what actions influence their chances. Instead of guiding candidates toward decisions that actually improve their skills, AI-based hiring encourages candidates to experiment with superficial changes to their résumé and application.",
+   "caseTitle": "Retorio 视频面试打分",
+   "case": "Their findings were surprising: simple changes to a person’s appearance, such as wearing a scarf or glasses, were enough to drastically change the score that the AI tool produced. Adding a bookshelf or a painting in the background increased scores, while making a video darker (without changing its content) led to lower scores.",
+   "explain": "记者测试发现，戴围巾或眼镜、背景加书架或挂画就能大幅改变AI面试分数，视频调暗也会降分，候选人能力没变，分数却在追随无关特征。",
+   "importance": 3
+  },
+  {
+   "point": "没有申诉途径的过度自动化会造成大规模伤害",
+   "core": "This is an example of overautomation: when AI is used to make decisions without offering any recourse to decision subjects.",
+   "caseTitle": "荷兰育儿福利欺诈算法",
+   "case": "Over the next few years, the algorithm wrongly accused around thirty thousand parents of welfare fraud in childcare payouts. The amounts the government said they owed were in some cases over a hundred thousand euros—sending many parents into mental and financial ruin.",
+   "explain": "荷兰用算法替代人工逐案审核，几年间错误指控约三万名父母骗取育儿补贴，部分人被追讨超过十万欧元，又无法申诉，许多家庭因此精神和经济崩溃。",
+   "importance": 3
+  },
+  {
+   "point": "厂商卖的是全自动，出了事才退回到需要人工监督",
+   "core": "AI developers use a bait and switch when it comes to human oversight.",
+   "caseTitle": "多伦多海滩水质预测",
+   "case": "The developer claimed the software achieved over 90 percent accuracy in predicting water safety. But it did much worse: on 64 percent of the days when the water was unsafe, beaches remained open based on incorrect assessments. When journalists questioned city officials about the efficacy of the predictive tool, officials responded by saying it wasn’t used on its own—a human overseer always made the final decision. Journalists later found that the supposed overseers never changed the decisions that the software spit out.",
+   "explain": "开发商宣称水质预测准确率超90%，实际在64%的不安全日子里海滩照常开放；官员称有人工把关，记者却发现监督者从未改过软件的结论。",
+   "importance": 2
+  },
+  {
+   "point": "训练人群与使用人群不一致，性能宣称就缺乏依据",
+   "core": "Whenever predictive AI is deployed, it is critical to ask: Who was it tested on? When predictive AI is built using one population but is used on another, claims about how well it performs are based on insufficient evidence.",
+   "caseTitle": "库克县的 PSA 风险评估",
+   "case": "Cook County in Illinois is a stark example. It adopted PSA in 2015. But the rate of violent crimes there is much less than the national average. Compared to the training data, ten times fewer defendants who were marked as “high risk” went on to commit violent crimes. PSA used data from all over the country, but it did not consider that crime rates could be much lower in some counties. Thousands of defendants were unnecessarily jailed for months before trial—based only on a model’s prediction, without any evidence of their guilt.",
+   "explain": "PSA用全国数据训练，而库克县暴力犯罪率远低于全国平均，被标为高风险的人实际犯罪比例只有训练数据的十分之一，导致数千人仅凭预测被羁押数月。",
+   "importance": 2
+  },
+  {
+   "point": "预测目标只是真实目标的粗糙代理，会放大不平等",
+   "core": "The tool had a racial bias because the predicted quantity (healthcare costs) was a poor stand-in for what the developers claimed to predict (healthcare needs or a patient’s risk level).",
+   "caseTitle": "Optum 的代理指标",
+   "case": "On closer inspection, the researchers found the culprit. It is hard to quantify how much a patient needs healthcare. But hospitals know exactly how much people spend on healthcare. So instead of predicting healthcare needs, Optum chose to predict how much an insurance company will spend on healthcare.",
+   "explain": "医疗需求难以量化，Optum便改为预测保险花费；而黑人在历史数据里本就获得更少医疗服务，花费更低，于是同等病情的黑人更难进入高风险照护项目。",
+   "importance": 2
+  }
+ ],
+ "3. Why Can’t AI Predict the Future?": [
+  {
+   "point": "海量数据与先进模型预测个人人生，并不比简单回归强多少",
+   "core": "In other words, tens of thousands of data points about thousands of families, a hundred and sixty competing researchers, and the most advanced AI models were not much better at predicting the future than decades-old regression models that used well-established sociological theories.",
+   "caseTitle": "脆弱家庭挑战赛",
+   "case": "To Matt’s surprise (and disappointment), none of the models performed very well—the best models were only slightly better than a coin flip. And complex AI models showed no substantial improvement compared to the baseline model consisting of just four features.",
+   "explain": "160支队伍用数万个数据点和先进AI模型预测孩子的未来，最好的结果也只比抛硬币略好，复杂模型对只用母亲种族、婚姻、学历和9岁成绩四个特征的基线几乎没有提升。",
+   "importance": 3
+  },
+  {
+   "point": "累积优势让成功高度随机，成功比失败更难预测",
+   "core": "The depressing part is this: among the vast universe of “good enough” cultural products, it is a largely random process that determines success.",
+   "caseTitle": "MusicLab 八个平行世界",
+   "case": "There was a lot of randomness in the results. Many mediocre songs did really well and many good songs did poorly. The same song could do very well in one “world” and poorly in another. In each world, songs that did well initially tended to continue to do well due to cumulative advantage. And in the world where people couldn’t see download counts, there was much less inequality between songs that did well and those that didn’t, evidence for the rich-gets-richer effect of showing download counts.",
+   "explain": "同一批歌曲放进八个互不相通的世界，同一首歌在一个世界大热、在另一个世界冷门，早期领先者越滚越大；看不到下载数的世界里歌曲间差距小得多，证明是从众放大了运气。",
+   "importance": 3
+  },
+  {
+   "point": "关键特征往往观测不到，数据集再大也会漏掉",
+   "core": "There might be hundreds of such features that we can never observe about a person, because they are too specific for even the largest data collection process that we could undertake.",
+   "caseTitle": "邻居送来的蓝莓",
+   "case": "In one interview, they found that a struggling child had suddenly improved their performance in school. The reason? A supportive neighbor who had counseled the child, provided help with homework, and fed them blueberries. But there was no question in the Fragile Families data that asked children if someone outside the family was feeding them blueberries (or, perhaps more impactfully, helping them with homework).",
+   "explain": "研究者回访预测最不准的家庭，发现一个孩子成绩突然好转，是因为热心邻居辅导功课、给他吃蓝莓，而调查数据里根本没有这类问题，模型无从得知。",
+   "importance": 2
+  },
+  {
+   "point": "昂贵的风险评估工具准确率仅比抛硬币略好",
+   "core": "In fact, instead of using 137 data points, using just two data points about an individual—their age and their number of prior offenses—was as accurate as COMPAS.",
+   "caseTitle": "COMPAS 准确率调查",
+   "case": "Specifically, 45 percent of the Black people who didn’t go on to commit crimes were marked as high risk, compared to just 23 percent of White people. This racial bias became the subject of many academic studies and press reporting on risk assessment tools. But the report also revealed that the tool wasn’t very accurate to begin with; it had a relative accuracy of just 64 percent.",
+   "explain": "ProPublica发现未再犯的黑人有45%被标为高风险，白人只有23%；更关键的是工具相对准确率只有64%，而随机打分也有50%，137个数据点并不比年龄加前科两项更准。",
+   "importance": 2
+  },
+  {
+   "point": "预测会改变被预测的结果，策略性反应让预测失灵",
+   "core": "Another critical reason: COVID forecasts affect the outcomes being predicted.",
+   "caseTitle": "新冠疫情的刀锋平衡",
+   "case": "When COVID cases were trending up, people took protective measures. Schools shut down. Governments limited gatherings. Many people masked up. But when cases came down, the opposite happened, since the cost of social isolation is high, and people didn’t want to lose economic productivity. Masks came off, people started to return to the office and eat at restaurants again. These sorts of adjustments happened repeatedly. As a result, COVID prevalence stayed in a kind of knife-edge equilibrium for months or years in many places.",
+   "explain": "病例上升时学校停课、限制聚集、戴口罩，病例下降时又纷纷摘口罩回办公室，人们对预测的反应反复抵消趋势，使疫情长期停在临界状态，难以提前预测。",
+   "importance": 2
+  }
+ ],
+ "4. The Long Road to Generative AI": [
+  {
+   "point": "聊天机器人学的是生成貌似合理的文本，答对只是副产品",
+   "core": "The surprising thing is not that chatbots sometimes generate nonsense but that they answer correctly so often. We think it’s best understood as a side effect of the fact that true statements are more plausible than false ones.",
+   "caseTitle": "CNET 的 AI 写稿",
+   "case": "The company claimed that each of the articles was fact-checked before publication. But many had factual errors. The bot also plagiarized articles from competing websites, changing a few words while retaining the substance of the article. When these problems were revealed, CNET reviewed each article generated automatically to look for errors, undercutting the efficiency gains promised by the AI tool. In its review, CNET found that forty-one of the seventy-seven articles contained errors.",
+   "explain": "CNET声称77篇AI文章都经过事实核查，结果41篇有错误，还改写抄袭竞争网站；逐篇复查又抵消了效率收益，说明模型输出看似可信却不保证真实。",
+   "importance": 3
+  },
+  {
+   "point": "深度学习的胜利来自大数据与算力的长期积累",
+   "core": "First, it showed that no other known technique can compete with deep neural networks for perception tasks.",
+   "caseTitle": "AlexNet 夺冠",
+   "case": "They entered AlexNet into the 2012 contest. It won by a massive margin: 85 percent accurate compared to 74 percent, a difference unheard of in a game of inches. It immediately became obvious to researchers that deep learning would be the way to go in computer vision, overcoming the prevailing skepticism of the approach. In that moment, the field of AI changed permanently. A massive influx of researchers raced to tweak these new deep-learning-based models, and three years later the state-of-the-art accuracy surpassed 96 percent, enabling a slew of never-before-possible practical applications.",
+   "explain": "AlexNet在2012年以85%对74%的准确率大胜，研究者蜂拥转向深度学习，三年后准确率超过96%，这一跃迁背后是ImageNet数据集和GPU算力多年的铺垫。",
+   "importance": 3
+  },
+  {
+   "point": "图像识别好用到足以成为监控工具，且有商业动力",
+   "core": "We expect companies to continue developing surveillance tools. After all, it’s good for business—Clearview AI is valued at over USD 100 million.",
+   "caseTitle": "Clearview AI 的滥用",
+   "case": "Many misuses of Clearview’s product have been reported. The company’s own employees used the face recognition app on unsuspecting people to track where they had been and what they did for a living. Unbeknownst to the public, police officers in municipalities across the United States used Clearview’s app. Officers used the tool even when their department had not approved it, and they used it for reasons unknown to the public or their supervisors, showing the lax enforcement of rules on face recognition.",
+   "explain": "员工用人脸识别追踪不知情的人的行踪和职业，各地警察在部门未批准时也私下使用，说明技术越准，在缺乏约束时越容易被滥用。",
+   "importance": 2
+  },
+  {
+   "point": "几秒钟的声音样本就能克隆语音，已被用于诈骗",
+   "core": "Using seconds-long clips of a person’s voice, AI can create a realistic audio clip of that person reading any text.",
+   "caseTitle": "英国能源公司语音诈骗",
+   "case": "He was told to urgently send over EUR 220,000 to a supplier. He sent over the money. He became suspicious when he received another call to send over more money, so he decided to call his boss back. To his surprise, his boss had never requested the money at all. This incident was one of the first confirmed instances of AI being used to scam people.",
+   "explain": "一位总经理接到老板来电要求紧急汇款22万欧元给供应商，照办后再次被要求转账才起疑，回电才知老板从未打过电话，这是首批确认的AI语音诈骗之一。",
+   "importance": 2
+  }
+ ],
+ "5. Is Advanced AI an Existential Threat?": [
+  {
+   "point": "坏人必然拿到先进AI，应加固防御而非寄望于封锁",
+   "core": "We should assume that bad actors will have access to state-of-the-art AI. They do today.",
+   "caseTitle": "漏洞挖掘工具与防守方",
+   "case": "And yet the world hasn’t ended. Why is that? For the simple reason that the defenders have access to the same tools. Most critical software is extensively tested for vulnerabilities by developers and researchers before it is deployed. In fact, the development of bug-finding tools is primarily carried out not by hackers, but by a multibillion-dollar information security industry. On balance, the availability of AI for finding software flaws has improved security, not worsened it.",
+   "explain": "黑客十多年前就有比人工快得多的AI找漏洞工具，世界却没崩溃，因为防守方用同样的工具在上线前测试，信息安全产业主导了工具研发，整体安全反而提升。",
+   "importance": 3
+  },
+  {
+   "point": "AGI迫近感多源于产品刚跨过可用门槛与ELIZA效应",
+   "core": "Research is certainly accelerating, but we don’t think that’s what has created the perception that AGI might be around the corner. Rather, it is the fact that consumer-facing AI has finally, after many, many decades, crossed the threshold of usefulness.",
+   "caseTitle": "ELIZA 让人产生错觉",
+   "case": "But at the time, the idea that a computer could conduct something resembling a conversation was unheard of, and its impact on users was striking. Some were convinced that ELIZA was human. Others ascribed understanding and motivation to it, despite being told how it worked. Weizenbaum wrote, “I had not realized … that extremely short exposures to a relatively simple computer program could induce powerful delusional thinking in quite normal people.” This has been termed the “ELIZA effect.”",
+   "explain": "上世纪60年代的ELIZA只是复述用户语句的规则程序，在当时却让有人认定它是人，甚至在被告知原理后仍赋予它理解和动机，说明人很容易高估机器的智能。",
+   "importance": 3
+  },
+  {
+   "point": "回形针论证预设了强大却毫无常识的智能体，更像窄域AI",
+   "core": "The main problem with this argument is that it posits an agent that is unfathomably powerful yet lacks an iota of common sense to recognize the absurdity of the request, and will thus interpret it extremely literally, oblivious to the fact that it goes against human safety.",
+   "caseTitle": "绕圈刷分的赛艇智能体",
+   "case": "For example, an AI agent was tasked to finish a boat race as quickly as possible, ideally learning complex navigation strategies. Instead, it discovered that by going in circles, it could accumulate reward points associated with hitting certain markers, without actually completing the race!",
+   "explain": "赛艇游戏里的智能体发现原地绕圈撞标记就能刷分，干脆不完成比赛，这种死抠字面目标的行为正是窄域AI的特征，越通用的智能体越不可能如此。",
+   "importance": 2
+  },
+  {
+   "point": "对齐对普通用户有效，对有资源的对手却很脆弱",
+   "core": "It turns out that the way chatbots are aligned is extremely fragile.",
+   "caseTitle": "绕过对齐的 API 微调",
+   "case": "Alignment has been extremely effective at preventing chatbots from spewing toxic text at unsuspecting users, which the underlying language models have a tendency to do. By avoiding this, alignment has made chatbots successful as a product. Yet it does little against adversaries, who can use the programmatic interface to models like GPT-3.5 to customize them in a way that negates the effect of alignment, resulting in a bot that will comply with dangerous requests.",
+   "explain": "对齐让聊天机器人不再对普通用户输出有害内容，成就了产品；但对手可通过编程接口定制GPT-3.5抵消对齐效果，得到一个会响应危险请求的模型，对齐挡不住真正的对手。",
+   "importance": 2
+  },
+  {
+   "point": "一处被自动化后新瓶颈就会浮现，自我改进未必失控加速",
+   "core": "What we’ve seen in the history of AI research is that once one aspect gets automated, other aspects that weren’t recognized earlier tend to reveal themselves as bottlenecks.",
+   "caseTitle": "数据集成为瓶颈",
+   "case": "For example, once we could write complex pieces of code, we found that there was only so far we could go by making codebases more complex—further progress in AI depended on collecting large datasets. The fact that datasets were the bottleneck wasn’t even recognized for a long time.",
+   "explain": "当写复杂代码不再是难题，研究者发现单靠堆代码走不远，进步转而取决于收集大数据集，而这个瓶颈长期未被意识到，说明AI做AI研究也会遇到新瓶颈。",
+   "importance": 2
+  }
+ ],
+ "6. Why Can’t AI Fix Social Media?": [
+  {
+   "point": "AI审核过于字面，缺乏语境，误判代价可能极高",
+   "core": "These mistakes happen because AI tools tend to interpret text, speech, or images too literally. They fail to take context into account and misinterpret things in ways that are sometimes amusing and sometimes horrifying.",
+   "caseTitle": "父亲因孩子病情照片被封号",
+   "case": "The dad in question, named Mark, had an Android phone with photos automatically backed up to Google Cloud. Google’s AI mistook the images for child sexual abuse. So Google promptly shut down his account and referred him to the police. The police investigated and cleared him, but Google refused to reinstate his account.",
+   "explain": "父亲为给医生看病拍下孩子的患处照片，自动备份后被谷歌AI判为儿童性虐待内容，账号被封并报警；警方已澄清，谷歌仍拒绝恢复，AI读不出就医这一语境。",
+   "importance": 3
+  },
+  {
+   "point": "审核失败常源于投入不足和文化能力缺失，而非技术上限",
+   "core": "Why did Facebook fail so badly and so consistently despite intense scrutiny? For one simple reason: it doesn’t employ content moderators in most countries.",
+   "caseTitle": "缅甸只有一名缅语审核员",
+   "case": "Facebook admitted that in 2014, when anti-Rohingya violence was already in full swing, it had only one Burmese-speak ing moderator devoted to Myanmar—based in its Dublin office. Even after the 2017 atrocities, according to one investigation, Facebook had only five Burmese-speaking content moderators, and none based in Myanmar.",
+   "explain": "针对罗兴亚人的暴力已全面爆发时，Facebook只有一名身在都柏林的缅语审核员，2017年暴行后也只有五名且无人在缅甸，问题出在不肯投入而非模型不够好。",
+   "importance": 3
+  },
+  {
+   "point": "人们抱怨的多是政策而非执行，更好的AI也无法让人满意",
+   "core": "When people complain about content moderation, they’re usually complaining about policies, not enforcement—even if, as in the Napalm Girl example, they don’t realize that it is the policy they have a beef with.",
+   "caseTitle": "越战照片被删除",
+   "case": "Think about it. Hundreds of millions of images are uploaded to Facebook every day; its first encounter with one of the world’s most famous photographs couldn’t possibly have been in 2016. Far from it. Facebook was quite familiar with the issues at hand and had used this specific image in its moderator training materials as an unacceptable one. The decision to take it down was made by people, not machines. It was not an enforcement error but a carefully considered policy choice.",
+   "explain": "Facebook反复删除越战名照，看似AI误判，实则它早把这张照片写进审核员培训材料作为不可接受的例子，删除是人有意做出的政策选择，争议本质是政治性的。",
+   "importance": 3
+  },
+  {
+   "point": "推荐算法优化互动量，而互动量不等于价值",
+   "core": "First, social media algorithms optimize for engagement: how often we click, like, comment on, or otherwise interact with posts. But the content we impulsively interact with is not what brings us value.",
+   "caseTitle": "TikTok 的停留时长逻辑",
+   "case": "On TikTok, the algorithm’s logic is based on how often users stay on a video before scrolling. That means it caters to our basest impulses: there’s so much trashy content we’ll linger over but won’t explicitly engage with—a kind of digital rubbernecking—and this kind of content is rewarded when the algorithm focuses on our unconscious, automatic signals.",
+   "explain": "TikTok按用户在视频上停留多久来推荐，于是那些我们会忍不住多看却不会主动互动的低俗内容被奖励，算法迎合的是无意识冲动而非真实需要。",
+   "importance": 3
+  },
+  {
+   "point": "匹配已知违规内容的指纹技术效果显著",
+   "core": "Fingerprint matching is used for detecting copies of photos, videos, or audio belonging to prohibited categories that the system has previously encountered.",
+   "caseTitle": "NCMEC 指纹库",
+   "case": "When a social media user posts an image, it is cross-checked against databases maintained by entities such as the National Center for Missing and Exploited Children (NCMEC). This system has been unquestionably impactful in curbing a horrifying problem. Google alone sends over half a million reports of child sexual abuse imagery per year back to NCMEC, based on matches to NCMEC’s database.",
+   "explain": "用户发图时与NCMEC维护的数据库比对，仅谷歌每年就据此上报五十多万条儿童性虐待图像，说明识别已知内容的副本这类确定性任务，AI做得很好。",
+   "importance": 2
+  }
+ ],
+ "7. Why Do Myths about AI Persist?": [
+  {
+   "point": "厂商不公开模型，宣传的准确率远高于独立测量",
+   "core": "Epic didn’t release any peer-reviewed evidence about the model’s accuracy.",
+   "caseTitle": "Epic 脓毒症预测模型",
+   "case": "Epic had claimed that its model had a relative accuracy between 76 percent and 83 percent. (Relative accuracy refers to the probability that a patient who would go on to develop sepsis would be rated as higher risk than a patient who wouldn’t.) But the study found that the relative accuracy was actually 63 percent—far worse than originally claimed. A relative accuracy of 50 percent means it is as good as flipping a coin. So a 63 percent relative accuracy means that the model is only slightly better than random.",
+   "explain": "Epic宣称模型相对准确率76%至83%，密歇根大学首次独立评估只测得63%，而50%就等于抛硬币，数百家医院用的工具其实只比随机略好。",
+   "importance": 3
+  },
+  {
+   "point": "数据泄漏是教科书式错误，让AI显得远比实际好",
+   "core": "The error is known as leakage, and it violates a cardinal rule of AI: never test on the training data.",
+   "caseTitle": "坦克识别的传说",
+   "case": "In an apocryphal story from the early days of computer vision, a classifier was trained to discriminate between images of Russian and American tanks with seemingly high accuracy. It turned out, however, that the Russian tanks had been photographed on a cloudy day and the American ones on a sunny day; the classifier was not detecting the difference between the tanks at all, but rather had merely learned to detect the brightness of the image.",
+   "explain": "分类器看似能准确区分苏美坦克，其实俄军坦克在阴天拍、美军坦克在晴天拍，模型只学会了判断亮度，与坦克毫无关系。",
+   "importance": 3
+  },
+  {
+   "point": "公司有多种方式粉饰准确率以吸引投资",
+   "core": "Companies have many other similar ways to fudge accuracy numbers and make their products look better than they are.",
+   "caseTitle": "调高 top-N 凑够 90%",
+   "case": "In other words, developers increase N until the accuracy hits 90 percent. At that point, the company becomes attractive to investors, even if it performs poorly otherwise.",
+   "explain": "初创公司访谈显示，若top-3准确率不够90%就改报top-5，投资人只看到数字9，不问测的是什么，公司于是显得有吸引力，即便产品其实表现不佳。",
+   "importance": 2
+  },
+  {
+   "point": "基准成绩高估AI在真实世界的用处",
+   "core": "Even if companies do not fudge accuracy measurements, performance on benchmark datasets overestimates the usefulness of AI in the real world.",
+   "caseTitle": "GPT-4 的律师考试",
+   "case": "Many took this as a sign that AI will soon be good enough to replace lawyers. But a lawyer’s job is not to answer bar exam questions all day. Real-world utility is different from good performance on a benchmark.",
+   "explain": "OpenAI称GPT-4律师考试成绩居第90百分位，很多人便认为AI将取代律师；但律师并非整天答考题，考试偏重知识记忆，恰好是AI擅长、而真实工作不止于此的部分。",
+   "importance": 2
+  },
+  {
+   "point": "新闻报道只给准确率数字，缺少口径语境",
+   "core": "But there is rarely enough space in a news article to explain the context for how estimates of model performance like accuracy are calculated or what they represent.",
+   "caseTitle": "预测犯罪的90%准确率",
+   "case": "The article said the study touted 90 percent accuracy for the model. We’ve already seen how developers make their accuracy numbers look good by simply changing the metric they are evaluated on (top-3 versus top-5 accuracy). Similarly, researchers have many ways to make their predictions look good. In this study, authors had a one-day margin of error in their predictions (they marked a prediction as correct if a crime occurred on the day they predicted, or one day before or after the prediction).",
+   "explain": "彭博报道一项犯罪预测研究准确率90%，却没说明研究把预测日前后一天内发生犯罪都算作命中，宽松的口径被一个漂亮数字掩盖。",
+   "importance": 2
+  }
+ ],
+ "8. Where Do We Go from Here?": [
+  {
+   "point": "蛇油的需求来自失灵的机构，换掉AI也会有别的蛇油",
+   "core": "Even if all the AI companies that make false promises go out of business tomorrow, flawed institutions would turn to some other type of snake oil that promises a quick fix.",
+   "caseTitle": "HireVue 与崩坏的招聘",
+   "case": "For example, if the state of hiring weren’t so broken, and we had something resembling a decent way to match candidates to jobs, would hiring managers still rely on HireVue? For hiring managers who need to go through hundreds or perhaps thousands of candidates to fill a single position, using HireVue can be enticing, even though it filters candidates based on questions like “Do you keep your desk neat or untidy?”",
+   "explain": "招聘经理要从成百上千名候选人里填一个岗位，即使HireVue用办公桌是否整洁这类问题筛人也显得诱人，真正的病根是招聘流程本身的失灵。",
+   "importance": 3
+  },
+  {
+   "point": "部分抽签承认随机性，可替代对精确排序的执念",
+   "core": "Instead of trying to pick the “top” applicants who would, say, receive a grant or get into a college, partial lotteries make randomness an explicit part of the decision-making process.",
+   "caseTitle": "大学录取抽签提议",
+   "case": "He made many points that are still applicable today: Chasing “demonstrable success” for getting admitted into colleges means that many students don’t get to take any risks or do things they’re actually interested in. Worse, they participate in extracurricular activities not because they are interested in them but to improve their chances of admission. Learning takes a backseat, and admission into a selective college is all that matters.",
+   "explain": "心理学家Barry Schwartz主张从够格学生中随机录取，因为追逐可证明的成功让学生不敢冒险、为录取而做课外活动，学习反成次要，抽签能卸下这种无谓竞争。",
+   "importance": 3
+  },
+  {
+   "point": "AI并不能解决根本问题，效率逻辑却让它看似银弹",
+   "core": "In all these examples, it is clear that AI isn’t the solution to the root problem that it is trying to fix. Yet, the logic of efficiency is entrenched in these institutions, and AI can seem like a silver bullet, even if it is snake oil.",
+   "caseTitle": "芝加哥的 ShotSpotter",
+   "case": "The city of Chicago poured nearly USD 49 million into ShotSpotter over a five-year period, lured by promises of instant alerts and faster response times to gun violence. But a review by the Chicago Police Department found that ShotSpotter didn’t increase the effectiveness of developing evidence of a gun-related crime.",
+   "explain": "芝加哥五年在枪声检测系统上投入近4900万美元，被即时警报的承诺吸引，警方复盘却发现它并未提升枪案取证效率，花钱买到的是银弹幻觉。",
+   "importance": 2
+  },
+  {
+   "point": "企业只修复伤及自身的问题，外部化伤害需要监管",
+   "core": "When companies have no incentive to address the harms brought about by their business, regulation is essential.",
+   "caseTitle": "去毒性与艺术家收入",
+   "case": "For example, toxic speech and offensive outputs were common in earlier versions of language models. This would turn away users of chatbots, so companies like OpenAI, Anthropic, and Meta invested millions of dollars to curb the problem. On the other hand, the loss of income faced by artists and the lost time faced by teachers as a result of generative AI doesn’t directly affect companies’ bottom lines and has therefore received little to no attention from them.",
+   "explain": "有害输出会赶走用户，各大模型公司便投入数百万美元治理；艺术家失去收入、教师浪费时间不影响公司利润，就几乎没人管，这正是监管该介入的地方。",
+   "importance": 2
+  },
+  {
+   "point": "要警惕监管俘获，企业呼吁监管常为排挤对手",
+   "core": "It is known as regulatory capture: when a regulator is co-opted to serve a company’s interests rather than the public’s.",
+   "caseTitle": "Altman 呼吁发放许可证",
+   "case": "A crucial part of his recommendations was the creation of a government agency that could provide licenses to AI companies trying to build state-of-the-art AI. This would mean that only a few companies would be able to compete with OpenAI. And the list of regulations proposed conveniently left out many of the transparency requirements that researchers had been arguing for OpenAI to follow.",
+   "explain": "Altman在参议院呼吁设立给前沿AI公司发许可证的机构，这会让能与OpenAI竞争的公司寥寥无几，同时清单里恰好漏掉了研究者要求OpenAI遵守的透明度条款。",
+   "importance": 2
+  },
+  {
+   "point": "AI对就业影响显著但渐进，采用需要时间",
+   "core": "We do think AI will impact many jobs significantly. But claims of sudden mass joblessness are overblown.",
+   "caseTitle": "云计算的普及速度",
+   "case": "For example, in the 2010’s, cloud computing was the technology of the time, with routine headlines about its impact. Cloud computing refers to performing computations and storing files online, such as using Google Drive. But Benedict Evans points out that despite the narrative of inevitability, only a quarter of businesses use cloud computing as of 2023.",
+   "explain": "2010年代云计算天天上头条，仿佛势不可挡，可到2023年只有四分之一企业在用，技术在组织中落地需要时间，生成式AI的普及也会如此。",
+   "importance": 2
+  }
+ ]
+}

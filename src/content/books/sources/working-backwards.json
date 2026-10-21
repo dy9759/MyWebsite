@@ -1,0 +1,64 @@
+{
+ "items": [
+  {
+   "title": "2017 Letter to Shareholders",
+   "url": "https://www.aboutamazon.com/news/company-news/2017-letter-to-shareholders",
+   "source": "Jeff Bezos · Amazon",
+   "date": "2018",
+   "kind": "文章",
+   "summary": "贝索斯谈高标准可以后天习得且分领域，并解释亚马逊为何不用幻灯片，而是在会议开头默读六页叙述文档。",
+   "case": "他借倒立教练的话说，多数人以为两周能学会倒立，其实要每天练半年；写备忘录同理，好文档往往要写一周以上、反复修改，低估难度是文档质量差的主因。",
+   "point": "六页纸的价值在于逼出清晰思考，且需要足够投入",
+   "chapter": "4. Communicating: Narratives and the Six-Pager",
+   "verified": true
+  },
+  {
+   "title": "2016 Letter to Shareholders",
+   "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders",
+   "source": "Jeff Bezos · Amazon",
+   "date": "2017",
+   "kind": "文章",
+   "summary": "贝索斯阐述第一天心态：警惕把流程当成目标的代理指标，拥抱外部趋势，并用快速决策对抗大公司的僵化。",
+   "case": "对一部亚马逊影业原创剧，他对题材吸引力和商业条款都有疑虑，但团队想做；他回复说自己不同意但全力支持，希望它成为最受欢迎的作品，决策因此没被拖慢。",
+   "point": "领导力准则如何落成日常可执行的行为",
+   "chapter": "1. Building Blocks: Leadership Principles and Mechanisms",
+   "verified": true
+  },
+  {
+   "title": "2018 Letter to Shareholders",
+   "url": "https://www.aboutamazon.com/news/company-news/2018-letter-to-shareholders",
+   "source": "Jeff Bezos · Amazon",
+   "date": "2019",
+   "kind": "文章",
+   "summary": "贝索斯谈第三方卖家份额从 3% 涨到 58%，强调发明需要有方向的漫游，失败规模也应随公司一起变大。",
+   "case": "Fire 手机失败了，但其中的经验和开发者加速了 Echo 与 Alexa；没有客户主动要过 Echo 或 AWS，到 2018 年 Alexa 设备已卖出超过一亿台。",
+   "point": "发明必须实验，大赌注的失败是成本也是养料",
+   "chapter": "Introduction to Part Two",
+   "verified": true
+  },
+  {
+   "title": "Working Backwards",
+   "url": "https://www.allthingsdistributed.com/2006/11/working_backwards.html",
+   "source": "Werner Vogels · All Things Distributed",
+   "date": "2006-11",
+   "kind": "文章",
+   "summary": "亚马逊 CTO 早年公开介绍逆向工作法：先写新闻稿，再写常见问题、描述客户体验并写用户手册，最后才动手开发。",
+   "case": "",
+   "point": "内部人亲述的 PR/FAQ 雏形，与书中流程一致",
+   "chapter": "",
+   "verified": true
+  },
+  {
+   "title": "Unpacking Amazon's unique ways of working",
+   "url": "https://www.lennysnewsletter.com/p/unpacking-amazons-unique-ways-of",
+   "source": "Lenny Rachitsky · Lenny's Podcast",
+   "date": "2023-11",
+   "kind": "播客",
+   "summary": "合著者 Bill Carr 系统讲解 PR/FAQ、飞轮与投入指标、好的投入指标长什么样，以及单线程领导与职能型组织的对比。",
+   "case": "",
+   "point": "作者本人补充单线程领导与投入指标的落地细节",
+   "chapter": "",
+   "verified": true
+  }
+ ]
+}

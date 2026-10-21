@@ -1,0 +1,432 @@
+{
+ "1. Overview of Machine Learning Systems": [
+  {
+   "point": "生产环境有多方利益相关者，需求常常彼此冲突",
+   "core": "Having different, often conflicting, requirements can make it difficult to design, develop, and select an ML model that satisfies all the requirements.",
+   "caseTitle": "餐厅推荐App的五方诉求",
+   "case": "Sales team Wants a model that recommends the more expensive restaurants since these restaurants bring in more service fees. Product team Notices that every increase in latency leads to a drop in orders through the service, so they want a model that can return the recommended restaurants in less than 100 milliseconds.",
+   "explain": "同一个推荐模型，销售想推高价餐厅多收服务费，产品要求100毫秒内返回，ML工程师想用更复杂的模型，平台团队想暂停更新，目标互相拉扯。",
+   "importance": 3
+  },
+  {
+   "point": "上线后延迟比吞吐更重要，几百毫秒就直接影响转化",
+   "core": "However, once you deploy your model into the real world, latency matters a lot.",
+   "caseTitle": "Booking.com 延迟与转化",
+   "case": "In 2019, Booking.com found that an increase of about 30% in latency cost about 0.5% in conversion rates—“a relevant cost for our business.”",
+   "explain": "Booking.com发现延迟增加约30%会让转化率下降约0.5%，对其业务已是可观损失，说明研究里可以牺牲的延迟在生产中直接变成收入代价。",
+   "importance": 3
+  },
+  {
+   "point": "错误代价低的场景最适合用ML",
+   "core": "ML is especially suitable when the cost of a wrong prediction is low.",
+   "caseTitle": "推荐系统容错",
+   "case": "For example, one of the biggest use cases of ML today is in recommender systems because with recommender systems, a bad recommendation is usually forgiving—the user just won’t click on the recommendation.",
+   "explain": "推荐系统成为最大ML用例之一，正因为推荐错了用户只是不点击，代价很小，模型不必百分之百正确也能创造价值。",
+   "importance": 2
+  },
+  {
+   "point": "研究中提分的复杂技巧在生产中常因过于复杂而不用",
+   "core": "Production having different requirements from research is one of the reasons why successful research projects might not always be used in production.",
+   "caseTitle": "Netflix 大奖与集成",
+   "case": "For example, ensembling is a technique popular among the winners of many ML competitions, including the famed $1 million Netflix Prize, and yet it’s not widely used in production.",
+   "explain": "集成方法帮助赢得百万美元Netflix大奖，却因让系统更慢、更难解释而在生产中少用，说明竞赛指标与生产需求并不一致。",
+   "importance": 2
+  },
+  {
+   "point": "公平性不能留到上线后再补，算法会放大社会偏见",
+   "core": "When it gets to production, it’s too late.",
+   "caseTitle": "伯克利贷款歧视研究",
+   "case": "In 2019, “Berkeley researchers found that both face-to-face and online lenders rejected a total of 1.3 million creditworthy Black and Latino applicants between 2008 and 2015.” When the researchers “used the income and credit scores of the rejected applications but deleted the race identifiers, the mortgage application was accepted.”",
+   "explain": "研究发现贷款机构拒绝了130万信用合格的黑人和拉丁裔申请者，删掉种族标识后申请就能通过，说明模型可能把偏见固化进决策。",
+   "importance": 2
+  }
+ ],
+ "2. Introduction to Machine Learning Systems Design": [
+  {
+   "point": "公司在乎业务指标，ML指标只有能推动业务才有意义",
+   "core": "most companies don’t care about the fancy ML metrics. They don’t care about increasing a model’s accuracy from 94% to 94.2% unless it moves some business metrics.",
+   "caseTitle": "Netflix 的 take-rate",
+   "case": "For example, Netflix measures the performance of their recommender system using take-rate: the number of quality plays divided by the number of recommendations a user sees.",
+   "explain": "Netflix用优质播放数除以推荐数的take-rate衡量推荐系统，并验证它与总观看时长、退订率等业务指标相关，从而把ML指标接到业务目标上。",
+   "importance": 3
+  },
+  {
+   "point": "问题框定方式决定后续难度与维护成本",
+   "core": "Changing the way you frame your problem might make your problem significantly harder or easier.",
+   "caseTitle": "预测下一个打开的App",
+   "case": "This is a bad approach because whenever a new app is added, you might have to retrain your model from scratch, or at least retrain all the components of your model whose number of parameters depends on N. A better approach is to frame this as a regression task. The input is the user’s, the environment’s, and the app’s features. The output is a single value between 0 and 1; the higher the value, the more likely the user will open the app given the context. In this framing, for a given user at a given time, there are N predictions to make, one for each app, but each prediction is just a number.",
+   "explain": "把问题框成对所有App的多分类，新增App就得重训；改成对每个App输出打开概率的回归，新增App只需换输入特征，维护成本大降。",
+   "importance": 3
+  },
+  {
+   "point": "多目标先解耦分别建模，再加权组合",
+   "core": "Second, it’s easier for maintenance since different objectives might need different maintenance schedules.",
+   "caseTitle": "新闻流质量与参与度",
+   "case": "Spamming techniques evolve much faster than the way post quality is perceived, so spam filtering systems need updates at a much higher frequency than quality-ranking systems.",
+   "explain": "新闻流排序拆成质量模型和参与度模型，调权重无需重训；垃圾内容手法变得快，过滤系统要比质量排序更频繁更新，拆开后可各自维护。",
+   "importance": 2
+  },
+  {
+   "point": "ML系统可能静默失败，用户都察觉不到",
+   "core": "However, ML systems can fail silently.",
+   "caseTitle": "看不懂的机器翻译",
+   "case": "For example, if you use Google Translate to translate a sentence into a language you don’t know, it might be very hard for you to tell even if the translation is wrong.",
+   "explain": "用谷歌翻译翻成自己不懂的语言时，翻错了也很难发现，系统没有报错却在输出错误结果，这就是可靠性定义变难的原因。",
+   "importance": 1
+  }
+ ],
+ "3. Data Engineering Fundamentals": [
+  {
+   "point": "请求驱动的服务互调会让故障连锁扩散，需要实时传输解耦",
+   "core": "A service that is down can cause all services that require data from it to be down.",
+   "caseTitle": "网约车三服务互调",
+   "case": "It also wants to know the predicted prices from the price optimization service to use them as incentives for potential drivers (e.g., if you get on the road now you can get a 2x surge charge). Similarly, the ride management service might also want data from the driver management and price optimization services. If we pass data through services as discussed in the previous section, each of these services needs to send requests to the other two services, as shown in Figure 3-8.",
+   "explain": "司机管理、行程管理、定价三个服务互相要数据，每个都要向另两个发请求，一个挂掉就拖垮其他服务；引入代理广播事件后各服务只与代理通信。",
+   "importance": 3
+  },
+  {
+   "point": "固定schema一改就要回溯所有数据，容易埋下怪bug",
+   "core": "If your schema changes, you’ll have to retrospectively update all your data, often causing mysterious bugs in the process.",
+   "caseTitle": "年龄被填成0岁",
+   "case": "One of the strangest bugs one of my colleagues encountered was when they could no longer use users’ ages with their transactions, and their data schema replaced all the null ages with 0, and their ML model thought the transactions were made by people 0 years old.",
+   "explain": "某团队无法再使用用户年龄后，schema把空年龄全部替换为0，模型便以为交易是0岁的人做的，说明数据结构假设一变就会悄悄污染模型。",
+   "importance": 2
+  },
+  {
+   "point": "行存利于频繁写入，列存利于按列读取",
+   "core": "Overall, row-major formats are better when you have to do a lot of writes, whereas column-major ones are better when you have to do a lot of column-based reads.",
+   "caseTitle": "千维网约车特征取四列",
+   "case": "Consider if you have data about ride-sharing transactions that has 1,000 features but you only want 4 features: time, location, distance, price. With column-major formats, you can read the four columns corresponding to these four features directly. However, with row-major formats, if you don’t know the sizes of the rows, you will have to read in all columns then filter down to these four columns. Even if you know the sizes of the rows, it can still be slow as you’ll have to jump around the memory, unable to take advantage of caching.",
+   "explain": "网约车数据有1000个特征却只要时间、地点、距离、价格四列，列存可直接读这四列，行存则要读完所有列再筛，还无法利用缓存。",
+   "importance": 2
+  },
+  {
+   "point": "实时变化的特征要靠流处理，多数问题需批流结合",
+   "core": "For many problems, you need not only batch features or streaming features, but both.",
+   "caseTitle": "实时网约车定价特征",
+   "case": "Stream processing is used to compute features that change quickly, such as how many drivers are available right now, how many rides have been requested in the last minute, how many rides will be finished in the next two minutes, the median price of the last 10 rides in this area, etc. Features about the current state of the system like these are important to make the optimal price predictions.",
+   "explain": "当前可用司机数、最近一分钟叫车量等特征瞬息万变，只能流式计算，而它们正是给出最优价格的关键，需要与批量特征拼接使用。",
+   "importance": 2
+  }
+ ],
+ "4. Training Data": [
+  {
+   "point": "记录每条数据和标签的来源，即数据血缘",
+   "core": "It’s good practice to keep track of the origin of each of your data samples as well as its labels, a technique known as data lineage.",
+   "caseTitle": "百万新标注反降性能",
+   "case": "Your ML engineers are confident that more data will improve the model performance, so you spend a lot of money to hire annotators to label another million data samples. However, the model performance actually decreases after being trained on the new data. The reason is that the new million samples were crowdsourced to annotators who labeled data with much less accuracy than the original data. It can be especially difficult to remedy this if you’ve already mixed your data and can’t differentiate new data from old data.",
+   "explain": "团队花钱再标100万条数据，模型反而变差，原因是众包标注质量远低于原数据；若新旧数据已混在一起无法区分，就很难补救。",
+   "importance": 3
+  },
+  {
+   "point": "自然标签有反馈回路，窗口太短会产生过早负标签",
+   "core": "For tasks with natural ground truth labels, the time it takes from when a prediction is served until when the feedback on it is provided is the feedback loop length.",
+   "caseTitle": "Twitter 广告延迟点击",
+   "case": "In early 2021, a study by the Ads team at Twitter found that even though the majority of clicks on ads happen within the first five minutes, some clicks happen hours after when the ad is shown.",
+   "explain": "Twitter广告团队发现多数点击发生在五分钟内，但仍有点击在数小时后才出现，窗口一截断就把这些算成负标签，低估真实点击率。",
+   "importance": 3
+  },
+  {
+   "point": "类别不平衡时整体准确率会误导，应看各类别指标",
+   "core": "Metrics that help you understand your model’s performance with respect to specific classes would be better choices.",
+   "caseTitle": "癌症检测两模型同准确率",
+   "case": "If you’re like most people, you’d probably prefer model B to make predictions for you since it has a better chance of telling you if you actually have cancer. However, they both have the same accuracy of 0.9.",
+   "explain": "九成数据为正常的癌症任务里，两个模型准确率都是0.9，但A在癌症类上只有10%准确率，B有90%，整体准确率掩盖了关键差别。",
+   "importance": 3
+  },
+  {
+   "point": "人工标注又贵又慢，拖慢迭代",
+   "core": "Slow labeling leads to slow iteration speed and makes your model less adaptive to changing environments and requirements.",
+   "caseTitle": "语音音素级转写",
+   "case": "So if you want to annotate 1 hour of speech, it’ll take 400 hours or almost 3 months for a person to do so. In a study to use ML to help classify lung cancers from X-rays, my colleagues had to wait almost a year to obtain sufficient labels.",
+   "explain": "音素级转写1小时语音要400小时，约一人三个月；肺癌X光项目等标签等了近一年。标注越慢，模型越难跟上任务和数据变化。",
+   "importance": 2
+  },
+  {
+   "point": "弱监督用启发式标注函数替代大量人工标注",
+   "core": "The insight behind weak supervision is that people rely on heuristics, which can be developed with subject matter expertise, to label data.",
+   "caseTitle": "斯坦福医学弱监督实验",
+   "case": "models trained with weakly supervised labels obtained by a single radiologist after eight hours of writing LFs had comparable performance with models trained on data obtained through almost a year of hand labeling, as shown in Figure 4-5.",
+   "explain": "一位放射科医生花8小时写标注函数得到的弱监督标签，训练出的模型与近一年人工标注数据训练的模型表现相当，显示启发式规则的杠杆。",
+   "importance": 2
+  }
+ ],
+ "5. Feature Engineering": [
+  {
+   "point": "数据泄漏：标签信息混入特征，推理时却拿不到",
+   "core": "Data leakage refers to the phenomenon when a form of the label “leaks” into the set of features used for making predictions, and this same information is not available during inference.",
+   "caseTitle": "医院A的CT扫描机",
+   "case": "After extensive investigation, you learned that at hospital A, when doctors think that a patient has lung cancer, they send that patient to a more advanced scan machine, which outputs slightly different CT scan images. Your model learned to rely on the information on the scan machine used to make predictions on whether a scan image shows signs of lung cancer.",
+   "explain": "医院A把疑似肺癌患者送去更先进的扫描机，图像略有不同，模型学会靠机器特征判断癌症，在随机分配机器的医院B上就失效了。",
+   "importance": 3
+  },
+  {
+   "point": "时间相关数据应按时间切分，避免未来信息泄漏",
+   "core": "To prevent future information from leaking into the training process and allowing models to cheat during evaluation, split your data by time, instead of splitting randomly, whenever possible.",
+   "caseTitle": "歌手去世当天的听歌",
+   "case": "Consider the task of predicting whether someone will click on a song recommendation. Whether someone will listen to a song depends not only on their music taste but also on the general music trend that day. If an artist passes away one day, people will be much more likely to listen to that artist. By including samples from a certain day in the train split, information about the music trend that day will be passed into your model, making it easier for it to make predictions on other samples on that same day.",
+   "explain": "歌手去世当天大家都听他的歌，随机切分会让训练集带上当天趋势，模型评估时轻松猜中同日样本，看似很准实则作弊。",
+   "importance": 3
+  },
+  {
+   "point": "生产中类别会变，固定编码难以应对新类别",
+   "core": "However, in production, categories change.",
+   "caseTitle": "亚马逊新品牌冷启动",
+   "case": "In production, your model crashes because it encounters a brand it hasn’t seen before and therefore can’t encode. New brands join Amazon all the time. To address this, you create a category UNKNOWN with the value of 2,000,000 to catch all the brands your model hasn’t seen during training. Your model doesn’t crash anymore, but your sellers complain that their new brands are not getting any traffic.",
+   "explain": "按品牌编号训练的推荐模型遇到新品牌就崩溃；加了UNKNOWN类别后不崩了，但新品牌因训练时未出现而得不到流量，最终引出哈希技巧。",
+   "importance": 2
+  },
+  {
+   "point": "有了可用模型后，好特征通常比调参带来更大提升",
+   "core": "State-of-the-art model architectures can still perform poorly if they don’t use a good set of features.",
+   "caseTitle": "Facebook 广告点击预测",
+   "case": "In 2014, the paper “Practical Lessons from Predicting Clicks on Ads at Facebook” claimed that having the right features is the most important thing in developing their ML models.",
+   "explain": "Facebook广告点击预测论文认为正确的特征是最重要的，作者合作的公司也一再发现特征带来的提升大于超参数调优等算法技巧。",
+   "importance": 2
+  }
+ ],
+ "6. Model Development and Offline Evaluation": [
+  {
+   "point": "评估指标离开基线就没有意义",
+   "core": "Evaluation metrics, by themselves, mean little.",
+   "caseTitle": "F1 达0.90 却等于随机",
+   "case": "An ML engineer on the team told me, all excited, that their initial model achieved an F1 score of 0.90. I asked him how it was compared to random. He had no idea. It turned out that because for his task the POSITIVE class accounts for 90% of the labels, if his model randomly outputs the positive class 90% of the time, its F1 score would also be around 0.90.",
+   "explain": "正类占九成的任务里，工程师为F1达到0.90兴奋，但按90%概率随机输出正类也能得到约0.90，模型可能和随机猜没有区别。",
+   "importance": 3
+  },
+  {
+   "point": "只看整体指标会掩盖子群体差异，需要切片评估",
+   "core": "A common mistake that I’ve seen in many companies is that they are focused too much on coarse-grained metrics like overall F1 or accuracy on the entire data and not enough on sliced-based metrics.",
+   "caseTitle": "多数与少数子群体",
+   "case": "Model A achieves 98% accuracy on the majority subgroup but only 80% on the minority subgroup, which means its overall accuracy is 96.2%. Model B achieves 95% accuracy on the majority and 95% on the minority, which means its overall accuracy is 95%.",
+   "explain": "模型A整体96.2%高于B的95%，但A在少数群体只有80%，B两边都是95%；只看整体会选A，并可能对少数群体造成偏见。",
+   "importance": 3
+  },
+  {
+   "point": "比较模型要在对等条件下进行，避免人的偏好",
+   "core": "When comparing different architectures, it’s important to compare them under comparable setups.",
+   "caseTitle": "BERT 与梯度提升树之争",
+   "case": "Imagine an engineer on your team is assigned the task of evaluating which model is better for your problem: a gradient-boosted tree or a pretrained BERT model. After two weeks, this engineer announces that the best BERT model outperforms the best gradient-boosted tree by 5%. Your team decides to go with the pretrained BERT model. A few months later, however, a seasoned engineer joins your team. She decides to look into gradient-boosted trees again and finds out that this time, the best gradient-boosted tree outperforms the pretrained BERT model you currently have in production. What happened?",
+   "explain": "工程师认为BERT比梯度提升树好5%而选了BERT，后来新同事重做实验发现树模型反而更好，原因是之前对偏爱的架构投入了更多实验。",
+   "importance": 2
+  },
+  {
+   "point": "先从非ML的简单启发式做起，它也是基线",
+   "core": "If this is your first time trying to make this type of prediction from this type of data, start with non-ML solutions.",
+   "caseTitle": "预测下一个App",
+   "case": "For example, for the task of recommending the app a user is most likely to use next on their phone, the simplest model would be to recommend their most frequently used app. If this simple heuristic can predict the next app accurately 70% of the time, any model you build has to outperform it significantly to justify the added complexity.",
+   "explain": "推荐用户最常用的App这种简单规则若能有70%准确率，任何模型都必须明显超过它，才值得付出额外复杂度。",
+   "importance": 2
+  },
+  {
+   "point": "模型校准让预测概率与真实频率一致",
+   "core": "Model calibration is a subtle but crucial concept to grasp.",
+   "caseTitle": "八成爱情两成喜剧",
+   "case": "Suppose user A watches romance movies 80% of the time and comedy 20% of the time. If your recommender system shows exactly the movies A will most likely watch, the recommendations will consist of only romance movies because A is much more likely to watch romance than any other type of movies. You might want a more calibrated system whose recommendations are representative of users’ actual watching habits. In this case, they should consist of 80% romance and 20% comedy.",
+   "explain": "用户八成看爱情片、两成看喜剧，只推最可能的结果会全是爱情片；校准后的推荐应按八比二呈现，才能反映真实观看习惯。",
+   "importance": 2
+  }
+ ],
+ "7. Model Deployment and Prediction Service": [
+  {
+   "point": "批量预测让模型难以响应用户偏好的即时变化",
+   "core": "However, the problem with batch prediction is that it makes your model less responsive to users’ change preferences.",
+   "caseTitle": "Netflix 搜喜剧仍推恐怖片",
+   "case": "Say you’ve been watching a lot of horror movies lately, so when you first log in to Netflix, horror movies dominate recommendations. But you’re feeling bright today, so you search “comedy” and start browsing the comedy category. Netflix should learn and show you more comedy in your list of their recommendations, right?",
+   "explain": "最近常看恐怖片的用户今天想看喜剧并主动搜索，Netflix的推荐列表却要等下一批预测生成后才更新，批量预测跟不上即时意图。",
+   "importance": 3
+  },
+  {
+   "point": "训练与推理用两套管线是生产bug的常见来源",
+   "core": "Having two different pipelines to process your data is a common cause for bugs in ML production.",
+   "caseTitle": "地图到达时间的平均车速",
+   "case": "A feature you might want to use is the average speed of all the cars in your path in the last five minutes. For training, you might use data from the last month. To extract this feature from your training data, you might want to put all your data into a dataframe to compute this feature for multiple training samples at the same time. During inference, this feature will be continually computed on a sliding window. This means that in training this feature is computed in batch, whereas during inference this feature is computed in a streaming process.",
+   "explain": "过去五分钟平均车速这个特征，训练时用批处理在数据框上算，推理时在滑动窗口上流式算；两条管线不同步就会产出不一致的特征。",
+   "importance": 3
+  },
+  {
+   "point": "真实公司有成百上千个模型，基础设施不能只支持一两个",
+   "core": "In reality, companies have many, many ML models.",
+   "caseTitle": "Uber 的模型清单",
+   "case": "Consider a ride-sharing app like Uber. It needs a model to predict each of the following elements: ride demand, driver availability, estimated time of arrival, dynamic pricing, fraudulent transaction, customer churn, and more. Additionally, if this app operates in 20 countries, until you can have models that generalize across different user-profiles, cultures, and languages, each country would need its own set of models. So with 20 countries and 10 models for each country, you already have 200 models.",
+   "explain": "网约车应用要预测需求、司机供给、到达时间、动态定价、欺诈、流失等，在20个国家各10个模型就是200个，Uber实际有数千个模型。",
+   "importance": 2
+  },
+  {
+   "point": "该问能多快更新模型，而不是多久更新一次",
+   "core": "It’s the wrong question to ask. The right question should be: “How often can I update my models?”",
+   "caseTitle": "微博十分钟迭代",
+   "case": "While many companies still only update their models once a month, or even once a quarter, Weibo’s iteration cycle for updating some of their ML models is 10 minutes.",
+   "explain": "许多公司按月甚至按季度更新模型，而微博部分模型的迭代周期只有10分钟，说明更新频率取决于工程能力而非固定节奏。",
+   "importance": 2
+  },
+  {
+   "point": "量化等压缩手段能大幅降低推理延迟",
+   "core": "Quantization not only reduces memory footprint but also improves the computation speed.",
+   "caseTitle": "Roblox 用 CPU 跑 BERT",
+   "case": "For many of their NLP services, they needed to handle over 25,000 inferences per second at a latency of under 20 ms, as shown in Figure 7-10. They started with a large BERT model with fixed shape input, then replaced BERT with DistilBERT and fixed shape input with dynamic shape input, and finally quantized it.",
+   "explain": "Roblox要在20毫秒内每秒处理超过2.5万次推理，依次换用DistilBERT、动态输入并量化，其中量化贡献最大，延迟降至七分之一。",
+   "importance": 2
+  }
+ ],
+ "8. Data Distribution Shifts and Monitoring": [
+  {
+   "point": "部署不是终点，模型性能会随时间退化",
+   "core": "deploying a model isn’t the end of the process. A model’s performance degrades over time in production.",
+   "caseTitle": "杂货店需求预测失效",
+   "case": "However, a year later, their numbers went down. The demand for some items was consistently being overestimated, which caused the extra items to expire. At the same time, the demand for some items was consistently being underestimated, leading to lost sales.",
+   "explain": "咨询公司花半年做的补货预测模型上线时很好，一年后部分商品被持续高估而过期、部分被低估而断货，最终无法使用只能重新付费维护。",
+   "importance": 3
+  },
+  {
+   "point": "退化反馈循环：预测影响反馈，反馈又强化模型",
+   "core": "A degenerate feedback loop can happen when the predictions themselves influence the feedback, which, in turn, influences the next iteration of the model.",
+   "caseTitle": "简历筛选的特征X",
+   "case": "The model finds that feature X accurately predicts whether someone is qualified, so it recommends resumes with feature X. You can replace X with features like “went to Stanford,” “worked at Google,” or “identifies as male.” Recruiters only interview people whose resumes are recommended by the model, which means they only interview candidates with feature X, which means the company only hires candidates with feature X. This, in turn, makes the model put even more weight on feature X.",
+   "explain": "模型偏好具有某特征的简历，招聘者只面试这些人，公司只录用这些人，新数据又让模型更依赖该特征，偏见在循环中不断放大。",
+   "importance": 3
+  },
+  {
+   "point": "大多数故障并非ML特有，ML工程主要是工程",
+   "core": "Because of the importance of traditional software engineering skills in deploying ML systems, ML engineering is mostly engineering, not ML.",
+   "caseTitle": "谷歌96次管线故障",
+   "case": "In 2020, Daniel Papasian and Todd Underwood, two ML engineers at Google, looked at 96 cases where a large ML pipeline at Google broke. They reviewed data from over the previous 15 years to determine the causes and found out that 60 out of these 96 failures happened due to causes not directly related to ML.",
+   "explain": "谷歌两位工程师复盘15年间96次大型ML管线故障，60次与ML无直接关系，多出在分布式调度和数据管线拼接等传统工程环节。",
+   "importance": 2
+  },
+  {
+   "point": "概念漂移：输入不变，输出的条件分布变了",
+   "core": "Concept drift, also known as posterior shift, is when the input distribution remains the same but the conditional distribution of the output given an input changes.",
+   "caseTitle": "疫情中的旧金山房价",
+   "case": "Consider you’re in charge of a model that predicts the price of a house based on its features. Before COVID-19, a three-bedroom apartment in San Francisco could cost $2,000,000. However, at the beginning of COVID-19, many people left San Francisco, so the same apartment would cost only $1,500,000. So even though the distribution of house features remains the same, the conditional distribution of the price of a house given its features has changed.",
+   "explain": "同一套三居室疫情前值200万美元，疫情初期人们离开旧金山后只值150万，房屋特征分布没变，价格与特征的关系变了。",
+   "importance": 2
+  },
+  {
+   "point": "设计用户反馈机制，可作监控信号和标注线索",
+   "core": "It’s also possible to engineer your system so that you can collect users’ feedback.",
+   "caseTitle": "谷歌翻译的赞与踩",
+   "case": "If the number of downvotes the system receives suddenly goes up, there might be issues. These downvotes can also be used to guide the labeling process, such as getting human experts to generate new translations for the samples with downvotes, to train the next iteration of their models.",
+   "explain": "谷歌翻译让用户对译文点赞或点踩，踩的数量突增就是问题信号，被踩的样本还能交给专家重译，用来训练下一版模型。",
+   "importance": 1
+  }
+ ],
+ "9. Continual Learning and Test in Production": [
+  {
+   "point": "有状态续训用更少数据和算力更新模型",
+   "core": "Stateful training allows you to update your model with less data.",
+   "caseTitle": "Grubhub 续训省45倍算力",
+   "case": "Grubhub found out that stateful training allows their models to converge faster and require much less compute power. Going from daily stateless retraining to daily stateful training reduced their training compute cost 45 times and increased their purchase-through rate by 20%.",
+   "explain": "Grubhub从每日从头重训改为每日在昨日检查点上续训，训练算力成本降低45倍，购买转化率提升20%，频繁更新也变得可承受。",
+   "importance": 3
+  },
+  {
+   "point": "评估耗时也会成为更新频率的瓶颈",
+   "core": "When designing the evaluation pipeline for continual learning, keep in mind that evaluation takes time, which can be another bottleneck for model update frequency.",
+   "caseTitle": "支付公司两周才能比出优劣",
+   "case": "The fraud patterns change quickly, so they’d like to update their system quickly to adapt to the changing patterns. They can’t deploy the new model before it’s been A/B tested against the current model. However, due to the imbalanced nature of the task—most transactions aren’t fraud—it takes them approximately two weeks to see enough fraud transactions to be able to accurately assess which model is better.",
+   "explain": "欺诈模式变化很快，但欺诈交易稀少，新模型A/B测试约两周才攒够样本判断优劣，因此系统最多只能两周更新一次。",
+   "importance": 2
+  },
+  {
+   "point": "用不同时间窗口训练来实测数据新鲜度的价值",
+   "core": "The question of how often to update a model becomes a lot easier if we know how much the model performance will improve with updating.",
+   "caseTitle": "按季度错开训练三个版本",
+   "case": "To measure the value of data freshness, you can experiment with training model version A on the data from January to June 2020, model version B on the data from April to September, and model version C on the data from June to November, then test each of these model versions on the data from December, as shown in Figure 9-5. The difference in the performance of these versions will give you a sense of the performance gain your model can get from fresher data.",
+   "explain": "分别用1-6月、4-9月、6-11月数据训练三个版本，都在12月数据上测试，性能差距就量化了新数据的价值，据此决定重训频率。",
+   "importance": 2
+  },
+  {
+   "point": "持续学习能让模型在会话内适应新用户",
+   "core": "If we could make our models adapt to each user within their visiting session, the models would be able to make accurate, relevant predictions to users even on their first visit.",
+   "caseTitle": "TikTok 几分钟摸透新用户",
+   "case": "TikTok, for example, has successfully applied continual learning to adapt their recommender system to each user within minutes. You download the app and, after a few videos, TikTok’s algorithms are able to predict with high accuracy what you want to watch next.",
+   "explain": "新用户下载TikTok后刷几个视频，推荐系统就能准确预测其下一步想看什么，展示持续学习解决冷启动的潜力。",
+   "importance": 2
+  },
+  {
+   "point": "多臂老虎机比A/B测试更省数据",
+   "core": "Bandits require less data to determine which model is the best and, at the same time, reduce opportunity cost as they route traffic to the better model more quickly.",
+   "caseTitle": "汤普森采样对比 A/B",
+   "case": "In an experiment by Google’s Greg Rafferty, A/B testing required over 630,000 samples to get a confidence interval of 95%, whereas a simple bandit algorithm (Thompson Sampling) determined that a model was 5% better than the other with less than 12,000 samples.",
+   "explain": "实验中A/B测试需要63万多个样本才达到95%置信区间，汤普森采样不到1.2万个样本就判断出某模型好5%，还更快把流量导向更优模型。",
+   "importance": 1
+  }
+ ],
+ "10. Infrastructure and Tooling for MLOps": [
+  {
+   "point": "自建还是采购，取决于这项能力是否是核心竞争力",
+   "core": "For the vast majority of companies outside the technology sector—e.g., companies in retail, banking, manufacturing—ML infrastructure isn’t their focus, so they tend to bias toward buying.",
+   "caseTitle": "Stitch Fix 的取舍原则",
+   "case": "Stefan Krawczyk, manager of the ML platform team at Stitch Fix, explained to me his build versus buy decision: “If it’s something we want to be really good at, we’ll manage that in-house. If not, we’ll use a vendor.”",
+   "explain": "Stitch Fix平台负责人的原则是想做到极好的就自建，否则用供应商；零售、银行等把ML基础设施视为非核心的公司因此更偏向采购。",
+   "importance": 3
+  },
+  {
+   "point": "云早期划算，规模变大后成本难以辩护",
+   "core": "While leveraging the cloud tends to give companies higher returns than building their own storage and compute layers early on, this becomes less defensible as a company grows.",
+   "caseTitle": "Dropbox 回迁省7500万",
+   "case": "Dropbox’s S-1 filing in 2018 shows that the company was able to save $75M over the two years prior to IPO due to their infrastructure optimization overhaul—a large chunk of it consisted of moving their workloads from public cloud to their own data centers.",
+   "explain": "Dropbox上市前两年通过基础设施优化节省7500万美元，大部分来自把工作负载从公有云迁回自有数据中心，体现云回迁的动机。",
+   "importance": 2
+  },
+  {
+   "point": "开发环境要标准化，至少在团队内统一",
+   "core": "The first thing about the dev environment is that it should be standardized, if not company-wide, then at least team-wide.",
+   "caseTitle": "Python 3.8 并发bug",
+   "case": "I told him that the bug only happened some of the time, so he might have to run the code around 20 times just to be sure. He ran the code 20 times and still found nothing. We compared our packages and everything matched. After a few hours of hair-pulling frustration, we discovered that it was a concurrency issue that is only an issue for Python version 3.8 or earlier. I had Python 3.8 and my coworker had Python 3.9, so he didn’t see the bug.",
+   "explain": "一个时有时无的bug同事跑20次也复现不了，耗费数小时才发现是只在Python 3.8及更早版本出现的并发问题，两人版本不同所致。",
+   "importance": 2
+  },
+  {
+   "point": "特征仓库让团队共享和发现可复用特征",
+   "core": "It’s often the case that features used for one model can be useful for another model.",
+   "caseTitle": "流失与付费转化共用特征",
+   "case": "For example, team A might have a model to predict how likely a user will churn, and team B has a model to predict how likely a free user will convert into a paid user. There are many features that these two models can share. If team A discovers that feature X is super useful, team B might be able to leverage that too.",
+   "explain": "流失预测和免费转付费预测有大量可共享特征，A团队发现的好特征B团队也能用；Uber在2017年就有约1万个跨团队特征，需要统一管理。",
+   "importance": 2
+  }
+ ],
+ "11. The Human Side of Machine Learning": [
+  {
+   "point": "目标函数的选择本身就是伦理选择",
+   "core": "Ofqual prioritized fairness between schools over fairness between students—they preferred a model that gets school-level results right over another model that gets each individual’s grades right.",
+   "caseTitle": "英国 Ofqual 自动评分",
+   "case": "Ofqual failed to take into account the fact that schools with more resources tend to outperform schools with fewer resources. By prioritizing schools’ historical performance over students’ current performance, this auto-grader punished students from low resource schools, which tend to have more students from underprivileged backgrounds.",
+   "explain": "疫情取消考试后Ofqual用算法给成绩，并以拟合各校历史分布为目标，结果低资源学校的学生被压分，弱势背景学生受到惩罚。",
+   "importance": 3
+  },
+  {
+   "point": "匿名化不足以保护隐私，聚合数据也会泄密",
+   "core": "However, anonymization may not be a sufficient guarantee for preventing data misuse and erosion of privacy expectations.",
+   "caseTitle": "Strava 热力图暴露军事基地",
+   "case": "Since Strava was used by military personnel, their public data, despite anonymization, allowed people to discover patterns that expose activities of US military bases overseas, including the “forward operating bases in Afghanistan, Turkish military patrols in Syria, and a possible guard patrol in the Russian operating area of Syria.”",
+   "explain": "Strava公开了号称匿名的运动轨迹热力图，因军人也在使用，人们据此识别出阿富汗前沿基地、叙利亚巡逻路线等军事活动。",
+   "importance": 3
+  },
+  {
+   "point": "大致正确的预测只有在用户能方便修正时才有用",
+   "core": "However, these mostly correct predictions won’t be very useful if users don’t know how to or can’t correct the responses.",
+   "caseTitle": "生成多份 React 代码",
+   "case": "To overcome this, an approach is to show users multiple resulting predictions for the same input to increase the chance of at least one of them being correct. These predictions should be rendered in a way that even nonexpert users can evaluate them. In this case, given a set of requirements input by users, you can have the model produce multiple snippets of React code. The code snippets are rendered into visual web pages so that nonengineering users can evaluate which one is the best for them.",
+   "explain": "语言模型生成的React代码未必可用，不懂React的用户也改不了；改为生成多份代码并渲染成页面，让非工程用户直接挑选最合适的。",
+   "importance": 2
+  },
+  {
+   "point": "预测的不一致会伤害体验，需在一致性与准确性间权衡",
+   "core": "For tasks that want to leverage ML to improve users’ experience, the inconsistency in ML predictions can be a hindrance.",
+   "caseTitle": "Booking.com 筛选项推荐",
+   "case": "The challenge they encountered is that if their ML model kept suggesting different filters each time, users could get confused, especially if they couldn’t find a filter that they had already applied before. The team resolved this challenge by creating a rule to specify the conditions in which the system must return the same filter recommendations (e.g., when the user has applied a filter) and the conditions in which the system can return new recommendations (e.g., when the user changes their destination).",
+   "explain": "Booking.com为约200个筛选项做推荐，若每次推荐不同，用户会困惑；团队用规则规定何时必须保持推荐不变、何时才可更新。",
+   "importance": 2
+  },
+  {
+   "point": "模型压缩的精度损失可能集中在长尾群体",
+   "core": "The minimal accuracy cost is indeed minimal if it’s spread uniformly across all classes, but what if the cost is concentrated in only a few classes?",
+   "caseTitle": "压缩模型遗忘了什么",
+   "case": "For example, they found that compression techniques amplify algorithmic harm when the protected feature (e.g., sex, race, disability) is in the long tail of the distribution. This means that compression disproportionately impacts underrepresented features.",
+   "explain": "Hooker等人发现，当性别、种族等受保护特征处于分布长尾时，压缩会放大算法伤害，整体指标相近的模型对少数群体影响却不同。",
+   "importance": 1
+  }
+ ]
+}

@@ -1,0 +1,368 @@
+{
+ "Introduction: Lost and Found": [
+  {
+   "point": "皮克斯真正特别之处在于承认问题永远存在，并主动把它们挖出来",
+   "core": "What makes Pixar special is that we acknowledge we will always have problems, many of them hidden from our view; that we work hard to uncover these problems, even if doing so means making ourselves uncomfortable; and that, when we come across a problem, we marshal all of our energies to solve it.",
+   "caseTitle": "硅谷明星公司的昏招",
+   "case": "But then those companies did something stupid—not just stupid-in-retrospect, but obvious-at-the-time stupid. I wanted to understand why. What was causing smart people to make decisions that sent their companies off the rails? I didn’t doubt that they believed they were doing the right thing, but something was blinding them—and keeping them from seeing the problems that threatened to upend them.",
+   "explain": "作者在卢卡斯影业时近距离看到 Sun、SGI 等公司的领导者自信满满，却做出当时就显而易见的蠢决定。聪明人被某种东西蒙蔽，看不到威胁，这让他意识到最危险的问题往往藏在视线之外。",
+   "importance": 3
+  },
+  {
+   "point": "实现长期目标后会失去组织原则，需要找到新的使命",
+   "core": "I’d spent two decades building a train and laying its track. Now, the thought of merely driving it struck me as a far less interesting task.",
+   "caseTitle": "玩具总动员后的迷茫",
+   "case": "In the wake of Toy Story’s release, we took the company public, raising the kind of money that would ensure our future as an independent production house, and began work on two new feature-length projects, A Bug’s Life and Toy Story 2. Everything was going our way, and yet I felt adrift. In fulfilling a goal, I had lost some essential framework.",
+   "explain": "《玩具总动员》大获成功、公司上市、两部新片开工，一切顺利，作者却感到失去方向，反复自问这就是全部了吗。二十年追求的目标一旦达成，原有的驱动力随之消失，他用了一年才找到新的使命。",
+   "importance": 2
+  }
+ ],
+ "Chapter 2: Pixar is Born": [
+  {
+   "point": "要招比自己更强的人，即使对方让你感到威胁",
+   "core": "Always take a chance on better, even if it seems threatening.",
+   "caseTitle": "29岁的作者招来Alvy",
+   "case": "Some might have seen hiring Alvy as a confident move. The truth is, as a twenty-nine-year-old who’d been focused on research for four years and had never had an assistant, let alone hired and managed a staff, I was feeling anything but confident. I could see, however, that NYIT was a place where I could explore what I’d set out to do as a graduate student. To ensure that it succeeded, I needed to attract the sharpest minds; to attract the sharpest minds, I needed to put my own insecurities away. The lesson of ARPA had lodged in my brain: When faced with a challenge, get smarter.",
+   "explain": "作者 29 岁时从没管理过任何人，却决定聘用履历更耀眼的 Alvy Ray Smith。他压下不安去吸引最聪明的人，结果发现恐惧毫无根据，Alvy 成了他最信任的搭档，这条原则也一直沿用。",
+   "importance": 3
+  },
+  {
+   "point": "新工具再好，也要先赢得使用者的认同",
+   "core": "Being confident about the value of our innovation was not enough. We needed buy-in from the community we were trying to serve.",
+   "caseTitle": "剪辑师拒用视频剪辑系统",
+   "case": "They were perfectly happy with the system they had already mastered, which involved actually cutting film into snippets with razor blades and then pasting them back together. They couldn’t have been less interested in making changes that would slow them down in the short term. They took comfort in their familiar ways, and change meant being uncomfortable. So when it came time to test our work, the editors refused to participate.",
+   "explain": "卢卡斯想要计算机剪辑系统，但剪辑师习惯用刀片剪胶片，测试时干脆拒绝参与。即便有老板支持、团队对技术很有信心，使用者不买账，项目只能停下，最后被迫放弃。",
+   "importance": 2
+  }
+ ],
+ "Chapter 3: A Defining Goal": [
+  {
+   "point": "沟通结构不应等同于组织结构，任何人都能直接找任何人",
+   "core": "Of course an animator should be able to talk to a modeler directly, without first talking with his or her manager. So we gathered the company together and said: Going forward, anyone should be able to talk to anyone else, at any level, at any time, without fear of reprimand.",
+   "caseTitle": "必须走正式渠道",
+   "case": "So, to keep things on track, it was made clear to everyone from the get-go: If you have something to say, it needs to be communicated through your direct manager. If an animator wanted to talk to a modeler, for example, they were required to go through “proper channels.” The artists and technical people experienced this everything-goes-through-me mentality as irritating and obstructionist. I think of it as well-intentioned micromanaging.",
+   "explain": "《玩具总动员》期间，制片方为控制进度，要求一切沟通都通过直属经理，动画师找建模师也要走正式渠道。艺术家觉得这是阻挠，制片经理成了被排斥的二等公民。取消这一规定后，到《虫虫危机》结束时双方已是平等同伴。",
+   "importance": 3
+  },
+  {
+   "point": "留意问题不等于看见问题，好的部分会掩盖坏的部分",
+   "core": "Being on the lookout for problems, I realized, was not the same as seeing problems.",
+   "caseTitle": "制片经理的五年沉默",
+   "case": "Now, though, as we assembled the crew to work on our second film, A Bug’s Life, drawing on people who’d been key to Toy Story’s evolution, I discovered we’d completely missed a serious, ongoing rift between our creative and production departments. In short, production managers told me that working on Toy Story had been a nightmare. They felt disrespected and marginalized—like second-class citizens. And while they were gratified by Toy Story’s success, they were very reluctant to sign on to work on another film at Pixar.",
+   "explain": "作者一直敞开办公室门，五年里却没有一个制片经理来抱怨。直到筹备第二部片时才得知他们觉得被边缘化、不愿再参与。临时身份让他们不敢开口，项目的意义又让他们忍下了不满。",
+   "importance": 3
+  },
+  {
+   "point": "让最接近产品的人对质量负责，人人都能叫停",
+   "core": "Deming’s approach—and Toyota’s, too—gave ownership of and responsibility for a product’s quality to the people who were most involved in its creation.",
+   "caseTitle": "人人可拉的停线绳",
+   "case": "If anyone at any level spotted a problem in the manufacturing process, Deming believed, they should be encouraged (and expected) to stop the assembly line. Japanese companies that implemented Deming’s ideas made it easy for workers to do so: They installed a cord that anyone could pull in order to bring production to a halt. Before long, Japanese companies were enjoying unheard-of levels of quality, productivity, and market share.",
+   "explain": "戴明主张任何层级的人发现问题都可以叫停流水线，日本企业为此装了一根谁都能拉的绳子。把发现和修复问题的责任交给一线员工，带来了前所未有的质量和市场份额，也成为作者管理皮克斯的指引。",
+   "importance": 2
+  },
+  {
+   "point": "要相信自己的讲故事直觉，不要盲从外部意见",
+   "core": "They also learned an important lesson—to trust their own storytelling instincts.",
+   "caseTitle": "黑色星期五",
+   "case": "Woody was jealous. He threw Buzz out the window for spite. He bossed the other toys around and called them demeaning names. He had, in short, become a jerk. On November 19, 1993, we went to Disney to unveil the new, edgier Woody in a series of story reels—a mock-up of the film, like a comic book version with temporary voices, music, and drawings of the story. That day will forever be known at Pixar as “Black Friday” because Disney’s completely reasonable reaction was to shut down the production until an acceptable script was written.",
+   "explain": "新手团队照迪士尼要的更有棱角去改，胡迪变得嫉妒、刻薄、把巴斯扔出窗外。1993 年 11 月 19 日的放映后迪士尼叫停制作，团队花了几个月重新找回那个想被爱的牛仔玩具。",
+   "importance": 2
+  }
+ ],
+ "Chapter 4: Establishing Pixar’s Identity": [
+  {
+   "point": "人比想法重要，团队的化学反应比个人才华更关键",
+   "core": "Getting the right people and the right chemistry is more important than getting the right idea.",
+   "caseTitle": "《玩具总动员2》换导演",
+   "case": "A year into production, I began to notice signs of trouble. Mainly, the directors were lobbing a continuous stream of requests for more “John time”—seeking to get on his calendar to pick his brain. This was worrisome. To me, it signaled that, as talented as the Toy Story 2 directors were individually, they lacked confidence and weren’t gelling as a team.",
+   "explain": "续集的情节框架早已定好，交给两位首次执导的动画师。一年后他们不断要求占用 Lasseter 的时间，说明团队缺乏信心、没有磨合好。换成原班人马后，同样的故事主线从完全不成立变得深深打动人。",
+   "importance": 3
+  },
+  {
+   "point": "口号会让人只拎走把手，丢掉背后的经验",
+   "core": "Too often, we grab the handle and—without realizing it—walk off without the suitcase.",
+   "caseTitle": "相信流程变成依赖流程",
+   "case": "Likewise, we “trusted the process,” but the process didn’t save Toy Story 2 either. “Trust the Process” had morphed into “Assume that the Process Will Fix Things for Us.” It gave us solace, which we felt we needed. But it also coaxed us into letting down our guard and, in the end, made us passive. Even worse, it made us sloppy.",
+   "explain": "相信流程原本是皮克斯的信条，但它没能拯救《玩具总动员2》。这句话慢慢变成指望流程替我们解决问题，让团队放松警惕、变得被动又马虎，作者因此告诉员工要相信人而不是流程。",
+   "importance": 2
+  },
+  {
+   "point": "即使员工愿意拼命，过度透支也不可接受",
+   "core": "Asking this much of our people, even when they wanted to give it, was not acceptable.",
+   "caseTitle": "遗忘在车里的婴儿",
+   "case": "One morning in June, an overtired artist drove to work with his infant child strapped into the backseat, intending to deliver the baby to day care on the way. Some time later, after he’d been at work for a few hours, his wife (also a Pixar employee) happened to ask him how drop-off had gone—which is when he realized that he’d left their child in the car in the broiling Pixar parking lot. They rushed out to find the baby unconscious and poured cold water over him immediately.",
+   "explain": "赶工九个月期间，一位过度疲劳的艺术家把婴儿忘在烈日下的停车场车里，所幸孩子无恙。影片完成时，三分之一员工出现重复性劳损。电影大获成功，但这种代价让作者认定不能再这样做。",
+   "importance": 2
+  }
+ ],
+ "Chapter 5: Honesty and Candor": [
+  {
+   "point": "智囊团没有决定权，坦诚意见才不会变成命令",
+   "core": "By removing from the Braintrust the power to mandate solutions, we affect the dynamics of the group in ways I believe are essential.",
+   "caseTitle": "《玩具总动员3》的叛变",
+   "case": "At that point in the film, Lotso—the pink teddy bear and mean-spirited leader of the day-care center toys—is overthrown after the toys mutiny. But the problem was, the mutiny wasn’t believable, because the impetus behind it didn’t ring true. “In that draft,” Michael told me, “I had Woody giving this big, heroic speech about what a mean guy Lotso was, and it changed everyone’s mind about Lotso. But in the Braintrust, Andrew said, ‘Nope, I don’t buy it. These toys aren’t stupid. They know Lotso isn’t a good guy. They’ve only aligned themselves with him because he’s the most powerful.’ ”",
+   "explain": "Stanton 在智囊团会上指出，胡迪一番演讲就让玩具们倒戈不可信。他只点出问题，没有给方案。编剧 Arndt 由此想到先策反打手大宝宝，最终的解法完全出自他本人，但没有这次讨论他找不到。",
+   "importance": 3
+  },
+  {
+   "point": "智囊团能发现不对劲，但未必找对病因",
+   "core": "“Sometimes the Braintrust will know something’s wrong, but they will identify the wrong symptom,” he told me.",
+   "caseTitle": "一个逗号都没改",
+   "case": "Once I figured that out, all I did was have Helen stretch when she holds her ground and says, ‘This is not about you.’ I didn’t change any of the dialogue. I just changed the drawings to make her body bigger, as if to say, ‘I’m a match for you.’ And when I played the revised scene, the Braintrust said, ‘That’s much better. What lines did you change?’ I said, ‘I didn’t change a comma.’",
+   "explain": "智囊团觉得《超人总动员》里鲍勃像在欺负海伦，要求重写台词。Brad Bird 发现台词没错，问题在体型反差，于是只让海伦对峙时身体拉长变大。智囊团说好多了，问改了哪句，他说一个逗号都没改。",
+   "importance": 2
+  },
+  {
+   "point": "所有电影起初都很烂，靠反复迭代从烂变不烂",
+   "core": "Pixar films are not good at first, and our job is to make them so—to go, as I say, “from suck to not-suck.”",
+   "caseTitle": "十倍于成片的故事板",
+   "case": "A new version of the movie is generated every three to six months, and the process repeats itself. (It takes about twelve thousand storyboard drawings to make one 90-minute reel, and because of the iterative nature of the process I’m describing, story teams commonly create ten times that number by the time their work is done.)",
+   "explain": "每三到六个月出一版新片，智囊团看完再提意见。一部 90 分钟的样片约需一万二千张故事板，而因为反复重做，故事团队最终画的数量常是这个数的十倍。",
+   "importance": 2
+  }
+ ],
+ "Chapter 6: Fear and Failure": [
+  {
+   "point": "错误不是必要之恶，而是做新事的必然结果",
+   "core": "Mistakes aren’t a necessary evil. They aren’t evil at all. They are an inevitable consequence of doing something new (and, as such, should be seen as valuable; without them, we’d have no originality).",
+   "caseTitle": "《怪兽电力公司》的阿布",
+   "case": "At first, the human protagonist was a six-year-old named Mary. Then she was changed to a little boy. Then back to a six-year-old girl. Then she was seven, named Boo, and bossy—even domineering. Finally, Boo was turned into a fearless, preverbal toddler. The idea of Sulley’s buddy character—the round, one-eyed Mike, voiced by Billy Crystal—wasn’t added until more than a year after the first treatment was written.",
+   "explain": "Pete Docter 只守住怪兽靠吓小孩谋生这一核心，主角从六岁女孩改成男孩，又改回女孩，再变成七岁的阿布，最后成了无畏的幼儿。大眼仔麦克到第一版故事大纲一年多后才加进来。",
+   "importance": 3
+  },
+  {
+   "point": "导演失去团队信任时，就该介入换人或叫停",
+   "core": "The criteria we use is that we step in if a director loses the confidence of his or her crew.",
+   "caseTitle": "团队是晴雨表",
+   "case": "When a director stands up in a meeting and says, “I realize this scene isn’t working, I don’t yet know how to fix it, but I’m figuring it out. Keep going!”—a crew will follow him or her to the ends of the earth. But when a problem is festering and everyone seems to be looking the other way or when people are sitting around waiting to be told what to do, the crew gets antsy.",
+   "explain": "导演坦承这场戏还不行、正在想办法，团队会追随到底；问题发酵却没人理、大家干等指令时，团队就会不安。约三百人的剧组不是不喜欢导演，而是不再相信他能完成影片。",
+   "importance": 2
+  },
+  {
+   "point": "大失败也值得，过度规避风险才是走向无关紧要的第一步",
+   "core": "Being too risk-averse causes many companies to stop innovating and to reject new ideas, which is the first step on the path to irrelevance.",
+   "caseTitle": "蓝脚蝾螈项目",
+   "case": "The director had a strong vision, and his crew was excited and working hard, but they didn’t know what they didn’t know: that the first two years of a movie’s development should be a time of solidifying the story beats by relentlessly testing them—much like you temper steel. And that required decision-making, not just abstract discussion. While everyone working on it had the best intentions, it got bogged down in hypotheticals and possibilities. The bottom line was that while everyone was rowing the boat, to use Andrew’s analogy, there was no forward movement.",
+   "explain": "讲最后一对蓝脚蝾螈的孵化器项目被刻意隔离在园区外，导演有愿景、团队很努力，却一直停在假设讨论里，缺乏决策。2010 年 5 月项目被叫停，作者认为这次投入仍然值得，因为它教会了公司如何平衡新旧做法。",
+   "importance": 2
+  }
+ ],
+ "Chapter 7: The Hungry Beast and the Ugly Baby": [
+  {
+   "point": "把工作当成喂饱生产怪兽，会让质量全面下滑",
+   "core": "I believe this was the direct result of its employees thinking that their job was to feed the Beast.",
+   "caseTitle": "迪士尼十六年低谷",
+   "case": "After The Lion King was released in 1994, eventually grossing $952 million worldwide, the studio began its slow decline. It was hard, at first, to deduce why—there had been some leadership changes, yet the bulk of the people were still there, and they still had the talent and the desire to do great work. Nevertheless, the drought that was beginning then would last for the next sixteen years: From 1994 to 2010, not a single Disney animated film would open at number one at the box office.",
+   "explain": "迪士尼为满足扩大的发行需求，在佛罗里达、法国、澳大利亚开设工作室。《狮子王》收入 9.52 亿美元后开始衰落，人才大多还在，但从 1994 到 2010 年没有一部动画登上票房首位。",
+   "importance": 3
+  },
+  {
+   "point": "想靠提前锁定故事消灭错误，本身就是在喂怪兽",
+   "core": "We were trying to eliminate errors (and, in so doing, to efficiently feed our beast).",
+   "caseTitle": "《海底总动员》的闪回",
+   "case": "All those flashbacks that we’d loved in Andrew’s pitch? They proved confusing when we saw them on early reels—in a Braintrust meeting, Lee Unkrich was the first to call them cryptic and impressionistic, and he lobbied for a more linear storytelling structure. When Andrew tried it, an unexpected benefit emerged. Before, Marlin had come off as unsympathetic and unlikable because it took too long to find out the reason he was being such a smothering father. Now, with a more chronological approach, Marlin was more appealing and sympathetic.",
+   "explain": "皮克斯希望先定稿剧本再开拍以压低成本，选中了《海底总动员》。结果大家喜爱的闪回在样片里显得晦涩，改成顺叙后马林才讨人喜欢。故事照样大改，预先定稿的设想落空。",
+   "importance": 3
+  },
+  {
+   "point": "新事物需要先被保护，证明价值后再融入体系",
+   "core": "In other words, the intern program needed protection to establish itself at first, but then grew out of that need.",
+   "caseTitle": "实习生由公司买单",
+   "case": "Instead, I decided to make the interns a corporate expense—they would essentially be available, at no extra cost, to any department who wanted to take them on. The first year, Pixar hired eight interns who were placed in the animation and technical departments. They were so eager and hard-working and they learned so fast that every one of them, by the end, was doing real production work. Seven of them ultimately returned, after graduation, to work for us in a full-time capacity.",
+   "explain": "制片经理因预算紧张拒收实习生。作者没有强推，而是让公司承担费用，部门免费使用。首年八名实习生都做上了真正的制作工作，七人毕业后回来全职，后来各部门愿意自己出这笔钱。",
+   "importance": 2
+  }
+ ],
+ "Chapter 8: Change and Randomness": [
+  {
+   "point": "变化无法避免也不该避免，没有变化就没有成长",
+   "core": "It’s folly to think you can avoid change, no matter how much you might want to. But also, to my mind, you shouldn’t want to. There is no growth or success without change.",
+   "caseTitle": "什么都怪到合并头上",
+   "case": "For the next year or so, whenever we wanted to try something new or rethink an established way of working, a steady stream of alarmed and upset people would show up at my office. “You promised the merger wouldn’t affect the way we work,” they’d say. “You said that Pixar would never change.”",
+   "explain": "被迪士尼收购后，员工把续集计划、办公室搬迁等正常调整都归咎于合并，抱怨作者食言。作者不得不把我们会继续改变的讲话重复了三次，大家才真正听进去。",
+   "importance": 3
+  },
+  {
+   "point": "好故事要经过多年反复大改才能找到核心",
+   "core": "Up had to go through these changes—changes that unfolded over not months but years—to find its heart.",
+   "caseTitle": "《飞屋环游记》的空中城堡",
+   "case": "In the first version, there was a castle floating in the sky, completely unconnected to the world below. In this castle lived a king and his two sons, who were each vying to inherit the kingdom. The sons were opposites—they couldn’t stand each other. One day, they both fell to earth. As they wandered around, trying to get back to their castle in the sky, they came across a tall bird who helped them understand each other. This version was intriguing, but ultimately it could not be made to work.",
+   "explain": "第一版是天空城堡里两个互相看不顺眼的王子坠落人间，观众难以共情，最后只留下高个子鸟和片名。之后又换过飞艇、青春蛋等版本，才定型为老人卡尔和气球屋的故事。",
+   "importance": 3
+  },
+  {
+   "point": "成功中有大量运气，不要把它全归功于决策",
+   "core": "In fact, randomness and luck played a key role in that success.",
+   "caseTitle": "差点不存在的皮克斯",
+   "case": "Steve could have sold us—he tried more than once. Toy Story 2 could have been deleted for good, bringing the company down. For years, Disney was trying to steal John back, and they could have succeeded. I am distinctly aware that Disney Animation’s success in the 1990s gave Pixar its chance with Toy Story and also that their later struggles enabled us to join together and ultimately merge.",
+   "explain": "乔布斯不止一次想卖掉皮克斯，《玩具总动员2》差点被永久删除，迪士尼多年想挖走 Lasseter。迪士尼九十年代的成功给了皮克斯机会，后来的低谷又促成了合并，每一步都可能走向别处。",
+   "importance": 2
+  }
+ ],
+ "Chapter 9: The Hidden": [
+  {
+   "point": "职位升高后，坏消息会从管理者的视线中消失",
+   "core": "Instead, many new leaders assume, wrongly, that their access to information is unchanged.",
+   "caseTitle": "Ed变成了重要经理",
+   "case": "As my position changed, people became more careful how they spoke and acted in my presence. I don’t think that my actions changed in a way that prompted this; my position did. And what this meant was that things I’d once been privy to became increasingly unavailable to me. Gradually, snarky behavior, grousing, and rudeness disappeared from view—from my view, anyway. I rarely saw bad behavior because people wouldn’t exhibit it in front of me.",
+   "explain": "在纽约理工时同事只把作者当 Ed，到皮克斯后他成了重要公司的重要经理。他自认行为没变，变的是职位，人们在他面前更谨慎，抱怨和粗鲁从他眼前消失，但并没有真的消失。",
+   "importance": 3
+  },
+  {
+   "point": "不同视角是叠加而非竞争，一线的人常看到管理层看不到的解法",
+   "core": "If we start with the attitude that different viewpoints are additive rather than competitive, we become more effective because our ideas or decisions are honed and tempered by that discourse.",
+   "caseTitle": "推迟动画师开工",
+   "case": "“I believe that animators will work faster than you’re giving them credit for,” Denise said, “if they have all the pieces they need when they begin.” Boy, was she right. Even with all the usual snafus—endless story adjustments and last minute re-rigging of particular characters—Up was made in fewer person-weeks than we’d originally thought possible.",
+   "explain": "《飞屋环游记》预算会上，特效制片 Denise Ream 提出推迟动画师开工，因为过早开工导致反复返工和空等。这个反直觉的建议被采纳，影片用的人周数比原计划更少。",
+   "importance": 3
+  },
+  {
+   "point": "成功背后有无数看不见的偶然事件",
+   "core": "What’s more, seeing all of the interdependencies that shape our lives is impossible, no matter how hard or long we look.",
+   "caseTitle": "两英寸的事件",
+   "case": "I don’t sit around thinking about what would have happened if John hadn’t been available to join the production of The Adventures of André and Wally B., for instance, or if Steve had made good on his desire to sell Pixar to Microsoft. But the truth is, the history of Pixar would have been very different if either of these things had happened.",
+   "explain": "作者 12 岁时一场车祸，对方车子若再偏两英寸就可能改变一切。同样，如果 Lasseter 没来做那部短片，或乔布斯真把皮克斯卖给微软，历史会完全不同，而这类事件大多根本无从知晓。",
+   "importance": 2
+  }
+ ],
+ "Chapter 10: Broadening Our View": [
+  {
+   "point": "每日审片让大家放下自我，一起打磨未完成的作品",
+   "core": "This requires engagement at all levels, and it’s our directors’ job to foster and create a safe place for that.",
+   "caseTitle": "《勇敢传说》的晨会",
+   "case": "“Is that stick big enough for everybody?” Mark asked at one point, referring to a flimsy-looking branch that was supposed to keep a heavy door propped open in one scene. Several people didn’t think so, and as Mark scribbled with a stylus on a tablet in front of him, a sturdier log appeared on the screen on the front of the room. “Better?” he asked. One by one, each scene that the group reviewed raised new issues. That old man who just ran up a flight of stairs? He should look more winded. The facial expression of a young spy? It could be more devilish.",
+   "explain": "导演 Mark Andrews 在审片会上唱歌、叫外号、自嘲画技，营造轻松氛围，但每个镜头都被细致追问：撑门的树枝够不够粗、老人爬楼后是否该更喘。安全感和严格批评同时存在。",
+   "importance": 3
+  },
+  {
+   "point": "限制能控制无底的资源胃口，逼出取舍",
+   "core": "Unless you impose limits, people will always justify spending more time and more money by saying, “We’re just trying to make a better movie.”",
+   "caseTitle": "冰棍棒排期墙",
+   "case": "John’s system consisted of popsicle sticks stuck to a wall with Velcro. Each stick represented a person-week, which, as I’ve said, is the amount of work a single animator could accomplish in a week’s time. A bunch of sticks would be lined up next to a particular character for easy reference. A glance at the wall would tell you: If you use that many popsicle sticks on Elastigirl, you’ll have less to spend on Jack-Jack.",
+   "explain": "Brad Bird 曾花五个月和数千小时追求鱼缸里像火焰的鱼，最后发现毫无帮助。制片人 John Walker 用墙上的冰棍棒代表人周，加一根就得从别处拿走一根，让资源取舍一目了然。",
+   "importance": 3
+  },
+  {
+   "point": "实地调研打破刻板印象，让作品创造而非模仿",
+   "core": "Research trips challenge our preconceived notions and keep clichés at bay.",
+   "caseTitle": "去巴黎后厨和下水道",
+   "case": "At his urging, when Pixar was prepping a movie about a Parisian rat who aspires to be a gourmet chef, for example, several members of Ratatouille’s team went to France and spent two weeks dining in extraordinary, Michelin-starred restaurants, visiting their kitchens, and interviewing their chefs. (They also trudged through the Paris sewers, where many a rat makes his home.)",
+   "explain": "为《料理鼠王》，团队在法国米其林餐厅吃了两周、参观后厨、采访厨师，还钻进巴黎下水道。亲身体验带来的真实感，让影片避开了对厨房和老鼠的套路化想象。",
+   "importance": 2
+  }
+ ],
+ "Chapter 11: The Unmade Future": [
+  {
+   "point": "创作者开始时并不清楚愿景，而是在过程中摸索",
+   "core": "I’ve known many people I consider to be creative geniuses, and not just at Pixar and Disney, yet I can’t remember a single one who could articulate exactly what this vision was that they were striving for when they started.",
+   "caseTitle": "坐在后座开车的梦",
+   "case": "In this dream, he was driving down a winding and precarious stretch of highway in a rickety old station wagon, with no one else in the car. Apparently, it was up to him to pilot the vehicle. “But I was in the backseat!” he says. “For some reason, I still had a steering wheel, but my visibility was terrible because of where I was sitting. Basically, all I could do is say to myself, ‘Don’t crash! Don’t crash! Don’t crash!’ ” The takeaway, as he puts it: “Sometimes, as a director, you’re driving. And other times, you’re letting the car drive.”",
+   "explain": "Brad Bird 拍《超人总动员》时反复梦见自己坐在破旅行车后座握方向盘，视线很差，只能默念别撞车。他的体会是导演有时在开车，有时要让车自己开，没有人从一开始就看清全貌。",
+   "importance": 3
+  },
+  {
+   "point": "领导者要果断指出方向，错了再坦白修正",
+   "core": "“People want decisiveness, but they also want honesty about when you’ve effed up,” as Andrew says.",
+   "caseTitle": "船长说陆地在那边",
+   "case": "The director’s job is to say, “Land is that way.” Maybe land actually is that way and maybe it isn’t, but Andrew says that if you don’t have somebody choosing a course—pointing their finger toward that spot there, on the horizon—then the ship goes nowhere. It’s not a tragedy if the leader changes her mind later and says, “Okay, it’s actually not that way, it’s this way. I was wrong.” As long as you commit to a destination and drive toward it with all your might, people will accept when you correct course.",
+   "explain": "Stanton 把导演比作大海上的船长，必须指着地平线说陆地在那边，否则船哪儿也去不了。之后发现方向错了改口也不是悲剧，只要全力朝目标前进，船员就会接受修正。",
+   "importance": 3
+  }
+ ],
+ "Chapter 12: A New Challenge": [
+  {
+   "point": "强制性、来自外行的多头意见只会产出更差的作品",
+   "core": "This concept, completely counter to what we believed and practiced at Pixar, could only result in an inferior product, so we made an announcement: From that day forward, there would be no more mandatory notes.",
+   "caseTitle": "三套必须打勾的意见",
+   "case": "One came from the studio’s development department, another from the head of the studio, and a third from Michael Eisner himself. The notes were not, in fact, “notes.” They were mandatory, delivered as a list, with boxes next to each item—boxes that had to be checked as each note was executed. Even worse: None of the people who were giving these notes had ever made a film before, and the three sets of notes often conflicted with one another, creating a sort of schizophrenic quality to the feedback.",
+   "explain": "迪士尼导演要同时接收开发部、厂长和艾斯纳本人三套意见，每条都要打勾执行，给意见的人却从没拍过电影，意见还互相矛盾。作者接手后当即宣布取消强制意见，并帮他们建立故事信托。",
+   "importance": 3
+  },
+  {
+   "point": "把防错看得高于一切，会让组织害怕行动",
+   "core": "The answer, I think, lay in the fact that for too long, the leaders of Disney Animation placed a higher value on error prevention than anything else.",
+   "caseTitle": "仓鼠犀牛一周重做",
+   "case": "What is the point of hiring smart people, we asked, if you don’t empower them to fix what’s broken? For too long, a culture of fear had stymied those who wanted to step outside of Disney’s accepted protocols. That kind of timidity wasn’t going to make Disney Animation great, we said. Innovation would, and we knew they had it in them. We challenged them to step up and help us fix this problem. After this meeting, three members of the crew took it upon themselves, over the weekend, to remodel and rerig Rhino. Within a week, the project was back on track.",
+   "explain": "《闪电狗》后期，仓鼠犀牛需要改为两足行走，技术团队估计重做绑定要六个月，几乎是剩余全部工期。作者发表丰田演讲，强调不必等许可。三名员工主动利用周末重做，一周内项目回到正轨。",
+   "importance": 3
+  },
+  {
+   "point": "质量包括定位和营销，要听取与自己相左的合理意见",
+   "core": "Quality meant that every aspect—not just the rendering and the storytelling but also the positioning and the marketing—needed to be done well, which meant being open to reasoned opinions, even when they contradicted our own.",
+   "caseTitle": "片名里的公主",
+   "case": "For a while we considered the title “The Frog Princess,” but Disney’s marketing folks warned us: Having the word princess in the title would lead moviegoers to think that the film was for girls only. We pushed back, believing that the quality of the film would trump that association and lure viewers of all ages, male and female. We felt a return to hand-drawn animation, done in the service of a beloved fairy tale, would pack ’em in.",
+   "explain": "营销团队警告片名带公主会让观众以为是女孩专属，作者和 Lasseter 坚信质量能压过这种联想。《公主与青蛙》口碑好又低于预算，但上映五天后就遇上《阿凡达》，票房不足以支撑继续投入手绘动画。",
+   "importance": 2
+  }
+ ],
+ "Chapter 13: Notes Day": [
+  {
+   "point": "内部意见日最大的收获，是让人们更敢说真话",
+   "core": "For this reason, I believe the biggest payoff of Notes Day was that we made it safer for people to say what they thought. Notes Day made it okay to disagree.",
+   "caseTitle": "一千条想法变120个议题",
+   "case": "Putting like with like, Tom’s team distilled the thousand ideas down to 293 discussion topics. That was still way too many for a single day’s agenda, so a group of senior managers then met and whittled those down to 120 topics, organized into several broad categories such as Training, Environment and Culture; Cross-Show Resource Pooling (we often call our movies “shows”); Tools and Technology; and Workflow.",
+   "explain": "员工向建议箱发来四千封邮件、一千条独立想法，团队归并为 293 个主题，再精选出 120 个，按员工兴趣而非部门分组讨论。议题来自员工本身，让大家觉得自己是解决方案的一部分。",
+   "importance": 3
+  },
+  {
+   "point": "降本不只为省钱，也是为保留冒险的空间",
+   "core": "When costs are low, it’s easier to justify taking a risk. Thus, unless we lowered our costs, we would effectively limit the kinds of films that we would be able to make.",
+   "caseTitle": "削减10%人周",
+   "case": "At the time of the off-site at Cavallo Point, making a Pixar film required, on average, about 22,000 person-weeks, the unit of measurement we commonly use in our budget. We needed to reduce that number by about 10 percent.",
+   "explain": "当时一部皮克斯电影平均约需 22000 人周，目标是减少约 10%。作者强调这不是要求加班或裁员，而是因为成本低才更容易为冒险辩护，小团队也能让每个人感到自己有影响力。",
+   "importance": 2
+  },
+  {
+   "point": "给员工自由时间，想法会自己冒出来",
+   "core": "“You just give people the time, and they come up with the ideas,” Guido told us.",
+   "caseTitle": "个人项目日",
+   "case": "Two days a month, he allowed his engineers to work on anything they wanted, using Pixar’s resources to engage with whatever problem or question they found interesting. It didn’t have to be directly applicable to any particular film or address any of production’s needs. If an engineer wanted to see what it was like to light a shot in Brave, for example, he or she could. If a group of engineers wanted to build a prototype using Kinect, Microsoft’s motion-sensing input device, to help animators capture characters’ movements, they could do that, too.",
+   "explain": "工具部门负责人 Guido 每月给工程师两天，用公司资源做任何感兴趣的事，比如试着给《勇敢传说》打光，或用 Kinect 做动作捕捉原型。仅四个月，这一做法就让部门重新焕发活力。",
+   "importance": 2
+  }
+ ],
+ "Afterword: The Steve We Knew": [
+  {
+   "point": "把会议焦点从想法的来源转向想法本身",
+   "core": "The trick is to shift the emphasis in any meeting away from the source of an idea and onto the idea itself.",
+   "caseTitle": "乔布斯随时放下想法",
+   "case": "Steve had a remarkable knack for letting go of things that didn’t work. If you were in an argument with him, and you convinced him that you were right, he would instantly change his mind. He didn’t hold on to an idea because he had once believed it to be brilliant. His ego didn’t attach to the suggestions he made, even as he threw his full weight behind them. When Steve saw Pixar’s directors do the same, he recognized them as kindred spirits.",
+   "explain": "乔布斯被说服后会立刻改变主意，不会因为曾觉得某想法很棒就死抱着。他常抛出很离谱的想法试探反应，不行就放下。这与皮克斯导演全力推销又能果断放弃的能力相通。",
+   "importance": 3
+  },
+  {
+   "point": "意见对事不对人，才让人无法忽视",
+   "core": "Steve focused on the problem itself, not the filmmakers, which made his critiques all the more powerful.",
+   "caseTitle": "我不是电影人",
+   "case": "But he would often give notes after movies were screened for Pixar’s board of directors. Once or twice per movie, when a crisis loomed, he would inevitably come in and say something that helped alter our perceptions and improve the film. Whenever offering a note, he always began the same way: “I’m not really a filmmaker, so you can ignore everything I say.… ” Then he would proceed, with startling efficiency, to diagnose the problem precisely.",
+   "explain": "乔布斯不参加智囊团会议，但在董事会看片后会提意见，开头总是说自己不是电影人、可以不听，然后高效准确地诊断问题。他只针对问题，所以每部他点评过的电影都因此受益。",
+   "importance": 2
+  }
+ ],
+ "Starting Points: Thoughts for Managing a Creative Culture": [
+  {
+   "point": "走廊里的真话比会议上多，就说明出了问题",
+   "core": "If there is more truth in the hallways than in meetings, you have a problem.",
+   "caseTitle": "四种自我评估机制",
+   "case": "In general, people are hesitant to say things that might rock the boat. Braintrust meetings, dailies, postmortems, and Notes Day are all efforts to reinforce the idea that it is okay to express yourself. All are mechanisms of self-assessment that seek to uncover what’s real.",
+   "explain": "作者把智囊团、每日审片、复盘和内部意见日并列为同一类机制，它们都在对抗人们不愿惹麻烦的天性，反复确认表达意见是安全的，从而暴露真实情况。",
+   "importance": 3
+  },
+  {
+   "point": "信任是对方搞砸时依然信任，并授权其直接解决问题",
+   "core": "Trust doesn’t mean that you trust that someone won’t screw up—it means you trust them even when they do screw up.",
+   "caseTitle": "人人可以叫停生产线",
+   "case": "The people ultimately responsible for implementing a plan must be empowered to make decisions when things go wrong, even before getting approval. Finding and fixing problems is everybody’s job. Anyone should be able to stop the production line.",
+   "explain": "这条原则呼应书中丰田停线绳和《闪电狗》重做犀牛的经历：负责执行的人在出问题时无需先获批准就能做决定，发现和修复问题是每个人的事。",
+   "importance": 2
+  },
+  {
+   "point": "少立规则，个别滥用单独处理",
+   "core": "Be wary of making too many rules.",
+   "caseTitle": "95%与5%",
+   "case": "Rules can simplify life for managers, but they can be demeaning to the 95 percent who behave well. Don’t create rules to rein in the other 5 percent—address abuses of common sense individually. This is more work but ultimately healthier.",
+   "explain": "规则方便管理者，却会让 95% 守规矩的人感到被贬低。作者主张不要为约束另外 5% 而立规，而是逐个处理违背常识的行为，虽然更费力，但组织更健康。",
+   "importance": 2
+  }
+ ]
+}

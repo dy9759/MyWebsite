@@ -1,0 +1,434 @@
+{
+ "Prologue: A Run for the Throne": [
+  {
+   "point": "董事会解职权本是核心治理机制，却在员工、资本和算力依赖的合力下失效",
+   "core": "Altman had long touted the board’s ability to fire him as its most important governance mechanism.",
+   "caseTitle": "五天内的多方施压",
+   "case": "The pressure was now piling on from all directions. Microsoft, OpenAI’s other investors, and heavyweights across Silicon Valley were publicly siding with Altman. A source relayed the playbook to the media: Not only would employees leave en masse if the decision were not reversed, but Microsoft would withhold access to its computing infrastructure, and investors would file lawsuits. The combination would make an OpenAI without Altman untenable.",
+   "explain": "员工集体离职、微软切断算力、投资人起诉三种威胁叠加，让没有奥特曼的OpenAI难以存续；作者借此说明，纸面上最强的治理工具在真实依赖关系面前难以执行。",
+   "importance": 3
+  },
+  {
+   "point": "员工的股权利益与公司存续绑定，使他们成为反对董事会的力量",
+   "core": "A dissolution of the tender offer would snatch away a significant financial upside to all their hard labor, to say nothing of a dissolution of the company, which would squander so much promise and hard work.",
+   "caseTitle": "770人中700多人签名",
+   "case": "As it reached a critical mass of signatures, many more employees rushed to join in, under pressure to avoid raising questions about their absence. Within twenty-four hours, the letter had reached more than 700 signatories of the roughly 770 employees.",
+   "explain": "即将进行的股份回购让员工担心财富落空；联名信达到临界规模后，没签名的人还要承受被质疑的压力，24小时内约770名员工中已有700多人签名。",
+   "importance": 2
+  }
+ ],
+ "Chapter 1: Divine Right": [
+  {
+   "point": "OpenAI诞生于抢在谷歌之前做AGI的动机，治理权从一开始就集中在少数人",
+   "core": "If it’s going to happen anyway, it seems like it would be good for someone other than Google to do it first.",
+   "caseTitle": "五人决定的基金会",
+   "case": "He then proposed a governance structure that would defer to him and Musk. The two of them would sit on the board and invite three others to join them. “The technology would be owned by the foundation and used ‘for the good of the world,’ and in cases where it’s not obvious how that should be applied the 5 of us would decide,” Altman said.",
+   "explain": "奥特曼给马斯克的邮件里，技术名义上属于基金会、为世界造福，但遇到不明确的情况由五个人拍板；理想化的使命与高度集中的决策结构在起点就并存。",
+   "importance": 3
+  },
+  {
+   "point": "讲故事的能力让奥特曼不仅推销产品，还试图主导行业规则",
+   "core": "“Sam can tell a tale that you want to be part of, that is compelling, and that seems real, that seems even likely.”",
+   "caseTitle": "Loopt主动递上隐私清单",
+   "case": "When The Information founder Jessica Lessin, then a Wall Street Journal reporter, told Altman in 2008 she would write a story about the privacy concerns of location tracking, he offered to help. He sent her a long list of risks that Loopt had already identified and its proposals for how to solve them. The implicit message: This is how the world will work, so you might as well prepare for it.",
+   "explain": "记者要写定位追踪的隐私问题，奥特曼反而主动提供Loopt整理好的风险清单和对策，把批评变成这就是未来的论证；这种把风险也纳入叙事的方式后来在OpenAI反复出现。",
+   "importance": 3
+  },
+  {
+   "point": "蒂尔的垄断思路影响了奥特曼：要做出最后一次突破，让别人追不上",
+   "core": "On building companies, Altman frequently channeled Thiel’s “monopoly” strategy, the belief that all founders should “aim for monopoly” to create a successful business.",
+   "caseTitle": "硬盘行业的反面教材",
+   "case": "He gave the example of disc drive manufacturing in the 1980s, which saw repeated advancements every two years, but by different companies. “It had great benefit to consumers, but it didn’t actually help the people who started these companies,” he said.",
+   "explain": "蒂尔在奥特曼的斯坦福课上举80年代硬盘业为例：每两年一次进步却由不同公司完成，消费者受益而创业者没赚到钱；这解释了为何保持领先被视为生死问题。",
+   "importance": 2
+  }
+ ],
+ "Chapter 2: A Civilizing Mission": [
+  {
+   "point": "开放是争取公众支持的定位，创始人私下承认它可以在需要时收回",
+   "core": "In later correspondence, the group acknowledged that they could walk back their commitments to openness once the narrative had served its purpose and as the need arose, such as to avoid bad actors getting their hands on the technology.",
+   "caseTitle": "苏茨克维尔的邮件",
+   "case": "“As we get closer to building AI, it will make sense to start being less open,” Sutskever raised to the trio in January 2016, shortly after OpenAI launched. “The Open in openAI means that everyone should benefit from the fruits of AI after its [sic] built, but it’s totally OK to not share the science.” “Yup,” Musk responded.",
+   "explain": "成立仅一个月，苏茨克维尔就在邮件里把开放重新解释为成果共享而非科学公开，马斯克回复同意；名字里的开放在内部从一开始就是可调整的承诺。",
+   "importance": 3
+  },
+  {
+   "point": "算力增长远超摩尔定律，非营利身份筹不到所需的数十亿美元",
+   "core": "If they couldn’t wait for Moore’s Law, they needed to grow their compute the other way: They needed a whole hell of a lot more chips.",
+   "caseTitle": "一台GPU服务器15万美元",
+   "case": "In 2017, a custom Nvidia server with eight of their best GPUs cost $150,000—a price that would rise roughly with inflation to nearly $195,000 by 2023. In the coming years, OpenAI’s Law was projecting that OpenAI would need thousands, if not tens of thousands, of GPUs to train just a single model. The cost of electricity to power that training would also explode.",
+   "explain": "一台八卡服务器就要15万美元，而按OpenAI定律训练一个模型需要成千上万块GPU，外加暴涨的电费；10亿美元承诺远远不够，这直接动摇了非营利结构。",
+   "importance": 3
+  },
+  {
+   "point": "利润封顶结构名义上兼顾使命与融资，但封顶倍数高到被质疑形同虚设",
+   "core": "That arm would place a ceiling on investors’ returns and be governed by OpenAI’s nonprofit.",
+   "caseTitle": "100倍回报上限",
+   "case": "The initial terms of the limited partnership stated that the first round of investors would have their returns capped at 100x of what they put in. OpenAI termed the invented structure a “capped-profit” company. In a post on Hacker News, a popular news aggregation website run by YC, a user asked how this cap was at all meaningful.",
+   "explain": "首轮投资人回报上限是投入的100倍，网友算出投1000万可拿回10亿，除非公司做到巨头规模，否则几乎不受限；制度设计的约束力取决于具体参数。",
+   "importance": 2
+  }
+ ],
+ "Chapter 4: Dreams of Modernity": [
+  {
+   "point": "作者认为连接主义胜出不只靠科学优势，也因为它更契合大公司的商业节奏",
+   "core": "Connectionism rose to overshadow symbolism not just for its scientific merit. It also won over the backing of deep-pocketed funders due to key advantages that appealed to those funders’ business interests.",
+   "caseTitle": "IBM Watson烧掉40亿",
+   "case": "IBM called it quits after burning more than $4 billion with no end in sight and sold Watson Health for a quarter of that amount in 2022.",
+   "explain": "符号系统Watson要从答题节目转向医疗等付费场景，需要多年前期投入且回报不明，IBM烧掉40多亿美元后以四分之一价格出售；相比之下深度学习回报路径短，更合季度财报的节奏。",
+   "importance": 3
+  },
+  {
+   "point": "资金和人才向产业集中，学术研究的独立性和思路多样性随之收窄",
+   "core": "The impact of this consolidation of funding and talent in the first era significantly narrowed the diversity of ideas in AI research.",
+   "caseTitle": "博士去向从21%到70%",
+   "case": "From 2006 to 2020, the exodus to industry among AI research faculty increased eightfold; from 2004 to 2020, AI PhD graduates heading to corporations jumped from 21 percent to 70 percent, according to a 2023 study in Science from MIT researchers. Many were initially whisked away by the astronomical compensation, which for seasoned researchers could reach $1 million a year.",
+   "explain": "AI教职流向产业的人数增长八倍，进入企业的博士比例从21%升至70%，资深研究者年薪可达百万美元；人才和算力都被企业掌握，其他研究路线越来越难获得支持。",
+   "importance": 3
+  },
+  {
+   "point": "拟人化营销让公众高估模型能力，幻觉被说成偶发故障，其实是概率机制的特性",
+   "core": "Even the term hallucinations is subtly misleading.",
+   "caseTitle": "律师引用虚构判例",
+   "case": "In one high-profile illustration of the hallucinations problem, a lawyer used ChatGPT to perform legal research and prepare for a court filing. He was subsequently sanctioned, fined, and publicly humiliated after discovering too late that the chatbot had made up everything it told him, including “bogus judicial decisions, with bogus quotes and bogus internal citations,” according to the judge.",
+   "explain": "律师用ChatGPT做法律检索，提交的判例和引文全是编造的，最终被处罚；作者指出厂商一边宣传模型能通过律师考试，一边把出错称为幻觉，暗示是偶发故障，其实是概率机制的固有特性。",
+   "importance": 2
+  }
+ ],
+ "Chapter 5: Scale of Ambition": [
+  {
+   "point": "把GPT-3做到最大并尽快发布，这两个决定改变了整个行业的走向",
+   "core": "Years before ChatGPT, these two decisions—the one to explode GPT-3’s size and the one to quickly release it—would change the course of AI development.",
+   "caseTitle": "一次用上一万块GPU",
+   "case": "Amodei wanted to use all of those chips, all at once, to create the new large language model. The idea seemed to many nothing short of absurdity. Before then, models were already considered large-scale if trained on a few dozen chips. In top academic labs at MIT and Stanford, PhD students considered it a luxury to have ten chips.",
+   "explain": "当时几十块芯片训练就算大规模，顶尖高校博士生有十块已是奢侈，阿莫代却要一次用尽微软超算的一万块V100；加上微软10亿投资背后的交付期待，规模和发布速度被同时推高。",
+   "importance": 3
+  },
+  {
+   "point": "作者认为OpenAI的诸多决策建立在AGI必然到来的假设上，而这种做法并非必然",
+   "core": "It was a logic that worked under a specific assumption: that AGI, despite being amorphous and unknowable, was also inevitable.",
+   "caseTitle": "中国研究者的对照",
+   "case": "In China, which rivals the US in AI talent, no team of researchers and engineers, no matter how impressive, would get $1 billion, let alone ten times more, to develop a massively expensive technology without an articulated vision of exactly what it would look like and what it would be good for.",
+   "explain": "一位中国研究者指出，在中国没有团队能在说不清产品形态和用途的情况下拿到10亿美元；作者据此认为，OpenAI的路线来自其特殊的资本和理念组合，而非技术发展的必然。",
+   "importance": 3
+  },
+  {
+   "point": "扣留GPT-2被包装成负责任的做法，也为此后不公开研究开了先例",
+   "core": "It was better to set a precedent for withholding research early.",
+   "caseTitle": "GPT-2太危险的宣传",
+   "case": "Clark began a media offensive in February 2019, broadcasting widely to various publications that OpenAI had created a dangerous technology, and therefore was not releasing it. Instead it would release only a smaller version, with 8 percent of the full-fledged model’s parameters, to give the public a taste of its capabilities.",
+   "explain": "OpenAI对外宣称造出了危险技术，只放出8%参数的小版本，引来学界嘲讽后改为分阶段发布；但这一做法在政策圈赢得信任，扣留研究逐渐被视为一种负责任的规范。",
+   "importance": 2
+  }
+ ],
+ "Chapter 6: Ascension": [
+  {
+   "point": "奥特曼的愿景备忘录把领先当作使命的前提，用竞争压力为快速推进辩护",
+   "core": "“Though we in theory could slow down capability work,” he wrote, referring to advancing technical results, “given the rate of progress other people are making, we likely are required to move very quickly on technical progress if we want to have a lot of influence over AGI.”",
+   "caseTitle": "四个第一的目标",
+   "case": "In a memo he sent to the company in late 2019 to articulate his long-term vision, he emphasized that OpenAI needed to “be number one” in four categories by the end of 2020: technical results, compute, money (to acquire more compute), and preparation, meaning the safety and security of the organization as well as its resilience to high-stress situations.",
+   "explain": "备忘录要求2020年底前在技术成果、算力、资金和准备度四项都排第一，资金还被明确为买更多算力；同一份文件还主张减少透明度、每年至少发布一次惊艳演示。",
+   "importance": 3
+  },
+  {
+   "point": "一则谷歌抢先的传闻促成了GPT-3 API的发布，作者认为这类竞争恐惧常被夸大",
+   "core": "The GPT-3 API release wouldn’t be the last decision that OpenAI would make to push out its technology based on an inflated fear of competition.",
+   "caseTitle": "谷歌Meena传闻",
+   "case": "But rumors began to spread within OpenAI that Google could soon release its own large language model. The possibility was plausible. Google had published research at the start of the year about a new chatbot called Meena, built on a large language model with 1.7 times more parameters than GPT-2.",
+   "explain": "安全派与应用派对是否发布僵持到春末，谷歌可能发布大模型的传闻让安全派失去坚持的理由；事后谷歌更大的LaMDA因不符合伦理标准直到ChatGPT之后才发布，传闻并未成真。",
+   "importance": 3
+  },
+  {
+   "point": "商业化见效后，内部路线之争由收入决定，研究被重新围绕GPT组织",
+   "core": "The promising commercial potential of large language models cemented OpenAI’s focus.",
+   "caseTitle": "解散机器人团队",
+   "case": "One by one, Amodei’s counterpart, Bob McGrew, the other VP of Research, reoriented the division’s teams and projects around GPT-related work. In late summer of 2020, the company dissolved its robotics team. Most of the robotics staff shifted to GPT projects; two mechanical engineers were laid off.",
+   "explain": "API成功后微软准备再投20亿美元，研究部门逐个转向GPT相关工作，机器人团队被解散；同年9月微软获得GPT-3独家授权，安全派要求的放缓已无法实现。",
+   "importance": 2
+  }
+ ],
+ "Chapter 7: Science in Captivity": [
+  {
+   "point": "竞争压力加上OpenAI树立的扣留先例，让大公司开始压制内部的批评性研究",
+   "core": "That Google was even willing to pull this move, some researchers would later reflect, was not only because of the new competitive pressure from OpenAI but also because of the work OpenAI had done to legitimize withholding research after GPT-2.",
+   "caseTitle": "随机鹦鹉论文被要求撤回",
+   "case": "On the Thursday a week before Thanksgiving, after Gebru had submitted the paper to the conference, she received a calendar invite without explanation to meet Megan Kacholia, Google Research’s VP of engineering, over a video call less than three hours later. The meeting lasted only thirty minutes, and Kacholia cut to the point: Gebru needed to retract the paper.",
+   "explain": "论文已通过内部审批并投稿，Gebru却突然被要求撤稿，且不能得知是谁提出意见；她随后宣布被解雇，谷歌称是接受其辞职。此前谷歌很少因结论不讨喜而撤回论文。",
+   "importance": 3
+  },
+  {
+   "point": "透明度规范大幅倒退，没有训练数据可查，模型评测的科学基础也随之动摇",
+   "core": "With this sharp reversal in transparency norms, the most alarming consequence would be the erosion of scientific integrity.",
+   "caseTitle": "十家公司透明度全不及格",
+   "case": "In 2023, Stanford researchers would create a transparency tracker to score AI companies on whether they revealed even basic information about their large deep learning models, such as how many parameters they had, what data they were trained on, and whether there had been any independent verification of their capabilities. All ten of the companies they evaluated in the first year, including OpenAI, Google, and Anthropic, received an F; the highest score was 54 percent.",
+   "explain": "斯坦福的透明度追踪只问参数量、训练数据、是否有独立验证等基本信息，十家公司全部不及格；作者指出，查不到训练数据就无法确认测试题是否已在训练集中，跑分可能只是背答案。",
+   "importance": 3
+  },
+  {
+   "point": "OpenAI给学者开放API却拒绝公开训练数据，外部审查无从下手",
+   "core": "But when she proposed to investigate and document the model’s training data, the company had told her that that didn’t fit into the parameters of its program.",
+   "caseTitle": "拒绝本德的数据研究",
+   "case": "“Our goal with these initial partnerships is to empower academics to conduct research via the API through more of a self-service model,” OpenAI had written to Bender to let her know they would not be sharing the dataset.",
+   "explain": "语言学家本德受邀成为GPT-3早期学术伙伴，但提出研究和记录训练数据时被拒；学者只能通过API自助研究，看不到数据本身，这正是后来随机鹦鹉论文批评的问题之一。",
+   "importance": 2
+  }
+ ],
+ "Chapter 8: Dawn of Commerce": [
+  {
+   "point": "2021路线图把规模化与产品化绑成飞轮：放大模型、上线产品、用用户数据再改进",
+   "core": "The language and code models would also be turned into products and released to gather real-world data from the people using them: “New in 2021: we emphasize deploying models as products and learning from user interaction, as it can be a data flywheel that can lead to vast capability improvements.”",
+   "caseTitle": "1.8万块A100的三步计划",
+   "case": "That path involved three things: First was scaling GPT-3 by another 10x using a new supercomputer from Microsoft arriving in the third quarter with eighteen thousand Nvidia A100s, the newest, most powerful GPUs then in existence.",
+   "explain": "路线图要求用微软1.8万块A100把GPT-3再放大10倍、把算力效率提高25倍，并借用户数据改进模型；研究与商业不再分开，产品本身成了获取训练数据的渠道。",
+   "importance": 3
+  },
+  {
+   "point": "内容规则靠临时拍板，过滤器因影响体验被改成可选，安全让位于客户体验",
+   "core": "Many of the lines they drew were arbitrary.",
+   "caseTitle": "过滤器被设为可选",
+   "case": "But when it was shipped, the filter worked poorly, blocking broad swaths of benign content, such as basic references to Black or trans people. Developers and other API users complained. Many people on the API team had already been reticent to apply any filtering at all, worried about it degrading customer experience. They made the filter optional.",
+   "explain": "早期过滤器误伤大量正常内容，连提到黑人或跨性别者都会被拦，开发者抱怨后团队干脆把它设为可选；当时连正式的信任与安全团队都没有，规则全凭感觉。",
+   "importance": 3
+  },
+  {
+   "point": "开放API却缺少流程，可预见的滥用发生后，公司把责任推给下游客户",
+   "core": "To some OpenAI employees, the blame was clearly on the company’s own technology and lack of process, and the incident weighed heavily.",
+   "caseTitle": "AI Dungeon事件",
+   "case": "In the end, Latitude hastily implemented a filter to block text-based child sex abuse content. OpenAI released a public statement to distance itself from the lack of content moderation and to subtly place the blame on Latitude.",
+   "explain": "基于GPT-3的文字冒险游戏被用来生成涉及儿童的性内容，Latitude仓促加过滤，OpenAI发声明暗示责任在对方；但该公司此前已因旧模型封禁过类似用户，问题本可预见。",
+   "importance": 2
+  }
+ ],
+ "Chapter 9: Disaster Capitalism": [
+  {
+   "point": "管住模型输出需要人工先读完最恶劣的内容，这部分工作被低价外包到肯尼亚",
+   "core": "To build the automated filter, OpenAI first needed human workers who could carefully review and catalog hundreds of thousands of examples of exactly the content—sex, violence, and abuse—that the company wanted to prevent its models from generating.",
+   "caseTitle": "Sama的PBJ项目",
+   "case": "Under the code names PBJ1, PBJ2, PBJ3, and PBJ4, it thrust teams of Sama workers into more traumatic content-moderation work, for on average between $1.46 and $3.74 an hour. Workers had no idea for whom or why they were doing the project, kept in the dark under the nondisclosure terms of the contract, common in the data annotation industry.",
+   "explain": "四份合同共23万美元，肯尼亚工人时薪约1.46至3.74美元，在保密条款下不知道客户是谁；审核员Okinyi每月要复核1.5万条性内容，作者记录了他此后的精神创伤和家庭破裂。",
+   "importance": 3
+  },
+  {
+   "point": "外包链条让AI公司与劳动代价保持距离，出事时可以把责任推给中间商",
+   "core": "Labor rights scholars and advocates say that that exploitation begins with the AI companies at the top.",
+   "caseTitle": "OpenAI的回应",
+   "case": "It was Sama that had followed inadequate procedures to protect their workers, OpenAI leadership said; with Sama’s pristine reputation before then, OpenAI couldn’t have known that the workers were struggling.",
+   "explain": "报道刊出后，OpenAI称是Sama保护工人不力、自己无从得知；劳工学者认为外包正是为了让脏活远离视线、撇清责任，中间商为抢合同压低工资，工人被双重压榨。",
+   "importance": 3
+  },
+  {
+   "point": "作者调查发现，标注平台在经济危机地区先高薪招人，站稳后再压价",
+   "core": "Scale proceeded to repeat the playbook it had developed in Venezuela again and again.",
+   "caseTitle": "Remotasks收入骤降",
+   "case": "We found through a spreadsheet the company left public that the workers’ earnings began to decline within weeks of the program’s launch; workers who started with earnings of forty dollars a week were soon making less than six dollars or nothing at all. In April 2021, the company shuttered the Remotasks Plus program entirely and reverted to its standard operations, doling out tasks in a piecemeal fashion with no standard or guaranteed hours.",
+   "explain": "委内瑞拉工人周薪从40美元跌到不足6美元，项目随后被关闭；Scale否认刻意瞄准困境经济体和压价，称招募考虑语言多样性和全天候覆盖。",
+   "importance": 2
+  },
+  {
+   "point": "RLHF让大模型变得好用，也让写答案、排序输出成为新的全球外包劳动",
+   "core": "But within OpenAI, the AI safety researchers had proved their point: RLHF did make large language models significantly more appealing as products.",
+   "caseTitle": "Scale估值涨到140亿",
+   "case": "Scale AI, whose business had been struggling after self-driving cars failed to pan out, suddenly saw a new boom as a major RLHF worker supplier, surging its valuation to $14 billion in 2024.",
+   "explain": "InstructGPT证明人类反馈能显著提升可用性，此后OpenAI对每类任务都让工人写示范、给输出排序；自动驾驶退潮后陷入困境的Scale因此迎来新一轮增长。",
+   "importance": 2
+  }
+ ],
+ "Chapter 10: Gods and Demons": [
+  {
+   "point": "数据耗尽后，公司愿意承担违反平台条款的风险去获取训练数据",
+   "core": "To solve OpenAI’s data bottleneck, Brockman turned to a new source: YouTube. OpenAI had previously avoided this option—scraping YouTube to train OpenAI’s models, YouTube’s CEO would later confirm, violated the platform’s terms of service.",
+   "caseTitle": "转写百万小时视频",
+   "case": "With a small team, Brockman began collecting YouTube videos, eventually compiling more than one million hours of footage, according to The New York Times. He then used a speech-recognition tool called Whisper, which Radford had developed, to transcribe the videos into text for GPT-4.",
+   "explain": "据《纽约时报》报道，布罗克曼收集了超过一百万小时的YouTube视频，再用自研的Whisper转成文字喂给GPT-4；判断依据是谷歌自己也要抓取别的网站，未必会追究。",
+   "importance": 3
+  },
+  {
+   "point": "低调研究预览兼顾了两派诉求，但竞争一来，限制措施很快被要求撤掉",
+   "core": "On DALL-E 2, she struck a compromise: The web app would be released not as a product but as a “low-key research preview.”",
+   "caseTitle": "DALL-E 2失去市场",
+   "case": "As DALL-E 2 rapidly lost traction in the market, the experience left Applied with a nagging sense that it had lost out on a major commercial opportunity due to, among other things, the app being too restrictive. The team had already been in the process of unwinding its blunt blockers and replacing them with more targeted guardrails. Fueled by a desire to outrace competitors, executives were now pushing the team to unwind them as fast as possible.",
+   "explain": "穆拉蒂用研究预览的名义暂时禁止生成真实人脸，但免费且限制更少的Midjourney和Stable Diffusion迅速抢走用户，高管随即要求尽快拆除限制，相关审核又被外包给印度承包商。",
+   "importance": 3
+  },
+  {
+   "point": "增长有指标而安全没有，取消开发者审核后监控能力被一再压缩",
+   "core": "Different teams were codifying this growing conflict into the metrics they used to evaluate their performance.",
+   "caseTitle": "取消开发者审核",
+   "case": "With the launch of GPT-4 pending, executives overrode the objections: OpenAI was getting rid of developer review; the trust and safety team simply needed to figure out the alternative.",
+   "explain": "应用部门有用户增长和收入目标，安全工作却难以量化；GPT-4发布前高管推翻信任与安全团队的反对取消开发者审核，替代的监控方案又因担心增加开发者摩擦被大幅缩减。",
+   "importance": 2
+  },
+  {
+   "point": "董事会要求更多书面信息和监督，奥特曼更希望董事会只当顾问",
+   "core": "Altman chafed at the increased oversight.",
+   "caseTitle": "每季度一次口头汇报",
+   "case": "Until that point, Altman had convened the board roughly once a quarter and preferred to deliver his updates verbally. He breezed through complex research topics, sometimes bringing along company researchers to present their progress, and gave rapid-fire rundowns on the latest deals he was in the process of negotiating with Microsoft or other partners.",
+   "explain": "董事会大约每季度开一次，奥特曼习惯口头快速带过研究和交易进展；GPT-4展示后独立董事意识到责任加重，要求书面报告和更多文件，双方对董事会角色的理解出现分歧。",
+   "importance": 2
+  }
+ ],
+ "Chapter 12: Plundered Earth": [
+  {
+   "point": "超算规划一期比一期大，真正的瓶颈从资金变成了能源",
+   "core": "While the plan didn’t seem the most financially sound as a business investment, money wasn’t the main bottleneck. It was energy.",
+   "caseTitle": "从100亿到1000亿的超算",
+   "case": "For Phase 4, planned in Wisconsin, Altman expected costs to hit $10 billion using Nvidia’s latest B100s, yet another generation after H100s. That was a staggering amount, considering the most expensive hyperscale data centers then hovered around $1 to $2 billion. He didn’t plan to stop there, casually floating the idea of the $100 billion supercomputer for Phase 5.",
+   "explain": "当时最贵的数据中心约10到20亿美元，第四期预计100亿，第五期设想1000亿、可能需要约5000兆瓦电力，接近纽约全市平均用电；员工直言土地和电力都不够了。",
+   "importance": 3
+  },
+  {
+   "point": "环境代价没有进入公司内部讨论，而训练恰好发生在缺水地区",
+   "core": "Altman and other executives never brought up the data centers’ environmental toll in company-wide meetings.",
+   "caseTitle": "GPT-4训练期的爱荷华用水",
+   "case": "As OpenAI trained GPT-4 in Iowa, the state was two years into a drought. The Associated Press later reported that during a single month of the model’s training, Microsoft’s data centers had consumed around 11.5 million gallons, or 6 percent, of the district’s water. GPT-4 had trained there for three months.",
+   "explain": "爱荷华已干旱两年，GPT-4训练的单月内微软数据中心用水约1150万加仑，占当地供水6%；微软回应称将提高用水效率并在2030年前实现补水多于用水。",
+   "importance": 3
+  },
+  {
+   "point": "社区通过逐页研读技术文件，挑战耗水型数据中心并取得成效",
+   "core": "MOSACAT’s members are not technologists.",
+   "caseTitle": "每秒169升饮用水",
+   "case": "Buried in its depths, Google said that its data center planned to use an estimated 169 liters of fresh drinking water per second to cool its servers. In other words, the data center could use more than one thousand times the amount of water consumed by the entire population of Cerrillos, roughly eighty-eight thousand residents, over the course of a year.",
+   "explain": "水资源活动团体的志愿者并非技术出身，却逐页读完谷歌347页环评文件，找到每秒169升饮用水的用量，推动公投否决和诉讼；2024年智利环境法院裁定谷歌不能在圣地亚哥建用水型数据中心。",
+   "importance": 2
+  }
+ ],
+ "Chapter 13: The Two Prophets": [
+  {
+   "point": "作者认为OpenAI把监管讨论引向未来风险，回避了当下的劳动、环境和版权问题",
+   "core": "Silicon Valley’s tried-and-true “What about China?” card had consistently done wonders to ward off regulation.",
+   "caseTitle": "听证会上的三条建议",
+   "case": "he offered three policy recommendations that shifted the conversation away from existing issues like labor, environment, and intellectual property and toward regulating future AI systems and extreme risks: First, create an agency that would develop and administer a licensing regime for models above a certain threshold of capabilities; second, create a set of AI safety standards for measuring “dangerous” capabilities; third, require independent audits on those standards to check for compliance.",
+   "explain": "奥特曼建议设许可机构、制定危险能力标准、做独立审计，并以中国为由劝议员别拖慢创新；作者认为这些建议针对的都是尚不存在的未来模型，劳动、环境、版权等现有问题被移出焦点。",
+   "importance": 3
+  },
+  {
+   "point": "算力阈值与风险相关性弱，却从白皮书脚注一路写进了总统行政令",
+   "core": "Compute is thus not much correlated with risk at all, says Hooker, let alone with specific kinds of risks, such as the ones laid out in the white paper.",
+   "caseTitle": "10的26次方的来历",
+   "case": "The authors had admitted that the threshold was somewhat arbitrary, stating simply that it was a level of compute that existing AI models likely hadn’t yet surpassed. Sara Hooker, the VP of research at large language model developer Cohere and one of the coauthors of the paper, says speaking with her collaborators who proposed the number led her to believe they had picked it to be slightly higher than the amount of compute that OpenAI had reportedly used to train GPT-4.",
+   "explain": "合著者Hooker说，10的26次方这个阈值只是略高于GPT-4的训练量，作者们承认它有些随意；它被放在脚注里，却原样进入2023年10月的拜登行政令，又影响了欧盟和加州立法。",
+   "importance": 3
+  },
+  {
+   "point": "影响政策的入场券极不平等，受AI冲击的群体几乎没有游说资源",
+   "core": "By early June, Altman had personally met with at least one hundred US lawmakers, according to The New York Times, some of whom proudly referenced those private conversations during the hearing.",
+   "caseTitle": "烤鸡晚宴与鸡肉快餐",
+   "case": "That second day, they were once again competing for attention. Altman was attending an exclusive dinner with sixty House members at the Capitol, feasting on an expertly prepared buffet with roast chicken. At the same time, the artists were hosting an interactive cocktail hour and trying to attract as many staffers with the best their budget could buy: wine and Chick-fil-A.",
+   "explain": "奥特曼与六十位众议员共进晚宴时，众筹路费来华府的概念艺术家只能用葡萄酒和快餐吸引国会工作人员，原定会面也被听证会挤掉；他们想谈的生成式AI对职业的冲击因此少有人听。",
+   "importance": 2
+  }
+ ],
+ "Chapter 15: The Gambit": [
+  {
+   "point": "据作者重建，高管们担心的是为赶发布而绕开既定审查流程",
+   "core": "But faced with mounting competition externally, Altman was also pushing the company to deploy faster and faster and attempting to skirt some of its established release processes for expediency, sometimes through dishonesty.",
+   "caseTitle": "GPT-4 Turbo跳过安全审查",
+   "case": "Recently, he had told Murati he thought that OpenAI’s legal team had cleared GPT-4 Turbo for skipping DSB review. But when Murati checked in with Jason Kwon, who oversaw the legal team, Kwon had no idea how Altman had gotten that impression.",
+   "explain": "按作者的记述，奥特曼告诉穆拉蒂法务已同意GPT-4 Turbo免于部署安全委员会审查，而法务负责人对此毫不知情；穆拉蒂后来向董事Toner表示，发布压力可能导致坏事发生。",
+   "importance": 3
+  },
+  {
+   "point": "对不同的人给出不同承诺，造成组织内耗和信任流失",
+   "core": "If two teams disagreed, he often agreed in private with each of their perspectives, which created confusion, exacerbated the conflict, and bred mistrust among colleagues.",
+   "caseTitle": "同一研究的两位负责人",
+   "case": "Altman had then encouraged Pachocki’s ambitions and given him a more senior role in Research. There was only one problem: Altman had never mentioned any of this to Sutskever. Nor would he clear up the divisions between Sutskever’s and Pachocki’s portfolios as both of them, each getting different messaging from Altman, began guiding the same research in their own directions and struggling to understand the source of the misalignment.",
+   "explain": "据作者重建，帕乔茨基被提拔却没有告知其上级苏茨克维尔，两人从奥特曼那里听到不同说法，带着同一项研究各走各路，研究部门内耗数月；这是苏茨克维尔联系董事会的直接起因。",
+   "importance": 3
+  },
+  {
+   "point": "非营利董事会缺乏独立资源，监督只能先从补齐治理机制入手",
+   "core": "Toner responded: The board would focus on the things that it could actually change—not Sam’s personality or behavior but instituting better governance processes and structures to keep him in check.",
+   "caseTitle": "没有独立律师的董事会",
+   "case": "One glaring issue: OpenAI’s nonprofit didn’t have sufficient independent legal support, and everything was being routed through the for-profit lawyers. The three agreed that it was time to find new nonprofit lawyers who could be present at every board meeting and help review all of the deals and other legal arrangements that Altman was striking.",
+   "explain": "负责监督营利公司的非营利董事会，法律事务却都经由营利公司的律师处理；三位独立董事决定另聘律师列席每次会议、审查奥特曼谈下的交易，监督能力需要先有独立资源。",
+   "importance": 2
+  }
+ ],
+ "Chapter 17: Reckoning": [
+  {
+   "point": "竞争驱动的发布日期压缩了安全评估，框架流于形式",
+   "core": "In the week running up to the launch, an AI safety researcher still left at the company wrote an impassioned memo: Upstream processes and the rushed release of Scallion had left the Preparedness team, headed by Aleksander Mądry, with only ten days to run its tests from the framework.",
+   "caseTitle": "卡在谷歌大会前的发布",
+   "case": "By early 2024, Altman and Brockman had set a new deadline: OpenAI would launch Scallion on May 9 and roll it out to users through ChatGPT and the API. It was, in what had become typical fashion, a remarkably aggressive turnaround, driven in large part by accelerating competition.",
+   "explain": "发布日定在谷歌I/O前一周，加上Claude 3反超GPT-4的压力，准备度团队只剩十天做包括政治说服能力在内的危险能力测试；最终GPT-4o在谷歌大会前一天演示，部分功能延后数月上线。",
+   "importance": 3
+  },
+  {
+   "point": "离职协议以收回已归属股权相威胁，等于封住了前员工批评公司的嘴",
+   "core": "But the threat of having one’s financial security disappear overnight would do well to muzzle anyone, he thought, even if they noticed egregious AI safety issues.",
+   "caseTitle": "放弃85%身家的选择",
+   "case": "After a painful discussion with his wife, they made an extraordinary decision: They agreed to not sign the paperwork and give up all his equity—valued at around $1.7 million—which they estimated to be around 85 percent of their family’s net worth.",
+   "explain": "离职员工Kokotajlo若不签终身不贬损协议就会失去已归属股权，他选择放弃约170万美元、占家庭净资产约85%的股权；曝光后管理层承认条款不应存在并解除相关约束。",
+   "importance": 3
+  },
+  {
+   "point": "声音产品的授权与相似度问题，会直接演变为信任危机",
+   "core": "“In a time when we are all grappling with deepfakes and the protection of our own likeness, our own work, our own identities, I believe these are questions that deserve absolute clarity,” she wrote.",
+   "caseTitle": "Sky声音风波",
+   "case": "Johansson had considered the offer but turned it down due to personal reasons, she continued. In May 2024, Altman had then reached out to Lourd a second time, asking if she might reconsider. Days later, before they could find a time to meet, OpenAI had held its event to showcase 4o.",
+   "explain": "约翰松称拒绝配音后，奥特曼发布前又一次邀请她，随后演示中的Sky被认为与她极为相似；OpenAI称Sky来自另一位配音演员、无意模仿，但还是下架了该声音。",
+   "importance": 2
+  }
+ ],
+ "Chapter 18: A Formula for Empire": [
+  {
+   "point": "作者认为使命足够模糊，可以随需要不断重新解释",
+   "core": "Most consequentially, the mission remains so vague that it can be interpreted and reinterpreted—just as Napoleon did to the French Revolution’s motto—to direct the centralization of talent, capital, and resources however the centralizer wants.",
+   "caseTitle": "使命含义的年度变迁",
+   "case": "In 2022, it meant “iterative deployment” and racing as fast as possible to deploy ChatGPT. And in 2024, Altman wrote on his blog after the GPT-4o release: “A key part of our mission is to put very capable AI tools in the hands of people for free (or at a great price).”",
+   "explain": "同一句使命，2015年意味着非营利和开源，2020年变成不开放权重的API，2022年是尽快部署ChatGPT，2024年又成了提供免费或低价工具；每次解释都恰好为当时的决策背书。",
+   "importance": 3
+  },
+  {
+   "point": "董事会风波后，公司着手改制，拆除非营利董事会对业务的控制",
+   "core": "The board crisis had made clear that OpenAI’s structure—a nonprofit governing a for-profit—had made his ouster as good as inevitable.",
+   "caseTitle": "66亿融资的附加条件",
+   "case": "In early October 2024, OpenAI’s newest funding round closed to the tune of $6.6 billion, the largest VC round in history, valuing the company at $157 billion. It included a hitch: Investors could demand their money back if the company did not convert into a for-profit in two years.",
+   "explain": "66亿美元融资、1570亿估值创下纪录，但投资人要求两年内不完成营利化改制就可撤资；资本条款直接推动治理结构改变，年底公司宣布转为公益公司，非营利实体只持股。",
+   "importance": 3
+  },
+  {
+   "point": "连AGI的定义都可以为商业合作重新协商",
+   "core": "It was a bizarre and incoherent strategy that only made sense under one reading: OpenAI would do whatever it needed, and interpret and reinterpret its mission accordingly, to entrench its dominance.",
+   "caseTitle": "与微软的AGI条款",
+   "case": "“When we originally set up the Microsoft deal, we came up with this thing called the sufficient AGI clause,” a clause that determined the moment when OpenAI would stop sharing its IP with Microsoft. “We all think differently now,” he added. There would no longer be a clean cutoff point for when OpenAI reached AGI.",
+   "explain": "原协议约定达到AGI时停止向微软共享知识产权，奥特曼却在全员会上说AGI将是连续过程、不再有明确分界点；本应约束商业关系的条款，被重新定义以延续合作。",
+   "importance": 2
+  },
+  {
+   "point": "规模化公式开始失灵，而多年偏重利用而非探索，让转向更难",
+   "core": "The company was beginning to stare down the barrel of an uncomfortable prospect: Its tried-and-true formula of scaling no longer seemed to be enough to work; to advance its AI systems further, it likely needed fundamentally new research ideas.",
+   "caseTitle": "Orion迟迟达不到预期",
+   "case": "At the same time, after over a year of work, OpenAI was still struggling to attain the desired performance for Orion to justify its release.",
+   "explain": "Orion研发一年多仍达不到发布标准，而公司多年来的招聘和团队设置都围绕放大现有方法；同期穆拉蒂、麦格鲁等资深高管相继离开，转向新研究思路缺少人手。",
+   "importance": 2
+  }
+ ],
+ "Epilogue: How the Empire Falls": [
+  {
+   "point": "知情同意、互惠与数据主权可以贯穿AI开发的每个环节",
+   "core": "Intimately familiar with the devastating effects of colonial dispossession, Jones and Mahelona were determined to carry out the project only if they could guarantee three things—consent, reciprocity, and the Māori people’s sovereignty—at every stage of development.",
+   "caseTitle": "十天收集310小时录音",
+   "case": "Within ten days, Te Hiku gathered three hundred ten hours of high-quality transcribed audio from some two hundred thousand recordings made by roughly twenty-five hundred people.",
+   "explain": "Te Hiku先征得社区和长者同意，只收集知情自愿的贡献，数据按守护原则自行管理；结果十天内约2500人贡献了20万段录音，信任反而带来了极高的参与度。",
+   "importance": 3
+  },
+  {
+   "point": "小而专的模型用少量数据也能解决实际问题，规模不是唯一路径",
+   "core": "Where OpenAI seeks to develop singular massive AI models that will do anything, a quest that necessarily hoovers up as much data as possible, Te Hiku simply sought to create a small, specialized model that excels at one thing.",
+   "caseTitle": "310小时对68万小时",
+   "case": "That data pool paled in comparison to the six hundred eighty thousand hours of audio that OpenAI ripped from around the web to train its speech-recognition tool, Whisper. But it is yet another lesson to be drawn from Te Hiku’s experience that the three hundred ten hours still proved sufficient for developing the very first te reo speech-recognition model with 86 percent accuracy.",
+   "explain": "Whisper用了从网上抓取的68万小时音频，Te Hiku只用310小时就做出准确率86%的首个毛利语语音识别模型，起点是开源的DeepSpeech，全程只用两块GPU。",
+   "importance": 3
+  },
+  {
+   "point": "数据劳动的定价应看公司能付多少，而不是工人最少能接受多少",
+   "core": "“The question is why are these companies paying two dollars an hour if the work is making them billions or trillions in revenue? Why don’t we look at how much these companies can pay instead of how much less these workers can take?”",
+   "caseTitle": "按德国研究员标准付酬",
+   "case": "Regardless of where they lived, she paid them a standard researcher’s salary in Germany, where she is based, to reflect the value of the work they did: twenty-five euros an hour.",
+   "explain": "DAIR的Miceli邀请各国数据工人自定研究问题，不论身在何处都按德国研究员标准付每小时25欧元；Fuentes和Okinyi都参与其中，后者还组织了非洲内容审核员工会。",
+   "importance": 2
+  }
+ ]
+}

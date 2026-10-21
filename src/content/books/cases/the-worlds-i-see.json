@@ -1,0 +1,450 @@
+{
+ "1. Pins and Needles in D.C.": [
+  {
+   "point": "AI的影响取决于开发动机，成功的定义应把对人和社区的正面影响算进去",
+   "core": "I wrote that the true impact of AI on the world would be largely determined by the motivation that guided the development of the technology—a disturbing thought in an era of expanding facial recognition and targeted advertising.",
+   "caseTitle": "技术反冲中的作证",
+   "case": "For better or worse, my op-ed came in the thick of the “techlash”: a growing consensus that Silicon Valley’s ambitions had reached excessive, even predatory extremes. At any other time in my career, such a controversy would have felt light-years away from a little-known academic like me.",
+   "explain": "她在《纽约时报》专栏里提出动机决定影响，恰逢公众对硅谷的反感达到高点；作为谷歌云首席科学家去国会作证，她必须在乐观与批评之间给出一个以人为本的立场。",
+   "importance": 3
+  },
+  {
+   "point": "AI的未来不只由科学决定，还取决于教育、倡导和政府等机构",
+   "core": "I was certain the future of AI would depend on institutions far beyond science, including education, activism, and, of course, government.",
+   "caseTitle": "AI4ALL与国会邀请",
+   "case": "I’d recently cofounded AI4ALL, an educational nonprofit intended to foster greater inclusion in STEM (science, technology, engineering, and mathematics) by opening university labs to girls, people of color, and other underrepresented groups, all at the high school level. In fact, my efforts to diversify the field were cited as a key reason for the panel’s interest in my participation.",
+   "explain": "国会请她作证的一个关键理由，是她面向高中女生和少数群体开放大学实验室的教育项目；这说明在决策者眼里，谁能进入这个领域本身就是AI治理的一部分。",
+   "importance": 2
+  }
+ ],
+ "2. Something to Chase": [
+  {
+   "point": "外界的偏见没有打垮她，反而变成了要证明自己的动力",
+   "core": "I didn’t feel discouraged, or even offended. I was angry.",
+   "caseTitle": "老师说男生天生更聪明",
+   "case": "“I asked the girls to leave because the time has come to tell you that your performance as a group is unacceptable. As boys, you’re biologically smarter than girls. Math and science are fundamental parts of that, and there’s just no excuse for your average exam scores to be lower than theirs. I’m deeply disappointed in you all today.”",
+   "explain": "小学最后一年，老师单独留下男生，说男生生理上更聪明、女生会越学越笨。她躲在门外听到后没有气馁而是愤怒，从此把理科当成必须赢下的比赛。",
+   "importance": 3
+  },
+  {
+   "point": "物理是她第一个靠自己找到、真正想追的东西",
+   "core": "Physics was the first thing I’d discovered on my own, and it felt different. It was something to chase.",
+   "caseTitle": "物理成绩从崩溃到第一",
+   "case": "I got the highest grade in the class on the first exam. I scored even higher on the second. Then the third, and the fourth, and the fifth. Newtonian mechanics. Optics. Electricity. The streak didn’t stop, from the first day of class to the final.",
+   "explain": "父亲赴美后她第一年物理成绩崩溃，后来在思念父亲时意识到物理正是父亲看世界的方式，重新学习后每次考试都拿全班最高分，好奇心从此有了自己的对象。",
+   "importance": 3
+  },
+  {
+   "point": "父亲给了她好奇心的强度，母亲给了它方向",
+   "core": "If my father was responsible for the magnitude of my curiosity, it was my mother who gave it direction.",
+   "caseTitle": "母亲顶撞班主任",
+   "case": "“It’s what she’s reading. I mean, The Unbearable Lightness of Being? The Brontë sisters? And all these magazines she subscribes to. Marine life, fighter jets, something about UFOs … the list goes on. She’s just not prioritizing literature that reflects the values and ideas of the curriculum.”",
+   "explain": "老师抱怨她读的书和杂志不符合课程导向，母亲当场反问这有什么问题，并认为女儿的努力只为她自己；这种家庭态度让她的兴趣没有被应试框住。",
+   "importance": 2
+  }
+ ],
+ "3. A Narrowing Gulf": [
+  {
+   "point": "靠人工录入知识的专家系统，规模化成本先于能力触顶",
+   "core": "Despite a wave of initial excitement, expert system development was frequently bogged down by the logistical hurdles of simply organizing such enormous volumes of information in the first place.",
+   "caseTitle": "INTERNIST-I诊断系统",
+   "case": "Among the earliest and most well-known expert systems was a program called INTERNIST-I, which operated on a library of five hundred disease descriptions and three thousand manifestations of those diseases. Early trials were encouraging, and saw the program correctly diagnose a patient’s condition on the basis of symptom observations provided by the user, a human internist, generating useful output in even complex cases.",
+   "explain": "INTERNIST-I靠五百种疾病、三千种表现的知识库在早期试验中表现不错，但把教科书和医生访谈逐条录入的成本越来越高，系统在真实世界里仍显呆板，资金退潮后专家系统随之降温。",
+   "importance": 3
+  },
+  {
+   "point": "从写规则转向从数据中学习模式，机器学习第一次在现实中大规模落地",
+   "core": "Rather than attempting to describe handwriting in discrete rules—the straight edge of a “1,” the curve of a “2,” the symmetrical halves of a “3,” and so on—a neural network was designed only to infer patterns in data.",
+   "caseTitle": "LeCun识别邮政编码",
+   "case": "In LeCun’s case, that meant showing the network thousands of examples of actual human handwriting, covering a range of styles, textures, and even common mistakes—more than 7,200 scans of handwritten ZIP codes in all, provided by the United States Postal Service—as it learned the relevant patterns much like a human does.",
+   "explain": "LeCun在贝尔实验室用美国邮政提供的七千二百多份手写邮编训练神经网络，不写笔画规则，只让网络从样本中归纳，几年后这项技术被用于全美ATM读取支票数字。",
+   "importance": 3
+  },
+  {
+   "point": "早期AI把智能等同于逻辑规则，严重低估了真实世界的复杂度",
+   "core": "The Dartmouth team quickly learned that while aspects of our behavior can indeed be described in simple terms, no finite set of rules or criteria—at least not of any practical size—can come close to capturing the depth and versatility of human thought in the real world.",
+   "caseTitle": "达特茅斯的暑期计划",
+   "case": "Amazingly, the proposal described the endeavor as a “summer project,” without any apparent irony, requiring little more than a couple of months’ time and a handful of grad students.",
+   "explain": "1956年的提案以为两个月、十个人就能取得重大进展，结果这项探索半个多世纪后仍远未完成，说明用规则穷举智能的设想过于简化。",
+   "importance": 2
+  },
+  {
+   "point": "一次权威批评就能让一条技术路线冷落十多年",
+   "core": "Although few regarded Minsky’s arguments as the final word on the matter, and many of his contemporaries offered rebuttals, the damage had been done. Perceptrons in particular, and machine learning in general, would be condemned to the hinterlands of AI for more than a decade to come.",
+   "caseTitle": "明斯基批评感知机",
+   "case": "Interestingly, it was Marvin Minsky, a founding organizer of the Dartmouth summer project, who became one of the perceptron’s best-remembered critics with the publication in 1969 of Perceptrons, coauthored with fellow computer science pioneer Seymour Papert.",
+   "explain": "罗森布拉特的感知机曾被视为重建认知的一步，但达特茅斯会议组织者明斯基在1969年出书系统批评其理论缺陷，尽管有人反驳，机器学习仍被边缘化了十多年。",
+   "importance": 2
+  }
+ ],
+ "4. Discovering the Mind": [
+  {
+   "point": "神经网络是好想法生在错误的时候：缺算力、缺数据",
+   "core": "Neural networks, simply put, were a good idea born at the wrong time.",
+   "caseTitle": "邮编之外全面搁浅",
+   "case": "Equally damning was the state of digital data—a comparatively rare commodity at the time, especially when it came to perceptual data like images, video, audio, and the like. What did exist was often fragmented and proprietary, inconsistently cataloged and trapped within the borders of private servers.",
+   "explain": "LeCun的成功之后，神经网络一离开邮编识别就碰壁：计算量超出多数企业和政府的能力，图像音频等感知数据稀少、零散且锁在私有服务器里，于是迎来又一次AI寒冬。",
+   "importance": 3
+  },
+  {
+   "point": "亲手做出实验结果，让她确认自己热爱的是研究本身",
+   "core": "Physics had been my first obsession, but I was beginning to realize that its appeal wasn’t in the equations, or even the concepts. It was in the chase, and the quest for understanding what it symbolized.",
+   "caseTitle": "从猫脑信号重建影像",
+   "case": "Amazingly—to me, anyway—our method actually worked. With a bit of signal-processing finesse, we reconstructed the movies projected before the cat’s eyes—albeit in a slightly blurrier form—with nothing more than signals intercepted in its brain.",
+   "explain": "伯克利暑期实验中，她们给猫播放自然场景短片，只凭外侧膝状体神经元的信号就重建出略模糊的画面，成果后来发表在神经科学期刊上，这次亲历让她认定研究就是自己的归属。",
+   "importance": 3
+  },
+  {
+   "point": "人手不足的小实验室，反而让新手提前承担研究者的全部职责",
+   "core": "The project was understaffed and underfunded, but also uniquely unconstrained. As a result, the responsibilities of a research scientist fell on me, years before I was even remotely qualified to perform them—and I found it all thrilling.",
+   "caseTitle": "从零搭建实验装置",
+   "case": "My job included building the experiment’s apparatus from the ground up: researching the hardware, tracking down the proper electrodes, comparison shopping for the amplifiers and loudspeakers we’d use to listen to their output, then putting it all together from end to end.",
+   "explain": "实验室新成立、由年轻助理教授带领，她这个物理系本科生要自己调研硬件、找电极、比价放大器和扬声器并组装整套设备，约束少反而让她获得完整的研究训练。",
+   "importance": 2
+  },
+  {
+   "point": "家庭生计的约束决定了选择：干洗店既要护住母亲也要能凑够钱",
+   "core": "It was the kind of business we could imagine opening and closing at reasonable hours, protecting my mother from the elements during the winter.",
+   "caseTitle": "十万美元的干洗店",
+   "case": "Of course, there was the price tag to consider, and it was no joke: $100,000. But with a bit of strategy, even that seemed surmountable, if only just so. Although our savings only added up to a fraction of the total—just under $20,000—it was a fraction we could build on.",
+   "explain": "母亲怕冷，送货类生意都不合适；干洗店营业时间合理、能用上父亲的机械手艺，但标价十万美元而积蓄不到两万，靠亲友借款仍不够，最后是数学老师Sabella夫妇借出余款。",
+   "importance": 2
+  }
+ ],
+ "5. First Light": [
+  {
+   "point": "视觉不只是智能的一种应用，它几乎就等同于智能本身",
+   "core": "Vision, therefore, is not merely an application of our intelligence. It is, for all practical purposes, synonymous with our intelligence.",
+   "caseTitle": "像素只是一串整数",
+   "case": "Because digital imagery is stored in the form of pixels—individual points of color encoded numerically—it appears to a machine as nothing more than a long list of integers. To see the image as a human might, in terms of meaningful concepts like people, places, and things, an algorithm must sift through this list and identify numeric patterns that somehow correspond.",
+   "explain": "图像对机器来说只是一长串数字，要从中认出人、地点和物体，就必须同时完成看见和理解；人脸在不同角度光照下的变化更让规则难以定义，所以视觉问题本质上是智能问题。",
+   "importance": 3
+  },
+  {
+   "point": "在高薪与科研之间，她选择不放弃科学",
+   "core": "Once again, I faced a choice between my scientific ambitions and the realities of life, as the allure of grad school collided with the pressure to start a career.",
+   "caseTitle": "华尔街的高薪邀约",
+   "case": "I was courted by Goldman Sachs, Merrill Lynch, and other firms with names one could imagine engraved in stately slabs of marble. And they offered everything: perks, leadership opportunities, eye-watering starting salaries, and, of course, real health insurance. They promised relief from our debts, an end to the toil of dry cleaning, and security for my family in the face of my mother’s worsening health.",
+   "explain": "1999年毕业时投行开出高薪和医保，能还债、结束干洗店的辛劳，代价是放弃科学；母亲只问了一句这是不是你想要的，她随即决定读研。",
+   "importance": 3
+  },
+  {
+   "point": "作者认为大脑是对外界感知的回应，这一视角影响了她对AI的理解",
+   "core": "The brain, therefore, was not the product of some mysterious intellectual spark from within, but rather a reaction to an ever clearer, ever more chaotic image of the outside world, reaching inward through the senses.",
+   "caseTitle": "Parker的寒武纪假说",
+   "case": "Zoologist Andrew Parker saw something different, though, and while many biologists are skeptical about his hypothesis, it has deeply influenced my thinking about AI. It was less an exogenous force than an internal one, according to Parker, who identifies the fuse that ignited the Cambrian explosion as the emergence of a single capability: photosensitivity, or the foundation of the modern eye.",
+   "explain": "Parker认为感光能力的出现点燃了寒武纪大爆发，许多生物学家对此存疑；作者借这一假说说明，感知越丰富，处理信息的大脑就越被逼着进化。",
+   "importance": 2
+  },
+  {
+   "point": "她选择同时借用工程和神经科学，而不被任何一方限制",
+   "core": "I was intrigued and challenged by the art of engineering, but I didn’t want to be an engineer. And although I was enthralled by the mysteries of neuroscience, I didn’t want to be a neuroscientist. I wanted to draw on both while constrained by neither.",
+   "caseTitle": "选择加州理工的导师",
+   "case": "The first of my would-be advisors was Pietro Perona, who exuded Italian charm and had no sense of boundaries when it came to interdisciplinary research; he was situated in the electrical engineering department but loved cognitive science and shared my desire to blend the two.",
+   "explain": "排名上斯坦福和MIT更强，她却选了加州理工，因为电子工程系的Perona热爱认知科学、计算神经科学家Koch也鼓励跨界，导师的跨学科取向决定了她的研究路径。",
+   "importance": 2
+  }
+ ],
+ "6. The North Star": [
+  {
+   "point": "所有人都在问算法，没人问数据，而数据才是被低估的关键",
+   "core": "Again and again we were asked about the mathematical core of the machine learning algorithm we chose—a probabilistic technique called a “Bayesian network”—but not a single question about the data we trained it on.",
+   "caseTitle": "单样本学习的ICCV报告",
+   "case": "After all, we’d achieved rather surprising results from an absolute dearth of the stuff—a smattering of a few hundred images spread across just a few randomly chosen categories. It raised a question that seemed more provocative every time my mind returned to it: if so little data could make such a powerful capability possible, what might more data enable?",
+   "explain": "单样本学习论文拿到口头报告，提问却全是贝叶斯推断细节；她意识到算法能从一张图学会新类别，靠的是之前见过的多样数据，于是追问更多数据能带来什么。",
+   "importance": 3
+  },
+  {
+   "point": "101类只是午餐桌上讨价还价的结果，真实世界约有三万类",
+   "core": "It wasn’t an empirically proven result, or even some principled estimate derived from theory. It was the outcome of a game of chicken with my advisor over lunch trays arranged like Hockney paintings.",
+   "caseTitle": "Biederman的三万类估计",
+   "case": "Nevertheless, Biederman’s number—a potential blueprint for what our ambitions as researchers demanded—was big. Really big. It wasn’t 1,000, 2,000, or even 5,000. And it certainly wasn’t the 101 we spent months cataloging. It was 30,000.",
+   "explain": "算法普遍过拟合，她追问101类凭什么够；Biederman在1983年用英语可数名词估算世界上约有三万类物体，比Caltech 101大两个数量级，指明了数据规模的方向。",
+   "importance": 3
+  },
+  {
+   "point": "用词典来选类别，避免研究者无意中挑选算法擅长的类别",
+   "core": "We worried that the selections might be biased if we did it ourselves—that even subconsciously, we’d gravitate toward categories of images we knew our algorithms would be more likely to succeed in recognizing.",
+   "caseTitle": "英文词典里的beagle",
+   "case": "Most were nouns, with an emphasis on tangible, visual stuff—objects, in other words, or, in the case of the beagle, animals. They seemed like exactly the kind of categories we’d want. And they appeared to be spread more or less evenly across every letter, which sounded pretty unbiased to me.",
+   "explain": "她翻词典查beagle时发现，带插图的词条多是具体可见的名词，且大致均匀分布在各字母下，于是让词典替团队选类别，做出九千多张图、101类的Caltech 101。",
+   "importance": 2
+  },
+  {
+   "point": "增量式数据集起初不显眼，却因成为公共基准而影响更长远",
+   "core": "Due to its admittedly incremental nature, it wasn’t the breakout success of the first paper, at least not initially. But it established a more lasting legacy as a model for others to follow.",
+   "caseTitle": "Caltech 101成为基准",
+   "case": "The performance curves we drew to graph our results became a benchmark; within six months, researchers from all over the world were citing our paper as the standard to beat—which many of them did.",
+   "explain": "Caltech 101的后续论文不如第一篇轰动，但其性能曲线在六个月内成为全球研究者要超越的标准，许多人确实超越了它，说明可比较的数据集能推动整个领域。",
+   "importance": 2
+  },
+  {
+   "point": "家庭经济压力让她几乎放弃科研",
+   "core": "I just didn’t have the luxury of being a scientist.",
+   "caseTitle": "麦肯锡的正式邀约",
+   "case": "The response was immediate and aggressive, with the news that McKinsey had decided to turn the internship into an official offer of a permanent position.",
+   "explain": "母亲心衰加重、家里靠干洗店勉强维持，她去面试麦肯锡实习并被直接给了正式职位；母亲坚持我们走了这么远不是为了让你放弃，她才留在学术界。",
+   "importance": 2
+  }
+ ],
+ "7. A Hypothesis": [
+  {
+   "point": "ImageNet本质是一个假设：沉浸于视觉世界的全部多样性是通向机器智能的第一步",
+   "core": "ImageNet was more than a data set, or even a hierarchy of visual categories. It was a hypothesis—a bet—inspired by our own biological origins, that the first step toward unlocking true machine intelligence would be immersion in the fullness of the visual world.",
+   "caseTitle": "从WordNet筛出两万多类",
+   "case": "All told, we cut the majority of WordNet’s 140,000 entries, leaving a visual, countable subset just north of 22,000.",
+   "explain": "她和邓嘉去掉WordNet里的动词、形容词和不可拍摄的抽象名词，只留可数的实物，得到两万两千多类，与Biederman的三万估计相近，把一个认知假设落成可执行的数据规格。",
+   "importance": 3
+  },
+  {
+   "point": "众包平台改变了数量级，把不可能的标注工程变成一年内可完成",
+   "core": "AMT changed everything. It turned our workforce of undergrad labelers into an international team of tens, then hundreds, then thousands.",
+   "caseTitle": "亚马逊众包平台",
+   "case": "As our support expanded, Jia’s estimated time to completion plummeted—to fifteen years, then ten, then five, then two, and, finally, just under a year. And it cast our budget in an entirely new light, inverting the economic calculus of ImageNet.",
+   "explain": "本科生标注按速度推算要十九年，经费也不够扩招；学生提到亚马逊众包平台后，标注者扩展到全球，预计工期从十五年一路降到不到一年，同样的预算变得够用。",
+   "importance": 3
+  },
+  {
+   "point": "按现有人力推算要19年，靠多招人买不出时间",
+   "core": "“That’s one option, sure. But it’ll cost us, and if our time horizon is nineteen years, I’m not sure our lab budget is going to be big enough to buy our way out.”",
+   "caseTitle": "十九年的标注估算",
+   "case": "“At the rate we’re going, we can expect ImageNet to be complete in…” I swallowed hard. He noticed. “Yeah: nineteen years, give or take. Fei-Fei, I believe in this project— I really do—but I can’t wait that long for my PhD.”",
+   "explain": "时薪十美元的本科生标注队伍看起来在推进，邓嘉计时外推后发现要十九年，他等不起博士学位，实验室预算也撑不起十倍人力，必须换一种做法。",
+   "importance": 2
+  },
+  {
+   "point": "拒绝让算法参与标注，是为了让数据保留纯粹的人类感知",
+   "core": "More important, the real argument against automating the labeling process wasn’t technological but philosophical. Even a subtle algorithmic shortcut, we realized, would be antithetical to ImageNet’s mission.",
+   "caseTitle": "人力瓶颈与经费见底",
+   "case": "An increase of a factor of ten might do it—given the work already done, we might get there in as little as a year and a half. But the funds simply weren’t there.",
+   "explain": "她们试过用单样本学习预标注再让人校对，但认为机器介入会稀释数据中的人类判断；不自动化就只能扩招十倍人手，而经费不够，她甚至想过回干洗店筹钱。",
+   "importance": 2
+  },
+  {
+   "point": "同行一致反对，连导师辈也认为她跑得离领域太远",
+   "core": "“The trick to science is to grow with your field. Not to leap so far ahead of it.”",
+   "caseTitle": "Malik的劝告",
+   "case": "“Well, Fei-Fei…” he began, choosing his words carefully. “Everyone agrees that data has a role to play, of course, but…” He paused for a moment, then continued. “Frankly, I think you’ve taken this idea way too far.”",
+   "explain": "2007年CVPR上，她向一向支持她的学术祖父Malik倾诉，对方却说她把数据这个想法推得太远；而他将来还要为她的终身教职写推荐信，这让她意识到风险比想象中大。",
+   "importance": 2
+  },
+  {
+   "point": "担心众包构成剥削，于是在经费允许内尽量提高单价",
+   "core": "There were human issues, too, like the concern that crowdsourcing might be exploitative.",
+   "caseTitle": "给标注者的报酬",
+   "case": "It encouraged us to pay as much per image as our funds allowed, a decision made easier by the fact that ImageNet was a purely scientific endeavor with no concern for profits to consider. Research into the matter was heartening, too, at least at the time. A 2007 demography of AMT found that most contributors saw the service as a hobby or side income, not as an attempt to make their primary living.",
+   "explain": "她们按经费上限给每张图付费，并参考2007年的调查：多数众包者把它当爱好或副业；作者也承认，零工经济兴起后，大数据背后的人力代价已经更难说清。",
+   "importance": 2
+  }
+ ],
+ "8. Experimentation": [
+  {
+   "point": "AlexNet与LeNet理论差别不大，真正变化的是廉价GPU和海量数据",
+   "core": "But these were differences of degree, not of kind; at the level of theory, astonishingly little had changed.",
+   "caseTitle": "Best Buy就能买到GPU",
+   "case": "By 2012, such hardware—specialized processors known as “graphics processing units,” or GPUs—had attained affordable, consumer-level status. For Hinton’s lab, that meant the silicon needed to bring AlexNet to life was no longer an investment requiring a government grant and construction permits. It was available off the shelf at Best Buy.",
+   "explain": "AlexNet只是更大、更深的卷积网络；游戏产业推动GPU变成消费级商品，多伦多团队用两块英伟达显卡训练一周，就把二十年前的思路变成了现实。",
+   "importance": 3
+  },
+  {
+   "point": "神经网络缺的不是更巧妙的数学，而是能学习的大规模数据",
+   "core": "All along, neural networks hadn’t needed fancier math and more exotic abstractions. They were simply waiting for a clearer picture of the world we expected them to understand.",
+   "caseTitle": "LeNet只够学会手写数字",
+   "case": "Even then, collecting a training set of handwritten digits was just barely feasible; unlike multi-megapixel, full-color photos, scanned digits were small, monochrome, and consumed relatively little memory. And it took only thousands of examples to sketch out the level of variety necessary to master their idiosyncrasies—not the hundreds of millions of examples demanded by the natural world.",
+   "explain": "1989年唯一能凑出训练集的场景就是小而单色的手写数字，几千个样本就够；这解释了卷积网络为何二十多年只在邮编上成功，直到ImageNet提供了自然世界的多样性。",
+   "importance": 3
+  },
+  {
+   "point": "公开竞赛才能检验假设，但前两年进展平淡、参与者流失",
+   "core": "My miscalculation began to dawn on me. As I suspected, ImageNet was too much for most algorithms to handle. But the SVM in particular was more robust than I gave it credit for, offering a safe haven for entrants and forestalling the aggressive innovation I dreamt of.",
+   "caseTitle": "两届SVM与报名下滑",
+   "case": "Worst of all, participation was already dropping, and precipitously: registrations fell from 150 to 96 in the second year, and the entries themselves fell from 35 to just 15. Perhaps unsurprisingly, fewer and fewer people seemed to think the effort was worth it.",
+   "explain": "2010和2011年冠军都是支持向量机，提升只有约两个百分点；报名从150降到96，参赛作品从35降到15，她承认高估了新算法出现的速度。",
+   "importance": 3
+  },
+  {
+   "point": "数据与算法两场赌注互相依赖，同时进行才都得到验证",
+   "core": "Both were gambles, and both could have been wrong. But on that day, as we saw the incredible capabilities of neural networks brought to life with the training power of ImageNet, I realized that although both were vindicated, it was only because they were undertaken at the same time.",
+   "caseTitle": "Hinton坚守神经网络",
+   "case": "My lab had bet everything on a yearslong pursuit of data at an unprecedented scale, while Hinton’s had staked their reputations on a commitment to a family of algorithms the field had all but abandoned.",
+   "explain": "她押注数据规模，Hinton押注被冷落的神经网络；2012年AlexNet在ImageNet上以约十个百分点的优势夺冠，两条被看衰的路线因为恰好同时成熟而一起被证明。",
+   "importance": 2
+  },
+  {
+   "point": "评测规则要既严格又公平，top-5设计避免误判合理答案",
+   "core": "Declaring a winner in a scientific competition, however, is akin to making a commitment: not merely that the entrant performs well by some measure, but that its design makes a contribution to the field at large.",
+   "caseTitle": "top-5错误率",
+   "case": "To ensure we didn’t declare a well-performing algorithm incorrect, each entry would be allowed to provide a rank-ordered list of five labels in total—making room for “strawberry” and “apple,” in this case—an evaluation metric we came to call the “top-5 error rate.”",
+   "explain": "一张水果图里草莓和苹果都可能是主体，人也会分歧；允许提交五个候选标签，既不冤枉合理答案，又能看清算法真实能力，这是把数据集变成赛道时的关键规则设计。",
+   "importance": 2
+  }
+ ],
+ "9. What Lies Beyond Everything?": [
+  {
+   "point": "视觉识别能变成观察社会的新工具，比人工普查更快更便宜",
+   "core": "The real discovery, though, was the potential of the process we’d demonstrated: a fast, scalable, and comparatively cheap alternative to manual surveys—an expense in the United States alone of more than $250 million a year.",
+   "caseTitle": "街景识车推断社区",
+   "case": "Over fifty million images collected from more than two hundred cities passed through our classifiers, covering more than three thousand ZIP codes and almost forty thousand voting precincts. All told, our classifiers identified more than twenty-two million vehicles—almost 10 percent of the entire United States fleet—unleashing observations of amazing statistical significance.",
+   "explain": "团队用五千多万张街景图识别出两千两百多万辆车，再与人口普查数据关联，推断出的收入、教育和投票倾向地图与普查结果高度相似，而美国人工调查每年要花两亿五千多万美元。",
+   "importance": 3
+  },
+  {
+   "point": "真正的生成要逐词写出句子，而不是从训练数据里检索拼接",
+   "core": "But the real issue was scientific. The model was retrieving its output. It still wasn’t truly authoring it.",
+   "caseTitle": "Karpathy的图像描述",
+   "case": "Another image, another caption. Then another, and another, and another. The quantity and variety of the scenes made it clear that these sentences weren’t just being dug up from a training corpus somewhere. The model was writing them.",
+   "explain": "Karpathy第一版模型看似能描述图片，实际多是匹配训练集里的句子；她坚持逐词生成，改进后的模型能为滑板少年、施工现场写出新句子，虽然仍会漏掉铜像这类关键信息。",
+   "importance": 3
+  },
+  {
+   "point": "细粒度分类说明，即使是ImageNet也仍然想得太小",
+   "core": "While it might seem like a mere extension of our previous work, from distinguishing obvious differences to parsing the less obvious, it suggested something more jarring and instructive: that even at our most grandiose, we were still thinking small.",
+   "caseTitle": "一辆蓝色丰田雅力士",
+   "case": "But was it a 2008 Toyota Yaris or a 2009 Toyota Yaris? Suddenly the question was a lot harder. Was it a 2008 Toyota Yaris in blazing blue pearl or a 2008 Toyota Yaris in bayou blue pearl? Both choices were offered that year, and both were … blue.",
+   "explain": "认出丰田不难，但要分清年份、配色和配置就难得多；团队为2014年路上的2657种车型建训练集，发现ImageNet很多类别其实很粗，离真实世界的细节还很远。",
+   "importance": 2
+  },
+  {
+   "point": "工业界携资源进场，学术成果开始与巨头正面撞车",
+   "core": "But in the years after AlexNet, names from the very apex of the Fortune 500 transformed the events into spectacles, each new gathering more closely resembling an industry expo on the Las Vegas Strip.",
+   "caseTitle": "撞车谷歌的论文",
+   "case": "For years now, my colleagues and I had been rolling our eyes at the way the press tended to exaggerate depictions of AI’s advances. But for once, a newspaper article made me see just how fast the world was changing. Our rival wasn’t some mysterious team of researchers at another university. It was Google.",
+   "explain": "她在IBM讲座提前展示图像描述成果，《纽约时报》记者随即告诉她另一团队也做出了同样的东西，对手正是谷歌；学术会议也从清贫小聚变成巨头摆展台、办派对的场合。",
+   "importance": 2
+  }
+ ],
+ "10. Deceptively Simple": [
+  {
+   "point": "医疗中最稀缺且无法扩展的资源是临床人员的注意力",
+   "core": "“Precisely. Awareness is what it’s all about. It’s the single most precious resource in all of health care. And it’s the one thing we can’t scale.”",
+   "caseTitle": "每年十万例可预防死亡",
+   "case": "“Tragically, these lapses are responsible for approximately a hundred thousand fatalities a year—most of which are entirely preventable.” Wait, what? My mind was suddenly reeling. A hundred thousand deaths a year? All from mistakes?",
+   "explain": "在飞利浦远程ICU演示上，她听到医疗失误每年造成约十万人死亡；Milstein指出病人大部分时间无人看护，于是她把视觉研究转向扩展医护的注意力，从洗手合规入手。",
+   "importance": 3
+  },
+  {
+   "point": "写代码前先去现场：以人为本的AI要从人本身开始思考",
+   "core": "If AI was going to help people, our thinking had to begin with the people themselves.",
+   "caseTitle": "新成员必须先跟班",
+   "case": "A decision was made, instantly. From that day forward, no prospective member of our team would write a single line of code until they’d had the experience I just had. Shadowing would be every new recruit’s initiation. And it would be nonnegotiable.",
+   "explain": "她穿上手术服跟儿科医生值完一整班，看到护理工作的真实压力和人性温度，随即规定任何新成员写代码前都必须先去医院跟班，不容商量。",
+   "importance": 3
+  },
+  {
+   "point": "即使是跨学科团队也有盲区，用户担心的是技术未来会被怎样使用",
+   "core": "It was where the work might lead that worried them: how the technology might evolve, who else might start using it, and how its reach might expand.",
+   "caseTitle": "护士拒装传感器",
+   "case": "To a person, nurses from across the units we’d asked to participate had rejected our plans to install a batch of prototype sensors. It was a serious setback, but after my conversation with Susan, I couldn’t pretend I was surprised. It was a reminder that even an explicitly multidisciplinary team can have blind spots.",
+   "explain": "护士把洗手监测联想到监工软件，各科室全部拒绝安装原型传感器；团队里有医生却没有一线护士，只好召开座谈会倾听，并在伦理审查材料里做出严格的隐私承诺。",
+   "importance": 3
+  },
+  {
+   "point": "隐私要求在架构阶段就决定了技术路线：数据不出设备",
+   "core": "Ensuring our devices were beyond reproach meant that nothing could be transmitted to remote data centers or, to invoke a term that was just beginning to enjoy mainstream acceptance, “the cloud.”",
+   "caseTitle": "转向边缘计算",
+   "case": "Instead, we had to pursue another emerging trend: “edge computing,” in which all necessary computational resources are packed into the device. It was the paradigm we needed for our research, but it was an entire field unto itself, and none of us understood it as well as we’d have liked.",
+   "explain": "当时云计算正热门，但为保证不泄露隐私，团队放弃上云，改用把算力装进设备的边缘计算，并吸纳了生物伦理学者、法学博士和网络安全专家。",
+   "importance": 2
+  },
+  {
+   "point": "新方向的代价：没有数据集、发表慢，学生不愿加入",
+   "core": "Given how much an academic career depends on publication, especially in the early years, it was a good question. He saw the glacial pace of medical journals as an anchor, weighing him down when he needed to sprint, and he wasn’t wrong to worry.",
+   "caseTitle": "连续四名学生婉拒",
+   "case": "I sighed, probably too loudly. The answer was no. Yet another “no” among so many others. No data sets. No known literature to base our ideas on. No labs working on similar problems to collaborate with.",
+   "explain": "医学期刊发表要一两年，计算机论文几个月；医疗数据又天然稀缺、没有现成数据集和同行，连续四位候选学生都拒绝了，她花了近两年才凑起团队。",
+   "importance": 2
+  },
+  {
+   "point": "病人的尊严是任何数据集和算法都无法计算的变量",
+   "core": "But the deepest lesson I’d learned was the primacy of human dignity—a variable no data set can account for and no algorithm can optimize.",
+   "caseTitle": "母亲拒用肺量计",
+   "case": "“You know, Fei-Fei,” she said softly, “being a patient … it’s just horrible.” She was facing me now. “It’s not just the pain. It’s the loss of control. It was like my body, even my mind, didn’t belong to me in that room.",
+   "explain": "母亲术后拒绝做肺部练习，导致积液又挨了一刀；她后来解释，被陌生人不停指挥让她失去控制感和尊严，这让作者明白再好的技术也要先尊重人。",
+   "importance": 2
+  }
+ ],
+ "11. No One’s to Control": [
+  {
+   "point": "算力成本让前沿研究只属于少数资金雄厚的公司",
+   "core": "But all that power came with a price. Training even a single model was still cost-prohibitive for all but the best-funded labs and companies—and neural architecture search entailed training thousands.",
+   "caseTitle": "八百块GPU",
+   "case": "Recalling from my own lab’s budget that Nvidia’s most capable GPUs cost something like $1,000 (which explained why we had barely more than a dozen of them ourselves), the bare minimum expense to contribute to this kind of research now sat at nearly $1 million.",
+   "explain": "谷歌大脑的神经架构搜索同时训练八百个模型、每个占一块GPU；AlexNet只用了两块，她的实验室只有十几块，仅硬件门槛就近百万美元，大学实验室很难跟上。",
+   "importance": 3
+  },
+  {
+   "point": "人才和资源向企业集中，AI的未来被认为将由企业书写",
+   "core": "The sentiment, delivered without even a hint of mirth, was icy in its clarity: the future of AI would be written by those with corporate resources.",
+   "caseTitle": "Uber挖走四十名研究者",
+   "case": "In one especially audacious episode, Uber poached a record forty roboticists from Carnegie Mellon University—all but decimating the department in the process—in the hopes of launching a self-driving car of its own.",
+   "explain": "科技巨头开出六位数年薪抢人，Uber一次挖走卡内基梅隆四十名机器人学者；Karpathy放弃普林斯顿教职加入OpenAI，其创始成员还在聚会上劝研究者重新考虑留在学术界。",
+   "importance": 3
+  },
+  {
+   "point": "数据集不够多样，加上测试不足，造成冒犯性的偏见标签",
+   "core": "That the mishaps weren’t malicious was cold comfort, as the issue they revealed was, if anything, even more disquieting: the consequences of insufficiently diverse data sets, ImageNet included, exacerbated by poorly tested algorithms and questionable decision-making.",
+   "caseTitle": "图片服务的错误标签",
+   "case": "And it wasn’t just Yahoo; by June, Google faced a similar controversy when its Google Photos service mislabeled a pair of Black teens as “gorillas.” In a matter of weeks, the cut-and-dried success story of image classification had grown far more complicated.",
+   "explain": "2015年雅虎Flickr和谷歌相册接连给黑人照片打上冒犯性标签；作者承认ImageNet也有数据不够多样的问题，互联网呈现的主要是白人、西方、男性的生活。",
+   "importance": 3
+  },
+  {
+   "point": "企业能利用人才却不塑造人才，伦理教育要回到大学",
+   "core": "They’re powerful because thousands of uniquely talented minds are working together under their roof. But they can only harness those minds—they don’t shape them.",
+   "caseTitle": "只会构建不问伦理",
+   "case": "I’d seen the consequences of that over and over: brilliant technologists who could build just about anything, but who stared blankly when the question of the ethics of their work was broached.",
+   "explain": "在谷歌云见过大量能造出任何东西、却答不上伦理问题的技术人员后，她认为AI教育需要哲学、伦理和法律，决定回到大学推动以人为本的AI。",
+   "importance": 3
+  },
+  {
+   "point": "代表性问题要从源头解决，先让被排除的人进入实验室",
+   "core": "Recognizing that problems of representation tend to start years before they’re consciously felt, we opened SAIL to a handpicked class of ninth- and tenth-grade girls.",
+   "caseTitle": "从夏令营到AI4ALL",
+   "case": "The idea proved so popular that it snowballed into a national nonprofit, spreading to campuses across North America and expanding its mission. Soon, we were offering similar courses to other marginalized groups, including students of color and the economically disadvantaged.",
+   "explain": "她和Russakovsky为高一高二女生开设两周AI速成课，结果大受欢迎，扩展为覆盖北美多所高校、面向少数族裔和低收入学生的全国性非营利组织AI4ALL。",
+   "importance": 2
+  },
+  {
+   "point": "显眼的事故能迅速纠正，隐性的制度性伤害却规模更大、监督更少",
+   "core": "These were nearly silent problems, operating at a far larger scale, and with considerably less oversight.",
+   "caseTitle": "贷款与假释中的偏见",
+   "case": "A series of 2016 ProPublica investigations documented the widespread use of biased AI in helping lenders process loan applications and even in assisting judges in making decisions about parole.",
+   "explain": "Uber测试车撞死行人后自动驾驶项目随即解散，但贷款审批、假释判断和招聘筛选中的偏见算法悄无声息地大规模运行，很难引发同等的公众反应和纠正。",
+   "importance": 2
+  }
+ ],
+ "12. The Next North Star": [
+  {
+   "point": "用公共资金建设算力平台，避免AI研究被巨头垄断",
+   "core": "Its goal is to keep AI research within reach for scholars, start-ups, NGOs, and governments around the world, ensuring that our field isn’t forever monopolized by the tech giants, or even universities like ours.",
+   "caseTitle": "国家研究云",
+   "case": "John, in particular, called in a career’s worth of favors, recruiting universities across the country to form a coalition as impressive as any I’d ever seen in academia, and kicked off a flurry of ideas, suggestions, cross-country flights, and debate that soon became a fully realized legislative blueprint on its way to Capitol Hill.",
+   "explain": "斯坦福HAI联合主任Etchemendy动用多年人脉组建全国高校联盟，把国家研究云从一个想法变成立法蓝图；书末她收到消息，相关法案已在参议院通过。",
+   "importance": 3
+  },
+  {
+   "point": "回头审计自己的数据遗产，修正其中吸收的偏见",
+   "core": "We’d even turned a critical eye to our own legacy, embracing research quantifying the bias ImageNet absorbed from those millions of photos we originally scraped from the internet with respect to race, gender, and sexuality.",
+   "caseTitle": "替换ImageNet图片",
+   "case": "The findings have guided the replacement of large numbers of images with alternatives that present a more balanced picture of human identity, and the removal of category labels with offensive connotations.",
+   "explain": "实验室量化了ImageNet在种族、性别和性取向上吸收的偏见，据此替换大量图片、删除带冒犯含义的类别标签，把以人为本落实到自己最有名的成果上。",
+   "importance": 3
+  },
+  {
+   "point": "外部伦理批评是AI需要的审视，应当正面接受",
+   "core": "Although it’s never easy reading a critique of one’s own work, the piece was exactly the kind of ethical discourse AI needs, and I agreed with much of it.",
+   "caseTitle": "《柳叶刀》的反驳",
+   "case": "In the words of the authors, the potential of ambient intelligence to elevate the delivery of care was paired with “a spectrum of ethical concerns,” many revolving around the large-scale collection of data, new privacy pitfalls, and, more philosophically, the nature of informed consent in an environment of such immersive, decentralized monitoring technology.",
+   "explain": "环境智能综述发表在《自然》两个月后，《柳叶刀》刊文指出大规模数据收集、隐私和知情同意等伦理问题；作者承认读来不易，但同意其中大部分观点。",
+   "importance": 2
+  },
+  {
+   "point": "大语言模型再次证明：把简单想法做得足够大",
+   "core": "We just had to make a simple idea big enough.",
+   "caseTitle": "从六千万到千亿参数",
+   "case": "For comparison, AlexNet debuted with a network of sixty million parameters—just enough to make reasonable sense of the ImageNet data set, at least in part—while transformers big enough to be trained on a world of text, photos, video, and more are growing well into hundreds of billions of parameters.",
+   "explain": "AlexNet有六千万参数，如今训练于海量文本图像视频的Transformer达到数千亿参数；作者认为这仍是数据规模的力量，但模型会编造内容，真假难辨的风险也随之放大。",
+   "importance": 2
+  }
+ ]
+}

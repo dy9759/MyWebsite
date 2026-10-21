@@ -1,0 +1,330 @@
+{
+ "1. Building Blocks: Leadership Principles and Mechanisms": [
+  {
+   "point": "领导力准则是从优秀管理者身上发现出来的，而不是凭空设计",
+   "core": "She interviewed people throughout Amazon who were effective leaders and who embodied the essence of this burgeoning company. What she thought would be a two-month project took nine months to complete.",
+   "caseTitle": "Dive Deep 的来历",
+   "case": "In a few cases, a principle was based on the leadership activities of a single person. For instance, Jeff Wilke, then SVP of Worldwide Operations and now CEO of Amazon’s Worldwide Consumer business, insisted on data-driven decision-making and frequent auditing from everyone he worked with, and this became the basis of the leadership principle Dive Deep.",
+   "explain": "HR 访谈公司里真正有效的领导者，Dive Deep 直接来自 Jeff Wilke 要求人人用数据决策、频繁审计的作风。准则是对已有行为的提炼，所以员工天然认同、无需死记。",
+   "importance": 3
+  },
+  {
+   "point": "好意解决不了问题，要改变产生问题的底层条件",
+   "core": "Amazon realized early on that if you don’t change the underlying condition that created a problem, you should expect the problem to recur.",
+   "caseTitle": "细到数字的高管目标",
+   "case": "An actual S-Team goal could be as specific as “Add 500 new products in the amazon.fr Musical Instruments category (100 products in Q1, 200 in Q2 . . .),” or “Ensure 99.99 percent of all calls to software service ‘Y’ are successfully responded to within 10 milliseconds,” or “Increase repeat advertisers from 50 percent to 75 percent by Q3 of next year.”",
+   "explain": "S-Team 目标细到法国站乐器类每季度上新多少件、某服务 99.99% 的调用在 10 毫秒内响应、回头广告主比例提到 75%，并由财务集中跟踪。机制把口号变成了可检查的承诺。",
+   "importance": 3
+  },
+  {
+   "point": "薪酬必须与长期目标一致，否则准则和计划都会被激励压过",
+   "core": "No matter how clear your leadership principles and yearly plan may be, they speak softly in comparison to financial incentives. Money talks—if your leadership principles, your yearly plan, and your financial incentives are not closely aligned, you won’t get the right results.",
+   "caseTitle": "16 万美元的薪资上限",
+   "case": "The maximum salary itself is set well below that of industry peers in the United States. When we were there, the maximum base salary for any employee was $160,000 (indications are that this remains true). Some new executive hires may receive a signing bonus, but the bulk of their compensation—and the potentially enormous upside—is the long-term value of the company.",
+   "explain": "亚马逊高管薪酬以数年兑现的股权为主，基本工资上限只有 16 万美元，远低于同行。拿大钱的唯一途径是公司长期价值上涨，于是没人有动机为年度奖金挪收入、砍维护或抢资源。",
+   "importance": 2
+  }
+ ],
+ "2. Hiring: Amazon’s Unique Bar Raiser Process": [
+  {
+   "point": "招聘急迫感和确认偏误会让团队忽视疑点、草率录用",
+   "core": "First, the fact that the team members shared their thoughts after each interview increased the likelihood that subsequent interviewers would be biased.",
+   "caseTitle": "Carson 的犹豫",
+   "case": "However, something had left Carson feeling vaguely uneasy about the candidate. But since he didn’t have his notes with him and he’d been so busy and overwhelmed since the interview, he couldn’t remember what it was. And, given the enthusiastic buzz that had been building in the office, along with the glowing written evaluations, he decided to trust his colleagues’ assessments.",
+   "explain": "虚构案例里最资深的 Carson 隐约觉得候选人有问题，但没及时写反馈、又被同事的热情裹挟，最终投了赞成票。半年后 Joe 离职，团队还得重招。",
+   "importance": 3
+  },
+  {
+   "point": "快速扩张时靠好意守不住招聘标准，需要机制",
+   "core": "Good intentions were not going to solve the hiring problem at a company growing as rapidly as Amazon, which jumped from roughly 600 employees in 1997 to 9,000 in 2000, and then to 100,000 by 2013 (as of this writing, in 2020, Amazon is approaching one million employees). But a mechanism would.",
+   "caseTitle": "新总监带来的人才滑坡",
+   "case": "During this time, we hired a director from a much larger and more established retail company and tasked him with building out several new teams. His first new hires were managers from his prior company, and they in turn began hiring people on their own.",
+   "explain": "1999 年一位外来总监先招旧同事当经理，经理再各自招人，团队人才水准明显走低。亚马逊没有只要求他招得更好，而是建立抬杆者流程，因为员工从 600 人涨到 9000 人时同样的问题必然重演。",
+   "importance": 3
+  },
+  {
+   "point": "抬杆者来自团队外、握有否决权，但主要靠证据和追问说服",
+   "core": "The theory held that by raising the bar with each new hire, the team would get progressively stronger and produce increasingly powerful results.",
+   "caseTitle": "15 年只用过三次否决",
+   "case": "We’ve only been able to identify three instances in which the veto was exercised. One of them came during the early days of the process in 1999. The other two involved hiring managers who were new to Amazon and had not yet adapted to the organization. Instead, an effective Bar Raiser shares the right examples from the interview transcripts and asks the right probing questions of the interview panel and hiring manager to help them see why a candidate doesn’t meet or raise the bar.",
+   "explain": "作者统计约 4000 场面试、15 年间只找到三次动用否决权，其中两次是新来的招聘经理。抬杆者更常做的是摆出面试记录里的例子、提出关键问题，让大家自己看清候选人是否达标。",
+   "importance": 2
+  },
+  {
+   "point": "行为面试按准则提问，再追问还原候选人本人的贡献",
+   "core": "Each follow-up question is designed to acquire specific information, which is particularly important in determining exactly what role the candidate played in some past accomplishment.",
+   "caseTitle": "考察高标准的提问",
+   "case": "Instead the questions are mapped to their assigned principles. For example, if the interviewer owns the principle of Insist on the Highest Standards, they might ask, “Can you give me an example of a time when your team proposed to launch a new product or initiative and you pushed back on their plan because you didn’t think it was good enough?”",
+   "explain": "负责高标准准则的面试官会问候选人何时因方案不够好而反对团队上线，再用 STAR 追问情境、任务、行动和结果，分清是个人还是团队的功劳。",
+   "importance": 2
+  }
+ ],
+ "3. Organizing: Separable, Single-Threaded Leadership": [
+  {
+   "point": "团队成败最大的预测因素是有没有一位专职负责的领导者",
+   "core": "But we later came to realize that the biggest predictor of a team’s success was not whether it was small but whether it had a leader with the appropriate skills, authority, and experience to staff and manage a team whose sole focus was to get the job done.",
+   "caseTitle": "FBA 等来专职负责人",
+   "case": "The executives in the retail and operations teams thought this was a big, interesting idea, but for well over a year it did not gain significant traction. It was always “coming soon,” but it never actually arrived. Finally, in 2005, Jeff Wilke asked Tom Taylor, then a VP, to drop his other responsibilities and gave him approval to hire and staff a team. Only then did SSOF take off, eventually morphing into Fulfillment by Amazon. FBA launched in September 2006 and became a huge success.",
+   "explain": "自助订单履约的想法被看好却一年多停在即将推出，直到 2005 年 Jeff Wilke 让副总裁 Tom Taylor 放下其他职责、自己组队，FBA 才在 2006 年上线并大获成功。",
+   "importance": 3
+  },
+  {
+   "point": "真正的病根是协调成本，应当消除依赖而不是改进协调",
+   "core": "It wasn’t just that we had had the wrong solution in mind; rather, we’d been trying to solve the wrong problem altogether. We didn’t yet have the new solution, but we finally grasped the true identity of our problem: the ever-expanding cost of coordination among teams.",
+   "caseTitle": "成为瓶颈的 Obidos",
+   "case": "Obidos is the fastest part of the river because it’s also the narrowest. Our entire website still flowed through one huge, growing block of code that presented a steadily rising barrier of dependencies. Obidos had become, in effect, Amazon’s bottleneck.",
+   "explain": "整个网站跑在一个以亚马逊河最窄、最急处命名的巨型程序 Obidos 里，所有功能挤在同一块代码中，依赖越积越多。亚马逊的结论是用 API 做松耦合，而不是开更多协调会。",
+   "importance": 3
+  },
+  {
+   "point": "先做清除依赖、建埋点的苦活，长期反而更快",
+   "core": "Sometimes it’s best to start slow in order to move fast.",
+   "caseTitle": "拣货团队的九个月",
+   "case": "They spent much of their first nine months systematically identifying and removing dependencies from upstream areas, like receiving inventory from vendors, and downstream areas, like packing and shipping. They also built systems to track every important event that happened in their area at a detailed, real-time level. Their business results didn’t improve much while they did so, but once they had removed dependencies, built their fitness function, and instrumented their systems, they became a strong example of how fast a two-pizza team could innovate and deliver results.",
+   "explain": "拣货团队头九个月几乎只在拆上下游依赖、搭实时追踪系统，业务结果没怎么变；之后却成了创新最快的团队。急着做功能的团队则因依赖未除而后劲不足。",
+   "importance": 2
+  }
+ ],
+ "4. Communicating: Narratives and the Six-Pager": [
+  {
+   "point": "幻灯片让决策受演讲者左右，而不是取决于想法本身",
+   "core": "A dynamic presenter could lead a group to approve a dismal idea. A poorly organized presentation could confuse people, produce discussion that was rambling and unfocused, and rob good ideas of the serious consideration they deserved.",
+   "caseTitle": "低效的 S-Team 深度评审",
+   "case": "Too often, we found, the presentations did not serve the purpose for which they were intended. The format often made it difficult to evaluate the actual progress and prevented the presentations from proceeding as planned. The deep dives were, in short, frustrating, inefficient, and error prone for both the presenter and the audience.",
+   "explain": "早期 S-Team 每周深度评审都以口头讲解加 PPT 开场，很难判断真实进展、会议常被打乱。正是这种挫败促使 2004 年改为六页纸叙述。",
+   "importance": 3
+  },
+  {
+   "point": "好的读者要质疑文档里的隐含假设，而不只是读完",
+   "core": "However, a critical reader would challenge the implicit assumption being made, namely, that the longer allowable return duration makes the policy customer friendly.",
+   "caseTitle": "先退款后收货",
+   "case": "Then during the discussion, the critical reader may ask, “If Amazon is really customer obsessed, why do we penalize the 99 percent of customers who are honest and want to return an item by making them wait until our returns department receives the item to make sure it’s the right item and that it’s not damaged?” This type of thinking—in which you assume there is something wrong with the sentence—led Amazon to create the no-hassle return policy, which specifies that the customer should get a refund even before Amazon receives the returned goods.",
+   "explain": "文档写退货期 60 天比对手长，粗读者会放过；较真的读者追问为何让 99% 诚实客户等货到才退款。这种挑刺式阅读直接催生了收到退货前就退款的政策。",
+   "importance": 3
+  },
+  {
+   "point": "篇幅限制是强制取舍的工具",
+   "core": "The six-page limit acts as a valuable forcing function that ensures we only discuss the most important issues.",
+   "caseTitle": "30 页长文与小字号",
+   "case": "Some teams ignored the length limit, which was meant to keep the narratives brief enough so they could be read in the meeting itself. Enthusiastic teams, who felt their idea could not be adequately expressed in such a limited space, came in with 30 or 40 pages of prose. When authors learned that we were serious about a page limit, some squeezed as much as text onto a page as possible, using tiny fonts, reducing the width of the margins, and single-spacing the text.",
+   "explain": "最初有团队交来三四十页长文，知道限页是认真的后又缩小字号、压页边距。这些钻空子的做法说明，限制篇幅本身就是在逼作者分清主次。",
+   "importance": 2
+  }
+ ],
+ "5. Working Backwards: Start with the Desired Customer Experience": [
+  {
+   "point": "先写新闻稿，迫使各部门在开工前就体验、成本和价格达成一致",
+   "core": "If the two organizations had started the process by writing a press release, they would have had to agree on the features, cost, customer experience, and price.",
+   "caseTitle": "假想的索尼电视",
+   "case": "The sales and marketing group has done its research into customer preferences and market trends (but not necessarily the customer experience) and has determined that Sony should offer a 44-inch TV at a price point of $1,999. The engineering team, however, has been working on the new TV for quite some time, and their focus has been on picture quality, which means higher resolution, and they have not been especially concerned about price point. The TV they come up with will cost $2,000 just to manufacture. So there is no way that the retail price can be $1,999.",
+   "explain": "市场部定下 44 英寸、1999 美元，工程部只追画质，做出的电视光制造成本就 2000 美元。各自向前推进，矛盾到最后才暴露；先写新闻稿就能在开头把冲突摆上桌。",
+   "importance": 3
+  },
+  {
+   "point": "从公司视角转到客户视角，才会有真正的产品突破",
+   "core": "We were working forward, trying to invent a product that would be good for Amazon, the company, not the customer.",
+   "caseTitle": "Kindle 新闻稿",
+   "case": "When we wrote a Kindle press release and started working backwards, everything changed. We focused instead on what would be great for customers. An excellent screen for a great reading experience. An ordering process that would make buying and downloading books easy. A huge selection of titles. Low prices. We would never have had the breakthroughs necessary to achieve that customer experience were it not for the press release process, which forced the team to invent multiple solutions to customer problems.",
+   "explain": "Kindle 早期用 PPT 和表格讨论技术、财务和营销；写成新闻稿后，焦点变成好屏幕、便捷下载、海量书目和低价，逼团队为这些客户问题发明解决方案。",
+   "importance": 3
+  },
+  {
+   "point": "大多数 PR/FAQ 不被批准是特性，想清楚不做什么同样重要",
+   "core": "Leadership and management are often about deciding what not to do rather than what to do. Bringing clarity to why you aren’t doing something is often as important as having clarity about what you are doing.",
+   "caseTitle": "Melinda 智能邮箱",
+   "case": "In the case of Melinda, the author and team would certainly come to the conclusion that this isn’t a viable product for many reasons. The TAM may be just too small, no matter what the product price point. The product might be too bothersome to use, even if the functionality itself is familiar to most customers. It may be unrealistic that Amazon and Walmart would provide a data feed or that couriers would bother to use the product. The device may simply be too expensive to build and profitably sell for $299, no matter how big the TAM might grow to be.",
+   "explain": "书中虚构的智能邮箱写完 FAQ 就暴露出市场太小、使用麻烦、电商不给数据、快递员未必配合、299 美元难以盈利等问题。在写作阶段就否掉，省下了真正开发的资源。",
+   "importance": 2
+  }
+ ],
+ "6. Metrics: Manage Your Inputs, Not Your Outputs": [
+  {
+   "point": "股价等产出指标无法直接控制，管理者应盯可控的投入指标",
+   "core": "The CEO, and companies in general, have very little ability to directly control output metrics. What’s really important is to focus on the “controllable input metrics,” the activities you directly control, which ultimately affect output metrics such as share price.",
+   "caseTitle": "涨了 30 美分的股价",
+   "case": "Jeff and I (Colin) once visited a Fortune 500 company to meet privately with the CEO in his office. During our meeting, an assistant dashed in and handed the boss a sheet of paper. The CEO glanced at it, waved it at us, and proudly said, “Our stock is up 30 cents this morning!” His mood brightened, as if he had personally caused the rise.",
+   "explain": "一位 500 强 CEO 看到股价涨 30 美分便喜形于色，仿佛是自己的功劳。贝佐斯指出他什么也没做，真正该管的是能直接推动结果的投入。",
+   "importance": 3
+  },
+  {
+   "point": "选错投入指标会适得其反，要持续检验它是否带动产出",
+   "core": "You’ll notice a pattern of trial and error with metrics in the points above, and this is an essential part of the process. The key is to persistently test and debate as you go.",
+   "caseTitle": "新增详情页数量",
+   "case": "We soon saw that an increase in the number of detail pages, while seeming to improve selection, did not produce a rise in sales, the output metric. Analysis showed that the teams, while chasing an increase in the number of items, had sometimes purchased products that were not in high demand. This activity did cause a bump in a different output metric—the cost of holding inventory—and the low-demand items took up valuable space in fulfillment centers that should have been reserved for items that were in high demand.",
+   "explain": "用新增详情页数衡量选品，团队就大量上架冷门商品，销售没涨，库存成本反而上升、仓位被占。之后指标几经修改，最终变成有货且可两日达的页面浏览占比。",
+   "importance": 3
+  },
+  {
+   "point": "数据和客户个案互相校验，一线要有权立即止损",
+   "core": "Data and anecdotes make a powerful combination when they’re in sync, and they are a valuable check on one another when they are not.",
+   "caseTitle": "客服的安灯绳",
+   "case": "There was no assembly line to halt, but the CS agent would be given the authority to click on what we called “the big red button” on their control screen. Once that button was clicked, two things happened: the “Add to Cart” and “1-Click” buttons would disappear from the product page so no customers could buy that product, and the category manager would immediately be notified that purchasing for one of their products had been disabled until they could investigate and fix the issue.",
+   "explain": "贝佐斯陪客服接电话，发现客服早知某款草坪椅常因包装差而损坏却无从改进。于是借鉴丰田安灯绳，让客服按下红色按钮即下架商品并通知品类经理。",
+   "importance": 2
+  }
+ ],
+ "Introduction to Part Two": [
+  {
+   "point": "再好的流程也只能提高胜率，不能替你做决定",
+   "core": "Even the best process can only improve the quality of your decision-making; no process will make the decision for you.",
+   "caseTitle": "Fire Phone",
+   "case": "Second, the phone sold at a premium price. One of Amazon’s guiding principles is Frugality, and we had demonstrated to the world that we were the cost-effective, break-the-business-model company. To customers, the core principle simply meant low prices. Now we were offering a phone for $200, the same price as the iPhone, and it required a two-year commitment with a mobile carrier. ($200 sounds cheap now, but back then mobile phones were subsidized and prices were a lot lower.) We dropped the price to $99 and then offered it for free. It didn’t matter. Nobody wanted it.",
+   "explain": "Fire Phone 走完了 PR/FAQ，贝佐斯本人也参与撰写，却以和 iPhone 相同的 200 美元加两年合约出售，降到 99 美元乃至免费也没人要。流程到位，判断仍可能错。",
+   "importance": 3
+  },
+  {
+   "point": "区分单向门和双向门决策，可逆的决定应快速做",
+   "core": "Some decisions are consequential and irreversible or nearly irreversible—one-way doors—and these decisions must be made methodically, carefully, slowly, with great deliberation and consultation.",
+   "caseTitle": "Prime 对比 Fire",
+   "case": "Prime was a two-way door decision. If Prime’s particular combination of subscription, free shipping, and quick delivery had not worked, we’d have kept tinkering with the formula until we got it right. In fact, Prime was not our first go at solving the problem—it was preceded by another two-way door decision, Super Saver Shipping, which eventually morphed into Prime. The Fire Phone, on the other hand, was more of a one-way door decision: upon withdrawing it from the market, Amazon did not turn around and say, “Okay, that happened, now let’s try another phone.”",
+   "explain": "Prime 不灵可以继续调整，它本身就是从 Super Saver 免运费演变来的；Fire Phone 撤市后亚马逊没有再做一款手机。大公司常把单向门的慢流程套用到双向门决策上。",
+   "importance": 2
+  },
+  {
+   "point": "发明适合差异化真正重要的地方",
+   "core": "The reason: invention works well where differentiation matters.",
+   "caseTitle": "服务器不做，阅读器要做",
+   "case": "In the company’s early days, the hardware that powered Amazon’s data centers was not the point of differentiation with the customer—creating a compelling book-buying online experience was. Whereas with Kindle, as we will describe in chapter seven, others were selling e-books, so there was real value in owning and controlling the creation of an outstanding device for our customers to read them on.",
+   "explain": "早期数据中心硬件不是客户能感知的差异，亚马逊不自己造；而电子书别人也在卖，掌控一台出色的阅读设备才有价值，所以做了 Kindle。",
+   "importance": 2
+  }
+ ],
+ "7. Kindle": [
+  {
+   "point": "面对新机会先决定谁来做、怎么做，再决定做什么",
+   "core": "In other words, his first action was not a “what” decision, it was a “who” and “how” decision. This is an incredibly important difference.",
+   "caseTitle": "见过乔布斯之后",
+   "case": "What he didn’t do (and what many companies would have done) is to kick off an all-hands-on-deck project to combat this competitive threat, issue a press release claiming how Amazon’s new service would win the day, and race to build a copycat digital music service. Instead, Jeff took time to process what he learned from the meeting and formed a plan. A few months later, he appointed a single-threaded leader—Steve Kessel—to run Digital, who would report directly to him so that they could work together to formulate a vision and a plan for digital media.",
+   "explain": "看完乔布斯演示 iTunes 后，贝佐斯没有发起全员项目去抄一个音乐服务，而是几个月后任命 Steve Kessel 为数字业务单线程负责人，直接向他汇报，再一起制定愿景。",
+   "importance": 3
+  },
+  {
+   "point": "从客户需求倒推，缺什么能力就去建或买",
+   "core": "We would figure out what the customers’ needs were and then ask ourselves, “Do we have the skills necessary to build something that meets those needs? If not, how can we build or acquire them?”",
+   "caseTitle": "自建硬件加收购",
+   "case": "In April 2005, we also acquired Mobipocket, a small company based in France that had built a software application for viewing and reading books on PCs and mobile devices. We used the Mobipocket software as the basis for the software on the first Kindle. Had we not acquired the company, we would have needed to hire a team and build the same software ourselves.",
+   "explain": "亚马逊从未做过硬件，但为了客户阅读体验，组建了硬件团队 Lab126，又收购法国的 Mobipocket，用它的阅读软件做第一代 Kindle 的基础。能力缺口用自建加收购补上。",
+   "importance": 3
+  },
+  {
+   "point": "为客户体验先投入，承受短期回报不明",
+   "core": "We were making a big up-front investment in the customer experience, investing some near-term profit in order to get the e-book business and our digital media and devices business off the ground.",
+   "caseTitle": "我们有多少钱？",
+   "case": "Sometime in 2005, a subset of the S-Team met with members of the finance team to review the company’s consolidated OP1. There was a heated discussion about the surprising ramp-up in expenses across many areas, particularly with Kindle. At some point in the debate, someone asked Jeff point blank: “How much more money are you willing to invest in Kindle?” Jeff calmly turned to our CFO, Tom Szkutak, smiled, shrugged his shoulders, and asked the rhetorical question, “How much money do we have?”",
+   "explain": "2005 年 Kindle 超时超支，有人在预算会上直问还要投多少。贝佐斯笑着反问 CFO 我们有多少钱，借此表明 Kindle 的战略地位，也说明投入并未危及公司。",
+   "importance": 2
+  }
+ ],
+ "8. Prime": [
+  {
+   "point": "机构性的否决会造成不作为的错误，而且很难被察觉",
+   "core": "The institutional no refers to the tendency for well-meaning people within large organizations to say no to new ideas. The errors caused by the institutional no are typically errors of omission, that is, something a company doesn’t do versus something it does.",
+   "caseTitle": "如果当年等一等",
+   "case": "Jeff would likely have been making just such an error of omission if his October 2004 email had read, “Let’s wait to introduce free shipping and just focus on making this 2004 holiday season our best ever!” If he had stopped pressing the teams for more free shipping ideas, there would no doubt have been a sigh of relief. We would have looked at each other and said thank goodness we made the right call to pause.",
+   "explain": "假如 2004 年那封邮件写的是先专心过好假日季，大家会松一口气、觉得暂停是对的。没人会把错过 Prime 记成一次失败，这正是不作为错误的危险。",
+   "importance": 3
+  },
+  {
+   "point": "客户期望会不断升高，二选一的平庸方案留不住客户",
+   "core": "Customer expectations are not static. They rise over time, which means you cannot rest on your laurels.",
+   "caseTitle": "免运费的天花板",
+   "case": "First, this was because many of our heaviest buyers needed the fastest possible delivery—they were not willing to wait three to five days for an item to ship. Second, some of our price-sensitive customers were not willing to up their order to $25 just to qualify for Super Saver Shipping. It didn’t make sense to them to spend more on goods just to pay less on shipping. As a result, they would do what 98 percent of other consumers did at the time—shop at a brick-and-mortar store.",
+   "explain": "Super Saver 免运费虽受欢迎，但重度买家不愿等三到五天，价格敏感的客户也不愿为凑单多花钱，转身去了实体店。只有又快又免费才能覆盖全部客户。",
+   "importance": 3
+  },
+  {
+   "point": "争论结束就要不同意但执行，以极快速度落地",
+   "core": "But the time for debate on whether and when we should launch free shipping was over. It was now time to act on the second half of “disagree and commit.”",
+   "caseTitle": "在贝佐斯家开会",
+   "case": "Vijay took the unusual but correct move to cancel the meeting and reschedule for another time. Jeff took it in stride and said, how about tomorrow morning at my house? That’s when Jeff, Jeff Holden, Vijay, and Dorothy met to go over what would become Amazon Prime. Jeff said he wanted to build a moat around our best customers. Prime would be a premium experience for convenience-oriented customers. Jeff H., Vijay, and Dorothy could recruit whoever they needed to the team, but it had to launch concurrently with the next earnings call.",
+   "explain": "网站故障打乱了原定会议，贝佐斯干脆约第二天早上在自己家开。小团队可随意调人，但必须赶在下次财报电话会同步上线，最终 Prime 在不到四个月内推出。",
+   "importance": 2
+  }
+ ],
+ "9. Prime Video": [
+  {
+   "point": "盯着竞争对手赶工上线，会牺牲客户体验",
+   "core": "We didn’t want to come in second to Apple so we were in a frenzy to ship Unbox and ship it fast. This was directly antithetical to the notion of focusing on the customer, not the competitor.",
+   "caseTitle": "Unbox 仓促上线",
+   "case": "We had conducted an internal employee-only beta test, but we failed to use the results as an opportunity to slow down, carefully review the customer feedback, and take the time needed to make real changes to improve the quality of the customer experience. We were just focused on shipping.",
+   "explain": "传言苹果即将推出视频服务，团队就急于抢先，员工内测的反馈也没用来放慢脚步、改进体验。上线前的演示视频甚至是倒着播放的。",
+   "importance": 3
+  },
+  {
+   "point": "失败后保留负责人，把教训变成组织的资产",
+   "core": "They understand that when you innovate and build new things, you will frequently fail. If you fire the person, you lose the benefit of the learning that came along with that experience.",
+   "caseTitle": "为什么现在要开除你",
+   "case": "Jeff would say something like this to a leader who had just laid an egg: “Why would I fire you now? I just made a million-dollar investment in you. Now you have an obligation to make that investment pay off. Figure out and clearly document where you went wrong. Share what you have learned with other leaders throughout the company. Be sure you don’t make the same mistake again, and help others avoid making it the first time.”",
+   "explain": "Bill Carr 自评 2006 年表现糟糕，换别的公司可能被开除。贝佐斯的逻辑是刚在你身上投了百万学费，你要写清错在哪、分享给其他领导者，并帮他们避免重犯。",
+   "importance": 3
+  },
+  {
+   "point": "客户真正在意的是快和方便，而不是画质",
+   "core": "As it turned out, download speed was much more important to customers than image quality.",
+   "caseTitle": "YouTube 与 iPod",
+   "case": "Consumers were not bothered by the low-quality video, and YouTube began to attract tens of millions of viewers. Weeks after our launch, Apple launched the capability to watch movies and shows on an iPod screen, even tinier than the YouTube frame. Customers ate that up, too. Fast. Easy. iPod compatible. Everything that Unbox was not.",
+   "explain": "低清小窗的 YouTube 吸引了数千万观众，苹果在比它还小的 iPod 屏幕上放电影也大受欢迎。Unbox 追求画质却下载数小时，恰恰输在客户最在乎的地方。",
+   "importance": 2
+  },
+  {
+   "point": "把视频作为现有会员的附加权益，绕开订阅冷启动",
+   "core": "There is a difficult chicken-and-egg problem with a subscription service. You need to have a great offering to attract paying subscribers. To be able to afford a great offering, you need a lot of paying subscribers.",
+   "caseTitle": "Prime 会员免费看",
+   "case": "At some point, Jeff came up with a simple idea: “Let’s make videos free for Prime members.” This had not been on anybody’s list of ideas. How would that work? Jeff reminded us of how Netflix got started by offering Watch Now streaming videos to its DVD subscription service—free. I mean included. “It’s an ‘oh-by-the-way’ offering,” he said.",
+   "explain": "自建订阅片库追不上 Netflix，贝佐斯提出给 Prime 会员免费看视频，参照 Netflix 把流媒体附送给 DVD 订户的做法。借现成的会员基数解决冷启动，片库不足可以用多年时间慢慢补。",
+   "importance": 2
+  },
+  {
+   "point": "夹在价值链中间就没有差异化，必须掌控上下游",
+   "core": "We were essentially a digital distribution system, with nothing unique or proprietary about it.",
+   "caseTitle": "决定自制内容",
+   "case": "It seemed to me that going forward we had to get out of the never-ending cycle of bidding against Netflix and, later, Hulu. We didn’t want to pay studios additional fees for each and every country we entered. We had to control our own destiny. That led me to a startling conclusion: we had to create our own content. It was time to make our own movies and TV shows.",
+   "explain": "Netflix 突然加入 LOVEFiLM 的版权竞价，让团队意识到只做分发就只能不断和对手抬价。于是向上游进军成立 Amazon Studios，向下游做 Fire 平板和 Fire TV。",
+   "importance": 2
+  }
+ ],
+ "10. AWS": [
+  {
+   "point": "站在开发者角度开放数据，会催生意想不到的创新",
+   "core": "The goal was for us to get out of the design business so they could innovate without us holding them back.",
+   "caseTitle": "用商品数据做的应用",
+   "case": "One developer created an addictive game where visitors would race against the clock and each other to see how fast they could name the author, artist, or movie based on the cover art flashed on the screen. Another developer made it easy for people to create a web page containing a virtual bookshelf of their personal media collections.",
+   "explain": "2002 年联盟计划改为提供 XML 商品数据，开发者很快做出猜封面的计时游戏、展示个人收藏的虚拟书架。这些用法团队从未想到，让亚马逊看到开发者是一类新客户。",
+   "importance": 3
+  },
+  {
+   "point": "把已知的基础能力做成云服务，替客户承担无差别的重活",
+   "core": "We’d both noticed the same thing—a phenomenon that Amazon would later refer to as “undifferentiated heavy lifting,” that is, the tasks that we could do for companies that would enable them to focus on what made them unique. This was an opportunity.",
+   "caseTitle": "存储百万张照片",
+   "case": "Suppose, for example, that you want to build a service that stores millions of photos to be searched and queried by millions of customers. In 2002, that would have been a reasonably large but very doable project for Amazon. That pretty much describes, in fact, our Search Inside the Book capability. For most companies, however, such a project would have been cost and time prohibitive. But it was clear that more and more companies would develop or acquire these capabilities, and they eventually would become an undifferentiated commodity.",
+   "explain": "存储并检索数百万张照片，对亚马逊是可做的项目，类似书内搜索功能；对大多数公司却成本过高。这类能力终将商品化，亚马逊已有现成原语，可以做成按需服务。",
+   "importance": 3
+  },
+  {
+   "point": "在 PR/FAQ 阶段改方向成本最低",
+   "core": "The cost of changing course in the PR/FAQ writing stage is much lower than after you’ve launched and have an operating business to manage.",
+   "caseTitle": "S3 怎么定价",
+   "case": "We really did not know how developers would use S3 when it launched. Would they store mostly large objects with low retrieval rates? Small objects with high retrieval rates? How often would updates happen versus reads? How many customers would need simple storage (can easily be re-created, stored in only one location, not a big deal if you lose it) and how many would need complex storage (bank records, stored in multiple locations, a very big deal if you lose it)? All those factors were unknown yet could meaningfully impact our costs.",
+   "explain": "S3 的 FAQ 原本拟按存储量分档订阅，但团队发现不知道开发者会存大文件还是小文件、读写多频繁。于是在写文档阶段改为跟随成本定价，后来发现请求数也是成本时才能轻松调整。",
+   "importance": 2
+  }
+ ],
+ "Conclusion: Being Amazonian Beyond Amazon": [
+  {
+   "point": "这些做法有分形特性，可以从一个环节立刻开始",
+   "core": "And, as we’ve said, it is wonderfully fractal, applicable at any scale and scope.",
+   "caseTitle": "先停用 PPT",
+   "case": "This can be implemented almost instantly. There will be pushback and grumbling, but we’ve found it produces results swiftly, and eventually your leaders will say to themselves, “We can never go back to the old way.”",
+   "explain": "作者建议第一步就在领导团队会议上用六页纸和 PR/FAQ 代替 PPT，几乎可以马上实施。会有抱怨，但见效很快，最后大家会觉得再也回不去了。",
+   "importance": 3
+  },
+  {
+   "point": "失败被视为团队与流程的失败，是可以学习的实验",
+   "core": "Even when a project does not achieve its goals or is deemed a failure, if the effort was admirable and adherent to Amazon practices and principles, the result for the individual is neither dismissal nor shame.",
+   "caseTitle": "失败不归于一人",
+   "case": "Failure is almost always understood as the failure of a group, a process, a system, as much as that of a single person—many people have been involved, made comments, shaped the idea, and given approvals along the way. For the company, then, failure is typically viewed as an experiment from which a great deal can be learned that can lead to change and improvement. Very often, failure is temporary and eventually gives birth to success.",
+   "explain": "一个项目从提意见到审批经过许多人之手，所以失败被看作群体和流程的问题。只要做法符合准则，个人既不会被开除也不会被羞辱，失败本身成为改进的素材。",
+   "importance": 2
+  }
+ ]
+}

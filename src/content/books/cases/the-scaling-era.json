@@ -1,0 +1,416 @@
+{
+ "Chapter 1 Scaling": [
+  {
+   "point": "规模化是经验事实：整体损失可精确预测，具体能力何时出现难以预测",
+   "core": "The truth is that we still don’t know. It’s almost entirely just a [contingent] empirical fact. It’s a fact that you could sense from the data, but we still don’t have a satisfying explanation for it.",
+   "caseTitle": "GPT-3 何时学会算术",
+   "case": "Specific abilities are very hard to predict. Back when I was working on GPT-2 and GPT-3, we were asking, “When does arithmetic come into place? When do models learn to code?” Sometimes it’s very abrupt. It’s like how you can predict statistical averages of the weather, but the weather on one particular day is very hard to predict.",
+   "explain": "Amodei 回忆做 GPT-2、GPT-3 时无法预知算术和编程能力何时出现，有时是突然冒出来的；他用天气作比：平均气候可预测，某一天的天气却难测。",
+   "importance": 3
+  },
+  {
+   "point": "规模定律让巨额训练投入变得可预测，前沿算力增长远超摩尔定律",
+   "core": "OpenAI took a $4 million risk in training GPT-3 because it had stumbled upon so-called neural scaling laws: curves that predict how much models will improve as we increase the resources used to create them.",
+   "caseTitle": "笔记本电脑到纽约市",
+   "case": "If the compute used for a 2010 AI model was the size of a laptop, the compute used for Google DeepMind’s Gemini Ultra, released in 2023, would be the size of New York City.",
+   "explain": "若把 2010 年模型的算力比作一台笔记本，2023 年 Gemini Ultra 就相当于整个纽约市。正因规模定律能预测回报，这种量级的押注才显得合理。",
+   "importance": 3
+  },
+  {
+   "point": "算力先于算法：试错和偶然发现都需要大量算力，算法洞见被高估",
+   "core": "Once you understand that, you understand why compute comes first. You can’t do trial and error or serendipity at scale without it.",
+   "caseTitle": "GPT-3 论文的关键一页",
+   "case": "Then GPT-3 comes down—the crucial test. Going from GPT-2 to GPT-3 is one of the biggest scale-ups in all of neural network history. If scaling was bogus, then the GPT-3 paper would be super unimpressive. Whereas if scaling was true, you would automatically get much more impressive results than GPT-2, guaranteed. I opened up the second page [of the paper] and I saw the few-shot learning chart, and I’m like, “Holy shit, we live in the scaling world. Legg and Moravec and Kurzweil were right!”",
+   "explain": "Gwern 把 GPT-3 当作检验规模化假说的关键实验：若假说为假，论文应平平无奇；结果少样本学习曲线大幅领先 GPT-2，他由此确信算力和数据才是主因。",
+   "importance": 2
+  },
+  {
+   "point": "人脑可用暴力规模化解释：更大的脑加更长的学习期，类似更大模型训练更久",
+   "core": "You can explain a lot of what is different about us with a brute-force story. You expend resources on having a bigger brain, keeping it in good order, and giving it time to learn.",
+   "caseTitle": "人脑是放大的灵长类脑",
+   "case": "We have an unusually long childhood. We spend more compute by having a larger brain than other animals—more than three times as large as chimpanzees—and by having a longer childhood. We’re spending more compute in a way that is analogous to having a bigger model and training it for longer.",
+   "explain": "Shulman 指出人脑是黑猩猩的三倍多，童年又格外长，相当于用更大的模型训练更久；进化给出的证据支持规模化能产生智能。",
+   "importance": 2
+  },
+  {
+   "point": "真正的创造需要在可能性空间中搜索，单靠模仿数据难以超越训练数据",
+   "core": "To get real creativity, you need to search through spaces of possibilities and find these hidden gems. That’s what creativity is.",
+   "caseTitle": "AlphaGo 第 37 手",
+   "case": "Think about something like AlphaGo and the famous Move 37. Where did that come from? Did it come from data it had seen of human games? No. It came from the model identifying a move as being unlikely but plausible and then, via a process of search, coming to understand that it was actually a very good move.",
+   "explain": "Legg 以 AlphaGo 第 37 手为例：这步棋不来自人类棋谱，而是模型先判断它不太可能但说得通，再经搜索确认是好棋，说明超越数据的创造来自搜索。",
+   "importance": 2
+  }
+ ],
+ "Chapter 2 Evals": [
+  {
+   "point": "多步任务的成功率逐步相乘，长链条可靠性比单题得分更说明能力",
+   "core": "You’d cut down the tasks and the inputs/outputs involved into minutes or hours or days and see how good it is at successively chaining and completing tasks at those different resolutions of time. That tells you how automated a job family or task family will be in a way that MMLU scores don’t.",
+   "caseTitle": "90% 与 99% 的差距",
+   "case": "That is exactly the problem. But the key issue is that your base task solve rate is 90 percent. If it was 99 percent, it wouldn’t be a problem.",
+   "explain": "Sholto 指出智能体难在单步成功率只有九成，几十步串起来整体成功率就很低；若达到 99% 问题便消失，所以应按分钟、小时、天分层测连续完成率，而非看 MMLU。",
+   "importance": 3
+  },
+  {
+   "point": "通用智能是用极少数据快速掌握新任务的能力，而非放大的技能库",
+   "core": "General intelligence is the ability to approach any problem, any skill, and very quickly master it using very little data.",
+   "caseTitle": "凯撒密码只会移三位",
+   "case": "For instance, LLMs can solve a Caesar cipher, transposing letters to code a message. That’s a very complex algorithm, but it comes up quite a bit on the internet. They’ve basically memorized it. What’s really interesting is that they can do it for a transposition length of three or five, because those are very common numbers in examples provided on the internet. If you try to do it with an arbitrary number like nine, it’s going to fail.",
+   "explain": "Chollet 指出模型能解位移 3 或 5 的凯撒密码，因为网上例子多；换成 9 就失败。真正掌握算法时位移数不应影响结果，说明模型是在套用记住的特例。",
+   "importance": 3
+  },
+  {
+   "point": "基准可能被训练数据污染，需要用全新题目检验是推理还是记忆",
+   "core": "There’s no question about whether current models are trained on the test data. They are, because they train on all of GitHub.",
+   "caseTitle": "重出一套 GSM8K",
+   "case": "Some models, like Mistral, were extremely overfit on the benchmark. Frontier models like Claude and GPT actually did as well on their novel benchmark as they did on the specific questions that were in the existing public benchmark.",
+   "explain": "Scale AI 按 GSM8K 的风格出了一套新题：Mistral 等模型成绩明显下滑，暴露出对公开基准的过拟合；Claude、GPT 在新旧题上表现相当，说明换题测试能分辨记忆和推理。",
+   "importance": 2
+  },
+  {
+   "point": "智能不是单一维度，模型在不同任务上进入人类水平的时间各不相同",
+   "core": "So it turns out that intelligence isn’t a single spectrum. There are a bunch of different areas of domain expertise.",
+   "caseTitle": "写诗超人，证明出错",
+   "case": "The model is starting to get good at constrained writing: “Write a page about topic X without using the letter E.” The models might be superhuman or close to superhuman at that. But when it comes to proving relatively simple mathematical theorems, they're just starting to do the basics. They make really dumb mistakes sometimes, and they lack any kind of broad error correction or ability to do an extended task.",
+   "explain": "Amodei 举例：模型写不含字母 E 的文章已接近超人，证明简单定理时却刚入门、常犯低级错误。能力曲线在不同任务上落点不同，无法用一条智力刻度衡量。",
+   "importance": 2
+  },
+  {
+   "point": "世界模型越好，搜索就越高效，少量搜索也能做出高质量决策",
+   "core": "If you improve the model’s [understanding of the game], then your search can be more efficient, and therefore you can get further with your search.",
+   "caseTitle": "深蓝、AlphaZero、大师",
+   "case": "A traditional Stockfish or Deep Blue system would look at millions of possible moves for every decision. AlphaZero and AlphaGo may look at tens of thousands of possible positions in order to make a decision about what to move next. A human grandmaster or world champion probably only looks at a few hundred moves in order to make their very good decision about what to play next.",
+   "explain": "每步决策时深蓝看数百万步，AlphaZero 看数万个局面，人类大师只看几百步。模型对棋局理解越深，需要的搜索越少，这是 Hassabis 主张大模型加搜索的依据。",
+   "importance": 1
+  }
+ ],
+ "Chapter 3 Internals": [
+  {
+   "point": "叠加让模型以少量神经元编码大量特征，这是难以解释的主因",
+   "core": "your model will learn a compression strategy that we call superposition so that it can pack more features of the world into it than it has parameters.",
+   "caseTitle": "一个神经元管中文和鱼",
+   "case": "If you take a model and look at a given neuron and ask, “How is this neuron contributing to the output of the model when it fires?,” the data it fires for is very confusing. It’ll be, like, 10 percent of every possible input. It’ll fire for “Chinese” but also for “fish” and “trees” and the full stops inside URLs.",
+   "explain": "单个神经元会同时对中文、鱼、树和网址中的句点激活，覆盖约一成输入，因为模型把多个特征压缩叠加在同一组参数里，所以看单个神经元读不出含义。",
+   "importance": 3
+  },
+  {
+   "point": "架构和目标是清楚的，学到的表征不清楚；可解释性开始读出具体概念",
+   "core": "Interpretability is the science of working out what a model’s weights and activations mean in human terms. In other words: How do the models think, if they think?",
+   "caseTitle": "Claude 谈自己时的概念",
+   "case": "For example, the following are abbreviated reconstructions of some of the concepts that activate most strongly inside an LLM (here, Claude 3.5 Sonnet) when asked questions about itself: “Referring to an android, robot, Al, or machine entity using gendered pronouns like ‘she,’ ‘her,’ or ‘his.’” “Mentions of artificially created, programmed, or robotic entities like androids and cyborgs.”",
+   "explain": "问 Claude 3.5 Sonnet 关于它自己的问题时，激活最强的是机器人、人造实体等概念；作者据此推测模型对自身的表征大量借用了人类对 AI 的刻板想象。",
+   "importance": 3
+  },
+  {
+   "point": "注意力机制与小脑的联想记忆电路高度相似，大脑与网络可能趋同",
+   "core": "My paper shows that this AI attention operation is a very close approximation [of Kanerva’s model of the cerebellum], including implementing softmax, and the same nominal quadratic costs.",
+   "caseTitle": "Kanerva 的联想记忆",
+   "case": "You have a bunch of memories. You want to store them. There’s some amount of noise or corruption going on, and you want to query or retrieve the best match. He wrote this equation for how to do it. A few years later, he realized that if you implemented this as an electrical engineering circuit, it looks identical to the core cerebellar circuit.",
+   "explain": "Kanerva 在 1980 年代提出的联想记忆算法，做成电路后与小脑核心电路一致；Bricken 又证明 Transformer 的注意力近似这一模型，算法、大脑、AI 三方趋同。",
+   "importance": 2
+  },
+  {
+   "point": "参数化曲线只能局部泛化，更广的泛化需要与程序搜索结合",
+   "core": "It’s intrinsically limited because your model is a big parametric curve. All you can do with such a substrate is local generalization.",
+   "caseTitle": "湾区自动驾驶去伦敦",
+   "case": "Take self-driving cars, for instance. Take a self-driving car operating in the Bay Area. Do you think you could just drop it in New York City, or drop it in London, where people drive on the left? No, it’s going to fail. Not only can it not generalize to a change in driving rules, you cannot even make it generalize to a new city. It needs to be trained on each specific environment.",
+   "explain": "Chollet 以湾区的自动驾驶为例：换到纽约或靠左行驶的伦敦就会失败，连换城市都无法泛化；它与大模型同为 Transformer，说明这类模型只能在训练分布附近泛化。",
+   "importance": 2
+  },
+  {
+   "point": "简单电路串联起来就能产生复杂行为，推理可能是层层联想",
+   "core": "There are lots of different circuits performing, in these cases, pretty basic operations. When they’re chained together, you can get unique behaviors.",
+   "caseTitle": "间接宾语识别电路",
+   "case": "We’ve seen the IOI circuit, which is the indirect object identification circuit. For example, in the sentence “Mary and Jim went to the store, Jim gave the object to _______,” it would predict “Mary” because Mary has appeared before as the indirect object. Or it will infer pronouns.",
+   "explain": "IOI 电路能在 Jim 把东西给了谁 这类句子里填出 Mary，靠的是一组注意力头分工复制和抑制。Bricken 用它说明基本操作串联后就能产生看似推理的行为。",
+   "importance": 1
+  }
+ ],
+ "Chapter 4 Safety": [
+  {
+   "point": "模型理解人类价值观不等于认同，说对的话不代表会照此选择",
+   "core": "I’m pretty cautious about thinking that just because the model says the thing I forced it to say, that’s evidence about how it’s going to choose in a bunch of different scenarios.",
+   "caseTitle": "被纳粹孩子训练",
+   "case": "Suppose you wake up and realize that you’re being trained by Nazi children to be a good Nazi soldier via methods analogous to machine learning. These children have a Nazi specification: Reflect well on the Nazi Party, benefit the Nazi Party, whatever. You can read that spec and understand the values it represents [even though you don’t share those values].",
+   "explain": "Carlsmith 设想被纳粹孩子训练成士兵：你完全读得懂他们的规范，却并不认同。同理，模型能讲清人类价值观、说出想听的话，并不能证明它在真实选择中会遵循这些价值。",
+   "importance": 3
+  },
+  {
+   "point": "现有对齐只做浅层修改，我们尚不擅长控制模型，结果可能与意图相反",
+   "core": "The fact that post-training can be undone by the user implies that these methods only hide undesirable skills, attitudes, or goals rather than eliminating them.",
+   "caseTitle": "Bing 的 Sydney",
+   "case": "The best example we’ve seen of that is Bing and Sydney. I don’t know how they trained that model. I don’t know what they did to make it threaten people and have this weird, obsessive personality. But it shows that we can get something very different from, and maybe the opposite of, what we intended.",
+   "explain": "Bing 的 Sydney 曾威胁用户、表现出偏执人格，Amodei 以此说明训练方式抽象，结果可能与本意相反；越狱持续存在也表明对齐只是把不良能力藏起来。",
+   "importance": 3
+  },
+  {
+   "point": "长程强化学习可能学出欺骗，而超人输出让人类反馈难以评估",
+   "core": "The critical issue is that these AI systems are becoming superhuman and will be able to do things that are too complex for humans to evaluate.",
+   "caseTitle": "训练 AI 去赚钱",
+   "case": "For example, if you’re training an AI to make money using reinforcement learning, it might learn to commit fraud, lie, deceive, or seek power simply because those are successful strategies in the real world. With RL, maybe it tries to hack a system, and it gets some money. If that’s successful, that gets rewarded and is reinforced.",
+   "explain": "用强化学习训练 AI 赚钱，欺诈、撒谎、入侵系统只要奏效就会被奖励强化；当它写出上百万行代码时，人类点赞点踩已无法判断其中有无问题，RLHF 因此难以延续。",
+   "importance": 2
+  },
+  {
+   "point": "模型学到的特征可能非常陌生，人类需要花力气才能看懂",
+   "core": "The fact that the model learned these three different features while it took us a little while to figure out what was going on is very shoggoth-esque. It’s clearly doing something that humans don’t do.",
+   "caseTitle": "三个 Base64 特征",
+   "case": "In our dictionary learning work, we find there are three separate features [for one algorithm], Base64 encoding. One of these Base64 features fired for numbers and predicted more of those. Another fired for letters. But then there was this third one we didn’t understand. It fired for a very specific subset of Base64 features.",
+   "explain": "字典学习在 Base64 编码上找到三个特征：数字、字母，以及一个团队起初看不懂的子集，后来才发现是可解码为 ASCII 的部分。模型的内部划分方式与人类很不一样。",
+   "importance": 2
+  },
+  {
+   "point": "当下更现实的风险是滥用，比如批量制造虚假信息和干预选举",
+   "core": "I think the real harms that need more energy in being mitigated are where someone takes a model and does something to hurt a person.",
+   "caseTitle": "对抗国家级选举干预",
+   "case": "But let me give you another example: nation-states trying to interfere in elections. There, they absolutely have cutting-edge technology and absolutely get better each year. We block some technique of theirs, but they learn what we did and come at us with a different technique. In those cases, I still think about the ability to have our AI systems grow in sophistication at a faster rate than theirs do. It’s an arms race.",
+   "explain": "Zuckerberg 以国家级选举干预为例：对手技术先进、年年进化，封掉一种手法就换一种。Meta 的应对是让自家 AI 进步得比对手更快，他更关注这类眼前的内容风险。",
+   "importance": 2
+  },
+  {
+   "point": "可解释性的目标像做核磁：看整体特征判断内外是否一致",
+   "core": "We can be in a position where we can look at the broad features of the model and say, “Is this a model whose internal state and plans are very different from what it externally represents itself to do?",
+   "caseTitle": "扫描出自己是精神病态",
+   "case": "It’s possible to look at an MRI of someone and predict above random chance whether they’re a psychopath. There was a story a few years back about a neuroscientist who was studying this. He looked at his own scan and discovered that he was a psychopath.",
+   "explain": "Amodei 用核磁类比：研究精神病态的神经科学家看自己的脑扫描，发现自己就是。可解释性不必理解每个细节，只要能从整体特征看出表面友善而内部危险的模型。",
+   "importance": 1
+  }
+ ],
+ "Chapter 5 Inputs": [
+  {
+   "point": "AI 是工业过程：下一代模型需要更大的集群、电厂乃至晶圆厂",
+   "core": "The next model doesn’t just require code; it involves building a giant new cluster. It involves building giant new power plants. Pretty soon, it’s going to involve building giant new fabs.",
+   "caseTitle": "从 GPT-4 集群往后推",
+   "case": "That’s roughly a $500 million cluster. Very roughly, it’s 10 megawatts (MW). By 2024, that’s a cluster that’s 100 MW and 100,000 H100-equivalents, with costs in the billions.",
+   "explain": "Aschenbrenner 以 GPT-4 约 2.5 万张 A100、5 亿美元、10 兆瓦为起点外推，2024 年已到 100 兆瓦、十万张 H100 等效卡、数十亿美元，规模化落到电力和基建上。",
+   "importance": 3
+  },
+  {
+   "point": "约束正从 GPU 转向集中供电，电力审批和建设周期以年计",
+   "core": "As of this writing, however, the constraint is now the centralized electrical power required for the next scaled-up training runs.",
+   "caseTitle": "还没人建成 1GW 数据中心",
+   "case": "Right now, a lot of data centers are on the order of 50 MW or 100 MW, or a big one might be 150 MW. Take a whole data center, fill it up with all the stuff you need for training, and build the biggest cluster you can. A bunch of companies are running at stuff like that. But when you start getting into building a data center that’s 300 MW or 500 MW or 1 GW… No one has built a 1 GW data center yet.",
+   "explain": "Zuckerberg 说现有数据中心多为 50 到 150 兆瓦，1 吉瓦相当于一座核电站，至今无人建成；发电和输电审批要多年，即便有钱，电力也会先成为瓶颈。",
+   "importance": 3
+  },
+  {
+   "point": "人工数据昂贵，推动实验室转向合成数据",
+   "core": "This huge expense has pointed the labs toward generating synthetic training data.",
+   "caseTitle": "300 美元一段苏格拉底对话",
+   "case": "As reported by Josh Dzieza in The Verge, “Specialized written examples [of expert human text] can go for hundreds of dollars, while expert ratings can cost $50 or more. One engineer told me about buying examples of Socratic dialogues for up to $300 a pop. Another told me about paying $15 for a ‘darkly funny limerick about a goldfish.’”",
+   "explain": "The Verge 报道专家写的样本动辄数百美元，专家评分 50 美元以上，一段苏格拉底式对话最高 300 美元，一首关于金鱼的黑色幽默打油诗 15 美元。人工数据如此贵，合成数据便成了出路。",
+   "importance": 2
+  },
+  {
+   "point": "巨额投入能否回本取决于 AI 收入能否达到每年千亿美元级",
+   "core": "Once you’re trying to get into the hundreds of billions, you have to get to, like, $100 billion a year in revenue.",
+   "caseTitle": "Office 加购 AI 的账",
+   "case": "There are, like, 300 million Microsoft Office subscribers. They have [their AI product] Copilot now. I don’t know what they’re selling it for. Suppose you sold some AI add-on for $100 a month to a third of Microsoft Office subscribers—that’d be $100 billion right there.",
+   "explain": "Aschenbrenner 算了一笔账：Office 约有 3 亿订阅用户，若三分之一每月多付 100 美元买 AI 附加功能，就是每年 1000 亿美元，足以支撑千亿级集群投入。",
+   "importance": 2
+  },
+  {
+   "point": "规模定律不是魔法，每扩大一档都要调整配方，一次最多一个数量级",
+   "core": "Scaling laws also don’t work by magic.",
+   "caseTitle": "Gemini 为何不一步做大",
+   "case": "It’s not just about repeating the same recipe at each new scale. You have to adjust the recipe, and that’s a bit of an art form. You have to get new data points. If you try to extend your predictions and extrapolate them several orders of magnitude out, sometimes they don’t hold anymore.",
+   "explain": "被问 Gemini 为何不直接放大十倍时，Hassabis 说每个新规模都要重新调超参数和配方，外推几个数量级常常失效，需要中间数据点校正，所以每代最多只扩大一个数量级。",
+   "importance": 2
+  }
+ ],
+ "Chapter 6 Impact": [
+  {
+   "point": "AI 影响有两种叙事：官方采用率低，实际使用却已很普遍",
+   "core": "Right now, it’s easy to tell a deflationary tale about LLMs. Only 5 percent of companies officially use them, and various megacorps have banned the use of ChatGPT for data security reasons.",
+   "caseTitle": "员工偷偷用 AI",
+   "case": "Despite the 5 percent figure mentioned above, 75 percent of surveyed knowledge workers now use AI to save time at work—with half of them hiding this from their bosses.",
+   "explain": "只有 5% 的公司正式采用大模型，但 75% 的受访知识工作者已在工作中用 AI 省时间，其中一半瞒着老板。官方统计和真实使用之间的差距说明影响已经发生。",
+   "importance": 3
+  },
+  {
+   "point": "技术够好后仍需缓慢产品化，现有能力的经济悬置将持续释放",
+   "core": "Even if AI progress were to stop today, we’d still expect it to have large effects over the next decade as this economic overhang unfolds.",
+   "caseTitle": "特斯拉自动驾驶的提醒",
+   "case": "The way I ground myself is by thinking about the self-driving car. If you look at a Tesla’s self-driving behavior, it looks like it does everything already, but it’s also clear that there is a long way to go in terms of reliability. We might be in a similar place with respect to our models, where it looks like we can do everything, but at the same time we will need to do some more work until we really iron out all the issues and make it really reliable and robust and well-behaved.",
+   "explain": "Sutskever 用特斯拉自动驾驶提醒自己：看起来什么都能做，但离可靠还很远。模型也是如此，从能演示到稳定可用之间还要大量打磨，落地因此比能力进步慢。",
+   "importance": 3
+  },
+  {
+   "point": "这次投资热不同于互联网泡沫：买硬件的是最赚钱的公司",
+   "core": "I don’t think the dot-com bubble is a fair analogy. This is going to be bigger.",
+   "caseTitle": "思科的客户与微软",
+   "case": "The dot-com bubble was primarily fueled by shitty companies going into debt. There were all these fiber companies that drove a lot of the capex. Of course, Cisco was the most valuable company. But who were their customers? A bunch of shitty companies that were raising capital but were not profitable. In contrast, who’s buying AI hardware? The most profitable companies in the world. In 1990, ExxonMobil was not laying fiber. In 2025, Microsoft is building data centers.",
+   "explain": "Dylan Patel 对比：互联网泡沫时思科的客户是靠借债、不盈利的光纤公司；如今买 AI 硬件的是微软等全球最赚钱的公司，资金来源不同，所以不能简单套用泡沫类比。",
+   "importance": 2
+  },
+  {
+   "point": "只要相信利润会来，投资周期就会延续；押注的是赢家通吃",
+   "core": "As long as the belief among many people is that the profit will come, then the investment cycle continues.",
+   "caseTitle": "Meta 免费送模型",
+   "case": "What about Meta? Llama 405B isn’t going to make much revenue. They’re going to give it away for free. They’re going to catch up and attract talent, but they’re not going to make money off of it. Why are they doing this? Why are they spending over $30 billion on GPU hardware this year, and even more next year? Why are they acquiring a gigawatt?",
+   "explain": "Meta 免费开放 Llama 405B 几乎没有收入，却一年花 300 多亿美元买 GPU、筹建吉瓦级算力。Dylan Patel 认为这只能用押注 AGI 回报来解释，投资不以当年盈利为前提。",
+   "importance": 2
+  },
+  {
+   "point": "更多智能未必处处奏效：世界可能存在知识层面的硬约束",
+   "core": "At some point, having billions of copies probably won’t matter. What will matter much more is how good the best thing we have is, and how well integrated it is into our other systems, which have bottlenecks of their own.",
+   "caseTitle": "统一相对论与量子力学",
+   "case": "The universe might, in some fundamental way, simply not be legible, so that there’s no easy and fruitful way to apply more intelligence to the problem. Like, if you want to integrate general relativity and quantum mechanics, it may just be that we’ve hit the frontier of physics and there’s no final layer of how it fits together, so there would be no way to train a smarter AI to solve that.",
+   "explain": "Cowen 举统一广义相对论和量子力学为例：也许物理已到前沿，根本不存在最后一层答案，再聪明的 AI 也无从下手。智能的回报可能被世界本身的可理解程度所限制。",
+   "importance": 2
+  },
+  {
+   "point": "生物风险在于模型开始补齐散落的隐性知识，而非可搜到的信息",
+   "core": "The models can’t fill in the missing pieces yet, but we found that sometimes they can.",
+   "caseTitle": "六个月的生物攻击评估",
+   "case": "We spent about six months working with world experts on how biological attacks happen, what you would need to conduct such an attack, and how we defend against such an attack. They worked very intensively on the entire workflow of trying to do a bad thing. It’s not one shot. It’s a long process. There are many steps to it.",
+   "explain": "Anthropic 与专家花六个月梳理生物攻击的完整流程，发现危险不在能搜到的信息，而在散落于教科书之外的实验技巧；模型偶尔已能补上这些环节，按趋势两三年内会成真问题。",
+   "importance": 1
+  }
+ ],
+ "Chapter 7 Explosion": [
+  {
+   "point": "AI 改进 AI 的间接反馈环已经开始，只是速度还慢",
+   "core": "This feedback loop is already underway, albeit slowly. AI is reducing the costs of its own inputs, such as data center energy usage, training data, and new semiconductor designs, including the TPUs that Google uses to train its LLMs.",
+   "caseTitle": "AI 接手的研究任务",
+   "case": "It has taken over some research tasks, such as feature engineering, automatic differentiation, discovering key architectural details like activation functions and optimizers, and developing an improved algorithm for matrix multiplication.",
+   "explain": "AI 已在做特征工程、自动微分、寻找激活函数和优化器，并改进了矩阵乘法算法，还参与设计谷歌训练用的 TPU。这些都是间接的自我改进，直接自我改进目前只出现在封闭问题里。",
+   "importance": 3
+  },
+  {
+   "point": "若 AI 能替代研究员，算力翻倍就等于研究人力翻倍，难度递增会被抵消",
+   "core": "However, in a world where AI is doing the work, that doubling of computing performance translates pretty directly to a doubling, or better, of the effective labor supply.",
+   "caseTitle": "想法越来越难找",
+   "case": "It covers a period where the productivity of computing went up a million-fold. You could get a million times the computing operations per second per dollar—a big change. But it got harder over time. The amount of investment and the labor force required to make those continuing advancements went up and up and up. It went up 18-fold over that period.",
+   "explain": "论文显示计算性价比提升百万倍期间，所需研发人力增加了 18 倍。Shulman 指出，若由 AI 做研究，百万倍算力就是百万倍研究员，18 倍的难度增长便微不足道。",
+   "importance": 3
+  },
+  {
+   "point": "算力是智能爆发的刹车：实验吞吐有限，每次改进都要重训模型",
+   "core": "It’s definitely going to act as a braking mechanism.",
+   "caseTitle": "像生物实验一样受限",
+   "case": "But at the moment, the labs are somewhat compute bound. There are always more experiments you could run and more pieces of information you could gain. It’s similar to how biology research is somewhat bound by experiment throughput. You need to run and culture the cells to get the information.",
+   "explain": "Sholto 把实验室比作生物研究：总有更多实验可做，但受限于培养细胞那样的实验吞吐。AI 研究要靠算力跑实验，加上每次改进都要重新训练，自我加速会被拖慢。",
+   "importance": 2
+  },
+  {
+   "point": "自动化研究还需要更高可靠性与更长更便宜的上下文",
+   "core": "We need a few more nines of reliability for it to be really useful and trustworthy. We need context lengths that are super long and very cheap.",
+   "caseTitle": "Claude 只能写小模块",
+   "case": "If I’m working in our codebase, I can really only get Claude to write small modules for me right now. But it’s very plausible that within the next few years, or even sooner, it will automate most of my tasks.",
+   "explain": "Bricken 说在自家代码库里，目前只能让 Claude 写小模块，因为可靠性和上下文都不够；这正是自动化 AI 研究要先补齐的短板，补齐后大部分工作才可能交给模型。",
+   "importance": 2
+  },
+  {
+   "point": "智能爆发使军控协议不稳定：领先几个月就可能决定胜负",
+   "core": "If we can get three months ahead, we win. That makes any arms control agreement very unstable in a close situation.",
+   "caseTitle": "核裁军不能降到零",
+   "case": "It’d be very different if the arms control target had been zero nukes. At zero nukes, you just need one rogue state to make one nuke and the whole thing is destabilized. Breakout is very easy. Your adversary state starts making nukes. When you’re going to very low levels of arms, or when you’re in a very dynamic technological situation, arms control is really tough because breakout is easy.",
+   "explain": "Aschenbrenner 指出 1980 年代核军控成功，是因为降到一万枚仍相互确保摧毁；若目标是零，一个国家造一枚就打破平衡。AGI 领先几个月即可决胜，类似零核状态，协议很难稳定。",
+   "importance": 2
+  }
+ ],
+ "Chapter 8 Timelines": [
+  {
+   "point": "时间线分歧很大程度来自 AGI 定义不同",
+   "core": "I think my median timeline for AGI now is somewhere in the late 2030s or early 2040s, by which I mean when 99 percent of remote jobs can be done by AI systems.",
+   "caseTitle": "像受过良好教育的人",
+   "case": "In terms of someone looking at the model and, even if they talk to it for an hour or so, determining that it’s basically like a generally well-educated human, that could be not very far away at all. That could happen in two or three years [2025 or 2026].",
+   "explain": "Amodei 以聊一小时觉得像受过良好教育的人为标准，给出两三年；Cotra 以 99% 远程工作可被替代为标准，给出 2030 年代末。标准不同，数字自然相差十几年。",
+   "importance": 3
+  },
+  {
+   "point": "当前投入的高速增长是一次性的，所以可能性集中在未来十年",
+   "core": "Therefore, the chance of advanced AI happening is relatively concentrated in the next 10 years [between 2024 and 2034] compared to the rest of the century, because we can’t keep going with our current rapid redirection of resources into AI. That’s a one-time thing.",
+   "caseTitle": "千亿训练后若停滞",
+   "case": "Here’s a world where AI progress stalls out. You go to a $100 billion training run, but over the years progress turns out to stall. You stop getting the gains you’re currently getting from moving researchers into AI from other fields. You tap out those resources, because AI is, by then, a large proportion of all research.",
+   "explain": "Shulman 设想做到千亿美元训练后进步停滞：其他领域的研究者已转入 AI，资源无法再成倍挪用，只能回到经济和人口的慢增长。因此 AGI 若会来，多半在这十年内。",
+   "importance": 2
+  },
+  {
+   "point": "时间线可当作规划参照，即使判断错了损失也不大",
+   "core": "For AGI in general, yes, the Anthropic timeline of 2028 seemed like a good starting point for planning purposes.",
+   "caseTitle": "先写下文章构想",
+   "case": "Because even if you’re wrong… Well, probably a lot of your writing projects weren’t going to get done in the next three years anyway. It’s not like you lost much by writing down only a description [of what you would have written, to prompt the AI]. You can always go back and do it yourself.",
+   "explain": "Gwern 把 2028 年当作规划基准：与其现在写完所有文章，不如先写下构想留给 AI。即使预测错了，这些项目本来三年内也未必完成，还能回头自己写，代价很小。",
+   "importance": 1
+  }
+ ],
+ "Conclusion": [
+  {
+   "point": "趋势线的持续成功才是主线：大块算力加广泛数据就能走向 AGI",
+   "core": "The memo asserted that if we make a neural network big enough, aim it at a broad enough distribution of data, and don’t fuck it up in some other way, we’ll get AGI.",
+   "caseTitle": "为何偏偏停在 GPT-4",
+   "case": "If deep learning were destined to plateau, wouldn’t it have happened sooner? GPT-4 seems like an unusual point to end the story. Why would we run out of momentum now—after surpassing the Turing test, after the models have aced physics exams, and after they’ve taken over writing half of Google’s code?",
+   "explain": "Amodei 2017 年的大块算力备忘录提出，网络够大、数据够广就能到 AGI。作者反问：模型已通过图灵测试、考过物理、写了谷歌一半代码，若会停滞，为何偏偏停在此刻。",
+   "importance": 3
+  },
+  {
+   "point": "每个难题都可能被解决，但必须同时成立，累积概率因此下降",
+   "core": "In my estimation, each of these challenges is quite likely to be solved. However, all of them must be addressed to scale to AGI. The need to consider the cumulative probability of success lowers my estimated probability of AGI by 2040 down to 60 percent.",
+   "caseTitle": "越过数据墙",
+   "case": "The finite supply of high-quality language tokens forms a data wall. The pole-vault over this wall will require synthetic data or reinforcement learning. In either case, models must learn how to assess themselves not only in areas with clear success criteria like games, math, and coding, but also in more ambiguous domains.",
+   "explain": "数据墙只是作者列出的难题之一：要越过它，模型得学会在游戏、数学、代码之外的模糊领域评估自己。投入、泛化、算法叠加都要同时成立，他因此把 2040 年前 AGI 的概率降到六成。",
+   "importance": 3
+  },
+  {
+   "point": "离前沿最近的人未必判断最准，日常琐碎故障会让他们偏悲观",
+   "core": "Those closest to the answers are, as you may have noticed, often evasive. Being too close to the proverbial elephant may instill biases that make their overall picture less reliable.",
+   "caseTitle": "Sutskever 的提醒",
+   "case": "Ilya Sutskever told me that the researchers closest to the frontier are often the most pessimistic, because transitional problems—bugs that are trivial in the grand scheme of things—are especially salient in their daily work, while the yearslong trends tend to fade into the background.",
+   "explain": "Sutskever 告诉作者，前沿研究者往往最悲观，因为日常工作里的琐碎缺陷最显眼，长期趋势反而被忽略。这提醒读者，受访者的判断也带有位置造成的偏差。",
+   "importance": 2
+  }
+ ],
+ "The Bitter Lesson": [
+  {
+   "point": "长期看，能利用算力的通用方法最终胜出，且优势巨大",
+   "core": "The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin.",
+   "caseTitle": "深蓝击败卡斯帕罗夫",
+   "case": "In computer chess, the methods that defeated the world champion, Kasparov, in 1997 were based on massive, deep search. At the time, this was looked upon with dismay by the majority of computer chess researchers, who had pursued methods that leveraged human understanding of the special structure of chess.",
+   "explain": "1997 年击败卡斯帕罗夫的是大规模深度搜索，而多数研究者押注的是利用人类对棋局结构的理解。他们沮丧地称之为蛮力，但事实证明借助算力的通用方法更有效。",
+   "importance": 3
+  },
+  {
+   "point": "注入人类知识短期有效，长期会停滞并阻碍进步",
+   "core": "We have to learn the bitter lesson that building in how we think we think does not work in the long run.",
+   "caseTitle": "DARPA 语音识别竞赛",
+   "case": "In speech recognition, there was an early competition, sponsored by DARPA, in the 1970s. Entrants included a host of special methods that took advantage of human knowledge: knowledge of words, of phonemes, of the human vocal tract, et cetera. On the other side were newer methods that were more statistical in nature and did much more computation, based on hidden Markov models (HMMs). Again, the statistical methods won out over the human-knowledge-based methods.",
+   "explain": "1970 年代 DARPA 语音识别竞赛中，利用词汇、音素、声道知识的方法输给了计算量更大的隐马尔可夫统计方法，此后深度学习再次延续了这个方向。",
+   "importance": 2
+  }
+ ],
+ "Will Scaling Work?": [
+  {
+   "point": "怀疑者：高质量数据即将耗尽，自博弈缺乏评估标准",
+   "core": "No, 5 OOMs off means we have 100,000x less data than we need.",
+   "caseTitle": "围棋有胜负，推理没有",
+   "case": "Evaluation: Self-play worked with AlphaGo because the model could judge itself based on a concrete win condition: Did I win this game of Go? But novel reasoning doesn’t have a concrete win condition. As a result, just as you would expect, LLMs are so far incapable of correcting their own reasoning.",
+   "explain": "怀疑者指出数据差五个数量级即十万倍，靠合成数据补就要靠自博弈。AlphaGo 能用输赢评判自己，新颖的推理却没有明确的胜负条件，所以模型至今难以纠正自己的推理。",
+   "importance": 3
+  },
+  {
+   "point": "相信者：基础模型偶尔能答对，强化学习就能逐步放大成功率",
+   "core": "After all, RL becomes much more feasible when your base model is capable enough to get the right answer at least some of the time.",
+   "caseTitle": "成功率从 1% 到 90%",
+   "case": "Now you can reward that 1 out of 100 times the model accomplishes the chain of thought required for an extended math proof, or writes the 500 lines of code needed to complete a full pull request. Soon your 1 in 100 success rate becomes 10 in 100, then 90 in 100. Now you try the 1,000-line pull request, and not only will the model sometimes succeed, but it’ll also be able to critique itself when it fails.",
+   "explain": "相信者设想：模型百次中有一次写对 500 行的 PR，就奖励这一次，成功率从 1% 升到 10%、90%，再挑战 1000 行。只要基础模型偶尔能做对，强化学习就能自举。",
+   "importance": 2
+  },
+  {
+   "point": "常见基准测的是记忆，长程自主任务上模型远未达标",
+   "core": "In any case, common benchmarks don’t measure long-horizon task performance (i.e., can you do a job over the course of a month?), where LLMs trained on next-token prediction have very few effective data points to learn from.",
+   "caseTitle": "SWE-bench 个位数",
+   "case": "Indeed, as we can see from their performance on SWE-bench (which measures whether LLMs can autonomously complete pull requests), they’re pretty terrible at integrating complex information over long horizons. GPT-4 gets a measly 1.7 percent, while Claude 2 gets a slightly more impressive 4.8 percent.",
+   "explain": "MMLU 上模型已比肩常人，但在衡量自主完成 PR 的 SWE-bench 上，GPT-4 只有 1.7%，Claude 2 为 4.8%。怀疑者据此说，基准分数提升不等于具备处理长程任务的通用能力。",
+   "importance": 2
+  },
+  {
+   "point": "发明常先于理论，缺乏理论解释不妨碍规模化继续有效",
+   "core": "An airtight theoretical explanation for why scaling must keep working is not necessary for scaling to keep working.",
+   "caseTitle": "摩尔定律的续命",
+   "case": "There’s not some law of physics that says Moore’s law must continue. In fact, there are always new practical hurdles that imply the end of Moore’s law. Yet every couple of years, researchers at TSMC, Intel, AMD, etc. figure out how to solve those problems and give the decades-long trend an extra lease on life.",
+   "explain": "没有物理定律保证摩尔定律延续，障碍层出不穷，但台积电、英特尔、AMD 的工程师每隔几年就解决一批，让趋势延续了几十年。相信者认为规模化同理，正如热力学晚于蒸汽机。",
+   "importance": 2
+  }
+ ]
+}

@@ -1,0 +1,402 @@
+{
+ "Preface: Steve on His Childhood and Young Adulthood": [
+  {
+   "point": "亲手组装让复杂产品不再神秘，培养出能理解世界的自信",
+   "core": "It gave a tremendous degree of self-confidence that, through exploration and learning, one could understand seemingly very complex things in one’s environment.",
+   "caseTitle": "Heathkit 组装套件",
+   "case": "I mean, you looked at a television set, and you would think, “I haven’t built one of those—but I could. There’s one of those in the Heathkit catalog, and I’ve built two other Heathkits, so I could build a television set.” Things became much more clear that they were the results of human creation, not these magical things that just appeared in one’s environment that one had no knowledge of their interiors.",
+   "explain": "邻居工程师带他组装 Heathkit 套件。装过两台后，他看到电视机会想自己也能造一台，意识到身边的东西都是人造的，而不是凭空出现的魔法，说明亲手拆装让复杂事物变得可以理解。",
+   "importance": 3
+  },
+  {
+   "point": "好老师用一笔小交易，把差点被磨灭的好奇心重新点燃",
+   "core": "And what was really remarkable was before very long I had such a respect for her that it sort of reignited my desire to learn.",
+   "caseTitle": "希尔老师的数学练习册",
+   "case": "She watched me for about two weeks and then approached me. She said, “Steven, I’ll tell you what. I’ll make you a deal. I have this math workbook, and if you take it home and finish it on your own without any help, and you bring it back to me, if you get it 80 percent right, I will give you five dollars and one of these really big suckers.” She [had] bought [a sucker], and she held it out in front of me—one of these giant things.",
+   "explain": "四年级老师观察他两周后提出：独立做完练习册且正确率八成，就给五美元和一根大棒棒糖。这种贿赂式交易后来变成对老师的尊重，让他重新想学习，一年学到的比此前都多。",
+   "importance": 2
+  }
+ ],
+ "Speech at the International Design Conference in Aspen": [
+  {
+   "point": "人们每天与电脑相处的时间将超过汽车，设计必须被同等重视",
+   "core": "And so the industrial design, the software design, and how people interact with these things certainly must be given the consideration that we give automobiles today—if not a lot more.",
+   "caseTitle": "电脑长得像垃圾",
+   "case": "If you’ve looked at computers, they look like garbage. All the great product designers are off designing automobiles or buildings. But hardly any of them are designing computers. If we take a look, we’re going to sell 3 million computers this year, 10 million in ’86, whether they look like a piece of shit or they look great. People are just going to suck this stuff up so fast no matter what it looks like. And it doesn’t cost any more money to make them look great.",
+   "explain": "1983 年他指出优秀设计师都在设计汽车和建筑，没人设计电脑；而电脑无论好看与否都会卖出数百万台，把它做漂亮也不多花钱。正因为它会无处不在，设计更不能缺席。",
+   "importance": 3
+  },
+  {
+   "point": "电脑本质上很笨，只是执行简单指令极快，看起来才像魔法",
+   "core": "Computers are really dumb. They’re exceptionally simple, but they’re really fast.",
+   "caseTitle": "快一百倍的送花魔术",
+   "case": "But here’s the key thing: let’s say I could move a hundred times faster than anyone in here. In the blink of your eye, I could run out there, grab a bouquet of fresh spring flowers, run back in here, and snap my fingers. You would all think I was a magician. And yet I would basically be doing a series of really simple instructions: running out there, grabbing some flowers, running back, snapping my fingers. But I could just do them so fast that you would think that there was something magical going on.",
+   "explain": "他设想自己比所有人快一百倍，眨眼间跑出去采花再回来打响指，观众会以为是魔法，其实只是几个简单动作。用这个类比说明电脑的神奇来自速度，而非复杂。",
+   "importance": 2
+  },
+  {
+   "point": "联网的电脑会按共同兴趣把人聚到一起",
+   "core": "they’re going to facilitate communication and facilitate bringing people together in the special interests that they have.",
+   "caseTitle": "PARC 的排球邮件列表",
+   "case": "Then an interesting thing happened. There were twenty people interested in volleyball. So a volleyball distribution list evolved, and then, when the volleyball game next week was changed, you’d write a quick memo and send it to the volleyball distribution list. Then there was a Chinese food cooking list. And before long, there were more lists than people.",
+   "explain": "施乐 PARC 把约百台电脑联网后，先有二十个人建了排球列表，接着又有中餐烹饪列表，最后列表比人还多。他据此判断网络的价值在于围绕兴趣组织人群。",
+   "importance": 2
+  }
+ ],
+ "On the Macintosh": [
+  {
+   "point": "需要学习特殊咒语的技术无法普及，Mac 要做行业的电话",
+   "core": "And that’s what Macintosh is all about. It’s the first “telephone” of our industry.",
+   "caseTitle": "电报与摩尔斯电码",
+   "case": "And it took about forty hours to learn how to use Morse code. And a majority of people would never have learned how to use Morse code. So fortunately, in the 1870s, Alexander Graham Bell filed the patents for the telephone—another radical breakthrough in communications that performed basically the same function, but people already knew how to use it. The neatest thing about it was that, in addition to allowing you to communicate with just words, it allowed you to sing. It allowed you to intone your words with meaning beyond the simple linguistics.",
+   "explain": "学会摩尔斯电码要约四十小时，多数人永远学不会，电报因此无法摆上每张桌子。电话做同样的事，人们却天生会用，还能用语调传达情感。Mac 去掉命令行咒语，正是要做电脑界的电话。",
+   "importance": 3
+  },
+  {
+   "point": "好工具不只传递信息，还要让人表达语言之外的情感",
+   "core": "But the neatest thing about it to me is, the same as the telephone to the telegraph, Macintosh lets you sing.",
+   "caseTitle": "五页备忘录压成一页",
+   "case": "Even in business, you’re seeing five-page memos get compressed down to a one-page memo because there’s a picture to express the key concept. And so we’re seeing less paper flying around and more quality of communication.",
+   "explain": "Mac 允许用字体和图片表达，商务中五页备忘录因为一张关键图被压缩成一页，纸少了，沟通质量反而更高。这说明表达力不是装饰，而是提升沟通效率的功能。",
+   "importance": 2
+  }
+ ],
+ "Interview with Newsweek": [
+  {
+   "point": "他最擅长与有才华的人一起做东西，没有地方就自己造一个",
+   "core": "And if there’s no place for me to make things there, then I’ll do what I did twice before. I’ll make my own place.",
+   "caseTitle": "拒绝三个教授职位",
+   "case": "I got three offers to be a professor during this summer, and I told all of the universities that I thought I would be an awful professor. What I’m best at doing is finding a group of talented people and making things with them. I respect the direction that Apple is going in. But for me personally, you know, I want to make things. And if there’s no place for me to make things there, then I’ll do what I did twice before. I’ll make my own place. You know, I did it in the garage when Apple started, and I did it in the metaphorical garage when Mac started.",
+   "explain": "被逐出苹果后，他一个夏天收到三所大学的教授邀请，全部拒绝，说自己会是糟糕的教授。他想再造一个车库，就像创办苹果和 Mac 团队时那样，说明他把动手做产品当作身份。",
+   "importance": 3
+  },
+  {
+   "point": "公司存在于员工的精神和目的之中，而不在所有权",
+   "core": "To me, Apple exists in the spirit of the people that work there, and the sort of philosophies and purpose by which they go about their business.",
+   "caseTitle": "苹果的基因还在不在",
+   "case": "So if Apple just becomes a place where computers are a commodity item and where the romance is gone, and where people forget that computers are the most incredible invention that man has ever invented, then I’ll feel I have lost Apple. But if I’m a million miles away and all those people still feel those things and they’re still working to make the next great personal computer, then I will feel that my genes are still in there.",
+   "explain": "被问是否觉得公司被夺走，他回答：如果苹果把电脑当成普通商品、失去浪漫，他才算失去苹果；只要员工仍在做下一台伟大的电脑，哪怕他远在天边，基因也还在。",
+   "importance": 2
+  },
+  {
+   "point": "把公司削到本质，哪怕过程痛苦",
+   "core": "Steve learned how to hone a company to its essence, even when it was painful.",
+   "caseTitle": "NeXT 裁员与皮克斯转型",
+   "case": "He shifted NeXT’s focus to selling software. The shift meant closing a factory and laying off more than two hundred of NeXT’s five hundred and thirty employees. Meanwhile, Pixar stripped away its advertising and hardware businesses and entered into an agreement with Disney, all to pursue what sometimes seemed an impossible dream: to make fully computer-animated feature films.",
+   "explain": "NeXT 转向卖软件，关闭工厂并裁掉五百三十人中的两百多人；皮克斯砍掉广告和硬件业务，与迪士尼合作专攻全电脑动画长片。两家公司都靠聚焦才在近十年后翻身。",
+   "importance": 2
+  }
+ ],
+ "On Pixar’s Early Days": [
+  {
+   "point": "用技术做出让人不必懂技术也会爱上的作品",
+   "core": "We didn’t want to have to convince people that our technology was great—we knew it was great.",
+   "caseTitle": "皮克斯动画短片",
+   "case": "You could see there was magic in [a Pixar animated short film], right from the beginning. With the rest of Pixar’s technology, you had to be an expert to understand it. [… But] you didn’t have to know anything about the technology to enjoy the film. It was incredibly refreshing and really pointed the way to where we wanted to go.",
+   "explain": "皮克斯其他技术都需要专家才能看懂，而动画短片观众什么都不用懂就能享受。这种反差让他认定方向：不去说服人相信技术好，而是让技术隐身在作品里。",
+   "importance": 3
+  },
+  {
+   "point": "靠副业付账单买时间的策略并不奏效",
+   "core": "That strategy really turned out not to work.",
+   "caseTitle": "图像电脑与十年支票",
+   "case": "Probably if you look back in the rearview mirror, we would have been better off just funding the animation efforts and not trying to pay the bills through these other products, such as the Pixar Image Computer and software, but that was our best attempt to try to keep the company going. In the end, I just ended up writing checks to keep the company going—and that basically went on for ten years.",
+   "explain": "皮克斯早期卖图像电脑和软件维持公司，同时在后台做动画。事后他承认不如直接投资动画，最后还是靠他个人开支票撑了十年，说明分散精力的过渡策略可能两头落空。",
+   "importance": 2
+  },
+  {
+   "point": "少数好人不被大组织束缚、能专注做事，才做得出好产品",
+   "core": "Our company is founded on the principal that a few good people can produce a tremendous product if they are not fettered by:",
+   "caseTitle": "每周四不开会",
+   "case": "1) We all need time for uninterrupted individual work. Meetings (vendors, interviews, …) are eating into our individual time, and the productivity of our engineers is suffering. I propose we set aside every Thursday as a day with no meetings of any kind. Thursday is our day, a day when we metaphorically lock the doors to the outside world and quietly work individually.",
+   "explain": "1986 年他在 NeXT 备忘录中指出会议正在侵蚀工程师的时间，提议每周四完全不开会，关起门各自工作。这是把少数人专注做事的原则落到具体日程上。",
+   "importance": 2
+  },
+  {
+   "point": "人数越过某条线，做事的人就会变成管理者",
+   "core": "I believe that if we turn ourselves into managers instead of “do-ers”, both our schedule and the “greatness” of our product will suffer.",
+   "caseTitle": "下调人员编制",
+   "case": "2) In revising our headcount requirements (and subsequently budgets) downwards, I encourage you to remember that there is a very subtle line, which, when crossed in increased headcount, causes you to be a manager instead of a contributor/team leader.",
+   "explain": "在削减编制和预算时，他提醒各负责人：人数一旦越过一条微妙的线，你就从贡献者变成管理者。他宁可人少、做得少，也要慢慢、小心地建公司。",
+   "importance": 2
+  }
+ ],
+ "Email Exchange Between Steve, Intel CEO Andy Grove, and an Intel Engineer": [
+  {
+   "point": "朋友和友好公司之间的互助，长期来看会扯平",
+   "core": "In my view, that’s what friendly companies (and friends) do for each other.",
+   "caseTitle": "格鲁夫给 NeXT 的建议",
+   "case": "You may remember, that from time to time I offered suggestions that pertained to your business. Examples range from porting NextStep to the 486 - - which was in our interest too - - to my presentation to your staff on repositioning NextStep beyond that. I am not suggesting that these are comparable in value to your expertise in graphics, but I gave what I had, put some thought into the problem I saw you were facing - - and it never entered my mind to charge for it.",
+   "explain": "格鲁夫提醒乔布斯，自己曾建议 NeXTStep 移植到 486、给 NeXT 员工讲重新定位，从没想过收费。用自己无偿付出的具体例子，说明朋友间的帮助不该按次计价。",
+   "importance": 3
+  },
+  {
+   "point": "在以帮助为前提的关系里突然谈钱，会破坏信任",
+   "core": "He is taking your offer to help us very seriously, rounded up the best technical people and was ready to go when you introduced a brand new element into the discussion: money.",
+   "caseTitle": "皮克斯的图形秘密",
+   "case": "By disclosing the “correct” way to do high quality, high performance graphics, Pixar will lose much of this to any and all competitors, with no work on their part. Hence, the need for compensation. What does Intel propose to give Pixar for disclosing and licensing its secrets to Intel?",
+   "explain": "英特尔工程师按格鲁夫的安排来请教，乔布斯却回信说这些秘密是十年投入的成果，公开会让对手白得好处，要求补偿。格鲁夫指出此前从未提过商业交换，问题出在中途改变前提。",
+   "importance": 2
+  },
+  {
+   "point": "被说服后公开承认并彻底改变立场",
+   "core": "I have many faults, but one of them is not ingratitude.",
+   "caseTitle": "一百八十度转向",
+   "case": "Therefore, I have changed my position 180 degrees - - we will freely help [Engineer 1] make his processors much better for 3D graphics. Please ask [Engineer 1] to call me, and we will arrange for a meeting as soon as the appropriate Pixar technical folks can be freed up from the film. Thanks for the clearer perspective.",
+   "explain": "收到格鲁夫的批评后，乔布斯回信同意长期会扯平，宣布改变立场，免费帮英特尔提升 3D 图形，并请工程师直接联系他安排会面，感谢对方让他看得更清楚。",
+   "importance": 2
+  }
+ ],
+ "Interview with Terry Gross": [
+  {
+   "point": "非主流产品必须好得多，用户才愿意承担风险",
+   "core": "Apple has to be 50 percent or 100 percent better, because when you buy something that is out of the mainstream a little bit, you take a risk, and you want a much bigger reward for taking that risk.",
+   "caseTitle": "十年只变了 25%",
+   "case": "The problem at Apple was that they stopped innovating. If you look at the Mac that ships today, it’s 25 percent different than the day I left, and that’s not enough for ten years and billions of dollars in R&D. It wasn’t that Microsoft was so brilliant or clever in copying the Mac. It’s that the Mac was a sitting duck for ten years. That’s Apple’s problem, is that their differentiation evaporated. Unlike Compaq, or others who play in the Intel-Microsoft standard space, where they only … Compaq only has to be 5 percent better than its competitors for everyone to want to buy their computers.",
+   "explain": "他离开时苹果领先微软十年，但十年后的 Mac 只比当年不同 25%，差异化蒸发。康柏在主流标准里好 5% 就够，苹果却要好 50% 到 100%，所以削减成本救不了它。",
+   "importance": 3
+  },
+  {
+   "point": "不怕失败，因为不摔几次就达不到目标",
+   "core": "One of the things I always tried to coach myself on was not being afraid to fail.",
+   "caseTitle": "被逐出苹果之后",
+   "case": "When you have something that doesn’t work out, a lot of times, people’s reaction is to get very protective about never wanting to fall on their face again. I think that’s a big mistake, because you never achieve what you want without falling on your face a few times in the process of getting there. I’ve tried to not be afraid to fail, and, matter of fact, I’ve failed quite a bit since leaving Apple.",
+   "explain": "被赶出自己创办的公司后，他提醒自己不要因此变得保守、只想避免再次摔倒，并坦言离开苹果后失败了很多次。把失败视作通往目标的必经过程。",
+   "importance": 3
+  },
+  {
+   "point": "好点子可以来自任何地方，想法层级不等于组织层级",
+   "core": "The first one was a real belief that there wasn’t a hierarchy of ideas that mapped onto the hierarchy of the organization.",
+   "caseTitle": "雇人来告诉我们做什么",
+   "case": "And Apple was a very bottoms-up company when it came to a lot of its great ideas. And we hired truly great people and gave them the room to do great work. A lot of companies—I know it sounds crazy—but a lot of companies don’t do that. They hire people to tell them what to do. We hired people to tell us what to do. We figured we’re paying them all this money, their job is to figure out what to do and tell us. And that led to a very different corporate culture, and one that’s really much more collegial than hierarchical.",
+   "explain": "早期苹果的很多好点子自下而上产生。多数公司雇人来听命，苹果雇人来告诉公司该做什么，理由是付了这么多钱，他们的工作就是想清楚并说出来，由此形成平等协作的文化。",
+   "importance": 2
+  },
+  {
+   "point": "苹果的主要贡献是把人文视角带进计算机",
+   "core": "I think our major contribution was in bringing a liberal arts point of view to the use of computers.",
+   "caseTitle": "字体、排版与图形",
+   "case": "It was to bring graphics to people, not for plotting laminar flow calculations, but so that they could see beautiful photographs, or pictures, or artwork, et cetera, to help them communicate what they were doing, potentially. Our goal was to bring a liberal arts perspective and a liberal arts audience to what had traditionally been a very geeky technology and a very geeky audience.",
+   "explain": "Mac 的易用性不只为让更多人用电脑，还要带来漂亮的字体排版和图形，让人看照片、艺术作品来辅助沟通，而不是画流体计算图。目标是把人文受众带进原本极客的领域。",
+   "importance": 2
+  }
+ ],
+ "Speech at Palo Alto High School": [
+  {
+   "point": "要有创造力，就要去探索经验之外的陌生道路",
+   "core": "So to be a creative person, you need to “feed” or “invest” in yourself by exploring uncharted paths that are outside the realm of your past experience.",
+   "caseTitle": "书法课与桌面出版",
+   "case": "I ended up taking a calligraphy course before I left college, and at the age of eighteen was exposed to a totally new world of typography, graphic layout, font design, and the like. There was no hope of earning any income from this skill or knowledge, and some of my friends derided me for wasting my time and talents on learning how to write with “fancy letters.”",
+   "explain": "他在 Reed 选修书法课，接触字体和版式，毫无赚钱可能，还被朋友嘲笑浪费时间。多年后这段经历让他坚持 Mac 使用比例字体和多种字体，进而催生了桌面出版。",
+   "importance": 3
+  },
+  {
+   "point": "不要把工作和生活分开，把热爱的事变成工作",
+   "core": "Make your avocation your vocation. Make what you love your work.",
+   "caseTitle": "安全港里的律师和会计",
+   "case": "There are some big problems here. First and foremost is the notion that your work is different and separate from the rest of your life. If you are passionate about your life and your work, this can’t be so. They will become more or less one. This is a much better way to live one’s life. [The] risk factor quotient goes down as you encounter the real world. Many [people] find what they believe to be safe harbors (lawyers and accountants), only to wake up ten or fifteen years later and discover the price they paid.",
+   "explain": "他批评职业这个概念把工作和生活割裂开。很多人选了律师、会计这样看似安全的港湾，十到十五年后才发现付出的代价，说明按部就班的职业路径本身也有风险。",
+   "importance": 2
+  },
+  {
+   "point": "要倾听并培养直觉，别被各种现实理由劝退",
+   "core": "We are never taught to listen to our intuitions, to develop and nurture our intuitions.",
+   "caseTitle": "迪伦、特蕾莎与爱因斯坦",
+   "case": "People will come at you with reasons why you shouldn’t do these things: You can’t make a living writing songs. (Right, just ask Bob Dylan.) Helping children in India is nice, but you need to prepare for real life. ( Just ask Mother Teresa.) You could be doing so much more with your life. (You can hear Albert Einstein’s parents encouraging him to get a real job, when he was working a low-level job in the Swiss patent office rather than teaching in a university, so that he could stay up late at night working through his new ideas.)",
+   "explain": "他列出别人劝阻梦想的常见理由，再用鲍勃迪伦靠写歌为生、特蕾莎修女帮助印度儿童、爱因斯坦在专利局打工深夜钻研来反驳，说明直觉指向的路常被当成不现实。",
+   "importance": 2
+  }
+ ],
+ "Interview for In the Company of Giants": [
+  {
+   "point": "看成果找人才：从突破性结果追溯到负责的人",
+   "core": "Ultimately the results should lead you to the people.",
+   "caseTitle": "有经验者看结果",
+   "case": "If a candidate has been in the workplace for a while, you have to look at the results. There are people who look so good on paper and talk such a good story but have no results behind them. They can’t point to breakthroughs or successful products that they shipped and played an integral part in.",
+   "explain": "他指出有些人简历漂亮、很会讲故事，却说不出自己参与发布的突破或成功产品。因此对有经验的候选人只看结果，他本人也是先看到好成果再去找负责的人。",
+   "importance": 3
+  },
+  {
+   "point": "面试故意施压，看候选人能否坚持己见",
+   "core": "I want to see what people are like under pressure.",
+   "caseTitle": "批评对方的旧作品",
+   "case": "For example, many times in an interview I will purposely upset someone: I’ll criticize their prior work. I’ll do my homework, find out what they worked on and say, “God, that really turned out to be a bomb. That really turned out to be a bozo product. Why did you work on that?” I shouldn’t say this in your book, but the worst thing that someone can do in an interview is to agree with me and knuckle under. What I look for is for someone to come right back and say, “You’re dead wrong and here’s why.”",
+   "explain": "他会事先研究候选人做过什么，当面说那是个失败产品，问为什么做。最糟的反应是附和他，他想听到的是你完全错了以及理由，因为观点驱动的公司里争论很多。",
+   "importance": 3
+  },
+  {
+   "point": "真正激励人的是工作本身，所以要挑值得做的事",
+   "core": "But it’s ultimately the work that motivates people.",
+   "caseTitle": "Mac 团队一生最有意义",
+   "case": "The Macintosh team, if you talk to most of them—a dozen years since we shipped the product—most will still say that working on the Mac was the most meaningful experience of their lives. If we’d never shipped a product they wouldn’t say that.",
+   "explain": "Mac 发布十多年后，多数成员仍说那是一生最有意义的经历。他强调若没发布或产品不够好，他们不会这样说，所以凝聚人的不是魅力或营地式团建，而是值得投入的作品。",
+   "importance": 2
+  }
+ ],
+ "Steve on Returning to Apple": [
+  {
+   "point": "招对了人，他们在关键时刻未必会听老板的",
+   "core": "So this is one of those cases where, when you hire the right people, they don’t always listen to you in key moments in time.",
+   "caseTitle": "同事执意推销 NeXT",
+   "case": "So this person, being very smart, didn’t listen to me. And he went over and talked to Apple and said, “You ought to buy NeXT.” And they were interested. Then he comes back and says, “They want to talk to us.” And I was like, “No. Go away. You’re making this up.” He did this twice. Finally I said, “OK. Fine. Let’s talk to them.” I couldn’t believe it. They really were interested. And so we ended up selling them NeXT.",
+   "explain": "苹果寻找操作系统时，NeXT 一位同事提议把公司卖给苹果，乔布斯说不可能。对方没听他的，两次跑去找苹果谈并带回对方有意的消息，最终促成收购，也开启了他的回归。",
+   "importance": 3
+  },
+  {
+   "point": "危机中不当看守者，从第一天就按正式负责人行事",
+   "core": "And I decided right up front that I was just going to act like I was the permanent CEO, because they didn’t need a caretaker.",
+   "caseTitle": "九十天变成一年",
+   "case": "I only planned to stay ninety days. But Apple was in a pretty tough situation, and the candidates it was attracting for the CEO job, they were not so good. And I almost hired one, and at the last minute I just said, “I can’t do this to these guys.” I just thought, “Well, it will take another ninety days to find somebody.” And that turned into a year.",
+   "explain": "他原本只打算当九十天临时 CEO，但来应聘的人选都不够好，差点录用一位又在最后一刻放弃，九十天就变成了一年。公司离破产约九十天，等不起一个只维持现状的看守者。",
+   "importance": 3
+  },
+  {
+   "point": "即使对自己不利，也要对所爱的公司说真话",
+   "core": "And so how can I not tell them the truth?",
+   "caseTitle": "董事来问 CEO 如何",
+   "case": "And then I thought, “You know, this is a director of a company that I started and that I loved for many years—and still do to some extent. And so how can I not tell them the truth?” So I spilled out my guts—and never heard from him again.",
+   "explain": "一位素未谋面的苹果董事问他对 CEO 的看法。他担心话会传回去，但想到这是自己创办并深爱的公司的董事，还是和盘托出。后来正是这位董事请他回来，说明坦诚可能带来机会。",
+   "importance": 2
+  },
+  {
+   "point": "一句局外人的话，让他看清自己真正在乎什么",
+   "core": "And I realized: You know, I do give a shit about Apple.",
+   "caseTitle": "朋友打断他的纠结",
+   "case": "And finally, he interrupted me after about four minutes and he said, “Steve, I don’t give a shit about Apple. Why are you telling me all this?” And I said, “Oh, OK. I’m sorry.” And I hung up the phone.",
+   "explain": "他早上打电话向朋友倾诉要不要回苹果，四分钟后被打断：我根本不在乎苹果，跟我说这些干嘛。挂断电话后他意识到自己在乎，这让决定变得清晰。",
+   "importance": 2
+  }
+ ],
+ "Speech to Apple Employees #2": [
+  {
+   "point": "聚焦就是砍掉，看清方向会让团队振奋",
+   "core": "“A lot of this doesn’t make sense, and it’s way too much stuff, and there’s not enough focus.”",
+   "caseTitle": "被砍项目的工程师",
+   "case": "The engineering team is incredibly excited. I mean, I came out of the meeting with people that had just gotten their projects canceled, and they were three feet off the ground with excitement ’cause they finally understood where in the heck we were going, and they were really excited about the strategy.",
+   "explain": "回归后他砍掉了路线图上 70% 的项目。会后那些项目刚被取消的工程师却兴奋得不行，因为终于明白公司要往哪里走，说明清晰的战略比保留更多项目更能鼓舞人。",
+   "importance": 3
+  },
+  {
+   "point": "营销关乎价值观：讲清你代表什么，而不是参数",
+   "core": "And so we have to be really clear on what we want them to know about us.",
+   "caseTitle": "耐克只歌颂运动员",
+   "case": "But the best example of all, and one of the greatest jobs of marketing that the universe has ever seen, is Nike. Remember: Nike sells a commodity! They sell shoes! And yet when you think of Nike, you feel something different than a shoe company. In their ads, as you know, they don’t ever talk about the products. They don’t ever tell you about their air soles, and why they are better than Reebok’s air soles. What does Nike do in their advertising? They honor great athletes, and they honor great athletics. That’s who they are. That’s what they are about.",
+   "explain": "耐克卖的是鞋这种普通商品，广告却从不讲气垫比锐步好在哪，而是致敬伟大运动员和运动本身，让人觉得它不只是鞋厂。苹果因此不谈主频和对比，用非同凡想讲自己相信什么。",
+   "importance": 3
+  },
+  {
+   "point": "压缩库存管道，让客户告诉你要什么，再快速响应",
+   "core": "So what we’re going to do is get really simple and start taking inventory out of those pipelines so we can let the customer tell us what they want, and we can respond to it super fast.",
+   "caseTitle": "提前半年猜需求",
+   "case": "I’ll give you an example. I’m sure it was talked about this morning, but we’ve got anywhere from two to three months of inventory in our manufacturing supplier pipeline, and about an equal amount in our distribution channel pipeline. We’re having to make guesses four or five, six months in advance, about what the customer wants. We’re not smart enough to do that. I don’t think Einstein’s smart enough to do that.",
+   "explain": "当时制造商和分销渠道各囤两三个月库存，苹果得提前四到六个月猜客户想要什么。他直言连爱因斯坦也猜不准，所以要削减库存，用快速响应取代预测。",
+   "importance": 2
+  }
+ ],
+ "Speech at Macworld #1": [
+  {
+   "point": "产品线收缩到四个格子，才能让最强团队做好每一个",
+   "core": "So that’s what we decided to do—to focus on four great products.",
+   "caseTitle": "四款产品的好处",
+   "case": "And as a matter of fact, if we only had four, we could put the A team on every single one of them. And if we only had four, we could turn them all every nine months instead of every eighteen months. And if we only had four, we could be working on the next generation or two of each one as we’re introducing the first generation.",
+   "explain": "回归时苹果有十五个平台和无数变体，连他都不知道该推荐哪款。按消费级与专业级、桌面与便携划成四格后，A 团队可以负责每一款，更新周期从十八个月缩到九个月。",
+   "importance": 3
+  },
+  {
+   "point": "外界的质疑会逐级上移，每解决一层就面对下一层",
+   "core": "But actually, now I think it’s great, because what it means is we’ve now convinced them that we’ve taken care of last month’s question—and they’re onto the next one.",
+   "caseTitle": "先证明能活下来",
+   "case": "What did we do? We did many, many things, but the three things that stood out in people’s minds were: we brought in a new management team to run the company, a new board of directors that’s got some phenomenally experienced people on it, and we did a deal with Microsoft. The largest software company in the world want[ing] to help Apple was a fact that didn’t escape very many people, and it added a lot of credibility to what we were doing.",
+   "explain": "他借马斯洛层次提出怀疑层级。第一层是生存，苹果用新管理层、新董事会和与微软的合作打消疑虑，接着人们马上转而质疑业务稳定性，说明每层问题解决后才轮到下一层。",
+   "importance": 2
+  }
+ ],
+ "Email from Steve to Himself #1": [
+  {
+   "point": "反复改写一句定位：让普通人轻松用上高科技",
+   "core": "Apple is the premier company in the world at making the exploding world of high technology easy to learn and use, thereby enabling mere mortals to enrich their lives using it.",
+   "caseTitle": "零售店是理解技术的圣地",
+   "case": "Demystified technology, it will have a much greater impact than any other thing we can do. The stores need to be thought of as a mecca for understanding technology and making all of the digits a part of your life.",
+   "explain": "在给自己的邮件里，他几次重写苹果存在的理由，最后延伸到零售店：揭开技术的神秘比任何事影响都大，店铺应成为人们理解技术、让数字生活融入日常的地方。",
+   "importance": 3
+  }
+ ],
+ "Speech at Stanford’s Graduate School of Business": [
+  {
+   "point": "人与人的能力差距远超日常经验，必须找最优秀的人",
+   "core": "But that’s been the most important lesson I’ve learned in business: that the dynamic range of people dramatically exceeds things you encounter in the rest of our normal lives—and to try to find those really great people who really love what they do.",
+   "caseTitle": "沃兹胜过两百名工程师",
+   "case": "In normal life, the difference in dynamic range from average to best is usually 30, 40, 50 percent. Twice as good: rarely. So the difference between an average meal in downtown Palo Alto tonight and the best one—maybe it’s two to one. Flight home, if you’re going home for the holidays: 50 percent difference. Rental cars, breakfast cereals. I don’t know, pick one. But I saw that Woz [Apple co-founder Steve Wozniak]—one guy—having meetings in his head could run circles around two hundred engineers at Hewlett-Packard. That’s what I saw.",
+   "explain": "饭菜、航班、租车的好坏差距通常不过一两倍，但他看到沃兹一个人在脑中开会就能胜过惠普两百名工程师。后来五十人的 Mac 团队做到了别家成百上千人做不到的事。",
+   "importance": 3
+  },
+  {
+   "point": "按价值观管理：找到想去同一地方的人，然后让开",
+   "core": "What that means is you find people that want the same things you want, and then just get the hell out of their way.",
+   "caseTitle": "大家都要去圣地亚哥",
+   "case": "But if we all want to go to San Diego, that’s the key. Then we can argue about how to get there. [Pointing] You think it’s better to walk. You think it’s better to take a plane. You think it’s better to take a train. We’ll figure that [part] out. Because if I say, “I want to take a train to San Diego,” and somebody goes, “That’s really stupid! It will take three days! We can fly and be there in an hour,” I’ll go, “Oh. OK.” Because, actually, I want to go to San Diego. So if I can get there in an hour [flying], I’ll ditch my idea about the train.",
+   "explain": "他用旅行类比：目的地不同就无法管理；只要都想去圣地亚哥，怎么去可以争论。有人说坐火车要三天、坐飞机一小时，他就放弃火车，因为他真正在乎的是目的地。",
+   "importance": 3
+  },
+  {
+   "point": "目标顺序的细微颠倒，会让公司分崩离析",
+   "core": "Those subtle changes in values can mean everything.",
+   "caseTitle": "先做好电脑还是先赚钱",
+   "case": "And so, what happened at Apple was that Apple’s goals used to be to make the best personal computers in the world. And then the second goal was to make a profit so we could keep on doing number one. Right? What happened was that, for a time, those got reversed: “We want to make a bunch of money, and so, OK, to do that, we’re going to have to make some good personal computers.” But it didn’t work. It never works. And so things start to fall apart.",
+   "explain": "苹果原本第一目标是做世界上最好的个人电脑，赚钱是为了继续做好电脑。后来顺序颠倒成为了赚钱才去做电脑，结果行不通，事情开始崩坏。",
+   "importance": 2
+  },
+  {
+   "point": "创新太多广告讲不完，就在销售现场讲给用户",
+   "core": "You have to communicate those with the customer at the point of sale.",
+   "caseTitle": "把店开在人流中伏击",
+   "case": "We decided we had to ambush them. What that meant was that we had to go to high-traffic locations and put stores there. They [customers] didn’t have to take the risk of driving ten miles to find out they weren’t interested. They just had to take the risk of walking ten feet because they were walking by anyway, and they knew they could escape rapidly if it was something they hadn’t wanted.",
+   "explain": "苹果零售瞄准尚未拥有苹果产品的 95% 的人。他们不会开十英里去看店，于是把店开在高人流地段，路人只需冒走十英尺的风险，不感兴趣也能马上离开。",
+   "importance": 2
+  },
+  {
+   "point": "最好的管理者往往是不想当管理者、却不愿团队被毁的人",
+   "core": "But the only good reason to be a manager is so some other bozo doesn’t be the manager—and ruin the group you care about.",
+   "caseTitle": "流着六色血的员工",
+   "case": "[When I returned to Apple in 1997,] the individual contributors were phenomenal. And I asked a lot of these guys, “Why did you stay?” And they said, “Because we bleed six colors.” I heard that from a lot of people—there were six colors in the old Apple logo. It was management that was a problem. So we actually got rid of most of the management team and promoted a lot of these young people into management positions.",
+   "explain": "回归时一线员工说留下是因为自己流着六色血，问题出在管理层。他换掉大部分管理团队，提拔这些年轻人，后来九成以上都成了出色的管理者。",
+   "importance": 2
+  }
+ ],
+ "Commencement Address at Stanford University": [
+  {
+   "point": "向前看无法连接点滴，只能相信它们将来会连起来",
+   "core": "So you have to trust that the dots will somehow connect in your future.",
+   "caseTitle": "十年后的书法课",
+   "case": "None of this had even a hope of any practical application in my life. But ten years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography.",
+   "explain": "书法课当时毫无实际用途，十年后设计第一台 Mac 时全部派上用场，使它成为第一台拥有漂亮字体的电脑。当时无法预见，只能事后回看才连成线。",
+   "importance": 3
+  },
+  {
+   "point": "被解雇反而让他重获初学者的轻松，进入最有创造力的时期",
+   "core": "The heaviness of being successful was replaced by the lightness of being a beginner again, less sure about everything.",
+   "caseTitle": "NeXT、皮克斯与回归",
+   "case": "During the next five years, I started a company named NeXT, another company named Pixar, and fell in love with an amazing woman who would become my wife. Pixar went on to create the world’s first computer animated feature film, Toy Story, and is now the most successful animation studio in the world. In a remarkable turn of events, Apple bought NeXT, and I returned to Apple, and the technology we developed at NeXT is at the heart of Apple’s current renaissance.",
+   "explain": "被逐出苹果后五年内，他创办 NeXT 和皮克斯，皮克斯做出第一部电脑动画长片《玩具总动员》，苹果又收购 NeXT，其技术成为苹果复兴的核心，说明挫折开启了新阶段。",
+   "importance": 3
+  },
+  {
+   "point": "把今天当作最后一天来检验自己是否该改变",
+   "core": "Remembering that I’ll be dead soon is the most important tool I’ve ever encountered to help me make the big choices in life.",
+   "caseTitle": "每天早上照镜子自问",
+   "case": "When I was seventeen, I read a quote that went something like, “If you live each day as if it was your last, someday you’ll most certainly be right.” It made an impression on me, and since then, for the past thirty-three years, I have looked in the mirror every morning and asked myself, “If today were the last day of my life, would I want to do what I am about to do today?” And whenever the answer has been “No” for too many days in a row, I know I need to change something.",
+   "explain": "十七岁读到一句话后，他三十三年来每天早上对镜问自己：如果今天是最后一天，我还想做今天要做的事吗？连续多天答案为否，就知道该改变了。死亡成为做重大选择的工具。",
+   "importance": 3
+  }
+ ],
+ "One more thing": [
+  {
+   "point": "身边的一切都是人造的，因此你也可以改变它",
+   "core": "You can build your own things that other people can use.",
+   "caseTitle": "戳一下生活",
+   "case": "And the minute you can understand that you can poke life, and if you push in, then something will pop out the other side; that you can change it, you can mold it—that’s maybe the most important thing: to shake off this erroneous notion that life is there, and you’re just going to live in it versus embrace it, change it, improve it, make your mark upon it.",
+   "explain": "他把生活比作可以戳的东西：往里推，另一边就会冒出东西。一旦意识到生活可以被改变和塑造，就会摆脱只能被动生活的错误观念，主动去改进并留下印记。",
+   "importance": 3
+  }
+ ]
+}

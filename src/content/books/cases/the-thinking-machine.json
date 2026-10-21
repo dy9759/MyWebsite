@@ -1,0 +1,472 @@
+{
+ "Introduction": [
+  {
+   "point": "英伟达崛起靠的是两种都曾被市场否定的技术同时成立",
+   "core": "Huang now needed two underdog technologies to work—two technologies that had always failed the test of the marketplace in the past.",
+   "caseTitle": "多伦多学者买两张游戏卡",
+   "case": "Huang stuck with this bet, losing money on it for years, until in 2012 a group of dissident academics in Toronto purchased two consumer video game cards to train an exotic kind of artificial intelligence called a neural network. At the time, neural networks, which mimic the structure of biological brains, were deeply out of favor, and most researchers considered them obsolete toys.",
+   "explain": "并行计算亏损多年，神经网络也被当成过时玩具；2012 年多伦多学者用两张消费级游戏卡训练神经网络，两条被冷落的路线在这一刻同时被证明。",
+   "importance": 3
+  },
+  {
+   "point": "并行计算在当时是一场成功率为零的逆势押注",
+   "core": "This approach, known as “parallel computing,” was a radical gamble.",
+   "caseTitle": "无视华尔街十多年",
+   "case": "“The success rate of parallel computing was zero percent before we came along,” Huang said, rattling off a list of forgotten start-ups. “Literally zero. Everyone who tried to make it into a business had failed.” Huang ignored this dismal record, pursuing his unconventional vision in open defiance of Wall Street for more than a decade.",
+   "explain": "黄仁勋自己能列出一串倒闭的并行计算创业公司，承认此前成功率为零，却仍顶着华尔街坚持了十多年，说明这个赌注的代价和孤立程度。",
+   "importance": 2
+  }
+ ],
+ "Chapter One: The Bridge": [
+  {
+   "point": "他的优势是对基本功的耐心投入，而非天赋",
+   "core": "He outworked everyone; he didn’t seem to get frustrated or stuck; he never hit a plateau. Instead, Huang watched, with measured satisfaction, as his patient dedication to the fundamentals slowly manifested itself as skill.",
+   "caseTitle": "一个夏天练成全国排名",
+   "case": "For an entire summer, Huang did little but practice. Bochenski was so impressed that he wrote a letter to Sports Illustrated, calling Huang “the most promising junior ever to play table tennis in the Northwest,” even though he’d played competitively for only three months.",
+   "explain": "黄仁勋整个夏天几乎只做练球这一件事，正式比赛才三个月就被教练写信推荐给体育画报，作者用乒乓球说明他靠专注和重复基本功成长。",
+   "importance": 3
+  },
+  {
+   "point": "逆境中反而更冷静，这种特质在早年就已成形",
+   "core": "“I find that I think best when I’m under adversity. When the world is just falling apart, I actually think my heart rate goes down,” he later said.",
+   "caseTitle": "肯塔基管教学校两年",
+   "case": "For many children, the two years in Kentucky would have been traumatic. At ten years old, Huang had been sent eight thousand miles from his parents to a foreign land where he barely spoke the language. He was bullied, isolated, made to share a room with a knife fighter, and tasked with cleaning the latrine.",
+   "explain": "十岁离开父母、语言不通、被霸凌、和打架受伤的室友同住还要打扫厕所，他却在这里成绩拔尖，与他后来说自己越到危局心跳越慢相互印证。",
+   "importance": 2
+  }
+ ],
+ "Chapter Three: New Venture": [
+  {
+   "point": "押在与平台标准相反的技术路线上，平台一转向产品就失效",
+   "core": "The most important objective for Nvidia was to somehow differentiate the NV1 from the dozens of other products coming to market.",
+   "caseTitle": "DirectX只支持三角形",
+   "case": "Meanwhile, game developers were moving away from Priem’s experimental approach. In 1995, tired of watching graphics peripherals crash their operating system, Microsoft announced that it was launching its own DirectX standard for game developers. The standard supported triangles only, leaving the NV line stranded. Despite its promising start, the NV1 was a dud.",
+   "explain": "NV1 用二次纹理映射来做差异化，但微软推出只支持三角形的 DirectX 标准，开发者随之转向，整条 NV 产品线被晾在一边。",
+   "importance": 3
+  },
+  {
+   "point": "早期投资人押的是人，而不是商业计划",
+   "core": "Coxe and Stevens agreed that it was Huang, specifically, rather than Nvidia’s proposal that attracted their attention.",
+   "caseTitle": "红杉的勉强投资",
+   "case": "The pitch went badly, with Huang fumbling over his presentation and Priem interrupting with irrelevant technical asides. After this uninspiring performance, Valentine took Huang aside. “Well, that wasn’t very good,” he said. “But Wilf Corrigan says I have to fund you, so you’re in business.”",
+   "explain": "路演磕磕绊绊，红杉创始人直言讲得不好，但因为 LSI 创始人 Corrigan 力挺黄仁勋，仍然给了钱，说明投资看的是人和背书。",
+   "importance": 2
+  }
+ ],
+ "Chapter Four: Thirty Days": [
+  {
+   "point": "不做也会倒闭时，用仿真器跳过原型这种高风险方案反而合理",
+   "core": "Huang’s plan was to use this emulator to skip the costly prototyping step and go straight to mass production with nothing more than a digital napkin sketch. In the history of the semiconductor industry, no firm had ever skipped prototyping before—but it had to work.",
+   "caseTitle": "世嘉的钱买仿真器",
+   "case": "Once the Sega check cleared, Huang used it to buy the emulator. This was the last of Nvidia’s money. Already the triage had begun, with the company’s bills organized in the order in which payment could be delayed. First, vendors would get stiffed, then utilities, then finally employees.",
+   "explain": "世嘉付的 100 万美元是公司最后的钱，黄仁勋全部用来买仿真器，账单已按能拖多久排序，说明这是把公司存亡押在一次从未有人做过的流程上。",
+   "importance": 3
+  },
+  {
+   "point": "照最佳实践做的产品失败，即兴赶工的产品反而成功",
+   "core": "The NV1, a revolutionary design that followed best practices for industry workflow, had been a flop. The NV3, a wannabe product slapped together in a berserk, improvisational rush, had been a success. Sometimes, you had to gamble.",
+   "caseTitle": "三十秒一帧的验证",
+   "case": "The emulator inverted this ratio, rendering about one frame every thirty seconds, breaking the illusion and making game play impossible. Under the leadership of Diercks, engineers reviewed the demo reel in agonizing ultra-slow motion. The mind-numbing auditing process took weeks, but slowly the emulator relinquished its secrets. “We shrank what was typically a twelve-month development cycle into about three months,” Diercks said.",
+   "explain": "仿真器每三十秒才渲染一帧，工程师逐帧检查了几周，却把通常十二个月的开发周期压到三个月，Riva 128 由此救活公司。",
+   "importance": 3
+  },
+  {
+   "point": "把濒临破产时的紧迫感固化为长期的组织心态",
+   "core": "Desperation, not inspiration, was the mother of victory.",
+   "caseTitle": "离倒闭只有三十天",
+   "case": "For years to come, Jensen opened staff presentations with the words “Our company is thirty days from going out of business.” Even today at Nvidia, this sentence remains the corporate mantra.",
+   "explain": "Riva 危机过后，黄仁勋多年来都用公司离倒闭只剩三十天作为员工大会开场白，即便公司已大赚，这句话仍是口头禅。",
+   "importance": 2
+  }
+ ],
+ "Chapter Five: Going Parallel": [
+  {
+   "point": "从客户未来的需求倒推，在单芯片上做并行流水线",
+   "core": "By dedicating a chip to each light source, 3dfx would eventually run out of real estate on the circuit board. The only way to meet Carmack’s future needs was to multiply pipelines on a single silicon square.",
+   "caseTitle": "Riva TNT双像素流水线",
+   "case": "But twin shaders meant twice as much computation. 3dfx, the leader in the graphics-accelerator market, had solved the problem by putting two graphics chips on the same card. Kirk and his team had a more radical solution in mind. What if you split the pixel-shading into two datasets, then ran the same instruction set on each pipeline at the same time, all on a single chip?",
+   "explain": "卡马克要多个像素着色器，3dfx 的办法是一张卡放两块芯片；英伟达把着色拆成两组数据在同一芯片上并行执行，这条路能随需求继续扩展。",
+   "importance": 3
+  },
+  {
+   "point": "3D图形对算力的需求没有上限，CPU提速永远追不上",
+   "core": "The CPU would not catch up to 3D rendering, not now, not ever. Twice as fast was nowhere good enough.",
+   "caseTitle": "其他扩展卡被主板吞并",
+   "case": "Moore’s Law had already consumed the peripheral circuit-board market segment in which Nvidia originally operated. As first conceived, in 1993, the 3D graphics accelerator would be one of many slot-in add-on cards, alongside sound cards, networking cards, printer cards, et cetera. But by the late 1990s, Intel had folded sound, networking, and printing functionality into the motherboard.",
+   "explain": "声卡、网卡、打印卡都被英特尔集成进主板，只有图形卡幸存，因为声音等需求有上限，而 3D 渲染的需求永无止境。",
+   "importance": 3
+  },
+  {
+   "point": "按创新者的窘境对英特尔做持续的战术回避",
+   "core": "The gospel of Christensen counseled Nvidia to sell offbeat products that Intel would not conceive of making to customers it would never want to serve.",
+   "caseTitle": "英特尔一靠近就跑",
+   "case": "“To this day, we don’t compete with Intel,” Huang said in 2023, describing their Tom-and-Jerry relationship. “Whenever they come near us, I pick up my chips and run.”",
+   "explain": "黄仁勋 2023 年仍说从不和英特尔正面竞争，对方一靠近就收起筹码离开，专做英特尔不想做、也不想服务的产品。",
+   "importance": 2
+  }
+ ],
+ "Chapter Six: Jellyfish": [
+  {
+   "point": "去掉人类经验、只靠自我对弈，神经网络能发现新策略",
+   "core": "He stripped all strategic advice about the game of backgammon out of the neural net, leaving only the rules and an initial set of randomly weighted neurons. Then he had the computer play hundreds of thousands of games against itself.",
+   "caseTitle": "TD-Gammon的新打法",
+   "case": "Unencumbered by received wisdom, TD-Gammon discovered a new approach to backgammon. It determined that human players were risking too much to establish an advantage up front and that conservative openings were better.",
+   "explain": "Tesauro 先让网络模仿高手收效甚微，改为只给规则、自我对弈后，TD-Gammon 得出人类开局冒险过多、保守开局更好的结论。",
+   "importance": 3
+  },
+  {
+   "point": "神经网络难以解释，一旦撞上平台期和数据不足就无从改进",
+   "core": "“I dismissed it,” said the man who sold the public its first neural net. “I dismissed it because I just didn’t have the data.”",
+   "caseTitle": "无限注扑克机器人",
+   "case": "But the revolution stopped there. Although he made a fair amount of money from the slots operation, when Dahl attempted to build a similar program for no-limit hold’em, he ran into problems. One could bet any amount at no-limit, and the synthetic dataset was larger than the closed universes he’d constructed for limit poker and backgammon.",
+   "explain": "Dahl 的限注扑克机器人在赌场赚了钱，但无限注的数据空间远大于双陆棋，网络学不动，他也看不懂模型内部，最终放弃。",
+   "importance": 3
+  },
+  {
+   "point": "训练与推理的成本差异从一开始就存在",
+   "core": "In this way an early distinction was established between the cumbersome training stage of AI, which was how the computer learned, and the inference stage, which was how the computer deployed its knowledge.",
+   "caseTitle": "装进软盘的Jellyfish",
+   "case": "In 1994 Dahl unveiled Jellyfish, the first neural net ever sold to the public. Jellyfish had trained on many millions of backgammon games, but despite this intensive computational process, the finished product was small enough to fit on a 3.5-inch floppy disk, which Dahl sold via his primitive website.",
+   "explain": "Jellyfish 用数百万局对弈训练，成品却小到能装进一张 3.5 英寸软盘在网上卖，训练昂贵、推理便宜的分野由此可见。",
+   "importance": 2
+  }
+ ],
+ "Chapter Seven: Deathmatch": [
+  {
+   "point": "可编程着色器的决定取决于算清不做的代价",
+   "core": "He became convinced only when he started to consider the cost of not implementing the shaders.",
+   "caseTitle": "先多花钱再让人追",
+   "case": "Kirk wanted to give programmers better lighting tools, but adding the shaders meant sacrificing profits to build infrastructure that not many game developers would use, at least not at first. “If you do this, it’s gonna cost a little bit more for a while,” he told Huang. “But then everybody’s gonna want it, and it’ll make everybody try to catch us.”",
+   "explain": "着色器意味着先牺牲利润、做一时没多少开发者用的基础设施；黄仁勋想到晶体管越来越多、不创新就会被亚洲厂商仿制淘汰，才决定投入。",
+   "importance": 3
+  },
+  {
+   "point": "六个月一代的发布节奏压垮了追求完美的对手",
+   "core": "Nvidia shipped new cards on a six-month cycle, twice as fast as any other vendor.",
+   "caseTitle": "3dfx提议休战",
+   "case": "The GeForce could juggle four rendering pipelines on a single chip. A prototype for 3dfx’s more expensive Voodoo 4 employed four chips and still couldn’t do the same work. Nvidia’s frenzied six-month shipping cycle left the perfectionists at 3dfx at a disadvantage.",
+   "explain": "GeForce 单芯片跑四条流水线，3dfx 用四块芯片还做不到；在英伟达的快节奏下，3dfx 创始人甚至公开提议休战，Kirk 由此确信胜局已定。",
+   "importance": 3
+  },
+  {
+   "point": "技术债是快速迭代换来生存的代价",
+   "core": "In this manner, Nvidia had accrued a great deal of “tech debt,” repeatedly taking shortcuts that led over time to less maintainable code and creating problems for programmers later on.",
+   "caseTitle": "3dfx程序员看代码库",
+   "case": "At 3dfx, Garlick had taken pride in the elegance of his programming, developing orderly systems with lucid commenting, allowing other programmers to easily maintain and improve his work. “In the time we spent making it clean, we went out of business,” he said.",
+   "explain": "来自 3dfx 的 Garlick 曾以代码整洁为荣，却承认花时间把代码写干净的公司倒闭了；英伟达代码混乱但一心赶下一次流片，活了下来。",
+   "importance": 2
+  },
+  {
+   "point": "自己发明品类，让自己成为品类领导者",
+   "core": "“We invented the category so we could be the leader in it,” Vivoli said.",
+   "caseTitle": "GPU一词的由来",
+   "case": "Vivoli reached out to the reviewers, informing them that the GeForce was the world’s first “graphics-processing unit,” or “GPU.” Vivoli’s team had, in fact, made this term up, but the reviewers began grouping products in the category.",
+   "explain": "营销负责人 Vivoli 预算有限，直接告诉几位关键评测者 GeForce 是第一款 GPU，这个词本是自造，评测者却开始按此归类，英伟达就成了该品类的领头者。",
+   "importance": 2
+  },
+  {
+   "point": "芯片业每几年推倒重来，按兵不动等于慢性失败",
+   "core": "Stand pat in the tournament, and your stack would dwindle away. Your only chance to survive was to find a promising hand and shove in all your chips—then do it again.",
+   "caseTitle": "S3与3dfx相继消失",
+   "case": "In 1996, the leading graphics accelerator firm was S3 Graphics. By 1999, it was gone. In 1998, the leading firm was 3dfx. By 2000, it was gone, too. There was no guarantee the same wouldn’t happen to Nvidia.",
+   "explain": "短短几年里两家行业龙头 S3 和 3dfx 相继消失，黄仁勋因此即使领先也保持警惕，把每一代产品都当成需要全押的牌局。",
+   "importance": 2
+  }
+ ],
+ "Chapter Nine: CUDA": [
+  {
+   "point": "零十亿美元市场：投入一个今天没人看见、只属于自己的市场",
+   "core": "The zero-billion-dollar market, by definition, was one that only he would participate in—one that only he would even see.",
+   "caseTitle": "两位乳腺癌研究者",
+   "case": "Nvidia struggled to find users who actually needed such power. “Initially, our only customers were two breast cancer researchers,” Diercks recalled. The researchers, working at Massachusetts General Hospital, had written to Nvidia with a proposal to upgrade their mammogram scanners. Huang enlisted the hospital to alpha-test CUDA, investing several million dollars in a pilot project that would ultimately sell exactly two graphics cards.",
+   "explain": "CUDA 最初的客户只有麻省总医院的两位乳腺癌影像研究者，黄仁勋投入数百万美元做试点，最后只卖出两张显卡，他却很喜欢这种没有对手的市场。",
+   "importance": 3
+  },
+  {
+   "point": "让游戏玩家为通用计算的芯片成本买单",
+   "core": "The decision to ship dual-purpose chips was controversial within Nvidia because it raised the GeForce’s cost of production above that of the Radeon, a cost that was internally referred to as the “CUDA tax.”",
+   "caseTitle": "CUDA税",
+   "case": "“Many of the ideas employed in CUDA cores had been used long before in supercomputers and specialty processors, but they were too expensive for the small, specialty markets they served,” Brett Coon, one of the first CUDA engineers, recalled. “In my opinion, the ‘genius’ of CUDA is getting gamers to pay for the massive chip development costs.”",
+   "explain": "CUDA 核心的思路在超算中早已有之，只是小众市场养不起；英伟达把它装进每张 GeForce，让芯片比 Radeon 更贵，由庞大的游戏客群分摊研发成本。",
+   "importance": 3
+  },
+  {
+   "point": "免费但只跑自家硬件，用软件栈锁定用户，起步却极慢",
+   "core": "The performance gains from CUDA had to be so great, and so obvious, that customers would voluntarily build whole new academic disciplines around the platform.",
+   "caseTitle": "首年仅一万三千次下载",
+   "case": "CUDA publicly launched in late 2006. The software package was free, although it worked only on Nvidia hardware. In 2007 it was downloaded an underwhelming thirteen thousand times—in that first full year, not one hundredth of one percent of the hundreds of millions of GeForce owners out there bothered to flick the switch on their video game hardware to transform it into a supercomputer.",
+   "explain": "CUDA 免费却只支持英伟达硬件，意在锁定用户；但首年只有一万三千次下载，占 GeForce 用户不到万分之一，华尔街甚至认为它是负资产。",
+   "importance": 2
+  },
+  {
+   "point": "押注并行源于对摩尔定律终结的物理判断",
+   "core": "“We had all seen it coming for a while, but it was Nickolls who convinced me that Moore’s Law was truly dead,” Huang said.",
+   "caseTitle": "Nickolls预判缩放失效",
+   "case": "But Nickolls had calculated that sometime around 2005, the Dennard scaling relationship would collapse. The coming generation of light-printing machines would craft transistors a mere one hundred atoms in width.",
+   "explain": "Nickolls 计算出 2005 年前后晶体管只有一百个原子宽、会漏电，登纳德缩放将失效，单核提速见顶，这封主动来信让黄仁勋确信并行才是出路。",
+   "importance": 2
+  },
+  {
+   "point": "新方向最大的隐性代价是分散了对核心客户的注意力",
+   "core": "Perhaps the biggest hidden cost was that CUDA distracted Huang from serving his core customer.",
+   "caseTitle": "Bumpgate吞掉全年利润",
+   "case": "Huang, seeking to get ahead of Bumpgate, set aside $200 million for customer refunds. The reserve wiped out Nvidia’s profits for the year, and for the first time since going public, Nvidia lost money.",
+   "explain": "笔记本 GPU 故障爆发后，英伟达计提 2 亿美元退款准备金，抹掉全年利润，上市后首次亏损，作者把它视为 CUDA 分心的代价。",
+   "importance": 2
+  },
+  {
+   "point": "光速法：先算出物理极限，再倒推现实的交付时间",
+   "core": "Instead, Huang encouraged managers to identify the absolute fastest that something could conceivably be accomplished, given an unlimited budget, and assuming that every single thing went right.",
+   "caseTitle": "封装交期三周与三十六小时",
+   "case": "At the packaging facility, the “lead time” between the receipt of an order and fulfillment was three weeks. But, to Shoquist’s surprise, the “cycle time”—the total number of person-hours it took the vendor to place Nvidia’s microchips into the black casing—was just thirty-six hours.",
+   "explain": "Shoquist 到台湾封装厂实地核算，交期三周而实际工时只有三十六小时；她据此为数百家供应商做出加急成本表，把周期最终压到十三天。",
+   "importance": 2
+  }
+ ],
+ "Chapter Ten: Resonance": [
+  {
+   "point": "在投资人压力下砍掉调制解调器，却对CUDA加码",
+   "core": "But Huang never considered abandoning CUDA—for in this unpopular market Nvidia was the only provider.",
+   "caseTitle": "收购Icera引来激进投资人",
+   "case": "This was defensible—the mobile market was massive—but in 2011, Nvidia did something that made less sense, spending $367 million to buy Icera, a manufacturer of cellular modems. It was this misguided acquisition that had triggered Starboard’s alarming letter: the modem market was mature and was dominated by Qualcomm.",
+   "explain": "3.67 亿美元收购调制解调器厂商 Icera 引来 Starboard 来信；黄仁勋接受批评退出被高通主导的成熟市场，却坚持 CUDA，因为那里只有他一家。",
+   "importance": 3
+  },
+  {
+   "point": "小众市场拖累利润，坚持它是他职业生涯中最冒险的决定",
+   "core": "Of the great many decisions Huang would make over the course of his career, the decision to double down on CUDA in the face of Jeff Smith was the riskiest.",
+   "caseTitle": "CUDA下载连降三年",
+   "case": "The software that turned your graphics card into a supercomputer had been downloaded more than three hundred thousand times in 2009. Then interest declined for three straight years, bottoming in 2012 at slightly more than one hundred thousand new installs. The market for scientific computing looked saturated, and investors began to grumble that Nvidia’s sustained investment in CUDA didn’t make financial sense.",
+   "explain": "CUDA 下载量从 2009 年的三十多万连降三年到约十万，科学计算市场看似饱和，投资人质疑持续投入不划算，此时坚持意味着拿工作冒险。",
+   "importance": 3
+  },
+  {
+   "point": "不做的风险是别人来做，这是不失败而非求成功的逻辑",
+   "core": "“There was a risk in shipping CUDA with every card, but there was also a risk in not doing it,” Huang said to me in our first meeting, but it was only after researching his company for months that I came to understand what he meant.",
+   "caseTitle": "提防下一个英伟达",
+   "case": "He was referring to the risk that someone else might do it—some small, hungry business, operating out of a dingy office next to a Chinese restaurant and a frequently robbed bank, willing to serve marginal academic customers for years, with limited profits and no clear future prospects, all in the hopes of one day doing to Nvidia what Nvidia had done to Silicon Graphics.",
+   "explain": "作者解读，黄仁勋担心的是某家像当年英伟达一样蜗居破旧办公室的小公司，长期服务边缘学术客户，最终像英伟达颠覆 SGI 那样颠覆它。",
+   "importance": 2
+  },
+  {
+   "point": "颠覆往往从挪用现成部件的业余群体中长出来",
+   "core": "Disruptive technologies, Christensen had observed, often grew out of hobbyist communities.",
+   "caseTitle": "台大教授的自制超算",
+   "case": "Chiu, seeking to simulate the evolution of matter following the Big Bang, had constructed a home-brew supercomputer in a laboratory adjacent to his office. Huang arrived to find the lab littered with GeForce boxes and the computer cooled by oscillating desk fans.",
+   "explain": "台大物理教授 Chiu 用一堆 GeForce 游戏卡和台式风扇拼出超算模拟宇宙演化，正是 CUDA 随零售卡发货想覆盖的、买不起工作站的科学家。",
+   "importance": 2
+  }
+ ],
+ "Chapter Eleven: AlexNet": [
+  {
+   "point": "关键发现是GPU训练神经网络比CPU快数百倍",
+   "core": "Krizhevsky pioneered a number of important programming techniques, but his key finding was that a GPU could train neural networks hundreds of times faster than a CPU could.",
+   "caseTitle": "卧室里的两张GTX 580",
+   "case": "After a few trial runs, Krizhevsky slotted the two GPUs into the desktop computer in his bedroom, then let them rip for a week. (“Actually, it was his parents who paid for the quite considerable electricity costs,” Hinton said.) Here, finally, was the customer Huang had dreamed of, the programmer so broke he could only afford to do his experiments on a repurposed graphics accelerator.",
+   "explain": "Krizhevsky 把两张约 500 美元的游戏卡插进卧室电脑跑了一周，电费由父母出，正是黄仁勋一直等的那种穷到只能用游戏卡做实验的研究者。",
+   "importance": 3
+  },
+  {
+   "point": "英伟达当时完全没有看见AI这个信号",
+   "core": "Nvidia declined. Although the company was pursuing a great number of supercomputing applications, at the time not a single dedicated AI researcher worked there.",
+   "caseTitle": "辛顿讨一块显卡被拒",
+   "case": "Hinton, speaking at the Neural Information Processing Systems conference later that year, told his audience that running neural nets on parallel-computing processors was the future of AI, and that the researchers should drop whatever they were doing and buy Nvidia GPUs. He then sent an email to Nvidia: “I just told 1,000 machine learning experts at this conference that they should all go buy Nvidia cards. Would you give me one for free?”",
+   "explain": "辛顿在大会上劝上千名研究者买英伟达 GPU，再写信请英伟达送一块，被拒绝；当时公司里没有一个专职 AI 研究员。",
+   "importance": 2
+  },
+  {
+   "point": "大规模标注数据与算力结合，才带来断层式领先",
+   "core": "ImageNet was hundreds of times bigger than any comparable dataset; Li’s advisers had questioned the wisdom of the effort, but it turned out to be exactly what Krizhevsky needed.",
+   "caseTitle": "领先一成的冠军",
+   "case": "Now, one of those seven entrants was demonstrating a success rate above 80 percent—10 percent better than the state of the art in a field where improvement was typically measured in fractions of a percentage point.",
+   "explain": "李飞飞的 ImageNet 比同类数据集大数百倍，曾被导师质疑；正是它让 AlexNet 在通常只进步零点几个百分点的领域一下领先约 10 个百分点。",
+   "importance": 2
+  }
+ ],
+ "Chapter Twelve: O.I.A.L.O.": [
+  {
+   "point": "从第一性原理推论后，一个周末内把公司押上深度学习",
+   "core": "Huang concluded that neural networks would revolutionize society and that he could use CUDA to corner the market on the necessary hardware.",
+   "caseTitle": "周五一封邮件改了公司",
+   "case": "“He sent out an email on Friday evening saying everything is going to deep learning, and that we were no longer a graphics company,” Greg Estes, a vice president at Nvidia, said. “By Monday morning, we were an AI company. Literally, it was that fast.”",
+   "explain": "黄仁勋周五晚上发邮件宣布一切转向深度学习、不再是图形公司，到周一早上英伟达就成了 AI 公司，决策与执行几乎没有过渡期。",
+   "importance": 3
+  },
+  {
+   "point": "需要一个永远吃不饱的应用，AI就是并行计算的杀手级应用",
+   "core": "What you needed, Catanzaro figured, was an application that was so hungry for computation that it could never be satisfied.",
+   "caseTitle": "谷歌的四万块GPU订单",
+   "case": "In late 2014, Google launched “Project Mack Truck,” a secret effort to build the world’s most powerful parallel computer. The finished product required more than forty thousand Nvidia GPUs, costing more than $130 million. It was by far the largest single purchase order Nvidia had ever received, but it was only the start.",
+   "explain": "Catanzaro 看到石油勘探等客户买一次就饱和，AI 却不会；2014 年谷歌一个项目就要四万多块 GPU、超过 1.3 亿美元，是英伟达史上最大单笔订单。",
+   "importance": 3
+  },
+  {
+   "point": "新领域没有迁移成本，早期用户成为终身客户",
+   "core": "But with neural nets, there was no switching cost. Most of the code was being written for the first time, by brilliant and motivated programmers who valued speed above all.",
+   "caseTitle": "气候学家不愿改Fortran",
+   "case": "He then spent several years fruitlessly attempting to convince global-warming researchers to upgrade climate simulations written in ancient Fortran code to his modern implementation. Few scientists wanted to put in the effort.",
+   "explain": "Vandermersch 花数年劝气候学家把旧 Fortran 代码迁到 CUDA 都失败了；神经网络代码却是从零写起，开发者天然围绕 CUDA 聚集。",
+   "importance": 2
+  },
+  {
+   "point": "神经网络软件应以速度换精度",
+   "core": "For this reason, as they developed cuDNN, Nvidia programmers rebalanced the trade-off between precision and speed. Good neural-net software, they reasoned, should favor the latter.",
+   "caseTitle": "权重只需符号对",
+   "case": "One thing they noticed early on was that most of the weights in a neural net were clustered between plus and minus one. Numbers outside that range could often be truncated, speeding up operations and compacting size.",
+   "explain": "工程师发现权重大多落在正负一之间，范围外的数可以截断，精度也不必很高，有时符号对就够，于是 cuDNN 主动牺牲精度来提速。",
+   "importance": 2
+  }
+ ],
+ "Chapter Fifteen: The Transformer": [
+  {
+   "point": "数据越多，处理结构就该越简单",
+   "core": "If more data was going to lead to better results, then the underlying structure for processing information should be as simple as possible.",
+   "caseTitle": "二十行代码的新架构",
+   "case": "But the ablations had the unexpected result of making the core transformer function run even better. Shazeer removed so much of the surrounding code that in the end he was left with almost nothing. In its most primitive interpretation, the transformer was barely more than twenty lines of code.",
+   "explain": "团队做消融实验时删掉周边代码，核心反而跑得更好，最终 Transformer 本体只剩二十来行，印证了 Uszkoreit 越简单越能吃数据的思路。",
+   "importance": 3
+  },
+  {
+   "point": "为GPU而设计的架构，规模越大越聪明",
+   "core": "But Uszkoreit was designing for the GPU. The recurrent neural-network architecture didn’t take advantage of Nvidia’s hardware. In fact, it fought against the parallel architecture, minimizing data input and maximizing fancy code.",
+   "caseTitle": "翻译超越谷歌翻译",
+   "case": "As the team fed more data into the transformer, the results improved, outclassing the public Google Translate platform. “What we saw was that as you make it bigger, it’s clearly just kind of more intelligent!” Shazeer said. “That was not true of our preexisting work.”",
+   "explain": "循环网络与并行硬件相抵触，Transformer 则顺着 GPU 的特性设计；喂入更多数据后效果持续提升，超过公开版谷歌翻译，这是旧架构做不到的。",
+   "importance": 3
+  },
+  {
+   "point": "垄断带来的保守让谷歌没把发明变成产品",
+   "core": "It was probably true, but Google’s failure to capitalize on the transformer left a giant hole in the market for someone else to fill.",
+   "caseTitle": "放不进搜索框就不发",
+   "case": "“They were like, ‘Hey, we cannot launch anything that doesn’t fit into the search box,’ ” Polosukhin said. “Fifteen years earlier, we would have just launched something bad. Then we iterate, we learn, and we improve, improve, improve, improve, until it’s actually really good. At some point, we lost that mentality.”",
+   "explain": "作者之一 Polosukhin 说管理层只肯发布能放进搜索框的东西，早年先发粗糙版再迭代的心态已经丢失；八位作者到 2023 年全部离开。",
+   "importance": 3
+  },
+  {
+   "point": "OpenAI敢先发布糟糕的版本，再靠规模迭代",
+   "core": "Still, OpenAI had the freedom to launch something bad; unlike Google, it could even launch something terrible, then improve, improve, improve.",
+   "caseTitle": "读吸血鬼小说的GPT-1",
+   "case": "GPT-1 launched in June 2018. It learned to read using BookCorpus, a collection of around seven thousand free, self-published ebooks.",
+   "explain": "GPT-1 只用约七千本免费自出版电子书训练，输出近乎胡话，连马斯克都不看好；但它证明路线可行，八个月后的 GPT-2 靠扩大数据大幅进步。",
+   "importance": 2
+  },
+  {
+   "point": "规模扩大后出现未经专门训练的涌现能力",
+   "core": "The ability of GPT-2 to answer new questions without explicit training was an example of the “emergent” properties in AI. These unexpected skills and behaviors were appearing as the models grew larger, surprising even the researchers.",
+   "caseTitle": "GPT-2零样本问答",
+   "case": "“Who wrote the book The Origin of Species?” they asked. “Charles Darwin,” GPT-2 answered. (Correct.) “What is the largest supermarket chain in the UK?” they asked. “Tesco,” it answered. (Correct.)",
+   "explain": "研究者问网页上并无直接答案的问题，GPT-2 能答出达尔文和 Tesco，但也会把演 John Connor 的人答错，说明能力是随规模冒出来的，连设计者也难以预料。",
+   "importance": 2
+  }
+ ],
+ "Chapter Sixteen: Hyperscale": [
+  {
+   "point": "英伟达赢在软件和数值技巧，而不是晶体管",
+   "core": "Between 2012 and 2022, Nvidia achieved a thousand-fold speed-up in single-chip AI inference performance, which was far in excess of anything that Moore’s Law had ever achieved. A mere 2.5× of that speed-up came from transistors; most of the remaining 400× came from Nvidia’s mathematical toolbox.",
+   "caseTitle": "从书法改成速记",
+   "case": "Nvidia engineers taught the GPU new instructions that acted like speed solvers on a Rubik’s cube. They replaced the processor’s native language with ugly but effective lo-fi data types, akin to switching from calligraphy to shorthand.",
+   "explain": "十年千倍的推理提速里晶体管只贡献 2.5 倍，其余来自新指令、低精度数据类型和剪枝等数学手段，所以对手做出同样好的芯片也追不上。",
+   "importance": 3
+  },
+  {
+   "point": "免费工具的长期目的是把研究者锁进自家硬件",
+   "core": "Of course, Huang wasn’t any sort of altruist—the long-term play was to use this free software to lock researchers into Nvidia’s hardware-upgrade cycle.",
+   "caseTitle": "宁等十八个月不换",
+   "case": "In early 2024, an administrator at CalTech’s data center told me that the school’s wait time for delivery on an H100 chip was almost eighteen months. He had encouraged professors at the school to switch to other providers but found few willing to accept. “They’d rather wait for the hardware than switch away from CUDA,” he said.",
+   "explain": "加州理工的 H100 交货要等近十八个月，管理员劝教授换供应商，几乎没人愿意，宁可等硬件也不离开 CUDA。",
+   "importance": 3
+  },
+  {
+   "point": "抢先进入新领域设定标准，后来者再优雅也晚了",
+   "core": "A competitor might later arrive with a more elegant product that was cheaper to run, but by then it was too late—the industry standard had been set.",
+   "caseTitle": "近三百个免费工具包",
+   "case": "By the 2020s, Nvidia was offering almost three hundred such tool kits spanning a portfolio of gaming, animation, planetary science, climatology, mathematics, physics, finance, biochemistry, and quantum computing.",
+   "explain": "英伟达为各学科提供近三百个免费工具包，界面未必好用，但总是最先到场，等竞争者带着更便宜的产品出现时标准已定。",
+   "importance": 2
+  },
+  {
+   "point": "把数据中心当成一台计算机，用收购补齐网络短板",
+   "core": "These giant computers weren’t an agglomeration of many chips—to him, they were all just one chip working as a unified system on a single problem.",
+   "caseTitle": "70亿美元买Mellanox",
+   "case": "In March 2019, Nvidia won the bidding war, edging out Intel with a $7 billion offer. When the deal closed in 2020, Nvidia added three thousand new employees, and Mellanox was rebranded as Nvidia Israel.",
+   "explain": "成千上万块 GPU 传数据塞满了网络，黄仁勋以 70 亿美元击败英特尔买下 Infiniband 的开发商 Mellanox，事后被董事称为近年最赚钱的收购之一。",
+   "importance": 2
+  },
+  {
+   "point": "公司变大后仍靠直达一线的信息流保持对趋势的敏感",
+   "core": "To maintain resonance, he needed to keep communication open with the frontline employees.",
+   "caseTitle": "每周两万封五件事邮件",
+   "case": "Sometime around 2020, Huang asked everyone at the company to submit a weekly list of the five most important things they were working on. Every Friday from that day forward, he received twenty thousand emails.",
+   "explain": "全员每周上报手头最重要的五件事，黄仁勋深夜抽读；OpenAI 在 Azure 上用上千块 GPU 训练大模型的消息正是由此传到他那里，他随即下令做 Transformer 编译器。",
+   "importance": 2
+  }
+ ],
+ "Chapter Nineteen: Power": [
+  {
+   "point": "生成式AI的用电主要来自推理而不是训练",
+   "core": "The demand did not come from training new neural nets—mostly, it came from deploying them.",
+   "caseTitle": "一次AI搜索耗电十倍",
+   "case": "A standard Google search required about a third of a watt-hour’s worth of electricity. With generative AI enabled, the same Google search required ten times that, which was enough to power a light bulb for about twenty minutes. Ask GPT to write you a five-thousand-word term paper, and you used enough energy to run a microwave for an hour.",
+   "explain": "普通谷歌搜索约耗三分之一瓦时，开启生成式 AI 后变成十倍，写一篇五千词论文耗电相当于微波炉运行一小时，海量日常使用让推理成为主要负荷。",
+   "importance": 3
+  },
+  {
+   "point": "算力扩张与碳中和目标难以同时实现",
+   "core": "There was no realistic way to supply the Nvidia GPUs with the electricity they needed while simultaneously hitting carbon-neutrality targets.",
+   "caseTitle": "每代芯片功耗翻升",
+   "case": "The 2020 A100 chip required 250 watts in standard configurations. The H100, released two years later, required 350 watts, 75 percent more. The B100, released in 2024, doubled demand to 700 watts, and the forthcoming B200 would require 1,000.",
+   "explain": "从 A100 的 250 瓦到 B200 的 1000 瓦，芯片越擅长矩阵乘法越耗电；书中还提到谷歌五年排放增加五成，电力公司甚至讨论重启燃煤电厂。",
+   "importance": 3
+  },
+  {
+   "point": "买家若做不出配得上投入的产品，需求就会回落",
+   "core": "The executives buying Nvidia hardware needed to build products that justified the scale of investment. If they couldn’t, remorse would set in, demand would slacken, and Nvidia’s stock would crater.",
+   "caseTitle": "对冲基金称泡沫区",
+   "case": "In summer 2024, Elliott Management, one of the world’s largest hedge funds, told investors that tech stocks, especially Nvidia, were in “bubble land.” The letter to clients, quoted in the Financial Times, called AI “overhyped, with many applications not ready for prime time.”",
+   "explain": "Elliott 在 2024 年致投资人信中称科技股尤其是英伟达处于泡沫区、许多应用还不成熟；作者因此认为失望而非竞争才是英伟达最大的风险。",
+   "importance": 2
+  },
+  {
+   "point": "算力增加了，神经网络的平台期问题却没有消失",
+   "core": "Despite the increase in computational power, neural nets still hit plateaus, and when they did, there was still often no obvious way to make them better.",
+   "caseTitle": "企业自建知识引擎",
+   "case": "Firms that attempted to replicate GPT with in-house data often produced shambolic “knowledge engines” that were little better than toys.",
+   "explain": "许多企业用内部邮件、备忘录等数据复制 GPT，做出的知识引擎近似玩具，迟到、昂贵又难用，重演了当年 Dahl 调扑克网络的困境。",
+   "importance": 2
+  }
+ ],
+ "Chapter Twenty-Two: The Fear": [
+  {
+   "point": "短期利润与长期风险的错位撕裂了AI公司",
+   "core": "The mismatch between short-term profit and long-term risk created turmoil inside AI start-ups.",
+   "caseTitle": "OpenAI董事会风波",
+   "case": "At OpenAI, a bizarre boardroom coup had unfolded in November 2023, with Ilya Sutskever first voting to remove Sam Altman, then a few days later pleading for his reinstatement. Altman ultimately triumphed, and the rest of the nonprofit board was replaced.",
+   "explain": "2023 年 11 月 Sutskever 先投票罢免 Altman，几天后又请求让他回归，最终非营利董事会被换掉；作者认为此后微软的利润利益推动 OpenAI 继续做更大的模型。",
+   "importance": 3
+  },
+  {
+   "point": "突破本身不可预测，以没有数据为由否定风险站不住",
+   "core": "All the data in the world would not have predicted the breakthrough of AlexNet or the success of the transformer architecture.",
+   "caseTitle": "Bengio反驳没有数据",
+   "case": "When I shared Jensen’s objections with Bengio, he grew agitated. “Of course, there is no data!” he said. “Humanity hasn’t disappeared yet! Are we going to wait until we have repeated the death of humanity multiple times to decide that, oh, now we have data?!”",
+   "explain": "黄仁勋强调 AI 风险没有数据支持，Bengio 反驳人类还没灭绝当然没有数据；作者补充说十年内两次突破都无法事先预测。",
+   "importance": 2
+  },
+  {
+   "point": "顶尖学者对AI风险分歧巨大，判断也受同行影响",
+   "core": "The rift between Bengio and LeCun mirrored a split in the AI community at large.",
+   "caseTitle": "辛顿下调p(doom)",
+   "case": "But when I talked to him in 2024, Hinton had reduced this estimate to between 10 and 20 percent. The reason he lowered his estimate, he told me, was that so many people whose intelligence he respected had strenuously disagreed with him. “Most notably, of course, there is Jensen,” he said.",
+   "explain": "LeCun 认为风险为零，Bengio 认为一半；辛顿从 50% 下调到 10% 至 20%，理由是许多他尊重的人强烈反对，首先就是黄仁勋。",
+   "importance": 2
+  },
+  {
+   "point": "资本押注的规模已大到监管难以约束",
+   "core": "The industrial barons of Silicon Valley had placed their bets, and to cap their upside would mean tanking the stock market. No politician anywhere had enough clout to do it.",
+   "caseTitle": "SB 1047被否决",
+   "case": "Opinion polls suggested that nearly 80 percent of the public supported SB 1047, but in September 2024 California governor Gavin Newsom vetoed the bill.",
+   "explain": "辛顿和 Bengio 支持的加州 AI 监管法案遭风投和科技公司反对，尽管民调显示近八成公众支持，仍在 2024 年 9 月被州长否决。",
+   "importance": 2
+  }
+ ]
+}
