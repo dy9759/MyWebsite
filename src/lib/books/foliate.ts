@@ -28,6 +28,36 @@ const VIEW_URL = `${base}/vendor/foliate-js/view.js`;
 type ViewModule = { makeBook: (file: File) => Promise<FoliateBook> };
 let viewModule: Promise<ViewModule> | null = null;
 
+// The reader's module graph, fetched in parallel (otherwise each import
+// waits for its parent: a waterfall of round trips, slow on phones).
+const CORE_MODULES = ["view.js", "epubcfi.js", "progress.js", "overlayer.js", "text-walker.js", "paginator.js", "search.js"];
+const FORMAT_MODULES: Record<string, string[]> = {
+  epub: ["epub.js", "vendor/zip.js"],
+  pdf: ["pdf.js", "vendor/pdfjs/pdf.mjs", "fixed-layout.js"],
+  mobi: ["mobi.js", "epub.js", "vendor/fflate.js"],
+};
+// pdf.js runs its parser in a worker; prefetch it so it is not fetched only
+// after the 800 KB main module has loaded.
+const PDF_WORKER = "vendor/pdfjs/pdf.worker.mjs";
+const preloaded = new Set<string>();
+
+export function preloadReader(formats: string[] = ["epub"]) {
+  if (typeof document === "undefined") return;
+  const add = (path: string, rel: "modulepreload" | "prefetch") => {
+    if (preloaded.has(path)) return;
+    preloaded.add(path);
+    const link = document.createElement("link");
+    link.rel = rel;
+    link.href = `${base}/vendor/foliate-js/${path}`;
+    document.head.appendChild(link);
+  };
+  CORE_MODULES.forEach((m) => add(m, "modulepreload"));
+  for (const f of formats) {
+    (FORMAT_MODULES[f] ?? FORMAT_MODULES.epub).forEach((m) => add(m, "modulepreload"));
+    if (f === "pdf") add(PDF_WORKER, "prefetch");
+  }
+}
+
 const loadViewModule = () =>
   (viewModule ??= import(/* webpackIgnore: true */ /* turbopackIgnore: true */ VIEW_URL));
 
@@ -75,8 +105,9 @@ function hardenBook(book: FoliateBook) {
 }
 
 export async function openBookFile(file: File): Promise<FoliateBook> {
-  const { makeBook } = await loadViewModule(); // also registers <foliate-view>
   const format = detectFormat(file.name);
+  if (format) preloadReader([format]);
+  const { makeBook } = await loadViewModule(); // also registers <foliate-view>
   if (format && isTextFormat(format)) {
     return makeTextBook(format, await file.arrayBuffer(), file.name.replace(/\.[^.]+$/, ""));
   }

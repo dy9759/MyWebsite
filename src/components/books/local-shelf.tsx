@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSiteCopy } from "@/components/language-provider";
 import { Button } from "@/components/ui/button";
 import { ACCEPTED_EXTENSIONS } from "@/lib/books/formats";
+import { preloadReader } from "@/lib/books/foliate";
 import { importBookFile } from "@/lib/books/import-book";
 import { LIBRARIES, fetchLibraryBook, listLibrary, type LibraryBook, type LibrarySource } from "@/lib/books/local-library";
 import { deleteBook, listBooks, listProgress, type BookMeta } from "@/lib/books/store";
@@ -34,6 +35,13 @@ export default function LocalShelf() {
       .then(([list, prog]) => {
         if (!alive) return;
         setBooks(list);
+        // Warm the reader's code while the visitor looks at the shelf, so
+        // opening a book does not start with downloading the reader.
+        if (list.length) {
+          const formats = [...new Set(list.map((b) => b.format))];
+          const idle = window.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 1500));
+          idle(() => preloadReader(formats));
+        }
         setProgress(Object.fromEntries(prog.map((p) => [p.id, p.fraction])));
       })
       .catch(() => alive && setBooks([]));

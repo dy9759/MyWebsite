@@ -18,7 +18,7 @@ import { navigateToCitation, openNoteTarget } from "@/lib/books/cite-nav";
 import { useBilingual } from "@/lib/books/use-bilingual";
 import { useFullscreen } from "@/lib/books/use-fullscreen";
 import { useAiAccess } from "@/lib/books/ai-access";
-import { formatContributor, openBookFile, type FoliateView } from "@/lib/books/foliate";
+import { formatContributor, openBookFile, preloadReader, type FoliateView } from "@/lib/books/foliate";
 import { FONT_MAX, FONT_MIN, useReaderPrefs } from "@/lib/books/reader-prefs";
 import { readerCss } from "@/lib/books/reader-css";
 import { attachSwipe, type SwipeDir } from "@/lib/books/swipe";
@@ -97,6 +97,7 @@ export default function BookReader() {
     let pendingSave: (() => void) | null = null;
 
     (async () => {
+      preloadReader(); // start fetching the reader's core while the book loads from IndexedDB
       const stored = id ? await getBook(id) : undefined;
       if (!stored) return setStatus("missing");
       const file = new File([stored.file], stored.name, { type: stored.file.type });
